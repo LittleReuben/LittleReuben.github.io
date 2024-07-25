@@ -13,6 +13,7 @@
     <loc>https://example.com/categories/other-courses/</loc>
   </url><url>
     <loc>https://example.com/categories/tutorial/</loc>
+    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/categories/lang/</loc>
   </url><url>
@@ -35,6 +36,9 @@
     <lastmod>2024-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/study/gtm73-group-theory/</loc>
+    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/study/blog-tutorial/</loc>
     <lastmod>2024-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/study/</loc>

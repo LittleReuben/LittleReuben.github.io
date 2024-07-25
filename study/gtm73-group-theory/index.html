@@ -511,7 +511,7 @@
 <li>循环群基本上讲的是废话，但是有个性质还是挺重要的，在数论中用得很多。对于阿贝尔群：
 <ol>
 <li>$|a|\perp|b|\Rightarrow|ab|=|a||b|$。证明思路有两个：① 如果 $a^t=b^{-t}=x\ne e$，那么 $|x|\mid|a|\land|x|\mid|b|$，故 $|x|=1$，矛盾；② 如果 $(ab)^t=e$，那么 $a^{t|b|}=(ab)^{t|b|}=e=(ab)^{t|a|}=b^{t|a|}$，故 $|a|\mid t\land|b|\mid t$。</li>
-<li>$\exists c,|c|=\lcm(|a|,|b|)$。设 $|a|=xy&rsquo;$，$|b|=x&rsquo;y$，设所有在 $|a|$ 中次数 $\ge$ 在 $|b|$ 的质因子乘积为 $X$，其余为 $Y$，$x=\gcd(|a|,X^\infin)$，其余同理。取 $c=a^yb^x$，由于 $|a^y|=x\perp|b^x|=y$，故 $|c|=xy=\lcm(|a|,|b|)$。</li>
+<li>$\exists c,|c|=\lcm(|a|,|b|)$。设 $|a|=xy^\prime$，$|b|=x^\prime y$，设所有在 $|a|$ 中次数 $\ge$ 在 $|b|$ 的质因子乘积为 $X$，其余为 $Y$，$x=\gcd(|a|,X^\infin)$，其余同理。取 $c=a^yb^x$，由于 $|a^y|=x\perp|b^x|=y$，故 $|c|=xy=\lcm(|a|,|b|)$。</li>
 <li>$|a|=p^x,|b|=p^y,x&lt;y\Rightarrow|ab|=p^y$。若有 $z&lt;x$ 使 $(ab)^{p^z}=1$，则 $p^{x-z}=|a^{p^z}|=|b^{p^z}|=p^{y-z}$。</li>
 <li>2 的形式对于（不一定循环）子群也成立。这个学了后面的知识就显然了，阿贝尔是个很强的性质。</li>
 </ol>
@@ -635,7 +635,7 @@
 <p>$S_n$ 和 $A_n$ 的子群无法刻画。关于 $D_n$：</p>
 <ol>
 <li>正规子群。如果 $a^xb\in H$，则 $H\ni(a^ib)(a^xb)(a^ib)=a^{2i-x}b$。因此正规子群有 $\lang a^d\rang$（$d\mid n$），如果 $2\mid n$，则还有 $\lang a^2,b\rang$ 和 $\lang a^2,ab\rang$。</li>
-<li>子群。如果 $H\cap\set{a^ib}\ne\varnothing$，那么要么 $|H|=2$，要么 $H\cap\set{a^i}=\lang a^d\rang$（$d\mid n$）。后面一种情况下，$H\cap\set{a^ib}=\set{a^{kd+r}b}$（$0\le r&lt;d$）。如果还有别的元素，就可以用类似循环群子群的证明方法找到更小的 $a^{d&rsquo;}$。因此真子群有 $\lang a^ib\rang$、$\lang a^d\rang$、$\lang a^d,a^rb\rang$。</li>
+<li>子群。如果 $H\cap\set{a^ib}\ne\varnothing$，那么要么 $|H|=2$，要么 $H\cap\set{a^i}=\lang a^d\rang$（$d\mid n$）。后面一种情况下，$H\cap\set{a^ib}=\set{a^{kd+r}b}$（$0\le r&lt;d$）。如果还有别的元素，就可以用类似循环群子群的证明方法找到更小的 $a^{d^\prime }$。因此真子群有 $\lang a^ib\rang$、$\lang a^d\rang$、$\lang a^d,a^rb\rang$。</li>
 </ol>
 </li>
 <li>
@@ -909,7 +909,7 @@ $$
 <p>$p^2$。中心个数是 $p$ 的倍数，于是 $G/C(G)$ 是 $1$ 或 $p$ 阶的，后一种情况通过写出元素的形式可得交换，于是 $G$ 是阿贝尔群。</p>
 </li>
 <li>
-<p>$pq,(p&lt;q)$。存在唯一 Sylow $q$ 子群 $\lang a\rang$，$n_p&gt;1$ 就必须是 $q\mid(p-1)$ 情况，取个其中的元素 $b$，$bab^{-1}=a^s\Rightarrow a=b^pab^{-p}=a^{s^p}\Rightarrow s^p\equiv 1\pmod q$。证明所有 $ba=a^sb$ 的群同构只需构造 $\varphi(a)=a&rsquo;,\varphi(b)={b&rsquo;}^{\operatorname{ind}_{s&rsquo;}s}$ 即可，这给出了 $G\cong\Z_q\rtimes\Z_p$ 且半直积的下标可以省略。</p>
+<p>$pq,(p&lt;q)$。存在唯一 Sylow $q$ 子群 $\lang a\rang$，$n_p&gt;1$ 就必须是 $q\mid(p-1)$ 情况，取个其中的元素 $b$，$bab^{-1}=a^s\Rightarrow a=b^pab^{-p}=a^{s^p}\Rightarrow s^p\equiv 1\pmod q$。证明所有 $ba=a^sb$ 的群同构只需构造 $\varphi(a)=a^\prime ,\varphi(b)={b^\prime }^{\operatorname{ind}_{s^\prime }s}$ 即可，这给出了 $G\cong\Z_q\rtimes\Z_p$ 且半直积的下标可以省略。</p>
 </li>
 <li>
 <p>$8$。非阿贝尔的情况一定有一个阶为 $4$ 的元素 $a$，取 $b\notin\lang a\rang$，① $b$ 对 $\lang a\rang$ 的共轭形成 $\lang a\rang$ 的自同构，于是不交换只能是 $bab^{-1}=a^3\Rightarrow ba=a^{-1}b$；② $b^2\in\lang a\rang\Rightarrow b^2=e\or a^2$。分别对应 $D_4$ 和 $Q_8$。</p>
@@ -949,20 +949,20 @@ $$
 \end{align*}
 $$</p>
 <p>性质 2：$\exists\chi\in\aut H,\forall k\in K,\psi(k)=\chi\circ\varphi(k)\circ\chi^{-1}\Rightarrow H\rtimes_\varphi K\cong H\rtimes_\psi K$。</p>
-<p>证：构造 $f:(h,k)\mapsto(\chi(h),k)&rsquo;$，验证
+<p>证：构造 $f:(h,k)\mapsto(\chi(h),k)^\prime $，验证
 $$
 \begin{align*}
-&amp;f((h_1,k_1)(h_2,k_2))\\ ={}&amp;f((h_1\varphi(k_1)(h_2),k_1k_2))\\ ={}&amp;(\chi(h_1)(\chi\circ\varphi(k_1))(h_2),k_1k_2)&rsquo;\\ ={}&amp;(\chi(h_1)(\psi(k_1)\circ\chi)(h_2),k_1k_2)&rsquo;\\ ={}&amp;(\chi(h_1),k_1)&rsquo;(\chi(h_2),k_2)&rsquo;\\ ={}&amp;f((h_1,k_1))f((h_2,k_2))
+&amp;f((h_1,k_1)(h_2,k_2))\\ ={}&amp;f((h_1\varphi(k_1)(h_2),k_1k_2))\\ ={}&amp;(\chi(h_1)(\chi\circ\varphi(k_1))(h_2),k_1k_2)^\prime \\ ={}&amp;(\chi(h_1)(\psi(k_1)\circ\chi)(h_2),k_1k_2)^\prime \\ ={}&amp;(\chi(h_1),k_1)^\prime (\chi(h_2),k_2)^\prime \\ ={}&amp;f((h_1,k_1))f((h_2,k_2))
 \end{align*}
 $$
 这个反过来是不对的，一个简单的反例就是性质 1。</p>
 <p>直觉上来说，这个性质就是对自同构本身作了自同构，或者在实际证明时，往往形如“我们换 $H$ 的生成元（比如 $a$ 换成 $a^3$ 之类），发现它变成了另一个自同构”，于是这两（几）个就只需考虑一个。</p>
 <p>性质 3：对于有限循环群 $K$，$\exists\chi\in\aut H,\psi(K)=\chi\circ\varphi(K)\circ\chi^{-1}\Rightarrow H\rtimes_\varphi K\cong H\rtimes_\psi K$。</p>
 <p>证：设 $K=\lang k\rang$。首先循环群有性质 $\varphi(k^a)(h)=\varphi(k)^a(h)$，因此下面以 $\varphi,\psi$ 指代 $\varphi(k),\psi(k)$。</p>
-<p>设 $\psi^c=\chi\circ\varphi\circ\chi^{-1}$，构造 $f:(h,k^a)\mapsto(\chi(h),k^{ac})&rsquo;$，验证
+<p>设 $\psi^c=\chi\circ\varphi\circ\chi^{-1}$，构造 $f:(h,k^a)\mapsto(\chi(h),k^{ac})^\prime $，验证
 $$
 \begin{align*}
-&amp;f((h_1,k^a)(h_2,k^b))\\ ={}&amp;f((h_1\varphi^a(h_2),k^{a+b}))\\ ={}&amp;(\chi(h_1)(\chi\circ\varphi^a)(h_2),k^{(a+b)c})&rsquo;\\ ={}&amp;(\chi(h_1)((\chi\circ\varphi\circ\chi^{-1})^a\chi)(h_2),k^{(a+b)c})&rsquo;\\ ={}&amp;(\chi(h_1)(\psi^{ac}\circ\chi)(h_2),k^{(a+b)c})&rsquo;\\ ={}&amp;(\chi(h_1),k^{ac})&rsquo;(\chi(h_2),k^{bc})&rsquo;\\ ={}&amp;f((h_1,k^a))f((h_2,k^b))
+&amp;f((h_1,k^a)(h_2,k^b))\\ ={}&amp;f((h_1\varphi^a(h_2),k^{a+b}))\\ ={}&amp;(\chi(h_1)(\chi\circ\varphi^a)(h_2),k^{(a+b)c})^\prime \\ ={}&amp;(\chi(h_1)((\chi\circ\varphi\circ\chi^{-1})^a\chi)(h_2),k^{(a+b)c})^\prime \\ ={}&amp;(\chi(h_1)(\psi^{ac}\circ\chi)(h_2),k^{(a+b)c})^\prime \\ ={}&amp;(\chi(h_1),k^{ac})^\prime (\chi(h_2),k^{bc})^\prime \\ ={}&amp;f((h_1,k^a))f((h_2,k^b))
 \end{align*}
 $$
 注意，$K$ 有限时易验证 $c\perp|K|$，从而 $f$ 是双射。$K$ 无限时 $f$ 就不是双射了。</p>
@@ -994,7 +994,7 @@ $$
 <li>$p\mid(q-1)\land q\nmid(p^2-1)$。还是随便取一个 Sylow $p$ 子群。
 <ol>
 <li>它是 $\Z_{p^2}$。$bab^{-1}=a^s$ 的 $s$ 满足 $\delta_q(s)=p$ 或 $\delta_q(s)=p^2$（如果 $p^2\mid(q-1)$），分别对应一种。</li>
-<li>它是 $\Z_p^2$。这里用不了性质 3 了，但是也不难搞。设生成元为 $b,c$，$bab^{-1}=a^s,cac^{-1}=a^t$，满足 $\delta_q(s),\delta_q(t)\mid p$ 且不同时为 $1$。我们回顾 $pq$ 情况以及其他形如“不同的阶为 $q$ 的 $s$ 对应群都同构”的证明，它们的思路就是，将生成元换成 $b^?$ 使 $b^?ab^{-?}=a^{s_0}$，就是所有 $s$ 是等价的，所以同构。那 $\Z_p^2$ 的情况也可以类似地构造——设某个 $p$ 次单位根是 $s_0$。如果 $s,t$ 有个是 $1$ 那让另一个变成 $s_0$ 就行，否则设 $s^i\equiv t^{-1},t^j\equiv s_0$，这样将生成元换为 $b&rsquo;=b^ic,c&rsquo;=c^j$ 就可以了，显然 $b&rsquo;,c&rsquo;$ 可以反过来表示 $b,c$。于是无论怎么样都可以变成 $b&rsquo;a{b&rsquo;}^{-1}=a,c&rsquo;a{c&rsquo;}^{-1}=a^{s_0}$，也就是唯一。</li>
+<li>它是 $\Z_p^2$。这里用不了性质 3 了，但是也不难搞。设生成元为 $b,c$，$bab^{-1}=a^s,cac^{-1}=a^t$，满足 $\delta_q(s),\delta_q(t)\mid p$ 且不同时为 $1$。我们回顾 $pq$ 情况以及其他形如“不同的阶为 $q$ 的 $s$ 对应群都同构”的证明，它们的思路就是，将生成元换成 $b^?$ 使 $b^?ab^{-?}=a^{s_0}$，就是所有 $s$ 是等价的，所以同构。那 $\Z_p^2$ 的情况也可以类似地构造——设某个 $p$ 次单位根是 $s_0$。如果 $s,t$ 有个是 $1$ 那让另一个变成 $s_0$ 就行，否则设 $s^i\equiv t^{-1},t^j\equiv s_0$，这样将生成元换为 $b^\prime =b^ic,c^\prime =c^j$ 就可以了，显然 $b^\prime ,c^\prime $ 可以反过来表示 $b,c$。于是无论怎么样都可以变成 $b^\prime a{b^\prime }^{-1}=a,c^\prime a{c^\prime }^{-1}=a^{s_0}$，也就是唯一。</li>
 </ol>
 </li>
 </ol>
@@ -1030,13 +1030,13 @@ $$
 <tr>
 <td>$p^2$ 小</td>
 <td>$p^2\mid(q-1)$</td>
-<td>$3$ 个：同上、$\Z_q\rtimes_{\varphi&rsquo;}\Z_{p^2}$</td>
+<td>$3$ 个：同上、$\Z_q\rtimes_{\varphi^\prime }\Z_{p^2}$</td>
 <td>$20,52,68,116,148$</td>
 </tr>
 <tr>
 <td>$2p^2$</td>
 <td>$q=2$</td>
-<td>$3$ 个：$\Z_{p^2}\rtimes\Z_2$、$\Z_p^2\rtimes_{\varphi,\varphi&rsquo;}\Z_2$</td>
+<td>$3$ 个：$\Z_{p^2}\rtimes\Z_2$、$\Z_p^2\rtimes_{\varphi,\varphi^\prime }\Z_2$</td>
 <td>$18,50,98,242,338$</td>
 </tr>
 <tr>
@@ -1056,10 +1056,10 @@ $$
 <p>注意 $\Z_n\rtimes\Z_2^2\cong\Z_{2n}\rtimes\Z_2\cong D_{2n}$。其余还有某些半直积可以写成循环群与二面体群/置换群/亚循环群的直积，但我不是很清楚是否有通用的转换方法。</p>
 </li>
 <li>
-<p>$pqr;(p&lt;q&lt;r)$。首先进行以下简单推理：$n_r\in\set{1,pq}$ 且 $n_q\in\set{1,r,pr}$。若 $n_r=pq$ 且 $n_q\ne 1$，则 $G$ 中有 $pq(r-1)$ 个阶为 $r$ 的元素，以及 $r(q-1)$ 个阶为 $q$ 的元素，共 $pqr-pq+rq-r=pqr+(r-p)(q-1)-p&gt;pqr$ 个，矛盾。故 $n_r=1\lor n_q=1$，无论哪个正规，取 $G$ 关于其的商群，商群中一定有 Sylow 另一个质数 子群，取出其对应原群中的部分，即得一 $qr$ 阶正规子群 $H$。同时，由于 $H$ 有正规 Sylow $r$ 子群，故该子群在 $G$ 中也正规。</p>
+<p>$pqr\;(p&lt;q&lt;r)$。首先进行以下简单推理：$n_r\in\set{1,pq}$ 且 $n_q\in\set{1,r,pr}$。若 $n_r=pq$ 且 $n_q\ne 1$，则 $G$ 中有 $pq(r-1)$ 个阶为 $r$ 的元素，以及 $r(q-1)$ 个阶为 $q$ 的元素，共 $pqr-pq+rq-r=pqr+(r-p)(q-1)-p&gt;pqr$ 个，矛盾。故 $n_r=1\lor n_q=1$，无论哪个正规，取 $G$ 关于其的商群，商群中一定有 Sylow 另一个质数 子群，取出其对应原群中的部分，即得一 $qr$ 阶正规子群 $H$。同时，由于 $H$ 有正规 Sylow $r$ 子群，故该子群在 $G$ 中也正规。</p>
 <p>如果 $H\cong\Z_{qr}$，那就较简单：考虑 $\varphi:\Z_p\to\aut H\cong\Z_{q-1}\times\Z_{r-1}$，如果 $p\nmid(q-1)(r-1)$ 就只有阿贝尔群，如果 $p\mid(q-1)$ 与 $p\mid(r-1)$ 其一成立，就有一种，否则模 $q$ 和 $r$ 下的 $p$ 次单位根都可以取，可以固定其中一个单位根，有 $p+1$ 种（$(0,1)$、$(1,i)$）。</p>
 <p>$q\mid(r-1)$ 时能不能搞些别的？如果 $p\nmid(q-1)\land p\nmid(r-1)$，则 $G/\syl_r(G)$ 是个循环群，有 $p$ 阶正规子群，于是就有 $pr$ 阶循环正规子群，然后 $\Z_q$ 对它共轭即可，有一种。注意如果按下面的方式分析，得出的群是和这里同构的。</p>
-<p>其他情况就要直面 $\varphi:\Z_p\to\aut(\Z_r\rtimes\Z_q)$ 了。设 $\Z_r\rtimes\Z_q$ 中 $bab^{-1}=a^s;(s^q\equiv1\pmod r\land s\not\equiv 1)$，其中 $|a|=r$。由于 $\lang a\rang$ 正规，故 $\varphi(c)(a)=a^t;(t^p\equiv1\pmod r)$。在 $p\nmid(r-1)\land p\mid(q-1)$ 的时候，$\varphi(\forall)(a)=a$。设 $\varphi(c)(b)=a^xb^y$，则
+<p>其他情况就要直面 $\varphi:\Z_p\to\aut(\Z_r\rtimes\Z_q)$ 了。设 $\Z_r\rtimes\Z_q$ 中 $bab^{-1}=a^s\;(s^q\equiv1\pmod r\land s\not\equiv 1)$，其中 $|a|=r$。由于 $\lang a\rang$ 正规，故 $\varphi(c)(a)=a^t\;(t^p\equiv1\pmod r)$。在 $p\nmid(r-1)\land p\mid(q-1)$ 的时候，$\varphi(\forall)(a)=a$。设 $\varphi(c)(b)=a^xb^y$，则
 $$
 \varphi(c)(ba)=\varphi(c)(a^sb)\Rightarrow a^{x+s^y}b^y=a^{s+x}b^y\Rightarrow s^{y-1}\equiv1\pmod r\Rightarrow q\mid(y-1)\Rightarrow y=1\\
 \varphi(c^p)(b)=b\Rightarrow a^{px}b=b\Rightarrow x=0
@@ -1225,7 +1225,7 @@ $$
 <p>$56$。如果 $n_7=1$，则分讨跟 $|G|=24$ 一样（因为 $\aut\Z_7$ 除了一个 $2$ 阶元以外，其余都是 $3\or6$ 阶的，都不能碰）。否则就有 $48$ 个 $7$ 阶元，剩余 $8$ 个元素必形成一正规 Sylow $2$ 子群，这里就比楼上简单了。唯一的可能就是 $\Z_2^3$，同样 $7\parallel168$，所以唯一，共 $13$ 个。</p>
 </li>
 <li>
-<p>$8p;(p\ne3,7)$。这种情况必有 $n_p=1$。</p>
+<p>$8p\;(p\ne3,7)$。这种情况必有 $n_p=1$。</p>
 <p>$40$ 的时候 $\aut\Z_5\cong\Z_4$，讨论任一 Sylow $2$：</p>
 <ol>
 <li>$\Z_8$。$a\mapsto f^{1\or 2}$ 两种。</li>
@@ -1287,7 +1287,7 @@ $$
     >https://groupprops.subwiki.org/wiki/General_linear_group:GL(2,3)</a>，我不大会证这些，可能以后深入学线代会再补充。</p>
 </li>
 <li>
-<p>$4p^2;(p\ne3)$。这时必有 $n_p=1$，但同样由于我不会分析 $\aut\Z_p^2$ 而且网上没有按这种思路分析的资料所以这里就留坑了。这里先给出结论：$p=4k+1$ 时有 $16$ 个，$p=4k+3$ 时有 $12$ 个。见 <a class="link" href="https://xueshu.baidu.com/usercenter/paper/show?paperid=1m4n0tf0y90w0vh0py530vs0ax491706"  target="_blank" rel="noopener"
+<p>$4p^2\;(p\ne3)$。这时必有 $n_p=1$，但同样由于我不会分析 $\aut\Z_p^2$ 而且网上没有按这种思路分析的资料所以这里就留坑了。这里先给出结论：$p=4k+1$ 时有 $16$ 个，$p=4k+3$ 时有 $12$ 个。见 <a class="link" href="https://xueshu.baidu.com/usercenter/paper/show?paperid=1m4n0tf0y90w0vh0py530vs0ax491706"  target="_blank" rel="noopener"
     >https://xueshu.baidu.com/usercenter/paper/show?paperid=1m4n0tf0y90w0vh0py530vs0ax491706</a>。注意 B 站有个讲 $10$、$100$、$1000$ 阶群分类的视频，讲得不完整，最难的部分整个略掉了。</p>
 </li>
 <li>
@@ -1295,7 +1295,7 @@ $$
     >https://www.zhihu.com/question/637163090/answer/3346156282</a> 这里是一个不完整的分析，问题和那个 B 站的视频类似，都是共轭设得不全。</p>
 </li>
 <li>
-<p>$60$。我们首先希望 $n_5=1$。如果不是，那么 $n_5=6$，接下来证明 $G$ 是单群。如果 $G$ 有正规子群 $N$，如果 $5\mid|N|$，那么$|N|=10\or15\or20\or30$。前三种情况显然有正规 Sylow $5$ 子群，$30$ 的情况根据 $|G|=pqr$ 的分析也有正规 Sylow $5$，于是它也是 $G$ 的正规 Sylow $5$。否则 $|G/N|=5\or10\or15\or20\or30$，后四种情况可以乘回 $N$ 得到 $5\mid|N&rsquo;|$，第一种情况 $|N|=12$，它有正规 Sylow $2\or 3$，于是 $G$ 也有，归到前面。</p>
+<p>$60$。我们首先希望 $n_5=1$。如果不是，那么 $n_5=6$，接下来证明 $G$ 是单群。如果 $G$ 有正规子群 $N$，如果 $5\mid|N|$，那么$|N|=10\or15\or20\or30$。前三种情况显然有正规 Sylow $5$ 子群，$30$ 的情况根据 $|G|=pqr$ 的分析也有正规 Sylow $5$，于是它也是 $G$ 的正规 Sylow $5$。否则 $|G/N|=5\or10\or15\or20\or30$，后四种情况可以乘回 $N$ 得到 $5\mid|N^\prime |$，第一种情况 $|N|=12$，它有正规 Sylow $2\or 3$，于是 $G$ 也有，归到前面。</p>
 <p>而 $60$ 阶单群只可能是 $A_5$。我们先证明它有 $12$ 阶子群。$n_2=3\or5\or15$，若为 $3$，则每个的正规化子有 $20$ 个，说明 $G$ 有 $20$ 阶子群，则 $G$ 作用在该子群的陪集上时，形成一个 $\varphi:G\to S_3$，进而 $\ker\varphi$ 是 $G$ 的正规子群；若为 $15$，那么如果这些子群两两只有平凡交，则 $2,4$ 阶元有 $15\times3=45$ 个，而 $5$ 阶元有 $6\times4=24$ 个，矛盾。因此存在两个 Sylow $2$ 子群 $X_1,X_2$，$X_1\cap X_2=\set{e,x}$。由于 $4$ 阶群必阿贝尔，故 $X_1,X_2\sub C_G(x)$，故 $C_G(x)=12\or20\or60$，后两种都不可能。现在 $G$ 有 $12$ 阶子群了，考虑作用在它的陪集上，形成 $\psi:G\to S_5$，且单性故 $\ker\psi$ 平凡，故 $G\cong\im\psi\cong A_5$，$n_2=5$ 的情况直接跳到这里。</p>
 <p>现在 $G$ 有正规 Sylow $5$ 子群 $H$，讨论 $n_3$。$G$ 的 Sylow $3$ 子群与 $G/H$ 的 Sylow $3$ 子群一一对应（正过来直接取，反过来是因为可以对应 $15$ 阶子群 $\cong\Z_{15}$ 从而有唯一 Sylow $3$ 子群），因此 $n_3\ne10$。如果 $n_3=4$，那么它们各自乘 $H$ 形成四个同构于 $\Z_{15}$ 的，两两交于 $H$ 的群，这意味着 $|N_G(H)|\ge 45$ 从而 $H\sub C(G)$，这大大简化了讨论——$G/H$ 的 Sylow $3$ 子群不正规，这意味着它 $\cong A_4$，类似于这段开头，$G/H$ 的唯一 Sylow $2$ 子群与 $G$ 的唯一 Sylow $2$ 子群对应（注意这里的对应依赖于 $H\sub C(G)$ 因为不然 $20$ 阶群的讨论就爆炸了），于是将这个正规 Sylow $2$ 子群与 Sylow $3$ 子群相乘，立即得到同构于 $A_4$ 的 $12$ 阶子群，从而 $G\cong\Z_5\times A_4$。PS：这里搞得这么麻烦的原因是，如果直接搞出正规子群 $\Z_5\times\Z_2^2$，自同构就很难讨论了。</p>
 <p>如果 $n_3=1$，那么只需考虑 $\Z_4\to\aut\Z_{15}$ 与 $\Z_2^2\to\aut\Z_{15}$，显然分别有五、四个。</p>
@@ -1515,7 +1515,7 @@ $$
 <p>存在一个正规子群 $H$，阶不被 $n$ 整除。设阶与 $m,n$ 分别有公因子 $m_1,n_1$。(i) $G/H$ 里找 $m/m_1$ 阶，乘回 $H$ 变 $mn_1$，再找 $m$。(ii) 俩 $m$ 阶的 $B,C$，$|BH|=|CH|=mn_1$，$BH/H$ 与 $CH/H$ 在 $G/H$ 中共轭，于是 $BH$ 与 $CH$ 共轭，于是 $B$ 的共轭与 $C$ 在 $CH$ 中共轭。(iii) $k$ 阶 $D$，$G/H$ 里找包含 $DH/H$ 的，乘回 $H$ 变 $mn_1$ 阶，再找 $m$。</p>
 </li>
 <li>
-<p>所有正规子群的阶都被 $n$ 整除。首先证明引理：可解群的极小正规子群为阿贝尔 $p$。$N&rsquo;$ 是 $N$ 的正规子群且只能是平凡的（不能是 $N$ 不然就不可解了，事实上这是整个证明中唯一用到可解性的地方），于是 $N$ 阿贝尔，且不能再有真 Sylow 子群。这里值得注意的是，极小正规子群的定义是不存在原群的正规子群是其子群，而并非其本身是单群，因此上述证明中利用与极小矛盾时，至少得说明是特征子群。</p>
+<p>所有正规子群的阶都被 $n$ 整除。首先证明引理：可解群的极小正规子群为阿贝尔 $p$。$N^\prime $ 是 $N$ 的正规子群且只能是平凡的（不能是 $N$ 不然就不可解了，事实上这是整个证明中唯一用到可解性的地方），于是 $N$ 阿贝尔，且不能再有真 Sylow 子群。这里值得注意的是，极小正规子群的定义是不存在原群的正规子群是其子群，而并非其本身是单群，因此上述证明中利用与极小矛盾时，至少得说明是特征子群。</p>
 <p>现找出 $G$ 的极小正规子群 $H$，由于 $H$ 是阿贝尔 $p$，故只能 $|H|=n$ 从而 $H$ 是 Sylow。(i) 看图：</p>
 <img src=".\hall.png" style="zoom:50%;" />
 <p>（黄色对应 $B$，蓝色对应 $D$，绿色对应 $DH\cap M$，蓝灰色对应 $D$ 所属的 $m$ 阶）</p>
