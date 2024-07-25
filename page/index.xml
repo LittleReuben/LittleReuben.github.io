@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on LRYP&#39;s Blog</title>
+        <link>http://localhost:1313/page/</link>
+        <description>Recent content in Pages on LRYP&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>LRYP</copyright><atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Search</title>
+        <link>http://localhost:1313/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/search/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>关于</title>
+        <link>http://localhost:1313/about/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/about/</guid>
+        <description>&lt;img src="http://localhost:1313/about/b.jpg" alt="Featured image of post 关于" /&gt;&lt;h2 id=&#34;关于我&#34;&gt;关于我
+&lt;/h2&gt;&lt;p&gt;我是 LRYP，这个名字其实没什么特殊含义，它只是合并了我在两个圈子里的 id。&lt;/p&gt;
+&lt;p&gt;我是一名退役 OIer（信息学竞赛生），OI 圈名是 YeahPotato。我参加的第一场 OI 赛事是 NOIP2018，最后一场是 CTS2024。我之前在洛谷博客里写过一些文章，但是由于洛谷只适合 OI 相关的内容，所以想着还是自己开博客比较好。&lt;/p&gt;
+&lt;p&gt;我是一名 Minecraft 爱好者，MC 圈名是 Little_Reuben。我从 2015 年开始接触 MC，但是玩得并不多。我熟悉 MC 各版本各领域的知识，喜欢看别人&lt;strong&gt;速通&lt;/strong&gt;（自己并没有入坑）。在 19、20 年期间，我做过一段时间的 MC &lt;strong&gt;地形建模&lt;/strong&gt;，我的作品《归》曾在小圈子举行的比赛（SDC 地形艺术创作公开赛 第二届）中获得第一名。&lt;/p&gt;
+&lt;p&gt;我热爱着信息学与数学，除此之外，我也对语言、语言学和哲学有兴趣。认识世界、认识自己，这是我永恒的追求。&lt;/p&gt;
+&lt;h2 id=&#34;链接&#34;&gt;链接
+&lt;/h2&gt;&lt;p&gt;洛谷：&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/user/94976&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YeahPotato&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;B 站：&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/490693067&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Little_Reuben&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;知乎：&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/people/lryp&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LRYP&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;QQ：2213469156&lt;/p&gt;
+&lt;p&gt;邮箱与 QQ 同号。&lt;/p&gt;
+&lt;p&gt;尽管刷过很长一段时间的 B 站和知乎，但我不怎么看二次元，也没有参与键政。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>归档</title>
+        <link>http://localhost:1313/archives/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/archives/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
