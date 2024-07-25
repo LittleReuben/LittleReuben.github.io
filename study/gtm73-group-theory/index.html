@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="$\\gdef\\lcm{\\operatorname{lcm}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\syl{\\operatorname{Syl}}\\gdef\\or{\\operatorname{or}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\norm{\\vartriangleleft}\\gdef\\inn{\\operatorname{Inn}}\\gdef\\out{\\operatorname{Out}}\\gdef\\F{\\mathbb{F}}$ 原来是为了醋包的饺子。不想看无聊细节的可以直奔第 12 节。 GTM73 之 我只来得及看完群论了 这本教材内容是比较全的，对初学者不友好的点就是解说较少，就是">
-<title>GTM73（群论部分）自学笔记</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="群论部分">
+<title>GTM73 自学笔记</title>
 
 <link rel='canonical' href='https://example.com/study/gtm73-group-theory/'>
 
-<link rel="stylesheet" href="/scss/style.min.6e84af2709baf67b789aebf85f88a13fd9ea4187ae74209eadbd34ba586e1f51.css"><meta property='og:title' content="GTM73（群论部分）自学笔记">
-<meta property='og:description' content="$\\gdef\\lcm{\\operatorname{lcm}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\syl{\\operatorname{Syl}}\\gdef\\or{\\operatorname{or}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\norm{\\vartriangleleft}\\gdef\\inn{\\operatorname{Inn}}\\gdef\\out{\\operatorname{Out}}\\gdef\\F{\\mathbb{F}}$ 原来是为了醋包的饺子。不想看无聊细节的可以直奔第 12 节。 GTM73 之 我只来得及看完群论了 这本教材内容是比较全的，对初学者不友好的点就是解说较少，就是">
+<link rel="stylesheet" href="/scss/style.min.a8bee9e6d7e7a9bd147148fbe7ef0d6f18f6f32f4e78da31ddd72bbed5f38dc7.css"><meta property='og:title' content="GTM73 自学笔记">
+<meta property='og:description' content="群论部分">
 <meta property='og:url' content='https://example.com/study/gtm73-group-theory/'>
 <meta property='og:site_name' content='LRYP&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2024-07-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-07-25T00:00:00&#43;00:00'/><meta property='og:image' content='https://example.com/study/gtm73-group-theory/GTM73.png' />
-<meta name="twitter:title" content="GTM73（群论部分）自学笔记">
-<meta name="twitter:description" content="$\\gdef\\lcm{\\operatorname{lcm}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\syl{\\operatorname{Syl}}\\gdef\\or{\\operatorname{or}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\norm{\\vartriangleleft}\\gdef\\inn{\\operatorname{Inn}}\\gdef\\out{\\operatorname{Out}}\\gdef\\F{\\mathbb{F}}$ 原来是为了醋包的饺子。不想看无聊细节的可以直奔第 12 节。 GTM73 之 我只来得及看完群论了 这本教材内容是比较全的，对初学者不友好的点就是解说较少，就是"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GTM73 自学笔记">
+<meta name="twitter:description" content="群论部分"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://example.com/study/gtm73-group-theory/GTM73.png' />
     <link rel="shortcut icon" href="/avatar.jpg" />
 
@@ -376,7 +376,7 @@
                         width="800" 
                         height="1213" 
                         loading="lazy"
-                        alt="Featured image of post GTM73（群论部分）自学笔记" />
+                        alt="Featured image of post GTM73 自学笔记" />
                 
             </a>
         </div>
@@ -395,9 +395,13 @@
 
     <div class="article-title-wrapper">
         <h1 class="article-title">
-            <a href="/study/gtm73-group-theory/">GTM73（群论部分）自学笔记</a>
+            <a href="/study/gtm73-group-theory/">GTM73 自学笔记</a>
         </h1>
     
+        
+        <h3 class="article-subtitle">
+            群论部分
+        </h3>
         
     </div>
 
@@ -467,7 +471,7 @@
 </li>
 <li>
 <p>存在左逆元与右逆元的半群一定是群（这里没有定义幺元，所以左右逆元可以定义为 $ax=b$ 与 $ya=b$ 均有解）。</p>
-<p>证：$(\exists x,ax=a)\and(\forall b,\exists y,ya=b)\Rightarrow\forall b,bx=b$，因此存在右幺元。</p>
+<p>证：$(\exists x,ax=a)\land(\forall b,\exists y,ya=b)\Rightarrow\forall b,bx=b$，因此存在右幺元。</p>
 </li>
 <li>
 <p>具有左右消去律的有限半群一定是群。</p>
@@ -506,7 +510,7 @@
 <li>无限群一定有无限个子群，这是因为取出其每个元素的循环子群，如果只有有限个，那么必定有一个子群为无限的，那取其的子群即可。</li>
 <li>循环群基本上讲的是废话，但是有个性质还是挺重要的，在数论中用得很多。对于阿贝尔群：
 <ol>
-<li>$|a|\perp|b|\Rightarrow|ab|=|a||b|$。证明思路有两个：① 如果 $a^t=b^{-t}=x\ne e$，那么 $|x|\mid|a|\and|x|\mid|b|$，故 $|x|=1$，矛盾；② 如果 $(ab)^t=e$，那么 $a^{t|b|}=(ab)^{t|b|}=e=(ab)^{t|a|}=b^{t|a|}$，故 $|a|\mid t\and|b|\mid t$。</li>
+<li>$|a|\perp|b|\Rightarrow|ab|=|a||b|$。证明思路有两个：① 如果 $a^t=b^{-t}=x\ne e$，那么 $|x|\mid|a|\land|x|\mid|b|$，故 $|x|=1$，矛盾；② 如果 $(ab)^t=e$，那么 $a^{t|b|}=(ab)^{t|b|}=e=(ab)^{t|a|}=b^{t|a|}$，故 $|a|\mid t\land|b|\mid t$。</li>
 <li>$\exists c,|c|=\lcm(|a|,|b|)$。设 $|a|=xy&rsquo;$，$|b|=x&rsquo;y$，设所有在 $|a|$ 中次数 $\ge$ 在 $|b|$ 的质因子乘积为 $X$，其余为 $Y$，$x=\gcd(|a|,X^\infin)$，其余同理。取 $c=a^yb^x$，由于 $|a^y|=x\perp|b^x|=y$，故 $|c|=xy=\lcm(|a|,|b|)$。</li>
 <li>$|a|=p^x,|b|=p^y,x&lt;y\Rightarrow|ab|=p^y$。若有 $z&lt;x$ 使 $(ab)^{p^z}=1$，则 $p^{x-z}=|a^{p^z}|=|b^{p^z}|=p^{y-z}$。</li>
 <li>2 的形式对于（不一定循环）子群也成立。这个学了后面的知识就显然了，阿贝尔是个很强的性质。</li>
@@ -532,7 +536,7 @@
 <li>同一陪集内的元素对应的陪集仍为该陪集。</li>
 <li>陪集形成等大的划分。</li>
 </ol>
-<p>阶为质数的群一定与 $Z_p$ 同构，可以取 $\set e$ 以外的循环子群，利用拉格朗日定理。</p>
+<p>阶为质数的群一定与 $\Z_p$ 同构，可以取 $\set e$ 以外的循环子群，利用拉格朗日定理。</p>
 <p>另外，拉格朗日定理本质上就是 Burnside 引理的引理 $|E||Z|=|G|$，这个后面会详细讲。</p>
 <h3 id="4-正规子群与商群">4. 正规子群与商群
 </h3><h4 id="大纲-3">大纲
@@ -552,8 +556,8 @@
 <h4 id="笔记-3">笔记
 </h4><ol>
 <li>
-<p>正规子群的核心是可以将群拆成“两层子群”，原理是左右幺元的同一。只有正规子群能生成商群（<a class="link" href="https://www.zhihu.com/question/525584612/answer/2419749410"  target="_blank" rel="noopener"
-    >证明</a>）。</p>
+<p>正规子群的核心是可以将群拆成“两层子群”，原理是左右幺元的同一。只有正规子群能生成商群（证明：<a class="link" href="https://www.zhihu.com/question/525584612/answer/2419749410"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/525584612/answer/2419749410</a>）。</p>
 </li>
 <li>
 <p>一个群可能有多个同样大小的正规子群。</p>
@@ -635,7 +639,8 @@
 </ol>
 </li>
 <li>
-<p>关于 $S_4/K_4\cong S_3$ 与 $A_4/K_4\cong Z_3$，固然可以用第二同构定理证，但这里从置换的作用出发给出了一个直观的证明：https://math.stackexchange.com/questions/302654/show-that-s-4-v-is-isomorphic-to-s-3-where-v-is-the-klein-four-group</p>
+<p>关于 $S_4/K_4\cong S_3$ 与 $A_4/K_4\cong Z_3$，固然可以用第二同构定理证，但这里从置换的作用出发给出了一个直观的证明：<a class="link" href="https://math.stackexchange.com/questions/302654/show-that-s-4-v-is-isomorphic-to-s-3-where-v-is-the-klein-four-group"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/302654/show-that-s-4-v-is-isomorphic-to-s-3-where-v-is-the-klein-four-group</a>。</p>
 <p>这个证明说了一个事，当使用第一同构定理时，从群的作用意义上来说，我们实际上考虑了被作用对象的一部分特征，而那个同构的小群，就是这部分特征所作出的变化本质不同的作用方式形成的群。</p>
 </li>
 </ol>
@@ -711,7 +716,7 @@
 <li>
 <p>现在可以假定只有 $a_{1,1}$ 到 $a_{r,r}$ 非零。注意到可以用：
 $$
-\begin{bmatrix}a&amp;0\0&amp;b\end{bmatrix}\xrightarrow{\mathrm{B\acute{e}zout}}\begin{bmatrix}a&amp;g\0&amp;b\end{bmatrix}\rightarrow\begin{bmatrix}a&amp;g\-l&amp;0\end{bmatrix}\rightarrow \begin{bmatrix}g&amp;0\0&amp;l\end{bmatrix}
+\begin{bmatrix}a&amp;0\\ 0&amp;b\end{bmatrix}\xrightarrow{\mathrm{B\acute{e}zout}}\begin{bmatrix}a&amp;g\\ 0&amp;b\end{bmatrix}\rightarrow\begin{bmatrix}a&amp;g\\ -l&amp;0\end{bmatrix}\rightarrow \begin{bmatrix}g&amp;0\\ 0&amp;l\end{bmatrix}
 $$
 将两个元素分别变为它们的 $\gcd$ 和 $\lcm$。那就可以用类似冒泡的过程，将这个对角线上的元素调整为依次整除。</p>
 </li>
@@ -722,7 +727,8 @@ $$
 <p>然后就是利用第一同构定理加商群在直积下的同构性，直接导出任何有限生成阿贝尔群存在一种预想的拆分方式。合数阶的拆分太显然了。最后是证明拆分的唯一性：</p>
 <ol>
 <li>$\Z$ 部分，商掉挠子群，归到自由阿贝尔群表示的唯一性。</li>
-<li>“唯一分解定理”，处理方式仍然是抽出子群证相等或矛盾。注意到有限阿贝尔群的商群和子群是可以打通的（https://math.stackexchange.com/questions/64982/is-every-quotient-of-a-finite-abelian-group-g-isomorphic-to-some-subgroup-of），所以用哪种无所谓。</li>
+<li>“唯一分解定理”，处理方式仍然是抽出子群证相等或矛盾。注意到有限阿贝尔群的商群和子群是可以打通的（<a class="link" href="https://math.stackexchange.com/questions/64982/is-every-quotient-of-a-finite-abelian-group-g-isomorphic-to-some-subgroup-of"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/64982/is-every-quotient-of-a-finite-abelian-group-g-isomorphic-to-some-subgroup-of</a>），所以用哪种无所谓。</li>
 <li>依次整除的表示唯一。这个看起来不大直觉，但是把每个阶都拆开来排成矩阵，就显然了。</li>
 </ol>
 </li>
@@ -734,7 +740,7 @@ $$
 <li>
 <p>练习 2.2 的思路：只考虑指数幂情况。归纳，找到一个阶为质数的，与 $\lang x\rang$ 交为 $\set{0}$ 的群 $H$（直接找循环群即可），然后归纳。归纳有个细节，就是 $G/H=(\lang x\rang H)\oplus(K/H)$ 推到 $G=\lang x\rang+K+H=\lang x\rang\oplus K$ 时，要用直积那节交为 $\set{0}$ 的性质。然后推大结论用的是所有元素的阶都整除最大阶。<br>
 <a class="link" href="https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_%28Judson%29/13%3A_The_Structure_of_Groups/13.01%3A_Finite_Abelian_Groups"  target="_blank" rel="noopener"
-    >https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_(Judson)/13%3A_The_Structure_of_Groups/13.01%3A_Finite_Abelian_Groups</a></p>
+    >https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_(Judson)/13%3A_The_Structure_of_Groups/13.01%3A_Finite_Abelian_Groups</a> 的 Lemma 13.9。</p>
 </li>
 <li>
 <p>注意挠群不一定有限，例如 Prüfer 群 $\Z(p^\infin)$，它是无限个 $\Z_p$ 的内直积。</p>
@@ -841,7 +847,8 @@ $$
 </li>
 <li>
 <p>看了第一定理后，会有一个直觉，就是 Sylow $p$ 子群唯一，感觉上如果有两个，可以乘一下搞出更大的。但是这个是不对的，可以看 <a class="link" href="https://planetmath.org/subgroupsofs4"  target="_blank" rel="noopener"
-    >https://planetmath.org/subgroupsofs4</a> 为例。另外两个 Sylow $p$ 子群的交也可能非平凡：https://math.stackexchange.com/questions/24704/distinct-sylow-p-subgroups-intersect-only-at-the-identity-which-somehow-follo。</p>
+    >https://planetmath.org/subgroupsofs4</a> 为例。另外两个 Sylow $p$ 子群的交也可能非平凡：<a class="link" href="https://math.stackexchange.com/questions/24704/distinct-sylow-p-subgroups-intersect-only-at-the-identity-which-somehow-follo"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/24704/distinct-sylow-p-subgroups-intersect-only-at-the-identity-which-somehow-follo</a>。</p>
 </li>
 <li>
 <p>这里提一下 Sylow 第三定理的加强版本：</p>
@@ -855,7 +862,8 @@ $$
 <p>问题：是否会出现某个大小的 $p$ 子群唯一，但 Sylow $p$ 子群不唯一的情况？</p>
 </li>
 <li>
-<p>看个搞笑的：https://www.zhihu.com/question/36479927/answer/1554929023。</p>
+<p>看个搞笑的：<a class="link" href="https://www.zhihu.com/question/36479927/answer/1554929023"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/36479927/answer/1554929023</a>。</p>
 </li>
 </ol>
 </li>
@@ -937,14 +945,14 @@ $$
 <p>证：根据 $\varphi$ 得到一个 $\psi:K\to H$，$(h_1,k_1)(h_2,k_2)=(h_1\psi(k_1)h_2\psi(k_1)^{-1},k_1k_2)$。构造同构映射 $f:(h,k)\mapsto h\psi(k)$，验证
 $$
 \begin{align*}
-&amp;f((h_1,k_1)(h_2,k_2))\={}&amp;h_1\psi(k_1)h_2\psi(k_1)^{-1}\psi(k_1k_2)\={}&amp;h_1\psi(k_1)h_2\psi(k_2)\={}&amp;f((h_1,k_1))f((h_2,k_2))
+&amp;f((h_1,k_1)(h_2,k_2))\\ ={}&amp;h_1\psi(k_1)h_2\psi(k_1)^{-1}\psi(k_1k_2)\\ ={}&amp;h_1\psi(k_1)h_2\psi(k_2)\\ ={}&amp;f((h_1,k_1))f((h_2,k_2))
 \end{align*}
 $$</p>
 <p>性质 2：$\exists\chi\in\aut H,\forall k\in K,\psi(k)=\chi\circ\varphi(k)\circ\chi^{-1}\Rightarrow H\rtimes_\varphi K\cong H\rtimes_\psi K$。</p>
 <p>证：构造 $f:(h,k)\mapsto(\chi(h),k)&rsquo;$，验证
 $$
 \begin{align*}
-&amp;f((h_1,k_1)(h_2,k_2))\={}&amp;f((h_1\varphi(k_1)(h_2),k_1k_2))\={}&amp;(\chi(h_1)(\chi\circ\varphi(k_1))(h_2),k_1k_2)&rsquo;\={}&amp;(\chi(h_1)(\psi(k_1)\circ\chi)(h_2),k_1k_2)&rsquo;\={}&amp;(\chi(h_1),k_1)&rsquo;(\chi(h_2),k_2)&rsquo;\={}&amp;f((h_1,k_1))f((h_2,k_2))
+&amp;f((h_1,k_1)(h_2,k_2))\\ ={}&amp;f((h_1\varphi(k_1)(h_2),k_1k_2))\\ ={}&amp;(\chi(h_1)(\chi\circ\varphi(k_1))(h_2),k_1k_2)&rsquo;\\ ={}&amp;(\chi(h_1)(\psi(k_1)\circ\chi)(h_2),k_1k_2)&rsquo;\\ ={}&amp;(\chi(h_1),k_1)&rsquo;(\chi(h_2),k_2)&rsquo;\\ ={}&amp;f((h_1,k_1))f((h_2,k_2))
 \end{align*}
 $$
 这个反过来是不对的，一个简单的反例就是性质 1。</p>
@@ -954,7 +962,7 @@ $$
 <p>设 $\psi^c=\chi\circ\varphi\circ\chi^{-1}$，构造 $f:(h,k^a)\mapsto(\chi(h),k^{ac})&rsquo;$，验证
 $$
 \begin{align*}
-&amp;f((h_1,k^a)(h_2,k^b))\={}&amp;f((h_1\varphi^a(h_2),k^{a+b}))\={}&amp;(\chi(h_1)(\chi\circ\varphi^a)(h_2),k^{(a+b)c})&rsquo;\={}&amp;(\chi(h_1)((\chi\circ\varphi\circ\chi^{-1})^a\chi)(h_2),k^{(a+b)c})&rsquo;\={}&amp;(\chi(h_1)(\psi^{ac}\circ\chi)(h_2),k^{(a+b)c})&rsquo;\={}&amp;(\chi(h_1),k^{ac})&rsquo;(\chi(h_2),k^{bc})&rsquo;\={}&amp;f((h_1,k^a))f((h_2,k^b))
+&amp;f((h_1,k^a)(h_2,k^b))\\ ={}&amp;f((h_1\varphi^a(h_2),k^{a+b}))\\ ={}&amp;(\chi(h_1)(\chi\circ\varphi^a)(h_2),k^{(a+b)c})&rsquo;\\ ={}&amp;(\chi(h_1)((\chi\circ\varphi\circ\chi^{-1})^a\chi)(h_2),k^{(a+b)c})&rsquo;\\ ={}&amp;(\chi(h_1)(\psi^{ac}\circ\chi)(h_2),k^{(a+b)c})&rsquo;\\ ={}&amp;(\chi(h_1),k^{ac})&rsquo;(\chi(h_2),k^{bc})&rsquo;\\ ={}&amp;f((h_1,k^a))f((h_2,k^b))
 \end{align*}
 $$
 注意，$K$ 有限时易验证 $c\perp|K|$，从而 $f$ 是双射。$K$ 无限时 $f$ 就不是双射了。</p>
@@ -963,7 +971,7 @@ $$
     >https://math.stackexchange.com/questions/527800/when-are-two-semidirect-products-isomorphic</a>。</p>
 </blockquote>
 <p>由于群分类时大部分情况这个 $K$ 都是循环群，所以性质 3 会更好用。这个性质 3 相比性质 2 强的点在于，它只要求整个像共轭，而不用每个 $k$ 对应共轭。性质 3 和 $pq$ 情况的证明的核心思想是一样的。</p>
-<p>现在，我们可以从更高的角度理解 $p^3$ 情况的分析：若正规子群是 $\Z_{p^2}$，那么性质 3 就说有本质唯一的 $\varphi:\lang b\rang\to\set{f\in\aut\Z_{p^2}\mid f(a)=a^{kp+1},k\ne 0}$。若正规子群是 $\Z_p^2$，$\aut\Z_p^2\cong\mathrm{GL}_2(\F_p)$，而 $|\mathrm{GL}_2(\F_p)|=(p^2-1)(p^2-p)$，于是它的唯一 Sylow $p$ 子群共轭类 $\overline{\left\langle\begin{bmatrix}1&amp;1\0&amp;1\end{bmatrix}\right\rangle}$ 就对应了所需的映射，于是半直积也是唯一的。</p>
+<p>现在，我们可以从更高的角度理解 $p^3$ 情况的分析：若正规子群是 $\Z_{p^2}$，那么性质 3 就说有本质唯一的 $\varphi:\lang b\rang\to\set{f\in\aut\Z_{p^2}\mid f(a)=a^{kp+1},k\ne 0}$。若正规子群是 $\Z_p^2$，$\aut\Z_p^2\cong\mathrm{GL}_2(\F_p)$，而 $|\mathrm{GL}_2(\F_p)|=(p^2-1)(p^2-p)$，于是它的唯一 Sylow $p$ 子群共轭类 $\overline{\left\langle\begin{bmatrix}1&amp;1\\ 0&amp;1\end{bmatrix}\right\rangle}$ 就对应了所需的映射，于是半直积也是唯一的。</p>
 <ol start="6">
 <li>
 <p>$p^2q$。这个情况需要一个我不会证的性质，先写出来：</p>
@@ -974,16 +982,16 @@ $$
 </blockquote>
 <p>这使我们能快速说明分类后各类不同构。接下来是按 $([p\mid(q-1)],[q\mid(p^2-1)])$ 的四种情况来分讨。</p>
 <ol>
-<li>$p\mid(q-1)\and q\mid(p^2-1)$。唯一的可能是 $p=2,q=3$，已经在上面讨论过。</li>
-<li>$p\nmid(q-1)\and q\nmid(p^2-1)$。阿贝尔。</li>
-<li>$p\nmid(q-1)\and q\mid(p^2-1)$。
+<li>$p\mid(q-1)\land q\mid(p^2-1)$。唯一的可能是 $p=2,q=3$，已经在上面讨论过。</li>
+<li>$p\nmid(q-1)\land q\nmid(p^2-1)$。阿贝尔。</li>
+<li>$p\nmid(q-1)\land q\mid(p^2-1)$。
 <ol>
 <li>Sylow $p$ 子群是 $\Z_{p^2}$。取个 $q$ 阶循环群，如果 $q\mid(p-1)$，类似于 $pq$ 的时候，会有一个非平凡的情况，就是 $bab^{-1}=a^s$，其中 $\delta_{p^2}(s)=q$。不同的 $s$ 对应的都是同构的。</li>
 <li>Sylow $p$ 子群是 $\Z_p^2$。这里的分析很复杂，概括一下就是，首先 $q\mid(p-1)\lor q\mid(p+1)$。分三种情况，$q=2$ 是简单的，$q\mid(p+1)$ 的情况有唯一共轭类，$q\mid(p-1)$ 的情况有 $(q+3)/2$ 种。这里核心思路是，从特征值角度出发分析 $\mathrm{GL}_2(\F_p)$ 中 $q$ 阶循环子群之间的共轭关系。细节详见 <a class="link" href="https://www.math.purdue.edu/~jlipman/5532011/order-p%5e2q.pdf"  target="_blank" rel="noopener"
     >https://www.math.purdue.edu/~jlipman/5532011/order-p%5e2q.pdf</a>，注意这篇文章 $q=2$ 多算了个错的。</li>
 </ol>
 </li>
-<li>$p\mid(q-1)\and q\nmid(p^2-1)$。还是随便取一个 Sylow $p$ 子群。
+<li>$p\mid(q-1)\land q\nmid(p^2-1)$。还是随便取一个 Sylow $p$ 子群。
 <ol>
 <li>它是 $\Z_{p^2}$。$bab^{-1}=a^s$ 的 $s$ 满足 $\delta_q(s)=p$ 或 $\delta_q(s)=p^2$（如果 $p^2\mid(q-1)$），分别对应一种。</li>
 <li>它是 $\Z_p^2$。这里用不了性质 3 了，但是也不难搞。设生成元为 $b,c$，$bab^{-1}=a^s,cac^{-1}=a^t$，满足 $\delta_q(s),\delta_q(t)\mid p$ 且不同时为 $1$。我们回顾 $pq$ 情况以及其他形如“不同的阶为 $q$ 的 $s$ 对应群都同构”的证明，它们的思路就是，将生成元换成 $b^?$ 使 $b^?ab^{-?}=a^{s_0}$，就是所有 $s$ 是等价的，所以同构。那 $\Z_p^2$ 的情况也可以类似地构造——设某个 $p$ 次单位根是 $s_0$。如果 $s,t$ 有个是 $1$ 那让另一个变成 $s_0$ 就行，否则设 $s^i\equiv t^{-1},t^j\equiv s_0$，这样将生成元换为 $b&rsquo;=b^ic,c&rsquo;=c^j$ 就可以了，显然 $b&rsquo;,c&rsquo;$ 可以反过来表示 $b,c$。于是无论怎么样都可以变成 $b&rsquo;a{b&rsquo;}^{-1}=a,c&rsquo;a{c&rsquo;}^{-1}=a^{s_0}$，也就是唯一。</li>
@@ -1051,25 +1059,27 @@ $$
 <p>$pqr;(p&lt;q&lt;r)$。首先进行以下简单推理：$n_r\in\set{1,pq}$ 且 $n_q\in\set{1,r,pr}$。若 $n_r=pq$ 且 $n_q\ne 1$，则 $G$ 中有 $pq(r-1)$ 个阶为 $r$ 的元素，以及 $r(q-1)$ 个阶为 $q$ 的元素，共 $pqr-pq+rq-r=pqr+(r-p)(q-1)-p&gt;pqr$ 个，矛盾。故 $n_r=1\lor n_q=1$，无论哪个正规，取 $G$ 关于其的商群，商群中一定有 Sylow 另一个质数 子群，取出其对应原群中的部分，即得一 $qr$ 阶正规子群 $H$。同时，由于 $H$ 有正规 Sylow $r$ 子群，故该子群在 $G$ 中也正规。</p>
 <p>如果 $H\cong\Z_{qr}$，那就较简单：考虑 $\varphi:\Z_p\to\aut H\cong\Z_{q-1}\times\Z_{r-1}$，如果 $p\nmid(q-1)(r-1)$ 就只有阿贝尔群，如果 $p\mid(q-1)$ 与 $p\mid(r-1)$ 其一成立，就有一种，否则模 $q$ 和 $r$ 下的 $p$ 次单位根都可以取，可以固定其中一个单位根，有 $p+1$ 种（$(0,1)$、$(1,i)$）。</p>
 <p>$q\mid(r-1)$ 时能不能搞些别的？如果 $p\nmid(q-1)\land p\nmid(r-1)$，则 $G/\syl_r(G)$ 是个循环群，有 $p$ 阶正规子群，于是就有 $pr$ 阶循环正规子群，然后 $\Z_q$ 对它共轭即可，有一种。注意如果按下面的方式分析，得出的群是和这里同构的。</p>
-<p>其他情况就要直面 $\varphi:\Z_p\to\aut(\Z_r\rtimes\Z_q)$ 了。设 $\Z_r\rtimes\Z_q$ 中 $bab^{-1}=a^s;(s^q\equiv1\pmod r\land s\not\equiv 1)$，其中 $|a|=r$。由于 $\lang a\rang$ 正规，故 $\varphi(c)(a)=a^t;(t^p\equiv1\pmod r)$。在 $p\nmid(r-1)\and p\mid(q-1)$ 的时候，$\varphi(\forall)(a)=a$。设 $\varphi(c)(b)=a^xb^y$，则
+<p>其他情况就要直面 $\varphi:\Z_p\to\aut(\Z_r\rtimes\Z_q)$ 了。设 $\Z_r\rtimes\Z_q$ 中 $bab^{-1}=a^s;(s^q\equiv1\pmod r\land s\not\equiv 1)$，其中 $|a|=r$。由于 $\lang a\rang$ 正规，故 $\varphi(c)(a)=a^t;(t^p\equiv1\pmod r)$。在 $p\nmid(r-1)\land p\mid(q-1)$ 的时候，$\varphi(\forall)(a)=a$。设 $\varphi(c)(b)=a^xb^y$，则
 $$
-\varphi(c)(ba)=\varphi(c)(a^sb)\Rightarrow a^{x+s^y}b^y=a^{s+x}b^y\Rightarrow s^{y-1}\equiv1\pmod r\Rightarrow q\mid(y-1)\Rightarrow y=1\
+\varphi(c)(ba)=\varphi(c)(a^sb)\Rightarrow a^{x+s^y}b^y=a^{s+x}b^y\Rightarrow s^{y-1}\equiv1\pmod r\Rightarrow q\mid(y-1)\Rightarrow y=1\\
 \varphi(c^p)(b)=b\Rightarrow a^{px}b=b\Rightarrow x=0
 $$
 于是 $\varphi(c)=\iota$，即 $(\Z_r\rtimes\Z_q)\times\Z_p$ 唯一。</p>
 <p>$p\mid(r-1)$ 时，若 $t\ne 1$，则
 $$
-\varphi(c)(ba)=\varphi(c)(a^sb)\Rightarrow a^{x+s^yt}b^y=a^{st+x}b^y\Rightarrow y=1\
+\varphi(c)(ba)=\varphi(c)(a^sb)\Rightarrow a^{x+s^yt}b^y=a^{st+x}b^y\Rightarrow y=1\\
 \varphi(c^p)(b)=b\Rightarrow a^{\frac{t^p-1}{t-1}x}b=b\Leftrightarrow\top
 $$
 所以其实跟前面没什么两样，就是 $t,x$ 都有多种取法。首先 $x=0$ 是一种特殊的。其他情况，而考虑变换生成元：$a$ 变成 $a^\alpha$，$b$ 变成 $b^\beta$，$c$ 变成 $c^\gamma$，则
 $$
-b^\beta a^\alpha b^{-\beta}=(a^\alpha)^{s^\beta}\
-\varphi(c^\gamma)(a^\alpha)=(a^\alpha)^{t^\gamma}\
+b^\beta a^\alpha b^{-\beta}=(a^\alpha)^{s^\beta}\\
+\varphi(c^\gamma)(a^\alpha)=(a^\alpha)^{t^\gamma}\\
 \varphi(c^\gamma)(b^\beta)=a^{\frac{t^\gamma-1}{t-1}\frac{s^\beta-1}{s-1}x}b^\beta
 $$
 容易发现是可以都变成某组 $(a^{s_0},a^{t_0},ab)$ 的。</p>
 <p>总结一下：</p>
+</li>
+</ol>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -1082,9 +1092,9 @@ $$
 </thead>
 <tbody>
 <tr>
-<td>$0$</td>
-<td>$0$</td>
-<td>$0$</td>
+<td>$0$<div style="width: 75pt"></div></td>
+<td>$0$<div style="width: 75pt"></div></td>
+<td>$0$<div style="width: 75pt"></div></td>
 <td>无</td>
 <td>$255,345,435,455,561$</td>
 </tr>
@@ -1139,7 +1149,7 @@ $$
 </tr>
 </tbody>
 </table></div>
-</li>
+<ol start="8">
 <li>
 <p>$16$。主要有两个思路：分析 $8$ 阶正规子群、分析中心大小。这里考虑前一种。</p>
 <p>首先我们说明非阿贝尔的 $G$ 一定有 $\Z_8$ 或 $\Z_4\times\Z_2$ 作为子群，这里的推导很别扭：可以立即假设 $G$ 中元素的阶都 $\le 4$ 且至少有一个是 $4$，然后考虑 $C(G)$，如果大小是 $4$，那么 $G/C(G)\cong\Z_2^2$（否则阿贝尔），即得；否则 $C(G)=\set{1,c}$，若有 $|x|=4,\lang x\rang\cap C(G)=\set{e}$，那么即得，否则所有 $x^2=c\or e$，那么 $G/C(G)\cong\Z_2^3$，那么一个 $x$ 的共轭就只可能在 $xC(G)$ 内（否则 $G/C(G)$ 不是阿贝尔），那么 $C_G(x)=8$，那么可以找到另一个 $y$，使 $x,y,z$ 交换且 $y^2=z\or e$，都对应 $\Z_4\times\Z_2$。</p>
@@ -1160,7 +1170,7 @@ $$
 <td>$c^2=a^2$</td>
 <td>$\lang a,b,c\mid a^4=b^2=[a,b]=[b,c]=e,c^2=a^2,ca=a^{-1}c\rang$</td>
 <td>$\lang ac,a\mid(ac)^4=a^4=e,a(ac)=(ac)^{-1}a\rang$</td>
-<td>$</td>
+<td>$|bc|=2$</td>
 </tr>
 <tr>
 <td>$c^2=b$</td>
@@ -1171,18 +1181,23 @@ $$
 <tr>
 <td>$c^2=a^2b$</td>
 <td>$\lang a,c\mid a^4=c^4=e,ca=a^{-1}c\rang$</td>
-<td>$</td>
-<td>ac</td>
+<td>$|ac|=2$</td>
+<td>不可能</td>
 </tr>
 </tbody>
 </table></div>
 <p>所以实际只有两类，至于如何发现第二类（$(1,2),(2,1),(3,1)$）这些情况同构的，只能说实在是注意力惊人，这个表我也是对着论文搞的。最后只需验证这两类无 $8$ 阶元，有 $3$ 个 $2$ 阶元，且不同构即可。</p>
 <p>总结一下，阿贝尔 $5$ 个，有 $8$ 阶元时 $3$ 个，无 $8$ 阶元时 $4+2=6$ 个，共 $14$ 个。</p>
-<p>参考：本方法：http://buzzard.ups.edu/courses/2015spring/projects/whitcomb-groups-16-ups-434-2015.pdf、https://www.researchgate.net/publication/259147732_The_Groups_of_Order_Sixteen_Made_Easy。另一类方法：http://buzzard.ups.edu/courses/2012spring/projects/clausen-groups-16-ups-434-2012.pdf、https://files.eric.ed.gov/fulltext/EJ1054466.pdf、https://hal.science/cel-01841041/document。</p>
+<p>参考：本方法：<a class="link" href="http://buzzard.ups.edu/courses/2015spring/projects/whitcomb-groups-16-ups-434-2015.pdf"  target="_blank" rel="noopener"
+    >http://buzzard.ups.edu/courses/2015spring/projects/whitcomb-groups-16-ups-434-2015.pdf</a>、<a class="link" href="https://www.researchgate.net/publication/259147732_The_Groups_of_Order_Sixteen_Made_Easy"  target="_blank" rel="noopener"
+    >https://www.researchgate.net/publication/259147732_The_Groups_of_Order_Sixteen_Made_Easy</a>。另一类方法：<a class="link" href="http://buzzard.ups.edu/courses/2012spring/projects/clausen-groups-16-ups-434-2012.pdf"  target="_blank" rel="noopener"
+    >http://buzzard.ups.edu/courses/2012spring/projects/clausen-groups-16-ups-434-2012.pdf</a>、<a class="link" href="https://files.eric.ed.gov/fulltext/EJ1054466.pdf%e3%80%81https://hal.science/cel-01841041/document"  target="_blank" rel="noopener"
+    >https://files.eric.ed.gov/fulltext/EJ1054466.pdf、https://hal.science/cel-01841041/document</a>。</p>
 </li>
 <li>
 <p>$p^4$。思路是用矩阵分析 $p^3$ 阶正规子群的自同构，太复杂了，见 <a class="link" href="https://arxiv.org/pdf/1611.00461"  target="_blank" rel="noopener"
-    >https://arxiv.org/pdf/1611.00461</a>、https://future-in-tech.net/17.4/R-Hasanat1.pdf。</p>
+    >https://arxiv.org/pdf/1611.00461</a>、<a class="link" href="https://future-in-tech.net/17.4/R-Hasanat1.pdf"  target="_blank" rel="noopener"
+    >https://future-in-tech.net/17.4/R-Hasanat1.pdf</a>。</p>
 </li>
 <li>
 <p>$24$。如果 $n_3=1$，设 $\aut\Z_3=\set{1,f}$。考虑任一 Sylow $2$ 子群（多个 Sylow 子群必同构）：</p>
@@ -1202,7 +1217,9 @@ $$
 <li>$Q_8$。事实上 $\aut Q_8\cong S_4$。$3$ 阶元是所有 $3$ 循环，所以唯一。</li>
 </ol>
 <p>上面所有一方正规的情况，另一方必不正规（否则两个正规之间可以交换，直接直积了）。最后总结得到，阿贝尔 $3$ 个，非阿贝尔直积 $2$ 个，Sylow $3$ 正规 $7$ 个，$S_4$ $1$ 个，Sylow $8$ 正规 $2$ 个，共 $15$ 个。</p>
-<p>参考：https://www.youtube.com/watch?v=6TWuo2NO8vg、http://www.brahmanandcollege.org.in/pg_math/Modern%20Algebra-01.pdf。</p>
+<p>参考：<a class="link" href="https://www.youtube.com/watch?v=6TWuo2NO8vg"  target="_blank" rel="noopener"
+    >https://www.youtube.com/watch?v=6TWuo2NO8vg</a>、<a class="link" href="http://www.brahmanandcollege.org.in/pg_math/Modern%20Algebra-01.pdf"  target="_blank" rel="noopener"
+    >http://www.brahmanandcollege.org.in/pg_math/Modern%20Algebra-01.pdf</a>。</p>
 </li>
 <li>
 <p>$56$。如果 $n_7=1$，则分讨跟 $|G|=24$ 一样（因为 $\aut\Z_7$ 除了一个 $2$ 阶元以外，其余都是 $3\or6$ 阶的，都不能碰）。否则就有 $48$ 个 $7$ 阶元，剩余 $8$ 个元素必形成一正规 Sylow $2$ 子群，这里就比楼上简单了。唯一的可能就是 $\Z_2^3$，同样 $7\parallel168$，所以唯一，共 $13$ 个。</p>
@@ -1249,12 +1266,16 @@ $$
     >https://zhuanlan.zhihu.com/p/69254703</a>。</p>
 </li>
 <li>
-<p>$36$。首先我们需要证明 $n_2=1\lor n_3=1$。看起来简单的东西推导很变态，我找了一堆证明（https://math.stackexchange.com/questions/3290888/if-g-36-then-g-has-either-a-normal-2-sylow-or-a-normal-3-sylow、https://math.stackexchange.com/questions/2918359/a-group-of-order-36-has-either-a-normal-sylow-2-subgroup-or-a-normal-sylow、https://math.berkeley.edu/~wodzicki/257/G36.pdf、https://max.book118.com/html/2017/0806/126207403.shtm），没一个少于一页的。</p>
+<p>$36$。首先我们需要证明 $n_2=1\lor n_3=1$。看起来简单的东西推导很变态，我找了一堆证明（<a class="link" href="https://math.stackexchange.com/questions/3290888/if-g-36-then-g-has-either-a-normal-2-sylow-or-a-normal-3-sylow"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/3290888/if-g-36-then-g-has-either-a-normal-2-sylow-or-a-normal-3-sylow</a>、<a class="link" href="https://math.stackexchange.com/questions/2918359/a-group-of-order-36-has-either-a-normal-sylow-2-subgroup-or-a-normal-sylow"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/2918359/a-group-of-order-36-has-either-a-normal-sylow-2-subgroup-or-a-normal-sylow</a>、<a class="link" href="https://math.berkeley.edu/~wodzicki/257/G36.pdf"  target="_blank" rel="noopener"
+    >https://math.berkeley.edu/~wodzicki/257/G36.pdf</a>、<a class="link" href="https://max.book118.com/html/2017/0806/126207403.shtm"  target="_blank" rel="noopener"
+    >https://max.book118.com/html/2017/0806/126207403.shtm</a>），没一个少于一页的。</p>
 <p>如果 $G$ 有 $4$ 个 Sylow $3$ 子群 $X_{1\sim 4}$，那么考虑 $G$ 共轭作用在它们上，形成一个 $\varphi:G\to S_4$ 的同态。$|\im \varphi|\mid\gcd(36,24)=12$，同时由于 $\forall i,\exists g,gX_1g^{-1}=X_i$，故 $\im\varphi$ 中每个 $\sigma(1)=1$ 的元素都与 $\sigma(1)=2,3,4$ 元素各一个对应，故 $4\mid|\im\varphi|$，故 $|\im\varphi|\in\set{4,12}$。若为 $4$，则 $|\ker\varphi|=9$ 矛盾；否则 $G/\ker\varphi\cong\im\varphi=A_4$，且 $\ker\varphi$ 是一个 $3$ 阶正规子群。① 这说明它是所有 Sylow $3$ 子群的子群，而 $9$ 阶群一定是阿贝尔群，故与 $\ker\varphi$ 的元素的中心化子至少为 $27$，于是 $\ker\varphi\sub C(G)$。② 如果 $n_2&gt;1$，比如有 $Y_1,Y_2$，它们显然与 $\ker\varphi$ 交为 $\set{e}$，故它们对应到 $G/\ker\varphi$ 上也是 Sylow $2$ 子群，而 $A_4$ 的 Sylow $2$ 子群是唯一的 $\Z_2^2$，故 $Y_1\ker\varphi=Y_2\ker\varphi$。由 ①，它们都 $\cong\Z_3\times\Z_2^2$ 阿贝尔群，于是 $Y_1=Y_2$，因此 $n_2=1$。</p>
 <ol>
 <li>正规 Sylow $3$ 子群 $\Z_9$，Sylow $2$ 子群 $\Z_4$。由于 $\varphi(9)=6$（这个 $\varphi$ 是欧拉函数），故只有一种。</li>
 <li>正规 Sylow $3$ 子群 $\Z_9$，Sylow $2$ 子群 $\Z_2^2$。同 6.4.2，一种。</li>
-<li>正规 Sylow $3$ 子群 $\Z_3^2$，Sylow $2$ 子群 $\Z_4$。$\mathrm{GL}_2(\F_3)$ 在相似意义下有两个二阶元 $\begin{bmatrix}-1&amp;0\0&amp;\pm1\end{bmatrix}$，一个四阶元 $\begin{bmatrix}0&amp;1\-1&amp;0\end{bmatrix}$，因此有三种。</li>
+<li>正规 Sylow $3$ 子群 $\Z_3^2$，Sylow $2$ 子群 $\Z_4$。$\mathrm{GL}_2(\F_3)$ 在相似意义下有两个二阶元 $\begin{bmatrix}-1&amp;0\\ 0&amp;\pm1\end{bmatrix}$，一个四阶元 $\begin{bmatrix}0&amp;1\\ -1&amp;0\end{bmatrix}$，因此有三种。</li>
 <li>正规 Sylow $3$ 子群 $\Z_3^2$，Sylow $2$ 子群 $\Z_2^2$。记 $\Z_2^2$ 的两个生成元为 $a,b$，如果 $\varphi(a)\ne\varphi(b)$，则 $\im\varphi\cong\Z_2^2$，一种。否则可以认为 $\varphi(b)=1$（不是的话可以把 $b$ 换成 $ab$），$\varphi(a)$ 两种。共三种。</li>
 <li>正规 Sylow $2$ 子群 $\Z_4$，Sylow $3$ 子群 $\Z_9$。不行。</li>
 <li>正规 Sylow $2$ 子群 $\Z_4$，Sylow $3$ 子群 $\Z_3^2$。不行。</li>
@@ -1270,7 +1291,8 @@ $$
     >https://xueshu.baidu.com/usercenter/paper/show?paperid=1m4n0tf0y90w0vh0py530vs0ax491706</a>。注意 B 站有个讲 $10$、$100$、$1000$ 阶群分类的视频，讲得不完整，最难的部分整个略掉了。</p>
 </li>
 <li>
-<p>$2p^3$。也是直接得到正规，但是 $p^3$ 阶群的自同构难以分析。https://www.zhihu.com/question/637163090/answer/3346156282 这里是一个不完整的分析，问题和那个 B 站的视频类似，都是共轭设得不全。</p>
+<p>$2p^3$。也是直接得到正规，但是 $p^3$ 阶群的自同构难以分析。<a class="link" href="https://www.zhihu.com/question/637163090/answer/3346156282"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/637163090/answer/3346156282</a> 这里是一个不完整的分析，问题和那个 B 站的视频类似，都是共轭设得不全。</p>
 </li>
 <li>
 <p>$60$。我们首先希望 $n_5=1$。如果不是，那么 $n_5=6$，接下来证明 $G$ 是单群。如果 $G$ 有正规子群 $N$，如果 $5\mid|N|$，那么$|N|=10\or15\or20\or30$。前三种情况显然有正规 Sylow $5$ 子群，$30$ 的情况根据 $|G|=pqr$ 的分析也有正规 Sylow $5$，于是它也是 $G$ 的正规 Sylow $5$。否则 $|G/N|=5\or10\or15\or20\or30$，后四种情况可以乘回 $N$ 得到 $5\mid|N&rsquo;|$，第一种情况 $|N|=12$，它有正规 Sylow $2\or 3$，于是 $G$ 也有，归到前面。</p>
@@ -1278,12 +1300,19 @@ $$
 <p>现在 $G$ 有正规 Sylow $5$ 子群 $H$，讨论 $n_3$。$G$ 的 Sylow $3$ 子群与 $G/H$ 的 Sylow $3$ 子群一一对应（正过来直接取，反过来是因为可以对应 $15$ 阶子群 $\cong\Z_{15}$ 从而有唯一 Sylow $3$ 子群），因此 $n_3\ne10$。如果 $n_3=4$，那么它们各自乘 $H$ 形成四个同构于 $\Z_{15}$ 的，两两交于 $H$ 的群，这意味着 $|N_G(H)|\ge 45$ 从而 $H\sub C(G)$，这大大简化了讨论——$G/H$ 的 Sylow $3$ 子群不正规，这意味着它 $\cong A_4$，类似于这段开头，$G/H$ 的唯一 Sylow $2$ 子群与 $G$ 的唯一 Sylow $2$ 子群对应（注意这里的对应依赖于 $H\sub C(G)$ 因为不然 $20$ 阶群的讨论就爆炸了），于是将这个正规 Sylow $2$ 子群与 Sylow $3$ 子群相乘，立即得到同构于 $A_4$ 的 $12$ 阶子群，从而 $G\cong\Z_5\times A_4$。PS：这里搞得这么麻烦的原因是，如果直接搞出正规子群 $\Z_5\times\Z_2^2$，自同构就很难讨论了。</p>
 <p>如果 $n_3=1$，那么只需考虑 $\Z_4\to\aut\Z_{15}$ 与 $\Z_2^2\to\aut\Z_{15}$，显然分别有五、四个。</p>
 <p>总共 $2+1+1+5+4=13$ 种。</p>
-<p>参考：https://www.math.utoronto.ca/alfonso/347/Groups60.pdf、https://math.stackexchange.com/questions/3068904/group-of-order-60、https://math.stackexchange.com/questions/1121248/classifying-groups-of-order-60、https://math.stackexchange.com/questions/360816/about-the-proof-that-a-simple-group-of-order-60-is-isomorphic-to-a5、https://epgp.inflibnet.ac.in/epgpdata/uploads/epgp_content/S000025MS/P001533/M016962/ET/1468557941E-textofChapter3Module4.pdf</p>
+<p>参考：<a class="link" href="https://www.math.utoronto.ca/alfonso/347/Groups60.pdf"  target="_blank" rel="noopener"
+    >https://www.math.utoronto.ca/alfonso/347/Groups60.pdf</a>、<a class="link" href="https://math.stackexchange.com/questions/3068904/group-of-order-60"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/3068904/group-of-order-60</a>、<a class="link" href="https://math.stackexchange.com/questions/1121248/classifying-groups-of-order-60"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/1121248/classifying-groups-of-order-60</a>、<a class="link" href="https://math.stackexchange.com/questions/360816/about-the-proof-that-a-simple-group-of-order-60-is-isomorphic-to-a5"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/360816/about-the-proof-that-a-simple-group-of-order-60-is-isomorphic-to-a5</a>、<a class="link" href="https://epgp.inflibnet.ac.in/epgpdata/uploads/epgp_content/S000025MS/P001533/M016962/ET/1468557941E-textofChapter3Module4.pdf"  target="_blank" rel="noopener"
+    >https://epgp.inflibnet.ac.in/epgpdata/uploads/epgp_content/S000025MS/P001533/M016962/ET/1468557941E-textofChapter3Module4.pdf</a>。</p>
 </li>
 <li>
 <p>$90$。核心是说明 $G$ 有 $45$ 阶子群。若 $n_5=1$，则 $18$ 阶商群的 $n_3=1$，即得。否则，如果 $n_3&gt;1$，那么我们说这些子群 $X_{1\sim 10}$ 不可能两两只有平凡交，因为反之则 $3$ 与 $9$ 阶元有 $80$ 个，但 $5$ 阶元有 $24$ 个。现在找到 $X_i\cap X_j=H\ne\set{e}$，考虑其正规化子数量： $|N_G(H)|\ge|X_1X_2|\ge27$。同时 $X_i&lt;N_G(H)$ 故 $|N_G(H)|=45\or90$。后者即 $H\norm G$，由于 $G/H$ 这个 $30$ 阶群有 $15$ 阶子群，所以也得到 $45$ 阶。而 $45$ 阶群一定是阿贝尔群。</p>
 <p>那现在只需考虑 $\Z_2\to\aut\Z_{45}$ 与 $\Z_2\to\aut(\Z_3\times\Z_{15})$。前者有三种。后者，由于正规子群在自同构下不动，故 $\aut(\Z_3\times\Z_{15})\cong\aut\Z_3^2\times\aut\Z_5$，$\mathrm{GL_2}(\F_3)$ 的二阶共轭类有两种，故这个是 $3\times2-1=5$ 种。共 $2+3+5=10$ 种。</p>
-<p>参考：https://math.stackexchange.com/questions/360790/classifying-groups-of-order-90、https://math.stackexchange.com/questions/146687/how-do-i-show-that-every-group-of-order-90-is-not-simple。</p>
+<p>参考：<a class="link" href="https://math.stackexchange.com/questions/360790/classifying-groups-of-order-90"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/360790/classifying-groups-of-order-90</a>、<a class="link" href="https://math.stackexchange.com/questions/146687/how-do-i-show-that-every-group-of-order-90-is-not-simple"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/146687/how-do-i-show-that-every-group-of-order-90-is-not-simple</a>。</p>
 </li>
 <li>
 <p>$132$。首先我们说明 $n_{11}=1$。若 $n_{11}=12$，若 $n_3=1$，则可得到商群的正规 Sylow $11$，然后得到 $G$ 的 $33$ 阶正规子群，由于 $33$ 阶群只能是 $\Z_{33}$，故 $11$ 阶正规；若 $n_3&gt;1$，它不可能是 $22$，只可能是 $4$。于是有 $G$ 到 $S_4$ 的同态，其像大小整除 $12$ 且是 $4$ 的倍数（同 $|G|=36$ 第二段的分析），因此只可能是 $4\or 12$，对应核都说明 $11$ 阶正规。</p>
@@ -1367,7 +1396,8 @@ $$
 <tr>
 <td>$120$</td>
 <td>$47$</td>
-<td>变态，https://www.youtube.com/watch?v=t5YcYuDl0hk</td>
+<td>变态，<a class="link" href="https://www.youtube.com/watch?v=t5YcYuDl0hk"  target="_blank" rel="noopener"
+    >https://www.youtube.com/watch?v=t5YcYuDl0hk</a></td>
 </tr>
 <tr>
 <td>$126$</td>
@@ -1472,7 +1502,8 @@ $$
 <p>可解群的等价定义是，存在一个从 $\set{e}$ 到 $G$ 的列 $\set{G_i}$，只要求 $G_i\norm G_{i+1}$ 且 $G_{i+1}/G_i$ 阿贝尔即可（注意换位子群是最小（其他都包含它）的这样的 $G_i$，这也是求一个群的导列的方法）。证明考虑归纳证 $G^{(i)}\sub G_{n-i}$，知道了换位子群最小这不就是显然的吗……</p>
 </li>
 <li>
-<p>注意极小正规子群不一定唯一：https://math.stackexchange.com/questions/1402526/smallest-normal-subgroup-and-minimal-normal-subgroup-whats-the-difference。</p>
+<p>注意极小正规子群不一定唯一：<a class="link" href="https://math.stackexchange.com/questions/1402526/smallest-normal-subgroup-and-minimal-normal-subgroup-whats-the-difference"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/1402526/smallest-normal-subgroup-and-minimal-normal-subgroup-whats-the-difference</a>。</p>
 </li>
 <li>
 <p>幂零群结构定理证明的思路并不难，核心是找到一个矛盾：Sylow $p$ 子群的正规化子等于其正规化子的正规化子，以及幂零群中，正规化子是严格包含的。然后就是直积相关的简单东西。</p>
@@ -1505,9 +1536,9 @@ $$
 <p>理一下各种列之间的关系：首先讨论的所有列都是次正规列。次正规列有两种特殊情况：合成列和可解列。合成列是“划分最密”的。对于可解群，其导列是“划分最疏”的可解列，其可解列是所有“划分介于导列与合成列之间”的，其合成列具有因子为 $\Z_p$ 的性质，从而也是可解列（能不用 Hölder 证吗？）。除了可解群的导列和幂零群的中心列以外，所有提到的列都不一定是正规列。例如，$S_4\vartriangleright A_4\vartriangleright K_4\vartriangleright\textcolor{red}{\Z_2}\vartriangleright\set{e}$。</p>
 </li>
 <li>
-<p>Zassenhaus 引理也是完全看不懂作者是怎么想的，只能提要一下证明策略：先证明诸如 $(A\cap B^<em>)\norm(A\cap B)$ 之类的，再构造满同态证明
+<p>Zassenhaus 引理也是完全看不懂作者是怎么想的，只能提要一下证明策略：先证明诸如 $(A\cap B^*)\norm(A\cap B)$ 之类的，再构造满同态证明
 $$
-\frac{A^</em>(A\cap B)}{A^<em>(A\cap B^</em>)}\cong\frac{A\cap B}{(A\cap B^<em>)(A^</em>\cap B)}\cong\frac{B^<em>(A\cap B)}{B^</em>(A^*\cap B)}
+\frac{A^*(A\cap B)}{A^*(A\cap B^*)}\cong\frac{A\cap B}{(A\cap B^*)(A^*\cap B)}\cong\frac{B^*(A\cap B)}{B^*(A^*\cap B)}
 $$
 后面两个定理反倒是很好理解的了。就是互相精细，然后合成列没法再精细了。</p>
 </li>
@@ -1586,7 +1617,7 @@ $$
     data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
     data-page-id="ec77fe924f3ff4d9352f55deda3a0d82"
     data-page-url="https://example.com/study/gtm73-group-theory/"
-    data-page-title="GTM73（群论部分）自学笔记"></div>
+    data-page-title="GTM73 自学笔记"></div>
 <script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
