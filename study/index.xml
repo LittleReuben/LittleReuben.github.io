@@ -6,6 +6,1106 @@
         <description>Recent content in 学习 &amp; 技术 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>LRYP</copyright><atom:link href="https://example.com/study/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>LRYP</copyright>
+        <lastBuildDate>Thu, 25 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>GTM73（群论部分）自学笔记</title>
+        <link>https://example.com/study/gtm73-group-theory/</link>
+        <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/gtm73-group-theory/</guid>
+        <description>&lt;img src="https://example.com/study/gtm73-group-theory/GTM73.png" alt="Featured image of post GTM73（群论部分）自学笔记" /&gt;&lt;p&gt;$\gdef\lcm{\operatorname{lcm}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\syl{\operatorname{Syl}}\gdef\or{\operatorname{or}}\gdef\aut{\operatorname{Aut}}\gdef\norm{\vartriangleleft}\gdef\inn{\operatorname{Inn}}\gdef\out{\operatorname{Out}}\gdef\F{\mathbb{F}}$&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;原来是为了醋包的饺子。不想看无聊细节的可以直奔第 12 节。&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gtm73-之-我只来得及看完群论了&#34;&gt;GTM73 之 我只来得及看完群论了
+&lt;/h2&gt;&lt;p&gt;这本教材内容是比较全的，对初学者不友好的点就是解说较少，就是大量的定理—证明，很多证明能看懂它是对的，但是无法理解它的思路是怎么想到的。&lt;/p&gt;
+&lt;h3 id=&#34;1-三个代数结构&#34;&gt;1. 三个代数结构
+&lt;/h3&gt;&lt;h4 id=&#34;大纲&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;半群、幺半群、群的定义，能导出它们的性质以及它们能导出的性质。&lt;/li&gt;
+&lt;li&gt;构建新群的方法：直积、用等价类划分。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;幺元的定义是对每个元素都有一个&lt;strong&gt;同样&lt;/strong&gt;的元素与它运算后不变，幺元的唯一性也是指在刚才这个定义中的唯一。对于半群与幺半群，对某个特定的 $a$，$ab=a$ 的 $b$ 可能有多个，例如含不互质元素的乘法半群，按位与、或的半群。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;由半群到群的判定：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;存在左幺元与左逆元的半群是群。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;存在左幺元与右逆元的半群不一定是群（$xy=y$）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;存在左幺元与唯一右逆元的半群不一定是群（$xy=y$）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;存在唯一左幺元与右逆元的半群一定是群。&lt;/p&gt;
+&lt;p&gt;证：$e=a^{-1}(a^{-1})^{-1}=a^{-1}e(a^{-1})^{-1}=a^{-1}aa^{-1}(a^{-1})^{-1}=a^{-1}ae$，因此 $a^{-1}a$ 也是逆元，$a^{-1}a=e$。&lt;br&gt;
+感觉这个证明没那么自然，可能是为了硬凑 $a^{-1}a$ 形式。能否给出更自然的证明？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;存在左逆元与右逆元的半群一定是群（这里没有定义幺元，所以左右逆元可以定义为 $ax=b$ 与 $ya=b$ 均有解）。&lt;/p&gt;
+&lt;p&gt;证：$(\exists x,ax=a)\and(\forall b,\exists y,ya=b)\Rightarrow\forall b,bx=b$，因此存在右幺元。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;具有左右消去律的有限半群一定是群。&lt;/p&gt;
+&lt;p&gt;证：由消去律 $aG=G$（双射），可以得到幺元以及逆元。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;具有左右消去律的无限半群不一定是群。（$\N$）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;2-同构同态子群循环群&#34;&gt;2. 同构、同态、子群、+循环群
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-1&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;同态、单同态、满同态、同构、自同态、自同构的定义。&lt;/li&gt;
+&lt;li&gt;核、像的定义。&lt;/li&gt;
+&lt;li&gt;子群、生成子群、循环群的定义。&lt;/li&gt;
+&lt;li&gt;以上概念相关性质（仅限群）：
+&lt;ol&gt;
+&lt;li&gt;单位元、逆元与子群在映射下的对应性，核、像也是子群，子群的交也是子群；&lt;/li&gt;
+&lt;li&gt;核大小为 $1$ 则为单同态；&lt;/li&gt;
+&lt;li&gt;子群的判定、生成子群的结构（最小）；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-1&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;几个书里的理解问题：
+&lt;ol&gt;
+&lt;li&gt;单同态：$G$ 与 $H$ 的子群同构；满同态：$G$ 的商类与 $H$ 同构。&lt;/li&gt;
+&lt;li&gt;幺半群同态，幺元可能不对应，是因为可以找 $H$ 中某个平方等于自身的非幺元，把 $G$ 中所有元素都映射到它。然而群中是找不到这样的元素的。如果是满同态就对应了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;群同态中，每个有原像的元素，它们的原像集合大小相等。&lt;/li&gt;
+&lt;li&gt;群中一个元素不断自乘，是不可能形成 ρ 形的。于是有限子群的判定只需要看封闭性即可。&lt;/li&gt;
+&lt;li&gt;无限群一定有无限个子群，这是因为取出其每个元素的循环子群，如果只有有限个，那么必定有一个子群为无限的，那取其的子群即可。&lt;/li&gt;
+&lt;li&gt;循环群基本上讲的是废话，但是有个性质还是挺重要的，在数论中用得很多。对于阿贝尔群：
+&lt;ol&gt;
+&lt;li&gt;$|a|\perp|b|\Rightarrow|ab|=|a||b|$。证明思路有两个：① 如果 $a^t=b^{-t}=x\ne e$，那么 $|x|\mid|a|\and|x|\mid|b|$，故 $|x|=1$，矛盾；② 如果 $(ab)^t=e$，那么 $a^{t|b|}=(ab)^{t|b|}=e=(ab)^{t|a|}=b^{t|a|}$，故 $|a|\mid t\and|b|\mid t$。&lt;/li&gt;
+&lt;li&gt;$\exists c,|c|=\lcm(|a|,|b|)$。设 $|a|=xy&amp;rsquo;$，$|b|=x&amp;rsquo;y$，设所有在 $|a|$ 中次数 $\ge$ 在 $|b|$ 的质因子乘积为 $X$，其余为 $Y$，$x=\gcd(|a|,X^\infin)$，其余同理。取 $c=a^yb^x$，由于 $|a^y|=x\perp|b^x|=y$，故 $|c|=xy=\lcm(|a|,|b|)$。&lt;/li&gt;
+&lt;li&gt;$|a|=p^x,|b|=p^y,x&amp;lt;y\Rightarrow|ab|=p^y$。若有 $z&amp;lt;x$ 使 $(ab)^{p^z}=1$，则 $p^{x-z}=|a^{p^z}|=|b^{p^z}|=p^{y-z}$。&lt;/li&gt;
+&lt;li&gt;2 的形式对于（不一定循环）子群也成立。这个学了后面的知识就显然了，阿贝尔是个很强的性质。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;3-lagrange-定理相关&#34;&gt;3. Lagrange 定理相关
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-2&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;群中左/右同余、左/右陪集、左/右商集的定义及性质。&lt;/li&gt;
+&lt;li&gt;指标、子群乘积的定义及相关性质：
+&lt;ol&gt;
+&lt;li&gt;（拉格朗日定理）$[G:H]=|G|/|H|$&lt;/li&gt;
+&lt;li&gt;$[G:K]=[G:H][H:K]$&lt;/li&gt;
+&lt;li&gt;$|HK|=|H||K|/|H\cap K|$&lt;/li&gt;
+&lt;li&gt;$[H:H\cap K]\le [G:K]$，取等 $\Leftrightarrow G=HK$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-2&#34;&gt;笔记
+&lt;/h4&gt;&lt;p&gt;关键抓住两句话：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同一陪集内的元素对应的陪集仍为该陪集。&lt;/li&gt;
+&lt;li&gt;陪集形成等大的划分。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;阶为质数的群一定与 $Z_p$ 同构，可以取 $\set e$ 以外的循环子群，利用拉格朗日定理。&lt;/p&gt;
+&lt;p&gt;另外，拉格朗日定理本质上就是 Burnside 引理的引理 $|E||Z|=|G|$，这个后面会详细讲。&lt;/p&gt;
+&lt;h3 id=&#34;4-正规子群与商群&#34;&gt;4. 正规子群与商群
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-3&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;正规子群的定义、等价表述、相关性质。&lt;/li&gt;
+&lt;li&gt;由正规子群的陪集构成的商群，其性质。&lt;/li&gt;
+&lt;li&gt;群的三个同构定理：
+&lt;ol&gt;
+&lt;li&gt;$G$ 关于其同态核的商群，同构于同态映射的像。&lt;/li&gt;
+&lt;li&gt;某一子群关于一正规子群（与其交）的商群，同构于两者的积关于该正规子群的商群。&lt;/li&gt;
+&lt;li&gt;两个具有包含关系的正规子群，原群关于小者的商群与大者关于小者的商群，同样构成正规子群关系，且原群关于大者的商群，同构于两者分别关于小者取商群后再取的商群。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;满同态下子群、正规子群、商群的一一对应性（当然，得是符合某些简单条件的）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;下文所有“正规子群”都默认为除 $\set{e}$ 与本身外的正规子群。&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;笔记-3&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;正规子群的核心是可以将群拆成“两层子群”，原理是左右幺元的同一。只有正规子群能生成商群（&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/525584612/answer/2419749410&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;证明&lt;/a&gt;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一个群可能有多个同样大小的正规子群。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$K\norm H\norm G\nRightarrow K\norm G$。而 $K\norm G,K\sub H\sub G\Rightarrow K\norm H$，因为子群与正规子群的交是子群的正规子群。另外 $H,K\norm G\Rightarrow H\cap K,HK\norm G$。另外直积因子的直积因子是正规的。另外若 $K$ 是 $H$ 的正规 Sylow 子群且 $H\norm G$，则 $K\norm G$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关于群的三个同构定理的理解：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;（5.6）一个同态在缩了核之正规子群后，可以认为啥也没变，只是原像“类型转换”了一下。&lt;/li&gt;
+&lt;li&gt;（一）从同态在 $H$ 中的行为可看出，$a\ker G$ 表现得和 $f(a)$ 完全一样，$\ker G$ 表现得和 $e_G$ 一样。也正是因为左右幺元为同一个，故 $\ker G\norm G$。&lt;/li&gt;
+&lt;li&gt;（二）两种情况下商群结构完全相同，$K/(N\cap K)=\set{k(N\cap K)}$，$NK/N=\set{kN}$。注意与另一种情况区分：$NK\subset H$，这时 $K/(N\cap K)$ 相比于 $H/N$ 会漏一些。&lt;/li&gt;
+&lt;li&gt;（三）取商群就是划分等价类，只是把某些原来不同的元素视为相同，而保留原先的运算关系（行为），因此原群与大者分别关于小者取商群，并不会真正改变什么。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;del&gt;你甚至可以把（二）（三）都理解成类似约分的东西，一个是同乘的时候约分，一个是链式约分。&lt;/del&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;本节相关命题的证明思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;只是证明正规或交换律。书里基本上都是用代数推导，也就是先用等价表述 (iv)，即设 $ana^{-1}$，在需要的时候用 (iii)，即令 $an_1=n_2a$。代数推导缺点是没那么直观，我会喜欢只用 (iii)，但有的命题必须用代数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;证明同构。要么直接构造双射，要么用群的第一同构定理（需要凑同态，一般不难），这里给出二、三同构定理依赖于第一同构定理的证明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;（二）构造 $K\to NK/N$，这边需要 $nkN=kN$ 以证明满同态。这个映射干了两个事，一个是划分 $K$ 中的等价类（同时确立了核为 $N\cap K$），另一个是纯类型转换，把 $k(N\cap K)$ 转换为 $kN$。&lt;/li&gt;
+&lt;li&gt;（三）构造 $G/K\to G/H$。这个映射单纯就是个类型转换，把 $gK$ 转换为 $gH$，当然这个类型转换就伴随着等价类划分（$K\sub H$ 故不同元素数变少），即按核 $H/K$ 划分。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;可以得到一种感觉，就是这种同态的构造就是一种“缩”（按等价类划分），这种缩是伴随着类型转换（小正规子群的陪集到大正规子群的陪集）出现的（注：（二）中的缩其实是 $k\set e\to k(N\cap K)$）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;5-对称群交错群二面体群&#34;&gt;5. 对称群、交错群、二面体群
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-4&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;某些 OIer 众所周知的东西。&lt;/li&gt;
+&lt;li&gt;对称群（$n\ge 5$）有唯一正规子群。&lt;/li&gt;
+&lt;li&gt;证明交错群的单性：
+&lt;ol&gt;
+&lt;li&gt;证明三轮换能生成原群，以及包含三轮换的正规子群是原群。&lt;/li&gt;
+&lt;li&gt;证明正规子群不管长什么样，都得包含三轮换。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;二面体群的刻画。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-4&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在对置换较复杂的处理中，不要想着把置换看作作用于某一排列的移动，而应当把它看作一个双射。运算时直接看每个元素从右往左经过映射后到哪就行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为了更轻松地理解证明的动机，需要熟悉以下几个置换的运算：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;称形如 $ana^{-1}$ 的东西为 $n$ 的共轭。书里没讲的一点是，$\tau(i_1\cdots i_r)\tau^{-1}=(\tau(i_1)\cdots\tau(i_r))$。这给出了“偷换”轮换中某些元素而不改变结构的一个极佳手段。&lt;/li&gt;
+&lt;li&gt;$(aJ)(aI)=(aIJ)$，其中 $I\cap J=\varnothing$。这边用大写字母表示一段元素。相当于用一个元素把两个轮换“串”起来了（8 字形）。一个特例是 $(i_1\cdots i_r)=(i_1i_r)\cdots(i_1i_2)$。&lt;/li&gt;
+&lt;li&gt;$(aJ_1bJ_2)(aI_1bI_2)=(aI_1J_2)(bI_2J_1)$，其中 $I\cap J=\varnothing$。对于三轮换的情况：$(ab)(abc)=(bc)$、$(abc)(ab)=(ac)$、$(abd)(abc)=(ad)(bc)$、$(adb)(abc)=(bcd)$、$(abd)(acb)=(acd)$、$(adb)(acb)=(ac)(bd)$。另外还有 $(abc)^2=(acb)$、$(acb)(abc)=e$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;证明单群要找出三轮换，无非就是自乘和构造 $\nu^{-1}\tau\nu\tau^{-1}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对 $S_n$ 子群的总结：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;除 $S_4$ 外，其余群只有唯一正规子群 $A_n$，因为如果有另一个，它与 $A_n$ 的交就是 $A_n$ 的正规子群，必须是 $\set{e}$，那这样的一个正规子群必须恰好包含 $e$ 和一个奇置换（如果有两个，奇奇得偶 $\ne e$ 就爆了），这个奇置换必须由奇数个对换组成，随便用共轭替换掉其中一两个元素就爆了。&lt;/li&gt;
+&lt;li&gt;$K_4\norm A_4\norm S_4$ 且 $K_4\norm S_4$。主要就是只要由若干共轭类组成，就至少满足了正规性，只需要再保证封闭即可。$K_4$ 神奇地封闭了，就是这样。$S_4$ 仅有这两个正规子群，$A_4$ 也仅有这个正规子群，证明直接考虑大小。&lt;/li&gt;
+&lt;li&gt;$A_4$ 没有 $6$ 阶子群。考虑 $3$ 阶元。&lt;/li&gt;
+&lt;li&gt;$S_n$ 中指数为 $2$ 的子群仅有 $A_n$（利用指数为 $2$ 的子群一定是正规子群，$n=4$ 时如果还有的话，交大小就得是 $6$，矛盾）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;满足二面体群性质的群结构唯一，这个证明比较典型。后面自由群给了一般性的证明。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$S_n$ 和 $A_n$ 的子群无法刻画。关于 $D_n$：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;正规子群。如果 $a^xb\in H$，则 $H\ni(a^ib)(a^xb)(a^ib)=a^{2i-x}b$。因此正规子群有 $\lang a^d\rang$（$d\mid n$），如果 $2\mid n$，则还有 $\lang a^2,b\rang$ 和 $\lang a^2,ab\rang$。&lt;/li&gt;
+&lt;li&gt;子群。如果 $H\cap\set{a^ib}\ne\varnothing$，那么要么 $|H|=2$，要么 $H\cap\set{a^i}=\lang a^d\rang$（$d\mid n$）。后面一种情况下，$H\cap\set{a^ib}=\set{a^{kd+r}b}$（$0\le r&amp;lt;d$）。如果还有别的元素，就可以用类似循环群子群的证明方法找到更小的 $a^{d&amp;rsquo;}$。因此真子群有 $\lang a^ib\rang$、$\lang a^d\rang$、$\lang a^d,a^rb\rang$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关于 $S_4/K_4\cong S_3$ 与 $A_4/K_4\cong Z_3$，固然可以用第二同构定理证，但这里从置换的作用出发给出了一个直观的证明：https://math.stackexchange.com/questions/302654/show-that-s-4-v-is-isomorphic-to-s-3-where-v-is-the-klein-four-group&lt;/p&gt;
+&lt;p&gt;这个证明说了一个事，当使用第一同构定理时，从群的作用意义上来说，我们实际上考虑了被作用对象的一部分特征，而那个同构的小群，就是这部分特征所作出的变化本质不同的作用方式形成的群。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;6-直积&#34;&gt;6. 直积
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-5&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;直积、外直积、内直积的定义，在同态、取商情况下的性质。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-5&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;$\lang\rang$ 符号是有限生成， 内、外直积都是在此基础上定义。注意有限和无限情况不同，例如无限位二进制数的异或，逐位为一的直积的阶为 $\aleph_1$，内、外直积的阶为 $\aleph_0$。这个就像有理数与无理数间的关系。&lt;/li&gt;
+&lt;li&gt;在满足条件时，内、外直积的区别只在于类型不同。当我们说（内）直积，或者说一个群等于一些子群的积时，默认这个直积不是多元组的形式，而是直接相乘的形式，也就是说，当且仅当每个 $N_i$ 均为正规子群且与别的子群的积交为 $\set e$ $\Longleftrightarrow$ 每个元素的表达方式唯一 $\Longleftrightarrow$ $e$ 的表达方式唯一时，这个说法才有意义。而当我们说外直积，或者说一个群同构于一些小群的积时，默认是多元组的形式。&lt;/li&gt;
+&lt;li&gt;注意，$N\times(G/N)\cong G$ 是不一定成立的，例如 $2\Z_4\oplus(\Z_4/2\Z_4)\cong\Z_2\oplus\Z_2\not\cong\Z_4$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;7-自由群&#34;&gt;7. 自由群
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-6&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;自由群的定义。&lt;/li&gt;
+&lt;li&gt;用自由群生成任何群。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-6&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;虽说自由群也是有运算的群，但我们可以将它理解成字符串，这种字符串刻画的是一堆元素的运算，其中关键的一点是，只要运算式字面上不同，就认为实质不同，这一点在其余群中是基本不会出现的，否则这样的群就没啥性质了。&lt;/p&gt;
+&lt;p&gt;但是，这里需要避免混淆的一点是，字内字母的排列，与两个字的运算，都写成了顺次拼接的形式。在证明自由群的结合律时，如果要硬证的话，必须讨论三个字 $a,b,c$ 以不同顺序考虑抵消时实际的抵消情况来证明，或者用归纳法。而不能说“由于每个字都可以看成若干个单 $x^{\pm 1}$ 运算在一起，而所有 $x^{\pm 1}$ 是有结合律的，因此所有元素都满足结合律”（相当于只证了部分元素的结合律）。不过，书里的这个证明很有意思：赋予每个元素一个实际含义“对所有字的置换”，这样既保证了区分任何字面不同的情况，又将结合律的证明归约到了对称群的结合律。&lt;/p&gt;
+&lt;p&gt;另外，这节的理论很好地解释了 [CSP-S 2023] 消消乐 的 trie 树做法的动机——找所有 $s_i\cdots s_j=e$，就可以转化成找所有 $(s_1\cdots s_{i-1})^{-1}s_1\cdots s_j=e$，也就是 $s_1\cdots s_j=s_1\cdots s_i$。这题唯一的特殊性是给定了关系 $xx=e$，不过没什么影响。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自由群的子群均为自由群，这个证明很难。另外自由群子群的最小生成元集大小可能大于原群的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;所有群都同构于自由群的商群，以及给定生成元集和关系可以唯一确定“最大”的群，这个很重要。几点理解：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;这个证明的核心是，在自由群的基础上添加特定群的额外关系后不会出现矛盾，而这是平凡的（否则自由群就不够自由了……）。&lt;/li&gt;
+&lt;li&gt;关系的生成正规子群，这个东西的确定，依赖于正规子群的交仍为正规子群。关于 9.5 的证明，直观的理解就是，最大的群对应那个最小的核，有大核的话有可以它通过 5.6 或 5.8 搞个满射。&lt;/li&gt;
+&lt;li&gt;一个群的商群可能不同构于其子群，否则由“自由群的子群均为自由群”，就会出现很诡异的事情。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;证明某一个表示对应的群是某个群：先验证符合，然后再通过关系的代数推导，得出“所有的元素都能表示为某类形式”，从而证明大小的上界。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;8-有限生成-abel-群结构定理&#34;&gt;8. 有限生成 Abel 群结构定理
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-7&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;自由阿贝尔群的定义。&lt;/li&gt;
+&lt;li&gt;用自由阿贝尔群生成任何阿贝尔群。&lt;/li&gt;
+&lt;li&gt;若干种取子群的方式（$mG,G[m],G(p),G_t$）的定义及性质。&lt;/li&gt;
+&lt;li&gt;有限秩的自由阿贝尔群的子群的结构，即所有有限生成阿贝尔群的结构。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-7&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;我们来大致梳理以下整个刻画过程的思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;定义自由阿贝尔群，知道自由群后，这个定义是很自然的。处理自由阿贝尔群的性质时，套路是和线性代数很相似的，唯一不同的点是线性代数允许一个向量乘有理数加给另一个向量（以及向量本身乘一个数），而阿贝尔群不允许。也正是这一点，导致了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;导出自由阿贝尔群的一些性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每个元素表示唯一、基在某个元素乘若干倍加给另一个元素的操作下仍为基，以及它的“自由”性（同样，自由的证明仅需要证明良定义即可）。&lt;/li&gt;
+&lt;li&gt;额外地，证明自由阿贝尔群的基大小唯一。这里对秩有限情况的证明策略是通过取商群，将无限转化为有限，而秩无限的情况就直接用定义和序数理论。我们会注意到，对于唯一性的证明，套路一般就是通过一种不依赖于具体分解的方式，取子群或商群，然后通过这两个不能不相等，证回唯一。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;有限秩的自由阿贝尔群的子群的结构。这个证明最好的方式其实是给出一个构造性的算法：首先考虑用自由群的基线性表出子群的各个生成元，写成一个矩阵。对这个矩阵列变换就是改变基，行变换就是改变生成元集。为了保证改变后可生成性不变，只能使用交换两行/列、一个乘整数倍加给另一个、以及一行/列乘 $-1$。现在可以通过一个算法将矩阵化为&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Smith_normal_form&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;史密斯标准形&lt;/a&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;每次通过多元素的辗转相除法，将左上角元素变为所在行或所在列的 $\gcd$，并把对应行/列的其他元素全部减成 $0$。注意到，一旦 $\gcd$ 不缩小，就可以将行列均变为 $0$，那这样就可以归约到两维各减一的子矩阵。（这里我有一个时间复杂度更优的算法）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;现在可以假定只有 $a_{1,1}$ 到 $a_{r,r}$ 非零。注意到可以用：
+$$
+\begin{bmatrix}a&amp;amp;0\0&amp;amp;b\end{bmatrix}\xrightarrow{\mathrm{B\acute{e}zout}}\begin{bmatrix}a&amp;amp;g\0&amp;amp;b\end{bmatrix}\rightarrow\begin{bmatrix}a&amp;amp;g\-l&amp;amp;0\end{bmatrix}\rightarrow \begin{bmatrix}g&amp;amp;0\0&amp;amp;l\end{bmatrix}
+$$
+将两个元素分别变为它们的 $\gcd$ 和 $\lcm$。那就可以用类似冒泡的过程，将这个对角线上的元素调整为依次整除。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而书里用了一个类似无穷递降法的过程。根据证明贪心的一些经验，由于一般反证只干掉单步，故会比构造性的过程简单一些。书里的思路是：首先找到所有可行生成元被所有基表出的所有系数中最小的一个系数对应的一项 $d_1x_1$，这个 $d_1x_1$ 能作为第一个生成元，然后接着归约就行。其递降的核心是，若不整除，则余数会导致更小项。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后就是利用第一同构定理加商群在直积下的同构性，直接导出任何有限生成阿贝尔群存在一种预想的拆分方式。合数阶的拆分太显然了。最后是证明拆分的唯一性：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\Z$ 部分，商掉挠子群，归到自由阿贝尔群表示的唯一性。&lt;/li&gt;
+&lt;li&gt;“唯一分解定理”，处理方式仍然是抽出子群证相等或矛盾。注意到有限阿贝尔群的商群和子群是可以打通的（https://math.stackexchange.com/questions/64982/is-every-quotient-of-a-finite-abelian-group-g-isomorphic-to-some-subgroup-of），所以用哪种无所谓。&lt;/li&gt;
+&lt;li&gt;依次整除的表示唯一。这个看起来不大直觉，但是把每个阶都拆开来排成矩阵，就显然了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阶为 $n$ 的阿贝尔群的数量 $f(n)$ 是积性函数，其中 $f(p^k)=p(k)$，$p(k)$ 是 $k$ 的无序拆分数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;练习 2.2 的思路：只考虑指数幂情况。归纳，找到一个阶为质数的，与 $\lang x\rang$ 交为 $\set{0}$ 的群 $H$（直接找循环群即可），然后归纳。归纳有个细节，就是 $G/H=(\lang x\rang H)\oplus(K/H)$ 推到 $G=\lang x\rang+K+H=\lang x\rang\oplus K$ 时，要用直积那节交为 $\set{0}$ 的性质。然后推大结论用的是所有元素的阶都整除最大阶。&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_%28Judson%29/13%3A_The_Structure_of_Groups/13.01%3A_Finite_Abelian_Groups&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_(Judson)/13%3A_The_Structure_of_Groups/13.01%3A_Finite_Abelian_Groups&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意挠群不一定有限，例如 Prüfer 群 $\Z(p^\infin)$，它是无限个 $\Z_p$ 的内直积。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;9-krull-schmidt-定理&#34;&gt;9. Krull-Schmidt 定理
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-8&#34;&gt;大纲
+&lt;/h4&gt;&lt;p&gt;最看不懂的一集。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不可分解群、升降链的定义与关系，正规自同态、幂零的定义。&lt;/li&gt;
+&lt;li&gt;为证明 Krull-Schmidt 定理所作的准备，自同态在满足升降链条件的情况下的四条性质。&lt;/li&gt;
+&lt;li&gt;Krull-Schmidt 定理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-8&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;不可分解的条件比单群弱。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;梳理一下证明思路。Krull-Schmidt 定理核心说的就是，ACC 和 DCC 同时成立的情况下分解唯一（我怎么感觉有限群之外一般都用不了这个……）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;满足 ACC&amp;amp;DCC 的不可分解群的自同态要么是自同构，要么是幂零。可根据 $G=(\ker f^n)(\im f^n)$ 直接导出，而 3.4 和 3.5(Fitting) 都是把链设出来之后妙妙推式子。注意在 DCC 是 $f$ 需要正规只是为了 DCC 正规，而正规最终是为了和内直积对上。&lt;/li&gt;
+&lt;li&gt;在 $G=G_1\times\cdots\times G_r\times H_{r+1}\times\cdots\times H_t$ 的情况下，要找到一个 $H_j\cong G_{r+1}$。找的思路是，$G$ 中的元素，它在全 $G_i$ 分解中的 $G_{r+1}$ 分量，在当前分解中体现为 $H_{r+1}\sim H_t$ 分量的一部分，用书中的代数语言写，就是如果让 $\varphi$、$\psi$ 为取分量操作，$\varphi_r=\sum_{j\ge r}\varphi_r\psi_j$。$\varphi_r$ 是 $G_r$ 下的单位映射，所以右式不能全是幂零。&lt;/li&gt;
+&lt;li&gt;要证明最后一句话，就是要证幂零自同态之和封闭 $\Rightarrow$ 幂零。容易想到反证，因为直觉上来说，多个幂零的东西加起来也是幂零的。但直接取幂，由于自同态关于加法没有交换律，所以搞不了。这里证明搞了个 $g_i=f_i(f_1+f_2)^{-1}$，然后一波妙妙推式子就交换了。这边加法和复合构成环。&lt;/li&gt;
+&lt;li&gt;回到原证明，找到一个不是幂零的也就是自同构，分析一下单、满射就可以得到 $\psi_j$ 和 $\varphi_r$ 是（正反方向）同构，然后就要证直接把 $H_j$ 换成 $G_r$ 就行了，就是说虽然 $H_j$ 和 $G_r$ 的东西不一样，但是它们乘上别的之后就得到了整个 $G$，从两个方面（不重——和别的交为 $\set{e}$，不漏——单+3.4=双）证即可。最后才导出 $s=t$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;3.4、3.5、3.7 都有妙妙推式子，我真没法理解思路，除了 3.4：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\ker f^n=\ker f^{n+1}$ 的话，说明只有原来的核是新的核，也就是只有原来的 $e$ 是新的 $e$，则单射则双射。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\im f^n=\im f^{n+1}$ 的话，说明原来的像能覆盖新的像了，那像以外的部分就得汇聚到像内导致多对一，于是根本就不能有像以外的部分，则满射则双射。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然后怎么理解 3.8 的这个“逐一替换”强于单说同构呢？可以看 &lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/questions/2982433/krull-schmidt-theorem-for-groups&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/questions/2982433/krull-schmidt-theorem-for-groups&lt;/a&gt;，本质上就是内直积它是直接子群直积，避开了多元组然后同构的步骤，也就是说 Krull-Schmidt 定理说的不单单是结构唯一，而且还能直接从 $G$ 里取出一堆来直接生成。&lt;/p&gt;
+&lt;p&gt;另外，这个替换过程可以类比线代：比如 $\R^2$ 的基既可以是 $[1\quad0]$ 和 $[0\quad1]$，也可以是 $[1\quad0]$ 和 $[1\quad1]$，可以把 $G_r$ 和 $H_j$ 分别看成两个基的后者。&lt;/p&gt;
+&lt;p&gt;另外注意证明过程中是否有：有限、$G\ne\set{e}$、either ACC/DCC 还是 both ACC&amp;amp;DCC。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3.3 的证明就反证后随便找找子群（DCC 做个前缀和），不过存在不可分解群不满足 ACC 也不满足 DCC 吗？&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;10-群作用&#34;&gt;10. 群作用
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-9&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;群作用、轨道、稳定化子、共轭类、中心化子、正规化子、类方程、中心、内自同构的定义。&lt;/li&gt;
+&lt;li&gt;关于它们的一些性质，主要是以 $|E||Z|=|G|$ 为核心思想的部分，和质数正规的部分。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-9&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;关于群作用的概念较多，研究的核心就是两个：作用者和被作用者。被作用者，我们主要关心其等价类与使它不变的“子”；作用者，主要关心其不动点。特别地，我们非常关心群自身作用自身的情况，这时作用者和被作用者的地位可互换（中心，$gx=xg$）。&lt;br&gt;
+在这几节中，每个定理我们都必须首先明确作用者和被作用者，不然马上就糊涂了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指数为最小质因子的子群必正规，这个的证明思路是：考虑陪集 → $G$ 左作用给左陪集是置换 → $G$ 根据作用效果分类 → ① 置换子群最大质因子是 $p$ ② 划分得是 $|G|$ 的因子 → 只可能 $H$ 自身是核（核至多是 $H$）。&lt;/p&gt;
+&lt;p&gt;这个过程还算易懂，但是是怎么想到绕这样一个弯证出来的？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;补充一下，内自同构是自同构群的正规子群，其商群成为外自同构。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;11-sylow-定理&#34;&gt;11. Sylow 定理
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-10&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Sylow 定理的一些引理，主要是关于阶为质数的群的性质。&lt;/li&gt;
+&lt;li&gt;Sylow $p$ 子群的定义、Sylow 三定理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-10&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;这个部分主要有几个核心思想：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$|S|\equiv|S_0|\pmod p$ 一类。这个说的是，被作用者形成的等价类中，由于稳定化子的陪集构成整个轨道，故每个的大小都是 $p$ 的次幂，然后取 $p^0$（不动点）那部分。这个性质的唯一作用就是说非平凡不动点存在。注意用它的前提条件是作用者的阶必须是质数幂。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;有个重要的思想有点难表述，我们看下几个有相似点的证明思想：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;定理 5.5. $p$ 子群 $H$ 满足：它的“正规化陪集”数（显然，一个 $H$ 的陪集要么全是正规化子要么全不是），与它的陪集数同余。&lt;/p&gt;
+&lt;p&gt;首先得明确，引理 5.1 只能用于同余式两边都是被作用者的情况，但是 5.5 的形式中，就算我们考虑把 &lt;strong&gt;$H$ 的陪集作为被作用者&lt;/strong&gt;，这个“正规化陪集”再怎么说都只能是作用者啊！都写明了是“使 $H$ 正规”。这里我们联想 4.7 证明里的一句话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$g$ 是中心 $\Leftrightarrow$ $g$ 是不动点。（前提：$G$ 共轭作用给 $G$ 自身）&lt;br&gt;
+说明：$gxg^{-1}=x\Leftrightarrow xgx^{-1}=g$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们得以从“中心”这一作用者的角度，转化为“不动点”这一被作用者的角度。那这里也是一样的。&lt;/p&gt;
+&lt;p&gt;这里，选用的是 &lt;strong&gt;$H$ 的元素作为作用者（左作用）&lt;/strong&gt;，这个感觉有点怪异。那么 $|S_0|$ 就应该是在所有 $h$ 的作用下不动的陪集：$h(xH)=xH\Leftrightarrow xHx^{-1}=H$，于是就打通了。发现这个的本质和上面这种单点的是类似的。&lt;/p&gt;
+&lt;p&gt;另外注意：$\forall h\in H,x^{-1}hx\in H\Rightarrow x^{-1}Hx=H$ 这个是在有限前提下的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第二定理：要证 $H\sub xPx^{-1}$，模仿上面的证明，逆向考虑，我们要找的应当是 $h(xP)=xP$（$p(xH)=xH$ 的话就倒反天罡了），即 &lt;strong&gt;$P$ 陪集为被作用者，$H$ 的元素为作用者（左）&lt;/strong&gt;。然后就是个 $[G:P]\not\equiv0$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第三定理：其实说的就是 $[G:N_G(P)]\equiv 1$，拿 5.5 除一下就出来了。不过多个思路也是好事。这里显然考虑&lt;strong&gt;被作用者是 $P$ 的所有共轭&lt;/strong&gt;，即 $\syl_p(G)$，然后让 $S_0=\set P$ 就行。&lt;strong&gt;$P$ 的元素为作用者&lt;/strong&gt;，于是 $\forall p\in P,pQp^{-1}=Q\Rightarrow P\sub N_G(Q)$ 然后由第二定理就得到 $P=Q$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;容易发现，这里的通用构造是“某个小集合（可能就是这个子集）作用在所有子集的陪集上”，然后从不动点出发，去推一些神奇的结论。前一节中是将作用视作置换群，先从作用者的稳定性考虑，能推的不是很多（仅能推出 $\mid n!$ 相关的性质）。反正记住有这两类证的思路就行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第一定理反而显得简单了，就是用柯西定理找个循环群，然后找稳定化子升幂即可。5.11 和第三定理思路中的一块是相同的，就是共轭不变 $+$ Sylow $p$ $\Rightarrow$ 唯一。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;看了第一定理后，会有一个直觉，就是 Sylow $p$ 子群唯一，感觉上如果有两个，可以乘一下搞出更大的。但是这个是不对的，可以看 &lt;a class=&#34;link&#34; href=&#34;https://planetmath.org/subgroupsofs4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://planetmath.org/subgroupsofs4&lt;/a&gt; 为例。另外两个 Sylow $p$ 子群的交也可能非平凡：https://math.stackexchange.com/questions/24704/distinct-sylow-p-subgroups-intersect-only-at-the-identity-which-somehow-follo。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这里提一下 Sylow 第三定理的加强版本：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;设 $v_p(|G|)=m$ 且 $G$ 的所有 Sylow $p$ 子群中，&lt;strong&gt;交&lt;/strong&gt;最大大小为 $p^r$，则 $n_p(G)\equiv1\pmod{p^{m-r}}$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证：我们仍然考虑某一 Sylow $p$ 子群 $P$ 共轭作用在 $\syl_p(G)$ 上。在上面的第三定理中，我们说明的是 $Q$ 不能不动即 $N_P(Q)\ne P$ 即 $P\not\sub N_G(Q)$，其证明手段是，$N_G(Q)$ 中只有唯一 Sylow $p$ 子群 $Q$。那这里也是一样的，$N_P(Q)=N_G(Q)\cap P$，现在我们额外地说，由于 $N_G(Q)\cap P$ 必须是 $p$ 子群，而 $N_G(Q)$ 的 $p$ 子群都包含于 $Q$ 中，因此 $N_P(Q)\sub P\cap Q$，故 $|N_P(Q)|\le|P\cap Q|\le p^r$，故 $p^{m-r}\mid|\mathrm{Orb}_P(Q)|$。&lt;/p&gt;
+&lt;p&gt;这个在有限群分类、证明单群时可以用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;问题：是否会出现某个大小的 $p$ 子群唯一，但 Sylow $p$ 子群不唯一的情况？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;看个搞笑的：https://www.zhihu.com/question/36479927/answer/1554929023。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;12-有限群分类&#34;&gt;12. 有限群分类
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-11&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;$pq$、$8$、$12$ 阶群结构。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-11&#34;&gt;笔记
+&lt;/h4&gt;&lt;p&gt;下文所有 $n_p$ 默认为 $n_p(G)$。&lt;/p&gt;
+&lt;p&gt;主要的几个分析方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;最常用的几个基本定理：拉格朗日定理、第一同构定理、阿贝尔群结构、$G/C(G)$ 循环则阿贝尔、全 $2$ 阶则阿贝尔、指数为最小质因子则正规、$p$ 群中心非平凡、Sylow 定理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一个极为有效的推导：$n_p=kp+1$ 且 $n_p\mid\frac{|G|}{\gcd(|G|,p^\infin)}$，然后要么就是单个正规子群，要么数量可能性少。单个正规子群时，可以从正规性和商群的角度列出两个式子 $bab^{-1}=a^?$ 与 $b^{[G:N]}=a^?$。处理共轭时常用的推导是 $ba^jb^{-1}=(bab^{-1})^j$ 以及 $b^{i}ab^{-i}=b^{i-1}a^kb^{-(i-1)}=\cdots=(bab^{-1})^{k^i}$。&lt;/p&gt;
+&lt;p&gt;这样的一个推导实际上是在分析一个任意子群到正规子群自同构的同态。实际上我们主要会遇到：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\aut\Z_n=\Z_n^\times$。然后根据中国剩余定理与原根存在定理进行拆分。&lt;/li&gt;
+&lt;li&gt;$\aut\Z_p^k\cong\mathrm{GL}_k(\F_p)$。就是 $\bmod p$ 下的 $k$ 阶满秩矩阵，其列向量对应每个生成元映射到哪。&lt;/li&gt;
+&lt;li&gt;其他一些阿贝尔群的自同构。先尝试按质因子拆，包含多个 $\Z_{p^k}$ 直积因子可能会不好搞&lt;/li&gt;
+&lt;li&gt;其他。只能讨论一些小的情况，另外可考虑正规子群的不动性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果正规子群太小，可以用 Correspondence Theorem（或叫 Lattice Theorem）扩大。其实感觉比较平凡，就是说 $G/N$ 的正规子群对应 $G$ 的正规子群，其实在 I.5.11 提到过。然后这个反过来也是成立的，即 $G$ 的正规子群也对应 $G/N$ 的正规子群。&lt;/p&gt;
+&lt;p&gt;如果正规子群太大，也可以考虑第 4 节笔记里的方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果搞不出正规子群，我们一定要强制搞出来。有几个处理思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;考虑共轭 Sylow 子群多的话可能元素会分配不过来。&lt;/li&gt;
+&lt;li&gt;考虑对子群的陪集或正规子群共轭的作用，同态于对称群。&lt;/li&gt;
+&lt;li&gt;考虑中心，可以直接讨论，或者考虑共轭 Sylow 子群的交之类的。中心意味着直积。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然后总结一下各种情况的证明思路。注意当给出一个生成关系时，应当证明它对应的群大小恰好是它且确实是群，不然是不够的，但是这里就略去了。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$p^2$。中心个数是 $p$ 的倍数，于是 $G/C(G)$ 是 $1$ 或 $p$ 阶的，后一种情况通过写出元素的形式可得交换，于是 $G$ 是阿贝尔群。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$pq,(p&amp;lt;q)$。存在唯一 Sylow $q$ 子群 $\lang a\rang$，$n_p&amp;gt;1$ 就必须是 $q\mid(p-1)$ 情况，取个其中的元素 $b$，$bab^{-1}=a^s\Rightarrow a=b^pab^{-p}=a^{s^p}\Rightarrow s^p\equiv 1\pmod q$。证明所有 $ba=a^sb$ 的群同构只需构造 $\varphi(a)=a&amp;rsquo;,\varphi(b)={b&amp;rsquo;}^{\operatorname{ind}_{s&amp;rsquo;}s}$ 即可，这给出了 $G\cong\Z_q\rtimes\Z_p$ 且半直积的下标可以省略。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$8$。非阿贝尔的情况一定有一个阶为 $4$ 的元素 $a$，取 $b\notin\lang a\rang$，① $b$ 对 $\lang a\rang$ 的共轭形成 $\lang a\rang$ 的自同构，于是不交换只能是 $bab^{-1}=a^3\Rightarrow ba=a^{-1}b$；② $b^2\in\lang a\rang\Rightarrow b^2=e\or a^2$。分别对应 $D_4$ 和 $Q_8$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$12$。类似证明指数为最小质因子的群正规的方式，考虑对 $4$ 个 Sylow $3$ 子群的陪集的左作用，到 $S_4$ 的同态。若核是 $\set{e}$，则 $G\cong A_4$；否则由于核是该 Sylow $3$ 子群的子群，故必为其本身，故 Sylow $3$ 子群正规，设为 $\lang a\rang$，它的中心化子里一定有 $|b|=2$，于是 $|ab|=6$。记 $c=ab$，则 $dcd^{-1}=c^5$（非交换）且 $d^2=c^{0\or2\or3\or4}$。如果是 $2\or 4$ 就会 $c^{\pm 2}=d^2=dc^{\pm2}d^{-1}=c^{\mp2}$ 矛盾，故 $d^2=e\or c^3$。&lt;br&gt;
+这两种分别对应 $D_6$ 与 $\Z_6\rtimes\Z_2$……吗？？？如果是 $\Z_6\rtimes\Z_2$ 的话，含 $d$ 的元素的阶就全是 $2$ 了，就是 $D_6$。考虑以 $a$ 和 $d$ 作为生成元（$d^2=b$ 所以 $d$ 可以替代 $b$ 的功能），于是关系就变成了 $a^3=d^4=e,dad^{-1}=a^2$，这样就可以写成 $\Z_3\rtimes\Z_4$ 了。&lt;/p&gt;
+&lt;p&gt;又看到一个不错的证明思路 &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=dS-fIMHVNcE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.youtube.com/watch?v=dS-fIMHVNcE&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;实际上回头看这里，考虑一个 Sylow $2$ 子群（$\Z_4$ 或 $\Z_2^2$）到 $\aut\Z_3$ 的同态（非平凡的只有一个）即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$p^3$。如果有 $p^2$ 阶元 $a$ 则 $\lang a\rang\norm G$，那么显然希望找到另一个 $p$ 阶元 $b$ 从而构成 $\Z_{p^2}\rtimes\Z_p$，这个可以先随便取一个 $b$，然后如果它的阶数不对的话，乘上某个 $a^?$ 就行，这个 $?$ 可以待定系数法解出来。然后容易证明所有的 $bab^{-1}=a^k$ 都是同构的，这里要求 $\delta_{p^2}(k)=p$，所以关系可以写成 $a^{p^2}=b^p=1,ba=a^{p+1}b$。&lt;/p&gt;
+&lt;p&gt;如果没有，则选个 $p$ 阶中心 $c$（$|C(G)|=p$ 否则类似 $p^2$ 情况就阿贝尔了），选 $\lang c\rang$ 以外 $p$ 阶元 $a$，再选另外的 $b$。这里 $\Z_p^2\cong\lang c\rang\times\lang a\rang\norm G$，同样讨论在 $b$ 的共轭作用下这个正规子群会怎样自同构，这里讨论比较复杂，最后得出的同样是所有可能都是同构的，即 $\Z_p^2\rtimes\Z_p$，关系可以写成 $a^p=b^p=c^p=e,ac=ca,bc=cb,c=bab^{-1}a^{-1}$。推导细节详见 &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/497442031/answer/3098229320&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.zhihu.com/question/497442031/answer/3098229320&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在搜资料的时候我发现半直积的性质还是很重要的，所以这里先补充一下相关的知识：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;应该从内半直积开始理解，现在假设 $HK=G$，$H\cap K=\set{e}$，但只有 $H\norm G$。我们想使用类似直积的，$H\rtimes K\cong G$ 的方式来拆分 $G$，因此有同构映射 $f:(h,k)\mapsto hk$，运算必须满足
+$$
+f((h_1,k_1)\cdot(h_2,k_2))=f((h_1,k_1))f((h_2,k_2))=h_1k_1h_2k_2
+$$
+就需要应对 $h$ 与 $k$ 无法交换的问题（如果 $K\norm G$ 则根据 $hkh^{-1}k^{-1}\in H\cap K=\set{e}$ 可得交换性）。这里的关键是：
+$$
+h_1k_1h_2k_2=h_1(k_1h_2k_1^{-1})k_1k_2
+$$
+于是定义 $(h_1,k_1)\cdot(h_2,k_2)=(h_1\cdot k_1h_2k_1^{-1},k_1k_2)$，其余运算规则略，可验证其对应的群符合条件。&lt;/p&gt;
+&lt;p&gt;外半直积也是一样的，我们知道在群中，共轭对应了内自同构。这里要构造群，就只需要是自同构就行了，即，若有同态（不能单单是映射，否则运算就不是良定义的了） $\varphi:K\to\aut H$，就可以定义 $(h_1,k_1)\cdot(h_2,k_2)=(h_1\varphi(k_1)(h_2),k_1k_2)$。这就是外半直积 $H\rtimes_\varphi K$，在不引起歧义时可省略 $\varphi$。&lt;/p&gt;
+&lt;p&gt;以上内容参考了 &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=Pat5Qsmrdaw&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.youtube.com/watch?v=Pat5Qsmrdaw&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;性质 1：对于 $\varphi:K\to\inn H$，$H\rtimes_\varphi K\cong H\times K$。&lt;/p&gt;
+&lt;p&gt;证：根据 $\varphi$ 得到一个 $\psi:K\to H$，$(h_1,k_1)(h_2,k_2)=(h_1\psi(k_1)h_2\psi(k_1)^{-1},k_1k_2)$。构造同构映射 $f:(h,k)\mapsto h\psi(k)$，验证
+$$
+\begin{align*}
+&amp;amp;f((h_1,k_1)(h_2,k_2))\={}&amp;amp;h_1\psi(k_1)h_2\psi(k_1)^{-1}\psi(k_1k_2)\={}&amp;amp;h_1\psi(k_1)h_2\psi(k_2)\={}&amp;amp;f((h_1,k_1))f((h_2,k_2))
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;性质 2：$\exists\chi\in\aut H,\forall k\in K,\psi(k)=\chi\circ\varphi(k)\circ\chi^{-1}\Rightarrow H\rtimes_\varphi K\cong H\rtimes_\psi K$。&lt;/p&gt;
+&lt;p&gt;证：构造 $f:(h,k)\mapsto(\chi(h),k)&amp;rsquo;$，验证
+$$
+\begin{align*}
+&amp;amp;f((h_1,k_1)(h_2,k_2))\={}&amp;amp;f((h_1\varphi(k_1)(h_2),k_1k_2))\={}&amp;amp;(\chi(h_1)(\chi\circ\varphi(k_1))(h_2),k_1k_2)&amp;rsquo;\={}&amp;amp;(\chi(h_1)(\psi(k_1)\circ\chi)(h_2),k_1k_2)&amp;rsquo;\={}&amp;amp;(\chi(h_1),k_1)&amp;rsquo;(\chi(h_2),k_2)&amp;rsquo;\={}&amp;amp;f((h_1,k_1))f((h_2,k_2))
+\end{align*}
+$$
+这个反过来是不对的，一个简单的反例就是性质 1。&lt;/p&gt;
+&lt;p&gt;直觉上来说，这个性质就是对自同构本身作了自同构，或者在实际证明时，往往形如“我们换 $H$ 的生成元（比如 $a$ 换成 $a^3$ 之类），发现它变成了另一个自同构”，于是这两（几）个就只需考虑一个。&lt;/p&gt;
+&lt;p&gt;性质 3：对于有限循环群 $K$，$\exists\chi\in\aut H,\psi(K)=\chi\circ\varphi(K)\circ\chi^{-1}\Rightarrow H\rtimes_\varphi K\cong H\rtimes_\psi K$。&lt;/p&gt;
+&lt;p&gt;证：设 $K=\lang k\rang$。首先循环群有性质 $\varphi(k^a)(h)=\varphi(k)^a(h)$，因此下面以 $\varphi,\psi$ 指代 $\varphi(k),\psi(k)$。&lt;/p&gt;
+&lt;p&gt;设 $\psi^c=\chi\circ\varphi\circ\chi^{-1}$，构造 $f:(h,k^a)\mapsto(\chi(h),k^{ac})&amp;rsquo;$，验证
+$$
+\begin{align*}
+&amp;amp;f((h_1,k^a)(h_2,k^b))\={}&amp;amp;f((h_1\varphi^a(h_2),k^{a+b}))\={}&amp;amp;(\chi(h_1)(\chi\circ\varphi^a)(h_2),k^{(a+b)c})&amp;rsquo;\={}&amp;amp;(\chi(h_1)((\chi\circ\varphi\circ\chi^{-1})^a\chi)(h_2),k^{(a+b)c})&amp;rsquo;\={}&amp;amp;(\chi(h_1)(\psi^{ac}\circ\chi)(h_2),k^{(a+b)c})&amp;rsquo;\={}&amp;amp;(\chi(h_1),k^{ac})&amp;rsquo;(\chi(h_2),k^{bc})&amp;rsquo;\={}&amp;amp;f((h_1,k^a))f((h_2,k^b))
+\end{align*}
+$$
+注意，$K$ 有限时易验证 $c\perp|K|$，从而 $f$ 是双射。$K$ 无限时 $f$ 就不是双射了。&lt;/p&gt;
+&lt;p&gt;更多的反例详见 &lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/questions/624672/semi-direct-product-of-groups-with-one-of-them-cyclic&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/questions/624672/semi-direct-product-of-groups-with-one-of-them-cyclic&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/questions/527800/when-are-two-semidirect-products-isomorphic&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/questions/527800/when-are-two-semidirect-products-isomorphic&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由于群分类时大部分情况这个 $K$ 都是循环群，所以性质 3 会更好用。这个性质 3 相比性质 2 强的点在于，它只要求整个像共轭，而不用每个 $k$ 对应共轭。性质 3 和 $pq$ 情况的证明的核心思想是一样的。&lt;/p&gt;
+&lt;p&gt;现在，我们可以从更高的角度理解 $p^3$ 情况的分析：若正规子群是 $\Z_{p^2}$，那么性质 3 就说有本质唯一的 $\varphi:\lang b\rang\to\set{f\in\aut\Z_{p^2}\mid f(a)=a^{kp+1},k\ne 0}$。若正规子群是 $\Z_p^2$，$\aut\Z_p^2\cong\mathrm{GL}_2(\F_p)$，而 $|\mathrm{GL}_2(\F_p)|=(p^2-1)(p^2-p)$，于是它的唯一 Sylow $p$ 子群共轭类 $\overline{\left\langle\begin{bmatrix}1&amp;amp;1\0&amp;amp;1\end{bmatrix}\right\rangle}$ 就对应了所需的映射，于是半直积也是唯一的。&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;$p^2q$。这个情况需要一个我不会证的性质，先写出来：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于性质 3，如果 $|H|\perp|K|$，则反推也成立。&lt;/p&gt;
+&lt;p&gt;这个性质是 &lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/a/1834299&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/a/1834299&lt;/a&gt; 的简单推论。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这使我们能快速说明分类后各类不同构。接下来是按 $([p\mid(q-1)],[q\mid(p^2-1)])$ 的四种情况来分讨。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$p\mid(q-1)\and q\mid(p^2-1)$。唯一的可能是 $p=2,q=3$，已经在上面讨论过。&lt;/li&gt;
+&lt;li&gt;$p\nmid(q-1)\and q\nmid(p^2-1)$。阿贝尔。&lt;/li&gt;
+&lt;li&gt;$p\nmid(q-1)\and q\mid(p^2-1)$。
+&lt;ol&gt;
+&lt;li&gt;Sylow $p$ 子群是 $\Z_{p^2}$。取个 $q$ 阶循环群，如果 $q\mid(p-1)$，类似于 $pq$ 的时候，会有一个非平凡的情况，就是 $bab^{-1}=a^s$，其中 $\delta_{p^2}(s)=q$。不同的 $s$ 对应的都是同构的。&lt;/li&gt;
+&lt;li&gt;Sylow $p$ 子群是 $\Z_p^2$。这里的分析很复杂，概括一下就是，首先 $q\mid(p-1)\lor q\mid(p+1)$。分三种情况，$q=2$ 是简单的，$q\mid(p+1)$ 的情况有唯一共轭类，$q\mid(p-1)$ 的情况有 $(q+3)/2$ 种。这里核心思路是，从特征值角度出发分析 $\mathrm{GL}_2(\F_p)$ 中 $q$ 阶循环子群之间的共轭关系。细节详见 &lt;a class=&#34;link&#34; href=&#34;https://www.math.purdue.edu/~jlipman/5532011/order-p%5e2q.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.math.purdue.edu/~jlipman/5532011/order-p%5e2q.pdf&lt;/a&gt;，注意这篇文章 $q=2$ 多算了个错的。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;$p\mid(q-1)\and q\nmid(p^2-1)$。还是随便取一个 Sylow $p$ 子群。
+&lt;ol&gt;
+&lt;li&gt;它是 $\Z_{p^2}$。$bab^{-1}=a^s$ 的 $s$ 满足 $\delta_q(s)=p$ 或 $\delta_q(s)=p^2$（如果 $p^2\mid(q-1)$），分别对应一种。&lt;/li&gt;
+&lt;li&gt;它是 $\Z_p^2$。这里用不了性质 3 了，但是也不难搞。设生成元为 $b,c$，$bab^{-1}=a^s,cac^{-1}=a^t$，满足 $\delta_q(s),\delta_q(t)\mid p$ 且不同时为 $1$。我们回顾 $pq$ 情况以及其他形如“不同的阶为 $q$ 的 $s$ 对应群都同构”的证明，它们的思路就是，将生成元换成 $b^?$ 使 $b^?ab^{-?}=a^{s_0}$，就是所有 $s$ 是等价的，所以同构。那 $\Z_p^2$ 的情况也可以类似地构造——设某个 $p$ 次单位根是 $s_0$。如果 $s,t$ 有个是 $1$ 那让另一个变成 $s_0$ 就行，否则设 $s^i\equiv t^{-1},t^j\equiv s_0$，这样将生成元换为 $b&amp;rsquo;=b^ic,c&amp;rsquo;=c^j$ 就可以了，显然 $b&amp;rsquo;,c&amp;rsquo;$ 可以反过来表示 $b,c$。于是无论怎么样都可以变成 $b&amp;rsquo;a{b&amp;rsquo;}^{-1}=a,c&amp;rsquo;a{c&amp;rsquo;}^{-1}=a^{s_0}$，也就是唯一。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们总结一下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;情况&lt;/th&gt;
+&lt;th&gt;条件&lt;/th&gt;
+&lt;th&gt;非阿贝尔群&lt;/th&gt;
+&lt;th&gt;$n$ 例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;平凡&lt;/td&gt;
+&lt;td&gt;$p\nmid(q-1)\land q\nmid(p^2-1)$&lt;/td&gt;
+&lt;td&gt;无&lt;/td&gt;
+&lt;td&gt;$45,99,153,175,207$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$12$&lt;/td&gt;
+&lt;td&gt;$n=12$&lt;/td&gt;
+&lt;td&gt;$3$ 个：$\Z_3\rtimes\Z_4$、$\Z_3\rtimes\Z_2^2$、$\Z_2^2\rtimes\Z_3$&lt;/td&gt;
+&lt;td&gt;$12$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$p$ 小&lt;/td&gt;
+&lt;td&gt;$p\parallel(q-1)\land n\ne 12$&lt;/td&gt;
+&lt;td&gt;$2$ 个：$\Z_q\rtimes\Z_{p^2}$、$\Z_q\rtimes\Z_p^2$&lt;/td&gt;
+&lt;td&gt;$28,44,63,76,92$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$p^2$ 小&lt;/td&gt;
+&lt;td&gt;$p^2\mid(q-1)$&lt;/td&gt;
+&lt;td&gt;$3$ 个：同上、$\Z_q\rtimes_{\varphi&amp;rsquo;}\Z_{p^2}$&lt;/td&gt;
+&lt;td&gt;$20,52,68,116,148$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$2p^2$&lt;/td&gt;
+&lt;td&gt;$q=2$&lt;/td&gt;
+&lt;td&gt;$3$ 个：$\Z_{p^2}\rtimes\Z_2$、$\Z_p^2\rtimes_{\varphi,\varphi&amp;rsquo;}\Z_2$&lt;/td&gt;
+&lt;td&gt;$18,50,98,242,338$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$p+1$&lt;/td&gt;
+&lt;td&gt;$q\mid(p+1)\land q\ne2\land n\ne 12$&lt;/td&gt;
+&lt;td&gt;$1$ 个：$\Z_p^2\rtimes\Z_q$&lt;/td&gt;
+&lt;td&gt;$75,363,867$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;td&gt;$q\mid(p-1)\land q\ne 2$&lt;/td&gt;
+&lt;td&gt;$(q+5)/2$ 个：$\Z_{p^2}\rtimes\Z_q$、$\Z_p^2\rtimes_{\varphi_i}\Z_q$&lt;/td&gt;
+&lt;td&gt;$147,507,605$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;注意 $\Z_n\rtimes\Z_2^2\cong\Z_{2n}\rtimes\Z_2\cong D_{2n}$。其余还有某些半直积可以写成循环群与二面体群/置换群/亚循环群的直积，但我不是很清楚是否有通用的转换方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$pqr;(p&amp;lt;q&amp;lt;r)$。首先进行以下简单推理：$n_r\in\set{1,pq}$ 且 $n_q\in\set{1,r,pr}$。若 $n_r=pq$ 且 $n_q\ne 1$，则 $G$ 中有 $pq(r-1)$ 个阶为 $r$ 的元素，以及 $r(q-1)$ 个阶为 $q$ 的元素，共 $pqr-pq+rq-r=pqr+(r-p)(q-1)-p&amp;gt;pqr$ 个，矛盾。故 $n_r=1\lor n_q=1$，无论哪个正规，取 $G$ 关于其的商群，商群中一定有 Sylow 另一个质数 子群，取出其对应原群中的部分，即得一 $qr$ 阶正规子群 $H$。同时，由于 $H$ 有正规 Sylow $r$ 子群，故该子群在 $G$ 中也正规。&lt;/p&gt;
+&lt;p&gt;如果 $H\cong\Z_{qr}$，那就较简单：考虑 $\varphi:\Z_p\to\aut H\cong\Z_{q-1}\times\Z_{r-1}$，如果 $p\nmid(q-1)(r-1)$ 就只有阿贝尔群，如果 $p\mid(q-1)$ 与 $p\mid(r-1)$ 其一成立，就有一种，否则模 $q$ 和 $r$ 下的 $p$ 次单位根都可以取，可以固定其中一个单位根，有 $p+1$ 种（$(0,1)$、$(1,i)$）。&lt;/p&gt;
+&lt;p&gt;$q\mid(r-1)$ 时能不能搞些别的？如果 $p\nmid(q-1)\land p\nmid(r-1)$，则 $G/\syl_r(G)$ 是个循环群，有 $p$ 阶正规子群，于是就有 $pr$ 阶循环正规子群，然后 $\Z_q$ 对它共轭即可，有一种。注意如果按下面的方式分析，得出的群是和这里同构的。&lt;/p&gt;
+&lt;p&gt;其他情况就要直面 $\varphi:\Z_p\to\aut(\Z_r\rtimes\Z_q)$ 了。设 $\Z_r\rtimes\Z_q$ 中 $bab^{-1}=a^s;(s^q\equiv1\pmod r\land s\not\equiv 1)$，其中 $|a|=r$。由于 $\lang a\rang$ 正规，故 $\varphi(c)(a)=a^t;(t^p\equiv1\pmod r)$。在 $p\nmid(r-1)\and p\mid(q-1)$ 的时候，$\varphi(\forall)(a)=a$。设 $\varphi(c)(b)=a^xb^y$，则
+$$
+\varphi(c)(ba)=\varphi(c)(a^sb)\Rightarrow a^{x+s^y}b^y=a^{s+x}b^y\Rightarrow s^{y-1}\equiv1\pmod r\Rightarrow q\mid(y-1)\Rightarrow y=1\
+\varphi(c^p)(b)=b\Rightarrow a^{px}b=b\Rightarrow x=0
+$$
+于是 $\varphi(c)=\iota$，即 $(\Z_r\rtimes\Z_q)\times\Z_p$ 唯一。&lt;/p&gt;
+&lt;p&gt;$p\mid(r-1)$ 时，若 $t\ne 1$，则
+$$
+\varphi(c)(ba)=\varphi(c)(a^sb)\Rightarrow a^{x+s^yt}b^y=a^{st+x}b^y\Rightarrow y=1\
+\varphi(c^p)(b)=b\Rightarrow a^{\frac{t^p-1}{t-1}x}b=b\Leftrightarrow\top
+$$
+所以其实跟前面没什么两样，就是 $t,x$ 都有多种取法。首先 $x=0$ 是一种特殊的。其他情况，而考虑变换生成元：$a$ 变成 $a^\alpha$，$b$ 变成 $b^\beta$，$c$ 变成 $c^\gamma$，则
+$$
+b^\beta a^\alpha b^{-\beta}=(a^\alpha)^{s^\beta}\
+\varphi(c^\gamma)(a^\alpha)=(a^\alpha)^{t^\gamma}\
+\varphi(c^\gamma)(b^\beta)=a^{\frac{t^\gamma-1}{t-1}\frac{s^\beta-1}{s-1}x}b^\beta
+$$
+容易发现是可以都变成某组 $(a^{s_0},a^{t_0},ab)$ 的。&lt;/p&gt;
+&lt;p&gt;总结一下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;$[q\mid(r-1)]$&lt;/th&gt;
+&lt;th&gt;$[p\mid(r-1)]$&lt;/th&gt;
+&lt;th&gt;$[p\mid(q-1)]$&lt;/th&gt;
+&lt;th&gt;非阿贝尔群&lt;/th&gt;
+&lt;th&gt;$n$ 例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;无&lt;/td&gt;
+&lt;td&gt;$255,345,435,455,561$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$1$ 个：$\Z_{qr}\rtimes\Z_p$&lt;/td&gt;
+&lt;td&gt;$231,357,483,663,715$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$1$ 个：$\Z_{qr}\rtimes\Z_p$&lt;/td&gt;
+&lt;td&gt;$105,195,285,385,429$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$p+1$ 个：$\Z_{qr}\rtimes_{\varphi_i}\Z_p$&lt;/td&gt;
+&lt;td&gt;$30,66,70,102,130$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$1$ 个：$\Z_{pr}\rtimes\Z_q$&lt;/td&gt;
+&lt;td&gt;$165,615,759$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$2$ 个：$\Z_{qr}\rtimes\Z_p$、$(\Z_r\rtimes\Z_q)\times\Z_p$&lt;/td&gt;
+&lt;td&gt;$609,1265,1491$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$0$&lt;/td&gt;
+&lt;td&gt;$3$ 个：$\Z_{qr}\rtimes\Z_p$、$(\Z_r\rtimes\Z_q)\times\Z_p$、$(\Z_r\rtimes\Z_q)\rtimes\Z_p$&lt;/td&gt;
+&lt;td&gt;$465,915,2211$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$1$&lt;/td&gt;
+&lt;td&gt;$p+3$ 个：$\Z_{qr}\rtimes_{\varphi_i}\Z_p$、$(\Z_r\rtimes\Z_q)\times\Z_p$、$(\Z_r\rtimes\Z_q)\rtimes\Z_p$&lt;/td&gt;
+&lt;td&gt;$42,78,110,114,903$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$16$。主要有两个思路：分析 $8$ 阶正规子群、分析中心大小。这里考虑前一种。&lt;/p&gt;
+&lt;p&gt;首先我们说明非阿贝尔的 $G$ 一定有 $\Z_8$ 或 $\Z_4\times\Z_2$ 作为子群，这里的推导很别扭：可以立即假设 $G$ 中元素的阶都 $\le 4$ 且至少有一个是 $4$，然后考虑 $C(G)$，如果大小是 $4$，那么 $G/C(G)\cong\Z_2^2$（否则阿贝尔），即得；否则 $C(G)=\set{1,c}$，若有 $|x|=4,\lang x\rang\cap C(G)=\set{e}$，那么即得，否则所有 $x^2=c\or e$，那么 $G/C(G)\cong\Z_2^3$，那么一个 $x$ 的共轭就只可能在 $xC(G)$ 内（否则 $G/C(G)$ 不是阿贝尔），那么 $C_G(x)=8$，那么可以找到另一个 $y$，使 $x,y,z$ 交换且 $y^2=z\or e$，都对应 $\Z_4\times\Z_2$。&lt;/p&gt;
+&lt;p&gt;若 $\Z_8\norm G$，同样类似于 $p^3$ 的情况，可以找到外面一个 $2$ 阶元 $b$，然后分析自同构，$bab^{-1}=a^{1\or3\or5\or7}$，并且这四种互不同构。&lt;/p&gt;
+&lt;p&gt;否则，考虑 $\Z_4\times\Z_2$ 的自同构（也可以用矩阵描述，但这个矩阵里元素的取值范围不同，不容易分析，事实上 $\aut(\Z_4\times\Z_2)\cong D_4$），设它的生成元为 $a,b$，$a\mapsto a^1\or a^3\or a^1b\or a^3b$，$b\mapsto b\or a^2b$（如果 $b\mapsto a^2$ 那就 $f(a)^2=f(b)^2$ 不对了）。在这些自同构中，$(a,b)\mapsto(ab,b)$ 和 $(a,b)\mapsto(a^3b,b)$ 共轭，$(a,b)\mapsto(a,a^2b)$ 和 $(a,b)\mapsto(a^3,a^2b)$ 共轭，$(a,b)\mapsto(ab,a^2b)$ 和 $(a,b)\mapsto(a^3b,a^2b)$ 共轭。&lt;/p&gt;
+&lt;p&gt;现在找另一个元素 $c$。最后一个共轭类是一定不行的，因为无论 $|c|=2\or4$，$c^2$ 都在正规子群里，所以自同构的阶得 $\le2$。若 $|c|=2$，则四种互不同构；若 $|c|=4$，分类讨论：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;$(a,b)\mapsto(a^3,b)$&lt;/th&gt;
+&lt;th&gt;$(a,b)\mapsto(ab,b)$&lt;/th&gt;
+&lt;th&gt;$(a,b)\mapsto(a,a^2b)$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$c^2=a^2$&lt;/td&gt;
+&lt;td&gt;$\lang a,b,c\mid a^4=b^2=[a,b]=[b,c]=e,c^2=a^2,ca=a^{-1}c\rang$&lt;/td&gt;
+&lt;td&gt;$\lang ac,a\mid(ac)^4=a^4=e,a(ac)=(ac)^{-1}a\rang$&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$c^2=b$&lt;/td&gt;
+&lt;td&gt;$\lang a,c\mid a^4=c^4=e,ca=a^{-1}c\rang$&lt;/td&gt;
+&lt;td&gt;$(ac)^2=a^2$&lt;/td&gt;
+&lt;td&gt;不可能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$c^2=a^2b$&lt;/td&gt;
+&lt;td&gt;$\lang a,c\mid a^4=c^4=e,ca=a^{-1}c\rang$&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;所以实际只有两类，至于如何发现第二类（$(1,2),(2,1),(3,1)$）这些情况同构的，只能说实在是注意力惊人，这个表我也是对着论文搞的。最后只需验证这两类无 $8$ 阶元，有 $3$ 个 $2$ 阶元，且不同构即可。&lt;/p&gt;
+&lt;p&gt;总结一下，阿贝尔 $5$ 个，有 $8$ 阶元时 $3$ 个，无 $8$ 阶元时 $4+2=6$ 个，共 $14$ 个。&lt;/p&gt;
+&lt;p&gt;参考：本方法：http://buzzard.ups.edu/courses/2015spring/projects/whitcomb-groups-16-ups-434-2015.pdf、https://www.researchgate.net/publication/259147732_The_Groups_of_Order_Sixteen_Made_Easy。另一类方法：http://buzzard.ups.edu/courses/2012spring/projects/clausen-groups-16-ups-434-2012.pdf、https://files.eric.ed.gov/fulltext/EJ1054466.pdf、https://hal.science/cel-01841041/document。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$p^4$。思路是用矩阵分析 $p^3$ 阶正规子群的自同构，太复杂了，见 &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1611.00461&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/pdf/1611.00461&lt;/a&gt;、https://future-in-tech.net/17.4/R-Hasanat1.pdf。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$24$。如果 $n_3=1$，设 $\aut\Z_3=\set{1,f}$。考虑任一 Sylow $2$ 子群（多个 Sylow 子群必同构）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\Z_8$。只有一种，即 $a\mapsto f$。&lt;/li&gt;
+&lt;li&gt;$\Z_4\times\Z_2$。两种，$(a,b)\mapsto(f,1)\or{}(1,f)$。$(a,b)\mapsto(f,f)$ 转 $(ab,b)\mapsto(1,f)$ 与后者同构。&lt;/li&gt;
+&lt;li&gt;$\Z_2^3$。将两个 $\mapsto f$ 的元素相乘作为生成元，这样来变换，可统一归为 $(a,b,c)\mapsto(f,1,1)$。&lt;/li&gt;
+&lt;li&gt;$D_4$。两种，$(a,b)\mapsto(f,1)\or{}(1,f)$。$(a,b)\mapsto(f,f)$ 转 $(a,ab)\mapsto(f,1)$ 与前者同构。&lt;/li&gt;
+&lt;li&gt;$Q_8$。类似情况 3 只有一种。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;否则 $n_3=4$，考虑 $G$ 共轭作用在它上面形成的 $\varphi:G\to S_4$ 同态，讨论 $\ker\varphi$。由于每个 Sylow $3$ 子群的正规化子均是 $6$ 个，故 $|\ker\varphi|\mid6$。若 $|\ker\varphi|\in\set{3,6}$，则 $G$ 有大小为 $3$ 的正规子群 （$6$ 的情况取出唯一大小为 $3$ 的子群 $\set{e,a^2,a^4}$，由于共轭后 $3$ 阶子群，所以正规。这里的正规传递性是个例），矛盾。若 $|\ker\varphi|=1$，则 $G\cong S_4$。最后 $|\ker\varphi|=2$。这种情况下 $G/\ker\varphi\cong A_4$，由于 $\Z_2^2\norm A_4$，找到原像，即 $G$ 有正规 Sylow $2$ 子群。讨论它：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\Z_8$。无 $3$ 阶元。&lt;/li&gt;
+&lt;li&gt;$\Z_4\times\Z_2$。在 $|G|=16$ 里讨论过它的自同构为 $D_4$，没有 $3$ 阶元。&lt;/li&gt;
+&lt;li&gt;$\Z_2^3$。很棒的一点是，$3\parallel168=|\mathrm{GL}_3(\F_2)|$，于是共轭类唯一。这种情况其实是 $A_4\times\Z_2$。&lt;/li&gt;
+&lt;li&gt;$D_4$。事实上 $\aut D_4也\cong D_4$，所以也不行。&lt;/li&gt;
+&lt;li&gt;$Q_8$。事实上 $\aut Q_8\cong S_4$。$3$ 阶元是所有 $3$ 循环，所以唯一。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;上面所有一方正规的情况，另一方必不正规（否则两个正规之间可以交换，直接直积了）。最后总结得到，阿贝尔 $3$ 个，非阿贝尔直积 $2$ 个，Sylow $3$ 正规 $7$ 个，$S_4$ $1$ 个，Sylow $8$ 正规 $2$ 个，共 $15$ 个。&lt;/p&gt;
+&lt;p&gt;参考：https://www.youtube.com/watch?v=6TWuo2NO8vg、http://www.brahmanandcollege.org.in/pg_math/Modern%20Algebra-01.pdf。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$56$。如果 $n_7=1$，则分讨跟 $|G|=24$ 一样（因为 $\aut\Z_7$ 除了一个 $2$ 阶元以外，其余都是 $3\or6$ 阶的，都不能碰）。否则就有 $48$ 个 $7$ 阶元，剩余 $8$ 个元素必形成一正规 Sylow $2$ 子群，这里就比楼上简单了。唯一的可能就是 $\Z_2^3$，同样 $7\parallel168$，所以唯一，共 $13$ 个。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$8p;(p\ne3,7)$。这种情况必有 $n_p=1$。&lt;/p&gt;
+&lt;p&gt;$40$ 的时候 $\aut\Z_5\cong\Z_4$，讨论任一 Sylow $2$：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\Z_8$。$a\mapsto f^{1\or 2}$ 两种。&lt;/li&gt;
+&lt;li&gt;$\Z_4\times\Z_2$。$(a,b)\mapsto(1,f^2)\or{}(f^2,1)\or{}(f,1)$。$(f^2,f^2)$ 同 $24$，$(f,f^2)$ 转 $(a,a^2b)\mapsto(f,1)$。&lt;/li&gt;
+&lt;li&gt;$\Z_2^3$。一种。&lt;/li&gt;
+&lt;li&gt;$D_4$。同 $24$。$(a,b)\mapsto(f,?)$ 之类的情况会导致 $\varphi(ba)\ne\varphi(a^{-1}b)$，故不行。&lt;/li&gt;
+&lt;li&gt;$Q_8$。同 $24$。$(a,b)\mapsto(f,?)$（$a,b$ 即 $i,j$）之类的情况会导致 $\varphi(a^2)\ne\varphi(b^2)\or\varphi((ab)^2)$，故不行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;总的就是 $5+2+3+1+2+1=14$ 种。$4\parallel(p-1)$ 的情况都是 $14$ 种。&lt;/p&gt;
+&lt;p&gt;以 $136$ 为首的 $8\mid(p-1)$ 的情况就是多了个 $\Z_8$ 时 $|\varphi(a)|=8$ 的情况，共 $15$ 种。&lt;/p&gt;
+&lt;p&gt;以 $88$ 为首的 $2\parallel(p-1)$ 的情况是 $5+1+2+1+2+1=12$。&lt;/p&gt;
+&lt;p&gt;总结一下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;$p$&lt;/th&gt;
+&lt;th&gt;$2$&lt;/th&gt;
+&lt;th&gt;$3$&lt;/th&gt;
+&lt;th&gt;$7$&lt;/th&gt;
+&lt;th&gt;$v_2(p-1)=1$&lt;/th&gt;
+&lt;th&gt;$v_2(p-1)=2$&lt;/th&gt;
+&lt;th&gt;$v_2(p-1)\ge3$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$a(8p)$&lt;/td&gt;
+&lt;td&gt;$14$&lt;/td&gt;
+&lt;td&gt;$15$&lt;/td&gt;
+&lt;td&gt;$13$&lt;/td&gt;
+&lt;td&gt;$12$&lt;/td&gt;
+&lt;td&gt;$14$&lt;/td&gt;
+&lt;td&gt;$15$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;关于 $2^kp$ 见 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/69254703&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/69254703&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$36$。首先我们需要证明 $n_2=1\lor n_3=1$。看起来简单的东西推导很变态，我找了一堆证明（https://math.stackexchange.com/questions/3290888/if-g-36-then-g-has-either-a-normal-2-sylow-or-a-normal-3-sylow、https://math.stackexchange.com/questions/2918359/a-group-of-order-36-has-either-a-normal-sylow-2-subgroup-or-a-normal-sylow、https://math.berkeley.edu/~wodzicki/257/G36.pdf、https://max.book118.com/html/2017/0806/126207403.shtm），没一个少于一页的。&lt;/p&gt;
+&lt;p&gt;如果 $G$ 有 $4$ 个 Sylow $3$ 子群 $X_{1\sim 4}$，那么考虑 $G$ 共轭作用在它们上，形成一个 $\varphi:G\to S_4$ 的同态。$|\im \varphi|\mid\gcd(36,24)=12$，同时由于 $\forall i,\exists g,gX_1g^{-1}=X_i$，故 $\im\varphi$ 中每个 $\sigma(1)=1$ 的元素都与 $\sigma(1)=2,3,4$ 元素各一个对应，故 $4\mid|\im\varphi|$，故 $|\im\varphi|\in\set{4,12}$。若为 $4$，则 $|\ker\varphi|=9$ 矛盾；否则 $G/\ker\varphi\cong\im\varphi=A_4$，且 $\ker\varphi$ 是一个 $3$ 阶正规子群。① 这说明它是所有 Sylow $3$ 子群的子群，而 $9$ 阶群一定是阿贝尔群，故与 $\ker\varphi$ 的元素的中心化子至少为 $27$，于是 $\ker\varphi\sub C(G)$。② 如果 $n_2&amp;gt;1$，比如有 $Y_1,Y_2$，它们显然与 $\ker\varphi$ 交为 $\set{e}$，故它们对应到 $G/\ker\varphi$ 上也是 Sylow $2$ 子群，而 $A_4$ 的 Sylow $2$ 子群是唯一的 $\Z_2^2$，故 $Y_1\ker\varphi=Y_2\ker\varphi$。由 ①，它们都 $\cong\Z_3\times\Z_2^2$ 阿贝尔群，于是 $Y_1=Y_2$，因此 $n_2=1$。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;正规 Sylow $3$ 子群 $\Z_9$，Sylow $2$ 子群 $\Z_4$。由于 $\varphi(9)=6$（这个 $\varphi$ 是欧拉函数），故只有一种。&lt;/li&gt;
+&lt;li&gt;正规 Sylow $3$ 子群 $\Z_9$，Sylow $2$ 子群 $\Z_2^2$。同 6.4.2，一种。&lt;/li&gt;
+&lt;li&gt;正规 Sylow $3$ 子群 $\Z_3^2$，Sylow $2$ 子群 $\Z_4$。$\mathrm{GL}_2(\F_3)$ 在相似意义下有两个二阶元 $\begin{bmatrix}-1&amp;amp;0\0&amp;amp;\pm1\end{bmatrix}$，一个四阶元 $\begin{bmatrix}0&amp;amp;1\-1&amp;amp;0\end{bmatrix}$，因此有三种。&lt;/li&gt;
+&lt;li&gt;正规 Sylow $3$ 子群 $\Z_3^2$，Sylow $2$ 子群 $\Z_2^2$。记 $\Z_2^2$ 的两个生成元为 $a,b$，如果 $\varphi(a)\ne\varphi(b)$，则 $\im\varphi\cong\Z_2^2$，一种。否则可以认为 $\varphi(b)=1$（不是的话可以把 $b$ 换成 $ab$），$\varphi(a)$ 两种。共三种。&lt;/li&gt;
+&lt;li&gt;正规 Sylow $2$ 子群 $\Z_4$，Sylow $3$ 子群 $\Z_9$。不行。&lt;/li&gt;
+&lt;li&gt;正规 Sylow $2$ 子群 $\Z_4$，Sylow $3$ 子群 $\Z_3^2$。不行。&lt;/li&gt;
+&lt;li&gt;正规 Sylow $2$ 子群 $\Z_2^2$，Sylow $3$ 子群 $\Z_9$。事实上 $\aut\Z_2\cong\mathrm{GL}_2(\F_2)\cong S_3$，有唯一 Sylow $3$ 子群，一种。&lt;/li&gt;
+&lt;li&gt;正规 Sylow $2$ 子群 $\Z_2^2$，Sylow $3$ 子群 $\Z_3^2$。类似情况 2 也可以归为 $(1,f)$。一种。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;总共 $2^2+1+1+3+3+0+0+1+1=14$ 种（第一个加数对应阿贝尔，后同）。&lt;/p&gt;
+&lt;p&gt;这里关于 $\aut\Z_3^2$ 的同构的共轭类是参照 &lt;a class=&#34;link&#34; href=&#34;https://groupprops.subwiki.org/wiki/General_linear_group:GL%282,3%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://groupprops.subwiki.org/wiki/General_linear_group:GL(2,3)&lt;/a&gt;，我不大会证这些，可能以后深入学线代会再补充。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$4p^2;(p\ne3)$。这时必有 $n_p=1$，但同样由于我不会分析 $\aut\Z_p^2$ 而且网上没有按这种思路分析的资料所以这里就留坑了。这里先给出结论：$p=4k+1$ 时有 $16$ 个，$p=4k+3$ 时有 $12$ 个。见 &lt;a class=&#34;link&#34; href=&#34;https://xueshu.baidu.com/usercenter/paper/show?paperid=1m4n0tf0y90w0vh0py530vs0ax491706&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://xueshu.baidu.com/usercenter/paper/show?paperid=1m4n0tf0y90w0vh0py530vs0ax491706&lt;/a&gt;。注意 B 站有个讲 $10$、$100$、$1000$ 阶群分类的视频，讲得不完整，最难的部分整个略掉了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$2p^3$。也是直接得到正规，但是 $p^3$ 阶群的自同构难以分析。https://www.zhihu.com/question/637163090/answer/3346156282 这里是一个不完整的分析，问题和那个 B 站的视频类似，都是共轭设得不全。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$60$。我们首先希望 $n_5=1$。如果不是，那么 $n_5=6$，接下来证明 $G$ 是单群。如果 $G$ 有正规子群 $N$，如果 $5\mid|N|$，那么$|N|=10\or15\or20\or30$。前三种情况显然有正规 Sylow $5$ 子群，$30$ 的情况根据 $|G|=pqr$ 的分析也有正规 Sylow $5$，于是它也是 $G$ 的正规 Sylow $5$。否则 $|G/N|=5\or10\or15\or20\or30$，后四种情况可以乘回 $N$ 得到 $5\mid|N&amp;rsquo;|$，第一种情况 $|N|=12$，它有正规 Sylow $2\or 3$，于是 $G$ 也有，归到前面。&lt;/p&gt;
+&lt;p&gt;而 $60$ 阶单群只可能是 $A_5$。我们先证明它有 $12$ 阶子群。$n_2=3\or5\or15$，若为 $3$，则每个的正规化子有 $20$ 个，说明 $G$ 有 $20$ 阶子群，则 $G$ 作用在该子群的陪集上时，形成一个 $\varphi:G\to S_3$，进而 $\ker\varphi$ 是 $G$ 的正规子群；若为 $15$，那么如果这些子群两两只有平凡交，则 $2,4$ 阶元有 $15\times3=45$ 个，而 $5$ 阶元有 $6\times4=24$ 个，矛盾。因此存在两个 Sylow $2$ 子群 $X_1,X_2$，$X_1\cap X_2=\set{e,x}$。由于 $4$ 阶群必阿贝尔，故 $X_1,X_2\sub C_G(x)$，故 $C_G(x)=12\or20\or60$，后两种都不可能。现在 $G$ 有 $12$ 阶子群了，考虑作用在它的陪集上，形成 $\psi:G\to S_5$，且单性故 $\ker\psi$ 平凡，故 $G\cong\im\psi\cong A_5$，$n_2=5$ 的情况直接跳到这里。&lt;/p&gt;
+&lt;p&gt;现在 $G$ 有正规 Sylow $5$ 子群 $H$，讨论 $n_3$。$G$ 的 Sylow $3$ 子群与 $G/H$ 的 Sylow $3$ 子群一一对应（正过来直接取，反过来是因为可以对应 $15$ 阶子群 $\cong\Z_{15}$ 从而有唯一 Sylow $3$ 子群），因此 $n_3\ne10$。如果 $n_3=4$，那么它们各自乘 $H$ 形成四个同构于 $\Z_{15}$ 的，两两交于 $H$ 的群，这意味着 $|N_G(H)|\ge 45$ 从而 $H\sub C(G)$，这大大简化了讨论——$G/H$ 的 Sylow $3$ 子群不正规，这意味着它 $\cong A_4$，类似于这段开头，$G/H$ 的唯一 Sylow $2$ 子群与 $G$ 的唯一 Sylow $2$ 子群对应（注意这里的对应依赖于 $H\sub C(G)$ 因为不然 $20$ 阶群的讨论就爆炸了），于是将这个正规 Sylow $2$ 子群与 Sylow $3$ 子群相乘，立即得到同构于 $A_4$ 的 $12$ 阶子群，从而 $G\cong\Z_5\times A_4$。PS：这里搞得这么麻烦的原因是，如果直接搞出正规子群 $\Z_5\times\Z_2^2$，自同构就很难讨论了。&lt;/p&gt;
+&lt;p&gt;如果 $n_3=1$，那么只需考虑 $\Z_4\to\aut\Z_{15}$ 与 $\Z_2^2\to\aut\Z_{15}$，显然分别有五、四个。&lt;/p&gt;
+&lt;p&gt;总共 $2+1+1+5+4=13$ 种。&lt;/p&gt;
+&lt;p&gt;参考：https://www.math.utoronto.ca/alfonso/347/Groups60.pdf、https://math.stackexchange.com/questions/3068904/group-of-order-60、https://math.stackexchange.com/questions/1121248/classifying-groups-of-order-60、https://math.stackexchange.com/questions/360816/about-the-proof-that-a-simple-group-of-order-60-is-isomorphic-to-a5、https://epgp.inflibnet.ac.in/epgpdata/uploads/epgp_content/S000025MS/P001533/M016962/ET/1468557941E-textofChapter3Module4.pdf&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$90$。核心是说明 $G$ 有 $45$ 阶子群。若 $n_5=1$，则 $18$ 阶商群的 $n_3=1$，即得。否则，如果 $n_3&amp;gt;1$，那么我们说这些子群 $X_{1\sim 10}$ 不可能两两只有平凡交，因为反之则 $3$ 与 $9$ 阶元有 $80$ 个，但 $5$ 阶元有 $24$ 个。现在找到 $X_i\cap X_j=H\ne\set{e}$，考虑其正规化子数量： $|N_G(H)|\ge|X_1X_2|\ge27$。同时 $X_i&amp;lt;N_G(H)$ 故 $|N_G(H)|=45\or90$。后者即 $H\norm G$，由于 $G/H$ 这个 $30$ 阶群有 $15$ 阶子群，所以也得到 $45$ 阶。而 $45$ 阶群一定是阿贝尔群。&lt;/p&gt;
+&lt;p&gt;那现在只需考虑 $\Z_2\to\aut\Z_{45}$ 与 $\Z_2\to\aut(\Z_3\times\Z_{15})$。前者有三种。后者，由于正规子群在自同构下不动，故 $\aut(\Z_3\times\Z_{15})\cong\aut\Z_3^2\times\aut\Z_5$，$\mathrm{GL_2}(\F_3)$ 的二阶共轭类有两种，故这个是 $3\times2-1=5$ 种。共 $2+3+5=10$ 种。&lt;/p&gt;
+&lt;p&gt;参考：https://math.stackexchange.com/questions/360790/classifying-groups-of-order-90、https://math.stackexchange.com/questions/146687/how-do-i-show-that-every-group-of-order-90-is-not-simple。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$132$。首先我们说明 $n_{11}=1$。若 $n_{11}=12$，若 $n_3=1$，则可得到商群的正规 Sylow $11$，然后得到 $G$ 的 $33$ 阶正规子群，由于 $33$ 阶群只能是 $\Z_{33}$，故 $11$ 阶正规；若 $n_3&amp;gt;1$，它不可能是 $22$，只可能是 $4$。于是有 $G$ 到 $S_4$ 的同态，其像大小整除 $12$ 且是 $4$ 的倍数（同 $|G|=36$ 第二段的分析），因此只可能是 $4\or 12$，对应核都说明 $11$ 阶正规。&lt;/p&gt;
+&lt;p&gt;现在 $n_{11}=1$，这里的分析跟 $|G|=60$ 完全一样：由 $n_3&amp;gt;1$ 可得 $\Z_{11}\times A_4$，由 $n_3=1$ 可得正规子群 $\Z_{33}$，$\Z_4$ 和 $\Z_2^2$ 分别对应 $3$ 和 $4$ 个。共 $2+1+3+4=10$ 种。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$135$。立即得 $45$ 阶正规子群，考虑 $\Z_3$ 到 $\aut\Z_{45}$ 和 $\aut(\Z_3\times\Z_{15})$。根据 $|G|=36$ 最后的链接，$\mathrm{GL}_2(\F_3)$ 有唯一三阶共轭类，故总共 $3+1+1=5$ 种。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$140$。立即得 $35$ 阶正规，考虑 $\Z_4$ 和 $\Z_2^2$ 到 $\aut\Z_{35}$，和 $|G|=60$ 一样。共 $2+5+4=11$ 种。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$198$。立即得 $99$ 阶正规，考虑 $\Z_2$ 到 $\aut\Z_{99}$ 和 $\aut(\Z_3\times\Z_{33})$。后者是 $3\times2-1=5$ 种，共 $2+3+5=10$ 种。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果说下一步要继续分析的话，$4pq$、$p^2q^2$、$p^2qr$ 可能是相对可做的，但目前感觉都很难了。以下是 $200$ 以内我不会分析的情况：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;$n$&lt;/th&gt;
+&lt;th&gt;$a(n)$&lt;/th&gt;
+&lt;th&gt;情况&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$32$&lt;/td&gt;
+&lt;td&gt;$51$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$48$&lt;/td&gt;
+&lt;td&gt;$52$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$54$&lt;/td&gt;
+&lt;td&gt;$15$&lt;/td&gt;
+&lt;td&gt;$2p^3$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$64$&lt;/td&gt;
+&lt;td&gt;$267$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$72$&lt;/td&gt;
+&lt;td&gt;$50$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$80$&lt;/td&gt;
+&lt;td&gt;$52$&lt;/td&gt;
+&lt;td&gt;变态，$n_2=1\or n_5=1$ 然后不会&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$81$&lt;/td&gt;
+&lt;td&gt;$15$&lt;/td&gt;
+&lt;td&gt;$p^4$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$96$&lt;/td&gt;
+&lt;td&gt;$231$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$100$&lt;/td&gt;
+&lt;td&gt;$100$&lt;/td&gt;
+&lt;td&gt;$4p^2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$108$&lt;/td&gt;
+&lt;td&gt;$45$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$112$&lt;/td&gt;
+&lt;td&gt;$43$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$120$&lt;/td&gt;
+&lt;td&gt;$47$&lt;/td&gt;
+&lt;td&gt;变态，https://www.youtube.com/watch?v=t5YcYuDl0hk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$126$&lt;/td&gt;
+&lt;td&gt;$16$&lt;/td&gt;
+&lt;td&gt;$n_7=1$ 但 $63$ 阶群自同构不好分析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$128$&lt;/td&gt;
+&lt;td&gt;$2328$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$144$&lt;/td&gt;
+&lt;td&gt;$197$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$150$&lt;/td&gt;
+&lt;td&gt;$13$&lt;/td&gt;
+&lt;td&gt;$n_5=1$ 但 $75$ 阶群自同构不好分析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$156$&lt;/td&gt;
+&lt;td&gt;$18$&lt;/td&gt;
+&lt;td&gt;$n_{13}=1$ 但 $39$ 阶群不好分析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$160$&lt;/td&gt;
+&lt;td&gt;$238$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$162$&lt;/td&gt;
+&lt;td&gt;$55$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$168$&lt;/td&gt;
+&lt;td&gt;$57$&lt;/td&gt;
+&lt;td&gt;变态，不过可以了解一下单群&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$176$&lt;/td&gt;
+&lt;td&gt;$42$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$180$&lt;/td&gt;
+&lt;td&gt;$37$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$189$&lt;/td&gt;
+&lt;td&gt;$13$&lt;/td&gt;
+&lt;td&gt;$n_7=1$ 但 $63$ 阶群自同构不好分析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$192$&lt;/td&gt;
+&lt;td&gt;$1543$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$196$&lt;/td&gt;
+&lt;td&gt;$12$&lt;/td&gt;
+&lt;td&gt;$4p^2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$200$&lt;/td&gt;
+&lt;td&gt;$52$&lt;/td&gt;
+&lt;td&gt;变态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;综合的参考资料：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《有限群构造》（张远达）&lt;/li&gt;
+&lt;li&gt;《有限群构造新论》（陈松良）&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.math.auckland.ac.nz/~obrien/research/gnu.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.math.auckland.ac.nz/~obrien/research/gnu.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://link.springer.com/article/10.1007/BF01443651&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://link.springer.com/article/10.1007/BF01443651&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://groupprops.subwiki.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://groupprops.subwiki.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;13-可解群&#34;&gt;13. 可解群
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-12&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;幂零群的定义与性质：直积幂零、正规化子严格包含、幂零群的等价刻画。&lt;/li&gt;
+&lt;li&gt;换位子群、导子群、特征子群、全不变子群、极小正规子群的定义，特征子群的正规传递性。&lt;/li&gt;
+&lt;li&gt;可解群的定义与性质：与幂零群的关系、子群与同态像可解、正规子群+商群可解、极小正规子群的结构、Hall 定理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-12&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;幂零群的等价定义是，存在一个从 $\set{e}$ 到 $G$ 的列 $\set{G_i}$，只要求 $G_{i+1}/G_i\sub C(G/G_i)$ 即可。证明考虑归纳证 $G_i\sub C_i(G)$，这里的核心思想是，$G$ 的两个正规子群 $K\sub H$ 必满足 $\pi_K^{-1}(C(G/K))\sub\pi_H^{-1}(C(G/H))$。看起来简单的东西设得不好也会证不出来。一个好搞的形式是 $[x,y]\in K\Rightarrow[x,y]\in H$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;幂零群的子群和同态像也是幂零群。详见 &lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/questions/1571815/need-help-proving-any-subgroup-and-quotient-of-a-nilpotent-group-is-nilpotent&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/questions/1571815/need-help-proving-any-subgroup-and-quotient-of-a-nilpotent-group-is-nilpotent&lt;/a&gt;。这类问题证明思路都是类似的，就是选好归纳假设，然后分析同态，利用同构第二、四定理即可。反倒是可解群证明这类东西容易些，因为导列就是不断选子群。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可解群的等价定义是，存在一个从 $\set{e}$ 到 $G$ 的列 $\set{G_i}$，只要求 $G_i\norm G_{i+1}$ 且 $G_{i+1}/G_i$ 阿贝尔即可（注意换位子群是最小（其他都包含它）的这样的 $G_i$，这也是求一个群的导列的方法）。证明考虑归纳证 $G^{(i)}\sub G_{n-i}$，知道了换位子群最小这不就是显然的吗……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意极小正规子群不一定唯一：https://math.stackexchange.com/questions/1402526/smallest-normal-subgroup-and-minimal-normal-subgroup-whats-the-difference。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;幂零群结构定理证明的思路并不难，核心是找到一个矛盾：Sylow $p$ 子群的正规化子等于其正规化子的正规化子，以及幂零群中，正规化子是严格包含的。然后就是直积相关的简单东西。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hall 定理实在无法理解是怎么想到的，所以只能把思路记下来，这下真得死记硬背了。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;存在一个正规子群 $H$，阶不被 $n$ 整除。设阶与 $m,n$ 分别有公因子 $m_1,n_1$。(i) $G/H$ 里找 $m/m_1$ 阶，乘回 $H$ 变 $mn_1$，再找 $m$。(ii) 俩 $m$ 阶的 $B,C$，$|BH|=|CH|=mn_1$，$BH/H$ 与 $CH/H$ 在 $G/H$ 中共轭，于是 $BH$ 与 $CH$ 共轭，于是 $B$ 的共轭与 $C$ 在 $CH$ 中共轭。(iii) $k$ 阶 $D$，$G/H$ 里找包含 $DH/H$ 的，乘回 $H$ 变 $mn_1$ 阶，再找 $m$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;所有正规子群的阶都被 $n$ 整除。首先证明引理：可解群的极小正规子群为阿贝尔 $p$。$N&amp;rsquo;$ 是 $N$ 的正规子群且只能是平凡的（不能是 $N$ 不然就不可解了，事实上这是整个证明中唯一用到可解性的地方），于是 $N$ 阿贝尔，且不能再有真 Sylow 子群。这里值得注意的是，极小正规子群的定义是不存在原群的正规子群是其子群，而并非其本身是单群，因此上述证明中利用与极小矛盾时，至少得说明是特征子群。&lt;/p&gt;
+&lt;p&gt;现找出 $G$ 的极小正规子群 $H$，由于 $H$ 是阿贝尔 $p$，故只能 $|H|=n$ 从而 $H$ 是 Sylow。(i) 看图：&lt;/p&gt;
+&lt;img src=&#34;.\hall.png&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;（黄色对应 $B$，蓝色对应 $D$，绿色对应 $DH\cap M$，蓝灰色对应 $D$ 所属的 $m$ 阶）&lt;/p&gt;
+&lt;p&gt;取出 $G/H$ 的极小正规子群 $K/H$，$S$ 为 $K$ 的 Sylow $q$，$S\cap H=\set{e}$。记 $N=N_K(S),M=N_G(S)$，$N$ 之于 $K$ 相当于 $M$ 之于 $G$（因为 $S$ 的共轭都在 $K$ 里面），所以只需证明 $N=S$ 即得 $|M|=m$。$N\cap H$ 中元素与 $S,H$ 中元素均交换从而为 $K$ 的中心，而 $K$ 的中心作为 $G$ 的正规子群只能是 $\set{e}$。(ii) $m$ 阶子群 $B$ 交 $H$ 于 $\set{e}$，交 $K$ 于 Sylow $q$，故 $B\cap K$ 与 $S$ 共轭，正规化子也共轭，$N_G(B)=B$。 (iii) $k$ 阶子群 $D$ 的 $DH$ 交 $M$ 于一 $k$ 阶子群与 $D$ 共轭，扩到 $m$ 阶。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;14-正规列&#34;&gt;14. 正规列
+&lt;/h3&gt;&lt;h4 id=&#34;大纲-13&#34;&gt;大纲
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;正规列、次正规列、精细、合成列、可解列的定义及它们之间的关系。&lt;/li&gt;
+&lt;li&gt;Zassenhaus 引理、Schreier 精细定理、Hölder 定理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;笔记-13&#34;&gt;笔记
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;理一下各种列之间的关系：首先讨论的所有列都是次正规列。次正规列有两种特殊情况：合成列和可解列。合成列是“划分最密”的。对于可解群，其导列是“划分最疏”的可解列，其可解列是所有“划分介于导列与合成列之间”的，其合成列具有因子为 $\Z_p$ 的性质，从而也是可解列（能不用 Hölder 证吗？）。除了可解群的导列和幂零群的中心列以外，所有提到的列都不一定是正规列。例如，$S_4\vartriangleright A_4\vartriangleright K_4\vartriangleright\textcolor{red}{\Z_2}\vartriangleright\set{e}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Zassenhaus 引理也是完全看不懂作者是怎么想的，只能提要一下证明策略：先证明诸如 $(A\cap B^&lt;em&gt;)\norm(A\cap B)$ 之类的，再构造满同态证明
+$$
+\frac{A^&lt;/em&gt;(A\cap B)}{A^&lt;em&gt;(A\cap B^&lt;/em&gt;)}\cong\frac{A\cap B}{(A\cap B^&lt;em&gt;)(A^&lt;/em&gt;\cap B)}\cong\frac{B^&lt;em&gt;(A\cap B)}{B^&lt;/em&gt;(A^*\cap B)}
+$$
+后面两个定理反倒是很好理解的了。就是互相精细，然后合成列没法再精细了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意无限群不一定有合成列，例如 $\Z$ 没有，而 $A_\infin$ 就有。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;漏掉的东西&#34;&gt;漏掉的东西
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;群的扩张&lt;/li&gt;
+&lt;li&gt;群的可视化（格、环图等）&lt;/li&gt;
+&lt;li&gt;范畴论&lt;/li&gt;
+&lt;li&gt;与无限群相关的理论&lt;/li&gt;
+&lt;li&gt;$168$ 阶单群、有限单群分类、Lie 群&lt;/li&gt;
+&lt;li&gt;可解性相关进一步的内容，例如 Burnside 定理、Feit-Thompson 定理&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>
