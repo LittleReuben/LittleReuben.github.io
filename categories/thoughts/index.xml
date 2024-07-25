@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>理论 &amp; 思想 :: 一些想法 on LRYP&#39;s Blog</title>
-        <link>http://localhost:1313/categories/thoughts/</link>
+        <link>https://example.com/categories/thoughts/</link>
         <description>Recent content in 理论 &amp; 思想 :: 一些想法 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>LRYP</copyright><atom:link href="http://localhost:1313/categories/thoughts/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>LRYP</copyright><atom:link href="https://example.com/categories/thoughts/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>

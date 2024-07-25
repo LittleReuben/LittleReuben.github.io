@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on LRYP&#39;s Blog</title>
-        <link>http://localhost:1313/post/</link>
+        <link>https://example.com/post/</link>
         <description>Recent content in Posts on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于本博客</title>
-        <link>http://localhost:1313/p/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A%E5%AE%A2/</link>
+        <link>https://example.com/p/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A%E5%AE%A2/</guid>
+        <guid>https://example.com/p/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A%E5%AE%A2/</guid>
         <description>&lt;p&gt;本博客始于 2024 年 7 月，所有日期在其之前的文章均为&lt;strong&gt;补档&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;本博客中的文章按内容分为以下几类：&lt;/p&gt;
 &lt;ol&gt;
