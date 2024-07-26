@@ -8,7 +8,7 @@
     <loc>https://example.com/categories/oi/</loc>
   </url><url>
     <loc>https://example.com/categories/math/</loc>
-    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/categories/other-courses/</loc>
   </url><url>
@@ -30,18 +30,21 @@
     <loc>https://example.com/categories/lists/</loc>
   </url><url>
     <loc>https://example.com/</loc>
-    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/categories/</loc>
-    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/study/gtm73-group-theory/</loc>
-    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
+    <loc>https://example.com/study/linear-algebra-1/</loc>
+    <lastmod>2024-07-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/study/</loc>
+    <lastmod>2024-07-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/study/blog-tutorial/</loc>
     <lastmod>2024-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/study/</loc>
+    <loc>https://example.com/study/gtm73-group-theory/</loc>
     <lastmod>2024-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/post/</loc>

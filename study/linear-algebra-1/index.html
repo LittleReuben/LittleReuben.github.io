@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="上册">
+<title>线代自学笔记</title>
+
+<link rel='canonical' href='https://example.com/study/linear-algebra-1/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="线代自学笔记">
+<meta property='og:description' content="上册">
+<meta property='og:url' content='https://example.com/study/linear-algebra-1/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2024-07-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-07-26T00:00:00&#43;00:00'/><meta property='og:image' content='https://example.com/study/linear-algebra-1/cover.png' />
+<meta name="twitter:title" content="线代自学笔记">
+<meta name="twitter:description" content="上册"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://example.com/study/linear-algebra-1/cover.png' />
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#lu-分解">LU 分解</a></li>
+        <li><a href="#正交相关">正交相关</a></li>
+        <li><a href="#qr-分解">QR 分解</a></li>
+        <li><a href="#最小二乘法">最小二乘法</a></li>
+        <li><a href="#矩阵的相抵与相似">矩阵的相抵与相似</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/study/linear-algebra-1/">
+                <img src="/study/linear-algebra-1/cover_hue7cd3938229afdc9daa7bec754b92a4f_157916_800x0_resize_box_3.png"
+                        srcset="/study/linear-algebra-1/cover_hue7cd3938229afdc9daa7bec754b92a4f_157916_800x0_resize_box_3.png 800w, /study/linear-algebra-1/cover_hue7cd3938229afdc9daa7bec754b92a4f_157916_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="294" 
+                        loading="lazy"
+                        alt="Featured image of post 线代自学笔记" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/math/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 数学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/linear-algebra-1/">线代自学笔记</a>
+        </h1>
+    
+        
+        <h3 class="article-subtitle">
+            上册
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-07-26</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$</p>
+<div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>书是丘维生的《高等代数（上册）》。由于自己以前学过一些线代，所以这里列出的都是一些细节。</p>
+<p>所有矩阵默认 $n$ 行 $m$ 列，秩为 $r$。</p>
+<p>1.1：这里证明以下最简行阶梯形唯一。第一步是证明主元位置相同。假设 $A$ 化为了 $B=\begin{bmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{bmatrix}^\top$ 与 $C=\begin{bmatrix}\gamma_1&amp;\cdots&amp;\gamma_n\end{bmatrix}^\top$，已知 $\set{\beta_i}\cong\set{\gamma_i}$。如果它们在第 $k$ 行第一次出现了主元不同，不妨设 $B$ 的这行主元在前，就会发现 $\set{\gamma_i}$ 无法表出 $\beta_k$，因为 $\gamma_{1\sim k-1}$ 的系数必须是 $0$，而 $\gamma_{k\sim n}$ 又无能为力。第二步是证明 $\beta_i=\gamma_i$，同样是线性表出，其他向量的系数都必须是 $0$。<br>
+另外再证明非主元列是左侧主元列的线性组合。首先阶梯型矩阵中，左侧主元列形成上三角，必满秩，即证。如果要证明原矩阵也符合该性质，只需利用行变换不改变列向量之间关系的性质即可。</p>
+<p>2.4 &amp; 2.6：展开的证明。核心：行列地位相等，$\tau(p)=\tau(q)+\tau(p&rsquo;)$，其中 $\set{(i,p_i)}=\set{(q_i,p&rsquo;_i)}$。</p>
+<p>2.4：范德蒙德行列式的证明。要避免 $a_i^k-a_1^k$ 就需要差分，倒过来减。</p>
+<p>2.7.例5：三对角行列式，结论可以记一下。</p>
+<p>2.*：循环矩阵行列式的处理思路。先乘个 $F$，最后可以除掉，或者我的思路是直接单位根反演。另外，计算 $|F|$ 如果只是平方一下，会遇到正负无法确定的问题，处理方法详见 <a class="link" href="https://zhuanlan.zhihu.com/p/507677010"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/507677010</a>。</p>
+<p>2.5：Cramer 法则。理解：考虑魔改高斯消元的过程：第 $j$ 列当作不存在，$j-1$ 列主元出来了之后直接搞 $j+1$ 列。这样最后一行只有 $a_j$ 和 $b$。这个时候 $|A|$ 就是所有主元再乘上 $a_{n,j}$，$|B_j|$ 就是所有主元乘上 $b_n$，因此除一下就是 $x_j$。</p>
+<p>2.4.例3：加边法。有点神秘。</p>
+<p>2.4.定理4：mark.</p>
+<p>3：线性无关性、极大线性无关组的大小、秩、行列式、线性空间维数（及基大小）、方程解数、可逆性，这么几个角度。</p>
+<p>3.5：行秩等于列秩。无论是行、列秩，行列式，它们的性质都是通过初等变换下的不变性来证的。</p>
+<p>3.7.例3：理解：$k$ 行这个方程没用，$x_l$ 是自由元，取它为 $A_{kl}$，所以它可以移到右边。然后用 Cramer 解。$B_j$ 和 $A_{kj}$ 之间首先差了个负号，然后 $x_l$ 对应列对齐要交换 $|j-l|-1$ 次，还有就是代数余子式的负号。因此<br>
+$$
+(-1)^{k+j}B_j=(-1)^{|j-l|}A_{kj}\
+\eta_j=\frac{B_j}{M_{kl}}A_{kl}=(-1)^{k+l}B_j=(-1)^{k+l+k+j+j+l}A_{kj}=A_{kj}
+$$
+3.7.习8：他乡遇故知。太逆天了。</p>
+<p>3.9：应用大天地，值得一看。</p>
+<p>4.3：关于 $|A||B|=|AB|$ 的证明思路，一个是分块，一个是拆成初等矩阵（也是相当常见的证明思路，书里没写是因为依赖于 4.4.性质6）。Cauchy-Binet 证明图：</p>
+<center><img src=".\cauchybinet.png" style="zoom:50%;" /></center>
+<p>4.4：证明左逆等于右逆的三个思路。与抽代不同的是这里要给出逆元存在的构造性证明，所以书里是第三种。</p>
+<ol>
+<li>设左逆为 $B$，则 $AB=AIB=ABAB\Rightarrow I=(AB)^{-1}AB=(AB)^{-1}ABAB=AB$。</li>
+<li>设左逆为 $B$，右逆为 $C$，则 $B=BI=BAC=IC=C$。</li>
+<li>先证明存在 $B$ 既是左逆也是右逆，再同 2 证没别的逆。</li>
+</ol>
+<p>4.4.性质4&amp;例4：mark.</p>
+<p>4.5：分块矩阵初等变换。注意行变换只能左乘（且行列数分别为 to、from 行数），列变换只能右乘（且行列数分别为 from、to 列数），<strong>哪怕所有块都是方阵</strong>。另外分块初等矩阵只适用于对角是方阵的情况。</p>
+<p>4.9.例17：注意 $A$ 的零空间是与其行空间互为正交补，而不是列空间。因此 $Ax=0$ 的那些 $x$ 并不与 $\operatorname{Im}\mathcal{A}$ 垂直，注意几何直观别搞错了。</p>
+<p>5：关于矩阵秩的若干等式、不等式，不是很熟，记一下。</p>
+<ol>
+<li>
+<p>$\dim W=m-\rank(A)$。构造证。</p>
+</li>
+<li>
+<p>$\rank(AB)\le\min(\rank(A),\rank(B))$。线性表出证。</p>
+</li>
+<li>
+<p>$\rank(A+B),\rank[A,B]\le\rank(A)+\rank(B)$。线性表出证。</p>
+</li>
+<li>
+<p>$\rank(AA^\top)=\rank(A^\top A)=\rank(A)$。同解或行列式证（复矩阵不成立）。</p>
+</li>
+<li>
+<p>$\rank(A^m)=\rank(A^{m+1})\Rightarrow\forall k,\rank(A^m)=\rank(A^{m+k})$。同解证。</p>
+</li>
+<li>
+<p>$\rank\begin{bmatrix}A&amp;0\\ 0&amp;B\end{bmatrix}=\rank(A)+\rank(B)$、$\rank\begin{bmatrix}A&amp;C\\ 0&amp;B\end{bmatrix}\ge\rank(A)+\rank(B)$。线性表出或行列式证。</p>
+</li>
+<li>
+<p>$AB=0\Rightarrow\rank(A)+\rank(B)\le m$。从齐次方程组解角度证。</p>
+</li>
+<li>
+<p>$\rank(AB)\ge\rank(A)+\rank(B)-m$。分块证，也可以用线性变换证。</p>
+</li>
+<li>
+<p>左乘列满秩、右乘行满秩，秩不变。同解或用 8 证。</p>
+</li>
+<li>
+<p>幂等 $\Leftrightarrow \rank(A)+\rank(I-A)=n$，对合 $\Leftrightarrow \rank(I+A)+\rank(I-A)=n$。分块或 2+3 证。</p>
+<p>补充：我想到 $\Leftarrow$ 的一个比较妙的证明：$\rank(A)+\rank(I-A)=n$，由于 $\rank+\dim\nul=n$，故 $\dim\nul A+\dim\nul(I-A)=n$，又 $\nul A\cap\nul(I-A)=0$，故 $\nul A\times\nul(I-A)=\R^n$。于是任意 $x$，$Ax=0$ 或 $x$，于是 $Ax=A^2x\Rightarrow (A^2-A)x=0$ 对于所有 $x$ 成立，即 $A^2-A=0$。</p>
+</li>
+<li>
+<p>$\rank(A)=r\Leftrightarrow\exists B_{n\times r},C_{r\times m},\rank(B)=\rank(C)=r,A=BC$。分别用相抵、9 或 2+3 证。</p>
+</li>
+</ol>
+<p>4.6：看着看着发现上三角矩阵的几个性质不是很清楚，记一下。</p>
+<ol>
+<li>上三角矩阵之积还是上三角，上三角矩阵的逆还是上三角。直观或代数证。</li>
+<li>上三角矩阵的伴随矩阵还是上三角。</li>
+<li>若上三角矩阵 $A$ 满足 $AA^\top=A^\top A$，则它为对角矩阵。若 $A$ 是正交矩阵，则 $A$ 的对角全是 $\pm1$。</li>
+</ol>
+<h3 id="lu-分解">LU 分解
+</h3><p>LU 分解用于避开逆矩阵求解线性方程组。$L$ 是 $n\times n$，$U$ 是 $n\times m$。</p>
+<p>一般的 LU 分解要求可以不用交换行将 $A$ 化简为行阶梯形（注意“各阶顺序主子式非 $0$”仅适用于满秩方阵）。</p>
+<p>求 $L$ 可以理解为：① 对 $L$ 做同样的事情可以变成 $I$；② $L$ 作用于 $U$ 可以变回 $A$（我感觉这种好理解，就是 $L$ 是所有变换顺序倒过来，然后正负互换）。这就是为什么 $L$ 可以由每次行变换乘的系数得出。注意就算目前行对应（下一个主元）位置为 $0$ 也不一定会出事，如果该列下面全 $0$，那就直接往后找。同时允许 $U$ 最后几行全零。</p>
+<p>出现主元问题时用 LUP 分解。通过 $PA=LU$（直接在 $A$ 中剩余行中对换，作用效果与 $U$ 中对换相同，又不会破坏 $L$ 的下三角性质），可以避免一堆奇怪的讨论。看一个例子（注意，当交换两行时，$L$ 中对应行除对角 $1$ 外也要交换）：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>$P$</th>
+<th>$L$</th>
+<th>$U$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\begin{bmatrix}1&amp;0&amp;0&amp;0\\ 0&amp;1&amp;0&amp;0\\ 0&amp;0&amp;1&amp;0\\ 0&amp;0&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}1&amp;0&amp;0&amp;0\\ 0&amp;1&amp;0&amp;0\\ 0&amp;0&amp;1&amp;0\\ 0&amp;0&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}0&amp;2&amp;1&amp;0\\ 4&amp;2&amp;13&amp;2\\ 2&amp;2&amp;7&amp;1\\ 2&amp;3&amp;7.5&amp;.5\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$\begin{bmatrix}0&amp;1&amp;0&amp;0\\ 1&amp;0&amp;0&amp;0\\ 0&amp;0&amp;1&amp;0\\ 0&amp;0&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}1&amp;0&amp;0&amp;0\\ 0&amp;1&amp;0&amp;0\\ 0&amp;0&amp;1&amp;0\\ 0&amp;0&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}4&amp;2&amp;13&amp;2\\ 0&amp;2&amp;1&amp;0\\ 2&amp;2&amp;7&amp;1\\ 2&amp;3&amp;7.5&amp;.5\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$\begin{bmatrix}0&amp;1&amp;0&amp;0\\ 1&amp;0&amp;0&amp;0\\ 0&amp;0&amp;1&amp;0\\ 0&amp;0&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}1&amp;0&amp;0&amp;0\\ 0&amp;1&amp;0&amp;0\\ .5&amp;0&amp;1&amp;0\\ .5&amp;0&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}4&amp;2&amp;13&amp;2\\ 0&amp;2&amp;1&amp;0\\ 0&amp;1&amp;.5&amp;0\\ 0&amp;2&amp;1&amp;-.5\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$\begin{bmatrix}0&amp;1&amp;0&amp;0\\ 1&amp;0&amp;0&amp;0\\ 0&amp;0&amp;1&amp;0\\ 0&amp;0&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}1&amp;0&amp;0&amp;0\\ 0&amp;1&amp;0&amp;0\\ .5&amp;.5&amp;1&amp;0\\ .5&amp;1&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}4&amp;2&amp;13&amp;2\\ 0&amp;2&amp;1&amp;0\\ 0&amp;0&amp;0&amp;0\\ 0&amp;0&amp;0&amp;-.5\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$\begin{bmatrix}0&amp;1&amp;0&amp;0\\ 1&amp;0&amp;0&amp;0\\ 0&amp;0&amp;0&amp;1\\ 0&amp;0&amp;1&amp;0\end{bmatrix}$</td>
+<td>$\begin{bmatrix}1&amp;0&amp;0&amp;0\\ 0&amp;1&amp;0&amp;0\\ .5&amp;1&amp;1&amp;0\\ .5&amp;.5&amp;0&amp;1\end{bmatrix}$</td>
+<td>$\begin{bmatrix}4&amp;2&amp;13&amp;2\\ 0&amp;2&amp;1&amp;0\\ 0&amp;0&amp;0&amp;-.5\\ 0&amp;0&amp;0&amp;0\end{bmatrix}$</td>
+</tr>
+</tbody>
+</table></div>
+<p>在解具体方程时，只需解 $Ly=Pb$ 与 $Ux=y$ 即可。注意不要搞错成 $P^{-1}b$。</p>
+<p>LDU 分解只是对满秩方阵而言，就是简单地把 $U$ 的对角元变成 $1$。</p>
+<h3 id="正交相关">正交相关
+</h3><ol>
+<li>
+<p>根据点乘的几何意义，可得在单个向量上的投影。</p>
+</li>
+<li>
+<p>一般的正交投影，我们从两个角度理解。</p>
+<p>代数角度：希望写成 $y=\hat y+z$ 的形式，其中 $\hat y=\sum c_iu_i$，$z\cdot u_i=0$。后一个式子可以写成
+$$
+0=(y-\hat y)\cdot u_i=(y-\sum c_iu_i)\cdot u_i=y\cdot u_i-c_iu_i^2\Rightarrow c_i=\frac{y\cdot u_i}{u_i\cdot u_i}
+$$
+几何角度就是若干个“分量投影”的和。</p>
+<p>而最佳逼近定理就是由 $z\perp W$ 加上勾股定理，勾股定理的本质就是正交向量的点积为 $0$。正交相关的一切内容都是围绕这一性质展开的。</p>
+<p>如果 $y\in W$，那正交投影的公式就给出的线性表出的构造。</p>
+</li>
+<li>
+<p>注意如果不是正交方阵，而是若干正交单位向量组成的矩阵 $U=\begin{bmatrix}u_1&amp;\cdots&amp;u_n\end{bmatrix}$，那么 $U^\top U=I$，但 $UU^\top\ne I$——而且 $UU^\top y$ 给出了 $y$ 在 $W$ 上的投影。</p>
+</li>
+</ol>
+<h3 id="qr-分解">QR 分解
+</h3><p>QR 分解就是用矩阵表示出了 Gram-Schmidt 正交化的过程。</p>
+<p>使用条件：$A$ 列向量线性无关。</p>
+<p>推导很简单，就是记住是正交矩阵在左即可。
+$$
+\begin{bmatrix}\alpha_1&amp;\cdots&amp;\alpha_m\end{bmatrix}=\begin{bmatrix}u_1&amp;\cdots&amp;u_m\end{bmatrix}\begin{bmatrix}\alpha_1\cdot u_1&amp;\alpha_2\cdot u_1&amp;\cdots&amp;\alpha_m\cdot u_1\\ 0&amp;\alpha_2\cdot u_2&amp;\cdots&amp;\alpha_m\cdot u_2\\ \vdots&amp;\vdots&amp;\ddots&amp;\vdots\\ 0&amp;0&amp;\cdots&amp;\alpha_m\cdot u_m\end{bmatrix}
+$$
+这里对矩阵作了一点简化，其思路是
+$$
+\alpha_i=\sum_{j\le i}\frac{\alpha_i\cdot v_j}{v_j\cdot v_j}v_j=\sum_{j\le i}\frac{\alpha_i\cdot(|v_j|u_j)}{|v_j|^2}(|v_j|u_j)=\sum_{j\le i}(\alpha_i\cdot u_j)u_j
+$$
+如果觉得别扭也可以把 $v_i$ 拿出来单独讨论。</p>
+<p>实操方法 1：在 Gram-Schmidt 正交化的时候写清楚那个下三角形的公式，写成矩阵，最后第 $i$ 行乘 $|v_i|$ 即可。</p>
+<p>实操方法 2：直接求出单位正交基 $Q$，然后由 $Q^\top A=R$ 算出 $R$。</p>
+<p>唯一性见 4.6.例5。</p>
+<h3 id="最小二乘法">最小二乘法
+</h3><p>理解角度 1：在不求出正交基的情况下求投影，即利用垂直的性质。$\alpha_i\cdot(Ax-b)=0$。</p>
+<p>理解角度 2：要最小化 $|Ax-b|$，也就是最小化 $(Ax-b)\cdot(Ax-b)$。
+$$
+0=\frac{\partial(\sum\alpha_jx_j-b)^2}{\partial x_i}=2\sum \alpha_i\cdot\alpha_jx_j-2\alpha_i\cdot b
+$$
+这里 $\sum \alpha_jx_j=Ax$，于是式子就变成 $A^\top Ax=A^\top b$。</p>
+<p>从代数角度证明必有解：一方面，$[A^\top A,A^\top b]$ 的列向量都是 $A^\top$ 之列向量的线性组合，故秩不超过 $\rank(A)$。另一方面 $\rank(A^\top A)=\rank(A)$。</p>
+<p>当 $A$ 列满秩时，$A^\top A$ 满秩，即有唯一解。</p>
+<p>另外，如果想把 $A$ 正交分解了再 $b$ 去投影，也没问题。设 $A=QR$，$b$ 的正交投影为 $QQ^\top b$。如果要转成用 $A$ 列向量的线性组合来表示，那就是 $Ax=QQ^\top b\Rightarrow QRx=QQ^\top b\Rightarrow Rx=Q^\top b\Rightarrow x=R^{-1}Q^\top b$（其实都是 $\Leftrightarrow$）</p>
+<p>应用理解：有若干样本点 $(a_i,b_i)$，考虑用一个函数 $y=\sum c_if_i(x)$ 去拟合（$c_i$ 未知，$f_i$ 已知。例如直线就取 $f_1(x)=1,f_2(x)=x$），误差就是 $y$ 与对应 $b_i$ 的差的平方和。那这时其实就是求以下方程的最小二乘解：
+$$
+\begin{bmatrix}f_1(a_1)&amp;\cdots&amp;f_m(a_1)\\ \vdots&amp;\ddots&amp;\vdots\\ f_1(a_n)&amp;\cdots&amp;f_m(a_n)\end{bmatrix}\begin{bmatrix}c_1\\ \vdots\\ c_m\end{bmatrix}=\begin{bmatrix}b_1\\ \vdots\\ b_n\end{bmatrix}
+$$
+这里的函数可以是多自变量函数。</p>
+<h3 id="矩阵的相抵与相似">矩阵的相抵与相似
+</h3><ol>
+<li>
+<p>相抵矩阵秩相同。将矩阵转换成相抵标准型的过程，类比将满秩方阵拆分成初等矩阵的过程。其最大作用就是拆矩阵简化证明。非满秩的矩阵在推式子时会出现类似“丢失信息”的现象。</p>
+</li>
+<li>
+<p>广义逆矩阵是不易直观理解的部分，几个性质的证明动机也不清晰，我只能记下书里基础的东西，其实都是些废话：</p>
+<ol>
+<li>处理广义逆矩阵相关问题的基本方式是将 $A$ 写成 $PIQ$。</li>
+<li>广义逆矩阵的阶为 $m\times n$。形式为 $A^-=Q^{-1}\begin{bmatrix}I_r&amp;B\\ C&amp;D\end{bmatrix}P^{-1}$。$Q$ 为 $m\times m$，$P$ 为 $n\times n$，中间为 $m\times n$。</li>
+<li>$Ax=b$ 有解当且仅当 $b=AA^-b$。直接用定义+后面的构造证。解为所有 $A^-b$。证明所有解都可以表示为这种形式的方式的思路是，先把 $A$ 拆开，然后 $P,Q$ 就出来了，分析一下构造 $B,C,D$ 即可（这里 $b\ne 0$，不然构造会找不到非 $0$ 元）。</li>
+<li>$Ax=0$ 的解为 $(I_m-A^-A)\gamma$（$A^-$ 随便固定一个，$\gamma$ 取所有）。一个解直接对应 $\gamma=x$。</li>
+<li>后面 $A^+$ 我直接投降。其应用就是，$A$ 列满秩时，$Ax=b$ 的最小二乘解就是 $A^+b$。另外，列满秩矩阵满足 $A^-A=I$，其中一个特殊的 $A^-$ 是 $(A^\top A)^{-1}A^\top$；行满秩矩阵满足 $AA^-=I$，其中一个特殊的 $A^-$ 是 $A^\top(AA^\top)^{-1}$。无论是否列/行满秩，$A^-$ 都不是唯一的，只有满秩方阵才有 $A^-=A^{-1}$。</li>
+</ol>
+</li>
+<li>
+<p>矩阵的相似可以从线性变换的角度来理解。想象一个线性变换，它将自然基下的向量 $x$ 映射到 $Ax$。现在我们想知道，在另一个基下这样的变换该如何描述。假设另一个基为 $P$（$P$ 的列向量为所有基向量），根据基变换相关的内容我们知道：在这个基的表示下的向量 $x$，在自然基下的表示为 $Px$；反之在自然基表示下的向量 $x$，在这个基的表示为 $P^{-1}x$（空间和向量永远不动，只是表出会变）。</p>
+<p>对于这个基下的向量 $x$，先将它用自然基表出，然后 $A$ 作用，再变回去。这就是 $P^{-1}APx$。$B=P^{-1}AP$ 就是在这个基下的变换矩阵。正如 3b1b 所说，基变换和相似就是一个“语言翻译”的过程。</p>
+<p>所以说，两个矩阵相似，就说明可以通过选取合适的基，使它们对应的线性变换看起来相同。这里我们可以联系抽代里半直积本质相同的判别方式（第 12 章性质 2）来理解——如果自同构是共轭的，就说明可以选取不同的元素作为生成元，使得这两个自同构分别在两种生成元下形式完全相同，那就说明这两个半直积同构。</p>
+<p>对角化的几何解释见 <a class="link" href="https://www.bilibili.com/video/BV1TH4y1L7PV/"  target="_blank" rel="noopener"
+    >https://www.bilibili.com/video/BV1TH4y1L7PV/</a>。简而言之就是把基变成那些特征向量，然后线性变换就变成简单的各维分别缩放了。这其实让我想到了卷积定理。</p>
+</li>
+<li>
+<p>关于特征值和特征向量。首先要明确，相似变换下，行列式、秩、迹、特征值都不变，但特征向量会变。</p>
+<p>无论是否满秩，特征值数量（算上重数）总为 $n$，但特征子空间的维数和就不一定了。如果满秩，则特征值全部非零，但是不满秩时，特征值 $0$ 的重数并不等于 $n-r$，而是大于等于，例如 $\begin{bmatrix}0&amp;1\\ 0&amp;0\end{bmatrix}$。相关证明见 <a class="link" href="https://www.zhihu.com/question/297458474/answer/1362625976"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/297458474/answer/1362625976</a>。</p>
+<p>几何重数小于等于代数重数的证明直观是很好理解的，你都构造出那几个线性无关的特征向量了，那不得至少有这几个嘛。证明的思路就是基变换，把这几个特征向量作为基，别的任选，然后 $|\lambda I-A&rsquo;|=0$ 就行。</p>
+<p>不同特征值对应的特征向量不同，这个只需看一个简单情况就可以理解证明思路：如果 $A\alpha_1=\lambda_1\alpha_1,A\alpha_2=\lambda_2\alpha_2,c\alpha_1=\alpha_2$，那么 $\lambda_1c\alpha_1=Ac\alpha_1=A\alpha_2=\lambda_2\alpha_2=\lambda_2c\alpha_1\Rightarrow\lambda_1=\lambda_2$。后面的东西都是比较显然的。</p>
+</li>
+<li>
+<p>一些特殊矩阵的特征值。幂等矩阵有 $\rank(A)$ 重特征值 $1$，$n-\rank(A)$ 重特征值 $0$。证明这个的步骤是，首先说明特征值只能是 $0$ 或 $1$，然后利用几何重数说明代数重数。对合矩阵也是类似。幂零矩阵与它们的不同点仅在于不能对角化。注意不能从特征值判断特殊矩阵。注意可对角化和满秩之间没有关系。</p>
+</li>
+<li>
+<p>现在距离抽代里那个自同构的分析，我们还有两个障碍：一个是 Jordan 标准型还没学，一个是不允许复数。</p>
+</li>
+<li>
+<p>简单提一下 Cayley-Hamilton 定理的证明：对角阵易证，因为相当于每个特征值代进特征多项式。从而可对角化的情况易证，因为 $f(P^{-1}AP)=P^{-1}f(A)P$，然后可以用 <a class="link" href="https://www.zhihu.com/question/31557902/answer/1636767376"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/31557902/answer/1636767376</a> 这种来理解。另一个证明思路是，先通过证明乘每个 $\varepsilon_i$ 均为 $0$ 来证明上三角矩阵满足，然后再把任意一个矩阵相似化为上三角：<a class="link" href="https://zhuanlan.zhihu.com/p/657653840"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/657653840</a>。最后，书里的证明思路是，通过比对 $(\lambda I-A)(\lambda I-A)^\star=|\lambda I-A|I$ 两侧的系数证明。</p>
+<p>它的一个重要作用是给出了 $A^n$ 关于 $A^{0\sim n-1}$ 的表达式，从而可以递推（P4723）。</p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2>评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="0f6091c94b40a9aedba5667503f8d5a7"
+    data-page-url="https://example.com/study/linear-algebra-1/"
+    data-page-title="线代自学笔记"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 LRYP
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
