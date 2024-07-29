@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 提供一个 $\\mathrm{O}(Tn^3m)$ 的做法，目前在各 oj 上是 rank 1，运行时间为第二名的 $\\frac{1}{6}$ 以内。 类似于本题解的方法不建议在考试中使用，非常耗时间。并且公式">
+<title>[题解] lgP9171 [省选联考 2023] 染色数组</title>
+
+<link rel='canonical' href='https://example.com/study/lgp9171-solution/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="[题解] lgP9171 [省选联考 2023] 染色数组">
+<meta property='og:description' content="这是一篇学习笔记。 提供一个 $\\mathrm{O}(Tn^3m)$ 的做法，目前在各 oj 上是 rank 1，运行时间为第二名的 $\\frac{1}{6}$ 以内。 类似于本题解的方法不建议在考试中使用，非常耗时间。并且公式">
+<meta property='og:url' content='https://example.com/study/lgp9171-solution/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2023-08-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-08-17T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="[题解] lgP9171 [省选联考 2023] 染色数组">
+<meta name="twitter:description" content="这是一篇学习笔记。 提供一个 $\\mathrm{O}(Tn^3m)$ 的做法，目前在各 oj 上是 rank 1，运行时间为第二名的 $\\frac{1}{6}$ 以内。 类似于本题解的方法不建议在考试中使用，非常耗时间。并且公式">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#step-1">Step 1</a></li>
+    <li><a href="#step-2">Step 2</a></li>
+    <li><a href="#step-3">Step 3</a></li>
+    <li><a href="#step-4">Step 4</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#交叉前下部">交叉前下部</a></li>
+            <li><a href="#交叉前上部">交叉前上部</a></li>
+            <li><a href="#交叉点">交叉点</a></li>
+            <li><a href="#交叉后下部">交叉后下部</a></li>
+            <li><a href="#交叉后上部">交叉后上部</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#step-5">Step 5</a></li>
+    <li><a href="#code">Code</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/oi/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 算法竞赛
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/lgp9171-solution/">[题解] lgP9171 [省选联考 2023] 染色数组</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-08-17</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>  提供一个 $\mathrm{O}(Tn^3m)$ 的做法，目前在各 oj 上是 rank 1，运行时间为第二名的 $\frac{1}{6}$ 以内。</p>
+<p>  类似于本题解的方法不建议在考试中使用，非常耗时间。<del>并且公式很丑。</del></p>
+<p><strong>  坐稳了！！</strong></p>
+<h2 id="step-1">Step 1
+</h2><p>  @Alex_Wei 已经把严谨的结构刻画讲清楚了，这里再写一下自己的理解（本质上是等价的），看起来不大优美，但比较直观。</p>
+<p>  对于一个完整的序列 $a_{1\cdots n}$，找出其最长的前缀 $a_{1\cdots r}$，满足：前缀中 $\le a_r$ 的数严格递增，$\ge a_r$ 的数严格递减，类似于形成一个尖角。接下来暂时默认 $r&lt;n$。</p>
+<p>  如果 $a_{r+1}=a_r$，那么要求 $a_{r+1\cdots n}$ 中，$\le a_r$ 的数严格递减，$\ge a_r$ 的数严格递增。这种情况恰好有 $2$ 种染色方案且得分相同。</p>
+<p>  否则，记 $a_{1\cdots r}$ 中最大的 $&lt;a_r$ 的数为 $D$（不存在则为 $0$），最小的 $&gt;a_r$ 的数为 $U$（不存在则为 $m+1$），<strong>不妨设</strong> $a_{r+1}\le D$（与之对称的一种情况是 $\ge U$）。现在找到以 $a_{r+1}$ 开头的最长严格递减<strong>子段</strong>，如果子段末尾还有下一项，则记为 $a_s$，否则肯定是完美的。</p>
+<p>  <strong>结论</strong>：此时完美数组的充要条件是，在 $a_{r+1\cdots n}$ 中，$\le a_{r+1}$ 的数严格递减，不存在 $(a_{r+1},a_r]$ 以内的数，且 $\ge a_s$ 的数严格递增。</p>
+<p>  如图，这是一个完美数组的例子（横坐标为下标，纵坐标为值）：</p>
+<center><img src=".\kn1ls8is.png" alt="例1.1" style="zoom:40%;" /></center>
+<p>  它共有 $4$ 种染色方案，分别对应着下图中全不选/选一个黄色点染成绿色，其他黄色点染成红色：</p>
+<center><img src=".\whyomgtn.png" alt="例1.2" style="zoom:40%;" /></center>
+<p>  如果 $a_s\in (D,a_r]$，那么只有 $1$ 种染色方案，以下是一例；如果 $a_s\in (a_{r+1},D]$ 则无染色方案。</p>
+<center><img src=".\uww5i8ud.png" alt="例1.3" style="zoom:40%;" /></center>
+<p>  同时，通过观察例子，可以发现多种染色方案一定是形如：一段前后缀颜色固定，中间剩下的区间，它有一个染色方案是全染红/绿，其余方案仅通过选其中某一个反转颜色得到。若 $a_{r+1}\le D$，则允许变颜色的点是以 $(a_U^{-1},U)$ 为左上角，$(r+1, a_{r+1})$ 为右下角的矩形<strong>以内</strong>的点。这部分实际上是递增的，且相对值域是连续的。$a_{r+1}\ge U$ 类似。</p>
+<p>  以上的证明都是容易的，需要一些分类讨论。</p>
+<p>  考虑哪种染色方案得分最大，容易发现最后一个可以变的点变色一定比其他点变色更优。因此最优染色一定是：$a_{1\cdots r-1}$ 中 $&lt;a_r$ 的和 $a_{r+1\cdots n}$ 中 $&gt;a_r$ 的染红色，$a_{1\cdots r-1}$ 中 $&gt;a_r$ 的和 $a_{r+1\cdots n}$ 中 $&lt;a_r$ 的染绿色，$a_r$ 两种均有可能。</p>
+<h2 id="step-2">Step 2
+</h2><p>  <strong>下文中 $r,U,D$ 的含义不变。称出现了满足 $a_{r+1}=a_r$ 或 $\le D$ 或 $\ge U$ 的情况为“交叉”，$a_r$ 为“交叉点”。称 $a_{1\cdots t}$ 为“前面”，$a_{t+1\cdots n}$ 为“后面”。组合数里只要有负数结果就是 $0$，除了 $\binom{-1}{-1}=1$。</strong></p>
+<p>  回到原问题。先来道开胃菜：前面已经交叉了。这时可以由 $a_{1\cdots t}$ 确定后面染绿部分必须要小于某个值 $L$，染红部分必须要大于某个值 $R$。</p>
+<p>  枚举后面有 $i$ 个染绿的。方案数为：
+$$
+\binom{L-1}{i}\binom{m-R}{n-t-i}\binom{n-t}{i}
+$$
+  得分贡献为：
+$$
+\begin{aligned}
+&amp;\left[\sum_{j&lt;L}\sum_{k\le t}[a_k&lt;j]j\right]\binom{L-2}{i-1}\binom{m-R}{n-t-i}\binom{n-t}{i}\\
++{}&amp;\left[\sum_{j&gt;R}\sum_{k\le t}[a_k&gt;j](m-j+1)\right]\binom{L-1}{i}\binom{m-R-1}{n-t-i-1}\binom{n-t}{i}
+\end{aligned}
+$$
+  可以共 $\mathrm{O}(n+m)$ 计算。另外需要求前面的贡献，可以用树状数组。</p>
+<h2 id="step-3">Step 3
+</h2><p>  前面尚未交叉时，为了简化起见，分 $a_r;\fbox{&lt;/=/&gt;};a_t$ 讨论。$a_r=a_t$ 也就是 $r=t$，这时暴力枚举 $a_{r+1}$ 后套用 Step 2 方法，时复只有两次方。</p>
+<p>  $a_r&gt;a_t$ 与 $a_r&lt;a_t$ 的算法完全相同。下记 $L$ 为前面最大的 $&lt;a_t$ 的数（不存在则为 $0$），$R=a_r$，$X$ 为前面 $\le L$ 的数的个数，$Y=t-X$。</p>
+<p>  求方案数可以用 dp。交叉之前，想象“识别尖角”的过程，每次新加入的 $a$ 允许处于两个区间中：</p>
+<center><img src=".\yjke872q.png" alt="例2" style="zoom:40%;" /></center>
+<p>  实际计数时，只需要钦定一个区间就行了，一般不会计重。于是 $f_{i,j,k}$ 表示，交叉之前，$a_i=j$，区间另一个端点为 $k$ 的方案数。一种转移是枚举 $a_{i+1}$，然后转移到 $f_{i,a,j/k}$。</p>
+<p>  $g_{i,j,k}$ 表示交叉之后，上一个染绿的为 $j$ ，上一个染红的为 $k$ 的方案数，转移略。$f$ 在 $i$ 作为 $r$ 时要转移给 $g$，为了避免信息不够无法转移以及计重的情况，$j&gt;k$ 的 $f_{i,j,k}$ 只枚举 $a_{i+1}\le k$ 以及 $a_{i+1}=a_i$ 的情况进行贡献，$j&lt;k$ 的只枚举 $a_{i+1}\ge k$ 的情况进行贡献。</p>
+<p>  以上 dp 均可以用前缀和优化做到 $\mathrm{O}(nm^2)$，但是这个 dp 无法类推求出得分和，我们放弃 dp，尝试直接推式子。<strong>同样地，还是只考虑 $a_{r+1}\le D$、 $a_{r+1}=a_r$ 以及 $r=n$ 的情况</strong>，$a_{r+1}\ge U$ 情况可以将 $a_i\mapsto m-a_i+1$ 后套用 $a_{r+1}\le D$ 的算法。</p>
+<p>  首先，后面的结构大致包含这些要素：交叉前 $&lt;a_r$ 的数个数、交叉前 $&gt;a_r$ 的数个数、$r$、$a_r$、$a_{r+1}$、交叉后 $&lt;a_r$ 的数个数、交叉后 $&gt;a_r$ 的数个数。考虑枚举其中一些。</p>
+<p>  对于 $a_{r+1}\le D$，枚举交叉前 $&lt;a_r$ 的数个数 $i$，交叉前 $&gt;a_r$ 的数个数 $j$，交叉后 $&lt;a_r$ 的数个数 $k$，方案数为：
+$$
+\begin{aligned}
+&amp;\sum_{a_r}\sum_{D&lt;a_r}\textcolor{red}{\binom{D-L-1}{i-1}\binom{m-a_r}{n-t-i-j-k-1}}\textcolor{green}{\binom{D}{k}\binom{R-a_r-1}{j}}\textcolor{blue}{\binom{i+j}{i}\binom{n-t-i-j-2}{k-1}}\\
+={}&amp;\binom{i+j}{i}\binom{n-t-i-j-2}{k-1}\sum_{a_r}\left[\sum_{D&lt;a_r}\binom{D-L-1}{i-1}\binom{D}{k}\right]\binom{R-a_r-1}{j}\binom{m-a_r}{n-t-i-j-k-1}\\
+={}&amp;\binom{i+j}{i}\binom{n-t-i-j-2}{k-1}\sum_{a_r}C_D(i,k,a_r)\cdot C_U(j,n-t-i-j-k-1,a_r)
+\end{aligned}
+$$
+  红色表示染红部分的方案数，绿色表示染绿部分的方案数，蓝色表示“交织”的方案数。枚举 $D$ 会比枚举 $a_{r+1}$ 稍微方便一点。<strong>$C_D$ 和 $C_U$ 主要是为了突出有关变量仅有三个（预处理即可）。</strong></p>
+<p>  对于 $a_{r+1}=a_r$，枚举 $l=r-t-1$ 以及 $a_r$，方案数为：
+$$
+\begin{aligned}
+&amp;\sum_i\sum_k\textcolor{red}{\binom{a_r-L-1}{i}\binom{m-a_r}{n-t-l-k-2}}\textcolor{green}{\binom{R-a_r-1}{l-i}\binom{a_r-1}{k}}\textcolor{blue}{\binom{l}{i}\binom{n-t-l-2}{k}}\\
+={}&amp;\left[\sum_i\binom{a_r-L-1}{i}\binom{R-a_r-1}{l-i}\binom{l}{i}\right]\left[\sum_k\binom{a_r-1}{k}\binom{m-a_r}{n-t-l-k-2}\binom{n-t-l-2}{k}\right]\\
+={}&amp;C_L(l,a_r)\cdot C_R(n-t-l-2,a_r)
+\end{aligned}
+$$
+  这里明确一下组合意义：</p>
+<ul>
+<li>$C_D(i,j,a)$ 表示 $a_r=a$，要安排 $&lt;a_r$ 的数，交叉前个数为 $i$，交叉后个数为 $j$ 的方案数。</li>
+<li>$C_U(i,j,a)$ 表示 $a_r=a$，要安排 $&gt;a_r$ 的数，交叉前个数为 $i$，交叉后个数为 $j$ 的方案数。</li>
+<li>$C_L(i,a)$ 表示 $a_r=a$，要安排 $r$ 之前的数共 $i$ 个的方案数（不考虑交叉条件）。</li>
+<li>$C_R(i,a)$ 表示 $a_r=a$，要安排 $r$ 之后的数共 $i$ 个的方案数（不考虑交叉条件）。</li>
+</ul>
+<p>  $r=n$ 的情况可以顺便计入。总体来说，计算方案数为 $\mathrm{O}(n^3m)$，实际表现比 dp 还快。下面是计算得分和，思路与求方案数类似。</p>
+<h2 id="step-4">Step 4
+</h2><p>  以下 $a_r=a_{r+1}$ 情况部分时间复杂度都是 $\mathrm{O}(n^2m)$，一般情况部分则是 $\mathrm{O}(n^3m)$。代码中的顺序和分析的顺序是一样的。</p>
+<h4 id="交叉前下部">交叉前下部
+</h4><p>  首先，不考虑交叉后部分与交叉前上部数值的安排，它们充其量就是外面乘一个系数。枚举交叉前 $&lt;a_r$ 的数个数 $i$，交叉前 $&gt;a_r$ 的数个数 $j$，以及 $D$，该部分得分为：
+$$
+\begin{aligned}
+&amp;\sum_{p=1}^i\left[\sum_{q=0}^j\binom{p-1+q}{p-1}\binom{i-p+j-q}{i-p}(q+Y)\right]\left[\sum_{a=L+1}^D\binom{a-L-1}{p-1}\binom{D-a-1}{i-p-1}(m-a+1)\right]\\
+={}&amp;\sum_{p=1}^i\left[\binom{i+j}{i+1}p+\binom{i+j}{i}Y\right]\left[\binom{D-L-1}{i-1}(m-L+1)-\binom{D-L}{i}p\right]\\
+={}&amp;\binom{i+j}{i}\binom{D-L-1}{i-1}\left[\frac{ij(m-L+1)}{2}-\frac{(2i+1)j(D-L)}{6}+iY(m-L+1)-\frac{(i+1)Y(D-L)}{2}\right]
+\end{aligned}
+$$
+  其中 $p$ 枚举交叉前下部的第几个数（称为“它”），$q$ 枚举有交叉前上部有几个数在它前面，$a$ 枚举它的值。第一个等号是利用 Vandermonde 恒等式，第二个等号就是正整数次方求和。记该式为 $(*)$。</p>
+<p>  接下来再把剩余未确定的部分确定，枚举交叉后 $&lt;a_r$ 的数个数 $k$，最终得分为：
+$$
+\begin{aligned}
+&amp;\sum_{a_r&gt;D}(*)\binom{R-a_r-1}{j}\binom{D}{k}\binom{m-a_r}{n-t-i-j-k-1}\binom{n-t-i-j-2}{k-1}\\
+={}&amp;(*)\binom{D}{k}\binom{n-t-i-j-2}{k-1}\sum_{a_r&gt;D}C_U(j,n-t-i-j-k-1,a_r)\\
+={}&amp;(*)\binom{D}{k}\binom{n-t-i-j-2}{k-1}C^\prime_U(j,n-t-i-j-k-1,D)
+\end{aligned}
+$$
+  预处理 $C_U(i,j,*)$ 的后缀和就不用枚举 $a_r$ 了。</p>
+<h4 id="交叉前上部">交叉前上部
+</h4><p>  思路是差不多的。先枚举交叉前 $&lt;a_r$ 的数个数 $i$，交叉前 $&gt;a_r$ 的数个数 $j$，以及 $a_r$，该部分得分为：
+$$
+\begin{aligned}
+&amp;\sum_{p=1}^j\left[\sum_{q=0}^i\binom{p-1+q}{p-1}\binom{j-p+i-q}{j-p}(q+X)\right]\left[\sum_{a=a_r+1}^{R-1}\binom{R-a-1}{p-1}\binom{a-a_r-1}{j-p}a\right]\\
+={}&amp;\sum_{p=1}^j\left[\binom{i+j}{j+1}p+\binom{i+j}{j}X\right]\left[\binom{R-a_r-1}{j}R-\binom{R-a_r}{j+1}p\right]\\
+={}&amp;\binom{i+j}{j}j\left[\binom{R-a_r-1}{j}\left(\frac{i}{2}+X\right)R-\binom{R-a}{j+1}\left(\frac{i(2j+1)}{6}+\frac{(j+1)X}{2}\right)\right]
+\end{aligned}
+$$
+  抱歉让强迫症难受了，没法化得对称，否则分母上就会有未知数，得乘逆元了 /lb。</p>
+<p>  剩余未确定的部分的方案数同理，枚举一下 $k$，就不写了，要乘 $C_D$ 等。</p>
+<p>  另外 $a_{r+1}=a_r$ 和 $r=n$ 的情况的交叉前也可以方便地在这里算掉（反正都枚举 $a_r$ 了）。交叉前下部里就不用算了，会在 $a_i\mapsto m-a_i+1$ 时当成上部算掉。</p>
+<p>  另一种思路是不推上部，直接推 $a_{r+1}&gt;a_r$ 情况的下部，我没试过，应该也是可以的。</p>
+<h4 id="交叉点">交叉点
+</h4><p>  枚举交叉前 $&lt;a_r$ 的数个数 $i$，交叉前 $&gt;a_r$ 的数个数 $j$，交叉后 $&lt;a_r$ 的数个数 $k$，最终得分为：
+$$
+\sum_{a_r}C_D(i,k,a_r)\cdot C_U(j,n-t-i-j-k-1,a_r)\cdot\max((Y+j)(m-a_r+1),(X+i)a_r)
+$$
+  $a_{r+1}=a_r$ 的部分可能要特殊考虑一下，代码里处理的思路是和交叉前放在一起算，直接乘 $C_R$，就不用枚举 $k$ 了。</p>
+<h4 id="交叉后下部">交叉后下部
+</h4><p>  交叉后就无需考虑 $r=n$ 了。先不考虑上部与“交织”的安排。枚举交叉前 $&lt;a_r$ 的数个数 $i$，交叉后 $&lt;a_r$ 的数个数 $k$，以及 $D$，该部分得分为：</p>
+<p>$$
+\begin{aligned}&amp;\sum_{i\le t,a_i\le L}\sum_{p=a_i+1}^D\binom{D-L-1}{i-1}\binom{D-1}{k-1}p+\sum_{a=L+1}^D\sum_{p=a+1}^D\binom{D-L-2}{i-2}\binom{D-1}{k-1}p\={}&amp;\binom{D-1}{k-1}\left[\binom{D-L-1}{i-1}{\underline{\sum_{i\le t,a_i\le L}\frac{(a_i+1+D)(D-a_i)}{2}}}<em>{f_0(D)}+\binom{D-L-2}{i-2}{\underline{\sum</em>{a=L+1}^D\frac{(a+1+D)(D-a)}{2}}}_{f(D)}\right]\end{aligned}
+$$</p>
+<p>  其中 $p$ 枚举的是交叉后下部的某个数值。记该式为 $(*)$。划线部分可以预处理。</p>
+<p>  考虑剩余部分，枚举交叉前 $&gt;a_r$ 的数个数 $j$，最终得分为：
+$$
+(*)\binom{i+j}{i}\binom{n-t-i-j-2}{k-1}C^\prime_U(j,n-t-i-j-k-1,D)
+$$</p>
+<h4 id="交叉后上部">交叉后上部
+</h4><p>  先枚举交叉前 $&gt;a_r$ 的数个数 $j$，交叉后 $&gt;a_r$ 的数个数 $k$，以及 $a_r$，该部分得分为：
+$$
+\binom{m-a_r-1}{k-1}\underline{\left[\binom{R-a_r-1}{j}\sum_{i\le t,a_i\ge R}\frac{(2m-a_i-a_r+2)(a_i-a_r-1)}{2}+\binom{R-a_r-2}{j-1}\sum_{a=a_r+1}^{R-1}\frac{(2m-a-a_r+2)(a-a_r-1)}{2}\right]}_{F(j,a_r)}
+$$
+  最终得分同理也是要乘 $C_D$ 等，略。</p>
+<p>  同样要处理一下 $a_{r+1}=a_r$，要做到三次方还得分离一下变量：
+$$
+\begin{align}
+&amp;\sum_{i,j,k,a_r}\binom{a_r-L-1}{i}\binom{m-a_r-1}{k-1}F(j,a_r)\binom{a_r-1}{n-t-i-j-k-2}\binom{i+j}{j}\binom{n-t-i-j-2}{k}\\
+=&amp;\sum_{a_r}\sum_l\left[\sum_i\binom{a_r-L-1}{i}F(l-i,a_r)\binom{l}{i}\right]\left[\sum_k\binom{a_r-1}{n-t-l-k-2}\binom{m-a_r-1}{k-1}\binom{n-t-l-2}{k}\right]
+\end{align}
+$$
+  $l$ 就是 $i+j$ 换元，跟 Step 3 里的 $l$ 是一样的。注意第二个中括号里的不是 $C_R$。</p>
+<h2 id="step-5">Step 5
+</h2><p>  说一下优化：我们希望瓶颈部分（四次方的最内层循环）运算次数尽量少，所以可以把只涉及到一部分变量的乘法先预处理掉，把能用分配律的乘法提到外层。</p>
+<p>  然后就是 $18$ 次一取模优化。</p>
+<h2 id="code">Code
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#define ansc ans. first
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define anss ans. second
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">calcP</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">CL</span> <span class="p">(</span><span class="n">tree</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">update</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">res</span> <span class="o">+=</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">?</span> <span class="n">getsum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">:</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">getsum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">pii</span> <span class="nf">calcX</span><span class="p">(</span><span class="kt">int</span> <span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">R</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pii</span> <span class="n">ans</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="n">CL</span> <span class="p">(</span><span class="n">cnt</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">pre</span> <span class="o">=</span> <span class="n">calcP</span><span class="p">(),</span> <span class="n">sumd</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sumu</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="n">pre</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">cnt</span><span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">L</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">sumd</span> <span class="o">+=</span> <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">R</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="n">sumu</span> <span class="o">+=</span> <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">m</span><span class="o">+</span><span class="n">R</span><span class="p">);</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">min</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">ansc</span> <span class="o">=</span> <span class="p">(</span><span class="n">ansc</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="n">R</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">L</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="n">R</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">sumd</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">t</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="n">R</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">sumu</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">ansc</span> <span class="o">*</span> <span class="n">pre</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">pii</span> <span class="nf">calcI</span><span class="p">(</span><span class="kt">int</span> <span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">R</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pii</span> <span class="n">ans</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="n">CL</span> <span class="p">(</span><span class="n">CD</span><span class="p">),</span> <span class="n">CL</span> <span class="p">(</span><span class="n">CU</span><span class="p">),</span> <span class="n">CL</span> <span class="p">(</span><span class="n">CUS</span><span class="p">),</span> <span class="n">CL</span> <span class="p">(</span><span class="n">CR</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="n">CD</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">L</span><span class="p">][</span><span class="n">k</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">CD</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">CD</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">j</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span> <span class="n">a</span><span class="o">--</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">CU</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">R</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="n">a</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">				<span class="n">CUS</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="n">CUS</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">CU</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">;</span> <span class="n">l</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;=</span><span class="n">l</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">CR</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">CR</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="n">a</span><span class="p">][</span><span class="n">l</span><span class="o">-</span><span class="n">k</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">k</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">ull</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">_</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">ADD</span><span class="p">(</span><span class="mi">1ll</span> <span class="o">*</span> <span class="n">CD</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">*</span> <span class="n">CU</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">a</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="n">res</span> <span class="o">%=</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">ansc</span> <span class="o">=</span> <span class="p">(</span><span class="n">ansc</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">res</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">;</span> <span class="n">l</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">int</span> <span class="n">CL</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">l</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">CL</span> <span class="o">=</span> <span class="p">(</span><span class="n">CL</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">R</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">l</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">ansc</span> <span class="o">=</span> <span class="p">(</span><span class="n">ansc</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">CL</span> <span class="o">*</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">t</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">?</span> <span class="n">CR</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">l</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">:</span> <span class="mi">1</span><span class="p">))</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i3</span> <span class="o">*</span> <span class="n">j</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">L</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">L</span><span class="p">))</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">L</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">L</span><span class="p">)))</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">i2</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">ull</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">_</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">ADD</span><span class="p">(</span><span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">CUS</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="n">res</span> <span class="o">%=</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">res</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">R</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">R</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">i3</span> <span class="o">*</span> <span class="p">(</span><span class="n">MOD</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="n">R</span><span class="o">-</span><span class="n">a</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="p">))</span> <span class="o">*</span> <span class="n">j</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">i2</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">ull</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">_</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="n">ADD</span><span class="p">(</span><span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="n">a</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">CD</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span> <span class="n">res</span> <span class="o">%=</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">res</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="k">else</span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">CD</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">*</span> <span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">R</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">CR</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">a</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">ull</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">wr</span><span class="o">=</span><span class="p">(</span><span class="n">Y</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">wg</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">,</span> <span class="n">wr</span><span class="o">-=</span><span class="n">Y</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="n">wg</span><span class="o">+=</span><span class="n">X</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">res</span> <span class="o">+=</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">CD</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">*</span> <span class="n">CU</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">max</span><span class="p">(</span><span class="n">wr</span><span class="p">,</span> <span class="n">wg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="n">res</span> <span class="o">%=</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="n">t</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">)</span> <span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">res</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">res</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CL</span> <span class="p">(</span><span class="n">f0</span><span class="p">),</span> <span class="n">CL</span> <span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">L</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="n">f0</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">a</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="n">f</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">F</span><span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span> <span class="o">?</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">f0</span><span class="p">[</span><span class="n">L</span><span class="p">]</span> <span class="o">%</span> <span class="nl">MOD</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span> <span class="k">else</span> <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">f0</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">:</span> <span class="mi">0</span><span class="p">))</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">k</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">ull</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">_</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">ADD</span><span class="p">(</span><span class="mi">1ll</span> <span class="o">*</span> <span class="n">CUS</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">*</span> <span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="n">res</span> <span class="o">%=</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">res</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CL</span> <span class="p">(</span><span class="n">f0</span><span class="p">),</span> <span class="n">CL</span> <span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">CL</span> <span class="p">(</span><span class="n">_F</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">R</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="n">f0</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="n">f</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="n">_F</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">R</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">f0</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">?</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">R</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">:</span> <span class="mi">0</span><span class="p">))</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">?</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">_F</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">%</span> <span class="nl">MOD</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">ull</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">_</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">R</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">ADD</span><span class="p">(</span><span class="mi">1ll</span> <span class="o">*</span> <span class="n">CD</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">*</span> <span class="n">F</span><span class="p">[</span><span class="n">a</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="n">res</span> <span class="o">%=</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">res</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">l</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">min</span><span class="p">(</span><span class="n">R</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">int</span> <span class="n">res1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">res2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">a</span><span class="o">-</span><span class="n">R</span><span class="o">+</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">min</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">a</span><span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">res1</span> <span class="o">=</span> <span class="p">(</span><span class="n">res1</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">_F</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">l</span><span class="o">-</span><span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="n">res2</span> <span class="o">=</span> <span class="p">(</span><span class="n">res2</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">l</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="n">l</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">res1</span> <span class="o">*</span> <span class="n">res2</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">pii</span> <span class="nf">calcF</span><span class="p">(</span><span class="kt">int</span> <span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">R</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pii</span> <span class="n">ans</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ans</span> <span class="o">+=</span> <span class="n">calcI</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">swap</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ans</span> <span class="o">+=</span> <span class="n">calcI</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">R</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="n">L</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">swap</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">anss</span> <span class="o">=</span> <span class="p">(</span><span class="n">anss</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">ansc</span> <span class="o">*</span> <span class="n">calcP</span><span class="p">())</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">pii</span> <span class="nf">calcN</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pii</span> <span class="n">ans</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">c</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Y</span> <span class="o">++</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+=</span> <span class="n">calcF</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">]),</span> <span class="n">Y</span> <span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">c</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Y</span><span class="p">,</span> <span class="n">t</span> <span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">L</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+=</span> <span class="n">calcX</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">c</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">^</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+=</span> <span class="n">calcX</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">R</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+=</span> <span class="n">calcX</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">t</span> <span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">c</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">X</span> <span class="o">++</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+=</span> <span class="n">calcF</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="n">R</span><span class="p">),</span> <span class="n">X</span> <span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">200</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;=</span><span class="n">min</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">T</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="n">T</span> <span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">scanf</span> <span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="n">L</span> <span class="o">&lt;</span> <span class="n">R</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(</span><span class="n">L</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">					<span class="n">R</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Y</span> <span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">R</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="n">L</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">X</span> <span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">					<span class="n">L</span> <span class="o">=</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="n">L</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="k">else</span> <span class="n">L</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">)</span> <span class="n">L</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">R</span><span class="p">)</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">else</span> <span class="p">{</span> <span class="n">ans</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span> <span class="k">goto</span> <span class="n">O</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">L</span> <span class="o">&lt;</span> <span class="n">R</span> <span class="o">&amp;&amp;</span> <span class="n">t</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="n">c</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Y</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="n">R</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">ans</span> <span class="o">=</span> <span class="n">L</span> <span class="o">&gt;=</span> <span class="n">R</span> <span class="o">?</span> <span class="n">calcX</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="o">:</span> <span class="n">calcN</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="nl">O</span> <span class="p">:</span> <span class="n">printf</span> <span class="p">(</span><span class="s">&#34;%d %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ansc</span><span class="p">,</span> <span class="n">anss</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2>评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="0979d2050f3811b46d76f24f62174324"
+    data-page-url="https://example.com/study/lgp9171-solution/"
+    data-page-title="[题解] lgP9171 [省选联考 2023] 染色数组"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 LRYP
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -31,7 +31,7 @@
 &lt;p&gt;3.5：行秩等于列秩。无论是行、列秩，行列式，它们的性质都是通过初等变换下的不变性来证的。&lt;/p&gt;
 &lt;p&gt;3.7.例3：理解：$k$ 行这个方程没用，$x_l$ 是自由元，取它为 $A_{kl}$，所以它可以移到右边。然后用 Cramer 解。$B_j$ 和 $A_{kj}$ 之间首先差了个负号，然后 $x_l$ 对应列对齐要交换 $|j-l|-1$ 次，还有就是代数余子式的负号。因此&lt;br&gt;
 $$
-(-1)^{k+j}B_j=(-1)^{|j-l|}A_{kj}\
+(-1)^{k+j}B_j=(-1)^{|j-l|}A_{kj}\\
 \eta_j=\frac{B_j}{M_{kl}}A_{kl}=(-1)^{k+l}B_j=(-1)^{k+l+k+j+j+l}A_{kj}=A_{kj}
 $$
 3.7.习8：他乡遇故知。太逆天了。&lt;/p&gt;
@@ -1351,6 +1351,193 @@ $$
 &lt;li&gt;$168$ 阶单群、有限单群分类、Lie 群&lt;/li&gt;
 &lt;li&gt;可解性相关进一步的内容，例如 Burnside 定理、Feit-Thompson 定理&lt;/li&gt;
 &lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>复合函数高阶导的公式</title>
+        <link>https://example.com/study/faa-di-bruno/</link>
+        <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/faa-di-bruno/</guid>
+        <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;考虑求 $(f\circ g)^{(n)}$。&lt;/p&gt;
+&lt;p&gt;我们看几个例子：
+$$
+\begin{align*}
+(f\circ g)^\prime&amp;amp;=f^\prime\circ g\cdot g^\prime\\
+(f\circ g)^{\prime\prime}&amp;amp;=f^{\prime\prime}\circ g\cdot {g^\prime}^2+f&amp;rsquo;\circ g\cdot g^{\prime\prime}\\
+(f\circ g)^{\prime\prime\prime}&amp;amp;=f^{\prime\prime\prime}\circ g\cdot {g^\prime}^3+3f^{\prime\prime}\circ g\cdot g^\prime\cdot g^{\prime\prime}+f^\prime\circ g\cdot g^{\prime\prime\prime}
+\end{align*}
+$$
+注意到结果可以写成若干 $f^{(i)}\circ g\cdot h$ 的形式，其中 $h$ 是一些 $g^{(j)}$ 的积。&lt;/p&gt;
+&lt;p&gt;考虑到 $(f^{(i)}\circ g\cdot h)^\prime=f^{(i+1)}\circ g\cdot g^\prime\cdot h+f^{(i)}\circ g\cdot h^\prime$，也就是说，有两种选择：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将 $f$ 升一阶导并乘一个 $g^\prime$；&lt;/li&gt;
+&lt;li&gt;导一下 $h$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;由于初始形式是 $f\circ g\cdot\mathbf{1}$，故根据决策会得到形如这样的 $h$：一个长为 $n$ 的操作序列，每次要么乘上一个 $g&amp;rsquo;$，要么导一下。而根据乘法法则，每次求导就相当于选一个先前的 $g$ 升一阶导。&lt;/p&gt;
+&lt;p&gt;于是 $h$ 的模型就变成这样：一个可重数集，每次要么往里面加一个 $1$，要么选一个 $+1$。然后最终的集合大小就是 $f$ 导的阶数。&lt;/p&gt;
+&lt;p&gt;发现直接对操作序列计数不好算。现考虑对于一个最终的集合（也就是结果中的一项），求出其系数。对于一个集合，它的数首先可以任意排列，代表加入它的顺序，然后一个数 $x$ 的后面要有 $x-1$ 个选中它的求导。&lt;/p&gt;
+&lt;p&gt;如果把加入顺序的排列和求导选择的排列分开来计数，不容易搞。如果放在一起，就可以理解成，对于一个数 $x$，有 $x$ 个同种颜色无法区分的球（最终放在最开头的就算加入，其余算求导）。然后所有相同的 $x$ 对应的颜色无标号。那么这时如果数 $x$ 有 $m_x$ 个（集合中数的和一定是 $n$），总的系数就是：
+$$
+\frac{n!}{\displaystyle\prod_{x=1}^nm_x!x!^{m_x}}
+$$
+于是我们就可以写出最终的表达式：
+$$
+(f\circ g)^{(n)}=\sum_{\sum i\cdot m_i=n}\frac{n!}{\prod m_i!i!^{m_i}}f^{(\sum m_i)}\circ g\cdot\prod {g^{(i)}}^{m_i}
+$$
+其中 $\sum$ 和 $\prod$ 略去了 ${}_{i=1}^n$。&lt;/p&gt;
+&lt;p&gt;这就是 &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Fa%C3%A0_di_Bruno%27s_formula&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Faà di Bruno&amp;rsquo;s formula&lt;/a&gt;。它可以直接解决倒数、除法的高阶导（反函数和参数方程可能需要递推）。&lt;/p&gt;
+&lt;p&gt;这个公式可以导出几个比较平凡的结论，在解题时可以用：
+$$
+(f(x+k))^{(n)}=f^{(n)}(x+k)\\
+(f(kx))^{(n)}=k^nf^{(n)}(x)\\
+\left.\left(f(x^k)\right)^{(n)}\right|_{x=0}=\begin{cases}0,&amp;amp;k\nmid n\\ \dfrac{n!}{(n/k)!}f^{(n/k)}(0),&amp;amp;k\mid n\end{cases}
+$$
+最后一个可以直接展开级数证（很诡异），用于展开 $\arcsin x$ 之类的。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>关于微分的理解问题</title>
+        <link>https://example.com/study/%E5%85%B3%E4%BA%8E%E5%BE%AE%E5%88%86%E7%9A%84%E7%90%86%E8%A7%A3%E9%97%AE%E9%A2%98/differential/</link>
+        <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/%E5%85%B3%E4%BA%8E%E5%BE%AE%E5%88%86%E7%9A%84%E7%90%86%E8%A7%A3%E9%97%AE%E9%A2%98/differential/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;$\gdef\o{\mathrm{o}}\gdef\d{\mathrm{d}}\gdef\D{\Delta}$&lt;/p&gt;
+&lt;h3 id=&#34;微分的定义&#34;&gt;微分的定义
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;对于一个在 $x_0$ 邻域内有定义的函数 $f$，如果：
+$$
+f(x_0+\D x)-f(x_0)=a\D x+\o(\D x)\quad(\D x\to 0)
+$$
+则称 $\d f(x_0)=a\D x=a\d x$。&lt;/p&gt;
+&lt;p&gt;同理对于任意的 $x$，可以记 $\d y=\d f(x)=a(x)\D x=a(x)\d x$。根据导数与微分的关系，$a(x)=f^\prime(x)$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;问题的开端&#34;&gt;问题的开端
+&lt;/h3&gt;&lt;p&gt;微分的最大好处在于它将求导这一求极限的动态过程转为了静态的，那么 $\d y/\d x$ 就可以视作除法了。那在证明复合函数和反函数的微分时，我们就会想：为什么不能直接进行分数操作呢？为什么高阶微分不具有形式不变性呢？&lt;/p&gt;
+&lt;p&gt;对于式：
+$$
+\frac{\d y}{\d x}=\frac{\d y}{\d u}\frac{\d u}{\d x}
+$$
+如果要利用分数操作，大前提就是将 $\d y$ 和 $\d u$ 都写成关于 $\d x$ 的形式。而在实际求时，我们时直接求出 $y$ 关于 $u$ 的函数的导数，这两者是不同的。如果直接这样证明，会导致循环论证。&lt;/p&gt;
+&lt;p&gt;那问题就来了——这里的 $\d y/\d u$ 就必须作为一个整体，那就违背微分拆成除法的思想了啊？&lt;/p&gt;
+&lt;h3 id=&#34;扩展定义&#34;&gt;扩展定义
+&lt;/h3&gt;&lt;p&gt;问题的核心出现在数学符号的模糊性上。注意到，在书中，微分是基于函数 $f$ 定义的，而函数只有唯一的自变量和因变量，因此 $\d f(x)$ 只能写成关于 $\d x$ 的表达式。但是当 $\d y=\d f(x)$ 后，我们就可以不知不觉地将 $y=f(x)=g(t)=\cdots$ 写出多种表达式了。这时 $\d y$ 就出现了歧义，因为按定义算它时，到底应该以那个函数关系为准呢？我们还没有说明微分各个函数是等价的，或者说，$y=f(x)=g(t)$ 并不能推出 $\d f(x)=\d g(t)$。&lt;/p&gt;
+&lt;p&gt;为了处理这个问题，我进一步明确了一下定义。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;变量。$x,y,t$ 这些字母代表的就是变量，它们两两之间存在着唯一的关系，这些关系互不矛盾，可能可以用函数或隐函数描述，也可能需要用间接的变量描述或难以描述。如果一对变量 $u,v$ 之间不存在关系，那么强制认为 $\d u=0\d v,\d v=0\d u$；如果一个变量 $z$ 必须同时依赖于两个无关变量 $x,y$，那就是多元微分的事情了。总之，在一元函数微分这里，我们希望将所有涉及到的变量对应的高维坐标系画出来，所有符合关系的点应当形成若干曲线，即，可以将这些曲线拆成有限段，每一段曲线中，任何一维坐标的任何可能取值仅出现一次，或者至少要求所有变量能形成一个链式的关系，这样保证能归约到函数上的微分解决。&lt;/li&gt;
+&lt;li&gt;函数。单独拿出一个函数，也是用例如 $f,g$ 的字母描述。它描述的是一种关系，可以与一个变量进行运算，得到另一个变量，例如 $y=f(x)$。注意 $y$ 和 $f$ 不能视作同一个东西，$\d f$ 是不合法的，$\d f(x)$ 才合法。&lt;br&gt;
+函数代入任何变量，得到的结果形式都是相同的；而对一个变量写出关于不同变量的表达式，这些表达式形式是不同的。如果要对变量代入值，必须要写成例如 $y|_{x=1}$。&lt;br&gt;
+定义函数的复合：$(f\circ g)(x)=f(g(x))$。优先级高于乘除。&lt;/li&gt;
+&lt;li&gt;微分。非原始形式的微分必须是“什么变量关于什么变量的微分”，记 $y$ 关于 $x$ 的微分为 $\d_xy$，$y=f(x)$ 则 $\d_xy$ 就对应书中的 $\d f(x)$。其结果是一个变量乘上 $\D x$。这个 $\D x$ 是一个“形式”，可以理解成类似生成函数里的 $x$ 这样的一个东西，它就是标明微分类型的一个类似常数的东西。当然也可以从极小变化量角度理解，但是这里不管怎么小，都不能一阶近似，$\d_xy$ 才能一阶近似。微分与微分的商就是一个变量。&lt;br&gt;
+$\D x$ 与 $x$ 无关，但 $\d_xx=\D x$，而 $\d_xy=a\D x=\D y+\o(\D x)\ne\D y=\d_yy$，也就是说 $\d_xy$ 和 $\d_yy$ 只差一个 $\o(\D x)$。这里的 $\D y$ 既可以理解为 $f(x+\D x)-f(x)$，也可以直接理解为 $y$ 的一个微小变化量。&lt;br&gt;
+至于这里 $\D x$ 这类的东西是不需要考虑“什么关于什么”的，只需要所有的变量的 $\D *\to 0$ 即可，而这由可导性保证。&lt;br&gt;
+为了避免歧义，规定 $\d_xuv=(\d_xu)v$，$\d_x\frac uv=\frac{\d_xu}v$，$\d_xu^2=(\d_xu)^2$。也就是说如果要写在里面必须加括号。&lt;/li&gt;
+&lt;li&gt;导数。记 $y^\prime_x=\d_xy/\d_xx$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这样，上面那个式子会被写成：
+$$
+\frac{\d_xy}{\d_xx}=\frac{\d_uy}{\d_uu}\frac{\d_xu}{\d_xx}
+$$
+或 $y^\prime_x=y^\prime_uu^\prime_x$，从而无法约分。&lt;/p&gt;
+&lt;h3 id=&#34;推导&#34;&gt;推导
+&lt;/h3&gt;&lt;p&gt;现在关于微分只有两样东西可以使用：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;通过定义得到某个 $\d_x y$，以及将 $\d_xy$ 反写回定义；&lt;/li&gt;
+&lt;li&gt;$u=v\Rightarrow\d_xu=\d_xv$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;根据这两样东西，可以推出：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\d_x(u+v)=\d_xu+\d_xv$，$\d_x(cu)=c\d_xu$。证略。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\d_x(uv)=v\d_xu+u\d_xv$。证：
+$$
+\begin{align*}
+\d_x(uv)&amp;amp;=\D(uv)+\o(\D x)\\
+&amp;amp;=(u+\D u)(v+\D v)-uv+\o(\D x)\\
+&amp;amp;=v\D u+u\D v+\D u\D v+\o(\D x)\\
+&amp;amp;=v(\d_xu+\o(\D x))+u(\d_xv+\o(\D x))+(\d_xu+\o(\D x))(\d_xv+\o(\D x))+\o(\D x)\\
+&amp;amp;=v\d_xu+u\d_xv+\o(\D x)
+\end{align*}
+$$
+由于含 $\d$ 的部分都是常数倍 $\D x$，故这里的 $\o(\D x)$ 应该是 $0$。&lt;/p&gt;
+&lt;p&gt;注意 $\d_x u\d_x v=\Theta(\D x^2)=\o(\D x)$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\d_xu^{-1}=-\d_xu/u^2$。证：
+$$
+\begin{align*}
+\d_x\left(\frac 1u\right)&amp;amp;=\frac 1{u+\D u}-\frac 1u+\o(\D x)\\
+&amp;amp;=-\frac{\D u}{u(u+\D u)}+\o(\D x)\\
+&amp;amp;=-\frac{\d_x u}{u(u+\D u)}+\o(\D x)\\
+&amp;amp;=-\frac{\d_x u}{u^2}+\frac{\d_x u}{u^2}-\frac{\d_x u}{u(u+\D u)}+\o(\D x)\\
+&amp;amp;=-\frac{\d_x u}{u^2}+\frac{\d_x u(\d_x u+\o(\D x))}{u^2(u+\D u)}+\o(\D x)\\
+&amp;amp;=-\frac{\d_x u}{u^2}+\o(\D x)
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\d_xy=\d_uy/\d_uu\cdot\d_xu$。证：
+$$
+\begin{align*}
+\d_xy&amp;amp;=\D y+\o(\D x)\\
+&amp;amp;=\frac{\d_uy}{\d_uu}\D u+\o(\D u)+\o(\D x)\\
+&amp;amp;=\frac{\d_uy}{\d_uu}(\d_xu+\o(\D x))+\o(\D x)\\
+&amp;amp;=\frac{\d_uy}{\d_uu}\d_xu+\o(\D x)
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\d_yx/\d_yy=1/(\d_xy/\d_xx)$。证：只需令 4 中 $u=y$ 即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以上给出了微分形式的求导法则证明。注意到，3 的证明比直接 $\lim$ 麻烦。&lt;/p&gt;
+&lt;p&gt;一阶微分形式的不变性，可以理解成（注意 $\d_xy\ne\d_uy$）：
+$$
+\forall u,\frac{\d_xy}{\d_xx}=\frac{\d_uy}{\d_ux}
+$$
+或是（注意 $y^\prime_u\ne y^\prime_x$）：
+$$
+\d_xy=y^\prime_u\d_xu=y^\prime_x\d_xx
+$$
+&lt;strong&gt;关于自变量微分时&lt;/strong&gt;，中间变量的微分形式和自变量的微分形式相同。这个性质一般会这样被使用：求 $\d_xy$ 时，先求出 $\d_uy$，然后把等式两侧的 $\d_u$ 替换为 $\d_x$ 再把 $\d_x u$ 展开。这在不标关于谁微分的时候是不容易被发觉的，书里的写法 $\d y=y^\prime_u\d u=y^\prime_x\d x$ 感觉像在说废话，其本质原因是它会被混淆成 $\d_uy=y^\prime_u\d_uu$，而这就是定义啊。&lt;/p&gt;
+&lt;p&gt;至于为什么教材里不表明是对谁微分，主要因为一般微分都是关于分母，不然得到的东西类型就不对了。&lt;/p&gt;
+&lt;p&gt;那么在答题时如何用教材中的形式呢？在没有使用链式法则或直接处理高阶微分时，默认是关于上文中&lt;strong&gt;唯一的自变量&lt;/strong&gt;微分；用链式法则处理一阶微分时，必须单独写出一步，并且在脑中，如果要替换“关于谁微分”，必须是&lt;strong&gt;成对替换&lt;/strong&gt;，这种成对可以是分子分母，也可以是等式两边。&lt;/p&gt;
+&lt;h3 id=&#34;高阶微分&#34;&gt;高阶微分
+&lt;/h3&gt;&lt;p&gt;如果硬要用类似一阶的定义方法定义高阶微分，可以这样类比定义：&lt;/p&gt;
+&lt;p&gt;对于一个在 $x_0$ 邻域内有定义的函数 $f$，如果：
+$$
+\D^nf(x)=\sum_{i=0}^n(-1)^{n-i}\binom nif(x_0+i\D x)=a\D x^n+\o(\D x^n)\quad(\D x\to 0)
+$$
+则称 $\d^nf(x_0)=a\D x^n=a\d x^n$。&lt;/p&gt;
+&lt;p&gt;但是这个似乎只能直接用导数的 $\lim$ 形式证，我没法通过反复利用一阶微分的定义证。&lt;/p&gt;
+&lt;p&gt;回到正常的定义。高阶微分的写法也是好理解的：
+$$
+\d_x\left(\frac{\d_xy}{\d_xx}\right)=\frac{\d_x^2y\d_xx-\d_xy\d_x^2x}{\d_xx^2}=\frac{\d_x^2y}{\d_xx}
+$$
+核心是 $\d_x^2x=\d_x(\D x)=0$。&lt;/p&gt;
+&lt;p&gt;二阶微分不具有形式不变性，可以如下试验：&lt;/p&gt;
+&lt;p&gt;记 $u=g(x)$，$y=f(u)$。
+$$
+\begin{align*}
+\d_u^2y&amp;amp;=\textcolor{teal}{f^{\prime\prime}(u)\d_uu^2}\\
+&amp;amp;=(f^{\prime\prime}\circ g)(x)\d_uu^2\\
+&amp;amp;=\textcolor{green}{(f^{\prime\prime}\circ g\cdot {g^\prime}^2)(x)\d_ux^2}\\
+\d_x^2y&amp;amp;=(f\circ g)^{\prime\prime}(x)\d_xx^2\\
+&amp;amp;=\textcolor{green}{(f^{\prime\prime}\circ g\cdot {g^\prime}^2+f^\prime\circ g\cdot g^{\prime\prime})(x)\d_xx^2}\\
+&amp;amp;=\textcolor{teal}{f^{\prime\prime}(u)\d_xu^2+f^\prime(u)\d_x^2u}
+\end{align*}
+$$
+也就是：
+$$
+\frac{\d_x^2y}{\d_xx^2}\ne\frac{\d_u^2y}{\d_ux^2}
+$$
+至于为什么不一样，可以大致理解为有一项高阶项不能忽略。由于水平有限，我无法指出到底源自于哪儿。&lt;/p&gt;
+&lt;p&gt;从而我们也就能理解，为什么在书里，参数方程一阶导可以 $\d y/\d x=\d y/\d t\cdot\d t/\d x$，而二阶导必须拆成两次一阶导，而不能 $\d^2y/\d x^2=\d^2y/\d t^2\cdot (\d t/\d x)^2$。&lt;/p&gt;
 </description>
         </item>
         
