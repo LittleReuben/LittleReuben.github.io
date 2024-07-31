@@ -1916,11 +1916,43 @@ $$
 </description>
         </item>
         <item>
-        <title>a</title>
-        <link>https://example.com/study/aaa/</link>
+        <title>定长区间最小整周期问题的线性解法</title>
+        <link>https://example.com/study/string-period/</link>
+        <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/string-period/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;本文非常地粗糙和民科，算法很可能是假的。如果您知道已有的其他解法或者找到了我的证明的问题，请告知我是小丑。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;最近做 &lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/CF1909G&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CF1909G&lt;/a&gt; 的时候想复杂了，结果发现了一些奇怪的性质，感觉不大平凡？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;引理&lt;/strong&gt;：一个足够长的串 $s$，$s_1\ne s_{n+1}$。若 $s_{1\cdots n}$ 的最小整周期为 $p&amp;lt;n$，有某个 $1&amp;lt;i\le n$，$s_{i\cdots i+n-1}$ 的最小整周期为 $q&amp;lt;n$，那么 $i&amp;gt;n-p-q+\gcd(p,q)+1$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;证&lt;/strong&gt;：反证，假设 $i\le n-p-q+\gcd(p,q)+1$。&lt;/p&gt;
+&lt;p&gt;$p\mid q$ 的情况下，$i\le n-q+1$，$s_{n+1}=s_{n-q+1}=s_{1}$，矛盾。&lt;/p&gt;
+&lt;p&gt;$p\nmid q$ 的情况下，$s_{i\cdots n}$ 这一段长度至少为 $p+q-\gcd(p,q)$，且有 $p$ 和 $q$ 作为周期，由强周期引理，$p$ 不是 $s_{1\cdots n}$ 的最小整周期，矛盾。&lt;/p&gt;
+&lt;p&gt;$i$ 取到 $n-p-q+\gcd(p,q)+2$ 的情况应该可以构造，不过我现在还没找到通用的形式。&lt;/p&gt;
+&lt;p&gt;一个有趣的推论是 $i&amp;gt;n/3+1$，这可以通过讨论所有 $p,q&amp;gt;n/6$ 证明。取到 $i=n/3+2$ 的情况是这样的：
+$$
+\texttt{a}t\texttt{b}t\texttt{a}\textcolor{red}{t\texttt{a}t\texttt{b}t\texttt{a}t}+\textcolor{red}{\texttt{b}t\texttt{a}t\texttt{b}}
+$$
+$t$ 表示任意串。前面一个串 $p=n/2$，红色部分 $q=n/3$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;然后发现了一个求定长区间最小整周期的线性算法&lt;/strong&gt;（定长长为 $n$）：&lt;/p&gt;
+&lt;p&gt;首先 $p=n/2$ 的情况要暴力判掉。&lt;/p&gt;
+&lt;p&gt;从左往右移窗口。对于当前子串 $s_{l\cdots r=l+n-1}$，反过来跑 KMP。&lt;/p&gt;
+&lt;p&gt;case 1. 如果找到了 $&amp;lt;n$ 的最小整周期（这里找到 $n/2$ 也无所谓），那就可以一步步移左右端点，看能否维持当前周期，如果不行，根据引理可以至少一次性往后跳 $(n-p)/2$。称这个为优化 A。&lt;/p&gt;
+&lt;p&gt;case 2. 否则，如果下一个具有最小整周期 $p\le n/3$ 的区间与 $[l,r]$ 有交，那么交的部分一定也有 $p$ 的周期。并且，如果交的部分长 $\ge 2n/3$，那么 $p$ 一定是它的最小周期（否则可以用弱周期引理导出更小的 $p$）。现在，找到当前区间的最长后缀 $[t,r]$，满足这个后缀的最小周期是 $\le n/3$ 的 $n$ 的因数，把区间左端点移到 $\min(t,l+n/3)$。称这个为优化 B。注意优化 B 是不能兼容 $p=n/2$ 的，因为交里的循环节不足 $2$ 次，无法保证最小周期。比如当前子串为 $\texttt{aaaaaaaaaabaaaaa}$，那么后续必须逐一检查。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;性质&lt;/strong&gt;：连续进行两次优化 B，左端点移动超过 $n/3$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;证&lt;/strong&gt;：如果两次中有至少一次左端点移到的这个 $\min$ 式子取的后一项，那么已证毕。&lt;/p&gt;
+&lt;p&gt;否则考虑反证，如果左端点移动 $\le n/3$，设两次分别移动到 $[l^\prime,r^\prime],[l^{\prime\prime},r^{\prime\prime}]$，$[l^\prime,r]$ 和 $[l^{\prime\prime},r^\prime]$ 的最小周期分别为 $p,q\le n/3$。由于 $r-l^{\prime\prime}+1\ge 2n/3$，故 $[l^{\prime\prime},r]$ 具有周期 $\gcd(p,q)$，故 $[l^\prime,r^\prime]$ 具有周期 $\gcd(p,q)$，不应有第二次优化 B，矛盾。&lt;/p&gt;
+&lt;p&gt;综上，无论何种情况，都可以一次性跳过至少 $n/3$ 个位置，总时间复杂度为 $\mathrm{O}(n\cdot \lvert s\rvert/n)=\mathrm{O}(\lvert s\rvert)$。&lt;/p&gt;
+&lt;p&gt;优化 A 应该是不必要的（可以直接从 $l+1$ 继续），因为如果 case 1 紧跟 case 2 的话，case 2 应当一定会跳 $\min$ 的后一项。这个我没仔细证。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>严谨的 WQS 二分方法</title>
+        <link>https://example.com/study/wqs/</link>
         <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/aaa/</guid>
+        <guid>https://example.com/study/wqs/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;下文中的 $\max/\min$ 可以为了严谨起见理解成 $\sup/\inf$。&lt;/p&gt;
 &lt;p&gt;众所周知，WQS 二分优化的是这样一类问题：有一个函数 $f(x)$，给定 $a$，希望求得 $f(a)$，但是 $f$ 的单点值无法快速求。这时，如果有以下性质之一：&lt;/p&gt;
@@ -1956,11 +1988,12 @@ $$
 &lt;blockquote&gt;
 &lt;p&gt;这张动图中红色轨迹即为 $g(k)$。&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;center&gt;&lt;img src=&#34;wqs\wqs2.gif&#34; style=&#34;zoom:100%;&#34; /&gt;&lt;/center&gt;
 &lt;p&gt;证 1：若 $f(k)$ 处处可导，令 $h(k)=\min\set{x\mid f^\prime(x)=k}$，则 $g(k)=f(h(k))-k(h(k)-a)$。
 $$
 \begin{aligned}
-g&amp;rsquo;(k)&amp;amp;=f&amp;rsquo;(h(k))h&amp;rsquo;(k)-kh&amp;rsquo;(k)-(h(k)-a)\\
-&amp;amp;=kh&amp;rsquo;(k)-kh&amp;rsquo;(k)-h(k)+a\\
+g^\prime(k)&amp;amp;=f^\prime(h(k))h^\prime(k)-kh^\prime(k)-(h(k)-a)\\
+&amp;amp;=kh^\prime(k)-kh^\prime(k)-h(k)+a\\
 &amp;amp;=-h(k)+a
 \end{aligned}
 $$
@@ -1984,8 +2017,8 @@ $$
 &lt;/h2&gt;&lt;p&gt;考虑实数二分的精度问题，设当前二分区间为 $[l,r]$，取 $f(h(l))-lh(l)+la$ 来估算答案，它与 $f(a)$ 的差距为：
 $$
 \begin{aligned}
-\lvert f(h(l))-lh(l)+la-f(a)\rvert&amp;amp;=\left\lvert l(a-h(l))-\int_{h(l)}^af&amp;rsquo;(x)\mathrm{d}x\right\rvert\\
-&amp;amp;=\left\lvert\int_{h(l)}^a(l-f&amp;rsquo;(x))\mathrm{d}x\right\rvert\\
+\lvert f(h(l))-lh(l)+la-f(a)\rvert&amp;amp;=\left\lvert l(a-h(l))-\int_{h(l)}^af^\prime(x)\mathrm{d}x\right\rvert\\
+&amp;amp;=\left\lvert\int_{h(l)}^a(l-f^\prime(x))\mathrm{d}x\right\rvert\\
 &amp;amp;\le\lvert a-h(l)\rvert\cdot(r-l)\\
 &amp;amp;\le\lvert I\rvert\cdot(r-l)
 \end{aligned}
