@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇摘抄笔记。 本文基本上就是 Optimal Preprocessing for Answering On-line Product Queries 和 Data Structures for Range Minimum Queries in Multidimensional Arrays 的非形式化翻译，掺杂了自己的理解和思路，略去了一些细节。 主要讲一下比较基础">
+<title>读论文系列 #2——两个偏理论的静态数据结构问题</title>
+
+<link rel='canonical' href='https://example.com/study/paper2/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="读论文系列 #2——两个偏理论的静态数据结构问题">
+<meta property='og:description' content="这是一篇摘抄笔记。 本文基本上就是 Optimal Preprocessing for Answering On-line Product Queries 和 Data Structures for Range Minimum Queries in Multidimensional Arrays 的非形式化翻译，掺杂了自己的理解和思路，略去了一些细节。 主要讲一下比较基础">
+<meta property='og:url' content='https://example.com/study/paper2/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2023-08-27T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-08-27T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="读论文系列 #2——两个偏理论的静态数据结构问题">
+<meta name="twitter:description" content="这是一篇摘抄笔记。 本文基本上就是 Optimal Preprocessing for Answering On-line Product Queries 和 Data Structures for Range Minimum Queries in Multidimensional Arrays 的非形式化翻译，掺杂了自己的理解和思路，略去了一些细节。 主要讲一下比较基础">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#静态序列区间半群查询问题">静态序列区间半群查询问题</a></li>
+    <li><a href="#高维-rmq-问题">高维 RMQ 问题</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/oi/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 算法竞赛
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/paper2/">读论文系列 #2——两个偏理论的静态数据结构问题</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-08-27</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; height: 25pt; line-height: 25pt;">这是一篇<b>摘抄笔记</b>。</div>
+<p>本文基本上就是 <a class="link" href="https://citeseerx.ist.psu.edu/doc/10.1.1.79.1554"  target="_blank" rel="noopener"
+    >Optimal Preprocessing for Answering On-line Product Queries</a> 和 <a class="link" href="https://cs.uwaterloo.ca/~imunro/cs840/ProjectPapers/SODA10_014_yuanh.pdf"  target="_blank" rel="noopener"
+    >Data Structures for Range Minimum Queries in Multidimensional Arrays</a> 的非形式化翻译，掺杂了自己的理解和思路，略去了一些细节。</p>
+<p>主要讲一下比较基础的静态数组、高维数组的区间查询问题。两篇论文其实关系不大，只是后一篇用了前一篇的部分成果。</p>
+<p>理论性比较强，尤其是后一篇，基本上出不成题。</p>
+<hr>
+<h2 id="静态序列区间半群查询问题">静态序列区间半群查询问题
+</h2><p>问题：给定半群元素序列 $a_{1\cdots n}$，在只能使用半群运算 $\circ$ 的情况下，多次询问区间 $[l,r]$，回答 $\circ_{i=l}^r a_i$。</p>
+<p>解决思路无非就是预处理一些区间的积，查询时拼起来就行。联想到正常的动态区间查询问题，动态情况下下界就是 $\Omega(\log n)$ 的。静态情况下允许的预处理量大大增加，因此分析下去会不一样，但思路还是可以借鉴的。总体来说，核心的思想就是两点：</p>
+<ol>
+<li>预处理与查询的平衡。</li>
+<li>分块与分治。</li>
+</ol>
+<p>记 $k$ 表示回答查询时允许的半群运算次数 ${}+1$。</p>
+<hr>
+<p>最初的思考从 $k=2$ 开始（$k=1$ 只能预处理所有平方个区间），我们要给每个区间 $[l,r]$ 选定一个切分点，然后进行所需的预处理。为了使公共预处理区间尽量多，考虑每次选择一个点，将所有尚未确定切分点，且能以该点为切分点的区间的切分点选定为该点。这个就是猫树，下面说点题外话。</p>
+<p>记猫树的预处理量为 $p(n)$。每次选取中点作为切分点的<em>最优性</em>是由 $p(n)$ 的凸性保证的。我们可以通过解递归式得到：
+$$
+p(n)=n\lfloor\log_2(n-1)\rfloor+2n-2^{\lfloor\log_2(n-1)\rfloor+1}
+$$
+为了方便 $\Omicron(1)$ LCA，猫树有少量冗余。理论上递归可以只进行 <code>build(l,mid-1)</code> 和 <code>build(mid+2,r)</code>，并且在 $r-l\le 1$ 时结束，记猫树<em>最优的</em>预处理量为 $p^\prime(n)$：
+$$
+p^\prime(n)=(n+2)\lfloor\log_2(n+1)\rfloor-n+2-2^{\lfloor\log_2(n+1)\rfloor+1}
+$$
+猜想：对于长为 $n$ 的序列，$k=2$ 情况下符合条件的预处理区间集合 $\mathcal{P}$，除去 $n$ 个单元素区间，${\lvert\mathcal{P}\rvert}_{\min}=p^\prime(n)$。</p>
+<p>注意这里的最优性和上文的最优性是不一样的，上文是“每次选择一个切分点，然后两边递归”这个思路前提的基础上的最优性。</p>
+<hr>
+<p>纠结于系数意义不大，我们关注 $k=2$ 情况的结构带来的启发。“预处理前/后缀和”是非常有效的线性手段。</p>
+<p>但是如何推理 $k&gt;2$ 呢？众所周知，动态情况下的线段树是从分块嵌套演化过来的，因此考虑类比逆推多个切分点的情况（只预处理每一块内的前后缀和）：</p>
+<p><img src="/study/paper2/fga2gv7u.png"
+	width="1070"
+	height="400"
+	srcset="/study/paper2/fga2gv7u_hu13c3b81ed0401b39d1d69b4b315a2bf0_27564_480x0_resize_box_3.png 480w, /study/paper2/fga2gv7u_hu13c3b81ed0401b39d1d69b4b315a2bf0_27564_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="267"
+		data-flex-basis="642px"
+	
+></p>
+<p>对于一个询问，如果它在块内部，则递归 $T_2$ 处理，否则两头散块可以用前后缀和算出，然后考虑 $T_1$ 用于维护每块的和形成的较短序列，处理块间部分。</p>
+<p>记块大小为 $B(n)$，预处理复杂度为 $p(n)$，回答询问使用的运算次数最多为 $q(n)-1$。下文中可能出现多个 $f(n)$，作用域仅在单自然段内。</p>
+<p>利用分治的思想，考虑三种可能（记 $q(n)=k$ 的数据结构为 $S_k$，$S_2=$ 猫树）：</p>
+<ol>
+<li>$T_1=T,T_2=T$。<br>
+$p(n)=p(n/B(n))+n/B(n)\cdot p(B(n))+\Theta(n),q(n)=\max\set{q(n/B(n))+2,q(B(n))}$，上下均自递归的结构其实很像 vEB 树，因此考虑取 $B(n)=\sqrt n$，将 $p(n)$ 展开后使用初中处理因式的技巧，就可以得到 $p(n)=\Theta(n\log\log n)$，同时 $q(n)=\Theta(\log\log n)$。我猜测无法更优了。</li>
+<li>$T_1=T,T_2=S_2$。<br>
+$p(n)=p(n/B(n))+\Theta(n\log B(n)),q(n)=q(n/B(n))+2$，可以对输入的固定的 $n$ 取 $\forall i,B(i)=2^{\sqrt{\log n}}$，这样可以平衡成 $p(n)=\Theta\left(n\sqrt{\log n}\right),q(n)=\Theta\left(\sqrt{\log n}\right)$。这个方向没有前途的直觉解释是：分块后问题分成了 $T_1$——<strong>单个规模较小</strong>、$T_2$——<strong>若干规模很小，但总和不变</strong> 这两个子问题，直觉上后者是比前者难的，拿已有的结构作为 $T_2$ 基本没法优化。</li>
+<li>$T_1=S_2,T_2=T$。<br>
+$p(n)=\Theta(n/B(n)\cdot\log(n/B(n)))+n/B\cdot p(B(n))+\Theta(n),q(n)=4$，很明显可取 $B(n)=\log n$，从而做到 $p(n)=\Omicron(n\log^*n)$，这个就是 $S_4$。</li>
+</ol>
+<p>第三种可能实际上提供了一个以 $q(n)$ 增加 $2$ 为代价，将 $p(n)=\Omicron(n\cdot f(n))$ 变为 $\Omicron(n\cdot f^*(n))$ 的通法（得满足 $f(n)=\Omicron(\log n)$，取 $B(n)=f(n)$ 即可），其中 $f^*(n)=\min\set{i\mid f^{(i)}(n)\le 1}$。 因此我们可以做到：
+$$
+\forall 2\mid k\ge 4,p(n)=\Omicron(n\log^{\begin{matrix}k/2-1\\ \overbrace{**\cdots*}\end{matrix}}n),q(n)=k
+$$
+……吗？</p>
+<p>这里有一个很容易犯的错误，就是如果不用主定理解递归式，那么解的过程中严谨地来说必须避免渐进记号。但 OI 实践中往往不拆也不会出问题，这里实际上套上了一个归纳，并且把 $k$ 作为变量塞进渐进记号里了，就得谨慎地算一下了。$k=4$ 时：
+$$
+\begin{aligned}
+p(n)&amp;=n/\log n\cdot \log(n/\log n)+n/\log n\cdot p(\log n)+2n-2\log n\\
+&amp;&lt;3n+n/\log n\cdot p(\log n)\\
+&amp;=3n\log^*n
+\end{aligned}
+$$
+同理，可以算得 $k=6$ 时 $p(n)&lt;5n\log^*n$ 等等。因此：
+$$
+\forall 2\mid k\ge 4,p(n)=\Omicron(n\textcolor{red}{k}\log^{\begin{matrix}k/2-1\\ \overbrace{**\cdots*}\end{matrix}}n),q(n)=k
+$$
+另外，为了完整，我们把 $2\nmid k$ 也补上。$k=3$ 套上 $T_1=S_1$，（特例）取 $B(n)=\sqrt n$，可以得到 $p(n)=\Theta(n\log\log n)$ 的 $S_3$，$k\ge 5$ 就跟 $k-1$ 情况一样了。</p>
+<p>为了平衡 $p(n)/n$ 和 $q(n)$，考虑取 $k=2\alpha(n)+2$，其中：
+$$
+\alpha(n)=\min\set{i\mid\log^{\begin{matrix}i\\ \overbrace{**\cdots*}\end{matrix}}n\le 3}
+$$
+这里 $\le 3$ 时因为 $n\ge 5$ 时不管有几个星，结果都至少是 $3$。您可能在其他地方见过 $\alpha(n)$ 的不同定义方式，不同的定义应该都只差一个常数。</p>
+<p>这时 $p(n)=\Omicron(n\alpha(n)),q(n)=\Theta(\alpha(n))$。注意这里的 $\alpha(n)$ 是无法变成 $\alpha^*(n)$ 的，但是有另一个看起来不大优美的优化方式：</p>
+<p>仍然考虑上文的分块模型，$T_1=S_{2\alpha(n)+2},T_2=T_{?}$，设 $T_{?}$ 的预处理时间为 $p_{?}(n)=\Omicron(n\cdot f(n))$。那么总的 $p(n)=\Omicron(n/B(n)\cdot\alpha(n)+n\cdot f(B(n)))$，如果要使得 $p(n)=\Theta(n)$，唯一的方法是取 $B(n)=\alpha(n),f(n)=\Omicron(1)$，那么 $T_{?}$ 可以选择普通线段树。好在这部分的询问运算次数不是瓶颈，因此总的 $q(n)$ 只会加 $2$（最外层两端的散块）。这里主要是通过类似于待定系数法的方式解释一下论文里为什么会突然冒出普通线段树。</p>
+<p>这个优化的思想是，用“单个规模较小”优化预处理“常数”（红色的 $k$），“若干规模很小，但总和不变”尽管无法有效减小预处理复杂度，但是可以保证查询次数足够少。二者互补。</p>
+<p>我尝试类推优化掉任意 $k$ 的“常数”（红色的 $k$）（这个原论文里没讲），但 $q(n)$ 会加 $2$。这个是可以避免的：</p>
+<p>希望 $q(n)=k\ge 3$，最外层是 $T_1=S^\prime_k,T_2=普通线段树,B(n)=k$。$S^\prime_k$ 是修改过的结构，基本与 $S_k$ 相同，即 $T_1=S_{k-2},T_2=S^\prime_k,B(n)=f(n)$，这里 $f(n)$ 指的是设 $S_{k-2}$ 的预处理复杂度为 $\Omicron(n(k-2)f(n))$。不同的点在于 $S^\prime_k$ 处理的块内前后缀和是细分到原序列的，而不是严格遵循最外层分块结构把每 $k$ 个一组的和视为整体。这样就避免了最外层跨块时额外查一对前后缀和。$S^\prime_k$ 的预处理复杂度仍然是 $p(n)=\Omicron(nk/B(n)\cdot f(n))+n/B(n)\cdot p(B(n))+\Theta(nk)=\Omicron(nk\cdot f^*(n))$，其他部分也都没有问题，总体来说就把 $p(n)$ 的 $k$ 除掉了，$q(n)$ 不变。最终我们得到了：
+$$
+p(n)=\begin{cases}\Omicron(n^2)&amp;q(n)=1\\ \Omicron(n\log n)&amp;q(n)=2\\ \Omicron(n\log\log n)&amp;q(n)=3\\ \Omicron(n\log^{\begin{matrix}\lfloor k/2\rfloor-1\\ \overbrace{**\cdots *}\end{matrix}}n)&amp;q(n)=k\ge 4\end{cases}
+$$
+但如果具体实现真想做到查询时间复杂度 $=\Theta(q(n))$，那就得处理一个“变进制数 LCP 问题”，而且 $q(n)\ge 4$ 后基本没法体现区别，所以只能套一个交互限制运算次数或者像 <a class="link" href="https://uoj.ac/problem/709"  target="_blank" rel="noopener"
+    >【北大集训2021】末日魔法少女计划</a> 这样。</p>
+<hr>
+<p>下界的证明思路是对着这个分块结构硬证。对于 $k=2$，选择序列中点 $m$，将只包含于中点左侧（不含中点）和只包含于中点右侧（不含中点）的预处理作为一类，跨左右的预处理作为一类。考虑询问 $[m-i,m+i]$，要用两个预处理拼成该询问，就必须有一个跨左右的预处理。因此 $p(n)\ge p(\lfloor n/2\rfloor)+p(\lceil n/2\rceil-1)+\lceil n/2\rceil-1$，解得 $p(n)=\Omega(n\log n)$。对于 $k\ge 3$，按 $S_k$ 的块大小分块，但块间空出一位。也是先忽略块内的预处理，剩余跨块的预处理。对于一个位置，如果它不是任何跨块预处理的端点，则标记它。如果含有被标记位置的块不足一半，那么跨块预处理至少 $\Omega(n)$；超过一半，那么考虑所有以标记位置为两端的询问，组成询问区间的最左右预处理一定是块内的，去掉这两部分后剩余问题一定不弱于 $k^\prime=k-2,n^\prime=n/B(n)$ 情况的问题，跨块预处理也是至少 $\Omega(n)$，归纳即可，这里注意不会带有因子 $k$。论文里提到这个证明可以直接推广成“预处理可以是任意子集且不要求不交并”情况。</p>
+<p>因此，上述解法的半群运算次数是渐进最优的。论文标题上加了个 on-line，不知离线是否会有更好的结果。</p>
+<hr>
+<h2 id="高维-rmq-问题">高维 RMQ 问题
+</h2><p>问题：给定高维数组 $a_{1\cdots n_1,\cdots,1\cdots n_d}$，在只能使用比较运算的情况下，多次询问高维区间 $[l_1,r_1],\cdots,[l_d,r_d]$，回答 $\min_{i_1\in[l_1,r_1]}\cdots\min_{i_d\in[l_d,r_d]}\set{a_{i_1,\cdots,i_d}}$。记 $N=\prod n_i$。</p>
+<p>以下视 $d$ 为定值，但还是会尽量写一下关于 $d$ 的常数。以下假设 $a$ 中数互不同。</p>
+<p>先尝试把上文的静态区间半群查询问题的 $S_k$ 扩展到 $d$ 维结构 $S_k^d$：非常简单，处理块内前后缀和时，不再是存储单个元素，而是一个 $d-1$ 维数组，就需要嵌套下去，那就归约 $S_k^{d-1}$ 了。时间复杂度的变化是预处理的 $\log$ 以及查询会带上 $d$ 次方。</p>
+<hr>
+<p>目前可以做到的是预处理 $\Omicron(N\log^{d-1}N)$，查询 $\Omicron(2^d)$，也就是把最内层一维套个四毛子。</p>
+<p>但是我们的目标是预处理 $\Theta(N)$，查询 $\Omicron(1)$。可以推理得到以下几点：</p>
+<ol>
+<li>得用四毛子。</li>
+<li>直接用 $S_2^d$ 之类的结构肯定不行。</li>
+</ol>
+<p>那如果是 $S_3^d$ 的最内层套四毛子，是不是就可以做到 $\Omicron\left(N\frac{(\log\log N)^d}{\log N}\right)=\omicron(N)$ 了呢？答案是否定的，因为次内层的结构是带一个前后缀 $\min$ 的，也就是要得到最内层建树所基于的序列，就先得乘 $\Theta(n_d)$，而其他外层又无法直接套四毛子，所以如果用这种思路，就必定是 $\Omega(N(\log\log N)^{d-1})$ 的。因此一维的四毛子不行。</p>
+<p>四毛子的关键是找到一个信息量足够小的贴近本质的刻画，那如何找到一个高维数组的所有可能的区间 $\min$ 的刻画呢？不幸的是，论文中提到，二维的 $n\times n$ 方阵不存在类笛卡尔树的刻画，因为在矩形 $\min$ 查询意义下本质不同的方阵个数为 $\Omega(((n/4)!)^{n/4})$，取对数发现光是靠比较来区分所有的情况都无法做到 $\Omicron(n^2)$。</p>
+<p>一种新的刻画一维序列的方式如下：考虑猫树，树的每个节点预处理所有前后缀 $\min$。尽管建树复杂度无法做到 $\Theta(n)$，但比较次数是可以的：考虑一个节点的前缀 $\min$，前一半从左儿子继承，后一半从右儿子继承的同时，要与左儿子 $\min$ 再取个 $\min$，而这个取 $\min$ 的决策情况显然可以二分分界点，因此一个节点的比较次数可以做到长度的对数，总体来说就是至多 $2\sum_{i\ge1}i\cdot\frac{n}{2^i}=4n$ 次。</p>
+<p>猫树可以扩展到高维 $S_2^d$，但为了保证比较次数，处理方法要稍作调整：对于某个节点，设其对应的区间长度为 $2^{i_1}\times\cdots\times 2^{i_d}$，由于不能多维同时二分，故选择最长的一维，将这一维切成两半后对应的节点信息作为继承 $\min$ 值的来源，其他维暴力扫描，这一维二分。比较次数为（这里的 $2^d$ 是每一维都要前后缀）：
+$$
+\begin{aligned}
+&amp;\sum_{i_1,\cdots,i_d}\max_j\set{i_j}\cdot\frac{\prod_j2^{i_j}}{\max_j\set{2^{i_j}}}\cdot 2^d\cdot\frac{N}{\prod_j2^{i_j}}\\
+={}&amp;2^dN\sum_{i_1,\cdots,i_d}\frac{\max_j\set{i_j}}{2^{\max_j\set{i_j}}}\\
+={}&amp;2^dN\sum_i\frac{i}{2^i}\left[(i+1)^d-i^d\right]\\
+&lt;{}&amp;2^dN\sum_i\frac{i^{d+1}}{2^{i-1}}\\
+={}&amp;2^{d+2}N\cdot \tilde{b}(d+1)\\
+\approx{}&amp;\frac{2^{d+1}(d+1)!}{(\ln 2)^{d+2}}N\\
+={}&amp;\Theta(N)
+\end{aligned}
+$$
+其中 $\tilde{b}(n)$ 是 <a class="link" href="https://oeis.org/A000670"  target="_blank" rel="noopener"
+    >A000670</a>。注意如果不选最长的一维切就不能线性了。</p>
+<p>由于这个结构并非确定唯一的最小值位置，而是给出 $\Omicron(2^d)$ 个候选最小值，故它的线性复杂度并不与上文所说的“无法刻画”矛盾。</p>
+<hr>
+<p>好，现在选取边长为 $B=c\log^{1/d}N$ 的 $d$ 维超立方体作为小块，使用四毛子（为了快速识别输入的每一小块的类型，避免带上 $\log^d$，可以选取足够小的常数 $c$，$\Omicron(N)$ 地预处理出判断块类型的决策树）。这种分块方式不是严格意义上的高维嵌套分块，需要重新考虑如何回答询问。</p>
+<p>注意到，只要询问有一个维度的区间是跨块，那么整块部分就可以直接利用除以 $\log^{1/d} N$ 这个因子，套上 $S_3^d$ 从而达到 $\Theta\left(\max\Set{N,N\frac{(\log\log N)^d}{\log^{1/d}N}}\right)$ 也就是 $\Theta(N)$（因为 $d$ 是定值）；查询的每一维都是块内的情况不必多说。</p>
+<p>现在就剩下跨块时去掉中间整块后，散块即两端块内前后缀部分的处理。</p>
+<p>论文中给出的方法是：对跨块的这一维的所有块内前后缀 $\min$（指的是多个内层 $d-1$ 维数组对应位置分别取 $\min$），递归建 $d-1$ 维时的原问题结构。总体来说，需要预处理以下三部分：</p>
+<ol>
+<li>每个小块的类型；</li>
+<li>每一维求出每个块的 $\min$（$B$ 个内层 $d-1$ 维数组对应位置分别取 $\min$），然后建 $S_3^d$。</li>
+<li>每一维求出每个块内前后缀的 $\min$，然后递归建 $d-1$ 维的结构。</li>
+</ol>
+<p>询问时，如果所有维度都是块内，则直接回答，否则任选一个跨块维度，拆成三个部分处理。</p>
+<p>预处理复杂度 $p(n)=\Theta(2^d\tilde{b}(d+1)N)$，具体算一下会发现递归减一维的部分并不是瓶颈，识别小块类型才是。查询 $q(n)=\Omicron(3^d)$。</p>
+<p>我想到的一个更简单的方法是：只预处理上文中 1 和 2 结构，$p(n)$ 不变。查询时利用 RMQ 可以重复考虑同一个数的性质，分别考虑每一个跨块的维度，忽略其散块部分（其他维保留原询问区间），在 2 结构中查询，这个是 $\Omicron(d3^d)$；剩余未考虑的就是每一维都是散块的部分，一共有 $\Omicron(2^d)$ 个（左右段各一个）块，每个小块 $\Omicron(2^d)$，乍一看是 $\Omicron(4^d)$，但实际上如果一个维度跨块了，它会给查询数量贡献 $\times 2$，但在高维猫树中由于这维查的是前后缀，所以对候选最小值数量就不贡献 $\times 2$ 了，因此还是 $\Omicron(2^d)$。最终 $q(n)=\Omicron(d3^d)$。</p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="01202db9abef181aeb8a3cd191f2fb44"
+    data-page-url="https://example.com/study/paper2/"
+    data-page-title="读论文系列 #2——两个偏理论的静态数据结构问题"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 LRYP
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

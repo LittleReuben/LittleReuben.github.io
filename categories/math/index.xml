@@ -8,12 +8,12 @@
         <language>en-us</language>
         <copyright>LRYP</copyright>
         <lastBuildDate>Fri, 26 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/math/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>线代自学笔记</title>
+        <title>线代（上）自学笔记</title>
         <link>https://example.com/study/linear-algebra-1/</link>
         <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/linear-algebra-1/</guid>
-        <description>&lt;img src="https://example.com/study/linear-algebra-1/cover.png" alt="Featured image of post 线代自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
+        <description>&lt;img src="https://example.com/study/linear-algebra-1/cover.png" alt="Featured image of post 线代（上）自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
 &lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;书是丘维生的《高等代数（上册）》。由于自己以前学过一些线代，所以这里列出的都是一些细节。&lt;/p&gt;
 &lt;p&gt;所有矩阵默认 $n$ 行 $m$ 列，秩为 $r$。&lt;/p&gt;
@@ -227,13 +227,13 @@ $$
 </description>
         </item>
         <item>
-        <title>抽代自学笔记</title>
+        <title>抽代（群论部分）自学笔记</title>
         <link>https://example.com/study/gtm73-group-theory/</link>
         <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/gtm73-group-theory/</guid>
-        <description>&lt;img src="https://example.com/study/gtm73-group-theory/GTM73.png" alt="Featured image of post 抽代自学笔记" /&gt;&lt;p&gt;$\gdef\lcm{\operatorname{lcm}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\syl{\operatorname{Syl}}\gdef\or{\operatorname{or}}\gdef\aut{\operatorname{Aut}}\gdef\norm{\vartriangleleft}\gdef\inn{\operatorname{Inn}}\gdef\out{\operatorname{Out}}\gdef\F{\mathbb{F}}$&lt;/p&gt;
-&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+        <description>&lt;img src="https://example.com/study/gtm73-group-theory/GTM73.png" alt="Featured image of post 抽代（群论部分）自学笔记" /&gt;&lt;p&gt;$\gdef\lcm{\operatorname{lcm}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\syl{\operatorname{Syl}}\gdef\or{\operatorname{or}}\gdef\aut{\operatorname{Aut}}\gdef\norm{\vartriangleleft}\gdef\inn{\operatorname{Inn}}\gdef\out{\operatorname{Out}}\gdef\F{\mathbb{F}}$&lt;/p&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 50pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;br&gt;本文仅供参考，学习顺序是不合理的。如果希望深入研究有限群分类，请先学完环和域。&lt;/div&gt;
 &lt;p&gt;&lt;del&gt;原来是为了醋包的饺子。不想看无聊细节的可以直奔第 12 节。&lt;/del&gt;&lt;/p&gt;
 &lt;h2 id=&#34;gtm73-之-我只来得及看完群论了&#34;&gt;GTM73 之 我只来得及看完群论了
 &lt;/h2&gt;&lt;p&gt;这本教材内容是比较全的，对初学者不友好的点就是解说较少，就是大量的定理—证明，很多证明能看懂它是对的，但是无法理解它的思路是怎么想到的。&lt;/p&gt;
@@ -952,18 +952,20 @@ $$
 &lt;p&gt;若 $\Z_8\norm G$，同样类似于 $p^3$ 的情况，可以找到外面一个 $2$ 阶元 $b$，然后分析自同构，$bab^{-1}=a^{1\or3\or5\or7}$，并且这四种互不同构。&lt;/p&gt;
 &lt;p&gt;否则，考虑 $\Z_4\times\Z_2$ 的自同构（也可以用矩阵描述，但这个矩阵里元素的取值范围不同，不容易分析，事实上 $\aut(\Z_4\times\Z_2)\cong D_4$），设它的生成元为 $a,b$，$a\mapsto a^1\or a^3\or a^1b\or a^3b$，$b\mapsto b\or a^2b$（如果 $b\mapsto a^2$ 那就 $f(a)^2=f(b)^2$ 不对了）。在这些自同构中，$(a,b)\mapsto(ab,b)$ 和 $(a,b)\mapsto(a^3b,b)$ 共轭，$(a,b)\mapsto(a,a^2b)$ 和 $(a,b)\mapsto(a^3,a^2b)$ 共轭，$(a,b)\mapsto(ab,a^2b)$ 和 $(a,b)\mapsto(a^3b,a^2b)$ 共轭。&lt;/p&gt;
 &lt;p&gt;现在找另一个元素 $c$。最后一个共轭类是一定不行的，因为无论 $|c|=2\or4$，$c^2$ 都在正规子群里，所以自同构的阶得 $\le2$。若 $|c|=2$，则四种互不同构；若 $|c|=4$，分类讨论：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;&lt;/th&gt;
 &lt;th&gt;$(a,b)\mapsto(a^3,b)$&lt;/th&gt;
 &lt;th&gt;$(a,b)\mapsto(ab,b)$&lt;/th&gt;
-&lt;th&gt;$(a,b)\mapsto(a,a^2b)$&lt;/th&gt;
+&lt;th&gt;$(a,b)\mapsto(a,a^2b)$&lt;div style=&#34;width: 105pt&#34;&gt;&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$c^2=a^2$&lt;/td&gt;
+&lt;td&gt;$c^2=a^2$&lt;div style=&#34;width: 55pt&#34;&gt;&lt;/div&gt;&lt;/td&gt;
 &lt;td&gt;$\lang a,b,c\mid a^4=b^2=[a,b]=[b,c]=e,c^2=a^2,ca=a^{-1}c\rang$&lt;/td&gt;
 &lt;td&gt;$\lang ac,a\mid(ac)^4=a^4=e,a(ac)=(ac)^{-1}a\rang$&lt;/td&gt;
 &lt;td&gt;$|bc|=2$&lt;/td&gt;
@@ -989,7 +991,7 @@ $$
     &gt;https://www.researchgate.net/publication/259147732_The_Groups_of_Order_Sixteen_Made_Easy&lt;/a&gt;。另一类方法：&lt;a class=&#34;link&#34; href=&#34;http://buzzard.ups.edu/courses/2012spring/projects/clausen-groups-16-ups-434-2012.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;http://buzzard.ups.edu/courses/2012spring/projects/clausen-groups-16-ups-434-2012.pdf&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://files.eric.ed.gov/fulltext/EJ1054466.pdf%e3%80%81https://hal.science/cel-01841041/document&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://files.eric.ed.gov/fulltext/EJ1054466.pdf、https://hal.science/cel-01841041/document&lt;/a&gt;。&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;9&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;$p^4$。思路是用矩阵分析 $p^3$ 阶正规子群的自同构，太复杂了，见 &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1611.00461&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://arxiv.org/pdf/1611.00461&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://future-in-tech.net/17.4/R-Hasanat1.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

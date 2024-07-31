@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 下文中的 $\\max/\\min$ 可以为了严谨起见理解成 $\\sup/\\inf$。 众所周知，WQS 二分优化的是这样一类问题：有一个函数 $f(x)$，">
+<title>a</title>
+
+<link rel='canonical' href='https://example.com/study/aaa/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="a">
+<meta property='og:description' content="这是一篇学习笔记。 下文中的 $\\max/\\min$ 可以为了严谨起见理解成 $\\sup/\\inf$。 众所周知，WQS 二分优化的是这样一类问题：有一个函数 $f(x)$，">
+<meta property='og:url' content='https://example.com/study/aaa/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2023-10-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-10-31T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="a">
+<meta name="twitter:description" content="这是一篇学习笔记。 下文中的 $\\max/\\min$ 可以为了严谨起见理解成 $\\sup/\\inf$。 众所周知，WQS 二分优化的是这样一类问题：有一个函数 $f(x)$，">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#常用的不严谨方法">常用的不严谨方法</a></li>
+    <li><a href="#一种解决方法">一种解决方法</a></li>
+    <li><a href="#通用的解决方法">通用的解决方法</a></li>
+    <li><a href="#一个小细节">一个小细节</a></li>
+    <li><a href="#参考资料--总结">参考资料 &amp; 总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/oi/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 算法竞赛
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/aaa/">a</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-10-31</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>下文中的 $\max/\min$ 可以为了严谨起见理解成 $\sup/\inf$。</p>
+<p>众所周知，WQS 二分优化的是这样一类问题：有一个函数 $f(x)$，给定 $a$，希望求得 $f(a)$，但是 $f$ 的单点值无法快速求。这时，如果有以下性质之一：</p>
+<ol>
+<li>$f(x)$ 上凸，且能快速求 $\max_x\set{f(x)-kx}$。</li>
+<li>$f(x)$ 下凸，且能快速求 $\min_x\set{f(x)-kx}$。</li>
+</ol>
+<p>那么就可以利用二分 $k$（也就是所谓的“多选扣分”）的方法“凑”出所需的 $f(a)$。</p>
+<p>接下来只以满足第 1 种性质的 $f$ 为例。</p>
+<h2 id="常用的不严谨方法">常用的不严谨方法
+</h2><p>问题出在二分判定的时候。常用的写法要求 check 函数返回一个取到 $\max$ 的 $x_0$ 值，然后与 $a$ 比较大小。如果 $x_0$ 是任选的，那么如果二分的斜率恰好正确，而切线上有多于一个点（所谓“共线情况”），那么 $x_0$ 与 $a$ 的大小关系是任意的。而由于整数二分一定有一边会排斥掉 $mid$，故这个做法是错误的。</p>
+<p>相应的弥补方案有两种。一种是 check 返回最小或最大的 $x_0$。例如返回最小的 $x_0$，如果 $x_0\le a$，那么 $r\gets mid$，否则 $l\gets mid+1$。另一种是实数二分，其正确的原因在于总是不排除 $mid$，这样正确的斜率总是包含在 $[l,r]$ 中，而如果整数二分这样做，就会在区间为 $[l,l+1]$ 时卡住。以 $l=1$ 为例：</p>
+<center><img src="wqs\wqs1.png" style="zoom:50%;" /></center>
+<p>实数二分考虑了这条红切线（$k=l+0.5$），因此可以区分绿点是在哪一边。</p>
+<p>但是这两种处理方法面对着一个共同的问题，即高维的情况无法简易地处理：<a class="link" href="https://codeforces.com/problemset/problem/739/E"  target="_blank" rel="noopener"
+    >CF739E</a> 和 <a class="link" href="https://codeforces.com/problemset/problem/1799/F"  target="_blank" rel="noopener"
+    >CF1799F</a>。</p>
+<p>以二维的情况为例，有函数 $f(x,y)$，要求 $f(a,b)$（其中 $f(x,b)$ 关于 $x$ 是上凸的，且 $\forall,k,\max_x\set{f(x,y)-kx}$ 关于 $y$ 是上凸的）。这时外层二分的判定条件应该是“使 $f(x,b)-kx$ 取到 $\max$ 的 $x$ 值”，然而这个值是难求的。</p>
+<p>你可能会说，内层二分的斜率 $k^\prime$ 已经求出来了，那拿它和 $k$ 一起跑一遍 check，尽量使 $x$ 最小或最大就行了呀。这里的问题在于，无法保证 $y$ 恰好取到 $b$，因为 $y$ 这一维同时也会出现共线情况，这时可能会取到错误的 $y$，从而取到不该取的 $x$。这个问题即使用实数二分也无法解决，例如这个<a class="link" href="https://codeforces.com/contest/1799/submission/195189992"  target="_blank" rel="noopener"
+    >提交记录</a>。</p>
+<h2 id="一种解决方法">一种解决方法
+</h2><p>Neal Wu 在<a class="link" href="https://codeforces.com/blog/entry/49691?#comment-526153"  target="_blank" rel="noopener"
+    >这里</a>提出了一种精细的处理方法。例如要求最小的取到 $\max$ 的 $x_0$，那么在 check 中求出必须要用几个 $x$，必须要用几个 $y$，和既可以用 $x$ 又可以用 $y$ 但不能都不用（必须都用的情况不算在内，应算作前两个各自加一）的数量，分别记作 $\alpha,\beta,\gamma$。外层二分如果 $\alpha\le a\land \alpha+\beta+\gamma\le a+b$，那么 $r\gets mid$。这个判断的正确性如下：</p>
+<ol>
+<li>如果这些条件不满足，那么显然不存在合法分配方案，斜率一定是太小了。</li>
+<li>如果这些条件满足，那么一定存在一个 $x\le a$，使得 $f(x,b)$ 被切线切到。构造方法是，$y$ 先取 $\beta$ 部分，显然 $\beta\le b$（不然内层二分就不会二分到这个斜率）。然后尽量用 $\gamma$ 的部分补满 $b$。如果补满了，那么由 $\alpha+\beta+\gamma\le a+b$，故 $x=\alpha+\gamma-(b-\beta)$ 一定可以。如果没补满，那么找另一些不影响 $x$ 用量的元素补满 $y$（一定能补满，不然内层二分就不会二分到这个斜率），这时由 $\alpha\le a$，故 $x=\alpha$ 一定可以。</li>
+</ol>
+<p><a class="link" href="https://codeforces.com/contest/1799/submission/195531907"  target="_blank" rel="noopener"
+    >这里</a>是另一题我写的类似的处理方法。</p>
+<p>但是这个方法缺乏通用性。首先，刚才这个解法中“用”的定义只在这两题里成立（即用两类精灵球和用两类操作），如果没有类似的组合意义就不行了，所求条件就再次变成了不可解决的，类似于原问题的“强制限定 $y=b$”。其次，维数再高就难以讨论了。</p>
+<h2 id="通用的解决方法">通用的解决方法
+</h2><p>核心性质：对于上凸的 $f(x)$，令 $g(k)=\max_x\set{f(x)-kx}+ka$，$g(k)$ 是下凸的，且最小值恰为 $f(a)$。</p>
+<blockquote>
+<p>这张动图中红色轨迹即为 $g(k)$。</p>
+</blockquote>
+<p>证 1：若 $f(k)$ 处处可导，令 $h(k)=\min\set{x\mid f^\prime(x)=k}$，则 $g(k)=f(h(k))-k(h(k)-a)$。
+$$
+\begin{aligned}
+g&rsquo;(k)&amp;=f&rsquo;(h(k))h&rsquo;(k)-kh&rsquo;(k)-(h(k)-a)\\
+&amp;=kh&rsquo;(k)-kh&rsquo;(k)-h(k)+a\\
+&amp;=-h(k)+a
+\end{aligned}
+$$
+而 $h(k)$ 是递减的，故 $g^\prime(k)$ 递增。</p>
+<p>证 2：用更加普遍的定义来证。同样令 $h(k)$ 为使 $g(k)$ 取到 $\max$ 的某个 $x$。$\forall,k_1,k_2$，对于 $\lambda\in (0,1)$，令 $k_m=\lambda k_1+(1-\lambda)k_2$：
+$$
+\begin{aligned}
+&amp;\lambda g(k_1)+(1-\lambda)g(k_2)\\
+={}&amp;\lambda\max_x\set{f(x)-k_1x}+(1-\lambda)\max_x\set{f(x)-k_2x}+k_ma\\
+\ge{}&amp;\lambda(f(h(k_m))-k_1h(k_m))+(1-\lambda)(f(h(k_m))-k_2h(k_m))+k_ma\\
+={}&amp;f(h(k_m))-k_mh(k_m)+k_ma\\
+={}&amp;g(k_m)
+\end{aligned}
+$$
+同时，显然 $\forall,k,g(k)\ge f(a)$，又由于 $f$ 的凸性，一定存在一个 $k$ 使得 $g(k)=f(a)$，故得证。</p>
+<p><strong>另外我们会惊奇地发现：除了最后一步外，证 2 甚至没用 $f$ 的凸性！</strong></p>
+<p>于是就可以直接二分了，判定时只需比较 $mid$ 和 $mid+1$（或 $mid+\varepsilon$）的 check 结果。<a class="link" href="https://codeforces.com/contest/1799/submission/197720360"  target="_blank" rel="noopener"
+    >CF1799 的代码</a>。</p>
+<p>这样做唯一的缺点在于会有 $2^d$ 倍常数（$d$ 为维数）。可以用优选法（按黄金比划分的三分）优化到 ${1.44}^d$ 倍。</p>
+<h2 id="一个小细节">一个小细节
+</h2><p>考虑实数二分的精度问题，设当前二分区间为 $[l,r]$，取 $f(h(l))-lh(l)+la$ 来估算答案，它与 $f(a)$ 的差距为：
+$$
+\begin{aligned}
+\lvert f(h(l))-lh(l)+la-f(a)\rvert&amp;=\left\lvert l(a-h(l))-\int_{h(l)}^af&rsquo;(x)\mathrm{d}x\right\rvert\\
+&amp;=\left\lvert\int_{h(l)}^a(l-f&rsquo;(x))\mathrm{d}x\right\rvert\\
+&amp;\le\lvert a-h(l)\rvert\cdot(r-l)\\
+&amp;\le\lvert I\rvert\cdot(r-l)
+\end{aligned}
+$$
+其中 $I$ 为 $f$ 的定义域。因此二分一般得在 $r-l$ 小于允许的绝对误差除以 $n$ 时才结束。$f(x)=C$ 时可以取到最差情况下的误差。</p>
+<h2 id="参考资料--总结">参考资料 &amp; 总结
+</h2><p>本文基本上就是 <a class="link" href="https://codeforces.com/blog/entry/98334"  target="_blank" rel="noopener"
+    >Theoretical grounds of lambda optimization</a> 的提要版本。</p>
+<p>目前，WQS 二分在应用中仍难以解决的问题主要是凸性的证明。大量题目直觉上目标函数具有凸性，但无法严格证明。归约费用流可能是一种有前途的方案，但目前这几道题例仍未找到证明。adamant 的这篇文章关于 CF739E 的证明应该是错的，我在下面的评论区也有提问，如果您有想法可以与我交流。</p>
+<p>目前已知的证明方法：</p>
+<p>[IOI2016] Aliens：四边形不等式是要的，然后有两个证明方法，分别于 Kubic 23 年的论文、我 24 年的论文。</p>
+<p>CF739E 和 CF1799F：用题解区<a class="link" href="https://www.luogu.com.cn/problem/solution/CF739E"  target="_blank" rel="noopener"
+    >这篇</a>的方法建图，然后把一种精灵球选的代价改为 $+\infty$，这样就可以证 $f(x,b)$ 或 $f(a,x)$ 的凸性；内层的凸性更容易，可以用流或 dp 证。<strong>这题外层不能用 dp 归纳证，分讨会有一种情况去世。</strong></p>
+<p>P1792 种树：这类题如果是奇环我是不会证的，并且我目前没看到对的证明。偶环、链、树这类二分图的情况可以看 Kubic 的论文。对于链的情况，可以将限制扩展到“任意两个选的距离必须 $\ge k$”，这样就只能用四边形不等式（一个区间的代价为除去开头 $k$ 个，剩余的 $\max$，这样就有四边形不等式了）或者 dp 归纳证。</p>
+<p>[八省联考 2018] 林克卡特树：<a class="link" href="https://www.luogu.com.cn/blog/zyc2003/p4383-lin-ke-ka-te-shu-post"  target="_blank" rel="noopener"
+    >这篇题解</a>似乎有证明，我没仔细看，不知道是否严谨。反正 dp 归纳是不行的。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="dc2d0d63d9b27b33206e12adc6c6e9dd"
+    data-page-url="https://example.com/study/aaa/"
+    data-page-title="a"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 LRYP
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

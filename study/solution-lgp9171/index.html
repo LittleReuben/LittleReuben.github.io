@@ -4,11 +4,11 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 提供一个 $\\mathrm{O}(Tn^3m)$ 的做法，目前在各 oj 上是 rank 1，运行时间为第二名的 $\\frac{1}{6}$ 以内。 类似于本题解的方法不建议在考试中使用，非常耗时间。并且公式">
 <title>[题解] lgP9171 [省选联考 2023] 染色数组</title>
 
-<link rel='canonical' href='https://example.com/study/lgp9171-solution/'>
+<link rel='canonical' href='https://example.com/study/solution-lgp9171/'>
 
 <link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="[题解] lgP9171 [省选联考 2023] 染色数组">
 <meta property='og:description' content="这是一篇学习笔记。 提供一个 $\\mathrm{O}(Tn^3m)$ 的做法，目前在各 oj 上是 rank 1，运行时间为第二名的 $\\frac{1}{6}$ 以内。 类似于本题解的方法不建议在考试中使用，非常耗时间。并且公式">
-<meta property='og:url' content='https://example.com/study/lgp9171-solution/'>
+<meta property='og:url' content='https://example.com/study/solution-lgp9171/'>
 <meta property='og:site_name' content='LRYP&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2023-08-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-08-17T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="[题解] lgP9171 [省选联考 2023] 染色数组">
@@ -311,7 +311,7 @@
 
     <div class="article-title-wrapper">
         <h1 class="article-title">
-            <a href="/study/lgp9171-solution/">[题解] lgP9171 [省选联考 2023] 染色数组</a>
+            <a href="/study/solution-lgp9171/">[题解] lgP9171 [省选联考 2023] 染色数组</a>
         </h1>
     
         
@@ -460,7 +460,10 @@ $$
 <h4 id="交叉后下部">交叉后下部
 </h4><p>  交叉后就无需考虑 $r=n$ 了。先不考虑上部与“交织”的安排。枚举交叉前 $&lt;a_r$ 的数个数 $i$，交叉后 $&lt;a_r$ 的数个数 $k$，以及 $D$，该部分得分为：</p>
 <p>$$
-\begin{aligned}&amp;\sum_{i\le t,a_i\le L}\sum_{p=a_i+1}^D\binom{D-L-1}{i-1}\binom{D-1}{k-1}p+\sum_{a=L+1}^D\sum_{p=a+1}^D\binom{D-L-2}{i-2}\binom{D-1}{k-1}p\={}&amp;\binom{D-1}{k-1}\left[\binom{D-L-1}{i-1}{\underline{\sum_{i\le t,a_i\le L}\frac{(a_i+1+D)(D-a_i)}{2}}}<em>{f_0(D)}+\binom{D-L-2}{i-2}{\underline{\sum</em>{a=L+1}^D\frac{(a+1+D)(D-a)}{2}}}_{f(D)}\right]\end{aligned}
+\begin{aligned}
+&amp;\sum_{i\le t,a_i\le L}\sum_{p=a_i+1}^D\binom{D-L-1}{i-1}\binom{D-1}{k-1}p+\sum_{a=L+1}^D\sum_{p=a+1}^D\binom{D-L-2}{i-2}\binom{D-1}{k-1}p\\
+=&amp;\binom{D-1}{k-1}\left[\binom{D-L-1}{i-1}\underline{\sum_{i\le t,a_i\le L}\frac{(a_i+1+D)(D-a_i)}{2}}_{f_0(D)}+\binom{D-L-2}{i-2}\underline{\sum_{a=L+1}^D\frac{(a+1+D)(D-a)}{2}}_{f(D)}\right]
+\end{aligned}
 $$</p>
 <p>  其中 $p$ 枚举的是交叉后下部的某个数值。记该式为 $(*)$。划线部分可以预处理。</p>
 <p>  考虑剩余部分，枚举交叉前 $&gt;a_r$ 的数个数 $j$，最终得分为：
@@ -468,7 +471,10 @@ $$
 (*)\binom{i+j}{i}\binom{n-t-i-j-2}{k-1}C^\prime_U(j,n-t-i-j-k-1,D)
 $$</p>
 <h4 id="交叉后上部">交叉后上部
-</h4><p>  先枚举交叉前 $&gt;a_r$ 的数个数 $j$，交叉后 $&gt;a_r$ 的数个数 $k$，以及 $a_r$，该部分得分为：
+</h4><p>$$
+{\underline{a}<em>{f}}{\underline{b}</em>{f}}
+$$</p>
+<p>  先枚举交叉前 $&gt;a_r$ 的数个数 $j$，交叉后 $&gt;a_r$ 的数个数 $k$，以及 $a_r$，该部分得分为：
 $$
 \binom{m-a_r-1}{k-1}\underline{\left[\binom{R-a_r-1}{j}\sum_{i\le t,a_i\ge R}\frac{(2m-a_i-a_r+2)(a_i-a_r-1)}{2}+\binom{R-a_r-2}{j-1}\sum_{a=a_r+1}^{R-1}\frac{(2m-a-a_r+2)(a-a_r-1)}{2}\right]}_{F(j,a_r)}
 $$
@@ -743,12 +749,12 @@ $$
      
     
         
-    <h2>评论</h2>
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
     <div id="cusdis_thread"
     data-host="https://cusdis.com"
     data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
     data-page-id="0979d2050f3811b46d76f24f62174324"
-    data-page-url="https://example.com/study/lgp9171-solution/"
+    data-page-url="https://example.com/study/solution-lgp9171/"
     data-page-title="[题解] lgP9171 [省选联考 2023] 染色数组"></div>
 <script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>

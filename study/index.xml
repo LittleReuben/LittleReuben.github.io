@@ -8,12 +8,12 @@
         <language>en-us</language>
         <copyright>LRYP</copyright>
         <lastBuildDate>Fri, 26 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/study/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>线代自学笔记</title>
+        <title>线代（上）自学笔记</title>
         <link>https://example.com/study/linear-algebra-1/</link>
         <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/linear-algebra-1/</guid>
-        <description>&lt;img src="https://example.com/study/linear-algebra-1/cover.png" alt="Featured image of post 线代自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
+        <description>&lt;img src="https://example.com/study/linear-algebra-1/cover.png" alt="Featured image of post 线代（上）自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
 &lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;书是丘维生的《高等代数（上册）》。由于自己以前学过一些线代，所以这里列出的都是一些细节。&lt;/p&gt;
 &lt;p&gt;所有矩阵默认 $n$ 行 $m$ 列，秩为 $r$。&lt;/p&gt;
@@ -232,7 +232,7 @@ $$
         <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/blog-tutorial/</guid>
-        <description>&lt;img src="https://example.com/study/blog-tutorial/logo.png" alt="Featured image of post Hugo 博客搭建经验" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+        <description>&lt;img src="https://example.com/study/blog-tutorial/logo.png" alt="Featured image of post Hugo 博客搭建经验" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; height: 50pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;br&gt;本文适合不了解 html 和 scc 但想自己建博客的读者看。&lt;/div&gt;
 &lt;h3 id=&#34;本地初始操作&#34;&gt;本地初始操作
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;下载 git，更新用户名和邮箱信息。&lt;/li&gt;
@@ -361,6 +361,9 @@ $$
 &lt;li&gt;
 &lt;p&gt;代码行号：配置里 markup:highlight:lineNos。&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;“评论”标题：在 layouts/partials/comments/include.html 的第一二行间加 &lt;code&gt;&amp;lt;h2 style=&amp;quot;color: var(--card-text-color-main)&amp;quot;&amp;gt;评论&amp;lt;/h2&amp;gt;&lt;/code&gt;。这样暗色模式不会还是黑的。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;content-目录结构&#34;&gt;content 目录结构
 &lt;/h3&gt;&lt;ol&gt;
@@ -378,7 +381,7 @@ $$
 &lt;p&gt;实际上 leaf 页面可以在 post 或对应的 branch 文件夹里直接放 md，但是最好还是按照上面的习惯来。&lt;/p&gt;
 &lt;p&gt;这样的一段 yaml 应当符合 &lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/writing/frontmatter&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://stack.jimmycai.com/writing/frontmatter&lt;/a&gt; 的格式（有漏，可以看 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/688275787&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zhuanlan.zhihu.com/p/688275787&lt;/a&gt; 里“我的模板”，&lt;strong&gt;注意冒号之后必须加空格！&lt;/strong&gt;）。特殊地，有几类特殊的布局，可以加上 layout 信息，参见 exampleSite 的 page/。&lt;/p&gt;
+    &gt;https://zhuanlan.zhihu.com/p/688275787&lt;/a&gt; 里“我的模板”，&lt;strong&gt;注意冒号之后必须加空格！复杂字符串如果出问题需要两边打引号！&lt;/strong&gt;）。特殊地，有几类特殊的布局，可以加上 layout 信息，参见 exampleSite 的 page/。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;建议建文件夹 content/page/ 以存放所有出现在左边栏内的页面。所有希望出现在左边栏中的页面（包括 home 的 _index.md 以及 page 的 index.md），它们开头的 yaml 需要额外以 &lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/config/menu&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -407,14 +410,16 @@ $$
 &lt;li&gt;&lt;code&gt;\,&lt;/code&gt;、&lt;code&gt;\;&lt;/code&gt; 之类的小空格必须改成 &lt;code&gt;\\,&lt;/code&gt;、&lt;code&gt;\\;&lt;/code&gt;。这个也很奇怪。&lt;/li&gt;
 &lt;li&gt;表格里公式偷懒不用 &lt;code&gt;\lvert\rvert&lt;/code&gt; 直接打 &lt;code&gt;|&lt;/code&gt; 时会出现与表格边界混淆的情况（Typora 会自动正确处理），这时要加转义 &lt;code&gt;\&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;公式内星号 &lt;code&gt;*&lt;/code&gt; 要加转义 &lt;code&gt;\&lt;/code&gt;（Typora 会自动正确处理）。&lt;/li&gt;
+&lt;li&gt;还有很多不加 &lt;code&gt;\&lt;/code&gt; 就会爆的情况。我遇到最诡异的是 &lt;code&gt;${a}_{b}{c}_{d}$&lt;/code&gt; 无法渲染。这种是因为垃圾 Markdown 渲染器把公式内外搞混了（两个下划线之间被识别为斜体）。遇到这种情况反正就在各个特殊字符前试着加 &lt;code&gt;\&lt;/code&gt; 就行。&lt;/li&gt;
 &lt;li&gt;连接自动识别在遇到标点时会有问题，建议还是用 &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; 括起来。&lt;/li&gt;
 &lt;li&gt;撇号如果直接用 &lt;code&gt;&#39;&lt;/code&gt; 会很丑（$&amp;rsquo;$），必须用 &lt;code&gt;^\prime&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;html 格式的图片要居中必须单独写 center。&lt;/li&gt;
+&lt;li&gt;如果希望强制调整表格列宽，可以用 &lt;code&gt;&amp;lt;div style=&amp;quot;width: 宽度&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;。注意其副作用是在不同宽度的屏幕上可能会显示得不好看。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;github-部署&#34;&gt;github 部署
-&lt;/h3&gt;&lt;p&gt;github 部署的思路如下：&lt;/p&gt;
+&lt;h3 id=&#34;github-部署&#34;&gt;Github 部署
+&lt;/h3&gt;&lt;p&gt;Github 部署的思路如下：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;github 上一个公开的 repo 放网页文件。&lt;/li&gt;
+&lt;li&gt;Github 上一个公开的 repo 放网页文件。&lt;/li&gt;
 &lt;li&gt;每次 &lt;code&gt;hugo&lt;/code&gt; 完，把 public/ 内东西放到 repo 里。&lt;/li&gt;
 &lt;li&gt;如果不想手动操作，可以再建一个（可以私有）放整个博客的 repo，每次 push 之后用 github action 自动编译、更新到网页 repo 里。&lt;/li&gt;
 &lt;/ol&gt;
@@ -494,13 +499,13 @@ $$
 </description>
         </item>
         <item>
-        <title>抽代自学笔记</title>
+        <title>抽代（群论部分）自学笔记</title>
         <link>https://example.com/study/gtm73-group-theory/</link>
         <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/gtm73-group-theory/</guid>
-        <description>&lt;img src="https://example.com/study/gtm73-group-theory/GTM73.png" alt="Featured image of post 抽代自学笔记" /&gt;&lt;p&gt;$\gdef\lcm{\operatorname{lcm}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\syl{\operatorname{Syl}}\gdef\or{\operatorname{or}}\gdef\aut{\operatorname{Aut}}\gdef\norm{\vartriangleleft}\gdef\inn{\operatorname{Inn}}\gdef\out{\operatorname{Out}}\gdef\F{\mathbb{F}}$&lt;/p&gt;
-&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+        <description>&lt;img src="https://example.com/study/gtm73-group-theory/GTM73.png" alt="Featured image of post 抽代（群论部分）自学笔记" /&gt;&lt;p&gt;$\gdef\lcm{\operatorname{lcm}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\syl{\operatorname{Syl}}\gdef\or{\operatorname{or}}\gdef\aut{\operatorname{Aut}}\gdef\norm{\vartriangleleft}\gdef\inn{\operatorname{Inn}}\gdef\out{\operatorname{Out}}\gdef\F{\mathbb{F}}$&lt;/p&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 50pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;br&gt;本文仅供参考，学习顺序是不合理的。如果希望深入研究有限群分类，请先学完环和域。&lt;/div&gt;
 &lt;p&gt;&lt;del&gt;原来是为了醋包的饺子。不想看无聊细节的可以直奔第 12 节。&lt;/del&gt;&lt;/p&gt;
 &lt;h2 id=&#34;gtm73-之-我只来得及看完群论了&#34;&gt;GTM73 之 我只来得及看完群论了
 &lt;/h2&gt;&lt;p&gt;这本教材内容是比较全的，对初学者不友好的点就是解说较少，就是大量的定理—证明，很多证明能看懂它是对的，但是无法理解它的思路是怎么想到的。&lt;/p&gt;
@@ -1219,18 +1224,20 @@ $$
 &lt;p&gt;若 $\Z_8\norm G$，同样类似于 $p^3$ 的情况，可以找到外面一个 $2$ 阶元 $b$，然后分析自同构，$bab^{-1}=a^{1\or3\or5\or7}$，并且这四种互不同构。&lt;/p&gt;
 &lt;p&gt;否则，考虑 $\Z_4\times\Z_2$ 的自同构（也可以用矩阵描述，但这个矩阵里元素的取值范围不同，不容易分析，事实上 $\aut(\Z_4\times\Z_2)\cong D_4$），设它的生成元为 $a,b$，$a\mapsto a^1\or a^3\or a^1b\or a^3b$，$b\mapsto b\or a^2b$（如果 $b\mapsto a^2$ 那就 $f(a)^2=f(b)^2$ 不对了）。在这些自同构中，$(a,b)\mapsto(ab,b)$ 和 $(a,b)\mapsto(a^3b,b)$ 共轭，$(a,b)\mapsto(a,a^2b)$ 和 $(a,b)\mapsto(a^3,a^2b)$ 共轭，$(a,b)\mapsto(ab,a^2b)$ 和 $(a,b)\mapsto(a^3b,a^2b)$ 共轭。&lt;/p&gt;
 &lt;p&gt;现在找另一个元素 $c$。最后一个共轭类是一定不行的，因为无论 $|c|=2\or4$，$c^2$ 都在正规子群里，所以自同构的阶得 $\le2$。若 $|c|=2$，则四种互不同构；若 $|c|=4$，分类讨论：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;&lt;/th&gt;
 &lt;th&gt;$(a,b)\mapsto(a^3,b)$&lt;/th&gt;
 &lt;th&gt;$(a,b)\mapsto(ab,b)$&lt;/th&gt;
-&lt;th&gt;$(a,b)\mapsto(a,a^2b)$&lt;/th&gt;
+&lt;th&gt;$(a,b)\mapsto(a,a^2b)$&lt;div style=&#34;width: 105pt&#34;&gt;&lt;/div&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$c^2=a^2$&lt;/td&gt;
+&lt;td&gt;$c^2=a^2$&lt;div style=&#34;width: 55pt&#34;&gt;&lt;/div&gt;&lt;/td&gt;
 &lt;td&gt;$\lang a,b,c\mid a^4=b^2=[a,b]=[b,c]=e,c^2=a^2,ca=a^{-1}c\rang$&lt;/td&gt;
 &lt;td&gt;$\lang ac,a\mid(ac)^4=a^4=e,a(ac)=(ac)^{-1}a\rang$&lt;/td&gt;
 &lt;td&gt;$|bc|=2$&lt;/td&gt;
@@ -1256,7 +1263,7 @@ $$
     &gt;https://www.researchgate.net/publication/259147732_The_Groups_of_Order_Sixteen_Made_Easy&lt;/a&gt;。另一类方法：&lt;a class=&#34;link&#34; href=&#34;http://buzzard.ups.edu/courses/2012spring/projects/clausen-groups-16-ups-434-2012.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;http://buzzard.ups.edu/courses/2012spring/projects/clausen-groups-16-ups-434-2012.pdf&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://files.eric.ed.gov/fulltext/EJ1054466.pdf%e3%80%81https://hal.science/cel-01841041/document&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://files.eric.ed.gov/fulltext/EJ1054466.pdf、https://hal.science/cel-01841041/document&lt;/a&gt;。&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;9&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;$p^4$。思路是用矩阵分析 $p^3$ 阶正规子群的自同构，太复杂了，见 &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1611.00461&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://arxiv.org/pdf/1611.00461&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://future-in-tech.net/17.4/R-Hasanat1.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1808,11 +1815,324 @@ $$
 </description>
         </item>
         <item>
+        <title>[题解] CF924F Minimal Subset Difference</title>
+        <link>https://example.com/study/solution-cf924f/</link>
+        <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/solution-cf924f/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;关于本题的一个注记。&lt;/p&gt;
+&lt;p&gt;钦定背包上界为 $72$，这样搜得的状态数为 $12880$。对其进行 dfa 最小化，状态数优化到 $715$（注意到设上界较大时最小化 dfa 后大小仍为该值）。预处理 $f_{k,i,s,r}$ 表示限制差 $\le k$，$i$ 位待定，当前 dfa 上状态为 $s$，当前位至多取 $r$ 的答案，即可 $\mathrm{O}(\log r)$ 回答单组。&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/924/submission/197247120&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;远古最优解代码&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这题在徐哲安的 2021 年集训队论文《浅谈有限状态自动机及其应用》中作为例题出现，其证明了背包上界只需开到 $80$ 即可，但没证 $72$。以下是我口胡的证明。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;结论&lt;/strong&gt;：对于一个只包含 $\le w$ 的正整数的序列，给每个数安排正负号，使得和的绝对值最小。那么最大前缀和绝对值 $\le w(w-1)$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;引理&lt;/strong&gt;（&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/problemset/problem/618/F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CF618F&lt;/a&gt;）：对于大小 $\ge n$ 的可重集合 $A$ 和任意大小（设为 $m$）的可重集合 $B$，它们的元素都是 $\le n$ 的正整数。如果 $n+\sum_{b\in B}b&amp;gt;\sum_{a\in A}a$，那么可选两者各自的一个非空子集，使得和相同。证略。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;证明&lt;/strong&gt;：首先最优答案一定 $\le w$，并且当且仅当序列为奇数个 $w$ 时最优答案为 $w$，这是易证的。接下来只考虑最优答案 $\le w-1$ 的情况。&lt;/p&gt;
+&lt;p&gt;考虑某组最优解，找到其最靠前的前缀和绝对值 $&amp;gt;w(w-1)$ 的位置 $t$，不妨设该前缀和是正的。取出该前缀中最靠后的 $w$ 个取正号的数 $x_{1\cdots w}$，以及剩余后缀中所有共 $k$ 个取负号的数 $y_{1\cdots k}$。其中由鸽巢原理，$x_1,\cdots,x_w$ 一定是可以取出来的，而由于 $\sum_{i=1}^ky_i\ge w(w-2)+2$，故 $k\ge w-1$。&lt;/p&gt;
+&lt;p&gt;接下来的目标是选择某些 $x$ 和某些 $y$，改变它们的符号，使全体和不变，且 $t$ 及之前不反而出现前缀和 $&amp;lt;-w(w-1)$ 的情况，且 $t$ 处的前缀和降低。这样就可以不断归纳了。&lt;/p&gt;
+&lt;p&gt;如果 $\sum_{i=1}^wx_i\le w(w-1)$，则令 $A=\set{x_{1\cdots w}}$，$B=\set{y_{1\cdots k}}$，套用引理即可。&lt;/p&gt;
+&lt;p&gt;否则随意套用引理可能会导致 $x_1$ 处前缀和 $&amp;lt;-w(w-1)$。这时，$x$ 中必然有 $w$。如果 $y$ 中也有 $w$，那么选这两个互换符号即可&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;否则，选择 $y$ 中最短的前缀 $y_{1\cdots k^\prime}$，使得和 $\ge w(w-2)+2$。由于 $y$ 中无 $w$，故 $k^\prime\ge n$。这时由于 $w(w-2)&amp;lt;\sum_{i=2}^wx_i\le w(w-1)$，$\sum_{i=1}^{k^\prime}y_i\le w(w-1)$，故可令 $A=\set{y_{1\cdots k^\prime}}$，$B=\set{x_{2\cdots w}}$，套用引理即可。&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;这里其实有个特殊情况，就是 $x_1=w$，然后 $x_1$ 前的前缀和最小会达到 $-w+1$，这样一来 $x_1$ 处的前缀和会达到 $-2w+1$，在 $w=2$ 时会炸。但 $x_1$ 前的前缀和达到 $-w+1$ 时 $x$ 会全是 $w$，所以选后面的 $x$ 就行。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>[题解] lgP9603 [IOI2023] 山毛榉树</title>
+        <link>https://example.com/study/solution-lgp9603/</link>
+        <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/solution-lgp9603/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;提供一个自己做的思路。用到的性质比其他正解弱，但更容易想。&lt;/p&gt;
+&lt;p&gt;考虑单棵树的判定。初步读题后会得到两个性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个点的儿子边权不能重复。&lt;/li&gt;
+&lt;li&gt;设所有权为 $i$ 的边的较浅端点形成集合 $S_i$，则所有 $S_i$ 形成一个“连续包含链”的结构。或者也可以从一个点的所有儿子边权角度等价描述。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这些性质都是 beautiful subtree 的必要条件，并且对于想象力不够丰富的选手来说，难以加强至充要条件。既然必要角度不行，那考虑充分角度——同样是一个很常见的套路，我们希望找到一种排列的构造，使得对于 beautiful subtree，构造出来的排列必定是 beautiful permutation；如果不是 beautiful subtree，那就不用考虑了。于是剩余要做的就是验证一遍题意中的条件即可。&lt;/p&gt;
+&lt;p&gt;归纳易证排列中越靠前的点子树 size 越大，因此先按 size 排序；如果两棵子树 size 相同，那么也归纳易证它们同构，因此它们的相对顺序只取决于它们各自父亲的相对顺序。因此可以在按 size 排序后再扫一遍，size 相同的按父亲在序列中的位置排序。这样可以做到 $\mathrm{O}(n\log n)$ 单次判定。这些归纳易证的部分也都很直觉的。&lt;/p&gt;
+&lt;p&gt;对于原问题，一个有意思的猜想是，一棵 beautiful subtree 的子树也都是 beautiful 的。考试中当然可以直接 assert 然后交上去看看，不过这也是好证的。考虑 $T(u)$ 对应的某个 beautiful permutation $p$。对于 $v\in T(u)$，将 $p$ 中 ${}\in T(v)$ 的点对应的子序列 $p&amp;rsquo;$ 取出来，可以证明这就符合条件。因为对于某种权值的边，除去它的较深端点为 $v$ 的情况以外（$v$ 本身在 $p&amp;rsquo;$ 中不贡献给计数器，故也不用考虑），其余该权值的边的两端点要么同时在 $p&amp;rsquo;$ 中，要么同时不在 $p&amp;rsquo;$ 中。因此扔掉 $p&amp;rsquo;$ 以外的部分后，剩余的连边情况是保持不变的。&lt;/p&gt;
+&lt;p&gt;剩下的就是思想类似 &lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/P6541&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[WC2018] 即时战略&lt;/a&gt; 的二分了。取出重链，在上面二分，然后往轻儿子递归。硬二分是 $\mathrm{O}(n\log^3n)$ 的（&lt;a class=&#34;link&#34; href=&#34;https://qoj.ac/contest/1338/problem/7121&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;代码&lt;/a&gt;），如果按全局平衡二叉树的方式带权二分，则是 $\mathrm{O}(n\log^2 n)$ 的。这是因为考虑大小为 $n$ 的树的第一轮二分，假设得到的根最浅 beautiful subtree 大小为 $s$，那么分 $\ge 2s$ 和 $&amp;lt;2s$ 的子树判定讨论，这轮二分的复杂度为 $\mathrm{O}(n\log n+s\log^2 n)$。接下来，剩余若干大小 $\le n/2$，和为 $n-s$ 的子问题，这样分析下来就是 $\log^2$ 的。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>a</title>
+        <link>https://example.com/study/aaa/</link>
+        <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/aaa/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;下文中的 $\max/\min$ 可以为了严谨起见理解成 $\sup/\inf$。&lt;/p&gt;
+&lt;p&gt;众所周知，WQS 二分优化的是这样一类问题：有一个函数 $f(x)$，给定 $a$，希望求得 $f(a)$，但是 $f$ 的单点值无法快速求。这时，如果有以下性质之一：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$f(x)$ 上凸，且能快速求 $\max_x\set{f(x)-kx}$。&lt;/li&gt;
+&lt;li&gt;$f(x)$ 下凸，且能快速求 $\min_x\set{f(x)-kx}$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;那么就可以利用二分 $k$（也就是所谓的“多选扣分”）的方法“凑”出所需的 $f(a)$。&lt;/p&gt;
+&lt;p&gt;接下来只以满足第 1 种性质的 $f$ 为例。&lt;/p&gt;
+&lt;h2 id=&#34;常用的不严谨方法&#34;&gt;常用的不严谨方法
+&lt;/h2&gt;&lt;p&gt;问题出在二分判定的时候。常用的写法要求 check 函数返回一个取到 $\max$ 的 $x_0$ 值，然后与 $a$ 比较大小。如果 $x_0$ 是任选的，那么如果二分的斜率恰好正确，而切线上有多于一个点（所谓“共线情况”），那么 $x_0$ 与 $a$ 的大小关系是任意的。而由于整数二分一定有一边会排斥掉 $mid$，故这个做法是错误的。&lt;/p&gt;
+&lt;p&gt;相应的弥补方案有两种。一种是 check 返回最小或最大的 $x_0$。例如返回最小的 $x_0$，如果 $x_0\le a$，那么 $r\gets mid$，否则 $l\gets mid+1$。另一种是实数二分，其正确的原因在于总是不排除 $mid$，这样正确的斜率总是包含在 $[l,r]$ 中，而如果整数二分这样做，就会在区间为 $[l,l+1]$ 时卡住。以 $l=1$ 为例：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&#34;wqs\wqs1.png&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/center&gt;
+&lt;p&gt;实数二分考虑了这条红切线（$k=l+0.5$），因此可以区分绿点是在哪一边。&lt;/p&gt;
+&lt;p&gt;但是这两种处理方法面对着一个共同的问题，即高维的情况无法简易地处理：&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/problemset/problem/739/E&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CF739E&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/problemset/problem/1799/F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CF1799F&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;以二维的情况为例，有函数 $f(x,y)$，要求 $f(a,b)$（其中 $f(x,b)$ 关于 $x$ 是上凸的，且 $\forall,k,\max_x\set{f(x,y)-kx}$ 关于 $y$ 是上凸的）。这时外层二分的判定条件应该是“使 $f(x,b)-kx$ 取到 $\max$ 的 $x$ 值”，然而这个值是难求的。&lt;/p&gt;
+&lt;p&gt;你可能会说，内层二分的斜率 $k^\prime$ 已经求出来了，那拿它和 $k$ 一起跑一遍 check，尽量使 $x$ 最小或最大就行了呀。这里的问题在于，无法保证 $y$ 恰好取到 $b$，因为 $y$ 这一维同时也会出现共线情况，这时可能会取到错误的 $y$，从而取到不该取的 $x$。这个问题即使用实数二分也无法解决，例如这个&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1799/submission/195189992&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;提交记录&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;一种解决方法&#34;&gt;一种解决方法
+&lt;/h2&gt;&lt;p&gt;Neal Wu 在&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/blog/entry/49691?#comment-526153&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;提出了一种精细的处理方法。例如要求最小的取到 $\max$ 的 $x_0$，那么在 check 中求出必须要用几个 $x$，必须要用几个 $y$，和既可以用 $x$ 又可以用 $y$ 但不能都不用（必须都用的情况不算在内，应算作前两个各自加一）的数量，分别记作 $\alpha,\beta,\gamma$。外层二分如果 $\alpha\le a\land \alpha+\beta+\gamma\le a+b$，那么 $r\gets mid$。这个判断的正确性如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果这些条件不满足，那么显然不存在合法分配方案，斜率一定是太小了。&lt;/li&gt;
+&lt;li&gt;如果这些条件满足，那么一定存在一个 $x\le a$，使得 $f(x,b)$ 被切线切到。构造方法是，$y$ 先取 $\beta$ 部分，显然 $\beta\le b$（不然内层二分就不会二分到这个斜率）。然后尽量用 $\gamma$ 的部分补满 $b$。如果补满了，那么由 $\alpha+\beta+\gamma\le a+b$，故 $x=\alpha+\gamma-(b-\beta)$ 一定可以。如果没补满，那么找另一些不影响 $x$ 用量的元素补满 $y$（一定能补满，不然内层二分就不会二分到这个斜率），这时由 $\alpha\le a$，故 $x=\alpha$ 一定可以。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1799/submission/195531907&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;是另一题我写的类似的处理方法。&lt;/p&gt;
+&lt;p&gt;但是这个方法缺乏通用性。首先，刚才这个解法中“用”的定义只在这两题里成立（即用两类精灵球和用两类操作），如果没有类似的组合意义就不行了，所求条件就再次变成了不可解决的，类似于原问题的“强制限定 $y=b$”。其次，维数再高就难以讨论了。&lt;/p&gt;
+&lt;h2 id=&#34;通用的解决方法&#34;&gt;通用的解决方法
+&lt;/h2&gt;&lt;p&gt;核心性质：对于上凸的 $f(x)$，令 $g(k)=\max_x\set{f(x)-kx}+ka$，$g(k)$ 是下凸的，且最小值恰为 $f(a)$。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这张动图中红色轨迹即为 $g(k)$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证 1：若 $f(k)$ 处处可导，令 $h(k)=\min\set{x\mid f^\prime(x)=k}$，则 $g(k)=f(h(k))-k(h(k)-a)$。
+$$
+\begin{aligned}
+g&amp;rsquo;(k)&amp;amp;=f&amp;rsquo;(h(k))h&amp;rsquo;(k)-kh&amp;rsquo;(k)-(h(k)-a)\\
+&amp;amp;=kh&amp;rsquo;(k)-kh&amp;rsquo;(k)-h(k)+a\\
+&amp;amp;=-h(k)+a
+\end{aligned}
+$$
+而 $h(k)$ 是递减的，故 $g^\prime(k)$ 递增。&lt;/p&gt;
+&lt;p&gt;证 2：用更加普遍的定义来证。同样令 $h(k)$ 为使 $g(k)$ 取到 $\max$ 的某个 $x$。$\forall,k_1,k_2$，对于 $\lambda\in (0,1)$，令 $k_m=\lambda k_1+(1-\lambda)k_2$：
+$$
+\begin{aligned}
+&amp;amp;\lambda g(k_1)+(1-\lambda)g(k_2)\\
+={}&amp;amp;\lambda\max_x\set{f(x)-k_1x}+(1-\lambda)\max_x\set{f(x)-k_2x}+k_ma\\
+\ge{}&amp;amp;\lambda(f(h(k_m))-k_1h(k_m))+(1-\lambda)(f(h(k_m))-k_2h(k_m))+k_ma\\
+={}&amp;amp;f(h(k_m))-k_mh(k_m)+k_ma\\
+={}&amp;amp;g(k_m)
+\end{aligned}
+$$
+同时，显然 $\forall,k,g(k)\ge f(a)$，又由于 $f$ 的凸性，一定存在一个 $k$ 使得 $g(k)=f(a)$，故得证。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;另外我们会惊奇地发现：除了最后一步外，证 2 甚至没用 $f$ 的凸性！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;于是就可以直接二分了，判定时只需比较 $mid$ 和 $mid+1$（或 $mid+\varepsilon$）的 check 结果。&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1799/submission/197720360&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CF1799 的代码&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这样做唯一的缺点在于会有 $2^d$ 倍常数（$d$ 为维数）。可以用优选法（按黄金比划分的三分）优化到 ${1.44}^d$ 倍。&lt;/p&gt;
+&lt;h2 id=&#34;一个小细节&#34;&gt;一个小细节
+&lt;/h2&gt;&lt;p&gt;考虑实数二分的精度问题，设当前二分区间为 $[l,r]$，取 $f(h(l))-lh(l)+la$ 来估算答案，它与 $f(a)$ 的差距为：
+$$
+\begin{aligned}
+\lvert f(h(l))-lh(l)+la-f(a)\rvert&amp;amp;=\left\lvert l(a-h(l))-\int_{h(l)}^af&amp;rsquo;(x)\mathrm{d}x\right\rvert\\
+&amp;amp;=\left\lvert\int_{h(l)}^a(l-f&amp;rsquo;(x))\mathrm{d}x\right\rvert\\
+&amp;amp;\le\lvert a-h(l)\rvert\cdot(r-l)\\
+&amp;amp;\le\lvert I\rvert\cdot(r-l)
+\end{aligned}
+$$
+其中 $I$ 为 $f$ 的定义域。因此二分一般得在 $r-l$ 小于允许的绝对误差除以 $n$ 时才结束。$f(x)=C$ 时可以取到最差情况下的误差。&lt;/p&gt;
+&lt;h2 id=&#34;参考资料--总结&#34;&gt;参考资料 &amp;amp; 总结
+&lt;/h2&gt;&lt;p&gt;本文基本上就是 &lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/blog/entry/98334&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Theoretical grounds of lambda optimization&lt;/a&gt; 的提要版本。&lt;/p&gt;
+&lt;p&gt;目前，WQS 二分在应用中仍难以解决的问题主要是凸性的证明。大量题目直觉上目标函数具有凸性，但无法严格证明。归约费用流可能是一种有前途的方案，但目前这几道题例仍未找到证明。adamant 的这篇文章关于 CF739E 的证明应该是错的，我在下面的评论区也有提问，如果您有想法可以与我交流。&lt;/p&gt;
+&lt;p&gt;目前已知的证明方法：&lt;/p&gt;
+&lt;p&gt;[IOI2016] Aliens：四边形不等式是要的，然后有两个证明方法，分别于 Kubic 23 年的论文、我 24 年的论文。&lt;/p&gt;
+&lt;p&gt;CF739E 和 CF1799F：用题解区&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/solution/CF739E&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这篇&lt;/a&gt;的方法建图，然后把一种精灵球选的代价改为 $+\infty$，这样就可以证 $f(x,b)$ 或 $f(a,x)$ 的凸性；内层的凸性更容易，可以用流或 dp 证。&lt;strong&gt;这题外层不能用 dp 归纳证，分讨会有一种情况去世。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;P1792 种树：这类题如果是奇环我是不会证的，并且我目前没看到对的证明。偶环、链、树这类二分图的情况可以看 Kubic 的论文。对于链的情况，可以将限制扩展到“任意两个选的距离必须 $\ge k$”，这样就只能用四边形不等式（一个区间的代价为除去开头 $k$ 个，剩余的 $\max$，这样就有四边形不等式了）或者 dp 归纳证。&lt;/p&gt;
+&lt;p&gt;[八省联考 2018] 林克卡特树：&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/blog/zyc2003/p4383-lin-ke-ka-te-shu-post&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这篇题解&lt;/a&gt;似乎有证明，我没仔细看，不知道是否严谨。反正 dp 归纳是不行的。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>读论文系列 #2——两个偏理论的静态数据结构问题</title>
+        <link>https://example.com/study/paper2/</link>
+        <pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/paper2/</guid>
+        <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;本文基本上就是 &lt;a class=&#34;link&#34; href=&#34;https://citeseerx.ist.psu.edu/doc/10.1.1.79.1554&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Optimal Preprocessing for Answering On-line Product Queries&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://cs.uwaterloo.ca/~imunro/cs840/ProjectPapers/SODA10_014_yuanh.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Data Structures for Range Minimum Queries in Multidimensional Arrays&lt;/a&gt; 的非形式化翻译，掺杂了自己的理解和思路，略去了一些细节。&lt;/p&gt;
+&lt;p&gt;主要讲一下比较基础的静态数组、高维数组的区间查询问题。两篇论文其实关系不大，只是后一篇用了前一篇的部分成果。&lt;/p&gt;
+&lt;p&gt;理论性比较强，尤其是后一篇，基本上出不成题。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;静态序列区间半群查询问题&#34;&gt;静态序列区间半群查询问题
+&lt;/h2&gt;&lt;p&gt;问题：给定半群元素序列 $a_{1\cdots n}$，在只能使用半群运算 $\circ$ 的情况下，多次询问区间 $[l,r]$，回答 $\circ_{i=l}^r a_i$。&lt;/p&gt;
+&lt;p&gt;解决思路无非就是预处理一些区间的积，查询时拼起来就行。联想到正常的动态区间查询问题，动态情况下下界就是 $\Omega(\log n)$ 的。静态情况下允许的预处理量大大增加，因此分析下去会不一样，但思路还是可以借鉴的。总体来说，核心的思想就是两点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;预处理与查询的平衡。&lt;/li&gt;
+&lt;li&gt;分块与分治。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;记 $k$ 表示回答查询时允许的半群运算次数 ${}+1$。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;最初的思考从 $k=2$ 开始（$k=1$ 只能预处理所有平方个区间），我们要给每个区间 $[l,r]$ 选定一个切分点，然后进行所需的预处理。为了使公共预处理区间尽量多，考虑每次选择一个点，将所有尚未确定切分点，且能以该点为切分点的区间的切分点选定为该点。这个就是猫树，下面说点题外话。&lt;/p&gt;
+&lt;p&gt;记猫树的预处理量为 $p(n)$。每次选取中点作为切分点的&lt;em&gt;最优性&lt;/em&gt;是由 $p(n)$ 的凸性保证的。我们可以通过解递归式得到：
+$$
+p(n)=n\lfloor\log_2(n-1)\rfloor+2n-2^{\lfloor\log_2(n-1)\rfloor+1}
+$$
+为了方便 $\Omicron(1)$ LCA，猫树有少量冗余。理论上递归可以只进行 &lt;code&gt;build(l,mid-1)&lt;/code&gt; 和 &lt;code&gt;build(mid+2,r)&lt;/code&gt;，并且在 $r-l\le 1$ 时结束，记猫树&lt;em&gt;最优的&lt;/em&gt;预处理量为 $p^\prime(n)$：
+$$
+p^\prime(n)=(n+2)\lfloor\log_2(n+1)\rfloor-n+2-2^{\lfloor\log_2(n+1)\rfloor+1}
+$$
+猜想：对于长为 $n$ 的序列，$k=2$ 情况下符合条件的预处理区间集合 $\mathcal{P}$，除去 $n$ 个单元素区间，${\lvert\mathcal{P}\rvert}_{\min}=p^\prime(n)$。&lt;/p&gt;
+&lt;p&gt;注意这里的最优性和上文的最优性是不一样的，上文是“每次选择一个切分点，然后两边递归”这个思路前提的基础上的最优性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;纠结于系数意义不大，我们关注 $k=2$ 情况的结构带来的启发。“预处理前/后缀和”是非常有效的线性手段。&lt;/p&gt;
+&lt;p&gt;但是如何推理 $k&amp;gt;2$ 呢？众所周知，动态情况下的线段树是从分块嵌套演化过来的，因此考虑类比逆推多个切分点的情况（只预处理每一块内的前后缀和）：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/study/paper2/fga2gv7u.png&#34;
+	width=&#34;1070&#34;
+	height=&#34;400&#34;
+	srcset=&#34;https://example.com/study/paper2/fga2gv7u_hu13c3b81ed0401b39d1d69b4b315a2bf0_27564_480x0_resize_box_3.png 480w, https://example.com/study/paper2/fga2gv7u_hu13c3b81ed0401b39d1d69b4b315a2bf0_27564_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;267&#34;
+		data-flex-basis=&#34;642px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;对于一个询问，如果它在块内部，则递归 $T_2$ 处理，否则两头散块可以用前后缀和算出，然后考虑 $T_1$ 用于维护每块的和形成的较短序列，处理块间部分。&lt;/p&gt;
+&lt;p&gt;记块大小为 $B(n)$，预处理复杂度为 $p(n)$，回答询问使用的运算次数最多为 $q(n)-1$。下文中可能出现多个 $f(n)$，作用域仅在单自然段内。&lt;/p&gt;
+&lt;p&gt;利用分治的思想，考虑三种可能（记 $q(n)=k$ 的数据结构为 $S_k$，$S_2=$ 猫树）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$T_1=T,T_2=T$。&lt;br&gt;
+$p(n)=p(n/B(n))+n/B(n)\cdot p(B(n))+\Theta(n),q(n)=\max\set{q(n/B(n))+2,q(B(n))}$，上下均自递归的结构其实很像 vEB 树，因此考虑取 $B(n)=\sqrt n$，将 $p(n)$ 展开后使用初中处理因式的技巧，就可以得到 $p(n)=\Theta(n\log\log n)$，同时 $q(n)=\Theta(\log\log n)$。我猜测无法更优了。&lt;/li&gt;
+&lt;li&gt;$T_1=T,T_2=S_2$。&lt;br&gt;
+$p(n)=p(n/B(n))+\Theta(n\log B(n)),q(n)=q(n/B(n))+2$，可以对输入的固定的 $n$ 取 $\forall i,B(i)=2^{\sqrt{\log n}}$，这样可以平衡成 $p(n)=\Theta\left(n\sqrt{\log n}\right),q(n)=\Theta\left(\sqrt{\log n}\right)$。这个方向没有前途的直觉解释是：分块后问题分成了 $T_1$——&lt;strong&gt;单个规模较小&lt;/strong&gt;、$T_2$——&lt;strong&gt;若干规模很小，但总和不变&lt;/strong&gt; 这两个子问题，直觉上后者是比前者难的，拿已有的结构作为 $T_2$ 基本没法优化。&lt;/li&gt;
+&lt;li&gt;$T_1=S_2,T_2=T$。&lt;br&gt;
+$p(n)=\Theta(n/B(n)\cdot\log(n/B(n)))+n/B\cdot p(B(n))+\Theta(n),q(n)=4$，很明显可取 $B(n)=\log n$，从而做到 $p(n)=\Omicron(n\log^*n)$，这个就是 $S_4$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第三种可能实际上提供了一个以 $q(n)$ 增加 $2$ 为代价，将 $p(n)=\Omicron(n\cdot f(n))$ 变为 $\Omicron(n\cdot f^*(n))$ 的通法（得满足 $f(n)=\Omicron(\log n)$，取 $B(n)=f(n)$ 即可），其中 $f^*(n)=\min\set{i\mid f^{(i)}(n)\le 1}$。 因此我们可以做到：
+$$
+\forall 2\mid k\ge 4,p(n)=\Omicron(n\log^{\begin{matrix}k/2-1\\ \overbrace{**\cdots*}\end{matrix}}n),q(n)=k
+$$
+……吗？&lt;/p&gt;
+&lt;p&gt;这里有一个很容易犯的错误，就是如果不用主定理解递归式，那么解的过程中严谨地来说必须避免渐进记号。但 OI 实践中往往不拆也不会出问题，这里实际上套上了一个归纳，并且把 $k$ 作为变量塞进渐进记号里了，就得谨慎地算一下了。$k=4$ 时：
+$$
+\begin{aligned}
+p(n)&amp;amp;=n/\log n\cdot \log(n/\log n)+n/\log n\cdot p(\log n)+2n-2\log n\\
+&amp;amp;&amp;lt;3n+n/\log n\cdot p(\log n)\\
+&amp;amp;=3n\log^*n
+\end{aligned}
+$$
+同理，可以算得 $k=6$ 时 $p(n)&amp;lt;5n\log^*n$ 等等。因此：
+$$
+\forall 2\mid k\ge 4,p(n)=\Omicron(n\textcolor{red}{k}\log^{\begin{matrix}k/2-1\\ \overbrace{**\cdots*}\end{matrix}}n),q(n)=k
+$$
+另外，为了完整，我们把 $2\nmid k$ 也补上。$k=3$ 套上 $T_1=S_1$，（特例）取 $B(n)=\sqrt n$，可以得到 $p(n)=\Theta(n\log\log n)$ 的 $S_3$，$k\ge 5$ 就跟 $k-1$ 情况一样了。&lt;/p&gt;
+&lt;p&gt;为了平衡 $p(n)/n$ 和 $q(n)$，考虑取 $k=2\alpha(n)+2$，其中：
+$$
+\alpha(n)=\min\set{i\mid\log^{\begin{matrix}i\\ \overbrace{**\cdots*}\end{matrix}}n\le 3}
+$$
+这里 $\le 3$ 时因为 $n\ge 5$ 时不管有几个星，结果都至少是 $3$。您可能在其他地方见过 $\alpha(n)$ 的不同定义方式，不同的定义应该都只差一个常数。&lt;/p&gt;
+&lt;p&gt;这时 $p(n)=\Omicron(n\alpha(n)),q(n)=\Theta(\alpha(n))$。注意这里的 $\alpha(n)$ 是无法变成 $\alpha^*(n)$ 的，但是有另一个看起来不大优美的优化方式：&lt;/p&gt;
+&lt;p&gt;仍然考虑上文的分块模型，$T_1=S_{2\alpha(n)+2},T_2=T_{?}$，设 $T_{?}$ 的预处理时间为 $p_{?}(n)=\Omicron(n\cdot f(n))$。那么总的 $p(n)=\Omicron(n/B(n)\cdot\alpha(n)+n\cdot f(B(n)))$，如果要使得 $p(n)=\Theta(n)$，唯一的方法是取 $B(n)=\alpha(n),f(n)=\Omicron(1)$，那么 $T_{?}$ 可以选择普通线段树。好在这部分的询问运算次数不是瓶颈，因此总的 $q(n)$ 只会加 $2$（最外层两端的散块）。这里主要是通过类似于待定系数法的方式解释一下论文里为什么会突然冒出普通线段树。&lt;/p&gt;
+&lt;p&gt;这个优化的思想是，用“单个规模较小”优化预处理“常数”（红色的 $k$），“若干规模很小，但总和不变”尽管无法有效减小预处理复杂度，但是可以保证查询次数足够少。二者互补。&lt;/p&gt;
+&lt;p&gt;我尝试类推优化掉任意 $k$ 的“常数”（红色的 $k$）（这个原论文里没讲），但 $q(n)$ 会加 $2$。这个是可以避免的：&lt;/p&gt;
+&lt;p&gt;希望 $q(n)=k\ge 3$，最外层是 $T_1=S^\prime_k,T_2=普通线段树,B(n)=k$。$S^\prime_k$ 是修改过的结构，基本与 $S_k$ 相同，即 $T_1=S_{k-2},T_2=S^\prime_k,B(n)=f(n)$，这里 $f(n)$ 指的是设 $S_{k-2}$ 的预处理复杂度为 $\Omicron(n(k-2)f(n))$。不同的点在于 $S^\prime_k$ 处理的块内前后缀和是细分到原序列的，而不是严格遵循最外层分块结构把每 $k$ 个一组的和视为整体。这样就避免了最外层跨块时额外查一对前后缀和。$S^\prime_k$ 的预处理复杂度仍然是 $p(n)=\Omicron(nk/B(n)\cdot f(n))+n/B(n)\cdot p(B(n))+\Theta(nk)=\Omicron(nk\cdot f^*(n))$，其他部分也都没有问题，总体来说就把 $p(n)$ 的 $k$ 除掉了，$q(n)$ 不变。最终我们得到了：
+$$
+p(n)=\begin{cases}\Omicron(n^2)&amp;amp;q(n)=1\\ \Omicron(n\log n)&amp;amp;q(n)=2\\ \Omicron(n\log\log n)&amp;amp;q(n)=3\\ \Omicron(n\log^{\begin{matrix}\lfloor k/2\rfloor-1\\ \overbrace{**\cdots *}\end{matrix}}n)&amp;amp;q(n)=k\ge 4\end{cases}
+$$
+但如果具体实现真想做到查询时间复杂度 $=\Theta(q(n))$，那就得处理一个“变进制数 LCP 问题”，而且 $q(n)\ge 4$ 后基本没法体现区别，所以只能套一个交互限制运算次数或者像 &lt;a class=&#34;link&#34; href=&#34;https://uoj.ac/problem/709&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【北大集训2021】末日魔法少女计划&lt;/a&gt; 这样。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;下界的证明思路是对着这个分块结构硬证。对于 $k=2$，选择序列中点 $m$，将只包含于中点左侧（不含中点）和只包含于中点右侧（不含中点）的预处理作为一类，跨左右的预处理作为一类。考虑询问 $[m-i,m+i]$，要用两个预处理拼成该询问，就必须有一个跨左右的预处理。因此 $p(n)\ge p(\lfloor n/2\rfloor)+p(\lceil n/2\rceil-1)+\lceil n/2\rceil-1$，解得 $p(n)=\Omega(n\log n)$。对于 $k\ge 3$，按 $S_k$ 的块大小分块，但块间空出一位。也是先忽略块内的预处理，剩余跨块的预处理。对于一个位置，如果它不是任何跨块预处理的端点，则标记它。如果含有被标记位置的块不足一半，那么跨块预处理至少 $\Omega(n)$；超过一半，那么考虑所有以标记位置为两端的询问，组成询问区间的最左右预处理一定是块内的，去掉这两部分后剩余问题一定不弱于 $k^\prime=k-2,n^\prime=n/B(n)$ 情况的问题，跨块预处理也是至少 $\Omega(n)$，归纳即可，这里注意不会带有因子 $k$。论文里提到这个证明可以直接推广成“预处理可以是任意子集且不要求不交并”情况。&lt;/p&gt;
+&lt;p&gt;因此，上述解法的半群运算次数是渐进最优的。论文标题上加了个 on-line，不知离线是否会有更好的结果。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;高维-rmq-问题&#34;&gt;高维 RMQ 问题
+&lt;/h2&gt;&lt;p&gt;问题：给定高维数组 $a_{1\cdots n_1,\cdots,1\cdots n_d}$，在只能使用比较运算的情况下，多次询问高维区间 $[l_1,r_1],\cdots,[l_d,r_d]$，回答 $\min_{i_1\in[l_1,r_1]}\cdots\min_{i_d\in[l_d,r_d]}\set{a_{i_1,\cdots,i_d}}$。记 $N=\prod n_i$。&lt;/p&gt;
+&lt;p&gt;以下视 $d$ 为定值，但还是会尽量写一下关于 $d$ 的常数。以下假设 $a$ 中数互不同。&lt;/p&gt;
+&lt;p&gt;先尝试把上文的静态区间半群查询问题的 $S_k$ 扩展到 $d$ 维结构 $S_k^d$：非常简单，处理块内前后缀和时，不再是存储单个元素，而是一个 $d-1$ 维数组，就需要嵌套下去，那就归约 $S_k^{d-1}$ 了。时间复杂度的变化是预处理的 $\log$ 以及查询会带上 $d$ 次方。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;目前可以做到的是预处理 $\Omicron(N\log^{d-1}N)$，查询 $\Omicron(2^d)$，也就是把最内层一维套个四毛子。&lt;/p&gt;
+&lt;p&gt;但是我们的目标是预处理 $\Theta(N)$，查询 $\Omicron(1)$。可以推理得到以下几点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;得用四毛子。&lt;/li&gt;
+&lt;li&gt;直接用 $S_2^d$ 之类的结构肯定不行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;那如果是 $S_3^d$ 的最内层套四毛子，是不是就可以做到 $\Omicron\left(N\frac{(\log\log N)^d}{\log N}\right)=\omicron(N)$ 了呢？答案是否定的，因为次内层的结构是带一个前后缀 $\min$ 的，也就是要得到最内层建树所基于的序列，就先得乘 $\Theta(n_d)$，而其他外层又无法直接套四毛子，所以如果用这种思路，就必定是 $\Omega(N(\log\log N)^{d-1})$ 的。因此一维的四毛子不行。&lt;/p&gt;
+&lt;p&gt;四毛子的关键是找到一个信息量足够小的贴近本质的刻画，那如何找到一个高维数组的所有可能的区间 $\min$ 的刻画呢？不幸的是，论文中提到，二维的 $n\times n$ 方阵不存在类笛卡尔树的刻画，因为在矩形 $\min$ 查询意义下本质不同的方阵个数为 $\Omega(((n/4)!)^{n/4})$，取对数发现光是靠比较来区分所有的情况都无法做到 $\Omicron(n^2)$。&lt;/p&gt;
+&lt;p&gt;一种新的刻画一维序列的方式如下：考虑猫树，树的每个节点预处理所有前后缀 $\min$。尽管建树复杂度无法做到 $\Theta(n)$，但比较次数是可以的：考虑一个节点的前缀 $\min$，前一半从左儿子继承，后一半从右儿子继承的同时，要与左儿子 $\min$ 再取个 $\min$，而这个取 $\min$ 的决策情况显然可以二分分界点，因此一个节点的比较次数可以做到长度的对数，总体来说就是至多 $2\sum_{i\ge1}i\cdot\frac{n}{2^i}=4n$ 次。&lt;/p&gt;
+&lt;p&gt;猫树可以扩展到高维 $S_2^d$，但为了保证比较次数，处理方法要稍作调整：对于某个节点，设其对应的区间长度为 $2^{i_1}\times\cdots\times 2^{i_d}$，由于不能多维同时二分，故选择最长的一维，将这一维切成两半后对应的节点信息作为继承 $\min$ 值的来源，其他维暴力扫描，这一维二分。比较次数为（这里的 $2^d$ 是每一维都要前后缀）：
+$$
+\begin{aligned}
+&amp;amp;\sum_{i_1,\cdots,i_d}\max_j\set{i_j}\cdot\frac{\prod_j2^{i_j}}{\max_j\set{2^{i_j}}}\cdot 2^d\cdot\frac{N}{\prod_j2^{i_j}}\\
+={}&amp;amp;2^dN\sum_{i_1,\cdots,i_d}\frac{\max_j\set{i_j}}{2^{\max_j\set{i_j}}}\\
+={}&amp;amp;2^dN\sum_i\frac{i}{2^i}\left[(i+1)^d-i^d\right]\\
+&amp;lt;{}&amp;amp;2^dN\sum_i\frac{i^{d+1}}{2^{i-1}}\\
+={}&amp;amp;2^{d+2}N\cdot \tilde{b}(d+1)\\
+\approx{}&amp;amp;\frac{2^{d+1}(d+1)!}{(\ln 2)^{d+2}}N\\
+={}&amp;amp;\Theta(N)
+\end{aligned}
+$$
+其中 $\tilde{b}(n)$ 是 &lt;a class=&#34;link&#34; href=&#34;https://oeis.org/A000670&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;A000670&lt;/a&gt;。注意如果不选最长的一维切就不能线性了。&lt;/p&gt;
+&lt;p&gt;由于这个结构并非确定唯一的最小值位置，而是给出 $\Omicron(2^d)$ 个候选最小值，故它的线性复杂度并不与上文所说的“无法刻画”矛盾。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;好，现在选取边长为 $B=c\log^{1/d}N$ 的 $d$ 维超立方体作为小块，使用四毛子（为了快速识别输入的每一小块的类型，避免带上 $\log^d$，可以选取足够小的常数 $c$，$\Omicron(N)$ 地预处理出判断块类型的决策树）。这种分块方式不是严格意义上的高维嵌套分块，需要重新考虑如何回答询问。&lt;/p&gt;
+&lt;p&gt;注意到，只要询问有一个维度的区间是跨块，那么整块部分就可以直接利用除以 $\log^{1/d} N$ 这个因子，套上 $S_3^d$ 从而达到 $\Theta\left(\max\Set{N,N\frac{(\log\log N)^d}{\log^{1/d}N}}\right)$ 也就是 $\Theta(N)$（因为 $d$ 是定值）；查询的每一维都是块内的情况不必多说。&lt;/p&gt;
+&lt;p&gt;现在就剩下跨块时去掉中间整块后，散块即两端块内前后缀部分的处理。&lt;/p&gt;
+&lt;p&gt;论文中给出的方法是：对跨块的这一维的所有块内前后缀 $\min$（指的是多个内层 $d-1$ 维数组对应位置分别取 $\min$），递归建 $d-1$ 维时的原问题结构。总体来说，需要预处理以下三部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每个小块的类型；&lt;/li&gt;
+&lt;li&gt;每一维求出每个块的 $\min$（$B$ 个内层 $d-1$ 维数组对应位置分别取 $\min$），然后建 $S_3^d$。&lt;/li&gt;
+&lt;li&gt;每一维求出每个块内前后缀的 $\min$，然后递归建 $d-1$ 维的结构。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;询问时，如果所有维度都是块内，则直接回答，否则任选一个跨块维度，拆成三个部分处理。&lt;/p&gt;
+&lt;p&gt;预处理复杂度 $p(n)=\Theta(2^d\tilde{b}(d+1)N)$，具体算一下会发现递归减一维的部分并不是瓶颈，识别小块类型才是。查询 $q(n)=\Omicron(3^d)$。&lt;/p&gt;
+&lt;p&gt;我想到的一个更简单的方法是：只预处理上文中 1 和 2 结构，$p(n)$ 不变。查询时利用 RMQ 可以重复考虑同一个数的性质，分别考虑每一个跨块的维度，忽略其散块部分（其他维保留原询问区间），在 2 结构中查询，这个是 $\Omicron(d3^d)$；剩余未考虑的就是每一维都是散块的部分，一共有 $\Omicron(2^d)$ 个（左右段各一个）块，每个小块 $\Omicron(2^d)$，乍一看是 $\Omicron(4^d)$，但实际上如果一个维度跨块了，它会给查询数量贡献 $\times 2$，但在高维猫树中由于这维查的是前后缀，所以对候选最小值数量就不贡献 $\times 2$ 了，因此还是 $\Omicron(2^d)$。最终 $q(n)=\Omicron(d3^d)$。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>读论文系列 #1——串与 DAG 的 LCS</title>
+        <link>https://example.com/study/paper1/</link>
+        <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/paper1/</guid>
+        <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;前天 @changruinian2020 发了我一篇论文，让我帮他读读。以前基本上没有在毫无相关理论准备的情况下读论文，这里记录一下，挺有帮助的。&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2302.01748.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;链接&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;首先这篇论文在 OI 范围内没啥意义，纯粹就是练阅读能力，相对一些其他论文来说比较友好。如果您也想练习，推荐先去看原文，再对照一下下面提供的我的理解（不保证正确）。&lt;/p&gt;
+&lt;p&gt;问题：给定一张 DAG $G$，点上带有字符串 $\ell(v)$，给定串 $Q$，求 $Q$ 与 $G$（的所有路径中）的 LCS，一条路径对应的串就是点的串顺次拼起来。&lt;/p&gt;
+&lt;p&gt;结构：求得每个单点 $v$ 与 $Q$ 的所有极长公共子串 MEM（说是可以关于 MEM 个数线性地求出，在另一篇论文里。记为 $N$ 个），记作 $(Q[x\cdots x+\kappa-1],\ell(v)[i\cdots j])$，然后选出一个 MEM 序列，要求 $x\le x&amp;rsquo;,v\rightsquigarrow v&amp;rsquo;$，允许 $v=v&amp;rsquo;$，如果这样有额外的条件 $i\le i&amp;rsquo;$（这里加一撇表示序列中的下一项）。这个时候把这个序列在 $Q$ 和所有涉及到的 $\ell(v)$ 中都划出对应匹配的子串，如果相邻两个 MEM 在 $Q$ 中或者某个 $\ell(v)$ 中划的线有重合，就把前面的一个区间缩一下（$Q$ 和 $\ell(v)$ 同时缩）。这样子得出的公共子序列一定能考虑到最优解。例子可以参见 Figure 1。&lt;/p&gt;
+&lt;p&gt;求解：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;先考虑每个点只能选一个 MEM 的情况，那么只能在 $Q$ 中出现划线重合。这个问题相当于：$G$ 中每个点都挂了一些区间，要选一条路径，路径上的每个点选挂在上面的 $0$ 或 $1$ 个区间，得到 $[l_1,r_1],\cdots,[l_t,r_t]$，其中要求 $l_i\le l_{i+1}$。现在最大化 $\sum(\min(r_i+1,l_{i+1})-l_i)$。由于可能是在 DAG 上跳着走，所以有点难搞。给所有挂着的区间一起编个号，记 $dp[i]$ 表示 $i$ 号区间作为最后一个区间的答案。通过另一个神秘算法找到图的最小（可相交）路径覆盖（记为 $k$ 条），每一条路径统一更新其他所有点（对于每个希望被更新的点，&lt;em&gt;找到路径上最后一个可达它的点&lt;/em&gt;，在那个点处理完时更新，这样就避免了后效性），然后就剩下路径内部转移了。具体统一更新的方法就是讨论 $\sum$ 里的 $\min$ 取哪一项，就变成了一个单点更新，求区间 $\max$ 的问题了，每条路径维护两棵线段树/平衡树即可。这样就是 $\mathrm{O}(kN\log N)$ 的。&lt;br&gt;
+补充一句，斜体部分在原文中说若要做到与 $\lvert E\rvert$ 无关得用 transitive reduction，这个东西看起来有些前途，NOI2021D1T3 用到了这个思想。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后要考虑点内部选多个 MEM 的情况。先考虑两个串之间的问题，仍然是已知两者的所有 MEM。这里我认为论文有笔误，显然 &lt;code&gt;M.sort()&lt;/code&gt; 应该按照 $i$ 而不是 $x$ 排序。转移就按照 coverage 公式讨论：a. 两者都不重合；b. $T$ 中不重合 $Q$ 中重合（与第一步中类似）；c. $T$ 中重合且比 $Q$ 中重合得多（允许 $Q$ 不重合）；d. $T$ 中重合且比 $Q$ 中重合得少。值得思考的是：① 为什么不能将 bd 合并成 $T$ 中重合得且比 $Q$ 中重合的少（允许 $T$ 不重合）？因为这时要保证 $Q$ 中有重合，那就有两维限制，无法维护。② 为什么 d 无需考虑 $x$ 递增条件不满足的情况？因为这个在后续转移中一定不会成为最优解。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;综合起来，2 中的 ab 情况和 1 的点间更新是兼容的，不用额外转移了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这里最感到奇怪的就是这个 MEM 的引入以及链覆盖的做法。现在理论界确实有很多 parameterized 的解法（&lt;del&gt;主要理论下界都被研究完了&lt;/del&gt;），即关于输入的某个示性数较优的解法。OI 中这类情况就较少。&lt;/p&gt;
+&lt;p&gt;然后是一些闲话。&lt;/p&gt;
+&lt;p&gt;形式化是一把双刃剑，保证了严谨性的同时给没有相关基础的读者竖起了一面妨碍理解的高墙。vuq 也讨论过“知识的诅咒”这一问题。当你会了一个模型时，你可以任意地把它形式化地表述出来，但是读者初步看了之后，不懂的还是不懂，&lt;strong&gt;因为他们看不到你的文字背后的思考过程（而且实际表述顺序很可能相对于思考顺序是颠倒的），你的 motivation 和 intuition，在理论体系上是怎样的存在（本质、意义、等价表述），当然也包括 vuq 里提到的联想知识&lt;/strong&gt;；甚至单纯就是被一堆定义绕晕了，就放弃了。我以前看算法导论和部分集训队论文就是这种感觉，就像看别人的代码一样。&lt;/p&gt;
+&lt;p&gt;但是论文都得保证严谨性。友善的作者可能会加入例子和非形式化解释，但不多。那我硬啃的过程就是把它变成自己的理解，我觉得关键就是在明确定义的前提下尽量带入自己的思路，尝试还原作者的想法。如果硬着头皮逐字逐句地去看文章，被动地理解，会很痛苦（很多情况下就是莫名其妙提出来一个 theorem 然后证明），而且无法收获思维上的营养。读的过程中要经常停下来，想象目前模型的图形化解释、例子以及如果我面对这个模型，我会怎么考虑。主动地去思考，会比较好。当然前提是核心 definition 和问题模型得先搞清楚，如果发现定义不自洽可以检查一下是不是有些专业表述望文生义了。一些无关紧要的延伸的定义也没必要抠得很明白。当然也没法 100% 搞清背后的动机，毕竟都是基于先前已有的论文成果往上堆。&lt;/p&gt;
+&lt;p&gt;欢迎讨论。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[题解] lgP9171 [省选联考 2023] 染色数组</title>
-        <link>https://example.com/study/lgp9171-solution/</link>
+        <link>https://example.com/study/solution-lgp9171/</link>
         <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/lgp9171-solution/</guid>
+        <guid>https://example.com/study/solution-lgp9171/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;  提供一个 $\mathrm{O}(Tn^3m)$ 的做法，目前在各 oj 上是 rank 1，运行时间为第二名的 $\frac{1}{6}$ 以内。&lt;/p&gt;
 &lt;p&gt;  类似于本题解的方法不建议在考试中使用，非常耗时间。&lt;del&gt;并且公式很丑。&lt;/del&gt;&lt;/p&gt;
@@ -1924,7 +2244,10 @@ $$
 &lt;h4 id=&#34;交叉后下部&#34;&gt;交叉后下部
 &lt;/h4&gt;&lt;p&gt;  交叉后就无需考虑 $r=n$ 了。先不考虑上部与“交织”的安排。枚举交叉前 $&amp;lt;a_r$ 的数个数 $i$，交叉后 $&amp;lt;a_r$ 的数个数 $k$，以及 $D$，该部分得分为：&lt;/p&gt;
 &lt;p&gt;$$
-\begin{aligned}&amp;amp;\sum_{i\le t,a_i\le L}\sum_{p=a_i+1}^D\binom{D-L-1}{i-1}\binom{D-1}{k-1}p+\sum_{a=L+1}^D\sum_{p=a+1}^D\binom{D-L-2}{i-2}\binom{D-1}{k-1}p\={}&amp;amp;\binom{D-1}{k-1}\left[\binom{D-L-1}{i-1}{\underline{\sum_{i\le t,a_i\le L}\frac{(a_i+1+D)(D-a_i)}{2}}}&lt;em&gt;{f_0(D)}+\binom{D-L-2}{i-2}{\underline{\sum&lt;/em&gt;{a=L+1}^D\frac{(a+1+D)(D-a)}{2}}}_{f(D)}\right]\end{aligned}
+\begin{aligned}
+&amp;amp;\sum_{i\le t,a_i\le L}\sum_{p=a_i+1}^D\binom{D-L-1}{i-1}\binom{D-1}{k-1}p+\sum_{a=L+1}^D\sum_{p=a+1}^D\binom{D-L-2}{i-2}\binom{D-1}{k-1}p\\
+=&amp;amp;\binom{D-1}{k-1}\left[\binom{D-L-1}{i-1}\underline{\sum_{i\le t,a_i\le L}\frac{(a_i+1+D)(D-a_i)}{2}}_{f_0(D)}+\binom{D-L-2}{i-2}\underline{\sum_{a=L+1}^D\frac{(a+1+D)(D-a)}{2}}_{f(D)}\right]
+\end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;  其中 $p$ 枚举的是交叉后下部的某个数值。记该式为 $(*)$。划线部分可以预处理。&lt;/p&gt;
 &lt;p&gt;  考虑剩余部分，枚举交叉前 $&amp;gt;a_r$ 的数个数 $j$，最终得分为：
@@ -1932,7 +2255,10 @@ $$
 (*)\binom{i+j}{i}\binom{n-t-i-j-2}{k-1}C^\prime_U(j,n-t-i-j-k-1,D)
 $$&lt;/p&gt;
 &lt;h4 id=&#34;交叉后上部&#34;&gt;交叉后上部
-&lt;/h4&gt;&lt;p&gt;  先枚举交叉前 $&amp;gt;a_r$ 的数个数 $j$，交叉后 $&amp;gt;a_r$ 的数个数 $k$，以及 $a_r$，该部分得分为：
+&lt;/h4&gt;&lt;p&gt;$$
+{\underline{a}&lt;em&gt;{f}}{\underline{b}&lt;/em&gt;{f}}
+$$&lt;/p&gt;
+&lt;p&gt;  先枚举交叉前 $&amp;gt;a_r$ 的数个数 $j$，交叉后 $&amp;gt;a_r$ 的数个数 $k$，以及 $a_r$，该部分得分为：
 $$
 \binom{m-a_r-1}{k-1}\underline{\left[\binom{R-a_r-1}{j}\sum_{i\le t,a_i\ge R}\frac{(2m-a_i-a_r+2)(a_i-a_r-1)}{2}+\binom{R-a_r-2}{j-1}\sum_{a=a_r+1}^{R-1}\frac{(2m-a-a_r+2)(a-a_r-1)}{2}\right]}_{F(j,a_r)}
 $$
@@ -2155,10 +2481,10 @@ $$
         </item>
         <item>
         <title>[题解] lgP9159 [GLR-R4] 大暑</title>
-        <link>https://example.com/study/lgp9159-solution/</link>
+        <link>https://example.com/study/solution-lgp9159/</link>
         <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/lgp9159-solution/</guid>
+        <guid>https://example.com/study/solution-lgp9159/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;  同学打月赛后告诉我有道很离谱的题，遂做，确实挺离谱的，这里讲一下自己做的思路。&lt;/p&gt;
 &lt;h2 id=&#34;题意&#34;&gt;题意
@@ -2184,10 +2510,10 @@ ans=\prod_{k=2}^n p_k^{w_k}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;step-2&#34;&gt;Step 2
 &lt;/h2&gt;&lt;p&gt;  求 $w_k$。考虑刻画线段交于一点的情况。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/lgp9159-solution/xd7iksq2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://example.com/study/solution-lgp9159/xd7iksq2.png&#34;
 	width=&#34;847&#34;
 	height=&#34;164&#34;
-	srcset=&#34;https://example.com/study/lgp9159-solution/xd7iksq2_hu57fb01abe303f114021fd48e09b62391_17561_480x0_resize_box_3.png 480w, https://example.com/study/lgp9159-solution/xd7iksq2_hu57fb01abe303f114021fd48e09b62391_17561_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://example.com/study/solution-lgp9159/xd7iksq2_hu57fb01abe303f114021fd48e09b62391_17561_480x0_resize_box_3.png 480w, https://example.com/study/solution-lgp9159/xd7iksq2_hu57fb01abe303f114021fd48e09b62391_17561_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;例&#34;
