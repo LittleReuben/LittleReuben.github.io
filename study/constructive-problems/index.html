@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Last updated on 2024-05-23">
+<title>构造题方法总汇</title>
+
+<link rel='canonical' href='https://example.com/study/constructive-problems/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="构造题方法总汇">
+<meta property='og:description' content="Last updated on 2024-05-23">
+<meta property='og:url' content='https://example.com/study/constructive-problems/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2023-10-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-10-08T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="构造题方法总汇">
+<meta name="twitter:description" content="Last updated on 2024-05-23">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#声明">声明</a></li>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#分类">分类</a></li>
+    <li><a href="#基于特性的技巧">基于特性的技巧</a>
+      <ol>
+        <li><a href="#括号序列相关">括号序列相关</a></li>
+        <li><a href="#排列相关">排列相关</a></li>
+        <li><a href="#二维相关">二维相关</a></li>
+        <li><a href="#数论相关">数论相关</a></li>
+        <li><a href="#生成树相关">生成树相关</a></li>
+        <li><a href="#图论相关">图论相关</a></li>
+        <li><a href="#格雷码">格雷码</a></li>
+        <li><a href="#欧拉回路路径">欧拉回路/路径</a></li>
+        <li><a href="#鸽巢原理">鸽巢原理</a></li>
+        <li><a href="#绝对众数">绝对众数</a></li>
+        <li><a href="#dilworth-定理">Dilworth 定理</a></li>
+      </ol>
+    </li>
+    <li><a href="#常用的解题思想">常用的解题思想</a>
+      <ol>
+        <li><a href="#a-等价表述条件和观察模型">a. 等价表述条件和观察模型</a></li>
+        <li><a href="#b-将无解和最优化条件转成已知条件">b. 将无解和最优化条件转成已知条件</a></li>
+        <li><a href="#c-从特殊情况获取提示">c. 从特殊情况获取提示</a></li>
+        <li><a href="#d-分析数量关系">d. 分析数量关系</a></li>
+        <li><a href="#e-寻找诈骗条件">e. 寻找诈骗条件</a></li>
+        <li><a href="#f-加强构造条件">f. 加强构造条件</a></li>
+        <li><a href="#g-构造不依赖于输入的通解">g. 构造不依赖于输入的通解</a></li>
+        <li><a href="#h-研究操作能实现的功能">h. 研究操作能实现的功能</a></li>
+        <li><a href="#i-逆操作与中继状态">i. 逆操作与中继状态</a></li>
+        <li><a href="#j-外围排除法">j. 外围排除法</a></li>
+        <li><a href="#k-归约法和增量法">k. 归约法和增量法</a></li>
+        <li><a href="#l-调整法">l. 调整法</a></li>
+        <li><a href="#m-做法拼合">m. 做法拼合</a></li>
+        <li><a href="#n-分组与分治">n. 分组与分治</a></li>
+      </ol>
+    </li>
+    <li><a href="#通用的思考方法">通用的思考方法</a></li>
+    <li><a href="#参考文章">参考文章</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/oi/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 算法竞赛
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/constructive-problems/">构造题方法总汇</a>
+        </h1>
+    
+        
+        <h3 class="article-subtitle">
+            Last updated on 2024-05-23
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-10-08</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<h2 id="声明">声明
+</h2><p>本文非严谨的算法理论研究，仅仅是个人对解题经验的归纳和实验性的系统总结，不保证理论上的完备性与纯粹性。仅对解题实践提供一个较为自洽的解释，作为参考。</p>
+<p>本文所有题都不会提供题意和完整包含细节的题解，也就是说您需要先做一遍或看其他题解，因为没有做题经验就无法感受解题思想。您也可以把本文理解成一个归类好的题单。</p>
+<p>如果一题包含多项技巧则会放在多处，但如果包含多项思想则只会在一处解说。如果出现一题多解会记入多个类别并多次解说。</p>
+<p>带括号的题是内部训练题。</p>
+<p>如果您认为一些理论表述有偏颇，或找到文章无法解释的题目（反例），可以告诉我。</p>
+<p>本文会时常更新。</p>
+<h2 id="引言">引言
+</h2><p>在 OI 中，“构造题”的定义是什么？我也没法给出一个精准的答案。似乎这类题确实有某些明确的特征，但这一概念的边界却是模糊的。广义地来说，所有算法都是构造——dp 构造状态和转移，ds 构造维护的结构……但我们常说的构造更多的是一种无算法的构造，或者说，不是将问题模型转化成一种特定的算法所能解决的问题，再去间接求解，而是直接去构造所求组合结构。</p>
+<p>最关键的是这类题的思维方式很特殊，这使曾经的我面对构造题不知如何下手。其余类型的题都主要侧重于分析，通过分析问题模型的性质，刻画其结构，从而将它转化成更容易解决的模型。而构造题则往往给人一种“凭空”出现了答案的感觉，例如，考虑一个方式/过程/结构，它刚好就是对的，然后就解完了。另外，其他类型的求解型问题往往是以最优化为目标，某些不要求最优化的题可能还得硬转成最优化（例如一些流问题），而构造题则倾向于消去最优化目标。当然也不能否定，构造和其他算法是密切相关的。</p>
+<p>不存在简单地区分构造和非构造题的方法。解题后期如果感觉解的可能性很复杂，无法用简单的方式统一描述，那就需要考虑 dp、网络流等方法，否则可以尝试直接构造。<del>这其实是废话。</del></p>
+<p>接下来，我会介绍解构造题的技巧和方法。所有归约 dp、差分约束、2-SAT、流、线性规划的题，以及交互、部分数学求解方面的构造这些非构造组合结构而是构造求解方法的题均不会讨论，我也会尽量避免无法证明概率的随机化构造题。</p>
+<h2 id="分类">分类
+</h2><p>这部分其实对解题没啥帮助……</p>
+<p>构造题的所求一般来说有以下几类：</p>
+<ol>
+<li>
+<p>凭空构造一个结构或补充结构；</p>
+</li>
+<li>
+<p>安排（排列、划分、组合、选一部分）给出元素；</p>
+</li>
+<li>
+<p>构造一系列操作以达到目标。</p>
+</li>
+</ol>
+<p>另外可以关注以下几个特征：</p>
+<ol>
+<li>
+<p>输入是否是 $\mathrm{O}(1)$ 的；</p>
+</li>
+<li>
+<p>是否有可能无解；</p>
+</li>
+<li>
+<p>是否要求最优化。</p>
+</li>
+</ol>
+<h2 id="基于特性的技巧">基于特性的技巧
+</h2><p>以下题例可能不完全是构造题，但如果某个技巧没法出到构造题里就不会收录。</p>
+<h3 id="括号序列相关">括号序列相关
+</h3><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>技巧</th>
+<th>题例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前缀和化。将左右括号分别视作 $\pm 1$ 并作前缀和，画出折线图。能给 flip 和 reverse 提供一个直观的几何解释，还能处理 $\min/\max$ 相关，以及利用类介值定理证明存在性。</td>
+<td>CF1458D、CF1685C</td>
+</tr>
+<tr>
+<td>路径化。将左右括号分别视作向右和向下，画出折线图。与上一种类似。</td>
+<td></td>
+</tr>
+<tr>
+<td>匹配括号连弧线。</td>
+<td>CF1503F</td>
+</tr>
+<tr>
+<td>括号树。根据定义，合法括号序列一般有两种观察方式：多个括号序列拼接并在外面套一对括号：(ABC&hellip;)，以及找到开头括号匹配的右括号将序列分成两块：(A)B。这两种分别对应着正常括号树与三度化后的括号树。</td>
+<td>[WC2022] 序列变换</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="排列相关">排列相关
+</h3><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>技巧</th>
+<th>题例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>画点。在平面直角坐标系中画出 $(i,p_i)$ 是一种直观反映偏序关系的方法。</td>
+<td>[APIO2022] 排列</td>
+</tr>
+<tr>
+<td>按值域构造。一种是以某种顺序扫描值域，另一种是只维护相对大小关系，每次插入再在值域中空出一个位置给新元素。这样可以减少构造受限性，可以用增量思想构造。</td>
+<td></td>
+</tr>
+<tr>
+<td>置换环。涉及置换、交换使排序这类的题都可以把 $i\rightarrow p_i$ 画出来。还有类似的排列转有向图的处理方法。</td>
+<td>CF1491G、CF1656G、CF1787F、[THUPC2024 初赛] 排序大师</td>
+</tr>
+<tr>
+<td>考虑逆置换。</td>
+<td>CFgym102154C</td>
+</tr>
+<tr>
+<td>拓扑序。用 DAG 的拓扑序来理解所求的排列。</td>
+<td>CF1477D、CF798E</td>
+</tr>
+<tr>
+<td>逆序对数。常用于分析无解。</td>
+<td>CF804E、（樱花抄）、[互测 2022] 魔术师</td>
+</tr>
+<tr>
+<td>贪心。要求排列字典序最小时，逐位贪心判断可行性即可。</td>
+<td>CF1530E、CF1844F1、（roast）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="二维相关">二维相关
+</h3><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>技巧</th>
+<th>题例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>拆成一维。</td>
+<td>CF417E、（巧克力）</td>
+</tr>
+<tr>
+<td>转 $45^\circ$。</td>
+<td>[IOI2021] 喷泉公园、[IOI2019] 视觉程序</td>
+</tr>
+<tr>
+<td>拼图法。找到构造中的小单元去试探。</td>
+<td>CF1628C、CF1034B</td>
+</tr>
+<tr>
+<td>棋盘染色。即按 $(x+y)\bmod k$ 将格子分类，保证长为 $k$ 的段必然包含每类各一个，用于加强命题方便构造，或判断无解。</td>
+<td>CF1450C2、CF763B、CF1268B、CF1485D</td>
+</tr>
+<tr>
+<td>拓扑学方法。主要包括转向度数和、穿过次数奇偶性、欧拉定理、皮克定理。</td>
+<td></td>
+</tr>
+<tr>
+<td>行列和。作为守恒量用于判断无解。</td>
+<td>CF1672G</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="数论相关">数论相关
+</h3><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>技巧</th>
+<th>题例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互质对构造。$(n,n+1)$、$(n,2^k-1)$（n 奇）、$(p,n)$（p 质）。</td>
+<td>CFgym102055C、LOJ3392、CF922F、[互测 2022] 大冬天题</td>
+</tr>
+<tr>
+<td>拆二进制以及辗转相除法。</td>
+<td>CF341E</td>
+</tr>
+<tr>
+<td>原根。乘转加。</td>
+<td></td>
+</tr>
+<tr>
+<td>互质/整除图。可以更加直观。</td>
+<td>CF1148G</td>
+</tr>
+<tr>
+<td>预处理常数。如果只允许使用特定材料构造出某个数，那么可以考虑先用方程把相关要用的常数解出来，然后用二进制拆分等构造。</td>
+<td>CF1060H、CF1427E</td>
+</tr>
+<tr>
+<td>模意义下考虑。如果条件是不等式，那么模意义就是加强条件；如果是等式，那就需要倍增。</td>
+<td>CF1218G、CF1844G</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="生成树相关">生成树相关
+</h3><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>技巧</th>
+<th>题例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>归约最小/大生成树。</td>
+<td>CF1054G</td>
+</tr>
+<tr>
+<td>叶子调整法。叶子是树中最灵活的部分，就像质数在数论构造中的作用。可用于保证某个相关数值“能够调整至任意一个 $[l,r]$ 内的值”。</td>
+<td>CF1311E、CF1098C</td>
+</tr>
+<tr>
+<td>边权为标号差绝对值的最大生成树。前一半连 $n$，后一半连 $1$。</td>
+<td>CF1474E、CF1656F</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="图论相关">图论相关
+</h3><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>技巧</th>
+<th>题例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>考虑反图。</td>
+<td></td>
+</tr>
+<tr>
+<td>利用 $\sum deg=2m$ 来均摊。在处理实现细节，确定枚举方式时可以提供依据。</td>
+<td>CF1444C</td>
+</tr>
+<tr>
+<td>找 dfs 树。往往可以简化构造。</td>
+<td>CF1680F、[IOI2019] 景点划分、CF1515F</td>
+</tr>
+<tr>
+<td>缩点。</td>
+<td></td>
+</tr>
+<tr>
+<td>考虑二分图。</td>
+<td>CF1515F、CF1218G、[湖北省选模拟 2023] 棋圣</td>
+</tr>
+<tr>
+<td>进行 bfs。主要是从邻边和距离视角观察。</td>
+<td>CF1470D、CF1368E、CF1019C、CF794D</td>
+</tr>
+<tr>
+<td>竞赛图性质。存在哈密顿路、可分层、度数最小的点到其他点距离均 $\le 2$。</td>
+<td>CF1779E</td>
+</tr>
+<tr>
+<td>图相关序列判定定理。包括 Erdős–Gallai 定理、Landau 定理等。</td>
+<td>USACO14MARGoldT3</td>
+</tr>
+<tr>
+<td>邻接矩阵。</td>
+<td>AGC061B</td>
+</tr>
+<tr>
+<td>赋点权来决定边权。</td>
+<td>CF42D</td>
+</tr>
+<tr>
+<td>互斥条件。有一类题目是要求在图中找两种结构之一。先尝试找一种，假设找不到再试另一种。</td>
+<td>CF1364D、CF1148G、CF1439B、（ schrodingersjerry 和图染色）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="格雷码">格雷码
+</h3><p>格雷码的本质是利用二进制表示的唯一性，来保证每种数恰好出现一次。</p>
+<p>题例：CF1673F、ARC138D=P7949、CF1163E</p>
+<h3 id="欧拉回路路径">欧拉回路/路径
+</h3><p>遇到类似与“相关和为 $0$” 的守恒条件时可以考虑用欧拉回路/路径构造。</p>
+<p>题例：CF1634E、CF1610F、CF1458D</p>
+<h3 id="鸽巢原理">鸽巢原理
+</h3><p>鸽巢原理一般用于有多个备选项，它们从总体来看有某个数量关系，可以导出存在一个个体满足特定条件。偶尔也反过来用证明无解。在实际应用中，备选项可能是给定模型的局部，也可能需要自己构造，后者会比较难，关键在于找到可能性足够少的“鸽巢”。</p>
+<p>例：CF1450C2、CFgym102900B、CF1515F、CF1090C、CF618F、CF1835C、[NOI2021] 量子通信、[NOI2020] 制作菜品</p>
+<h3 id="绝对众数">绝对众数
+</h3><p>涉及到绝对众数最简单的模型就是：排列一些数使得相邻数不同。这类问题要抓住主要矛盾，其他次要矛盾都会自动消解，就可以专注于构造一个内容。另外这类题常使用逐步构造。</p>
+<p>另外，对于树上问题，通过找重心作为根可以避免出现大小为绝对众数的子树，这也是一个简化讨论的技巧。</p>
+<p>例：CF1242E、CF1762G、CF1329D、[IOI2019] 景点划分、ARC156C</p>
+<p>题外话：用爬山或退火构造时也常常会先满足最紧的限制，体现形式也往往是类似绝对众数的东西。<a class="link" href="https://peehs-moorhsum.blog.uoj.ac/blog/8042"  target="_blank" rel="noopener"
+    >详见此处</a>。</p>
+<h3 id="dilworth-定理">Dilworth 定理
+</h3><p>往往给人一种“双向限制”的感觉。</p>
+<p>例：CF1097E、CF1738G、CF1630F</p>
+<p>简单写一下相关的证明：</p>
+<p>最长链 = 最小反链覆盖：≤ 显然，≥ 每次剥掉一层入/出度为 $0$ 的点。</p>
+<p>最长反链 = 最小链覆盖：≤ 显然，≥ 删掉一个出度为 $0$ 的点 $u$ 归纳，取出覆盖方案的每条链中最后的能出现在最长反链里的点，如果没有一个与 $u$ 有偏序关系则最长反链 $+1$，否则最长反链不变，且有一个点 $\le u$，取出它所在的链中所有能出现在最长反链里的点与 $u$ 共同作为一条链，剩余的点最小链覆盖也 $-1$，总体不变。</p>
+<p>求最长反链法 1：取二分图最大独立集中两部均在内的点。记最小链覆盖为 $s$，则最大匹配为 $n-s$，最大独立集为 $n+s$，两部均在内的点至少 $s$ 个。</p>
+<p>求最长反链法 2：求出所有可能在最长反链中的点，每次任选一个，删除与它有偏序关系的点，归纳。</p>
+<h2 id="常用的解题思想">常用的解题思想
+</h2><p>所有解题思想之间大多没有明确的分界，往往结合使用。</p>
+<h3 id="a-等价表述条件和观察模型">a. 等价表述条件和观察模型
+</h3><p>使用不同的方式和图形去表示问题模型，可能会突出问题的某一部分特征，从而带来新的启发。有一个经典的例子可以说明换一种方式描述会产生多大的区别（一道 dp）：CF1368H1。原问题（最大流模型）和最小割模型都看似无法解决，但如果转变到平面图最短路的角度去分析出路径的简化性质（每行或每列均相同），再回到最小割模型，就可以 dp 了。因此，不要认为等价模型没有意义，否则会错失动机。</p>
+<p>在转述过程中要注意可能会不小心加强模型或丢性质，反而导致无解，这个后面会提到。</p>
+<p>例：</p>
+<ol>
+<li>CF1680F：奇环上会出现两端均选的边。因此原题意可以转述为“删除一条边使得图变成二分图”，dfs 树讨论即可。</li>
+<li>CF1110E：经典套路，这种就两类，$(a_{i-1},a_i,a_{i+1})\rightarrow(a_{i-1},a_{i-1}+a_{i+1}-a_i,a_{i+1})$ 作差分解决，$(a_{i-1},a_i,a_{i+1})\rightarrow(a_{i-1}+a_i,-a_i,a_{i+1}+a_i)$ 作前缀和解决。</li>
+<li>CF1458D：将 01 序列转化为前缀和序列化成折线，从而将奇怪操作翻译成区间翻转。容易用调整法证明任意符合守恒条件的序列均可达到。因此可用欧拉路径的方式去描述合法折线，从而贪心。</li>
+<li>CF1054G：“集合内所有点形成一个连通块”等价于“集合内所有点之间边共有 $size-1$ 条”，加之边不可能多于 $size-1$ 条，故原条件可以转述成“所有集合的点之间边数量之和取到理论上界”，这就可以用 MST 了。边权用 bitset 加速计算。</li>
+</ol>
+<h3 id="b-将无解和最优化条件转成已知条件">b. 将无解和最优化条件转成已知条件
+</h3><p>首先是经验：CF 中如果 Output 里说无解输出 $-1$ 但 Example 里没有 $-1$，那么就不会有无解的情况。</p>
+<p>部分构造题有一个很大的特点，就是在解题开头就确定无解条件或最优解公式，也就是先确定充要条件的一边，去构造另一边，或是先给出不等式的一边，再构造取等。可以说这是一种“先猜后证”，也为构造增加了提示。当然这种猜测要足够谨慎，尽量思考通过题目条件能推导出的必然性，以及从数学角度去分析模型（找到模型的某个示性数，或守恒量）。</p>
+<p>不是所有构造题都可以使用这个技巧，同时要避免将非构造题误判成构造（例如，有时无解和最优化情况必须通过 dp 求出）。关键是通过分析条件来感知题目模型的解是可以用一种特定的规律描述，还是要根据输入数据，去遍历所有可能的解才能确定。</p>
+<p>例：</p>
+<ol>
+<li>CF1543E：对于第二问，首先分析图的点与边的数量关系。每个点恰有一个颜色 $x$ 的邻居，一个颜色为 $x$ 的点会作为 $n$ 个点的邻居，因此一共有 $2^n/n$ 个颜色为 $x$ 的点，所以原问题在 $n\ne 2^k$ 时无解。这个无解条件反过来启发我们使用递归构造和拆分二进制的思路去构造 $n=2^k$ 的情况。可参考 <a class="link" href="https://www.bilibili.com/video/BV1UD4y1U7or/"  target="_blank" rel="noopener"
+    >3b1b 的视频</a>。</li>
+<li>[CTSC2016] 单调上升序列：套用题面中给出的证明，可得到最优解 $\ge n-1$。并且达到 $n-1$ 时限制是很紧的，遂考虑每一轮安排边权使得所有“探险家”均走一步，也就是将完全图的边划分为 $n-1$ 组完美匹配。</li>
+</ol>
+<h3 id="c-从特殊情况获取提示">c. 从特殊情况获取提示
+</h3><p>特殊情况包括特殊输入和特殊解，这一条侧重于特殊输入。这样思考的帮助是：</p>
+<ol>
+<li>通过特殊情况的解获取一般构造的线索；</li>
+<li>通过将所有情况用某些手段归约到特殊情况，从而只需解决特殊情况；</li>
+<li>通过构造极端输入确认无解性/答案上下界，或排除不可能的构造方法。</li>
+</ol>
+<p>但是不是所有题的特殊情况都能给出有效的提示，有时候反而会起到误导作用。要很警惕的一点是一些不成熟的思路可能会被构造的极端情况排除掉，但是实际上改一改就对了。</p>
+<p>例：</p>
+<ol>
+<li>CF1311E：先考虑完全二叉树和链的特殊情况，然后寻找能符合题意的，处于两种特殊情况之间的“连续的”变化，调整法。</li>
+<li>CF1515F：结合 <em>b</em>，有足够的理由猜测 $\sum a_i\ge (n-1)x$ 即有界，于是任意图就可以归约到树这一特殊情况。然后根据 <em>b</em> 的数学上分析（核心分析：如果有一条边不能并那么一定存在一个点 $a_u&gt;x$），结合鸽巢原理，构造出一个合并方法。</li>
+<li>CF618F：考虑 $B={n\,个\,n}$ 的情况，容易想到将 $A$ 作前缀和后对模 $n$ 余数鸽巢，这样就把正解的提示都集齐了：鸽巢、前缀和、$A$ 的前缀和减 $B$ 的前缀和。</li>
+<li>CF1019C：一种思路是，考虑 DAG，可以做到任何不选的点都能被选的点走 $1$ 步到达；稍稍加强，考虑对原图 dfs 后只有树边、前向边和返祖边，树边和前向边就相当于 DAG，返祖边导致的矛盾可以通过取消选择祖先那个点，同时保证至多走 $2$ 步可达。推广到一般情况，将原图拆成两张 DAG（根据边的起终点的编号大小关系分），套用原来的方法即可。<br>
+作为一个反例：我在解这道题时考虑了竞赛图这一特例，这没有帮助，反而把方向带歪到关注节点度数上去了。因此要多考虑几种特殊情况，并结合分析筛选。</li>
+<li>AGC064B：如果不考虑特殊情况，容易考虑使用 <em>j</em>，每次找一个点，周围只有一条可行（加入不成环）同色边，选择这条边。这样思路就走歪了。正确的思路是先考虑一些无解情况，发现点边颜色均交替的偶环无解，进一步分析发现如果要形成一棵树，就必须有一条边，两端的颜色都与它相同（记为一类边）。进一步地，发现如果存在一个点，它不断走这样的边 $u\xrightarrow{e}v$（$u$ 和 $e$ 同色，与 $v$ 异色，记作二类边），最后走不到任何一类边，那就无解了。因此先尽量选所有一类边，然后再从这些边的端点向外扩展二类边（一个点只能被扩展到一次）。如果所有点都被扩展到了，再用剩下的边尽量连接这些森林即可保证有解。</li>
+</ol>
+<h3 id="d-分析数量关系">d. 分析数量关系
+</h3><p>模型的数量关系可能不仅仅能用于 <em>b</em>，而且能指导构造的过程。往往结合待定系数法，列出方程或不等式来分析。<em>c</em> 例 2 就是一个典型的例子。</p>
+<p>例：</p>
+<ol>
+<li>
+<p>CF1667C：设答案为 $k$，则有 $(n-k)\times(n-k)$ 的部分只能用对角线覆盖，故 $2(n-k)-1\le k\Rightarrow k\ge \lfloor(2n+1)/3\rfloor$。固定右下这样一个空矩形，剩余部分试探构造即可。换句话说，下界分析直接给出了构造思路。</p>
+</li>
+<li>
+<p>CF1158B：经过一些尝试，直觉上串必须要有循环节，长设为 $l$。长 $&lt;k$ 出现过的至少出现两次，也就是 $\forall\,i,i-l\ge 1\lor i+l+k-2\le n$，长 $=k$ 的有恰好出现一次的，也就是 $\exists\,i,\lnot(i-l\ge 1\lor i+l+k-1\le n)$，综上解得 $l=(n-k)/2+1$。立即得出构造为 $(n-k)/2$ 个 $0$ 加上一个 $1$ 不断循环直到长为 $n$。</p>
+</li>
+<li>
+<p>（樱花抄）：不妨设输入是排列。先考虑对每个位置操作对逆序对奇偶性的影响：$n\equiv 0\pmod 4$ 是 $1111\cdots 1$，$n\equiv 1\pmod 4$ 是 $0101\cdots 0$，$n\equiv 2\pmod 4$ 是 $0000\cdots 0$，$n\equiv 3\pmod 4$ 是 $1010\cdots 1$。因此 $n\equiv 2$（以下省略 $\bmod 4$）时可能无解。构造可以考虑 <em>k</em>，发现每次将一个数移到开头或结尾是容易的，因此考虑在维护一段后缀为 $1\sim i-1$。现在要加入 $i$，设位置为 $p$，若 $p\ne 1$，则可以操作 $p$ 后操作 $p-1$；否则一定无法 $\le 3$ 步搞定，就必须要操作 $1$、操作 $i+2$、操作 $1$、操作 $n-i$，共 $4$ 步。特殊地，$i=n-1$ 时如果出现后一种情况就完了，因为搜索小情况可发现还要大量步骤。因此在一开始就要把逆序对数调整为偶，又由于每一轮都不会改变其奇偶性，故最终一定形如 $[n-1,n,1,2,\cdots,n-2]$，操作 $1$ 再操作 $n$ 即可。为避免大量出现四步情况，可以先随机操作 $C$ 次打乱排列，这样总次数为 $C+2n+\mathrm{O}(\log n)$。</p>
+<p>为什么要先分析逆序对的奇偶性呢？因为只有奇偶性可能成为这类排序题的“守恒量”，逆序对是定义在<strong>每一对</strong>数上的。另外真正的解题过程中其实是先尝试构造，发现最后出现 $[n,n-1,1,2,\cdots,n-2]$ 这种无法处理情况时，再去研究逆序对奇偶性的。最后再对操作进行微调，保证不会改变奇偶性。也就是说，手动构造和对数量关系的分析是交织着进行的。</p>
+</li>
+<li>
+<p>[THUPC2022 复赛] 拯救还是毁灭：这题与 [THUPC2024 初赛] 排序大师 的难点都在于，抓住“势能”刻画剩余步数。</p>
+<p>我的思路：① 仿照一维时的最差情况，考虑构造行列均循环移一位，这时有 $2n(n-1)$ 步的方案，且直觉上无法做到更优。猜测这就是 $M(n)$，尝试构造即证。② 直接构造实在太复杂了，考虑加强——分阶段，逐行归位。由于最后一行只需 $n-1$ 步，故前面每行只需在暴力（每个数行列依次归位）的基础上省去一步即可，模样例发现应该一定可以。现在抓住推论：如果一个数要移两步，那第二步必须归位，同时不能所有数都移两步，要利用一维情况的性质省掉一步。看起来复杂情况下，这两个要求是互斥的，因为一旦开始“移两步”，就有可能每个数都要这样做。考虑到 $1\sim n$一一分布在每列的情况，这时就要先全部放到第一行再做。这就启发我考虑最终将问题归为这一类情况。如果有空列，那可以把对应数归位；否则没有空列，由鸽巢，必然是上面所说的情况。那么这个解法的后半部分构造，就是不断尝试、调整，找到一个自洽的分讨，这个并没有一个通法，不过一般只要抓住特殊、极端情况的提示，做好假设和推理，就不会太难。</p>
+<p><a class="link" href="https://www.luogu.com.cn/article/zph2avbo"  target="_blank" rel="noopener"
+    >这篇题解</a>给出了严格的图论角度分析。对这类问题，图论思路的核心就是，复原一个环的步数是环长减一，因为最后一步可以两个同时归位。我没想清楚的，一个是两维分别开环，来证上界，这个实际上是普通置换环的重边推广版本，值得学习；另一个就是再同行归位时，搞不出那个“减一”，最后只能硬凑，这个题解说的则是，当该行元素到处分布时，尽管列重叠会导致无法构造完整的置换环，但总能找出一个环，这就够了。</p>
+</li>
+</ol>
+<h3 id="e-寻找诈骗条件">e. 寻找诈骗条件
+</h3><p>主要是要有这个意识。有些题目的条件或性质可以极大程度地减小可能性，不要忽视。往往可以通过思考极端情况获得启发。</p>
+<p>例：</p>
+<ol>
+<li>CF425B：“所有连通块均为矩形”这一条件可被简化为“$a_{i,j}=r_i\oplus c_j$”，将 $nm$ 个未知量减少为 $n+m$ 个。于是只需暴力枚举 $r_{1\cdots n}$ 即可。</li>
+<li>CF1689E：默认 $a_i&gt;0$，发现存在一个策略只需两步，因此问题变为判断答案是否为 $0$ 或 $1$，可以暴力。</li>
+<li>CF1685C：打表发现 $ans\le 2$，结合括号序列技巧画图可得，以前缀和最大值为界左右各翻转一次，一定可以完成，因此只需讨论答案是否为 $1$。</li>
+<li>CF1781G：尝试构造达到理论下界的解，可以使用归约构造，逐步删掉儿子均为叶子的点的子树，base case 分讨即可。同样 $ans\le 2$。</li>
+<li>CF1852E：刻画完结构后发现未知元素的可能性太多了，但是可以找到性质，只有至多一种未出现过的数被填入，并且它一定是某个出现过的数 ${}-1$，且可以较简单地确定它填的情况，暴力枚举这种数即可。</li>
+<li>CF1375F：不必多说。</li>
+</ol>
+<h3 id="f-加强构造条件">f. 加强构造条件
+</h3><p>这个方法很像数竞不等式放缩的过程。有时构造的限制太松了，反而不知道如何下手。通过加强构造条件减少可能性是构造题非常常用的手段，它可以体现为通解、逆向、归约、调整、分治等复杂的技巧，在后面会提到。这一节以较为初级的增强限制和减少变量为主。</p>
+<p>在构造的过程中自然地加强和通过模型特征提示试探加强是加强构造条件的两个主要方法，加强过程中要保证有解性或最优性不变（否则就像不等式放缩过头）。考虑特殊情况下“必须得怎么构造”也能给加强条件指明方向（例 5&amp;6）。</p>
+<p>在条件分析不下去的时候，也可以跳出复杂的关系限制，冒无解的风险去尝试一些特定的构造策略，有可能它刚好就符合了所有要求，或者有少量不符合可以微调改对。例如 yhx 在 WC2022 上讲的 [IOI2021] 喷泉公园 的贪心构造做法，就是通过试探得到的。</p>
+<p>总的来说就是不要因为题目给的条件无从下手就懵了，要主动尝试一些可能性。</p>
+<p>例：</p>
+<ol>
+<li>CF1599A=ISIJ2021CupT3：题目条件给人一种“可以任意改变左右和大小关系”的感觉，考虑一种大小关系的必然性（加强）：左右砝码可以配对，所有对要么都是左边大，要么都是右边大。容易想到排序 $a_{1\cdots n}$ 后连续段交替取，可以保证有解，就解完了。</li>
+<li>CF1270G：考虑将 $a_i$ 换元使得所有变量的限制条件都相同，否则感觉不好处理。令 $b_i=i-a_i$，则 $b_i\in[1,n]$，目标条件转化成 $\sum_{i\in S}b_i=\sum_{i\in S}i$。考虑加强，试图使得每个 $b_i$ 都等于一个 $i&rsquo;$，类似回路的结构可以满足该条件。建 $n$ 点图连边 $i\rightarrow b_i$，找个基环即可。</li>
+<li>CF1835C：作前缀和，目标转化为找到 $0\le a&lt;b\le c&lt;d\le n,\text{ s.t. }s_a\oplus s_b\oplus s_c\oplus s_d=0$。可以鸽巢证明一定有解，但是 $4^k$ 这个大小太大了，考虑加强，通过强制使得低 $k$ 位相同，只对高 $k$ 位做鸽巢。按低 $k$ 位分组后发现恰可以取出 $2^k+1$ 对数，低 $k$ 位相同，分别求出它们高 $k$ 位的异或后即可找到所求。</li>
+<li>CF1391E：pairing 的条件极为诡异，无法处理。考虑 dfs 树，好处在于额外的边只可能出现在祖先后代之间。结合菊花等特殊情况或者用排除法，容易考虑选的点对不形成祖先后代关系，而这恰好吻合 pairing 的条件。最粗暴的方法是同深度的点两两配对，如果最长直链长 $\ge\lceil n/2\rceil$ 那么就 path，否则因为同层奇数个而扔掉的点数至多 $\lfloor n/2\rfloor$。</li>
+<li>ARC153C：其实也可以归到调整一节里。先随便安排 $x$。我当时的思路是，如果 $\sum A_i\ne 0$，那么可以全体 $\pm$，否则如果 $A$ 形如括号序列那么无解，否则可以找到两个位置（$n$ 和后缀中第一个 $j$ 满足 $A_j\ne A_n$ 且 $\sum_{i=j+1}^nA_i=0$）作为“调整工具”。题解区大部分是利用前后缀统一 $\pm$ 来调整，异曲同工之处就是将 $n$ 个变量加强成只有 $\le 2$ 个变量可以调整，反而方便构造。</li>
+<li>CF1218G：先加强成要求三部的点邻边和 $\bmod 3$ 必须分别为 $0,1,2$。考虑只取出一棵树（最“紧”的情况，也算加强），其余边全部赋 $3$。可以调整 $n-1$ 条边，因此只有根可能不满足，试图微调。如果是一个基环树，那么环长为奇时可以解方程，全体满足；否则原图为二分图，仅要求要求一部 $\bmod 3=1$，另一部可以为 $0$ 或 $2$，这样只需调成两部的目标和 $\bmod 3$ 同余即可。</li>
+<li>USACO22OPENGoldT3：考虑答案下界，是有祖先后代关系的点的区间距离与无祖先后代关系的点的区间距离的一半的 $\max$。只考虑 $s_1$，发现 $s_1$ 取合适的值，其他 $s_i$ 尽量向 $s_1$ 靠拢，就可以直接达到下界，其他点之间复杂的关系不形成瓶颈，自动消解掉了。</li>
+<li>[互测 2023] 天空度假山庄：可以置换使得必然依次捡 $1,2,\cdots,n$ 的草莓（不算加强）。然后想象如何证明正解构造一定不会两次经过同一条边，如果构造过于混乱那肯定没法证，所以要先缩小可能性。希望证明形如：对于一条边 $(u,v)$，它只会出现在从 $f(u,v)$ 走 $k$ 步到 $f(u,v)+1$ 的路径上。初步思路是按编号差分类，如果 $i\rightsquigarrow i+1$ 上面只放 $v-u\equiv i$ 的边，不行。又立即考虑到所有路径上同一步放编号差相同的（例如 $k=2$ 是 $[2,-1]$），问题转化为构造一个长为 $k$ 的序列，和 $\equiv 1\pmod n$，且 $\forall\,i\le n/2$，序列中 $i$ 和 $n-i$ 出现的总次数 $\le 1$。这个可以先构造 $[\lfloor n/2\rfloor,\lfloor n/2\rfloor-1,\cdots,\lfloor n/2\rfloor-k+1]$，再随便调整一下。</li>
+</ol>
+<h3 id="g-构造不依赖于输入的通解">g. 构造不依赖于输入的通解
+</h3><p>对于输入非 $\mathrm{O}(1)$ 的情况，如果对构造的限制较小，可能性较大，但难以基于题目要求条件进行讨论，可以尝试直接构造一个解，无论输入如何都满足条件。这其实也是一种加强，一种寻找模型当中的“必然性”的思维。有的时候只考虑根据输入推导出解也是一种错误的思维惯性。</p>
+<p>例：</p>
+<ol>
+<li>AGC052A。构造 $0^n1^n0$ 一定对，因为第 $n$ 个 $0$ 和第 $2n$ 个 $0$ 之间是一个完整的串，一定有 $n$ 个 $1$。</li>
+<li>CF1495C。每三行填满一行，这样任何输入的 <code>X</code> 都能被“粘进来”。然后用一个竖线串起来一定可以，竖线稍微讨论一下。</li>
+<li>CF1485D。$a_{i,j}$ 很小，如果 $b_{i,j}=\operatorname{lcm}(2,\cdots,16)$ 就非常地安全。部分加强，棋盘染色后黑格子置 $720720$，只剩下白格子的条件，取 $b_{i,j}=720720-a_{i,j}^4$ 即可。</li>
+</ol>
+<h3 id="h-研究操作能实现的功能">h. 研究操作能实现的功能
+</h3><p>在符合要求的情况下寻找（正推或逆推）某些具有特定功能的小结构或组合操作，再以这些“小单元”为跳板，去构造整个问题的解。另外一种情况是只有效利用题目允许的操作的一部分功能，这个思想也常在交互题中用到，例如 CF1299E 中第一步找 $1$ 和 $n$ 的过程。也是整题的突破口。</p>
+<p>核心思想是加强，以及分多步思考。</p>
+<p>例：</p>
+<ol>
+<li>
+<p>CF715D：这类构造某结构使某方案数等于给定值的问题一般都可以二进制拆分（倍增）。但这题 $T$ 太大了，得六（$C_4^2$）进制拆分才行。建立 $6^k$ 的“源泉”，然后在旁边附着一个“管道”，收集需要的每一位数。</p>
+<p><img src="/study/constructive-problems/5zn46ypf.png"
+	width="654"
+	height="260"
+	srcset="/study/constructive-problems/5zn46ypf_hub2d1362ea736e59449330be280e49de8_20100_480x0_resize_box_3.png 480w, /study/constructive-problems/5zn46ypf_hub2d1362ea736e59449330be280e49de8_20100_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="251"
+		data-flex-basis="603px"
+	
+></p>
+</li>
+<li>
+<p>CF1773J：这题必要的无解条件并不明确，先考虑仅部分利用这个复杂的操作，生成树联想到消圈法，发现如果 $e_1,e_2$ 同属于一个简单环，则可用两步操作将 $e_1\xleftarrow{+}x,e_2\xleftarrow{-}x$，其余边不变，因此有且仅有同一点双内的边是“连通”的（点双内的每对边都同处于某个简单环内）。并且一个点双选的边数固定，故有解当且仅当存在一个 $S$，操作一次 $+S$ 后每个点双内边和等于目标和。微调操作可做到 $m$ 步。</p>
+</li>
+<li>
+<p>CF1748F：发现可以在 $4\cdot (j-i)$ 次内远程异或，将 $a_j\xleftarrow{\oplus}a_i$。利用 <code>y^=x^=y^=x</code> 等价于 <code>swap(x,y)</code> 直接构造需要 $3n^2$，但可以去除多个远程操作之间的重复部分做到 $1.5n^2$，利用环的另一个方向可以做到 $1.25n^2$。</p>
+</li>
+<li>
+<p>CF1060H：倒推。在只能作幂的情况下，$xy$ 仅能通过 $(x+y)^2-x^2-y^2$ 得到。考虑通过 $x^d,(x+1)^d,\cdots,(x+d)^d$ 的线性组合得到 $x^2$，由于方程的系数是范德蒙德矩阵，故一定有解。现在只需支持乘常数即可，用二进制拆分。</p>
+</li>
+<li>
+<p>CF1120E：首先明确的一点是 $an$ 一定被大量的 $0$ 占据，但并不能直接找到。考虑 $an=10^kh+l$，然后在此基础上对个别位调整，改变 $w(n)=S(n)-S(an)\cdot a$。然而容许调整的范围太小，转而考虑多个 $10^kh+l$ 拼接在一起。对 $w(n)$ 做背包或按 $w(n)$ 值域建点跑最短路即可。</p>
+</li>
+<li>
+<p>UOJ #75：不必多说。</p>
+</li>
+</ol>
+<h3 id="i-逆操作与中继状态">i. 逆操作与中继状态
+</h3><p>对于构造操作序列类题来说，这也是一种转换视角的方式。</p>
+<p>逆操作不要求给定操作可逆，只需要把操作本身逆过来看就行了，可能有更多性质。</p>
+<p>还有一类起始状态与终止状态均给定的情况，不容易直接构造，就可以考虑分别将两个状态先操作到某个固定的中继状态，再把后一半逆过来。</p>
+<p>例：</p>
+<ol>
+<li>[WC2022] 序列变换：思考这题需要一定的冒险，因为正解的线索不多。第一部分构造是将 $s_1$ 变成 $\texttt{(())()()…()}$，然后删掉开头里面的那个括号。每次考虑末尾最后一段非 $\texttt{()}$ 的子合法段，可以用 $1,2,3$ 操作之一将一部分脱离出来，构造得当可以做到 $\le 2n-4$ 次（需要均摊分析）。第二部分是将 $\texttt{()()…()}$ 变成 $s_2$。设 $s_2=\texttt{((A)…(Z))}$，那么可以先递归得到 $\texttt{(A)…(Z)()()}$，然后不断 $4$ 操作将倒数第二个括号扩到完整包含前面。注意最后一个括号是 $5$ 操作额外加的，不然 $4$ 操作无法进行。这一部分 $\le n$ 次，总共 $\le 3n$ 次。</li>
+<li>CF778D：操作两次等于不操作，考虑将任意状态归到骨牌全部水平。正解思路是依次扫描，遇到竖直的硬调整；实际上每一轮扫描全体，奇数轮尽量把竖变横，偶数轮尽量把横变竖，进行足够多轮也能过。</li>
+<li>[第五届图灵杯高级组 T2] 基础循环结构练习题：倒过来考虑，操作变成：① 全体减（不能有负）；② 选一个 $&gt;\max$ 的数 $v$，每个数加若干倍 $v$。其中第二个操作灵活性就很大。在递增的情况下，可以逐个把最小的数减成 $0$ 后变为最大的数；在非递增的情况下可以先 $b_i\xleftarrow{+}iv$。</li>
+</ol>
+<h3 id="j-外围排除法">j. 外围排除法
+</h3><p>对于安排给出元素类题，常常会出现限制过于紧或复杂，无法直接构造的情况。这时可以尝试先基于题目条件，进行一些大规模的，充分的推理，或许可以有效地简化甚至解决原问题。</p>
+<p>这种排除法的要点有：</p>
+<ol>
+<li>找到排除的突破口。往往是题目条件的一个<strong>定量</strong>形式的<strong>推论</strong>。</li>
+<li>解决无法继续排除时的问题。</li>
+<li>确定排除的顺序和实现方法。可以将排除过程类比为不断消除一个有向图入度为 $0$ 的点。使用外围排除法的题目常常会要求优化时间复杂度。</li>
+</ol>
+<p>这种方法的本质恰好是与 <em>f</em> 相反的，这里是只利用条件的一部分（弱化），然后就能构造成功。可以类比为数独中的排除法和假设法。</p>
+<p>用这种方法的题可能无法在一开始就确定无解条件，一般这样考虑：如果有解，那么推理就能一直进行下去；因此逆否命题就是，如果推理进行不下去，就无解了（例 2）；或者是无法推理了就是合法解，空了则无解（例 4&amp;5）。</p>
+<p>例 6&amp;7 讲的是一类变形，一般基于图。它的排除条件不一定是基于必要性的推理，而可能也是加强。这种反倒类似于 <em>k</em>，其关键在于保证每一步操作前后有解/最优性不变。</p>
+<p>例：</p>
+<ol>
+<li>
+<p>CF1546E：排除线索是，若某一列一种数恰好只有一个那就可以确定对应排列一定在拉丁方里，同时可以排除与它有冲突的一些排列。这样，每时每刻剩余的排列一定是 $x$ 个拉丁方内的，$y$ 个拉丁方外的，并且每个外部的一定对应 $x$ 个内部的中的一个（$y\le x$）。如果无法排除，则每列都有 $\ge x$ 种数，且每种数 $\ge 2$ 个，由鸽巢原理，$y=x$，同时如果找到了一组拉丁方的剩余 $x$ 行，那它的补集也是合法的剩余 $x$ 行。因此可以随便选一个排列固定选它，答案 $\times 2$，继续递归处理。</p>
+</li>
+<li>
+<p>CF1054G：叶子是一个值得考虑的突破口。如果某集合只有单个元素则可以忽略。设点 $x$ 所在的集合编号集合为 $A_x$，如果 $A_u\subseteq A_v$，那么 $u$ 可以作为 $v$ 的儿子叶子。因为如果原问题有解，$u$ 不是 $v$ 的儿子叶子，则可以调整成 $v$ 的儿子叶子并保持合法。并且每个叶子 $A$ 一定存在一个超集，因此找不到包含关系就无解。具体实现用 bitset，维护包含关系的二维数组，每次删点只会更新一小部分。</p>
+</li>
+<li>
+<p>CF1439B：也是一个图找子集二选一问题，但是不能直接构造。显然度 $&lt;k-1$ 的点可以忽略，度 $=k-1$ 的点只可能参与唯一的团，如果所有点度都 $\ge k$ 那么就完事了。由于是一个归纳的过程故已删去的点不考虑也没问题。判团可以用哈希表或离线每个点依次判定。由于一个团花费 $k^2$ 时间，边数减了 $k$，而 $k=\omega(\sqrt m)$  时无解，故至多 $\mathrm{O}(m\sqrt m)$。</p>
+</li>
+<li>
+<p>CF1656H：突破口是，（对称地来说）如果对于某个质数 $p$，$\exists\,i,\forall\,j,v_p(a_i)&gt;v_p(b_j)\quad\cdots(*)$，那么 $a_i$ 可以扔掉。如果没得扔，剩余部分就一定符合条件。发现无法分解质因数，但 $(*)$ 等价于 $\gcd_j(a_i/\gcd(a_i,b_j))=1$，可以用 $2n$ 棵线段树维护这些值。</p>
+</li>
+<li>
+<p>[IOI2022] 千岛：通过小样例模拟可以感知到环的作用，大致需要两个环且需要有特定的位置关系，但难以简单地描述和寻找。考虑如果有点没有出度则可以删去，如果起点出度为 $1$ 可以直接向后走，若这两个情况都排除完毕，则可以除起点外其余点任取一条出边，这样起点可以到达两个或重合或不交的环，即可构造方案。</p>
+</li>
+<li>
+<p>CF1503F：将每张卡视作一个节点，如果一面的数是正的就像对应负的卡连边，这样入度+出度=2。尝试大量样例，发现有解性与只有出度的点和只有入度的点之间的路径距离奇偶性有关，但具体构造仍无法处理。发现如果出现一条三个点的链，那么这三个点可以紧邻着构造，也就是可以合并，于是用队列不断合并即可，最终出现环则无解。我在解这题时并没有对最终的合并法给出严谨的证明，题解区应该有。</p>
+<p>与这题类似的是 [WC2021] 括号路径（非构造题）。</p>
+</li>
+<li>
+<p>CF1610F：上界是邻边中权为 $1$ 的有奇数个的点数。这样的点的其他邻边都可以一入一出，两两匹配，这就启发进行合并或欧拉回路。事实上这两种方向都可以解。第一种方向就直接合并，用链表维护边序列即可。最终会剩下一堆 $1/2$ 交错链和环，直接安排。</p>
+<p>与这题类似的是 CF1499G。</p>
+</li>
+</ol>
+<h3 id="k-归约法和增量法">k. 归约法和增量法
+</h3><p>这两种方法的最大特征在于递归，类似于数学归纳法在数学中的地位。它们与  <em>j</em> 的共同点在于，都无法直接解决整个问题，而是着眼于每一个“单步构造”，多个“单步”自动构成整个解。</p>
+<p>归约法的思想是考虑找到结构的某个子部分先构造掉并删去，缩小到一个形式相同，规模较小的子问题。</p>
+<p>增量法的思想是假设目前结构有一个现成的构造方法，如何将它扩展到更大的情况。</p>
+<p>归约法的思考往往比增量法容易，因为增量法是自依赖的，而归约法可以假定子问题必定可以解决。增量法的增量结构有时较复杂，难以确定，可能需要先递归地思考，再用增量法回溯。无论如何，要根据具体题目模型的条件限制关系来决定使用哪种思考顺序。</p>
+<p>例：</p>
+<ol>
+<li>
+<p>CFgym101221A：经过多次尝试，发现最优解开头与结尾有规律，可以通过四步将开头的四个 A 与结尾的四个 B 归位，中间部分递归构造。最优性分析可通过“相邻相同数”作为势能来分析。</p>
+<p><img src="/study/constructive-problems/0v4h3srt.png"
+	width="942"
+	height="198"
+	srcset="/study/constructive-problems/0v4h3srt_hu9e4445c399ec4fff5c6d2e885bb0017e_28937_480x0_resize_box_3.png 480w, /study/constructive-problems/0v4h3srt_hu9e4445c399ec4fff5c6d2e885bb0017e_28937_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="475"
+		data-flex-basis="1141px"
+	
+></p>
+</li>
+<li>
+<p>CF1470D：归约法的思路是，（加强）每次任选一个点，将它与相邻点删去，实质上连出一个”菊花“。为了保证删去部分时刻连通，任选的点应当有至少一个邻点已被删去。增量法的思路是，每次加入一个与当前点集至少连有一条边的点，决定其是否要选。两者实质相同。</p>
+</li>
+<li>
+<p>CF1019C：直接归约是不行的，因为不能在不考虑剩余结构的情况下贸然钦定一个点选。如果用增量法，加入一个点时若其出点选了则会出问题，入点则不会。于是考虑原图，每次删去任一点及其出点，然后倒过来加入。若其入点已选则没问题，否则选本身。</p>
+</li>
+<li>
+<p>[CCO2020] 旅行商问题：下界为 $n-1$，考虑增量法，维护先全红后全蓝的链，设红蓝交界点为 $m$。加入一个点时如果能直接连接到 $m$ 之后则直接连，否则它与 $m$ 的边一定是蓝色，这时可以夹到 $m$ 和 $m$ 的前驱之间。这个构造和竞赛图哈密顿路径的构造有异曲同工之处。</p>
+</li>
+<li>
+<p>CF1267H：一定有一种颜色很多，并且考虑到这种颜色参与使得原条件满足的一个必要条件是永不出现两个都是该颜色的相邻。这是一个弱化的条件，但是如果要求只考虑其他颜色仍然满足原条件，那就是充分的了。于是就有一个归约方法。将出现过相邻的位置之间连边，容易贪心选出一个大小至少为 $\lceil n/3\rceil$ 的独立集，剩下的归约即可。这题关键在于一开始对题意正确的诠释与转化。</p>
+</li>
+<li>
+<p>CF1744D：第一反应应该是给边定向，使得拓扑序变化量尽量大。首先满度点可以忽略，其次尝试达到上界。发现如果两点 $u,v$ 之间无边则可以互换 $p_u+1=q_v+1=p_v=q_u$，因而考虑反图。由于不能保证完美匹配故考虑加强只取反图的生成森林，然后将互换法推广成菊花，然后菊花剖分。菊花剖分用归约，根处特殊讨论类似 <em>e</em> 例 4。</p>
+</li>
+</ol>
+<h3 id="l-调整法">l. 调整法
+</h3><p>注意构造题的调整法与 exchange argument 无关。</p>
+<p>调整的本质是基于已构造的结构进行二次构造，也是一种加强。一般用于两种情况：</p>
+<ol>
+<li>基本上已构造完毕，完善局部在最极端情况下会错的构造（初步构造→发现矛盾→解决矛盾）。</li>
+<li>从极端构造出发，多步调整直到符合条件（往往用于构造某个结构使得某个相关值为 $K$ 这类）。</li>
+</ol>
+<p>调整法往往与 <em>c</em>、<em>h</em>、<em>k</em> 等共同使用。</p>
+<p>例：</p>
+<ol>
+<li>
+<p>CF1098C：首先可以二分出答案 $d$，然后考虑从完全 $d$ 叉树开始调整（类似 CF1311E），需要保证 $s$ 时刻属于当前未确定点的可调整范围内——如果再在当前层放点，就算剩余点连成直链也不够 $s$，就要直接跳到下一层。这样一定不会出现上一层未放满父亲数还不够的情况，否则上一层应该再多点。</p>
+</li>
+<li>
+<p>CF922F：确定最优解后，考虑从全选调整到 $f$ 恰好为 $k$。$&gt;m/2$ 的数调整不会导致贡献的连锁改变，可控性较强。$m$ 足够大时 $\sigma_0(m)\le (m/2,m)$ 中的质数数量，$m$ 较小时可以直接贪心，打表验证。</p>
+</li>
+<li>
+<p>[IOI2020] 网络站点：先考虑直接用 dfs 序，发现最后一个儿子的子树与本身子树外后 dfs 到的节点无法区分，因此考虑调整为所有儿子记出栈时间，以此类推，按层数奇偶性决定记入栈还是出栈时间戳。</p>
+</li>
+<li>
+<p>[NOIP2022] 喵了个喵：思考 subtask 1，每个栈维护两个牌，分别记为“底”和“顶”。留一个空栈用于消底。在 $k=2n-1$ 时仅有所有种类牌均存在 $1$ 张时会出问题。出现这种情况时不应贸然将最后一种牌（记为 $x$）放到仅有的空栈里——如果下一步消的是一个底，那么 $x$ 直接放到这个底对应的顶上。推而广之，这启发我考虑后面第一个消底的步骤，在这之前消的都是顶，好处理。如果这个底对应的顶在期间出现了偶数次，那么也可以将 $x$ 放在这个顶上，否则 $x$ 可以放在空栈里。这样的话当消第一个底后至少留有一个空栈。如果后面第一个消底之前先消了 $x$，则可以直接把 $x$ 放在空栈里。</p>
+<p>这题实际上最恶心的是实现。</p>
+</li>
+</ol>
+<h3 id="m-做法拼合">m. 做法拼合
+</h3><p>用这类方法的题较少见，其主要难点在于找到一个分界条件，使得两种做法恰好能完美覆盖所有情况。一个重要的点是不要因为一个构造方法不能解决整个问题就把它舍弃掉。</p>
+<p>常用于找图的一部分，满足两个条件中的一个这类问题。</p>
+<p>例：</p>
+<ol>
+<li>CF1097E：发现上界至少是 $f(n)=\max{k\mid k(k+1)/2\le n}$，可由 $[1,3,2,6,5,4,10,9,8,7,\cdots]$ 取到。一个基本的归约思路是每次取 LIS 和 LDS 中较长的删去，但通过随机大数据筛选发现这个长度可能 $&lt;f(n)$，这可能导致多划分了一个但上界不变。正确的方法是如果 $\text{|LIS|}\ge f(n)$ 则选 LIS，否则由 Dilworth 定理，最小 DS 覆盖必 $&lt;f(n)$，直接覆盖即可。</li>
+<li>CF1364D：dfs 树。如果所有返祖边跨度都 $&gt;k$，那么任选一个环，隔一个选一个即可得到独立集。</li>
+<li>CF1148G：将互质的数之间连边构成一张图，直觉上来说连通块数量较大就可以选独立集，否则可以选每个点至少有一条边。后者只对连通块保留生成树即可。加强，考虑对于每一个数求出前面任意一个与它互质的数连父亲，这样如果根数 $\ge k$ 就有独立集了，否则由鸽巢原理必存在一个大小至少为 $3$ 的树（不选它，用于后面调整用），现在可以随意贪心选树，如果出现剩余只需选一个点的情况就不行了，这时上一步应当与开始找到的大小至少为 $3$ 的树之间调整一下使得每棵树里都至少选两个点。</li>
+</ol>
+<h3 id="n-分组与分治">n. 分组与分治
+</h3><p>例：</p>
+<ol>
+<li>
+<p>[NOIP2020] 移球游戏：如果每次只分离一种颜色那太浪费了。考虑如果只有两种颜色但每种颜色不止一根柱子怎么做。一种思路是每次合并两根杂色柱子。先将一根柱子的颜色分出，多的一种颜色放在该柱子上，少的一种放在一根临时柱上。再将另一根柱子的该颜色归过去，剩余部分归入临时柱，这样就变出一根纯色柱子。 以下是一个例子：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">initial
+</span></span><span class="line"><span class="cl">柱一: 122112112
+</span></span><span class="line"><span class="cl">柱二: 212221122
+</span></span><span class="line"><span class="cl">临时: ?????????
+</span></span><span class="line"><span class="cl">空柱: 
+</span></span><span class="line"><span class="cl">stage 1
+</span></span><span class="line"><span class="cl">柱一: 122112112
+</span></span><span class="line"><span class="cl">柱二: 212221122
+</span></span><span class="line"><span class="cl">临时: ?????
+</span></span><span class="line"><span class="cl">空柱: ????
+</span></span><span class="line"><span class="cl">stage 2
+</span></span><span class="line"><span class="cl">柱一: 
+</span></span><span class="line"><span class="cl">柱二: 212221122
+</span></span><span class="line"><span class="cl">临时: ?????2222
+</span></span><span class="line"><span class="cl">空柱: ????11111
+</span></span><span class="line"><span class="cl">stage 3
+</span></span><span class="line"><span class="cl">柱一: 2222
+</span></span><span class="line"><span class="cl">柱二: 212221122
+</span></span><span class="line"><span class="cl">临时: ?????
+</span></span><span class="line"><span class="cl">空柱: ????11111
+</span></span><span class="line"><span class="cl">stage 4
+</span></span><span class="line"><span class="cl">柱一: 222222222
+</span></span><span class="line"><span class="cl">柱二: 
+</span></span><span class="line"><span class="cl">临时: ?????1112
+</span></span><span class="line"><span class="cl">空柱: ????11111
+</span></span></code></pre></div><p>设较多的一种颜色在柱一中出现了 $a$ 次，那么四个阶段分别的移动次数为：$\min(a,m-a),m,a,m$，因此至多 $3m$ 次，套上值域分治即可。只剩余两根杂色柱子时要特殊规划一下，也可以做到 $3m$。</p>
+</li>
+<li>
+<p>[互测 2021] 聚会/Steiner 三元系：首先用 b 证明仅有 $n\equiv 1/3\pmod 6$ 时有解，其次构造无法直接递归或增量构造。考虑分组。$n=6k+3$ 时考虑将点平分成三组，连这样的结构：</p>
+<p><img src="/study/constructive-problems/tu7s7npb.png"
+	width="1000"
+	height="292"
+	srcset="/study/constructive-problems/tu7s7npb_hud0f2f7e718c212b397695311c100c1d2_47892_480x0_resize_box_3.png 480w, /study/constructive-problems/tu7s7npb_hud0f2f7e718c212b397695311c100c1d2_47892_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="342"
+		data-flex-basis="821px"
+	
+></p>
+<p>这相当于构造一个 $2k+1$ 阶对称拉丁方 $A$（下标从 $0$ 始），且 $a_{i,i}=i$。可取 $a_{i,j}=\frac{i+j}{2}\bmod (2k+1)$。</p>
+<p>$n=6k+1$ 时考虑拿出一个点 $o$，剩余平分三组。将组内边消光后应当还剩余组间的 $6k$ 条边及与 $o$ 的 $6k$ 条边。取 $a_{i,j}\equiv\begin{cases}\frac{(i+j)\bmod 2k}{2},&amp;2\mid(i+j)\\ \frac{(i+j)\bmod 2k+2k-1}{2},&amp;2\nmid(i+j)\end{cases}$，这样相邻层间只剩 $(i,i)$ 和 $(n+i,i)$（$0\le i&lt;n$），可以处理掉。</p>
+</li>
+</ol>
+<h2 id="通用的思考方法">通用的思考方法
+</h2><p>以上的技巧与解题思想都只是构造题的冰山一角，还存在着大量的技巧变式和无技巧构造，我们不能对于每道题都枚举所有套路逐一试错，而需要具体情况具体分析。对于任意给出的一道构造题，我们该如何入手思考？</p>
+<p>首先要明确的一点是，OI 中的构造题一定有一个很突出的突破口，一般来说是一个具体的思考方向（观察角度、加强方式、构造顺序或初步构造结构形式等）。这与其他题目是有很大不同的。当没有想到这个突破口时，一切分析都看似杂乱无章，没有作用；但从突破口向下推导，构造的正确性就会自然浮出水面。</p>
+<p>突破口不应当完全依靠猜或试找出来，而是主要通过线索推断出来。这样的线索可能是特殊的题目条件（包括数据范围）、某种特殊情况、导出的性质、对模型某个量的数学分析、对必然性的分析、对模型的观察转化，甚至是打表的结果或者对部分分解法或错误解法的进一步调整和研究。</p>
+<p>从而我提出解构造题的一个思考过程：</p>
+<ol>
+<li>读题，获取模型特征，结构类型，条件限制的类型和可能性多少。</li>
+<li>分析条件，转化条件，试图导出初步结论，例如确定无解和最优化条件。</li>
+<li>模拟样例，对模型有初步的感知，并尝试对模型的观察角度及呈现形式进行转变，重复做该步骤。</li>
+<li>小结，总结目前已知的性质和转化方式，剩余的问题的特征，并指出可能的方向与角度。</li>
+<li>进一步深入尝试，循环往复。</li>
+<li>找到一个正确的方法后，尝试换角度描述或找性质以进一步简化、优化实现。</li>
+</ol>
+<p>当解构造题长时间卡住时，我的经验是自己一直在一个不可能解决的范围内打转，而真正漏的方向或错误排除的方向是在其他的地方。因此要回到原题目模型，再次分析特征，寻找可能的方向，同时也要回顾自己先前想到的方向，写清楚问题模型和错误解法模型，尝试调整错误，可能会柳暗花明又一村。如果没有陈述清楚问题，也会妨碍构造，遗漏正确思路。</p>
+<h2 id="参考文章">参考文章
+</h2><ol>
+<li>蒋凌宇，《信息学竞赛中构造题的常用解题方法》，IOI 2021 集训队论文集</li>
+<li>虞皓翔，《构造题选讲》，WC 2022 讲课</li>
+<li>William Cherowitzo，《Steiner Triple System》，<a class="link" href="http://www-math.ucdenver.edu/~wcherowi/courses/m6406/sts.pdf"  target="_blank" rel="noopener"
+    >http://www-math.ucdenver.edu/~wcherowi/courses/m6406/sts.pdf</a></li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="f6cb115c29cfe1138df7d0ef2ab840a3"
+    data-page-url="https://example.com/study/constructive-problems/"
+    data-page-title="构造题方法总汇"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 LRYP
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

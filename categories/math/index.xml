@@ -14,7 +14,7 @@
         
         <guid>https://example.com/study/linear-algebra-1/</guid>
         <description>&lt;img src="https://example.com/study/linear-algebra-1/cover.png" alt="Featured image of post 线代（上）自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
-&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;书是丘维生的《高等代数（上册）》。由于自己以前学过一些线代，所以这里列出的都是一些细节。&lt;/p&gt;
 &lt;p&gt;所有矩阵默认 $n$ 行 $m$ 列，秩为 $r$。&lt;/p&gt;
 &lt;p&gt;1.1：这里证明以下最简行阶梯形唯一。第一步是证明主元位置相同。假设 $A$ 化为了 $B=\begin{bmatrix}\beta_1&amp;amp;\cdots&amp;amp;\beta_n\end{bmatrix}^\top$ 与 $C=\begin{bmatrix}\gamma_1&amp;amp;\cdots&amp;amp;\gamma_n\end{bmatrix}^\top$，已知 $\set{\beta_i}\cong\set{\gamma_i}$。如果它们在第 $k$ 行第一次出现了主元不同，不妨设 $B$ 的这行主元在前，就会发现 $\set{\gamma_i}$ 无法表出 $\beta_k$，因为 $\gamma_{1\sim k-1}$ 的系数必须是 $0$，而 $\gamma_{k\sim n}$ 又无能为力。第二步是证明 $\beta_i=\gamma_i$，同样是线性表出，其他向量的系数都必须是 $0$。&lt;br&gt;
@@ -233,7 +233,7 @@ $$
         
         <guid>https://example.com/study/gtm73-group-theory/</guid>
         <description>&lt;img src="https://example.com/study/gtm73-group-theory/GTM73.png" alt="Featured image of post 抽代（群论部分）自学笔记" /&gt;&lt;p&gt;$\gdef\lcm{\operatorname{lcm}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\syl{\operatorname{Syl}}\gdef\or{\operatorname{or}}\gdef\aut{\operatorname{Aut}}\gdef\norm{\vartriangleleft}\gdef\inn{\operatorname{Inn}}\gdef\out{\operatorname{Out}}\gdef\F{\mathbb{F}}$&lt;/p&gt;
-&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 50pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;br&gt;本文仅供参考，学习顺序是不合理的。如果希望深入研究有限群分类，请先学完环和域。&lt;/div&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;br&gt;本文仅供参考，学习顺序是不合理的。如果希望深入研究有限群分类，请先学完环和域。&lt;/div&gt;
 &lt;p&gt;&lt;del&gt;原来是为了醋包的饺子。不想看无聊细节的可以直奔第 12 节。&lt;/del&gt;&lt;/p&gt;
 &lt;h2 id=&#34;gtm73-之-我只来得及看完群论了&#34;&gt;GTM73 之 我只来得及看完群论了
 &lt;/h2&gt;&lt;p&gt;这本教材内容是比较全的，对初学者不友好的点就是解说较少，就是大量的定理—证明，很多证明能看懂它是对的，但是无法理解它的思路是怎么想到的。&lt;/p&gt;
@@ -1361,7 +1361,7 @@ $$
         <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/faa-di-bruno/</guid>
-        <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+        <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;考虑求 $(f\circ g)^{(n)}$。&lt;/p&gt;
 &lt;p&gt;我们看几个例子：
 $$
@@ -1406,7 +1406,7 @@ $$
         <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/%E5%85%B3%E4%BA%8E%E5%BE%AE%E5%88%86%E7%9A%84%E7%90%86%E8%A7%A3%E9%97%AE%E9%A2%98/differential/</guid>
-        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;$\gdef\o{\mathrm{o}}\gdef\d{\mathrm{d}}\gdef\D{\Delta}$&lt;/p&gt;
 &lt;h3 id=&#34;微分的定义&#34;&gt;微分的定义
 &lt;/h3&gt;&lt;blockquote&gt;
