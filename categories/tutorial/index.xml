@@ -7,10 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 25 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo 博客搭建经验</title>
         <link>https://example.com/study/blog-tutorial/</link>
-        <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+        <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/blog-tutorial/</guid>
         <description>&lt;img src="https://example.com/study/blog-tutorial/logo.png" alt="Featured image of post Hugo 博客搭建经验" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;br&gt;本文适合不了解 html 和 scc 但想自己建博客的读者看。&lt;/div&gt;

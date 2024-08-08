@@ -58,9 +58,429 @@
 </description>
         </item>
         <item>
+        <title>OI 出题列表</title>
+        <link>https://example.com/study/problemsetting/</link>
+        <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/problemsetting/</guid>
+        <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;第三列是样例输出一的第一个字符串，可用于校验。&lt;/p&gt;
+&lt;p&gt;adhoc 包括分析性质结论、线性扫描、推式子，还有一些基础算法（二分、倍增等）和数据结构（队列、栈等）。&lt;/p&gt;
+&lt;p&gt;难度为预估 CF 评分除以 100。&lt;/p&gt;
+&lt;p&gt;以下不含原题，但有可能考后被发现恰巧是已有类似的题。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;中文名&lt;/th&gt;
+&lt;th&gt;英文名&lt;/th&gt;
+&lt;th&gt;SO1&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;难度&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;挑战群同构&lt;/td&gt;
+&lt;td&gt;npc&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数论&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;配对&lt;/td&gt;
+&lt;td&gt;pair&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ds&lt;/td&gt;
+&lt;td&gt;33&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;天桥&lt;/td&gt;
+&lt;td&gt;bridge&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ds&lt;/td&gt;
+&lt;td&gt;33&lt;/td&gt;
+&lt;td&gt;&amp;gt;1 被爆标了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;连连看&lt;/td&gt;
+&lt;td&gt;game&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;332748215&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;poly&lt;/td&gt;
+&lt;td&gt;35+&lt;/td&gt;
+&lt;td&gt;23 互测&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;原子&lt;/td&gt;
+&lt;td&gt;atom&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;构造&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;旅行计划&lt;/td&gt;
+&lt;td&gt;plan&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;图论&lt;/td&gt;
+&lt;td&gt;24&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;禁止套娃&lt;/td&gt;
+&lt;td&gt;nest&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;dp&lt;/td&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;td&gt;&amp;gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;简单题&lt;/td&gt;
+&lt;td&gt;easy&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数论&lt;/td&gt;
+&lt;td&gt;34&lt;/td&gt;
+&lt;td&gt;&amp;gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;染色数组&lt;/td&gt;
+&lt;td&gt;color&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;21&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;博弈&lt;/td&gt;
+&lt;td&gt;game&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;博弈&amp;amp;dp&lt;/td&gt;
+&lt;td&gt;33&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;消消乐&lt;/td&gt;
+&lt;td&gt;bubbles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;34&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;土豆田&lt;/td&gt;
+&lt;td&gt;potato&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;4&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;CF627E 弱&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;像素原神&lt;/td&gt;
+&lt;td&gt;mc&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;dp&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;区间操作&lt;/td&gt;
+&lt;td&gt;oper&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ds&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;猜排列&lt;/td&gt;
+&lt;td&gt;interact&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;异或&lt;/td&gt;
+&lt;td&gt;xor&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;24&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;机器车路径规划问题&lt;/td&gt;
+&lt;td&gt;path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;FAIL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;构造&lt;/td&gt;
+&lt;td&gt;26&lt;/td&gt;
+&lt;td&gt;×&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;猴子排序&lt;/td&gt;
+&lt;td&gt;sort&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;dp&lt;/td&gt;
+&lt;td&gt;31&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;最简洁的题面&lt;/td&gt;
+&lt;td&gt;simple&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数论&lt;/td&gt;
+&lt;td&gt;35+&lt;/td&gt;
+&lt;td&gt;×&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
+        <title>一段对话</title>
+        <link>https://example.com/theory/conversation1/</link>
+        <pubDate>Tue, 30 Jul 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/theory/conversation1/</guid>
+        <description>&lt;div style=&#34;background-color: #F4B1C5; color: #6C0021; padding-left: 1em; border-left: 4px solid #C63A64; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;记事&lt;/b&gt;。&lt;br&gt;本文记录的内容并非完全准确，观点仅供参考。&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;背景：小 Y 与小 Z 互相分享学习经历。小 Y 向小 Z 介绍了 OI 的考察内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;小 Z：所以说，OI 的出题范围其实很有限，做得多了也没什么新的花样。你们训练的时间越长，其实只是在这里面钻牛角尖钻得越来越深罢了，而且越来越脱离实际。&lt;/p&gt;
+&lt;p&gt;小 Y：我觉得不是这样的，在做 OI 时，我们都感觉自己是在研究这个世界最底层的东西，因为随着我们不断优化这些算法，我们就不断接近这些问题解的复杂度下界，这就像数学和物理中的那些常数一样，对应着宇宙中一些最基本的关系，例如带修区间查询的下界是 $q\log n$，静态区间半群和查询的下界是 $(n+q)\alpha(n)$，还有现在学术界取得进步的负权最短路、网络流等等，这些结果都是很吸引我的。&lt;br&gt;
+这就像什么呢？我想到《三体》里，有讲到，人类跟四维生物的机器对话，就通过互相发送质数（$2,3,5,7,\cdots$）来表明自己是智慧生物。算法也是这样的一种东西。&lt;/p&gt;
+&lt;p&gt;小 Z：你如何理解质数？&lt;/p&gt;
+&lt;p&gt;小 Y：（疑惑）你想让我回答什么？定义吗？那不就是不存在非平凡因子的 $1$ 以外的正整数吗？&lt;/p&gt;
+&lt;p&gt;小 Z：从抽象代数的角度。&lt;/p&gt;
+&lt;p&gt;小 Y：（略作思考）我知道高斯质数，就是复数上的。也可以是环上的，域上的，比如不可约多项式。&lt;/p&gt;
+&lt;p&gt;小 Z：很好，我在你这个年纪的时候也是大概接触并想到了这些东西。所以，你觉得如果真的出现了科幻小说中的场景，人类把质数发过去，外星人会不会更可能只是不屑一顾？&lt;/p&gt;
+&lt;p&gt;小 Y：（恍然大悟）你的意思是不是说，OI 研究的是在图灵机模型下的算法，而这可能只是某个“抽象计算模型”的特例？而量子计算是一个不同的特例？所以你说，OI 只是在钻牛角尖。&lt;/p&gt;
+&lt;p&gt;小 Z：是的。我觉得，既然你喜欢计算机，希望探寻这个世界的本质，那么在未来，你更应当做的，是寻找新的计算模型和计算工具，那才是真正的创新。你不要因为擅长解算法题，因为自己这之前的成就，就认为自己最喜欢的是算法理论，把自己困在传统模型的领域内。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>线代（上）自学笔记</title>
+        <link>https://example.com/study/linear-algebra-1/</link>
+        <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/linear-algebra-1/</guid>
+        <description>&lt;img src="https://example.com/study/linear-algebra-1/cover.png" alt="Featured image of post 线代（上）自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;书是丘维生的《高等代数（上册）》。由于自己以前学过一些线代，所以这里列出的都是一些细节。&lt;/p&gt;
+&lt;p&gt;所有矩阵默认 $n$ 行 $m$ 列，秩为 $r$。&lt;/p&gt;
+&lt;p&gt;1.1：这里证明以下最简行阶梯形唯一。第一步是证明主元位置相同。假设 $A$ 化为了 $B=\begin{bmatrix}\beta_1&amp;amp;\cdots&amp;amp;\beta_n\end{bmatrix}^\top$ 与 $C=\begin{bmatrix}\gamma_1&amp;amp;\cdots&amp;amp;\gamma_n\end{bmatrix}^\top$，已知 $\set{\beta_i}\cong\set{\gamma_i}$。如果它们在第 $k$ 行第一次出现了主元不同，不妨设 $B$ 的这行主元在前，就会发现 $\set{\gamma_i}$ 无法表出 $\beta_k$，因为 $\gamma_{1\sim k-1}$ 的系数必须是 $0$，而 $\gamma_{k\sim n}$ 又无能为力。第二步是证明 $\beta_i=\gamma_i$，同样是线性表出，其他向量的系数都必须是 $0$。&lt;br&gt;
+另外再证明非主元列是左侧主元列的线性组合。首先阶梯型矩阵中，左侧主元列形成上三角，必满秩，即证。如果要证明原矩阵也符合该性质，只需利用行变换不改变列向量之间关系的性质即可。&lt;/p&gt;
+&lt;p&gt;2.4 &amp;amp; 2.6：展开的证明。核心：行列地位相等，$\tau(p)=\tau(q)+\tau(p&amp;rsquo;)$，其中 $\set{(i,p_i)}=\set{(q_i,p&amp;rsquo;_i)}$。&lt;/p&gt;
+&lt;p&gt;2.4：范德蒙德行列式的证明。要避免 $a_i^k-a_1^k$ 就需要差分，倒过来减。&lt;/p&gt;
+&lt;p&gt;2.7.例5：三对角行列式，结论可以记一下。&lt;/p&gt;
+&lt;p&gt;2.*：循环矩阵行列式的处理思路。先乘个 $F$，最后可以除掉，或者我的思路是直接单位根反演。另外，计算 $|F|$ 如果只是平方一下，会遇到正负无法确定的问题，处理方法详见 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/507677010&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/507677010&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;2.5：Cramer 法则。理解：考虑魔改高斯消元的过程：第 $j$ 列当作不存在，$j-1$ 列主元出来了之后直接搞 $j+1$ 列。这样最后一行只有 $a_j$ 和 $b$。这个时候 $|A|$ 就是所有主元再乘上 $a_{n,j}$，$|B_j|$ 就是所有主元乘上 $b_n$，因此除一下就是 $x_j$。&lt;/p&gt;
+&lt;p&gt;2.4.例3：加边法。有点神秘。&lt;/p&gt;
+&lt;p&gt;2.4.定理4：mark.&lt;/p&gt;
+&lt;p&gt;3：线性无关性、极大线性无关组的大小、秩、行列式、线性空间维数（及基大小）、方程解数、可逆性，这么几个角度。&lt;/p&gt;
+&lt;p&gt;3.5：行秩等于列秩。无论是行、列秩，行列式，它们的性质都是通过初等变换下的不变性来证的。&lt;/p&gt;
+&lt;p&gt;3.7.例3：理解：$k$ 行这个方程没用，$x_l$ 是自由元，取它为 $A_{kl}$，所以它可以移到右边。然后用 Cramer 解。$B_j$ 和 $A_{kj}$ 之间首先差了个负号，然后 $x_l$ 对应列对齐要交换 $|j-l|-1$ 次，还有就是代数余子式的负号。因此&lt;br&gt;
+$$
+(-1)^{k+j}B_j=(-1)^{|j-l|}A_{kj}\\
+\eta_j=\frac{B_j}{M_{kl}}A_{kl}=(-1)^{k+l}B_j=(-1)^{k+l+k+j+j+l}A_{kj}=A_{kj}
+$$
+3.7.习8：他乡遇故知。太逆天了。&lt;/p&gt;
+&lt;p&gt;3.9：应用大天地，值得一看。&lt;/p&gt;
+&lt;p&gt;4.3：关于 $|A||B|=|AB|$ 的证明思路，一个是分块，一个是拆成初等矩阵（也是相当常见的证明思路，书里没写是因为依赖于 4.4.性质6）。Cauchy-Binet 证明图：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&#34;.\cauchybinet.png&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/center&gt;
+&lt;p&gt;4.4：证明左逆等于右逆的三个思路。与抽代不同的是这里要给出逆元存在的构造性证明，所以书里是第三种。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设左逆为 $B$，则 $AB=AIB=ABAB\Rightarrow I=(AB)^{-1}AB=(AB)^{-1}ABAB=AB$。&lt;/li&gt;
+&lt;li&gt;设左逆为 $B$，右逆为 $C$，则 $B=BI=BAC=IC=C$。&lt;/li&gt;
+&lt;li&gt;先证明存在 $B$ 既是左逆也是右逆，再同 2 证没别的逆。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;4.4.性质4&amp;amp;例4：mark.&lt;/p&gt;
+&lt;p&gt;4.5：分块矩阵初等变换。注意行变换只能左乘（且行列数分别为 to、from 行数），列变换只能右乘（且行列数分别为 from、to 列数），&lt;strong&gt;哪怕所有块都是方阵&lt;/strong&gt;。另外分块初等矩阵只适用于对角是方阵的情况。&lt;/p&gt;
+&lt;p&gt;4.9.例17：注意 $A$ 的零空间是与其行空间互为正交补，而不是列空间。因此 $Ax=0$ 的那些 $x$ 并不与 $\operatorname{Im}\mathcal{A}$ 垂直，注意几何直观别搞错了。&lt;/p&gt;
+&lt;p&gt;5：关于矩阵秩的若干等式、不等式，不是很熟，记一下。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\dim W=m-\rank(A)$。构造证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\rank(AB)\le\min(\rank(A),\rank(B))$。线性表出证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\rank(A+B),\rank[A,B]\le\rank(A)+\rank(B)$。线性表出证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\rank(AA^\top)=\rank(A^\top A)=\rank(A)$。同解或行列式证（复矩阵不成立）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\rank(A^m)=\rank(A^{m+1})\Rightarrow\forall k,\rank(A^m)=\rank(A^{m+k})$。同解证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\rank\begin{bmatrix}A&amp;amp;0\\ 0&amp;amp;B\end{bmatrix}=\rank(A)+\rank(B)$、$\rank\begin{bmatrix}A&amp;amp;C\\ 0&amp;amp;B\end{bmatrix}\ge\rank(A)+\rank(B)$。线性表出或行列式证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$AB=0\Rightarrow\rank(A)+\rank(B)\le m$。从齐次方程组解角度证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\rank(AB)\ge\rank(A)+\rank(B)-m$。分块证，也可以用线性变换证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左乘列满秩、右乘行满秩，秩不变。同解或用 8 证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;幂等 $\Leftrightarrow \rank(A)+\rank(I-A)=n$，对合 $\Leftrightarrow \rank(I+A)+\rank(I-A)=n$。分块或 2+3 证。&lt;/p&gt;
+&lt;p&gt;补充：我想到 $\Leftarrow$ 的一个比较妙的证明：$\rank(A)+\rank(I-A)=n$，由于 $\rank+\dim\nul=n$，故 $\dim\nul A+\dim\nul(I-A)=n$，又 $\nul A\cap\nul(I-A)=0$，故 $\nul A\times\nul(I-A)=\R^n$。于是任意 $x$，$Ax=0$ 或 $x$，于是 $Ax=A^2x\Rightarrow (A^2-A)x=0$ 对于所有 $x$ 成立，即 $A^2-A=0$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\rank(A)=r\Leftrightarrow\exists B_{n\times r},C_{r\times m},\rank(B)=\rank(C)=r,A=BC$。分别用相抵、9 或 2+3 证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;4.6：看着看着发现上三角矩阵的几个性质不是很清楚，记一下。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;上三角矩阵之积还是上三角，上三角矩阵的逆还是上三角。直观或代数证。&lt;/li&gt;
+&lt;li&gt;上三角矩阵的伴随矩阵还是上三角。&lt;/li&gt;
+&lt;li&gt;若上三角矩阵 $A$ 满足 $AA^\top=A^\top A$，则它为对角矩阵。若 $A$ 是正交矩阵，则 $A$ 的对角全是 $\pm1$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;lu-分解&#34;&gt;LU 分解
+&lt;/h3&gt;&lt;p&gt;LU 分解用于避开逆矩阵求解线性方程组。$L$ 是 $n\times n$，$U$ 是 $n\times m$。&lt;/p&gt;
+&lt;p&gt;一般的 LU 分解要求可以不用交换行将 $A$ 化简为行阶梯形（注意“各阶顺序主子式非 $0$”仅适用于满秩方阵）。&lt;/p&gt;
+&lt;p&gt;求 $L$ 可以理解为：① 对 $L$ 做同样的事情可以变成 $I$；② $L$ 作用于 $U$ 可以变回 $A$（我感觉这种好理解，就是 $L$ 是所有变换顺序倒过来，然后正负互换）。这就是为什么 $L$ 可以由每次行变换乘的系数得出。注意就算目前行对应（下一个主元）位置为 $0$ 也不一定会出事，如果该列下面全 $0$，那就直接往后找。同时允许 $U$ 最后几行全零。&lt;/p&gt;
+&lt;p&gt;出现主元问题时用 LUP 分解。通过 $PA=LU$（直接在 $A$ 中剩余行中对换，作用效果与 $U$ 中对换相同，又不会破坏 $L$ 的下三角性质），可以避免一堆奇怪的讨论。看一个例子（注意，当交换两行时，$L$ 中对应行除对角 $1$ 外也要交换）：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;$P$&lt;/th&gt;
+&lt;th&gt;$L$&lt;/th&gt;
+&lt;th&gt;$U$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}0&amp;amp;2&amp;amp;1&amp;amp;0\\ 4&amp;amp;2&amp;amp;13&amp;amp;2\\ 2&amp;amp;2&amp;amp;7&amp;amp;1\\ 2&amp;amp;3&amp;amp;7.5&amp;amp;.5\end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$\begin{bmatrix}0&amp;amp;1&amp;amp;0&amp;amp;0\\ 1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}4&amp;amp;2&amp;amp;13&amp;amp;2\\ 0&amp;amp;2&amp;amp;1&amp;amp;0\\ 2&amp;amp;2&amp;amp;7&amp;amp;1\\ 2&amp;amp;3&amp;amp;7.5&amp;amp;.5\end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$\begin{bmatrix}0&amp;amp;1&amp;amp;0&amp;amp;0\\ 1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ .5&amp;amp;0&amp;amp;1&amp;amp;0\\ .5&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}4&amp;amp;2&amp;amp;13&amp;amp;2\\ 0&amp;amp;2&amp;amp;1&amp;amp;0\\ 0&amp;amp;1&amp;amp;.5&amp;amp;0\\ 0&amp;amp;2&amp;amp;1&amp;amp;-.5\end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$\begin{bmatrix}0&amp;amp;1&amp;amp;0&amp;amp;0\\ 1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ .5&amp;amp;.5&amp;amp;1&amp;amp;0\\ .5&amp;amp;1&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}4&amp;amp;2&amp;amp;13&amp;amp;2\\ 0&amp;amp;2&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;-.5\end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$\begin{bmatrix}0&amp;amp;1&amp;amp;0&amp;amp;0\\ 1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ .5&amp;amp;1&amp;amp;1&amp;amp;0\\ .5&amp;amp;.5&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
+&lt;td&gt;$\begin{bmatrix}4&amp;amp;2&amp;amp;13&amp;amp;2\\ 0&amp;amp;2&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;-.5\\ 0&amp;amp;0&amp;amp;0&amp;amp;0\end{bmatrix}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;在解具体方程时，只需解 $Ly=Pb$ 与 $Ux=y$ 即可。注意不要搞错成 $P^{-1}b$。&lt;/p&gt;
+&lt;p&gt;LDU 分解只是对满秩方阵而言，就是简单地把 $U$ 的对角元变成 $1$。&lt;/p&gt;
+&lt;h3 id=&#34;正交相关&#34;&gt;正交相关
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;根据点乘的几何意义，可得在单个向量上的投影。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一般的正交投影，我们从两个角度理解。&lt;/p&gt;
+&lt;p&gt;代数角度：希望写成 $y=\hat y+z$ 的形式，其中 $\hat y=\sum c_iu_i$，$z\cdot u_i=0$。后一个式子可以写成
+$$
+0=(y-\hat y)\cdot u_i=(y-\sum c_iu_i)\cdot u_i=y\cdot u_i-c_iu_i^2\Rightarrow c_i=\frac{y\cdot u_i}{u_i\cdot u_i}
+$$
+几何角度就是若干个“分量投影”的和。&lt;/p&gt;
+&lt;p&gt;而最佳逼近定理就是由 $z\perp W$ 加上勾股定理，勾股定理的本质就是正交向量的点积为 $0$。正交相关的一切内容都是围绕这一性质展开的。&lt;/p&gt;
+&lt;p&gt;如果 $y\in W$，那正交投影的公式就给出的线性表出的构造。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意如果不是正交方阵，而是若干正交单位向量组成的矩阵 $U=\begin{bmatrix}u_1&amp;amp;\cdots&amp;amp;u_n\end{bmatrix}$，那么 $U^\top U=I$，但 $UU^\top\ne I$——而且 $UU^\top y$ 给出了 $y$ 在 $W$ 上的投影。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;qr-分解&#34;&gt;QR 分解
+&lt;/h3&gt;&lt;p&gt;QR 分解就是用矩阵表示出了 Gram-Schmidt 正交化的过程。&lt;/p&gt;
+&lt;p&gt;使用条件：$A$ 列向量线性无关。&lt;/p&gt;
+&lt;p&gt;推导很简单，就是记住是正交矩阵在左即可。
+$$
+\begin{bmatrix}\alpha_1&amp;amp;\cdots&amp;amp;\alpha_m\end{bmatrix}=\begin{bmatrix}u_1&amp;amp;\cdots&amp;amp;u_m\end{bmatrix}\begin{bmatrix}\alpha_1\cdot u_1&amp;amp;\alpha_2\cdot u_1&amp;amp;\cdots&amp;amp;\alpha_m\cdot u_1\\ 0&amp;amp;\alpha_2\cdot u_2&amp;amp;\cdots&amp;amp;\alpha_m\cdot u_2\\ \vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;\cdots&amp;amp;\alpha_m\cdot u_m\end{bmatrix}
+$$
+这里对矩阵作了一点简化，其思路是
+$$
+\alpha_i=\sum_{j\le i}\frac{\alpha_i\cdot v_j}{v_j\cdot v_j}v_j=\sum_{j\le i}\frac{\alpha_i\cdot(|v_j|u_j)}{|v_j|^2}(|v_j|u_j)=\sum_{j\le i}(\alpha_i\cdot u_j)u_j
+$$
+如果觉得别扭也可以把 $v_i$ 拿出来单独讨论。&lt;/p&gt;
+&lt;p&gt;实操方法 1：在 Gram-Schmidt 正交化的时候写清楚那个下三角形的公式，写成矩阵，最后第 $i$ 行乘 $|v_i|$ 即可。&lt;/p&gt;
+&lt;p&gt;实操方法 2：直接求出单位正交基 $Q$，然后由 $Q^\top A=R$ 算出 $R$。&lt;/p&gt;
+&lt;p&gt;唯一性见 4.6.例5。&lt;/p&gt;
+&lt;h3 id=&#34;最小二乘法&#34;&gt;最小二乘法
+&lt;/h3&gt;&lt;p&gt;理解角度 1：在不求出正交基的情况下求投影，即利用垂直的性质。$\alpha_i\cdot(Ax-b)=0$。&lt;/p&gt;
+&lt;p&gt;理解角度 2：要最小化 $|Ax-b|$，也就是最小化 $(Ax-b)\cdot(Ax-b)$。
+$$
+0=\frac{\partial(\sum\alpha_jx_j-b)^2}{\partial x_i}=2\sum \alpha_i\cdot\alpha_jx_j-2\alpha_i\cdot b
+$$
+这里 $\sum \alpha_jx_j=Ax$，于是式子就变成 $A^\top Ax=A^\top b$。&lt;/p&gt;
+&lt;p&gt;从代数角度证明必有解：一方面，$[A^\top A,A^\top b]$ 的列向量都是 $A^\top$ 之列向量的线性组合，故秩不超过 $\rank(A)$。另一方面 $\rank(A^\top A)=\rank(A)$。&lt;/p&gt;
+&lt;p&gt;当 $A$ 列满秩时，$A^\top A$ 满秩，即有唯一解。&lt;/p&gt;
+&lt;p&gt;另外，如果想把 $A$ 正交分解了再 $b$ 去投影，也没问题。设 $A=QR$，$b$ 的正交投影为 $QQ^\top b$。如果要转成用 $A$ 列向量的线性组合来表示，那就是 $Ax=QQ^\top b\Rightarrow QRx=QQ^\top b\Rightarrow Rx=Q^\top b\Rightarrow x=R^{-1}Q^\top b$（其实都是 $\Leftrightarrow$）&lt;/p&gt;
+&lt;p&gt;应用理解：有若干样本点 $(a_i,b_i)$，考虑用一个函数 $y=\sum c_if_i(x)$ 去拟合（$c_i$ 未知，$f_i$ 已知。例如直线就取 $f_1(x)=1,f_2(x)=x$），误差就是 $y$ 与对应 $b_i$ 的差的平方和。那这时其实就是求以下方程的最小二乘解：
+$$
+\begin{bmatrix}f_1(a_1)&amp;amp;\cdots&amp;amp;f_m(a_1)\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\ f_1(a_n)&amp;amp;\cdots&amp;amp;f_m(a_n)\end{bmatrix}\begin{bmatrix}c_1\\ \vdots\\ c_m\end{bmatrix}=\begin{bmatrix}b_1\\ \vdots\\ b_n\end{bmatrix}
+$$
+这里的函数可以是多自变量函数。&lt;/p&gt;
+&lt;h3 id=&#34;矩阵的相抵与相似&#34;&gt;矩阵的相抵与相似
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;相抵矩阵秩相同。将矩阵转换成相抵标准型的过程，类比将满秩方阵拆分成初等矩阵的过程。其最大作用就是拆矩阵简化证明。非满秩的矩阵在推式子时会出现类似“丢失信息”的现象。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;广义逆矩阵是不易直观理解的部分，几个性质的证明动机也不清晰，我只能记下书里基础的东西，其实都是些废话：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;处理广义逆矩阵相关问题的基本方式是将 $A$ 写成 $PIQ$。&lt;/li&gt;
+&lt;li&gt;广义逆矩阵的阶为 $m\times n$。形式为 $A^-=Q^{-1}\begin{bmatrix}I_r&amp;amp;B\\ C&amp;amp;D\end{bmatrix}P^{-1}$。$Q$ 为 $m\times m$，$P$ 为 $n\times n$，中间为 $m\times n$。&lt;/li&gt;
+&lt;li&gt;$Ax=b$ 有解当且仅当 $b=AA^-b$。直接用定义+后面的构造证。解为所有 $A^-b$。证明所有解都可以表示为这种形式的方式的思路是，先把 $A$ 拆开，然后 $P,Q$ 就出来了，分析一下构造 $B,C,D$ 即可（这里 $b\ne 0$，不然构造会找不到非 $0$ 元）。&lt;/li&gt;
+&lt;li&gt;$Ax=0$ 的解为 $(I_m-A^-A)\gamma$（$A^-$ 随便固定一个，$\gamma$ 取所有）。一个解直接对应 $\gamma=x$。&lt;/li&gt;
+&lt;li&gt;后面 $A^+$ 我直接投降。其应用就是，$A$ 列满秩时，$Ax=b$ 的最小二乘解就是 $A^+b$。另外，列满秩矩阵满足 $A^-A=I$，其中一个特殊的 $A^-$ 是 $(A^\top A)^{-1}A^\top$；行满秩矩阵满足 $AA^-=I$，其中一个特殊的 $A^-$ 是 $A^\top(AA^\top)^{-1}$。无论是否列/行满秩，$A^-$ 都不是唯一的，只有满秩方阵才有 $A^-=A^{-1}$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;矩阵的相似可以从线性变换的角度来理解。想象一个线性变换，它将自然基下的向量 $x$ 映射到 $Ax$。现在我们想知道，在另一个基下这样的变换该如何描述。假设另一个基为 $P$（$P$ 的列向量为所有基向量），根据基变换相关的内容我们知道：在这个基的表示下的向量 $x$，在自然基下的表示为 $Px$；反之在自然基表示下的向量 $x$，在这个基的表示为 $P^{-1}x$（空间和向量永远不动，只是表出会变）。&lt;/p&gt;
+&lt;p&gt;对于这个基下的向量 $x$，先将它用自然基表出，然后 $A$ 作用，再变回去。这就是 $P^{-1}APx$。$B=P^{-1}AP$ 就是在这个基下的变换矩阵。正如 3b1b 所说，基变换和相似就是一个“语言翻译”的过程。&lt;/p&gt;
+&lt;p&gt;所以说，两个矩阵相似，就说明可以通过选取合适的基，使它们对应的线性变换看起来相同。这里我们可以联系抽代里半直积本质相同的判别方式（第 12 章性质 2）来理解——如果自同构是共轭的，就说明可以选取不同的元素作为生成元，使得这两个自同构分别在两种生成元下形式完全相同，那就说明这两个半直积同构。&lt;/p&gt;
+&lt;p&gt;对角化的几何解释见 &lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1TH4y1L7PV/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.bilibili.com/video/BV1TH4y1L7PV/&lt;/a&gt;。简而言之就是把基变成那些特征向量，然后线性变换就变成简单的各维分别缩放了。这其实让我想到了卷积定理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关于特征值和特征向量。首先要明确，相似变换下，行列式、秩、迹、特征值都不变，但特征向量会变。&lt;/p&gt;
+&lt;p&gt;无论是否满秩，特征值数量（算上重数）总为 $n$，但特征子空间的维数和就不一定了。如果满秩，则特征值全部非零，但是不满秩时，特征值 $0$ 的重数并不等于 $n-r$，而是大于等于，例如 $\begin{bmatrix}0&amp;amp;1\\ 0&amp;amp;0\end{bmatrix}$。相关证明见 &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/297458474/answer/1362625976&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.zhihu.com/question/297458474/answer/1362625976&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;几何重数小于等于代数重数的证明直观是很好理解的，你都构造出那几个线性无关的特征向量了，那不得至少有这几个嘛。证明的思路就是基变换，把这几个特征向量作为基，别的任选，然后 $|\lambda I-A&amp;rsquo;|=0$ 就行。&lt;/p&gt;
+&lt;p&gt;不同特征值对应的特征向量不同，这个只需看一个简单情况就可以理解证明思路：如果 $A\alpha_1=\lambda_1\alpha_1,A\alpha_2=\lambda_2\alpha_2,c\alpha_1=\alpha_2$，那么 $\lambda_1c\alpha_1=Ac\alpha_1=A\alpha_2=\lambda_2\alpha_2=\lambda_2c\alpha_1\Rightarrow\lambda_1=\lambda_2$。后面的东西都是比较显然的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一些特殊矩阵的特征值。幂等矩阵有 $\rank(A)$ 重特征值 $1$，$n-\rank(A)$ 重特征值 $0$。证明这个的步骤是，首先说明特征值只能是 $0$ 或 $1$，然后利用几何重数说明代数重数。对合矩阵也是类似。幂零矩阵与它们的不同点仅在于不能对角化。注意不能从特征值判断特殊矩阵。注意可对角化和满秩之间没有关系。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;现在距离抽代里那个自同构的分析，我们还有两个障碍：一个是 Jordan 标准型还没学，一个是不允许复数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;简单提一下 Cayley-Hamilton 定理的证明：对角阵易证，因为相当于每个特征值代进特征多项式。从而可对角化的情况易证，因为 $f(P^{-1}AP)=P^{-1}f(A)P$，然后可以用 &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/31557902/answer/1636767376&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.zhihu.com/question/31557902/answer/1636767376&lt;/a&gt; 这种来理解。另一个证明思路是，先通过证明乘每个 $\varepsilon_i$ 均为 $0$ 来证明上三角矩阵满足，然后再把任意一个矩阵相似化为上三角：&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/657653840&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/657653840&lt;/a&gt;。最后，书里的证明思路是，通过比对 $(\lambda I-A)(\lambda I-A)^\star=|\lambda I-A|I$ 两侧的系数证明。&lt;/p&gt;
+&lt;p&gt;它的一个重要作用是给出了 $A^n$ 关于 $A^{0\sim n-1}$ 的表达式，从而可以递推（P4723）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>Hugo 博客搭建经验</title>
         <link>https://example.com/study/blog-tutorial/</link>
-        <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+        <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/study/blog-tutorial/</guid>
         <description>&lt;img src="https://example.com/study/blog-tutorial/logo.png" alt="Featured image of post Hugo 博客搭建经验" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;br&gt;本文适合不了解 html 和 scc 但想自己建博客的读者看。&lt;/div&gt;
@@ -330,426 +750,6 @@
     &gt;https://zhuanlan.zhihu.com/p/685991593&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://yelleis.top/p/61fdb627/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://yelleis.top/p/61fdb627/&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>OI 出题列表</title>
-        <link>https://example.com/study/problemsetting/</link>
-        <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/study/problemsetting/</guid>
-        <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
-&lt;p&gt;第三列是样例输出一的第一个字符串，可用于校验。&lt;/p&gt;
-&lt;p&gt;adhoc 包括分析性质结论、线性扫描、推式子，还有一些基础算法（二分、倍增等）和数据结构（队列、栈等）。&lt;/p&gt;
-&lt;p&gt;难度为预估 CF 评分除以 100。&lt;/p&gt;
-&lt;p&gt;以下不含原题，但有可能考后被发现恰巧是已有类似的题。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;中文名&lt;/th&gt;
-&lt;th&gt;英文名&lt;/th&gt;
-&lt;th&gt;SO1&lt;/th&gt;
-&lt;th&gt;类型&lt;/th&gt;
-&lt;th&gt;难度&lt;/th&gt;
-&lt;th&gt;备注&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;挑战群同构&lt;/td&gt;
-&lt;td&gt;npc&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;数论&lt;/td&gt;
-&lt;td&gt;32&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;配对&lt;/td&gt;
-&lt;td&gt;pair&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ds&lt;/td&gt;
-&lt;td&gt;33&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;天桥&lt;/td&gt;
-&lt;td&gt;bridge&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;3&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ds&lt;/td&gt;
-&lt;td&gt;33&lt;/td&gt;
-&lt;td&gt;&amp;gt;1 被爆标了&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;连连看&lt;/td&gt;
-&lt;td&gt;game&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;332748215&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;poly&lt;/td&gt;
-&lt;td&gt;35+&lt;/td&gt;
-&lt;td&gt;23 互测&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;原子&lt;/td&gt;
-&lt;td&gt;atom&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;构造&lt;/td&gt;
-&lt;td&gt;20&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;旅行计划&lt;/td&gt;
-&lt;td&gt;plan&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;3&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;图论&lt;/td&gt;
-&lt;td&gt;24&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;禁止套娃&lt;/td&gt;
-&lt;td&gt;nest&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;23&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;dp&lt;/td&gt;
-&lt;td&gt;27&lt;/td&gt;
-&lt;td&gt;&amp;gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;简单题&lt;/td&gt;
-&lt;td&gt;easy&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;数论&lt;/td&gt;
-&lt;td&gt;34&lt;/td&gt;
-&lt;td&gt;&amp;gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;染色数组&lt;/td&gt;
-&lt;td&gt;color&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;adhoc&lt;/td&gt;
-&lt;td&gt;21&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;博弈&lt;/td&gt;
-&lt;td&gt;game&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;博弈&amp;amp;dp&lt;/td&gt;
-&lt;td&gt;33&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;消消乐&lt;/td&gt;
-&lt;td&gt;bubbles&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;adhoc&lt;/td&gt;
-&lt;td&gt;34&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;土豆田&lt;/td&gt;
-&lt;td&gt;potato&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;4&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;adhoc&lt;/td&gt;
-&lt;td&gt;25&lt;/td&gt;
-&lt;td&gt;CF627E 弱&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;像素原神&lt;/td&gt;
-&lt;td&gt;mc&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;dp&lt;/td&gt;
-&lt;td&gt;32&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;区间操作&lt;/td&gt;
-&lt;td&gt;oper&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ds&lt;/td&gt;
-&lt;td&gt;35&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;猜排列&lt;/td&gt;
-&lt;td&gt;interact&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;adhoc&lt;/td&gt;
-&lt;td&gt;16&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;异或&lt;/td&gt;
-&lt;td&gt;xor&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;24&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;adhoc&lt;/td&gt;
-&lt;td&gt;25&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;机器车路径规划问题&lt;/td&gt;
-&lt;td&gt;path&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;FAIL&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;构造&lt;/td&gt;
-&lt;td&gt;26&lt;/td&gt;
-&lt;td&gt;×&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;猴子排序&lt;/td&gt;
-&lt;td&gt;sort&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;dp&lt;/td&gt;
-&lt;td&gt;31&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;最简洁的题面&lt;/td&gt;
-&lt;td&gt;simple&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;数论&lt;/td&gt;
-&lt;td&gt;35+&lt;/td&gt;
-&lt;td&gt;×&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-        </item>
-        <item>
-        <title>一段对话</title>
-        <link>https://example.com/theory/conversation1/</link>
-        <pubDate>Tue, 30 Jul 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/theory/conversation1/</guid>
-        <description>&lt;div style=&#34;background-color: #F4B1C5; color: #6C0021; padding-left: 1em; border-left: 4px solid #C63A64; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;记事&lt;/b&gt;。&lt;br&gt;本文记录的内容并非完全准确，观点仅供参考。&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;背景：小 Y 与小 Z 互相分享学习经历。小 Y 向小 Z 介绍了 OI 的考察内容。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小 Z：所以说，OI 的出题范围其实很有限，做得多了也没什么新的花样。你们训练的时间越长，其实只是在这里面钻牛角尖钻得越来越深罢了，而且越来越脱离实际。&lt;/p&gt;
-&lt;p&gt;小 Y：我觉得不是这样的，在做 OI 时，我们都感觉自己是在研究这个世界最底层的东西，因为随着我们不断优化这些算法，我们就不断接近这些问题解的复杂度下界，这就像数学和物理中的那些常数一样，对应着宇宙中一些最基本的关系，例如带修区间查询的下界是 $q\log n$，静态区间半群和查询的下界是 $(n+q)\alpha(n)$，还有现在学术界取得进步的负权最短路、网络流等等，这些结果都是很吸引我的。&lt;br&gt;
-这就像什么呢？我想到《三体》里，有讲到，人类跟四维生物的机器对话，就通过互相发送质数（$2,3,5,7,\cdots$）来表明自己是智慧生物。算法也是这样的一种东西。&lt;/p&gt;
-&lt;p&gt;小 Z：你如何理解质数？&lt;/p&gt;
-&lt;p&gt;小 Y：（疑惑）你想让我回答什么？定义吗？那不就是不存在非平凡因子的 $1$ 以外的正整数吗？&lt;/p&gt;
-&lt;p&gt;小 Z：从抽象代数的角度。&lt;/p&gt;
-&lt;p&gt;小 Y：（略作思考）我知道高斯质数，就是复数上的。也可以是环上的，域上的，比如不可约多项式。&lt;/p&gt;
-&lt;p&gt;小 Z：很好，我在你这个年纪的时候也是大概接触并想到了这些东西。所以，你觉得如果真的出现了科幻小说中的场景，人类把质数发过去，外星人会不会更可能只是不屑一顾？&lt;/p&gt;
-&lt;p&gt;小 Y：（恍然大悟）你的意思是不是说，OI 研究的是在图灵机模型下的算法，而这可能只是某个“抽象计算模型”的特例？而量子计算是一个不同的特例？所以你说，OI 只是在钻牛角尖。&lt;/p&gt;
-&lt;p&gt;小 Z：是的。我觉得，既然你喜欢计算机，那么在未来，你更应当做的，是寻找新的计算模型和计算工具，那才是真正的创新。你不要因为擅长解算法题，因为自己这之前的成就，就认为自己最喜欢的是算法理论，把自己困在传统模型的领域内。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>线代（上）自学笔记</title>
-        <link>https://example.com/study/linear-algebra-1/</link>
-        <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/study/linear-algebra-1/</guid>
-        <description>&lt;img src="https://example.com/study/linear-algebra-1/cover.png" alt="Featured image of post 线代（上）自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
-&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
-&lt;p&gt;书是丘维生的《高等代数（上册）》。由于自己以前学过一些线代，所以这里列出的都是一些细节。&lt;/p&gt;
-&lt;p&gt;所有矩阵默认 $n$ 行 $m$ 列，秩为 $r$。&lt;/p&gt;
-&lt;p&gt;1.1：这里证明以下最简行阶梯形唯一。第一步是证明主元位置相同。假设 $A$ 化为了 $B=\begin{bmatrix}\beta_1&amp;amp;\cdots&amp;amp;\beta_n\end{bmatrix}^\top$ 与 $C=\begin{bmatrix}\gamma_1&amp;amp;\cdots&amp;amp;\gamma_n\end{bmatrix}^\top$，已知 $\set{\beta_i}\cong\set{\gamma_i}$。如果它们在第 $k$ 行第一次出现了主元不同，不妨设 $B$ 的这行主元在前，就会发现 $\set{\gamma_i}$ 无法表出 $\beta_k$，因为 $\gamma_{1\sim k-1}$ 的系数必须是 $0$，而 $\gamma_{k\sim n}$ 又无能为力。第二步是证明 $\beta_i=\gamma_i$，同样是线性表出，其他向量的系数都必须是 $0$。&lt;br&gt;
-另外再证明非主元列是左侧主元列的线性组合。首先阶梯型矩阵中，左侧主元列形成上三角，必满秩，即证。如果要证明原矩阵也符合该性质，只需利用行变换不改变列向量之间关系的性质即可。&lt;/p&gt;
-&lt;p&gt;2.4 &amp;amp; 2.6：展开的证明。核心：行列地位相等，$\tau(p)=\tau(q)+\tau(p&amp;rsquo;)$，其中 $\set{(i,p_i)}=\set{(q_i,p&amp;rsquo;_i)}$。&lt;/p&gt;
-&lt;p&gt;2.4：范德蒙德行列式的证明。要避免 $a_i^k-a_1^k$ 就需要差分，倒过来减。&lt;/p&gt;
-&lt;p&gt;2.7.例5：三对角行列式，结论可以记一下。&lt;/p&gt;
-&lt;p&gt;2.*：循环矩阵行列式的处理思路。先乘个 $F$，最后可以除掉，或者我的思路是直接单位根反演。另外，计算 $|F|$ 如果只是平方一下，会遇到正负无法确定的问题，处理方法详见 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/507677010&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zhuanlan.zhihu.com/p/507677010&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;2.5：Cramer 法则。理解：考虑魔改高斯消元的过程：第 $j$ 列当作不存在，$j-1$ 列主元出来了之后直接搞 $j+1$ 列。这样最后一行只有 $a_j$ 和 $b$。这个时候 $|A|$ 就是所有主元再乘上 $a_{n,j}$，$|B_j|$ 就是所有主元乘上 $b_n$，因此除一下就是 $x_j$。&lt;/p&gt;
-&lt;p&gt;2.4.例3：加边法。有点神秘。&lt;/p&gt;
-&lt;p&gt;2.4.定理4：mark.&lt;/p&gt;
-&lt;p&gt;3：线性无关性、极大线性无关组的大小、秩、行列式、线性空间维数（及基大小）、方程解数、可逆性，这么几个角度。&lt;/p&gt;
-&lt;p&gt;3.5：行秩等于列秩。无论是行、列秩，行列式，它们的性质都是通过初等变换下的不变性来证的。&lt;/p&gt;
-&lt;p&gt;3.7.例3：理解：$k$ 行这个方程没用，$x_l$ 是自由元，取它为 $A_{kl}$，所以它可以移到右边。然后用 Cramer 解。$B_j$ 和 $A_{kj}$ 之间首先差了个负号，然后 $x_l$ 对应列对齐要交换 $|j-l|-1$ 次，还有就是代数余子式的负号。因此&lt;br&gt;
-$$
-(-1)^{k+j}B_j=(-1)^{|j-l|}A_{kj}\\
-\eta_j=\frac{B_j}{M_{kl}}A_{kl}=(-1)^{k+l}B_j=(-1)^{k+l+k+j+j+l}A_{kj}=A_{kj}
-$$
-3.7.习8：他乡遇故知。太逆天了。&lt;/p&gt;
-&lt;p&gt;3.9：应用大天地，值得一看。&lt;/p&gt;
-&lt;p&gt;4.3：关于 $|A||B|=|AB|$ 的证明思路，一个是分块，一个是拆成初等矩阵（也是相当常见的证明思路，书里没写是因为依赖于 4.4.性质6）。Cauchy-Binet 证明图：&lt;/p&gt;
-&lt;center&gt;&lt;img src=&#34;.\cauchybinet.png&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/center&gt;
-&lt;p&gt;4.4：证明左逆等于右逆的三个思路。与抽代不同的是这里要给出逆元存在的构造性证明，所以书里是第三种。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;设左逆为 $B$，则 $AB=AIB=ABAB\Rightarrow I=(AB)^{-1}AB=(AB)^{-1}ABAB=AB$。&lt;/li&gt;
-&lt;li&gt;设左逆为 $B$，右逆为 $C$，则 $B=BI=BAC=IC=C$。&lt;/li&gt;
-&lt;li&gt;先证明存在 $B$ 既是左逆也是右逆，再同 2 证没别的逆。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;4.4.性质4&amp;amp;例4：mark.&lt;/p&gt;
-&lt;p&gt;4.5：分块矩阵初等变换。注意行变换只能左乘（且行列数分别为 to、from 行数），列变换只能右乘（且行列数分别为 from、to 列数），&lt;strong&gt;哪怕所有块都是方阵&lt;/strong&gt;。另外分块初等矩阵只适用于对角是方阵的情况。&lt;/p&gt;
-&lt;p&gt;4.9.例17：注意 $A$ 的零空间是与其行空间互为正交补，而不是列空间。因此 $Ax=0$ 的那些 $x$ 并不与 $\operatorname{Im}\mathcal{A}$ 垂直，注意几何直观别搞错了。&lt;/p&gt;
-&lt;p&gt;5：关于矩阵秩的若干等式、不等式，不是很熟，记一下。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;$\dim W=m-\rank(A)$。构造证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\rank(AB)\le\min(\rank(A),\rank(B))$。线性表出证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\rank(A+B),\rank[A,B]\le\rank(A)+\rank(B)$。线性表出证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\rank(AA^\top)=\rank(A^\top A)=\rank(A)$。同解或行列式证（复矩阵不成立）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\rank(A^m)=\rank(A^{m+1})\Rightarrow\forall k,\rank(A^m)=\rank(A^{m+k})$。同解证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\rank\begin{bmatrix}A&amp;amp;0\\ 0&amp;amp;B\end{bmatrix}=\rank(A)+\rank(B)$、$\rank\begin{bmatrix}A&amp;amp;C\\ 0&amp;amp;B\end{bmatrix}\ge\rank(A)+\rank(B)$。线性表出或行列式证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$AB=0\Rightarrow\rank(A)+\rank(B)\le m$。从齐次方程组解角度证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\rank(AB)\ge\rank(A)+\rank(B)-m$。分块证，也可以用线性变换证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左乘列满秩、右乘行满秩，秩不变。同解或用 8 证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;幂等 $\Leftrightarrow \rank(A)+\rank(I-A)=n$，对合 $\Leftrightarrow \rank(I+A)+\rank(I-A)=n$。分块或 2+3 证。&lt;/p&gt;
-&lt;p&gt;补充：我想到 $\Leftarrow$ 的一个比较妙的证明：$\rank(A)+\rank(I-A)=n$，由于 $\rank+\dim\nul=n$，故 $\dim\nul A+\dim\nul(I-A)=n$，又 $\nul A\cap\nul(I-A)=0$，故 $\nul A\times\nul(I-A)=\R^n$。于是任意 $x$，$Ax=0$ 或 $x$，于是 $Ax=A^2x\Rightarrow (A^2-A)x=0$ 对于所有 $x$ 成立，即 $A^2-A=0$。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\rank(A)=r\Leftrightarrow\exists B_{n\times r},C_{r\times m},\rank(B)=\rank(C)=r,A=BC$。分别用相抵、9 或 2+3 证。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;4.6：看着看着发现上三角矩阵的几个性质不是很清楚，记一下。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;上三角矩阵之积还是上三角，上三角矩阵的逆还是上三角。直观或代数证。&lt;/li&gt;
-&lt;li&gt;上三角矩阵的伴随矩阵还是上三角。&lt;/li&gt;
-&lt;li&gt;若上三角矩阵 $A$ 满足 $AA^\top=A^\top A$，则它为对角矩阵。若 $A$ 是正交矩阵，则 $A$ 的对角全是 $\pm1$。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;lu-分解&#34;&gt;LU 分解
-&lt;/h3&gt;&lt;p&gt;LU 分解用于避开逆矩阵求解线性方程组。$L$ 是 $n\times n$，$U$ 是 $n\times m$。&lt;/p&gt;
-&lt;p&gt;一般的 LU 分解要求可以不用交换行将 $A$ 化简为行阶梯形（注意“各阶顺序主子式非 $0$”仅适用于满秩方阵）。&lt;/p&gt;
-&lt;p&gt;求 $L$ 可以理解为：① 对 $L$ 做同样的事情可以变成 $I$；② $L$ 作用于 $U$ 可以变回 $A$（我感觉这种好理解，就是 $L$ 是所有变换顺序倒过来，然后正负互换）。这就是为什么 $L$ 可以由每次行变换乘的系数得出。注意就算目前行对应（下一个主元）位置为 $0$ 也不一定会出事，如果该列下面全 $0$，那就直接往后找。同时允许 $U$ 最后几行全零。&lt;/p&gt;
-&lt;p&gt;出现主元问题时用 LUP 分解。通过 $PA=LU$（直接在 $A$ 中剩余行中对换，作用效果与 $U$ 中对换相同，又不会破坏 $L$ 的下三角性质），可以避免一堆奇怪的讨论。看一个例子（注意，当交换两行时，$L$ 中对应行除对角 $1$ 外也要交换）：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;$P$&lt;/th&gt;
-&lt;th&gt;$L$&lt;/th&gt;
-&lt;th&gt;$U$&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}0&amp;amp;2&amp;amp;1&amp;amp;0\\ 4&amp;amp;2&amp;amp;13&amp;amp;2\\ 2&amp;amp;2&amp;amp;7&amp;amp;1\\ 2&amp;amp;3&amp;amp;7.5&amp;amp;.5\end{bmatrix}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\begin{bmatrix}0&amp;amp;1&amp;amp;0&amp;amp;0\\ 1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}4&amp;amp;2&amp;amp;13&amp;amp;2\\ 0&amp;amp;2&amp;amp;1&amp;amp;0\\ 2&amp;amp;2&amp;amp;7&amp;amp;1\\ 2&amp;amp;3&amp;amp;7.5&amp;amp;.5\end{bmatrix}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\begin{bmatrix}0&amp;amp;1&amp;amp;0&amp;amp;0\\ 1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ .5&amp;amp;0&amp;amp;1&amp;amp;0\\ .5&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}4&amp;amp;2&amp;amp;13&amp;amp;2\\ 0&amp;amp;2&amp;amp;1&amp;amp;0\\ 0&amp;amp;1&amp;amp;.5&amp;amp;0\\ 0&amp;amp;2&amp;amp;1&amp;amp;-.5\end{bmatrix}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\begin{bmatrix}0&amp;amp;1&amp;amp;0&amp;amp;0\\ 1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ .5&amp;amp;.5&amp;amp;1&amp;amp;0\\ .5&amp;amp;1&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}4&amp;amp;2&amp;amp;13&amp;amp;2\\ 0&amp;amp;2&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;-.5\end{bmatrix}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$\begin{bmatrix}0&amp;amp;1&amp;amp;0&amp;amp;0\\ 1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;1\\ 0&amp;amp;0&amp;amp;1&amp;amp;0\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;1&amp;amp;0&amp;amp;0\\ .5&amp;amp;1&amp;amp;1&amp;amp;0\\ .5&amp;amp;.5&amp;amp;0&amp;amp;1\end{bmatrix}$&lt;/td&gt;
-&lt;td&gt;$\begin{bmatrix}4&amp;amp;2&amp;amp;13&amp;amp;2\\ 0&amp;amp;2&amp;amp;1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;-.5\\ 0&amp;amp;0&amp;amp;0&amp;amp;0\end{bmatrix}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;在解具体方程时，只需解 $Ly=Pb$ 与 $Ux=y$ 即可。注意不要搞错成 $P^{-1}b$。&lt;/p&gt;
-&lt;p&gt;LDU 分解只是对满秩方阵而言，就是简单地把 $U$ 的对角元变成 $1$。&lt;/p&gt;
-&lt;h3 id=&#34;正交相关&#34;&gt;正交相关
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;根据点乘的几何意义，可得在单个向量上的投影。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一般的正交投影，我们从两个角度理解。&lt;/p&gt;
-&lt;p&gt;代数角度：希望写成 $y=\hat y+z$ 的形式，其中 $\hat y=\sum c_iu_i$，$z\cdot u_i=0$。后一个式子可以写成
-$$
-0=(y-\hat y)\cdot u_i=(y-\sum c_iu_i)\cdot u_i=y\cdot u_i-c_iu_i^2\Rightarrow c_i=\frac{y\cdot u_i}{u_i\cdot u_i}
-$$
-几何角度就是若干个“分量投影”的和。&lt;/p&gt;
-&lt;p&gt;而最佳逼近定理就是由 $z\perp W$ 加上勾股定理，勾股定理的本质就是正交向量的点积为 $0$。正交相关的一切内容都是围绕这一性质展开的。&lt;/p&gt;
-&lt;p&gt;如果 $y\in W$，那正交投影的公式就给出的线性表出的构造。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;注意如果不是正交方阵，而是若干正交单位向量组成的矩阵 $U=\begin{bmatrix}u_1&amp;amp;\cdots&amp;amp;u_n\end{bmatrix}$，那么 $U^\top U=I$，但 $UU^\top\ne I$——而且 $UU^\top y$ 给出了 $y$ 在 $W$ 上的投影。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;qr-分解&#34;&gt;QR 分解
-&lt;/h3&gt;&lt;p&gt;QR 分解就是用矩阵表示出了 Gram-Schmidt 正交化的过程。&lt;/p&gt;
-&lt;p&gt;使用条件：$A$ 列向量线性无关。&lt;/p&gt;
-&lt;p&gt;推导很简单，就是记住是正交矩阵在左即可。
-$$
-\begin{bmatrix}\alpha_1&amp;amp;\cdots&amp;amp;\alpha_m\end{bmatrix}=\begin{bmatrix}u_1&amp;amp;\cdots&amp;amp;u_m\end{bmatrix}\begin{bmatrix}\alpha_1\cdot u_1&amp;amp;\alpha_2\cdot u_1&amp;amp;\cdots&amp;amp;\alpha_m\cdot u_1\\ 0&amp;amp;\alpha_2\cdot u_2&amp;amp;\cdots&amp;amp;\alpha_m\cdot u_2\\ \vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;\cdots&amp;amp;\alpha_m\cdot u_m\end{bmatrix}
-$$
-这里对矩阵作了一点简化，其思路是
-$$
-\alpha_i=\sum_{j\le i}\frac{\alpha_i\cdot v_j}{v_j\cdot v_j}v_j=\sum_{j\le i}\frac{\alpha_i\cdot(|v_j|u_j)}{|v_j|^2}(|v_j|u_j)=\sum_{j\le i}(\alpha_i\cdot u_j)u_j
-$$
-如果觉得别扭也可以把 $v_i$ 拿出来单独讨论。&lt;/p&gt;
-&lt;p&gt;实操方法 1：在 Gram-Schmidt 正交化的时候写清楚那个下三角形的公式，写成矩阵，最后第 $i$ 行乘 $|v_i|$ 即可。&lt;/p&gt;
-&lt;p&gt;实操方法 2：直接求出单位正交基 $Q$，然后由 $Q^\top A=R$ 算出 $R$。&lt;/p&gt;
-&lt;p&gt;唯一性见 4.6.例5。&lt;/p&gt;
-&lt;h3 id=&#34;最小二乘法&#34;&gt;最小二乘法
-&lt;/h3&gt;&lt;p&gt;理解角度 1：在不求出正交基的情况下求投影，即利用垂直的性质。$\alpha_i\cdot(Ax-b)=0$。&lt;/p&gt;
-&lt;p&gt;理解角度 2：要最小化 $|Ax-b|$，也就是最小化 $(Ax-b)\cdot(Ax-b)$。
-$$
-0=\frac{\partial(\sum\alpha_jx_j-b)^2}{\partial x_i}=2\sum \alpha_i\cdot\alpha_jx_j-2\alpha_i\cdot b
-$$
-这里 $\sum \alpha_jx_j=Ax$，于是式子就变成 $A^\top Ax=A^\top b$。&lt;/p&gt;
-&lt;p&gt;从代数角度证明必有解：一方面，$[A^\top A,A^\top b]$ 的列向量都是 $A^\top$ 之列向量的线性组合，故秩不超过 $\rank(A)$。另一方面 $\rank(A^\top A)=\rank(A)$。&lt;/p&gt;
-&lt;p&gt;当 $A$ 列满秩时，$A^\top A$ 满秩，即有唯一解。&lt;/p&gt;
-&lt;p&gt;另外，如果想把 $A$ 正交分解了再 $b$ 去投影，也没问题。设 $A=QR$，$b$ 的正交投影为 $QQ^\top b$。如果要转成用 $A$ 列向量的线性组合来表示，那就是 $Ax=QQ^\top b\Rightarrow QRx=QQ^\top b\Rightarrow Rx=Q^\top b\Rightarrow x=R^{-1}Q^\top b$（其实都是 $\Leftrightarrow$）&lt;/p&gt;
-&lt;p&gt;应用理解：有若干样本点 $(a_i,b_i)$，考虑用一个函数 $y=\sum c_if_i(x)$ 去拟合（$c_i$ 未知，$f_i$ 已知。例如直线就取 $f_1(x)=1,f_2(x)=x$），误差就是 $y$ 与对应 $b_i$ 的差的平方和。那这时其实就是求以下方程的最小二乘解：
-$$
-\begin{bmatrix}f_1(a_1)&amp;amp;\cdots&amp;amp;f_m(a_1)\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\ f_1(a_n)&amp;amp;\cdots&amp;amp;f_m(a_n)\end{bmatrix}\begin{bmatrix}c_1\\ \vdots\\ c_m\end{bmatrix}=\begin{bmatrix}b_1\\ \vdots\\ b_n\end{bmatrix}
-$$
-这里的函数可以是多自变量函数。&lt;/p&gt;
-&lt;h3 id=&#34;矩阵的相抵与相似&#34;&gt;矩阵的相抵与相似
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;相抵矩阵秩相同。将矩阵转换成相抵标准型的过程，类比将满秩方阵拆分成初等矩阵的过程。其最大作用就是拆矩阵简化证明。非满秩的矩阵在推式子时会出现类似“丢失信息”的现象。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;广义逆矩阵是不易直观理解的部分，几个性质的证明动机也不清晰，我只能记下书里基础的东西，其实都是些废话：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;处理广义逆矩阵相关问题的基本方式是将 $A$ 写成 $PIQ$。&lt;/li&gt;
-&lt;li&gt;广义逆矩阵的阶为 $m\times n$。形式为 $A^-=Q^{-1}\begin{bmatrix}I_r&amp;amp;B\\ C&amp;amp;D\end{bmatrix}P^{-1}$。$Q$ 为 $m\times m$，$P$ 为 $n\times n$，中间为 $m\times n$。&lt;/li&gt;
-&lt;li&gt;$Ax=b$ 有解当且仅当 $b=AA^-b$。直接用定义+后面的构造证。解为所有 $A^-b$。证明所有解都可以表示为这种形式的方式的思路是，先把 $A$ 拆开，然后 $P,Q$ 就出来了，分析一下构造 $B,C,D$ 即可（这里 $b\ne 0$，不然构造会找不到非 $0$ 元）。&lt;/li&gt;
-&lt;li&gt;$Ax=0$ 的解为 $(I_m-A^-A)\gamma$（$A^-$ 随便固定一个，$\gamma$ 取所有）。一个解直接对应 $\gamma=x$。&lt;/li&gt;
-&lt;li&gt;后面 $A^+$ 我直接投降。其应用就是，$A$ 列满秩时，$Ax=b$ 的最小二乘解就是 $A^+b$。另外，列满秩矩阵满足 $A^-A=I$，其中一个特殊的 $A^-$ 是 $(A^\top A)^{-1}A^\top$；行满秩矩阵满足 $AA^-=I$，其中一个特殊的 $A^-$ 是 $A^\top(AA^\top)^{-1}$。无论是否列/行满秩，$A^-$ 都不是唯一的，只有满秩方阵才有 $A^-=A^{-1}$。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;矩阵的相似可以从线性变换的角度来理解。想象一个线性变换，它将自然基下的向量 $x$ 映射到 $Ax$。现在我们想知道，在另一个基下这样的变换该如何描述。假设另一个基为 $P$（$P$ 的列向量为所有基向量），根据基变换相关的内容我们知道：在这个基的表示下的向量 $x$，在自然基下的表示为 $Px$；反之在自然基表示下的向量 $x$，在这个基的表示为 $P^{-1}x$（空间和向量永远不动，只是表出会变）。&lt;/p&gt;
-&lt;p&gt;对于这个基下的向量 $x$，先将它用自然基表出，然后 $A$ 作用，再变回去。这就是 $P^{-1}APx$。$B=P^{-1}AP$ 就是在这个基下的变换矩阵。正如 3b1b 所说，基变换和相似就是一个“语言翻译”的过程。&lt;/p&gt;
-&lt;p&gt;所以说，两个矩阵相似，就说明可以通过选取合适的基，使它们对应的线性变换看起来相同。这里我们可以联系抽代里半直积本质相同的判别方式（第 12 章性质 2）来理解——如果自同构是共轭的，就说明可以选取不同的元素作为生成元，使得这两个自同构分别在两种生成元下形式完全相同，那就说明这两个半直积同构。&lt;/p&gt;
-&lt;p&gt;对角化的几何解释见 &lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1TH4y1L7PV/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://www.bilibili.com/video/BV1TH4y1L7PV/&lt;/a&gt;。简而言之就是把基变成那些特征向量，然后线性变换就变成简单的各维分别缩放了。这其实让我想到了卷积定理。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;关于特征值和特征向量。首先要明确，相似变换下，行列式、秩、迹、特征值都不变，但特征向量会变。&lt;/p&gt;
-&lt;p&gt;无论是否满秩，特征值数量（算上重数）总为 $n$，但特征子空间的维数和就不一定了。如果满秩，则特征值全部非零，但是不满秩时，特征值 $0$ 的重数并不等于 $n-r$，而是大于等于，例如 $\begin{bmatrix}0&amp;amp;1\\ 0&amp;amp;0\end{bmatrix}$。相关证明见 &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/297458474/answer/1362625976&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://www.zhihu.com/question/297458474/answer/1362625976&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;几何重数小于等于代数重数的证明直观是很好理解的，你都构造出那几个线性无关的特征向量了，那不得至少有这几个嘛。证明的思路就是基变换，把这几个特征向量作为基，别的任选，然后 $|\lambda I-A&amp;rsquo;|=0$ 就行。&lt;/p&gt;
-&lt;p&gt;不同特征值对应的特征向量不同，这个只需看一个简单情况就可以理解证明思路：如果 $A\alpha_1=\lambda_1\alpha_1,A\alpha_2=\lambda_2\alpha_2,c\alpha_1=\alpha_2$，那么 $\lambda_1c\alpha_1=Ac\alpha_1=A\alpha_2=\lambda_2\alpha_2=\lambda_2c\alpha_1\Rightarrow\lambda_1=\lambda_2$。后面的东西都是比较显然的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一些特殊矩阵的特征值。幂等矩阵有 $\rank(A)$ 重特征值 $1$，$n-\rank(A)$ 重特征值 $0$。证明这个的步骤是，首先说明特征值只能是 $0$ 或 $1$，然后利用几何重数说明代数重数。对合矩阵也是类似。幂零矩阵与它们的不同点仅在于不能对角化。注意不能从特征值判断特殊矩阵。注意可对角化和满秩之间没有关系。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;现在距离抽代里那个自同构的分析，我们还有两个障碍：一个是 Jordan 标准型还没学，一个是不允许复数。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;简单提一下 Cayley-Hamilton 定理的证明：对角阵易证，因为相当于每个特征值代进特征多项式。从而可对角化的情况易证，因为 $f(P^{-1}AP)=P^{-1}f(A)P$，然后可以用 &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/31557902/answer/1636767376&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://www.zhihu.com/question/31557902/answer/1636767376&lt;/a&gt; 这种来理解。另一个证明思路是，先通过证明乘每个 $\varepsilon_i$ 均为 $0$ 来证明上三角矩阵满足，然后再把任意一个矩阵相似化为上三角：&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/657653840&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zhuanlan.zhihu.com/p/657653840&lt;/a&gt;。最后，书里的证明思路是，通过比对 $(\lambda I-A)(\lambda I-A)^\star=|\lambda I-A|I$ 两侧的系数证明。&lt;/p&gt;
-&lt;p&gt;它的一个重要作用是给出了 $A^n$ 关于 $A^{0\sim n-1}$ 的表达式，从而可以递推（P4723）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 </description>
         </item>
         <item>

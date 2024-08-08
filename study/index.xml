@@ -8,281 +8,6 @@
         <language>en-us</language>
         <copyright>LRYP</copyright>
         <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/study/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Hugo 博客搭建经验</title>
-        <link>https://example.com/study/blog-tutorial/</link>
-        <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/study/blog-tutorial/</guid>
-        <description>&lt;img src="https://example.com/study/blog-tutorial/logo.png" alt="Featured image of post Hugo 博客搭建经验" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;br&gt;本文适合不了解 html 和 scc 但想自己建博客的读者看。&lt;/div&gt;
-&lt;h3 id=&#34;本地初始操作&#34;&gt;本地初始操作
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;下载 git，更新用户名和邮箱信息。&lt;/li&gt;
-&lt;li&gt;下载 hugo，选 extended。&lt;/li&gt;
-&lt;li&gt;建文件夹，里面存所有网站的文件夹。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;hugo new site 名字&lt;/code&gt;，会出现一个子文件夹（下称为主文件夹），对应一个网站。&lt;/li&gt;
-&lt;li&gt;进入，找想要的主题，通过 &lt;code&gt;git clone&lt;/code&gt; 或直接复制粘贴的方式放到 themes 文件夹中，最好只有一个主题（实际是可以在配置的 theme 改），然后主题的文件夹名别动。&lt;/li&gt;
-&lt;li&gt;把主题对应的 exampleSite 内文件复制到主文件夹。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;hugo&lt;/code&gt; 可以编译（生成 public/ 内的网页文件），&lt;code&gt;hugo server&lt;/code&gt; 在 &lt;code&gt;hugo&lt;/code&gt; 的基础上开了个 localhost 网页以供实时预览，每次运行即可查看效果，随时改（保存）随时更新，不需要“编译”。Ctrl+C 停止。注意，有的时候改风格或页面布局时出现语法问题，&lt;strong&gt;就算改回来也会没反应&lt;/strong&gt;（停留在一个编译错误页面或没有改动效果），这时应当停止再运行。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;主题相关stack&#34;&gt;主题相关（stack）
-&lt;/h3&gt;&lt;p&gt;如果遇到其他主题需求，一个通用方法是，如果想改某些样式或大小或长宽，则找 assets 里 scss 文件；如果想改页面布局，则找 layouts 里 html 文件。具体可以按文件名实际意思找，也可以 F12 出调试工具后找对应的项名字或数值，然后用查找文件内容在主题文件夹里直接暴力找。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;注意主题对浏览器页面不同大小的时候做了适配，所以会发现有 respond(…) 这种东西，阈值参见 breakpoint.scss。一般建议改参数（某些距离之类）的时候，顺带各种尺寸情况都改了，然后最后拿手机、平板之类的访问一下看看是否合适。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;配置文件应当放在主文件夹中，名字为 hugo.*，后缀可以是 yaml，toml 或 json。建议直接按上面第 6 点，把 exampleSite 的配置文件复制过来，删掉原来的 hugo.toml。&lt;strong&gt;下文简称该文件为“配置”。&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;多语言选项直接关了完事，配置里 DefaultContentLanguage 改 zh-cn，hasCJKLanguage 改 false，language 删了。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;网站图标：配置里 params.favicon。.ico 文件放到 static/ 里。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;头像放 assets/img/。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左右边栏最大宽度：grid.css 里 .container&amp;amp;.extended 的 respond(xl) 内。&lt;strong&gt;会相应改变中间主题的宽度。&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左右边栏与页面左右边缘距离：grid.css 里 .main-container 的 respond(md) 内。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;头像大小，头像、博客标题、博客描述居中：sidebar.scss 里 .left-sidebar 的  &amp;ndash;sidebar-avatar-size，.sidebar header 的 .site-avatar（其实不改就行）、.site-name、.site-description 内加 text-align: center;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左右边栏额外两侧空白：sidebar.scss 里 .left-sidebar、.right-sidebar 内额外加 padding-left: ?px; 和 padding-right: ?px; 即可。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左右边栏和中间主体的间距：variables.scss 里 :root 的 &amp;ndash;section-separation。&lt;/p&gt;
-&lt;p&gt;所以，如果你想真的让左边栏内容完美居中，所要做的就是：把 4 和 7 调成相等，6 的 left、right 不要不相等。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左侧边栏之页面 second method 的高亮：主题文件夹/layouts/partials/sidebar/left.html 里找到这段：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $currentPage := . }}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ range .Site.Menus.main }}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent &amp;#34;main&amp;#34; .) ($currentPage.IsMenuCurrent &amp;#34;main&amp;#34; .)) }}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;删掉改成：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $currentPage := . }}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $siteTitle := .Site.Title }}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ range .Site.Menus.main }}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent &amp;#34;main&amp;#34; .) ($currentPage.IsMenuCurrent &amp;#34;main&amp;#34; .)) }}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $active := or ($active) (and (eq $currentPage.Title $siteTitle ) (eq .Identifier &amp;#34;home&amp;#34;)) }}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;目录的行间距：layout/article.scss 里 .widget&amp;ndash;toc#TableOfContents 里面有个 margin 后面带四个数的，分别是上边缘、右边缘、每行下方、左边缘。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左侧边栏图标与文字的距离：variables.scss 里 :root 的 &amp;ndash;menu-icon-separation。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最后修改时间：&lt;a class=&#34;link&#34; href=&#34;https://shitao5.org/posts/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://shitao5.org/posts/hugo-stack/&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;branch 页面的标题形式：在 layout/_default/list.html 里，我是直接把 section-title 注释掉的（因为无论如何它都只会显示章节两字），希望这个自定义的话我也不大会，但是网上好像可以查到？&lt;a class=&#34;link&#34; href=&#34;https://discourse.gohugo.io/t/how-can-i-get-a-user-friendly-section-name-title/10880/3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://discourse.gohugo.io/t/how-can-i-get-a-user-friendly-section-name-title/10880/3&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;段内行距：variables.scss 里 :root 的 &amp;ndash;article-line-height。段间行距：layout/article.scss 里 .article-content 里有个 margin: 1.5em 0;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;关于段首缩进：爆了，下面这个方法会导致列表的编号和内容间有过大的距离，应该无解。&lt;/p&gt;
-&lt;p&gt;在 layout/article.scss 里 .article-content 里加一句 text-indent: 2em; 这样会发现它缩进过度了。在 variables.scss 里改 &amp;ndash;card-padding。&lt;/p&gt;
-&lt;p&gt;这里有两个注意点，一个是你发现 F12 之后两侧 padding 变了，这个在不是 layout 里的 article.scss 里 .article-list&amp;ndash;tile 的 .article-details 的 padding 改。&lt;/p&gt;
-&lt;p&gt;一个是注意到包括标题、图片在内的东西都会被缩进，标题我觉得这样挺好看的，图片的话会导致右侧被遮，这里我的解决方法是用 html 格式的图片，还可以调大小，更好用，唯一可惜的是用不上 stack 自带的图片文字描述下方显示，不过这个也可以写一段 html。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;大标题大小：不是 layout 里的 article.scss 里 .article-title 的 font-size。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;F12 时头像不居中问题：sidebar.scss 里 .sidebar header 的 .site-avatar 的 margin 改成 auto（注意这类 margin 的东西如果不填 0 或 auto，则必须填四个数，分别代表上右下左）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;网站名称颜色：光把 sidebar.scss 里 .site-name 的 color 改掉没用，还要把 left.html 里 site-name 的链接去掉。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;文章主题图片的高度：layout/article.scss 里 .article-page 的 .article-header 的 .article-image 的 img 的 max-height。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;回到顶部：&lt;a class=&#34;link&#34; href=&#34;https://www.blain.top/p/renovation/#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://www.blain.top/p/renovation/#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE&lt;/a&gt; 配合 &lt;a class=&#34;link&#34; href=&#34;https://yelleis.top/p/61fdb627/#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://yelleis.top/p/61fdb627/#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8&lt;/a&gt;。可以平滑的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左边栏项过多但不想滚轮：sidebar.scss 里 .left-sidebar 的 max-height。左边栏各项间距：menu.scss 里 #main-menu 的 gap。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;归档里 CATEGORIES 不是中文：archives.html 里改 &lt;code&gt;&amp;lt;h2 class=&amp;quot;section-title&amp;quot;&amp;gt;{{ $taxonomy.Title }}&amp;lt;/h2&amp;gt;&lt;/code&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;归档的分类卡片大小：list.scss 里 .subsection-list 的 .article-list&amp;ndash;tile 的 article 的 width、height。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;文章先后（默认按时间）、左侧栏、归档分类等都可以用 md 开头 yaml 里 weight 调优先级。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;左侧栏“个性签名”换行：不知为何 &lt;code&gt;\n&lt;/code&gt; 会被空格代替，&lt;code&gt;&amp;lt;br/&amp;gt;&lt;/code&gt; 没用。我找遍了整个 theme 文件夹只找到一处把换行替换为空格的代码，去掉之后还是没用。所以只能在 left.html 里硬编码了。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;归档分类卡片渐变颜色：main.ts 里 articleDetails.style.background。我觉得不改也挺好看。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;归档多栏：&lt;a class=&#34;link&#34; href=&#34;https://blog.grew.cc/posts/stack.html#%E5%BD%92%E6%A1%A3%E9%A1%B5%E5%8F%8C%E6%A0%8F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://blog.grew.cc/posts/stack.html#%E5%BD%92%E6%A1%A3%E9%A1%B5%E5%8F%8C%E6%A0%8F&lt;/a&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;图标可以在 &lt;a class=&#34;link&#34; href=&#34;https://tablericons.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://tablericons.com/&lt;/a&gt; 找，放在主题的 assets/icons 里。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;关闭 toc 的编号：layout/article.scss 里 li a:first-of-type::before 部分注释掉。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;代码行号：配置里 markup:highlight:lineNos。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;“评论”标题：在 layouts/partials/comments/include.html 的第一二行间加 &lt;code&gt;&amp;lt;h2 style=&amp;quot;color: var(--card-text-color-main)&amp;quot;&amp;gt;评论&amp;lt;/h2&amp;gt;&lt;/code&gt;。这样暗色模式不会还是黑的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如果觉得 &lt;code&gt;![]()&lt;/code&gt; 图片和封面图片糊得难看，可以把配置里的 imageProcessing 下面两个改成 false。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;content-目录结构&#34;&gt;content 目录结构
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;博客里的页面分为 branch 和 leaf 两类，branch 就是下面还有子页面的页面。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;content 文件夹对应 home 页面，是 branch 类型。home 就是主页。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;content 的文件夹结构与网站链接结构完全对应，&lt;strong&gt;一个文件夹一个页面&lt;/strong&gt;，branch 对应的文件夹下如果有其他 md 或含 index.md 的子文件夹，就会在对应页面也显示出来。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;content 内所有想要能显示出来的页面，必须要包含 index.md 或 _index.md 文件，前者是给 leaf 用的，后者是给 branch 用的。这个 md 的开头应当有一段 yaml（或其他格式）给出其相关信息。对于 branch，就不用写别的东西了（写了也没用）；对于 leaf，yaml 之后就是正文。&lt;/p&gt;
-&lt;p&gt;实际上 leaf 页面可以在 post 或对应的 branch 文件夹里直接放 md，但是最好还是按照上面的习惯来。&lt;/p&gt;
-&lt;p&gt;这样的一段 yaml 应当符合 &lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/writing/frontmatter&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://stack.jimmycai.com/writing/frontmatter&lt;/a&gt; 的格式（有漏，可以看 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/688275787&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zhuanlan.zhihu.com/p/688275787&lt;/a&gt; 里“我的模板”，&lt;strong&gt;注意冒号之后必须加空格！复杂字符串如果出问题需要两边打引号！&lt;/strong&gt;）。特殊地，有几类特殊的布局，可以加上 layout 信息，参见 exampleSite 的 page/。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;建议建文件夹 content/page/ 以存放所有出现在左边栏内的页面。所有希望出现在左边栏中的页面（包括 home 的 _index.md 以及 page 的 index.md），它们开头的 yaml 需要额外以 &lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/config/menu&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://stack.jimmycai.com/config/menu&lt;/a&gt; 里 first method 的方法写一下。second method 是直接写在配置里的，配合上面第 10 点。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;主页的中间，会显示所有属于 content/post/ 里的内容——这是由配置里 params.mainSection 决定的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;除了按上述方式配置的 content/_index.md、post（mainSection 的条目）、page 内 md 外，其余东西一律没有导航界面（包括别的 branch），只能在浏览器上改链接来访问，因此其实可以在博客里“藏”东西。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;然后还有一个特殊的文件夹 content/categories，这里面放的东西会和每个文章的分类联系在一起，参见 exampleSite。如果不用这个文件夹，直接写每篇文章的 categories 也是没问题的，就是归档里会没图片。如果用这个文件夹，可以设置 categories 的标签颜色、图片等，而且可以将一个类别的 id 和名称分开来，文件夹名、slug、调用时用 id，title 写名称。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;markdownkatex-相关&#34;&gt;Markdown、KaTeX 相关
-&lt;/h3&gt;&lt;div style=&#34;color: red; font-weight: bold&#34;&gt;这部分很重要，请务必注意！&lt;/div&gt;
-&lt;p&gt;无论如何要当心任何位置出现的特殊字符，尤其是 Typora 里没出问题的 &lt;code&gt;\&lt;/code&gt;。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;支持内嵌 html。&lt;/li&gt;
-&lt;li&gt;同普通 Markdown，如果两段间不留空行且第一段末尾没有俩空格，则渲染出来是不换行的。&lt;/li&gt;
-&lt;li&gt;关于列表的分段，Typora 是显示出来一律是分段的行距，但对于从未在标号（或项目点）前退格的列表，源码会不留空行，在网页里是不分段的行距（对比本列表和上一个列表）。这个可能会有点难看，如果介意的话，要手动改一下。另外列表内分段是按照缩进来的。&lt;/li&gt;
-&lt;li&gt;公式支持 KaTeX 功能（如果没渲染检查一下配置和 frontmatter 里有没有开 math），行间公式上下不留空行也没事。&lt;/li&gt;
-&lt;li&gt;如果要利用全局 \def，必须使用 \gdef。这个和 Typora 是不一样的，Typora 不识别 \gdef 但 \def 是全局的。&lt;/li&gt;
-&lt;li&gt;矩阵等多行的东西，需要打三个 &lt;code&gt;\&lt;/code&gt; 后再来个空格，以换行。这个很奇怪。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\,&lt;/code&gt;、&lt;code&gt;\;&lt;/code&gt; 之类的小空格必须改成 &lt;code&gt;\\,&lt;/code&gt;、&lt;code&gt;\\;&lt;/code&gt;。这个也很奇怪。&lt;/li&gt;
-&lt;li&gt;表格里公式偷懒不用 &lt;code&gt;\lvert\rvert&lt;/code&gt; 直接打 &lt;code&gt;|&lt;/code&gt; 时会出现与表格边界混淆的情况（Typora 会自动正确处理），这时要加转义 &lt;code&gt;\&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;公式内星号 &lt;code&gt;*&lt;/code&gt; 要加转义 &lt;code&gt;\&lt;/code&gt;（Typora 会自动正确处理）。&lt;/li&gt;
-&lt;li&gt;还有很多不加 &lt;code&gt;\&lt;/code&gt; 就会爆的情况。我遇到最诡异的是 &lt;code&gt;${a}_{b}{c}_{d}$&lt;/code&gt; 无法渲染。这种是因为垃圾 Markdown 渲染器把公式内外搞混了（两个下划线之间被识别为斜体）。遇到这种情况反正就在各个特殊字符前试着加 &lt;code&gt;\&lt;/code&gt; 就行。&lt;/li&gt;
-&lt;li&gt;连接自动识别在遇到标点时会有问题，建议还是用 &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; 括起来。&lt;/li&gt;
-&lt;li&gt;撇号如果直接用 &lt;code&gt;&#39;&lt;/code&gt; 会很丑（$&amp;rsquo;$），必须用 &lt;code&gt;^\prime&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;html 格式的图片要居中必须单独写 center。&lt;/li&gt;
-&lt;li&gt;如果希望强制调整表格列宽，可以用 &lt;code&gt;&amp;lt;div style=&amp;quot;width: 宽度&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;。注意其副作用是在不同宽度的屏幕上可能会显示得不好看。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;github-部署&#34;&gt;Github 部署
-&lt;/h3&gt;&lt;p&gt;Github 部署的思路如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Github 上一个公开的 repo 放网页文件。&lt;/li&gt;
-&lt;li&gt;每次 &lt;code&gt;hugo&lt;/code&gt; 完，把 public/ 内东西放到 repo 里。&lt;/li&gt;
-&lt;li&gt;如果不想手动操作，可以再建一个（可以私有）放整个博客的 repo，每次 push 之后用 github action 自动编译、更新到网页 repo 里。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;由于我想经常调试博客的 theme，而且第三步略麻烦，所以我就是手动更新。&lt;/p&gt;
-&lt;p&gt;总的操作方法见 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/568470172&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zhuanlan.zhihu.com/p/568470172&lt;/a&gt;（有三篇）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;网址只能是 &lt;code&gt;github用户id.github.io&lt;/code&gt;，github settings pages 里改域名的选项是得自己先买域名的。&lt;/li&gt;
-&lt;li&gt;hugo 编译后，public 里老的文件是会留着的（例如你反复给一篇文章换主题图片，它都会留着）。如果你不希望别人来翻你的 github repo 看到这些，得每次手动删除。&lt;/li&gt;
-&lt;li&gt;每次把网页复制到本地仓库前，最好先删光（别手动删！git 会自动追踪仓库里的文件，可能会出问题。具体处理方法见下文）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;评论&#34;&gt;评论
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;disqus 有广告。&lt;/li&gt;
-&lt;li&gt;giscus 必须登录 github 才能评论。&lt;/li&gt;
-&lt;li&gt;twikoo 似乎有审查。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;cusdis 万岁！&lt;/p&gt;
-&lt;p&gt;免费版 cusdis 一个月 10 条无需 approve 和 100 条需要 approve 的评论（大概就是你得在邮箱的评论通知里点一下），完全够。&lt;/p&gt;
-&lt;p&gt;操作非常简单：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;注册个账号。输入博客网址与 notification 邮箱。&lt;/li&gt;
-&lt;li&gt;配置里 params 的 comments 的 provider 改成 cusdis，下面 cusdis 里 host 和 id 改一下，具体改的内容看 cusdis 里你的 dashboard 上方的 Embeded Code。&lt;/li&gt;
-&lt;li&gt;如果想改中文，在 layout/partial/comments/provider/cusdis.html 里 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;{{ $host }}/js/cusdis.es.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt; 的上面加一句 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;https://cusdis.com/js/widget/lang/zh-cn.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;日常维护&#34;&gt;日常维护
-&lt;/h3&gt;&lt;p&gt;我一般习惯这样：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;在另外的文件夹里写博客。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;每次手动新建文章文件夹，md 复制过去改名成 index.md，开头加上那段 yaml（我不习惯 &lt;code&gt;hugo new&lt;/code&gt;）。yaml 我用的模板：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;slug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;toc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;comments&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;更新到 github。我写了以下脚本（须在 git bash 下运行，我的博客文件夹和 repo 文件夹并列）：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; blog/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm public/* -r
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ../LittleReuben.github.io/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git rm * -r
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ../
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp -rf blog/public/* LittleReuben.github.io/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; LittleReuben.github.io/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add --all
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;upd&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意博客网页更新较慢，大概要等个 2min。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;del&gt;如果想搭博客也可以直接问我要魔改的 theme。&lt;/del&gt;&lt;/p&gt;
-&lt;h3 id=&#34;参考链接&#34;&gt;参考链接
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://thirdshire.com/hugo-stack-renovation-part-two/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://thirdshire.com/hugo-stack-renovation-part-two/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xrg.fj.cn/p/hugo-stack%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E5%B0%8F%E8%AE%B0/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://xrg.fj.cn/p/hugo-stack%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E5%B0%8F%E8%AE%B0/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://munlelee.github.io/post/hugo%E5%8D%9A%E5%AE%A2-stack%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%80%E7%AB%99/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://munlelee.github.io/post/hugo%E5%8D%9A%E5%AE%A2-stack%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%80%E7%AB%99/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhixuan2333.github.io/posts/ac760353/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zhixuan2333.github.io/posts/ac760353/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.linsnow.cn/p/modify-hugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://blog.linsnow.cn/p/modify-hugo/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/685991593&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://zhuanlan.zhihu.com/p/685991593&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://yelleis.top/p/61fdb627/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://yelleis.top/p/61fdb627/&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>OI 出题列表</title>
         <link>https://example.com/study/problemsetting/</link>
         <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
@@ -678,6 +403,281 @@ $$
 &lt;p&gt;它的一个重要作用是给出了 $A^n$ 关于 $A^{0\sim n-1}$ 的表达式，从而可以递推（P4723）。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Hugo 博客搭建经验</title>
+        <link>https://example.com/study/blog-tutorial/</link>
+        <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/blog-tutorial/</guid>
+        <description>&lt;img src="https://example.com/study/blog-tutorial/logo.png" alt="Featured image of post Hugo 博客搭建经验" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;br&gt;本文适合不了解 html 和 scc 但想自己建博客的读者看。&lt;/div&gt;
+&lt;h3 id=&#34;本地初始操作&#34;&gt;本地初始操作
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;下载 git，更新用户名和邮箱信息。&lt;/li&gt;
+&lt;li&gt;下载 hugo，选 extended。&lt;/li&gt;
+&lt;li&gt;建文件夹，里面存所有网站的文件夹。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hugo new site 名字&lt;/code&gt;，会出现一个子文件夹（下称为主文件夹），对应一个网站。&lt;/li&gt;
+&lt;li&gt;进入，找想要的主题，通过 &lt;code&gt;git clone&lt;/code&gt; 或直接复制粘贴的方式放到 themes 文件夹中，最好只有一个主题（实际是可以在配置的 theme 改），然后主题的文件夹名别动。&lt;/li&gt;
+&lt;li&gt;把主题对应的 exampleSite 内文件复制到主文件夹。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hugo&lt;/code&gt; 可以编译（生成 public/ 内的网页文件），&lt;code&gt;hugo server&lt;/code&gt; 在 &lt;code&gt;hugo&lt;/code&gt; 的基础上开了个 localhost 网页以供实时预览，每次运行即可查看效果，随时改（保存）随时更新，不需要“编译”。Ctrl+C 停止。注意，有的时候改风格或页面布局时出现语法问题，&lt;strong&gt;就算改回来也会没反应&lt;/strong&gt;（停留在一个编译错误页面或没有改动效果），这时应当停止再运行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;主题相关stack&#34;&gt;主题相关（stack）
+&lt;/h3&gt;&lt;p&gt;如果遇到其他主题需求，一个通用方法是，如果想改某些样式或大小或长宽，则找 assets 里 scss 文件；如果想改页面布局，则找 layouts 里 html 文件。具体可以按文件名实际意思找，也可以 F12 出调试工具后找对应的项名字或数值，然后用查找文件内容在主题文件夹里直接暴力找。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;注意主题对浏览器页面不同大小的时候做了适配，所以会发现有 respond(…) 这种东西，阈值参见 breakpoint.scss。一般建议改参数（某些距离之类）的时候，顺带各种尺寸情况都改了，然后最后拿手机、平板之类的访问一下看看是否合适。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置文件应当放在主文件夹中，名字为 hugo.*，后缀可以是 yaml，toml 或 json。建议直接按上面第 6 点，把 exampleSite 的配置文件复制过来，删掉原来的 hugo.toml。&lt;strong&gt;下文简称该文件为“配置”。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多语言选项直接关了完事，配置里 DefaultContentLanguage 改 zh-cn，hasCJKLanguage 改 false，language 删了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网站图标：配置里 params.favicon。.ico 文件放到 static/ 里。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;头像放 assets/img/。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左右边栏最大宽度：grid.css 里 .container&amp;amp;.extended 的 respond(xl) 内。&lt;strong&gt;会相应改变中间主题的宽度。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左右边栏与页面左右边缘距离：grid.css 里 .main-container 的 respond(md) 内。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;头像大小，头像、博客标题、博客描述居中：sidebar.scss 里 .left-sidebar 的  &amp;ndash;sidebar-avatar-size，.sidebar header 的 .site-avatar（其实不改就行）、.site-name、.site-description 内加 text-align: center;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左右边栏额外两侧空白：sidebar.scss 里 .left-sidebar、.right-sidebar 内额外加 padding-left: ?px; 和 padding-right: ?px; 即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左右边栏和中间主体的间距：variables.scss 里 :root 的 &amp;ndash;section-separation。&lt;/p&gt;
+&lt;p&gt;所以，如果你想真的让左边栏内容完美居中，所要做的就是：把 4 和 7 调成相等，6 的 left、right 不要不相等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左侧边栏之页面 second method 的高亮：主题文件夹/layouts/partials/sidebar/left.html 里找到这段：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $currentPage := . }}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ range .Site.Menus.main }}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent &amp;#34;main&amp;#34; .) ($currentPage.IsMenuCurrent &amp;#34;main&amp;#34; .)) }}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;删掉改成：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $currentPage := . }}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $siteTitle := .Site.Title }}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ range .Site.Menus.main }}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent &amp;#34;main&amp;#34; .) ($currentPage.IsMenuCurrent &amp;#34;main&amp;#34; .)) }}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ $active := or ($active) (and (eq $currentPage.Title $siteTitle ) (eq .Identifier &amp;#34;home&amp;#34;)) }}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目录的行间距：layout/article.scss 里 .widget&amp;ndash;toc#TableOfContents 里面有个 margin 后面带四个数的，分别是上边缘、右边缘、每行下方、左边缘。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左侧边栏图标与文字的距离：variables.scss 里 :root 的 &amp;ndash;menu-icon-separation。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后修改时间：&lt;a class=&#34;link&#34; href=&#34;https://shitao5.org/posts/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://shitao5.org/posts/hugo-stack/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;branch 页面的标题形式：在 layout/_default/list.html 里，我是直接把 section-title 注释掉的（因为无论如何它都只会显示章节两字），希望这个自定义的话我也不大会，但是网上好像可以查到？&lt;a class=&#34;link&#34; href=&#34;https://discourse.gohugo.io/t/how-can-i-get-a-user-friendly-section-name-title/10880/3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://discourse.gohugo.io/t/how-can-i-get-a-user-friendly-section-name-title/10880/3&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;段内行距：variables.scss 里 :root 的 &amp;ndash;article-line-height。段间行距：layout/article.scss 里 .article-content 里有个 margin: 1.5em 0;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关于段首缩进：爆了，下面这个方法会导致列表的编号和内容间有过大的距离，应该无解。&lt;/p&gt;
+&lt;p&gt;在 layout/article.scss 里 .article-content 里加一句 text-indent: 2em; 这样会发现它缩进过度了。在 variables.scss 里改 &amp;ndash;card-padding。&lt;/p&gt;
+&lt;p&gt;这里有两个注意点，一个是你发现 F12 之后两侧 padding 变了，这个在不是 layout 里的 article.scss 里 .article-list&amp;ndash;tile 的 .article-details 的 padding 改。&lt;/p&gt;
+&lt;p&gt;一个是注意到包括标题、图片在内的东西都会被缩进，标题我觉得这样挺好看的，图片的话会导致右侧被遮，这里我的解决方法是用 html 格式的图片，还可以调大小，更好用，唯一可惜的是用不上 stack 自带的图片文字描述下方显示，不过这个也可以写一段 html。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;大标题大小：不是 layout 里的 article.scss 里 .article-title 的 font-size。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;F12 时头像不居中问题：sidebar.scss 里 .sidebar header 的 .site-avatar 的 margin 改成 auto（注意这类 margin 的东西如果不填 0 或 auto，则必须填四个数，分别代表上右下左）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网站名称颜色：光把 sidebar.scss 里 .site-name 的 color 改掉没用，还要把 left.html 里 site-name 的链接去掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文章主题图片的高度：layout/article.scss 里 .article-page 的 .article-header 的 .article-image 的 img 的 max-height。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;回到顶部：&lt;a class=&#34;link&#34; href=&#34;https://www.blain.top/p/renovation/#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.blain.top/p/renovation/#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE&lt;/a&gt; 配合 &lt;a class=&#34;link&#34; href=&#34;https://yelleis.top/p/61fdb627/#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://yelleis.top/p/61fdb627/#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8&lt;/a&gt;。可以平滑的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左边栏项过多但不想滚轮：sidebar.scss 里 .left-sidebar 的 max-height。左边栏各项间距：menu.scss 里 #main-menu 的 gap。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;归档里 CATEGORIES 不是中文：archives.html 里改 &lt;code&gt;&amp;lt;h2 class=&amp;quot;section-title&amp;quot;&amp;gt;{{ $taxonomy.Title }}&amp;lt;/h2&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;归档的分类卡片大小：list.scss 里 .subsection-list 的 .article-list&amp;ndash;tile 的 article 的 width、height。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文章先后（默认按时间）、左侧栏、归档分类等都可以用 md 开头 yaml 里 weight 调优先级。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左侧栏“个性签名”换行：不知为何 &lt;code&gt;\n&lt;/code&gt; 会被空格代替，&lt;code&gt;&amp;lt;br/&amp;gt;&lt;/code&gt; 没用。我找遍了整个 theme 文件夹只找到一处把换行替换为空格的代码，去掉之后还是没用。所以只能在 left.html 里硬编码了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;归档分类卡片渐变颜色：main.ts 里 articleDetails.style.background。我觉得不改也挺好看。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;归档多栏：&lt;a class=&#34;link&#34; href=&#34;https://blog.grew.cc/posts/stack.html#%E5%BD%92%E6%A1%A3%E9%A1%B5%E5%8F%8C%E6%A0%8F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.grew.cc/posts/stack.html#%E5%BD%92%E6%A1%A3%E9%A1%B5%E5%8F%8C%E6%A0%8F&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;图标可以在 &lt;a class=&#34;link&#34; href=&#34;https://tablericons.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tablericons.com/&lt;/a&gt; 找，放在主题的 assets/icons 里。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关闭 toc 的编号：layout/article.scss 里 li a:first-of-type::before 部分注释掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;代码行号：配置里 markup:highlight:lineNos。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;“评论”标题：在 layouts/partials/comments/include.html 的第一二行间加 &lt;code&gt;&amp;lt;h2 style=&amp;quot;color: var(--card-text-color-main)&amp;quot;&amp;gt;评论&amp;lt;/h2&amp;gt;&lt;/code&gt;。这样暗色模式不会还是黑的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果觉得 &lt;code&gt;![]()&lt;/code&gt; 图片和封面图片糊得难看，可以把配置里的 imageProcessing 下面两个改成 false。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;content-目录结构&#34;&gt;content 目录结构
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;博客里的页面分为 branch 和 leaf 两类，branch 就是下面还有子页面的页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;content 文件夹对应 home 页面，是 branch 类型。home 就是主页。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;content 的文件夹结构与网站链接结构完全对应，&lt;strong&gt;一个文件夹一个页面&lt;/strong&gt;，branch 对应的文件夹下如果有其他 md 或含 index.md 的子文件夹，就会在对应页面也显示出来。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;content 内所有想要能显示出来的页面，必须要包含 index.md 或 _index.md 文件，前者是给 leaf 用的，后者是给 branch 用的。这个 md 的开头应当有一段 yaml（或其他格式）给出其相关信息。对于 branch，就不用写别的东西了（写了也没用）；对于 leaf，yaml 之后就是正文。&lt;/p&gt;
+&lt;p&gt;实际上 leaf 页面可以在 post 或对应的 branch 文件夹里直接放 md，但是最好还是按照上面的习惯来。&lt;/p&gt;
+&lt;p&gt;这样的一段 yaml 应当符合 &lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/writing/frontmatter&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://stack.jimmycai.com/writing/frontmatter&lt;/a&gt; 的格式（有漏，可以看 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/688275787&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/688275787&lt;/a&gt; 里“我的模板”，&lt;strong&gt;注意冒号之后必须加空格！复杂字符串如果出问题需要两边打引号！&lt;/strong&gt;）。特殊地，有几类特殊的布局，可以加上 layout 信息，参见 exampleSite 的 page/。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;建议建文件夹 content/page/ 以存放所有出现在左边栏内的页面。所有希望出现在左边栏中的页面（包括 home 的 _index.md 以及 page 的 index.md），它们开头的 yaml 需要额外以 &lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/config/menu&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://stack.jimmycai.com/config/menu&lt;/a&gt; 里 first method 的方法写一下。second method 是直接写在配置里的，配合上面第 10 点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主页的中间，会显示所有属于 content/post/ 里的内容——这是由配置里 params.mainSection 决定的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;除了按上述方式配置的 content/_index.md、post（mainSection 的条目）、page 内 md 外，其余东西一律没有导航界面（包括别的 branch），只能在浏览器上改链接来访问，因此其实可以在博客里“藏”东西。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后还有一个特殊的文件夹 content/categories，这里面放的东西会和每个文章的分类联系在一起，参见 exampleSite。如果不用这个文件夹，直接写每篇文章的 categories 也是没问题的，就是归档里会没图片。如果用这个文件夹，可以设置 categories 的标签颜色、图片等，而且可以将一个类别的 id 和名称分开来，文件夹名、slug、调用时用 id，title 写名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;markdownkatex-相关&#34;&gt;Markdown、KaTeX 相关
+&lt;/h3&gt;&lt;div style=&#34;color: red; font-weight: bold&#34;&gt;这部分很重要，请务必注意！&lt;/div&gt;
+&lt;p&gt;无论如何要当心任何位置出现的特殊字符，尤其是 Typora 里没出问题的 &lt;code&gt;\&lt;/code&gt;。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;支持内嵌 html。&lt;/li&gt;
+&lt;li&gt;同普通 Markdown，如果两段间不留空行且第一段末尾没有俩空格，则渲染出来是不换行的。&lt;/li&gt;
+&lt;li&gt;关于列表的分段，Typora 是显示出来一律是分段的行距，但对于从未在标号（或项目点）前退格的列表，源码会不留空行，在网页里是不分段的行距（对比本列表和上一个列表）。这个可能会有点难看，如果介意的话，要手动改一下。另外列表内分段是按照缩进来的。&lt;/li&gt;
+&lt;li&gt;公式支持 KaTeX 功能（如果没渲染检查一下配置和 frontmatter 里有没有开 math），行间公式上下不留空行也没事。&lt;/li&gt;
+&lt;li&gt;如果要利用全局 \def，必须使用 \gdef。这个和 Typora 是不一样的，Typora 不识别 \gdef 但 \def 是全局的。&lt;/li&gt;
+&lt;li&gt;矩阵等多行的东西，需要打三个 &lt;code&gt;\&lt;/code&gt; 后再来个空格，以换行。这个很奇怪。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\,&lt;/code&gt;、&lt;code&gt;\;&lt;/code&gt; 之类的小空格必须改成 &lt;code&gt;\\,&lt;/code&gt;、&lt;code&gt;\\;&lt;/code&gt;。这个也很奇怪。&lt;/li&gt;
+&lt;li&gt;表格里公式偷懒不用 &lt;code&gt;\lvert\rvert&lt;/code&gt; 直接打 &lt;code&gt;|&lt;/code&gt; 时会出现与表格边界混淆的情况（Typora 会自动正确处理），这时要加转义 &lt;code&gt;\&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;公式内星号 &lt;code&gt;*&lt;/code&gt; 要加转义 &lt;code&gt;\&lt;/code&gt;（Typora 会自动正确处理）。&lt;/li&gt;
+&lt;li&gt;还有很多不加 &lt;code&gt;\&lt;/code&gt; 就会爆的情况。我遇到最诡异的是 &lt;code&gt;${a}_{b}{c}_{d}$&lt;/code&gt; 无法渲染。这种是因为垃圾 Markdown 渲染器把公式内外搞混了（两个下划线之间被识别为斜体）。遇到这种情况反正就在各个特殊字符前试着加 &lt;code&gt;\&lt;/code&gt; 就行。&lt;/li&gt;
+&lt;li&gt;连接自动识别在遇到标点时会有问题，建议还是用 &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; 括起来。&lt;/li&gt;
+&lt;li&gt;撇号如果直接用 &lt;code&gt;&#39;&lt;/code&gt; 会很丑（$&amp;rsquo;$），必须用 &lt;code&gt;^\prime&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;html 格式的图片要居中必须单独写 center。&lt;/li&gt;
+&lt;li&gt;如果希望强制调整表格列宽，可以用 &lt;code&gt;&amp;lt;div style=&amp;quot;width: 宽度&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;。注意其副作用是在不同宽度的屏幕上可能会显示得不好看。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;github-部署&#34;&gt;Github 部署
+&lt;/h3&gt;&lt;p&gt;Github 部署的思路如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Github 上一个公开的 repo 放网页文件。&lt;/li&gt;
+&lt;li&gt;每次 &lt;code&gt;hugo&lt;/code&gt; 完，把 public/ 内东西放到 repo 里。&lt;/li&gt;
+&lt;li&gt;如果不想手动操作，可以再建一个（可以私有）放整个博客的 repo，每次 push 之后用 github action 自动编译、更新到网页 repo 里。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;由于我想经常调试博客的 theme，而且第三步略麻烦，所以我就是手动更新。&lt;/p&gt;
+&lt;p&gt;总的操作方法见 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/568470172&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/568470172&lt;/a&gt;（有三篇）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;网址只能是 &lt;code&gt;github用户id.github.io&lt;/code&gt;，github settings pages 里改域名的选项是得自己先买域名的。&lt;/li&gt;
+&lt;li&gt;hugo 编译后，public 里老的文件是会留着的（例如你反复给一篇文章换主题图片，它都会留着）。如果你不希望别人来翻你的 github repo 看到这些，得每次手动删除。&lt;/li&gt;
+&lt;li&gt;每次把网页复制到本地仓库前，最好先删光（别手动删！git 会自动追踪仓库里的文件，可能会出问题。具体处理方法见下文）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;评论&#34;&gt;评论
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;disqus 有广告。&lt;/li&gt;
+&lt;li&gt;giscus 必须登录 github 才能评论。&lt;/li&gt;
+&lt;li&gt;twikoo 似乎有审查。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;cusdis 万岁！&lt;/p&gt;
+&lt;p&gt;免费版 cusdis 一个月 10 条无需 approve 和 100 条需要 approve 的评论（大概就是你得在邮箱的评论通知里点一下），完全够。&lt;/p&gt;
+&lt;p&gt;操作非常简单：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;注册个账号。输入博客网址与 notification 邮箱。&lt;/li&gt;
+&lt;li&gt;配置里 params 的 comments 的 provider 改成 cusdis，下面 cusdis 里 host 和 id 改一下，具体改的内容看 cusdis 里你的 dashboard 上方的 Embeded Code。&lt;/li&gt;
+&lt;li&gt;如果想改中文，在 layout/partial/comments/provider/cusdis.html 里 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;{{ $host }}/js/cusdis.es.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt; 的上面加一句 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;https://cusdis.com/js/widget/lang/zh-cn.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;日常维护&#34;&gt;日常维护
+&lt;/h3&gt;&lt;p&gt;我一般习惯这样：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在另外的文件夹里写博客。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每次手动新建文章文件夹，md 复制过去改名成 index.md，开头加上那段 yaml（我不习惯 &lt;code&gt;hugo new&lt;/code&gt;）。yaml 我用的模板：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;slug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;toc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;comments&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更新到 github。我写了以下脚本（须在 git bash 下运行，我的博客文件夹和 repo 文件夹并列）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; blog/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm public/* -r
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ../LittleReuben.github.io/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git rm * -r
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ../
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp -rf blog/public/* LittleReuben.github.io/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; LittleReuben.github.io/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add --all
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;upd&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意博客网页更新较慢，大概要等个 2min。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;del&gt;如果想搭博客也可以直接问我要魔改的 theme。&lt;/del&gt;&lt;/p&gt;
+&lt;h3 id=&#34;参考链接&#34;&gt;参考链接
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://thirdshire.com/hugo-stack-renovation-part-two/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://thirdshire.com/hugo-stack-renovation-part-two/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xrg.fj.cn/p/hugo-stack%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E5%B0%8F%E8%AE%B0/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://xrg.fj.cn/p/hugo-stack%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E5%B0%8F%E8%AE%B0/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://munlelee.github.io/post/hugo%E5%8D%9A%E5%AE%A2-stack%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%80%E7%AB%99/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://munlelee.github.io/post/hugo%E5%8D%9A%E5%AE%A2-stack%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%80%E7%AB%99/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhixuan2333.github.io/posts/ac760353/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhixuan2333.github.io/posts/ac760353/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.linsnow.cn/p/modify-hugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.linsnow.cn/p/modify-hugo/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/685991593&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/685991593&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://yelleis.top/p/61fdb627/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://yelleis.top/p/61fdb627/&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
