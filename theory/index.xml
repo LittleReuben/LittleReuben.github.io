@@ -6,6 +6,29 @@
         <description>Recent content in 理论 &amp; 思想 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>LRYP</copyright><atom:link href="https://example.com/theory/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>LRYP</copyright>
+        <lastBuildDate>Tue, 30 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/theory/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>一段对话</title>
+        <link>https://example.com/theory/conversation1/</link>
+        <pubDate>Tue, 30 Jul 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/theory/conversation1/</guid>
+        <description>&lt;div style=&#34;background-color: #F4B1C5; color: #6C0021; padding-left: 1em; border-left: 4px solid #C63A64; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;记事&lt;/b&gt;。&lt;br&gt;本文记录的内容并非完全准确，观点仅供参考。&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;背景：小 Y 与小 Z 互相分享学习经历。小 Y 向小 Z 介绍了 OI 的考察内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;小 Z：所以说，OI 的出题范围其实很有限，做得多了也没什么新的花样。你们训练的时间越长，其实只是在这里面钻牛角尖钻得越来越深罢了，而且越来越脱离实际。&lt;/p&gt;
+&lt;p&gt;小 Y：我觉得不是这样的，在做 OI 时，我们都感觉自己是在研究这个世界最底层的东西，因为随着我们不断优化这些算法，我们就不断接近这些问题解的复杂度下界，这就像数学和物理中的那些常数一样，对应着宇宙中一些最基本的关系，例如带修区间查询的下界是 $q\log n$，静态区间半群和查询的下界是 $(n+q)\alpha(n)$，还有现在学术界取得进步的负权最短路、网络流等等，这些结果都是很吸引我的。&lt;br&gt;
+这就像什么呢？我想到《三体》里，有讲到，人类跟四维生物的机器对话，就通过互相发送质数（$2,3,5,7,\cdots$）来表明自己是智慧生物。算法也是这样的一种东西。&lt;/p&gt;
+&lt;p&gt;小 Z：你如何理解质数？&lt;/p&gt;
+&lt;p&gt;小 Y：（疑惑）你想让我回答什么？定义吗？那不就是不存在非平凡因子的 $1$ 以外的正整数吗？&lt;/p&gt;
+&lt;p&gt;小 Z：从抽象代数的角度。&lt;/p&gt;
+&lt;p&gt;小 Y：（略作思考）我知道高斯质数，就是复数上的。也可以是环上的，域上的，比如不可约多项式。&lt;/p&gt;
+&lt;p&gt;小 Z：很好，我在你这个年纪的时候也是大概接触并想到了这些东西。所以，你觉得如果真的出现了科幻小说中的场景，人类把质数发过去，外星人会不会更可能只是不屑一顾？&lt;/p&gt;
+&lt;p&gt;小 Y：（恍然大悟）你的意思是不是说，OI 研究的是在图灵机模型下的算法，而这可能只是某个“抽象计算模型”的特例？而量子计算是一个不同的特例？所以你说，OI 只是在钻牛角尖。&lt;/p&gt;
+&lt;p&gt;小 Z：是的。我觉得，既然你喜欢计算机，那么在未来，你更应当做的，是寻找新的计算模型和计算工具，那才是真正的创新。你不要因为擅长解算法题，因为自己这之前的成就，就认为自己最喜欢的是算法理论，把自己困在传统模型的领域内。&lt;/p&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>

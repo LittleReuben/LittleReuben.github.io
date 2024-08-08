@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
-<title>Category: 杂记 &amp; 生活 :: 随感 - LRYP&#39;s Blog</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 好题。考察了找阶段，和对 dp 原理的理解。 下文提及手牌，指的是打牌后、拿牌前的状态。 首先，原问题可以转化成：要求在某些 $a_i=a_j$ 之间连">
+<title>[题解] CF1969F Card Pairing</title>
 
-<link rel='canonical' href='https://example.com/categories/jottings/'>
+<link rel='canonical' href='https://example.com/study/solution-cf1969f/'>
 
-<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="Category: 杂记 & 生活 :: 随感 - LRYP's Blog">
-<meta property='og:description' content="">
-<meta property='og:url' content='https://example.com/categories/jottings/'>
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="[题解] CF1969F Card Pairing">
+<meta property='og:description' content="这是一篇学习笔记。 好题。考察了找阶段，和对 dp 原理的理解。 下文提及手牌，指的是打牌后、拿牌前的状态。 首先，原问题可以转化成：要求在某些 $a_i=a_j$ 之间连">
+<meta property='og:url' content='https://example.com/study/solution-cf1969f/'>
 <meta property='og:site_name' content='LRYP&#39;s Blog'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-08-08T00:00:00&#43;00:00 '/><meta property='og:image' content='https://example.com/categories/jottings/jzg.JPG' />
-<meta name="twitter:title" content="Category: 杂记 & 生活 :: 随感 - LRYP's Blog">
-<meta name="twitter:description" content=""><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://example.com/categories/jottings/jzg.JPG' /><link rel="alternate" type="application/rss&#43;xml" href="https://example.com/categories/jottings/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2024-05-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-05-21T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="[题解] CF1969F Card Pairing">
+<meta name="twitter:description" content="这是一篇学习笔记。 好题。考察了找阶段，和对 dp 原理的理解。 下文提及手牌，指的是打牌后、拿牌前的状态。 首先，原问题可以转化成：要求在某些 $a_i=a_j$ 之间连">
     <link rel="shortcut icon" href="/avatar.jpg" />
 
   
 
 
     </head>
-    <body class="">
+    <body class="
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -143,7 +144,7 @@
         
         
         
-        <li >
+        <li  class='current' >
             <a href='/study/' >
                 
                 
@@ -243,96 +244,156 @@
     </ol>
 </aside>
 
-    <aside class="sidebar right-sidebar sticky">
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
         
-            
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>搜索</label>
-            <input name="keyword" required placeholder="输入关键词..." />
-        
-            <button title="搜索">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-    </div>
-    <h2 class="widget-title section-title">分类</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/categories/oi/" class="font_size_13">
+            <a href="/categories/oi/" style="background-color: #2a9d8f; color: #fff;">
                 学习 &amp; 技术 :: 算法竞赛
             </a>
         
-            <a href="/categories/math/" class="font_size_4">
-                学习 &amp; 技术 :: 数学
-            </a>
-        
-            <a href="/categories/thoughts/" class="font_size_1">
-                理论 &amp; 思想 :: 一些想法
-            </a>
-        
-            <a href="/categories/tutorial/" class="font_size_1">
-                学习 &amp; 技术 :: 教程
-            </a>
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/solution-cf1969f/">[题解] CF1969F Card Pairing</a>
+        </h1>
+    
         
     </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-05-21</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>好题。考察了找阶段，和对 dp 原理的理解。</p>
+<p>下文提及手牌，指的是打牌后、拿牌前的状态。</p>
+<p>首先，原问题可以转化成：要求在某些 $a_i=a_j$ 之间连线（显然不会跨相同的数连），使得跨过每个 $a_{2t}$ 与 $a_{2t+1}$ 之间间隙的线的数量 $\le k-2$。这个转化是很直接的，因为连线左端的卡必须保留在手中。有可能产生疑问的一点是：如果一对 $a_{2t-1}$ 和 $a_{2t}$ 均为连线右端，那有一对卡就要顺延到后一轮才能打出，那就在待配对卡的基础上多了一对需要保留的牌啊？但由于这种情况跨 $a_{2t}$ 与 $a_{2t+1}$ 间隙的线的数量必然比跨 $a_{2t-1}$ 与 $a_{2t-1}$ 间隙的少 $2$，故这个间隙不必考虑。实际上就是能打出相同牌的轮，手牌数不变多。因此接下来认为如果拿到两张牌目前均可配对就一次性配掉，即手牌可以 $&lt;k-2$。</p>
+<p>处理转化后的问题。首先，如果没有 $\le k-2$ 的限制，就是从左往右扫，发现配对了就连线（下称“贪心”）。由于手牌数不可能为奇（后续不可能配对的牌也要保留在手里），故只有为 $k$ 时会不合法，这时直觉上来说要决策放弃两张牌。但是光这么考虑，总感觉不完备，凭什么只用这种决策方式就一定能覆盖最优解？</p>
+<p>从另一个角度看，解的结构可以表述为：强制禁止某几对相同的数连线，然后剩余的贪心，要求最终合法。那么，如果某条线连了不会导致不合法，那禁掉它一定不优（如果不禁导致后面贪心得到的连线改变而不合法，可以在后面禁），因此可以在第一次发现不合法时禁。于是，上文 dp 的过程，就可以理解为决策禁哪些，然后分段贪心。</p>
+<p>令 $f_i$ 表示 $a_{2i}$ 与 $a_{2i+1}$ 处出现了不合法，前面的最优答案。没法直接枚举放弃的两张牌，先考虑直接往后贪心。注意到如果后面某一时刻手牌数为 $k-2$，那么如果放弃的是缺的两张牌，那么这个时刻就会不合法。如果这两张牌的组合在之前没出现过，则要转移。直接转移到末尾的情况需要讨论一下。</p>
+<p>一个实现问题是，如何快速求出缺的两张牌。可以记录缺的牌的和与平方和，也可以惰性删除，将所有新扫到的牌放在一个栈里，求时全拿出来判断。</p>
+<p>时间复杂度 $\mathrm{O}(n^2)$，<a class="link" href="https://codeforces.com/contest/1969/submission/261329499"  target="_blank" rel="noopener"
+    >代码</a>。</p>
+
 </section>
 
-            
-        
-    </aside>
 
-
-            <main class="main full-width">
-    <header>
-        
-
-        <div class="section-card">
-            <div class="section-details">
-                <h3 class="section-count">0 个页面</h3>
-                <h1 class="section-term">杂记 &amp; 生活 :: 随感</h1>
-                
-            </div>
-                <div class="section-image">
-                    <img src="/categories/jottings/jzg.JPG" 
-                            width="4032"
-                            height="3024" 
-                            loading="lazy">
-                    
-                </div>
-            
-        </div>
-    </header>
-        
+    <footer class="article-footer">
     
-    <section class="article-list--compact">
-        
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
     </section>
-<footer class="site-footer">
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="98976a10899cf406b8489a94e66a4948"
+    data-page-url="https://example.com/study/solution-cf1969f/"
+    data-page-title="[题解] CF1969F Card Pairing"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -450,6 +511,84 @@
   }
 </script>
 
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
             </main>
         </div>

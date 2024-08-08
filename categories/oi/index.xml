@@ -7,7 +7,246 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sun, 18 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/oi/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/oi/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>OI 出题列表</title>
+        <link>https://example.com/study/problemsetting/</link>
+        <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/problemsetting/</guid>
+        <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;第三列是样例输出一的第一个字符串，可用于校验。&lt;/p&gt;
+&lt;p&gt;adhoc 包括分析性质结论、线性扫描、推式子，还有一些基础算法（二分、倍增等）和数据结构（队列、栈等）。&lt;/p&gt;
+&lt;p&gt;难度为预估 CF 评分除以 100。&lt;/p&gt;
+&lt;p&gt;以下不含原题，但有可能考后被发现恰巧是已有类似的题。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;中文名&lt;/th&gt;
+&lt;th&gt;英文名&lt;/th&gt;
+&lt;th&gt;SO1&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;难度&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;挑战群同构&lt;/td&gt;
+&lt;td&gt;npc&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数论&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;配对&lt;/td&gt;
+&lt;td&gt;pair&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ds&lt;/td&gt;
+&lt;td&gt;33&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;天桥&lt;/td&gt;
+&lt;td&gt;bridge&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ds&lt;/td&gt;
+&lt;td&gt;33&lt;/td&gt;
+&lt;td&gt;&amp;gt;1 被爆标了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;连连看&lt;/td&gt;
+&lt;td&gt;game&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;332748215&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;poly&lt;/td&gt;
+&lt;td&gt;35+&lt;/td&gt;
+&lt;td&gt;23 互测&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;原子&lt;/td&gt;
+&lt;td&gt;atom&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;构造&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;旅行计划&lt;/td&gt;
+&lt;td&gt;plan&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;图论&lt;/td&gt;
+&lt;td&gt;24&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;禁止套娃&lt;/td&gt;
+&lt;td&gt;nest&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;dp&lt;/td&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;td&gt;&amp;gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;简单题&lt;/td&gt;
+&lt;td&gt;easy&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数论&lt;/td&gt;
+&lt;td&gt;34&lt;/td&gt;
+&lt;td&gt;&amp;gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;染色数组&lt;/td&gt;
+&lt;td&gt;color&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;21&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;博弈&lt;/td&gt;
+&lt;td&gt;game&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;博弈&amp;amp;dp&lt;/td&gt;
+&lt;td&gt;33&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;消消乐&lt;/td&gt;
+&lt;td&gt;bubbles&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;34&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;土豆田&lt;/td&gt;
+&lt;td&gt;potato&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;4&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;CF627E 弱&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;像素原神&lt;/td&gt;
+&lt;td&gt;mc&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;dp&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;区间操作&lt;/td&gt;
+&lt;td&gt;oper&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ds&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;猜排列&lt;/td&gt;
+&lt;td&gt;interact&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;异或&lt;/td&gt;
+&lt;td&gt;xor&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;24&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;adhoc&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;机器车路径规划问题&lt;/td&gt;
+&lt;td&gt;path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;FAIL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;构造&lt;/td&gt;
+&lt;td&gt;26&lt;/td&gt;
+&lt;td&gt;×&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;猴子排序&lt;/td&gt;
+&lt;td&gt;sort&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;dp&lt;/td&gt;
+&lt;td&gt;31&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;最简洁的题面&lt;/td&gt;
+&lt;td&gt;simple&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数论&lt;/td&gt;
+&lt;td&gt;35+&lt;/td&gt;
+&lt;td&gt;×&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
+        <title>读论文系列 #3——Nash-Williams 定理</title>
+        <link>https://example.com/study/paper3/</link>
+        <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/paper3/</guid>
+        <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;这里主要讲一下 Nash-Williams 定理的证明。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一张图 $G$ 的边集能划分成 $k$ 个森林 $\Leftrightarrow$ 其每个非空导出子图的 $\lvert E\rvert\le k(\lvert V\rvert-1)$。允许重边。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$\Rightarrow$ 显然，$\Leftarrow$ 的证明：&lt;/p&gt;
+&lt;p&gt;以下称一个非空导出子图“合法”为 $\lvert E\rvert\le k(\lvert V\rvert-1)$，“满”为 $\lvert E\rvert=k(\lvert V\rvert-1)$。记 $G[S]$ 为 $G$ 中节点子集 $S$ 的导出子图。&lt;/p&gt;
+&lt;p&gt;证 1（$k=2$，P5295/UOJ#168 题解里的证法）：归纳。现考虑度数最小的点 $u$，由鸽巢，其度数至多为 $3$。其余情况平凡，度数为 $3$ 时，设相连点为 $v_{1\sim 3}$，这时删去 $u$，待证的即为在这三个点间加某条边，可以划分，这样加回 $u$ 时只需在这条额外边中间放上 $u$ 即可。&lt;br&gt;
+如果不行，也就是说分别存在包含 $v_1$ 与 $v_2$、包含 $v_1$ 与 $v_3$、包含 $v_2$ 与 $v_3$ 的三个满的导出子图（它们不能额外加边）由于 $G_1+G_2=G_1\cup G_2+G_1\cap G_2$，故两个有公共点的满子图，它们的交、并均为满。故存在一个包含 $v_1$、$v_2$ 与 $v_3$ 的满子图，那么包括进 $u$ 时，这个子图就不合法了，矛盾。&lt;/p&gt;
+&lt;p&gt;这个思路在 $k\ge 2$ 时需要稍加修改才能沿用。&lt;/p&gt;
+&lt;p&gt;证 2（&lt;a class=&#34;link&#34; href=&#34;https://tus.repo.nii.ac.jp/record/1510/files/02-enomoto.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;论文&lt;/a&gt;）：考虑度数最小的点 $u$，由鸽巢，其度数 $d\le 2k-1$，且 $d\le k$ 时平凡。设 $u$ 邻边的另一个端点从小到大依次为 $v_{1\sim d}$（可重），现在考虑以下过程：对 $i=1\sim d-k$，时刻 $i$ 时将 $e_i=(u,v_i)$ 去掉，加入 $e^\prime_i=(v_i,v_{i+k})$（显然 $v_i\ne v_{i+k}$）。记 $G^\prime$ 为改完的图。&lt;br&gt;
+如果直到操作完都没有不合法，那就令 $S=V\setminus\set u$，$t=d-k$。否则假设时刻 $t+1$ 是第一个出现不合法的时刻，那么时刻 $t$ 可以找到一个不含 $u$ 的满子图 $G^\prime[S]$，不妨设 $t$ 及之前所有连上新边的点都在 $S$ 内。在时刻 $t$ 后中止上述过程。&lt;br&gt;
+先归纳构造 $G^\prime[S]$ 的拆分方案，然后将 $S$ 缩成一个点，这时得到的图 $G^{\prime\prime}$ 的导出子图也均合法，第一种情况显然，第二种情况，如果找到了一个不合法的子图，那和 $G^\prime[S]$ 并在一起也不合法，矛盾。因此也构造出 $G^{\prime\prime}$ 的方案。对于 $G^\prime[S]$ 方案中的一个森林，如果有某个 $e^\prime_i$ 属于它，那么将它与 $G^{\prime\prime}[S]$ 中包含 $e_{i+k}$ 的那个并起来（有多个 $i$ 则任选），称这样得到的为第一类；对于其他森林，随意配对并起来，为第二类。显然目前并出的各图均为森林。&lt;br&gt;
+现在类似于前面的思路，要把 $e^\prime_i$ 还原回中间接了个 $u$ 的原图方案，即在各个第一类森林中删 $e^\prime_i$ 加回 $e_i$。这样可能导致环，即 $u$ 原来就与 $v_i$ 通过 $e_i^\prime$ 以外的边连通，且删了 $e^\prime_i$ 后 $v_{i+k}$ 与 $u$ 不连通了（不然原来会有环）。找到包含 $e_{i+k}$ 的森林，它一定是第二类，这是因为归纳构造时 $S$ 被缩起来了，故 $e_{i+k}$ 不会与其他 $e_{j+k}$（$j\le t$）处于同一个森林中。把这两个森林里的 $e_{i}$ 与 $e_{i+k}$ 互换即可。这不会在这个第二类森林中引入环，也是因为构造时 $S$ 被缩起来，即 $u$ 与 $S$ 内 $v$ 间的边对连通性的影响是无区分的，而第二类森林两端在 $S$ 内的边又不会变动（如果不区分一二类森林，直接随便配对并，就可能在还原时无法避免环）。&lt;/p&gt;
+&lt;p&gt;然后还有一个对边归纳的思路。&lt;/p&gt;
+&lt;p&gt;证 3（&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1705.01648&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;论文&lt;/a&gt;）：任取一条边 $(u,v)$，归纳构造不含它的方案，这时如果在某个森林中 $u$、$v$ 不连通，则直接补进去即可；否则考虑某个森林 $G_1$ 中它们所在的连通块，设点集为 $S$。在其余森林中分别取出 $S$ 的导出子图，至少有一个导出子图不连通（否则加回 $(u,v)$ 时就不合法了），找出它对应的原森林 $G_2$。&lt;br&gt;
+如果考虑进 $G_2$ 的所有边时，$S$ 中的点仍不连通，那么可从 $G_1[S]$ 中取出一条边改放到 $G_2$ 中使 $G_2$ 仍为森林（与图拟阵的证明相同）；否则，若将 $G_2[S]$ 中各连通块缩成点，那么这些点在 $G_2$ 中的位置关系形成一棵树，至少有两个叶子。这说的意思是，$G_2[S]$ 中存在至少两个连通块，如果断开其与 $S$ 之外的某条边，它就与其他 $G_2[S]$ 的连通块都不连通了。选出非 $u$ 所在的这样一个连通块，设其点集为 $S^\prime$，它与其他连通块连接的唯一“向外通道”为边 $e_1$，$e_1$ 在 $S$ 中侧端点为 $w$，考虑 $G_1$ 中 $u\rightsquigarrow w$ 路径上第一条一端在 $S^\prime$ 内的边 $e_2$。将 $e_2$ 换到 $G_1$，$e_1$ 换到 $G_2$，这样两图仍为森林，且 $G_1$ 中 $u$ 所在连通块变小。如此进行下去，直到 $G_1$ 中 $u$、$v$ 不连通即可。&lt;br&gt;
+下图为最后一种情况，红色边为 $G_1$，蓝色与深蓝色边为 $G_2$，深蓝色边省略了在 $S$ 以外的中转点。实质上最后一种情况就是费尽心思想强制让 $G_1[S]$ 丢掉一些点，同时在丢掉点时 $u$ 所在部分不能和别的连通块连起来。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/study/paper3/1.png&#34;
+	width=&#34;800&#34;
+	height=&#34;531&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;361px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;要判断一个图是否满足上述条件，问题就变为最大权闭合子图问题：选边为 $+1$，选点为 $-k$，要求结果 $\le -k$。为了避免空图，可以强制选一条边（增流）或一个点（退流）。&lt;/p&gt;
+&lt;p&gt;对于 CF1951I，有另一个性质是，所有满足条件的连边情况构成一个拟阵，交换性的证明是，对于两张图的森林划分，考虑边数多的图边数最多的森林与边数少的图的边数最少的森林，套用图拟阵的证明方式即可。边不能一条条地加，考虑二分下一次加边失败的边权，失败后这条边就可以忽略了。时间复杂度 $\mathrm{O}(m^5\log mW)$。（这题用退流似乎没什么优势？）&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[题解] CF1969F Card Pairing</title>
+        <link>https://example.com/study/solution-cf1969f/</link>
+        <pubDate>Tue, 21 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/study/solution-cf1969f/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;好题。考察了找阶段，和对 dp 原理的理解。&lt;/p&gt;
+&lt;p&gt;下文提及手牌，指的是打牌后、拿牌前的状态。&lt;/p&gt;
+&lt;p&gt;首先，原问题可以转化成：要求在某些 $a_i=a_j$ 之间连线（显然不会跨相同的数连），使得跨过每个 $a_{2t}$ 与 $a_{2t+1}$ 之间间隙的线的数量 $\le k-2$。这个转化是很直接的，因为连线左端的卡必须保留在手中。有可能产生疑问的一点是：如果一对 $a_{2t-1}$ 和 $a_{2t}$ 均为连线右端，那有一对卡就要顺延到后一轮才能打出，那就在待配对卡的基础上多了一对需要保留的牌啊？但由于这种情况跨 $a_{2t}$ 与 $a_{2t+1}$ 间隙的线的数量必然比跨 $a_{2t-1}$ 与 $a_{2t-1}$ 间隙的少 $2$，故这个间隙不必考虑。实际上就是能打出相同牌的轮，手牌数不变多。因此接下来认为如果拿到两张牌目前均可配对就一次性配掉，即手牌可以 $&amp;lt;k-2$。&lt;/p&gt;
+&lt;p&gt;处理转化后的问题。首先，如果没有 $\le k-2$ 的限制，就是从左往右扫，发现配对了就连线（下称“贪心”）。由于手牌数不可能为奇（后续不可能配对的牌也要保留在手里），故只有为 $k$ 时会不合法，这时直觉上来说要决策放弃两张牌。但是光这么考虑，总感觉不完备，凭什么只用这种决策方式就一定能覆盖最优解？&lt;/p&gt;
+&lt;p&gt;从另一个角度看，解的结构可以表述为：强制禁止某几对相同的数连线，然后剩余的贪心，要求最终合法。那么，如果某条线连了不会导致不合法，那禁掉它一定不优（如果不禁导致后面贪心得到的连线改变而不合法，可以在后面禁），因此可以在第一次发现不合法时禁。于是，上文 dp 的过程，就可以理解为决策禁哪些，然后分段贪心。&lt;/p&gt;
+&lt;p&gt;令 $f_i$ 表示 $a_{2i}$ 与 $a_{2i+1}$ 处出现了不合法，前面的最优答案。没法直接枚举放弃的两张牌，先考虑直接往后贪心。注意到如果后面某一时刻手牌数为 $k-2$，那么如果放弃的是缺的两张牌，那么这个时刻就会不合法。如果这两张牌的组合在之前没出现过，则要转移。直接转移到末尾的情况需要讨论一下。&lt;/p&gt;
+&lt;p&gt;一个实现问题是，如何快速求出缺的两张牌。可以记录缺的牌的和与平方和，也可以惰性删除，将所有新扫到的牌放在一个栈里，求时全拿出来判断。&lt;/p&gt;
+&lt;p&gt;时间复杂度 $\mathrm{O}(n^2)$，&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/1969/submission/261329499&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;代码&lt;/a&gt;。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[题解] CF924F Minimal Subset Difference</title>
         <link>https://example.com/study/solution-cf924f/</link>
         <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
@@ -140,7 +379,7 @@ $t$ 表示任意串。前面一个串 $p=n/2$，红色部分 $q=n/3$。&lt;/p&gt
 &lt;p&gt;&lt;img src=&#34;https://example.com/study/dp-problems/dp/o0rauqlf.png&#34;
 	width=&#34;600&#34;
 	height=&#34;300&#34;
-	srcset=&#34;https://example.com/study/dp-problems/dp/o0rauqlf_hu47a850a932d1b57e0a8eb3b98e62ef7b_5397_480x0_resize_box_3.png 480w, https://example.com/study/dp-problems/dp/o0rauqlf_hu47a850a932d1b57e0a8eb3b98e62ef7b_5397_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -366,7 +605,7 @@ $$
 &lt;p&gt;&lt;img src=&#34;https://example.com/study/dp-problems/dp/zely9825.png&#34;
 	width=&#34;1789&#34;
 	height=&#34;541&#34;
-	srcset=&#34;https://example.com/study/dp-problems/dp/zely9825_hu7e6b8ed78ac1e87719f91882e6afff8a_80069_480x0_resize_box_3.png 480w, https://example.com/study/dp-problems/dp/zely9825_hu7e6b8ed78ac1e87719f91882e6afff8a_80069_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1528,7 +1767,7 @@ $$
 &lt;p&gt;&lt;img src=&#34;https://example.com/study/constructive-problems/5zn46ypf.png&#34;
 	width=&#34;654&#34;
 	height=&#34;260&#34;
-	srcset=&#34;https://example.com/study/constructive-problems/5zn46ypf_hub2d1362ea736e59449330be280e49de8_20100_480x0_resize_box_3.png 480w, https://example.com/study/constructive-problems/5zn46ypf_hub2d1362ea736e59449330be280e49de8_20100_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1613,7 +1852,7 @@ $$
 &lt;p&gt;&lt;img src=&#34;https://example.com/study/constructive-problems/0v4h3srt.png&#34;
 	width=&#34;942&#34;
 	height=&#34;198&#34;
-	srcset=&#34;https://example.com/study/constructive-problems/0v4h3srt_hu9e4445c399ec4fff5c6d2e885bb0017e_28937_480x0_resize_box_3.png 480w, https://example.com/study/constructive-problems/0v4h3srt_hu9e4445c399ec4fff5c6d2e885bb0017e_28937_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1709,7 +1948,7 @@ $$
 &lt;p&gt;&lt;img src=&#34;https://example.com/study/constructive-problems/tu7s7npb.png&#34;
 	width=&#34;1000&#34;
 	height=&#34;292&#34;
-	srcset=&#34;https://example.com/study/constructive-problems/tu7s7npb_hud0f2f7e718c212b397695311c100c1d2_47892_480x0_resize_box_3.png 480w, https://example.com/study/constructive-problems/tu7s7npb_hud0f2f7e718c212b397695311c100c1d2_47892_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -1784,7 +2023,7 @@ $$
 &lt;p&gt;&lt;img src=&#34;https://example.com/study/paper2/fga2gv7u.png&#34;
 	width=&#34;1070&#34;
 	height=&#34;400&#34;
-	srcset=&#34;https://example.com/study/paper2/fga2gv7u_hu13c3b81ed0401b39d1d69b4b315a2bf0_27564_480x0_resize_box_3.png 480w, https://example.com/study/paper2/fga2gv7u_hu13c3b81ed0401b39d1d69b4b315a2bf0_27564_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 	
@@ -2304,7 +2543,7 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://example.com/study/solution-lgp9159/xd7iksq2.png&#34;
 	width=&#34;847&#34;
 	height=&#34;164&#34;
-	srcset=&#34;https://example.com/study/solution-lgp9159/xd7iksq2_hu57fb01abe303f114021fd48e09b62391_17561_480x0_resize_box_3.png 480w, https://example.com/study/solution-lgp9159/xd7iksq2_hu57fb01abe303f114021fd48e09b62391_17561_1024x0_resize_box_3.png 1024w&#34;
+	
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;例&#34;
