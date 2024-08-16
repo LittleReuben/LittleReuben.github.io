@@ -146,7 +146,11 @@
 &lt;p&gt;“评论”标题：在 layouts/partials/comments/include.html 的第一二行间加 &lt;code&gt;&amp;lt;h2 style=&amp;quot;color: var(--card-text-color-main)&amp;quot;&amp;gt;评论&amp;lt;/h2&amp;gt;&lt;/code&gt;。这样暗色模式不会还是黑的。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;如果觉得 &lt;code&gt;![]()&lt;/code&gt; 图片和封面图片糊得难看，可以把配置里的 imageProcessing 下面两个改成 false。&lt;/p&gt;
+&lt;p&gt;如果觉得 &lt;code&gt;![]()&lt;/code&gt; 图片和封面图片糊得不正常且难看，可以把配置里的 imageProcessing 下面两个改成 false。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阅读量：&lt;a class=&#34;link&#34; href=&#34;https://hyrtee.github.io/2023/start-blog/#%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://hyrtee.github.io/2023/start-blog/#%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&lt;/a&gt;。这里有个问题就是首页的每篇文章的阅读量是无法正常显示的，这个我也不会解决，只能只在具体文章页面显示该阅读量。但是问题在于首页的卡片的 details 和文章的 details 是共用 layout/partials/article/components/details.html 的，就无法区别处理。我的处理方法是复制一份 header.html 和 details.html 然后改一份有统计量的。显然这并不是个简介的解决方案，主要我不会 html 里 &lt;code&gt;partial&lt;/code&gt; 情况下的传参。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;content-目录结构&#34;&gt;content 目录结构
