@@ -6,6 +6,144 @@
         <description>Recent content in 收集 &amp; 列表 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>LRYP</copyright><atom:link href="https://example.com/collection/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>LRYP</copyright>
+        <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/collection/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>THU 的一些风景</title>
+        <link>https://example.com/collection/thu-photo/</link>
+        <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/collection/thu-photo/</guid>
+        <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;Shot on iPhone 15.&lt;/p&gt;
+&lt;p&gt;以后有机会一定专门学摄影。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/1.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2024.8.14 傍晚 主楼&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/2.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.17 下午 荷塘&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/3.jpg&#34;
+	width=&#34;1080&#34;
+	height=&#34;1920&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.17 深夜 紫二【闪电】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;56&#34;
+		data-flex-basis=&#34;135px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/4.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;3213&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.21 早晨 紫二&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/5.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;2268&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.23 傍晚 紫二&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/6.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.24 午夜 东操【拉练前】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/7.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.25 黎明 主楼&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/8.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;3213&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.25 黎明 二校门&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/9.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.25 黎明 紫操&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>

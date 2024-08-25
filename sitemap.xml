@@ -29,22 +29,29 @@
     <loc>https://example.com/categories/mc/</loc>
   </url><url>
     <loc>https://example.com/categories/discover/</loc>
+    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/categories/lists/</loc>
   </url><url>
     <loc>https://example.com/</loc>
-    <lastmod>2024-08-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.com/theory/hanzi-yu-dongya-wenhua/</loc>
-    <lastmod>2024-08-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/categories/</loc>
+    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/collection/thu-photo/</loc>
+    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/collection/</loc>
+    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/theory/book-hanzi-yu-dongya-wenhua/</loc>
     <lastmod>2024-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/theory/</loc>
     <lastmod>2024-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/theory/ningbonese/</loc>
+    <loc>https://example.com/theory/ningbonese-function-word/</loc>
     <lastmod>2024-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/study/problemsetting/</loc>
@@ -119,8 +126,6 @@
     <loc>https://example.com/about/</loc>
   </url><url>
     <loc>https://example.com/archives/</loc>
-  </url><url>
-    <loc>https://example.com/collection/</loc>
   </url><url>
     <loc>https://example.com/life/</loc>
   </url>

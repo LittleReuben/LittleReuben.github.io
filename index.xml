@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sat, 24 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于本博客</title>
         <link>https://example.com/p/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
@@ -58,12 +58,149 @@
 </description>
         </item>
         <item>
+        <title>THU 的一些风景</title>
+        <link>https://example.com/collection/thu-photo/</link>
+        <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/collection/thu-photo/</guid>
+        <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;Shot on iPhone 15.&lt;/p&gt;
+&lt;p&gt;以后有机会一定专门学摄影。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/1.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2024.8.14 傍晚 主楼&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/2.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.17 下午 荷塘&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/3.jpg&#34;
+	width=&#34;1080&#34;
+	height=&#34;1920&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.17 深夜 紫二【闪电】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;56&#34;
+		data-flex-basis=&#34;135px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/4.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;3213&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.21 早晨 紫二&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/5.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;2268&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.23 傍晚 紫二&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/6.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.24 午夜 东操【拉练前】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/7.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.25 黎明 主楼&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/8.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;3213&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.25 黎明 二校门&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/9.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;8.25 黎明 紫操&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>《汉字与东亚文化》阅读笔记</title>
-        <link>https://example.com/theory/hanzi-yu-dongya-wenhua/</link>
+        <link>https://example.com/theory/book-hanzi-yu-dongya-wenhua/</link>
         <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/theory/hanzi-yu-dongya-wenhua/</guid>
-        <description>&lt;img src="https://example.com/theory/hanzi-yu-dongya-wenhua/cover.png" alt="Featured image of post 《汉字与东亚文化》阅读笔记" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+        <guid>https://example.com/theory/book-hanzi-yu-dongya-wenhua/</guid>
+        <description>&lt;img src="https://example.com/theory/book-hanzi-yu-dongya-wenhua/cover.png" alt="Featured image of post 《汉字与东亚文化》阅读笔记" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;《汉字与东亚文化》[韩] 金文京&lt;/p&gt;
 &lt;p&gt;如果有觉得内容有问题或者我概括得有问题的请纠错。&lt;/p&gt;
 &lt;p&gt;下文年份略，可以自行看书。&lt;/p&gt;
@@ -209,7 +346,7 @@ $$
 &lt;p&gt;其他与汉字相关的文字包括契丹大小字、西夏文、女真字、女书。&lt;/p&gt;
 &lt;p&gt;值得注意的是，关于日朝的训读、汉和/谚混写的问题，假名/谚文的问题，知乎上有不少以语言特征对应表记可行性为理由的分析，这是倒置了因果，是很片面的，应当排除。&lt;/p&gt;
 &lt;h3 id=&#34;附东亚各语言之间人地名互译方式&#34;&gt;附：东亚各语言之间人、地名互译方式
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/theory/hanzi-yu-dongya-wenhua/trans.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/theory/book-hanzi-yu-dongya-wenhua/trans.png&#34;
 	width=&#34;1179&#34;
 	height=&#34;648&#34;
 	
@@ -221,7 +358,8 @@ $$
 		data-flex-basis=&#34;436px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;音译目前对方语言的发音的，叫“现地音”。韩国主张用现地音，反正我感觉就很难看。&lt;/p&gt;
+&lt;p&gt;取自知乎的某个帖子，但是原作者我目前找不到了。&lt;/p&gt;
+&lt;p&gt;音译目前对方语言的发音的，叫“现地音”。韩国主张用现地音（例如베이징、도쿄），反正我感觉很难看。&lt;/p&gt;
 &lt;h3 id=&#34;延伸阅读&#34;&gt;延伸阅读
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://yupzhou.github.io/JPRoots/road.html#%E6%96%87%E5%AD%97&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;日语历史&lt;/a&gt;（宝藏）&lt;/p&gt;
@@ -238,7 +376,7 @@ $$
     &gt;中古朝鲜语汉字音表&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://oak.jejunu.ac.kr/bitstream/2020.oak/23438/2/%E6%BC%A2%E8%AA%9E%E4%B8%AD%E5%8F%A4%E9%9F%B3%EA%B3%BC%20%E8%A8%93%E6%B0%91%E6%AD%A3%E9%9F%B3%EC%9D%98%20%E9%9F%B3%E9%9F%BB%E7%A1%8F%E7%A9%B6.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;中古朝鲜语汉字音研究&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;日语古代汉字音随便哪里都能查到，无非就是用历史假名遣写。越南汉越音和喃字字典也容易查到。&lt;/p&gt;
+&lt;p&gt;日语古代汉字音随便哪里都能查到，无非就是用历史假名遣。越南汉越音和喃字字典也容易查到。&lt;/p&gt;
 &lt;h3 id=&#34;思考&#34;&gt;思考
 &lt;/h3&gt;&lt;p&gt;在上面的分析中我们会发现，除了佛教、儒学、朱子学、和古代中国的交流这些文化交流以外，还有一个很大的因素就是各自的民族意识。各国面对汉字的态度，其实就是在学习中国文化与保留本族文化之间不断摇摆，达到一个变化中的平衡。尽管当今，社会上的、国家间的问题其主要因素是利益，但政治、文化、历史因素也是不可忽视且融为一体的。所以我觉得，这本书的分析其实可以启发我们对这些问题的思考，思考我们对一些事情定性的判断标准是什么。当然不能完全类比汉字（汉字的属性比较单一），但至少能提供一个角度。&lt;/p&gt;
 &lt;p&gt;思考会持续更新。&lt;/p&gt;
@@ -246,10 +384,10 @@ $$
         </item>
         <item>
         <title>宁波话中的虚词</title>
-        <link>https://example.com/theory/ningbonese/</link>
+        <link>https://example.com/theory/ningbonese-function-word/</link>
         <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/theory/ningbonese/</guid>
+        <guid>https://example.com/theory/ningbonese-function-word/</guid>
         <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;在提起某個漢語方言時，人們的第一反應大部分是發音、比較特色的一些實詞，抑或是語序，而對於虛詞，尤其是副詞以外的虛詞，則很少有人注意。這種現象不僅發生在不瞭解該方言的人身上，母語者也是如此。作為學校去方言化的一代人，我覺得我們對於自己的方言主要有兩點缺乏認識：一是較少用但地道的實詞。因為我們學方言只能聽長輩講，而現在長輩講方言一般都是日常生活，柴米油鹽相關的場景，很多詞，包括一些有典故的成語、歇後語都用不上，或者有多種表示同一意思的詞長輩習慣於用其中一種，或者根據地區有些詞少用，那我們就接觸不到。二就是語法。至少對我來説，小時候很少用方言說長句。而到小學高年級或中學以後再練習，已經過了最佳習得期，多有語法錯誤或不豐富。這樣一來，我們說的就是不正宗的“普通話式方言”。而漢語作為孤立語，虛詞起到的很重要的語法作用。我作以下的總結，就是想引起大家對方言語法的關注，順帶還有方言的正字。&lt;/p&gt;
 &lt;p&gt;以下詞僅包括我知道的詞，如果有補充可以評論。&lt;/p&gt;
