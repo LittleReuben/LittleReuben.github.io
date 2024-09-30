@@ -625,7 +625,9 @@ $$
 &lt;li&gt;twikoo 似乎有审查。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;cusdis 万岁！&lt;/p&gt;
-&lt;p&gt;免费版 cusdis 一个月 10 条无需 approve 和 100 条需要 approve 的评论（大概就是你得在邮箱的评论通知里点一下），完全够。&lt;/p&gt;
+&lt;p&gt;免费版 cusdis 一个月 10 条 quick approve 和 100 条需要 approve 的评论（大概就是你得在邮箱的评论通知里点一下），完全够。&lt;/p&gt;
+&lt;p&gt;upd：但是有个缺点，就是选填的 Email 谁也看不到，而且 reply 也不会同时评论者，相当于没用。&lt;/p&gt;
+&lt;p&gt;upd：似乎 quick approve 界面可以看到。&lt;/p&gt;
 &lt;p&gt;操作非常简单：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;注册个账号。输入博客网址与 notification 邮箱。&lt;/li&gt;
@@ -733,6 +735,14 @@ $$
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;具有左右消去律的无限半群不一定是群。（$\N$）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;存在左逆元的幺半群一定是群。&lt;/p&gt;
+&lt;p&gt;证：$xa=e\land yx=e\Rightarrow y=yxa=a$ 于是右逆元存在。$xa=ya\Rightarrow x=xaa^{-1}=yaa^{-1}=y$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一般的幺半群中不一定有左逆元等于右逆元。（&lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/questions/655186/in-a-non-commutative-monoid-is-the-left-inverse-of-an-element-also-the-right-in&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/questions/655186/in-a-non-commutative-monoid-is-the-left-inverse-of-an-element-also-the-right-in&lt;/a&gt;）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
@@ -1920,10 +1930,10 @@ $$
         </item>
         <item>
         <title>关于微分的理解问题</title>
-        <link>https://example.com/study/%E5%85%B3%E4%BA%8E%E5%BE%AE%E5%88%86%E7%9A%84%E7%90%86%E8%A7%A3%E9%97%AE%E9%A2%98/differential/</link>
+        <link>https://example.com/study/differential/</link>
         <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/%E5%85%B3%E4%BA%8E%E5%BE%AE%E5%88%86%E7%9A%84%E7%90%86%E8%A7%A3%E9%97%AE%E9%A2%98/differential/</guid>
+        <guid>https://example.com/study/differential/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;$\gdef\o{\mathrm{o}}\gdef\d{\mathrm{d}}\gdef\D{\Delta}$&lt;/p&gt;
 &lt;h3 id=&#34;微分的定义&#34;&gt;微分的定义

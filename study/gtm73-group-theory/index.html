@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="$\\gdef\\lcm{\\operatorname{lcm}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\syl{\\operatorname{Syl}}\\gdef\\or{\\operatorname{or}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\norm{\\vartriangleleft}\\gdef\\inn{\\operatorname{Inn}}\\gdef\\out{\\operatorname{Out}}\\gdef\\F{\\mathbb{F}}$ 这是一篇学习笔记。 本文仅供参考，学习顺序是不合理的。如果希望深入研究有限群分类，请先学完环和域。 原来是为了醋包的饺子。不想看无聊细节的可以">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Last updated on 2024-09-11">
 <title>抽代（群论部分）自学笔记</title>
 
 <link rel='canonical' href='https://example.com/study/gtm73-group-theory/'>
 
 <link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="抽代（群论部分）自学笔记">
-<meta property='og:description' content="$\\gdef\\lcm{\\operatorname{lcm}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\syl{\\operatorname{Syl}}\\gdef\\or{\\operatorname{or}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\norm{\\vartriangleleft}\\gdef\\inn{\\operatorname{Inn}}\\gdef\\out{\\operatorname{Out}}\\gdef\\F{\\mathbb{F}}$ 这是一篇学习笔记。 本文仅供参考，学习顺序是不合理的。如果希望深入研究有限群分类，请先学完环和域。 原来是为了醋包的饺子。不想看无聊细节的可以">
+<meta property='og:description' content="Last updated on 2024-09-11">
 <meta property='og:url' content='https://example.com/study/gtm73-group-theory/'>
 <meta property='og:site_name' content='LRYP&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2024-07-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-07-25T00:00:00&#43;00:00'/><meta property='og:image' content='https://example.com/study/gtm73-group-theory/GTM73.png' />
 <meta name="twitter:title" content="抽代（群论部分）自学笔记">
-<meta name="twitter:description" content="$\\gdef\\lcm{\\operatorname{lcm}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\syl{\\operatorname{Syl}}\\gdef\\or{\\operatorname{or}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\norm{\\vartriangleleft}\\gdef\\inn{\\operatorname{Inn}}\\gdef\\out{\\operatorname{Out}}\\gdef\\F{\\mathbb{F}}$ 这是一篇学习笔记。 本文仅供参考，学习顺序是不合理的。如果希望深入研究有限群分类，请先学完环和域。 原来是为了醋包的饺子。不想看无聊细节的可以"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Last updated on 2024-09-11"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://example.com/study/gtm73-group-theory/GTM73.png' />
     <link rel="shortcut icon" href="/avatar.jpg" />
 
@@ -399,6 +399,10 @@
         </h1>
     
         
+        <h3 class="article-subtitle">
+            Last updated on 2024-09-11
+        </h3>
+        
     </div>
 
     
@@ -428,7 +432,7 @@
   <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
 </svg>
                 <time class="article-time--reading">
-                    25958 字
+                    26183 字
                 </time>
             </div>
         
@@ -499,6 +503,14 @@
 </li>
 <li>
 <p>具有左右消去律的无限半群不一定是群。（$\N$）</p>
+</li>
+<li>
+<p>存在左逆元的幺半群一定是群。</p>
+<p>证：$xa=e\land yx=e\Rightarrow y=yxa=a$ 于是右逆元存在。$xa=ya\Rightarrow x=xaa^{-1}=yaa^{-1}=y$。</p>
+</li>
+<li>
+<p>一般的幺半群中不一定有左逆元等于右逆元。（<a class="link" href="https://math.stackexchange.com/questions/655186/in-a-non-commutative-monoid-is-the-left-inverse-of-an-element-also-the-right-in"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/questions/655186/in-a-non-commutative-monoid-is-the-left-inverse-of-an-element-also-the-right-in</a>）</p>
 </li>
 </ol>
 </li>
