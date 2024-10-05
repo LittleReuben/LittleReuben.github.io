@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于本博客</title>
         <link>https://example.com/p/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
@@ -55,6 +55,259 @@
 &lt;/ol&gt;
 &lt;p&gt;每篇文章的副标题会标注最新更新时间（若和第一次发布时间不同）。&lt;/p&gt;
 &lt;p&gt;每篇文章的开头会有一个彩色分类卡片，即按上述五种类型分类。卡片内可能会有阅读须知。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Solvay Presentation —— Linguistics</title>
+        <link>https://example.com/theory/sol-ling/</link>
+        <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/theory/sol-ling/</guid>
+        <description>&lt;div style=&#34;background-color: #CAF2B0; color: #2A6A00; padding-left: 1em; border-left: 4px solid #6FC339; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;想法&lt;/b&gt;。&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src= &#39;/js/pdf-js/build/pdf.js&#39;&gt;&lt;/script&gt;
+
+&lt;style&gt;
+  #embed-pdf-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 20vh;
+     
+  }
+  
+  .pdf-canvas {
+    border: 1px solid black;
+    direction: ltr;
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  
+  #the-canvas {
+    border: 1px solid black;
+    direction: ltr;
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  
+  
+  .pdf-loadingWrapper {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 350px;
+  }
+  
+  .pdf-loading {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #d2d0d0;;
+    border-radius: 50%;
+    border-top-color: #383838;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  
+  
+  
+  
+  #overlayText {
+    word-wrap: break-word;
+    display: grid;
+    justify-content: end;
+  }
+  
+  #overlayText a {
+    position: relative;
+    top: 10px;
+    right: 4px;
+    color: #000;
+    margin: auto;
+    background-color: #eeeeee;
+    padding: 0.3em 1em;
+    border: solid 2px;
+    border-radius: 12px;
+    border-color: #00000030;
+    text-decoration: none;
+  }
+  
+  #overlayText svg {
+    height: clamp(1em, 2vw, 1.4em);
+    width:  clamp(1em, 2vw, 1.4em);
+  }
+  
+  
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  &lt;/style&gt;&lt;div class=&#34;embed-pdf-container&#34; id=&#34;embed-pdf-container-bf8b824c&#34;&gt;
+    &lt;div class=&#34;pdf-loadingWrapper&#34; id=&#34;pdf-loadingWrapper-bf8b824c&#34;&gt;
+        &lt;div class=&#34;pdf-loading&#34; id=&#34;pdf-loading-bf8b824c&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;canvas class=&#34;pdf-canvas&#34; id=&#34;pdf-canvas-bf8b824c&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;pdf-paginator&#34; id=&#34;pdf-paginator-bf8b824c&#34;&gt;
+    &lt;button id=&#34;pdf-prev-bf8b824c&#34;&gt;Previous&lt;/button&gt;
+    &lt;button id=&#34;pdf-next-bf8b824c&#34;&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+    &lt;span&gt;
+      &lt;span class=&#34;pdf-pagenum&#34; id=&#34;pdf-pagenum-bf8b824c&#34;&gt;&lt;/span&gt; / &lt;span class=&#34;pdf-pagecount&#34; id=&#34;pdf-pagecount-bf8b824c&#34;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-bf8b824c&#34; href=&#34;linguistics.pdf&#34;&gt;&lt;b&gt;[pdf]&lt;/b&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;noscript&gt;
+View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-bf8b824c&#34; href=&#34;linguistics.pdf&#34;&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+
+&lt;script type=&#34;text/javascript&#34;&gt;
+    (function(){
+    var url = &#39;linguistics.pdf&#39;;
+
+    var hidePaginator = &#34;&#34; === &#34;true&#34;;
+    var hideLoader = &#34;&#34; === &#34;true&#34;;
+    var selectedPageNum = parseInt(&#34;&#34;) || 1;
+
+    
+    var pdfjsLib = window[&#39;pdfjs-dist/build/pdf&#39;];
+
+    
+    if (pdfjsLib.GlobalWorkerOptions.workerSrc == &#39;&#39;)
+      pdfjsLib.GlobalWorkerOptions.workerSrc = &#34;https:\/\/example.com\/&#34; + &#39;js/pdf-js/build/pdf.worker.js&#39;;
+
+    
+    var pdfDoc = null,
+        pageNum = selectedPageNum,
+        pageRendering = false,
+        pageNumPending = null,
+        scale = 3,
+        canvas = document.getElementById(&#39;pdf-canvas-bf8b824c&#39;),
+        ctx = canvas.getContext(&#39;2d&#39;),
+        paginator = document.getElementById(&#34;pdf-paginator-bf8b824c&#34;),
+        loadingWrapper = document.getElementById(&#39;pdf-loadingWrapper-bf8b824c&#39;);
+
+
+    
+    showPaginator();
+    showLoader();
+
+    
+
+    function renderPage(num) {
+      pageRendering = true;
+      
+      pdfDoc.getPage(num).then(function(page) {
+        var viewport = page.getViewport({scale: scale});
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        
+        var renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+
+        
+        renderTask.promise.then(function() {
+          pageRendering = false;
+          showContent();
+
+          if (pageNumPending !== null) {
+            
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
+        });
+      });
+
+      
+      document.getElementById(&#39;pdf-pagenum-bf8b824c&#39;).textContent = num;
+    }
+
+    
+
+    function showContent() {
+      loadingWrapper.style.display = &#39;none&#39;;
+      canvas.style.display = &#39;block&#39;;
+    }
+
+    
+
+    function showLoader() {
+      if(hideLoader) return
+      loadingWrapper.style.display = &#39;flex&#39;;
+      canvas.style.display = &#39;none&#39;;
+    }
+
+    
+
+    function showPaginator() {
+      if(hidePaginator) return
+      paginator.style.display = &#39;block&#39;;
+    }
+
+    
+
+    function queueRenderPage(num) {
+      if (pageRendering) {
+        pageNumPending = num;
+      } else {
+        renderPage(num);
+      }
+    }
+
+    
+
+    function onPrevPage() {
+      if (pageNum &lt;= 1) {
+        return;
+      }
+      pageNum--;
+      queueRenderPage(pageNum);
+    }
+    document.getElementById(&#39;pdf-prev-bf8b824c&#39;).addEventListener(&#39;click&#39;, onPrevPage);
+
+    
+
+    function onNextPage() {
+      if (pageNum &gt;= pdfDoc.numPages) {
+        return;
+      }
+      pageNum++;
+      queueRenderPage(pageNum);
+    }
+    document.getElementById(&#39;pdf-next-bf8b824c&#39;).addEventListener(&#39;click&#39;, onNextPage);
+
+    
+
+    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+      pdfDoc = pdfDoc_;
+      var numPages = pdfDoc.numPages;
+      document.getElementById(&#39;pdf-pagecount-bf8b824c&#39;).textContent = numPages;
+
+      
+      if(pageNum &gt; numPages) {
+        pageNum = numPages
+      }
+
+      
+      renderPage(pageNum);
+    });
+    })();
+&lt;/script&gt;
+
+&lt;p&gt;&lt;big&gt;&lt;big&gt;&lt;big&gt;&lt;a href=&#34;阅读材料.zip&#34; download&gt;相关阅读材料&lt;/a&gt;&lt;/big&gt;&lt;/big&gt;&lt;/big&gt;&lt;/p&gt;
+&lt;p&gt;对应中文版也可以在 zlib 找到。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -260,6 +513,62 @@
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;133&#34;
 		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/15.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;2268&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;混进了什么奇怪的东西&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/16.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;混进了什么奇怪的东西&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/17.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;10.1 黎明 东三门&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/18.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;2268&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;10.1 黎明 东门外&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
 </description>
@@ -1717,6 +2026,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意博客网页更新较慢，大概要等个 2min。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;我这边发现一个问题：一旦 commit 了过大的文件并 push 失败，这个文件就会永远存在历史记录 &lt;code&gt;.git/object/&lt;/code&gt; 里，导致后续就算删了也无法 push。其实博客这种东西本身没必要记录每次 commit 的 history，但是 git 要删 history 很麻烦，所以我的思路是，直接把整个 &lt;code&gt;*.github.io/&lt;/code&gt; 文件夹删空（包括 &lt;code&gt;.git/&lt;/code&gt;），然后重新远程 clone 过来上一个正常的版本。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;如果想搭博客也可以直接问我要魔改的 theme。&lt;/del&gt;&lt;/p&gt;
 &lt;h3 id=&#34;参考链接&#34;&gt;参考链接
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://thirdshire.com/hugo-stack-renovation-part-two/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

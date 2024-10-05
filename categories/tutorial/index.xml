@@ -270,6 +270,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意博客网页更新较慢，大概要等个 2min。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;我这边发现一个问题：一旦 commit 了过大的文件并 push 失败，这个文件就会永远存在历史记录 &lt;code&gt;.git/object/&lt;/code&gt; 里，导致后续就算删了也无法 push。其实博客这种东西本身没必要记录每次 commit 的 history，但是 git 要删 history 很麻烦，所以我的思路是，直接把整个 &lt;code&gt;*.github.io/&lt;/code&gt; 文件夹删空（包括 &lt;code&gt;.git/&lt;/code&gt;），然后重新远程 clone 过来上一个正常的版本。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;如果想搭博客也可以直接问我要魔改的 theme。&lt;/del&gt;&lt;/p&gt;
 &lt;h3 id=&#34;参考链接&#34;&gt;参考链接
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://thirdshire.com/hugo-stack-renovation-part-two/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
