@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>理论 &amp; 思想 on LRYP&#39;s Blog</title>
-        <link>https://example.com/theory/</link>
+        <link>https://littlereuben.github.io/theory/</link>
         <description>Recent content in 理论 &amp; 思想 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/theory/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/theory/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Solvay Presentation —— Linguistics</title>
-        <link>https://example.com/theory/sol-ling/</link>
+        <link>https://littlereuben.github.io/theory/sol-ling/</link>
         <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/theory/sol-ling/</guid>
+        <guid>https://littlereuben.github.io/theory/sol-ling/</guid>
         <description>&lt;div style=&#34;background-color: #CAF2B0; color: #2A6A00; padding-left: 1em; border-left: 4px solid #6FC339; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;想法&lt;/b&gt;。&lt;/div&gt;
 &lt;script src= &#39;/js/pdf-js/build/pdf.js&#39;&gt;&lt;/script&gt;
 
@@ -132,7 +132,7 @@ View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-b
 
     
     if (pdfjsLib.GlobalWorkerOptions.workerSrc == &#39;&#39;)
-      pdfjsLib.GlobalWorkerOptions.workerSrc = &#34;https:\/\/example.com\/&#34; + &#39;js/pdf-js/build/pdf.worker.js&#39;;
+      pdfjsLib.GlobalWorkerOptions.workerSrc = &#34;https:\/\/littlereuben.github.io\/&#34; + &#39;js/pdf-js/build/pdf.worker.js&#39;;
 
     
     var pdfDoc = null,
@@ -262,11 +262,11 @@ View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-b
         </item>
         <item>
         <title>《汉字与东亚文化》阅读笔记</title>
-        <link>https://example.com/theory/book-hanzi-yu-dongya-wenhua/</link>
+        <link>https://littlereuben.github.io/theory/book-hanzi-yu-dongya-wenhua/</link>
         <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/theory/book-hanzi-yu-dongya-wenhua/</guid>
-        <description>&lt;img src="https://example.com/theory/book-hanzi-yu-dongya-wenhua/cover.png" alt="Featured image of post 《汉字与东亚文化》阅读笔记" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+        <guid>https://littlereuben.github.io/theory/book-hanzi-yu-dongya-wenhua/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/theory/book-hanzi-yu-dongya-wenhua/cover.png" alt="Featured image of post 《汉字与东亚文化》阅读笔记" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;《汉字与东亚文化》[韩] 金文京&lt;/p&gt;
 &lt;p&gt;如果有觉得内容有问题或者我概括得有问题的请纠错。&lt;/p&gt;
 &lt;p&gt;下文年份略，可以自行看书。&lt;/p&gt;
@@ -412,7 +412,7 @@ $$
 &lt;p&gt;其他与汉字相关的文字包括契丹大小字、西夏文、女真字、女书。&lt;/p&gt;
 &lt;p&gt;值得注意的是，关于日朝的训读、汉和/谚混写的问题，假名/谚文的问题，知乎上有不少以语言特征对应表记可行性为理由的分析，这是倒置了因果，是很片面的，应当排除。&lt;/p&gt;
 &lt;h3 id=&#34;附东亚各语言之间人地名互译方式&#34;&gt;附：东亚各语言之间人、地名互译方式
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://example.com/theory/book-hanzi-yu-dongya-wenhua/trans.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/theory/book-hanzi-yu-dongya-wenhua/trans.png&#34;
 	width=&#34;1179&#34;
 	height=&#34;648&#34;
 	
@@ -450,10 +450,10 @@ $$
         </item>
         <item>
         <title>宁波话中的虚词</title>
-        <link>https://example.com/theory/ningbonese-function-word/</link>
+        <link>https://littlereuben.github.io/theory/ningbonese-function-word/</link>
         <pubDate>Sat, 24 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/theory/ningbonese-function-word/</guid>
+        <guid>https://littlereuben.github.io/theory/ningbonese-function-word/</guid>
         <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;在提起某個漢語方言時，人們的第一反應大部分是發音、比較特色的一些實詞，抑或是語序，而對於虛詞，尤其是副詞以外的虛詞，則很少有人注意。這種現象不僅發生在不瞭解該方言的人身上，母語者也是如此。作為學校去方言化的一代人，我覺得我們對於自己的方言主要有兩點缺乏認識：一是較少用但地道的實詞。因為我們學方言只能聽長輩講，而現在長輩講方言一般都是日常生活，柴米油鹽相關的場景，很多詞，包括一些有典故的成語、歇後語都用不上，或者有多種表示同一意思的詞長輩習慣於用其中一種，或者根據地區有些詞少用，那我們就接觸不到。二就是語法。至少對我來説，小時候很少用方言說長句。而到小學高年級或中學以後再練習，已經過了最佳習得期，多有語法錯誤或不豐富。這樣一來，我們說的就是不正宗的“普通話式方言”。而漢語作為孤立語，虛詞起到的很重要的語法作用。我作以下的總結，就是想引起大家對方言語法的關注，順帶還有方言的正字。&lt;/p&gt;
 &lt;p&gt;以下詞僅包括我知道的詞，如果有補充可以評論。&lt;/p&gt;
@@ -1032,10 +1032,10 @@ $$
         </item>
         <item>
         <title>一段对话</title>
-        <link>https://example.com/theory/conversation1/</link>
+        <link>https://littlereuben.github.io/theory/conversation1/</link>
         <pubDate>Tue, 30 Jul 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/theory/conversation1/</guid>
+        <guid>https://littlereuben.github.io/theory/conversation1/</guid>
         <description>&lt;div style=&#34;background-color: #F4B1C5; color: #6C0021; padding-left: 1em; border-left: 4px solid #C63A64; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;记事&lt;/b&gt;。&lt;br&gt;本文记录的内容并非完全准确，观点仅供参考。&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;背景：小 Y 与小 Z 互相分享学习经历。小 Y 向小 Z 介绍了 OI 的考察内容。&lt;/p&gt;

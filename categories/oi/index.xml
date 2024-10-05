@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>学习 &amp; 技术 :: 算法竞赛 on LRYP&#39;s Blog</title>
-        <link>https://example.com/categories/oi/</link>
+        <link>https://littlereuben.github.io/categories/oi/</link>
         <description>Recent content in 学习 &amp; 技术 :: 算法竞赛 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/oi/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/oi/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>OI 出题列表</title>
-        <link>https://example.com/study/problemsetting/</link>
+        <link>https://littlereuben.github.io/study/problemsetting/</link>
         <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/problemsetting/</guid>
+        <guid>https://littlereuben.github.io/study/problemsetting/</guid>
         <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;第三列是样例输出一的第一个字符串，可用于校验。&lt;/p&gt;
 &lt;p&gt;adhoc 包括分析性质结论、线性扫描、推式子，还有一些基础算法（二分、倍增等）和数据结构（队列、栈等）。&lt;/p&gt;
@@ -188,10 +188,10 @@
         </item>
         <item>
         <title>读论文系列 #3——Nash-Williams 定理</title>
-        <link>https://example.com/study/paper3/</link>
+        <link>https://littlereuben.github.io/study/paper3/</link>
         <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/paper3/</guid>
+        <guid>https://littlereuben.github.io/study/paper3/</guid>
         <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;这里主要讲一下 Nash-Williams 定理的证明。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -212,7 +212,7 @@
     &gt;论文&lt;/a&gt;）：任取一条边 $(u,v)$，归纳构造不含它的方案，这时如果在某个森林中 $u$、$v$ 不连通，则直接补进去即可；否则考虑某个森林 $G_1$ 中它们所在的连通块，设点集为 $S$。在其余森林中分别取出 $S$ 的导出子图，至少有一个导出子图不连通（否则加回 $(u,v)$ 时就不合法了），找出它对应的原森林 $G_2$。&lt;br&gt;
 如果考虑进 $G_2$ 的所有边时，$S$ 中的点仍不连通，那么可从 $G_1[S]$ 中取出一条边改放到 $G_2$ 中使 $G_2$ 仍为森林（与图拟阵的证明相同）；否则，若将 $G_2[S]$ 中各连通块缩成点，那么这些点在 $G_2$ 中的位置关系形成一棵树，至少有两个叶子。这说的意思是，$G_2[S]$ 中存在至少两个连通块，如果断开其与 $S$ 之外的某条边，它就与其他 $G_2[S]$ 的连通块都不连通了。选出非 $u$ 所在的这样一个连通块，设其点集为 $S^\prime$，它与其他连通块连接的唯一“向外通道”为边 $e_1$，$e_1$ 在 $S$ 中侧端点为 $w$，考虑 $G_1$ 中 $u\rightsquigarrow w$ 路径上第一条一端在 $S^\prime$ 内的边 $e_2$。将 $e_2$ 换到 $G_1$，$e_1$ 换到 $G_2$，这样两图仍为森林，且 $G_1$ 中 $u$ 所在连通块变小。如此进行下去，直到 $G_1$ 中 $u$、$v$ 不连通即可。&lt;br&gt;
 下图为最后一种情况，红色边为 $G_1$，蓝色与深蓝色边为 $G_2$，深蓝色边省略了在 $S$ 以外的中转点。实质上最后一种情况就是费尽心思想强制让 $G_1[S]$ 丢掉一些点，同时在丢掉点时 $u$ 所在部分不能和别的连通块连起来。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/paper3/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/paper3/1.png&#34;
 	width=&#34;800&#34;
 	height=&#34;531&#34;
 	
@@ -230,10 +230,10 @@
         </item>
         <item>
         <title>[题解] CF1969F Card Pairing</title>
-        <link>https://example.com/study/solution-cf1969f/</link>
+        <link>https://littlereuben.github.io/study/solution-cf1969f/</link>
         <pubDate>Tue, 21 May 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/solution-cf1969f/</guid>
+        <guid>https://littlereuben.github.io/study/solution-cf1969f/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;好题。考察了找阶段，和对 dp 原理的理解。&lt;/p&gt;
 &lt;p&gt;下文提及手牌，指的是打牌后、拿牌前的状态。&lt;/p&gt;
@@ -248,10 +248,10 @@
         </item>
         <item>
         <title>[题解] CF924F Minimal Subset Difference</title>
-        <link>https://example.com/study/solution-cf924f/</link>
+        <link>https://littlereuben.github.io/study/solution-cf924f/</link>
         <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/solution-cf924f/</guid>
+        <guid>https://littlereuben.github.io/study/solution-cf924f/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;关于本题的一个注记。&lt;/p&gt;
 &lt;p&gt;钦定背包上界为 $72$，这样搜得的状态数为 $12880$。对其进行 dfa 最小化，状态数优化到 $715$（注意到设上界较大时最小化 dfa 后大小仍为该值）。预处理 $f_{k,i,s,r}$ 表示限制差 $\le k$，$i$ 位待定，当前 dfa 上状态为 $s$，当前位至多取 $r$ 的答案，即可 $\mathrm{O}(\log r)$ 回答单组。&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/contest/924/submission/197247120&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -278,10 +278,10 @@
         </item>
         <item>
         <title>[题解] lgP9603 [IOI2023] 山毛榉树</title>
-        <link>https://example.com/study/solution-lgp9603/</link>
+        <link>https://littlereuben.github.io/study/solution-lgp9603/</link>
         <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/solution-lgp9603/</guid>
+        <guid>https://littlereuben.github.io/study/solution-lgp9603/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;提供一个自己做的思路。用到的性质比其他正解弱，但更容易想。&lt;/p&gt;
 &lt;p&gt;考虑单棵树的判定。初步读题后会得到两个性质：&lt;/p&gt;
@@ -299,10 +299,10 @@
         </item>
         <item>
         <title>定长区间最小整周期问题的线性解法</title>
-        <link>https://example.com/study/string-period/</link>
+        <link>https://littlereuben.github.io/study/string-period/</link>
         <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/string-period/</guid>
+        <guid>https://littlereuben.github.io/study/string-period/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;本文非常地粗糙和民科，算法很可能是假的。如果您知道已有的其他解法或者找到了我的证明的问题，请告知我是小丑。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;最近做 &lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/problem/CF1909G&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -331,10 +331,10 @@ $t$ 表示任意串。前面一个串 $p=n/2$，红色部分 $q=n/3$。&lt;/p&gt
         </item>
         <item>
         <title>dp 题方法总汇</title>
-        <link>https://example.com/study/dp-problems/</link>
+        <link>https://littlereuben.github.io/study/dp-problems/</link>
         <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/dp-problems/</guid>
+        <guid>https://littlereuben.github.io/study/dp-problems/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;h2 id=&#34;声明&#34;&gt;声明
 &lt;/h2&gt;&lt;p&gt;本文非严谨的算法理论研究，仅仅是个人对解题经验的归纳和实验性的系统总结，不保证理论上的完备性与纯粹性。仅对解题实践提供一个较为自洽的解释，作为参考。&lt;/p&gt;
@@ -376,7 +376,7 @@ $t$ 表示任意串。前面一个串 $p=n/2$，红色部分 $q=n/3$。&lt;/p&gt
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;CF888F：断环为链，直觉上来说结构属于以下两种（红色的是边）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/dp-problems/dp/o0rauqlf.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/dp-problems/dp/o0rauqlf.png&#34;
 	width=&#34;600&#34;
 	height=&#34;300&#34;
 	
@@ -602,7 +602,7 @@ $$
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;AGC064C：暴力是把二进制表示倒过来建 trie 树，$f_u=f_{{ls}_u}\operatorname{nand}f_{{rs}_u}$。建树的过程是如果当前要插入 $[l,r]$，就往左子树插入 $[\lceil l/2\rceil,\lfloor r/2\rfloor]$，往右子树插入 $[\lceil(l-1)/2\rceil,\lfloor(r-1)/2\rfloor]$，这立即启发我考虑，同一层内的不同构的子树数量少。确实是这样的：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/dp-problems/dp/zely9825.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/dp-problems/dp/zely9825.png&#34;
 	width=&#34;1789&#34;
 	height=&#34;541&#34;
 	
@@ -1290,10 +1290,10 @@ $$
         </item>
         <item>
         <title>严谨的 WQS 二分方法</title>
-        <link>https://example.com/study/wqs/</link>
+        <link>https://littlereuben.github.io/study/wqs/</link>
         <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/wqs/</guid>
+        <guid>https://littlereuben.github.io/study/wqs/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;下文中的 $\max/\min$ 可以为了严谨起见理解成 $\sup/\inf$。&lt;/p&gt;
 &lt;p&gt;众所周知，WQS 二分优化的是这样一类问题：有一个函数 $f(x)$，给定 $a$，希望求得 $f(a)$，但是 $f$ 的单点值无法快速求。这时，如果有以下性质之一：&lt;/p&gt;
@@ -1380,10 +1380,10 @@ $$
         </item>
         <item>
         <title>构造题方法总汇</title>
-        <link>https://example.com/study/constructive-problems/</link>
+        <link>https://littlereuben.github.io/study/constructive-problems/</link>
         <pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/constructive-problems/</guid>
+        <guid>https://littlereuben.github.io/study/constructive-problems/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;h2 id=&#34;声明&#34;&gt;声明
 &lt;/h2&gt;&lt;p&gt;本文非严谨的算法理论研究，仅仅是个人对解题经验的归纳和实验性的系统总结，不保证理论上的完备性与纯粹性。仅对解题实践提供一个较为自洽的解释，作为参考。&lt;/p&gt;
@@ -1764,7 +1764,7 @@ $$
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;CF715D：这类构造某结构使某方案数等于给定值的问题一般都可以二进制拆分（倍增）。但这题 $T$ 太大了，得六（$C_4^2$）进制拆分才行。建立 $6^k$ 的“源泉”，然后在旁边附着一个“管道”，收集需要的每一位数。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/constructive-problems/5zn46ypf.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/constructive-problems/5zn46ypf.png&#34;
 	width=&#34;654&#34;
 	height=&#34;260&#34;
 	
@@ -1849,7 +1849,7 @@ $$
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;CFgym101221A：经过多次尝试，发现最优解开头与结尾有规律，可以通过四步将开头的四个 A 与结尾的四个 B 归位，中间部分递归构造。最优性分析可通过“相邻相同数”作为势能来分析。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/constructive-problems/0v4h3srt.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/constructive-problems/0v4h3srt.png&#34;
 	width=&#34;942&#34;
 	height=&#34;198&#34;
 	
@@ -1945,7 +1945,7 @@ $$
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;[互测 2021] 聚会/Steiner 三元系：首先用 b 证明仅有 $n\equiv 1/3\pmod 6$ 时有解，其次构造无法直接递归或增量构造。考虑分组。$n=6k+3$ 时考虑将点平分成三组，连这样的结构：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/constructive-problems/tu7s7npb.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/constructive-problems/tu7s7npb.png&#34;
 	width=&#34;1000&#34;
 	height=&#34;292&#34;
 	
@@ -1986,10 +1986,10 @@ $$
         </item>
         <item>
         <title>读论文系列 #2——两个偏理论的静态数据结构问题</title>
-        <link>https://example.com/study/paper2/</link>
+        <link>https://littlereuben.github.io/study/paper2/</link>
         <pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/paper2/</guid>
+        <guid>https://littlereuben.github.io/study/paper2/</guid>
         <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;本文基本上就是 &lt;a class=&#34;link&#34; href=&#34;https://citeseerx.ist.psu.edu/doc/10.1.1.79.1554&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Optimal Preprocessing for Answering On-line Product Queries&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://cs.uwaterloo.ca/~imunro/cs840/ProjectPapers/SODA10_014_yuanh.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -2020,7 +2020,7 @@ $$
 &lt;hr&gt;
 &lt;p&gt;纠结于系数意义不大，我们关注 $k=2$ 情况的结构带来的启发。“预处理前/后缀和”是非常有效的线性手段。&lt;/p&gt;
 &lt;p&gt;但是如何推理 $k&amp;gt;2$ 呢？众所周知，动态情况下的线段树是从分块嵌套演化过来的，因此考虑类比逆推多个切分点的情况（只预处理每一块内的前后缀和）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/paper2/fga2gv7u.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/paper2/fga2gv7u.png&#34;
 	width=&#34;1070&#34;
 	height=&#34;400&#34;
 	
@@ -2127,10 +2127,10 @@ $$
         </item>
         <item>
         <title>读论文系列 #1——串与 DAG 的 LCS</title>
-        <link>https://example.com/study/paper1/</link>
+        <link>https://littlereuben.github.io/study/paper1/</link>
         <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/paper1/</guid>
+        <guid>https://littlereuben.github.io/study/paper1/</guid>
         <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;前天 @changruinian2020 发了我一篇论文，让我帮他读读。以前基本上没有在毫无相关理论准备的情况下读论文，这里记录一下，挺有帮助的。&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2302.01748.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;链接&lt;/a&gt;。&lt;/p&gt;
@@ -2159,10 +2159,10 @@ $$
         </item>
         <item>
         <title>[题解] lgP9171 [省选联考 2023] 染色数组</title>
-        <link>https://example.com/study/solution-lgp9171/</link>
+        <link>https://littlereuben.github.io/study/solution-lgp9171/</link>
         <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/solution-lgp9171/</guid>
+        <guid>https://littlereuben.github.io/study/solution-lgp9171/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;  提供一个 $\mathrm{O}(Tn^3m)$ 的做法，目前在各 oj 上是 rank 1，运行时间为第二名的 $\frac{1}{6}$ 以内。&lt;/p&gt;
 &lt;p&gt;  类似于本题解的方法不建议在考试中使用，非常耗时间。&lt;del&gt;并且公式很丑。&lt;/del&gt;&lt;/p&gt;
@@ -2511,10 +2511,10 @@ $$
         </item>
         <item>
         <title>[题解] lgP9159 [GLR-R4] 大暑</title>
-        <link>https://example.com/study/solution-lgp9159/</link>
+        <link>https://littlereuben.github.io/study/solution-lgp9159/</link>
         <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/solution-lgp9159/</guid>
+        <guid>https://littlereuben.github.io/study/solution-lgp9159/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; height: 25pt; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;  同学打月赛后告诉我有道很离谱的题，遂做，确实挺离谱的，这里讲一下自己做的思路。&lt;/p&gt;
 &lt;h2 id=&#34;题意&#34;&gt;题意
@@ -2540,7 +2540,7 @@ ans=\prod_{k=2}^n p_k^{w_k}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;step-2&#34;&gt;Step 2
 &lt;/h2&gt;&lt;p&gt;  求 $w_k$。考虑刻画线段交于一点的情况。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/study/solution-lgp9159/xd7iksq2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/solution-lgp9159/xd7iksq2.png&#34;
 	width=&#34;847&#34;
 	height=&#34;164&#34;
 	

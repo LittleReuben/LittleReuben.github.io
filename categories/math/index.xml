@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>学习 &amp; 技术 :: 数学 on LRYP&#39;s Blog</title>
-        <link>https://example.com/categories/math/</link>
+        <link>https://littlereuben.github.io/categories/math/</link>
         <description>Recent content in 学习 &amp; 技术 :: 数学 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Fri, 26 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/math/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 26 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/math/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>线代（上）自学笔记</title>
-        <link>https://example.com/study/linear-algebra-1/</link>
+        <link>https://littlereuben.github.io/study/linear-algebra-1/</link>
         <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/linear-algebra-1/</guid>
-        <description>&lt;img src="https://example.com/study/linear-algebra-1/cover.png" alt="Featured image of post 线代（上）自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
+        <guid>https://littlereuben.github.io/study/linear-algebra-1/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/study/linear-algebra-1/cover.png" alt="Featured image of post 线代（上）自学笔记" /&gt;&lt;p&gt;$\gdef\rank{\operatorname{rank}}\gdef\nul{\operatorname{Nul}}$&lt;/p&gt;
 &lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;书是丘维生的《高等代数（上册）》。由于自己以前学过一些线代，所以这里列出的都是一些细节。&lt;/p&gt;
 &lt;p&gt;所有矩阵默认 $n$ 行 $m$ 列，秩为 $r$。&lt;/p&gt;
@@ -228,11 +228,11 @@ $$
         </item>
         <item>
         <title>抽代（群论部分）自学笔记</title>
-        <link>https://example.com/study/gtm73-group-theory/</link>
+        <link>https://littlereuben.github.io/study/gtm73-group-theory/</link>
         <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/gtm73-group-theory/</guid>
-        <description>&lt;img src="https://example.com/study/gtm73-group-theory/GTM73.png" alt="Featured image of post 抽代（群论部分）自学笔记" /&gt;&lt;p&gt;$\gdef\lcm{\operatorname{lcm}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\syl{\operatorname{Syl}}\gdef\or{\operatorname{or}}\gdef\aut{\operatorname{Aut}}\gdef\norm{\vartriangleleft}\gdef\inn{\operatorname{Inn}}\gdef\out{\operatorname{Out}}\gdef\F{\mathbb{F}}$&lt;/p&gt;
+        <guid>https://littlereuben.github.io/study/gtm73-group-theory/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/study/gtm73-group-theory/GTM73.png" alt="Featured image of post 抽代（群论部分）自学笔记" /&gt;&lt;p&gt;$\gdef\lcm{\operatorname{lcm}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\syl{\operatorname{Syl}}\gdef\or{\operatorname{or}}\gdef\aut{\operatorname{Aut}}\gdef\norm{\vartriangleleft}\gdef\inn{\operatorname{Inn}}\gdef\out{\operatorname{Out}}\gdef\F{\mathbb{F}}$&lt;/p&gt;
 &lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;br&gt;本文仅供参考，学习顺序是不合理的。如果希望深入研究有限群分类，请先学完环和域。&lt;/div&gt;
 &lt;p&gt;&lt;del&gt;原来是为了醋包的饺子。不想看无聊细节的可以直奔第 12 节。&lt;/del&gt;&lt;/p&gt;
 &lt;h2 id=&#34;gtm73-之-我只来得及看完群论了&#34;&gt;GTM73 之 我只来得及看完群论了
@@ -1365,10 +1365,10 @@ $$
         </item>
         <item>
         <title>复合函数高阶导的公式</title>
-        <link>https://example.com/study/faa-di-bruno/</link>
+        <link>https://littlereuben.github.io/study/faa-di-bruno/</link>
         <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/faa-di-bruno/</guid>
+        <guid>https://littlereuben.github.io/study/faa-di-bruno/</guid>
         <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;考虑求 $(f\circ g)^{(n)}$。&lt;/p&gt;
 &lt;p&gt;我们看几个例子：
@@ -1410,10 +1410,10 @@ $$
         </item>
         <item>
         <title>关于微分的理解问题</title>
-        <link>https://example.com/study/differential/</link>
+        <link>https://littlereuben.github.io/study/differential/</link>
         <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/differential/</guid>
+        <guid>https://littlereuben.github.io/study/differential/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;$\gdef\o{\mathrm{o}}\gdef\d{\mathrm{d}}\gdef\D{\Delta}$&lt;/p&gt;
 &lt;h3 id=&#34;微分的定义&#34;&gt;微分的定义

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>学习 &amp; 技术 :: 教程 on LRYP&#39;s Blog</title>
-        <link>https://example.com/categories/tutorial/</link>
+        <link>https://littlereuben.github.io/categories/tutorial/</link>
         <description>Recent content in 学习 &amp; 技术 :: 教程 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Thu, 25 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 25 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo 博客搭建经验</title>
-        <link>https://example.com/study/blog-tutorial/</link>
+        <link>https://littlereuben.github.io/study/blog-tutorial/</link>
         <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/study/blog-tutorial/</guid>
-        <description>&lt;img src="https://example.com/study/blog-tutorial/logo.png" alt="Featured image of post Hugo 博客搭建经验" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;br&gt;本文适合不了解 html 和 scc 但想自己建博客的读者看。&lt;/div&gt;
+        <guid>https://littlereuben.github.io/study/blog-tutorial/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/study/blog-tutorial/logo.png" alt="Featured image of post Hugo 博客搭建经验" /&gt;&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;br&gt;本文适合不了解 html 和 scc 但想自己建博客的读者看。&lt;/div&gt;
 &lt;h3 id=&#34;本地初始操作&#34;&gt;本地初始操作
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;下载 git，更新用户名和邮箱信息。&lt;/li&gt;
@@ -32,6 +32,9 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;配置文件应当放在主文件夹中，名字为 hugo.*，后缀可以是 yaml，toml 或 json。建议直接按上面第 6 点，把 exampleSite 的配置文件复制过来，删掉原来的 hugo.toml。&lt;strong&gt;下文简称该文件为“配置”。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;把配置里的 baseurl 改一下。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;多语言选项直接关了完事，配置里 DefaultContentLanguage 改 zh-cn，hasCJKLanguage 改 false，language 删了。&lt;/p&gt;
@@ -151,6 +154,10 @@
 &lt;li&gt;
 &lt;p&gt;阅读量：&lt;a class=&#34;link&#34; href=&#34;https://hyrtee.github.io/2023/start-blog/#%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://hyrtee.github.io/2023/start-blog/#%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90&lt;/a&gt;。这里有个问题就是首页的每篇文章的阅读量是无法正常显示的，这个我也不会解决，只能只在具体文章页面显示该阅读量。但是问题在于首页的卡片的 details 和文章的 details 是共用 layout/partials/article/components/details.html 的，就无法区别处理。我的处理方法是复制一份 header.html 和 details.html 然后改一份有统计量的。显然这并不是个简介的解决方案，主要我不会 html 里 &lt;code&gt;partial&lt;/code&gt; 情况下的传参。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;内嵌 pdf：&lt;a class=&#34;link&#34; href=&#34;https://github.com/anvithks/hugo-embed-pdf-shortcode&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/anvithks/hugo-embed-pdf-shortcode&lt;/a&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;content-目录结构&#34;&gt;content 目录结构

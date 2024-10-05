@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>杂记 &amp; 生活 :: 随感 on LRYP&#39;s Blog</title>
-        <link>https://example.com/categories/jottings/</link>
+        <link>https://littlereuben.github.io/categories/jottings/</link>
         <description>Recent content in 杂记 &amp; 生活 :: 随感 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>LRYP</copyright><atom:link href="https://example.com/categories/jottings/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>LRYP</copyright><atom:link href="https://littlereuben.github.io/categories/jottings/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>

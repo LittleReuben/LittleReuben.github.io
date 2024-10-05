@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on LRYP&#39;s Blog</title>
-        <link>https://example.com/page/</link>
+        <link>https://littlereuben.github.io/page/</link>
         <description>Recent content in Pages on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>LRYP</copyright><atom:link href="https://example.com/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>LRYP</copyright><atom:link href="https://littlereuben.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Search</title>
-        <link>https://example.com/search/</link>
+        <link>https://littlereuben.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/search/</guid>
+        <guid>https://littlereuben.github.io/search/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://example.com/about/</link>
+        <link>https://littlereuben.github.io/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/about/</guid>
-        <description>&lt;img src="https://example.com/about/b.jpg" alt="Featured image of post 关于" /&gt;&lt;h2 id=&#34;关于我&#34;&gt;关于我
+        <guid>https://littlereuben.github.io/about/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/about/b.jpg" alt="Featured image of post 关于" /&gt;&lt;h2 id=&#34;关于我&#34;&gt;关于我
 &lt;/h2&gt;&lt;p&gt;我是 LRYP，这个名字其实没什么特殊含义，它只是合并了我在两个圈子里的 id。&lt;/p&gt;
 &lt;p&gt;我是一名退役 OIer（信息学竞赛生），OI 圈名是 YeahPotato。我参加的第一场 OI 赛事是 NOIP2018，最后一场是 CTS2024。我之前在洛谷博客里写过一些文章，但是由于洛谷只适合 OI 相关的内容，所以想着还是自己开博客比较好。&lt;/p&gt;
 &lt;p&gt;我是一名 Minecraft 爱好者，MC 圈名是 Little_Reuben。我从 2015 年开始接触 MC，但是玩得并不多。我熟悉 MC 各版本各领域的知识，喜欢看别人&lt;strong&gt;速通&lt;/strong&gt;（自己并没有入坑）。在 19、20 年期间，我做过一段时间的 MC &lt;strong&gt;地形建模&lt;/strong&gt;，我的作品《归》曾在小圈子举行的比赛（SDC 地形艺术创作公开赛 第二届）中获得第一名。&lt;/p&gt;
@@ -39,10 +39,10 @@
         </item>
         <item>
         <title>归档</title>
-        <link>https://example.com/archives/</link>
+        <link>https://littlereuben.github.io/archives/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/archives/</guid>
+        <guid>https://littlereuben.github.io/archives/</guid>
         <description></description>
         </item>
         

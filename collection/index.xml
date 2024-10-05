@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>收集 &amp; 列表 on LRYP&#39;s Blog</title>
-        <link>https://example.com/collection/</link>
+        <link>https://littlereuben.github.io/collection/</link>
         <description>Recent content in 收集 &amp; 列表 on LRYP&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/collection/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/collection/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>THU 的一些风景</title>
-        <link>https://example.com/collection/thu-photo/</link>
+        <link>https://littlereuben.github.io/collection/thu-photo/</link>
         <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/collection/thu-photo/</guid>
+        <guid>https://littlereuben.github.io/collection/thu-photo/</guid>
         <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;Shot on iPhone 15.&lt;/p&gt;
 &lt;p&gt;以后有机会一定专门学摄影。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/1.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;4284&#34;
 	
@@ -30,7 +30,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/2.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;4284&#34;
 	
@@ -44,7 +44,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/3.jpg&#34;
 	width=&#34;1080&#34;
 	height=&#34;1920&#34;
 	
@@ -58,7 +58,7 @@
 		data-flex-basis=&#34;135px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/4.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;3213&#34;
 	
@@ -72,7 +72,7 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/5.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/5.jpg&#34;
 	width=&#34;4032&#34;
 	height=&#34;2268&#34;
 	
@@ -86,7 +86,7 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/6.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/6.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;4284&#34;
 	
@@ -100,7 +100,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/7.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/7.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;4284&#34;
 	
@@ -114,7 +114,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/8.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/8.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;3213&#34;
 	
@@ -128,7 +128,7 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/9.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/9.jpg&#34;
 	width=&#34;4032&#34;
 	height=&#34;3024&#34;
 	
@@ -142,7 +142,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/10.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/10.jpg&#34;
 	width=&#34;4032&#34;
 	height=&#34;3024&#34;
 	
@@ -156,7 +156,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/11.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/11.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;4284&#34;
 	
@@ -170,7 +170,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/12.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/12.jpg&#34;
 	width=&#34;4032&#34;
 	height=&#34;3024&#34;
 	
@@ -184,7 +184,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/13.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/13.jpg&#34;
 	width=&#34;2359&#34;
 	height=&#34;1633&#34;
 	
@@ -198,7 +198,7 @@
 		data-flex-basis=&#34;346px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/14.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/14.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;4284&#34;
 	
@@ -212,7 +212,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/15.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/15.jpg&#34;
 	width=&#34;4032&#34;
 	height=&#34;2268&#34;
 	
@@ -226,7 +226,7 @@
 		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/16.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/16.jpg&#34;
 	width=&#34;4032&#34;
 	height=&#34;3024&#34;
 	
@@ -240,7 +240,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/17.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/17.jpg&#34;
 	width=&#34;4032&#34;
 	height=&#34;3024&#34;
 	
@@ -254,7 +254,7 @@
 		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://example.com/collection/thu-photo/18.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/18.jpg&#34;
 	width=&#34;4032&#34;
 	height=&#34;2268&#34;
 	
