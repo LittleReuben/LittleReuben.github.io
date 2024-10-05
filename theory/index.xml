@@ -14,7 +14,7 @@
         
         <guid>https://example.com/theory/sol-ling/</guid>
         <description>&lt;div style=&#34;background-color: #CAF2B0; color: #2A6A00; padding-left: 1em; border-left: 4px solid #6FC339; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;想法&lt;/b&gt;。&lt;/div&gt;
-&lt;script type=&#34;text/javascript&#34; src= &#39;/js/pdf-js/build/pdf.js&#39;&gt;&lt;/script&gt;
+&lt;script src= &#39;/js/pdf-js/build/pdf.js&#39;&gt;&lt;/script&gt;
 
 &lt;style&gt;
   #embed-pdf-container {
