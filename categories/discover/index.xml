@@ -16,6 +16,7 @@
         <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;Shot on iPhone 15.&lt;/p&gt;
 &lt;p&gt;以后有机会一定专门学摄影。&lt;/p&gt;
+&lt;p&gt;P.S. HEIC 格式没法直接放上来，转成 JPG 之后色差很大，想要原图可以联系我。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/1.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;4284&#34;
@@ -218,7 +219,7 @@
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;混进了什么奇怪的东西&#34;
+		alt=&#34;9.15 混进了什么奇怪的东西&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -232,7 +233,7 @@
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;混进了什么奇怪的东西&#34;
+		alt=&#34;9.15 混进了什么奇怪的东西&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -266,6 +267,76 @@
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;177&#34;
 		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/19.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;10.18 傍晚 东操西看台&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/20.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;10.18 夜晚 东操【紫金山彗星】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/21.jpg&#34;
+	width=&#34;4284&#34;
+	height=&#34;5712&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;10.28 下午 第二教室楼后&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/22.jpg&#34;
+	width=&#34;4284&#34;
+	height=&#34;5712&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;11.4 下午 情人坡&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/23.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;11.4 下午 情人坡&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
 </description>

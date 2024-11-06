@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 03 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于本博客</title>
         <link>https://littlereuben.github.io/p/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
@@ -55,6 +55,257 @@
 &lt;/ol&gt;
 &lt;p&gt;每篇文章的副标题会标注最新更新时间（若和第一次发布时间不同）。&lt;/p&gt;
 &lt;p&gt;每篇文章的开头会有一个彩色分类卡片，即按上述五种类型分类。卡片内可能会有阅读须知。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>微积分 A(1) 期中复习—一些有意思的难题</title>
+        <link>https://littlereuben.github.io/study/calculus-1-1/</link>
+        <pubDate>Sun, 03 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/calculus-1-1/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;script src= &#39;/js/pdf-js/build/pdf.js&#39;&gt;&lt;/script&gt;
+
+&lt;style&gt;
+  #embed-pdf-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 20vh;
+     
+  }
+  
+  .pdf-canvas {
+    border: 1px solid black;
+    direction: ltr;
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  
+  #the-canvas {
+    border: 1px solid black;
+    direction: ltr;
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  
+  
+  .pdf-loadingWrapper {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 350px;
+  }
+  
+  .pdf-loading {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #d2d0d0;;
+    border-radius: 50%;
+    border-top-color: #383838;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  
+  
+  
+  
+  #overlayText {
+    word-wrap: break-word;
+    display: grid;
+    justify-content: end;
+  }
+  
+  #overlayText a {
+    position: relative;
+    top: 10px;
+    right: 4px;
+    color: #000;
+    margin: auto;
+    background-color: #eeeeee;
+    padding: 0.3em 1em;
+    border: solid 2px;
+    border-radius: 12px;
+    border-color: #00000030;
+    text-decoration: none;
+  }
+  
+  #overlayText svg {
+    height: clamp(1em, 2vw, 1.4em);
+    width:  clamp(1em, 2vw, 1.4em);
+  }
+  
+  
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  &lt;/style&gt;&lt;div class=&#34;embed-pdf-container&#34; id=&#34;embed-pdf-container-30f4bd78&#34;&gt;
+    &lt;div class=&#34;pdf-loadingWrapper&#34; id=&#34;pdf-loadingWrapper-30f4bd78&#34;&gt;
+        &lt;div class=&#34;pdf-loading&#34; id=&#34;pdf-loading-30f4bd78&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;canvas class=&#34;pdf-canvas&#34; id=&#34;pdf-canvas-30f4bd78&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;pdf-paginator&#34; id=&#34;pdf-paginator-30f4bd78&#34;&gt;
+    &lt;button id=&#34;pdf-prev-30f4bd78&#34;&gt;Previous&lt;/button&gt;
+    &lt;button id=&#34;pdf-next-30f4bd78&#34;&gt;Next&lt;/button&gt; &amp;nbsp; &amp;nbsp;
+    &lt;span&gt;
+      &lt;span class=&#34;pdf-pagenum&#34; id=&#34;pdf-pagenum-30f4bd78&#34;&gt;&lt;/span&gt; / &lt;span class=&#34;pdf-pagecount&#34; id=&#34;pdf-pagecount-30f4bd78&#34;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-30f4bd78&#34; href=&#34;cal1_midterm.pdf&#34;&gt;&lt;b&gt;[pdf]&lt;/b&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;noscript&gt;
+View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-30f4bd78&#34; href=&#34;cal1_midterm.pdf&#34;&gt;here&lt;/a&gt;.
+&lt;/noscript&gt;
+
+&lt;script type=&#34;text/javascript&#34;&gt;
+    (function(){
+    var url = &#39;cal1_midterm.pdf&#39;;
+
+    var hidePaginator = &#34;&#34; === &#34;true&#34;;
+    var hideLoader = &#34;&#34; === &#34;true&#34;;
+    var selectedPageNum = parseInt(&#34;&#34;) || 1;
+
+    
+    var pdfjsLib = window[&#39;pdfjs-dist/build/pdf&#39;];
+
+    
+    if (pdfjsLib.GlobalWorkerOptions.workerSrc == &#39;&#39;)
+      pdfjsLib.GlobalWorkerOptions.workerSrc = &#34;https:\/\/littlereuben.github.io\/&#34; + &#39;js/pdf-js/build/pdf.worker.js&#39;;
+
+    
+    var pdfDoc = null,
+        pageNum = selectedPageNum,
+        pageRendering = false,
+        pageNumPending = null,
+        scale = 3,
+        canvas = document.getElementById(&#39;pdf-canvas-30f4bd78&#39;),
+        ctx = canvas.getContext(&#39;2d&#39;),
+        paginator = document.getElementById(&#34;pdf-paginator-30f4bd78&#34;),
+        loadingWrapper = document.getElementById(&#39;pdf-loadingWrapper-30f4bd78&#39;);
+
+
+    
+    showPaginator();
+    showLoader();
+
+    
+
+    function renderPage(num) {
+      pageRendering = true;
+      
+      pdfDoc.getPage(num).then(function(page) {
+        var viewport = page.getViewport({scale: scale});
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        
+        var renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+
+        
+        renderTask.promise.then(function() {
+          pageRendering = false;
+          showContent();
+
+          if (pageNumPending !== null) {
+            
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
+        });
+      });
+
+      
+      document.getElementById(&#39;pdf-pagenum-30f4bd78&#39;).textContent = num;
+    }
+
+    
+
+    function showContent() {
+      loadingWrapper.style.display = &#39;none&#39;;
+      canvas.style.display = &#39;block&#39;;
+    }
+
+    
+
+    function showLoader() {
+      if(hideLoader) return
+      loadingWrapper.style.display = &#39;flex&#39;;
+      canvas.style.display = &#39;none&#39;;
+    }
+
+    
+
+    function showPaginator() {
+      if(hidePaginator) return
+      paginator.style.display = &#39;block&#39;;
+    }
+
+    
+
+    function queueRenderPage(num) {
+      if (pageRendering) {
+        pageNumPending = num;
+      } else {
+        renderPage(num);
+      }
+    }
+
+    
+
+    function onPrevPage() {
+      if (pageNum &lt;= 1) {
+        return;
+      }
+      pageNum--;
+      queueRenderPage(pageNum);
+    }
+    document.getElementById(&#39;pdf-prev-30f4bd78&#39;).addEventListener(&#39;click&#39;, onPrevPage);
+
+    
+
+    function onNextPage() {
+      if (pageNum &gt;= pdfDoc.numPages) {
+        return;
+      }
+      pageNum++;
+      queueRenderPage(pageNum);
+    }
+    document.getElementById(&#39;pdf-next-30f4bd78&#39;).addEventListener(&#39;click&#39;, onNextPage);
+
+    
+
+    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+      pdfDoc = pdfDoc_;
+      var numPages = pdfDoc.numPages;
+      document.getElementById(&#39;pdf-pagecount-30f4bd78&#39;).textContent = numPages;
+
+      
+      if(pageNum &gt; numPages) {
+        pageNum = numPages
+      }
+
+      
+      renderPage(pageNum);
+    });
+    })();
+&lt;/script&gt;
+
 </description>
         </item>
         <item>
@@ -319,6 +570,7 @@ View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-b
         <description>&lt;div style=&#34;background-color: #A1C2D9; color: #042F4E; padding-left: 1em; border-left: 4px solid #30678E; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;收集&lt;/b&gt;。&lt;/div&gt;
 &lt;p&gt;Shot on iPhone 15.&lt;/p&gt;
 &lt;p&gt;以后有机会一定专门学摄影。&lt;/p&gt;
+&lt;p&gt;P.S. HEIC 格式没法直接放上来，转成 JPG 之后色差很大，想要原图可以联系我。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/1.jpg&#34;
 	width=&#34;5712&#34;
 	height=&#34;4284&#34;
@@ -521,7 +773,7 @@ View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-b
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;混进了什么奇怪的东西&#34;
+		alt=&#34;9.15 混进了什么奇怪的东西&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -535,7 +787,7 @@ View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-b
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;混进了什么奇怪的东西&#34;
+		alt=&#34;9.15 混进了什么奇怪的东西&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -569,6 +821,76 @@ View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-b
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;177&#34;
 		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/19.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;10.18 傍晚 东操西看台&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/20.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;10.18 夜晚 东操【紫金山彗星】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/21.jpg&#34;
+	width=&#34;4284&#34;
+	height=&#34;5712&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;10.28 下午 第二教室楼后&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/22.jpg&#34;
+	width=&#34;4284&#34;
+	height=&#34;5712&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;11.4 下午 情人坡&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/23.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;11.4 下午 情人坡&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
 	
 &gt;&lt;/p&gt;
 </description>
@@ -1991,7 +2313,7 @@ $$
 &lt;/ol&gt;
 &lt;p&gt;cusdis 万岁！&lt;/p&gt;
 &lt;p&gt;免费版 cusdis 一个月 10 条 quick approve 和 100 条需要 approve 的评论（大概就是你得在邮箱的评论通知里点一下），完全够。&lt;/p&gt;
-&lt;p&gt;upd：但是有个缺点，就是选填的 Email 谁也看不到，而且 reply 也不会同时评论者，相当于没用。&lt;/p&gt;
+&lt;p&gt;upd：但是有个缺点，就是选填的 Email 谁也看不到，而且 reply 也不会通知评论者，相当于没用。&lt;/p&gt;
 &lt;p&gt;upd：似乎 quick approve 界面可以看到。&lt;/p&gt;
 &lt;p&gt;操作非常简单：&lt;/p&gt;
 &lt;ol&gt;
@@ -4515,7 +4837,7 @@ $$
     &gt;这里&lt;/a&gt;是另一题我写的类似的处理方法。&lt;/p&gt;
 &lt;p&gt;但是这个方法缺乏通用性。首先，刚才这个解法中“用”的定义只在这两题里成立（即用两类精灵球和用两类操作），如果没有类似的组合意义就不行了，所求条件就再次变成了不可解决的，类似于原问题的“强制限定 $y=b$”。其次，维数再高就难以讨论了。&lt;/p&gt;
 &lt;h2 id=&#34;通用的解决方法&#34;&gt;通用的解决方法
-&lt;/h2&gt;&lt;p&gt;核心性质：对于上凸的 $f(x)$，令 $g(k)=\max_x\set{f(x)-kx}+ka$，$g(k)$ 是下凸的，且最小值恰为 $f(a)$。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;核心性质：对于上凸的 $f(x)$，令 $g(k)=\max_x\set{f(x)-kx}+ka$，$g(k)$ 是下凸的，且最小值恰为 $f(a)$。（在力学中这个称为 Legendre 变换）&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这张动图中红色轨迹即为 $g(k)$。&lt;/p&gt;
 &lt;/blockquote&gt;
