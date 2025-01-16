@@ -591,7 +591,7 @@ View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-b
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;8.17 下午 荷塘&#34;
+		alt=&#34;8.17 下午 水木清华&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -891,6 +891,132 @@ View the PDF file &lt;a class=&#34;pdf-source&#34; id=&#34;pdf-source-noscript-b
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;133&#34;
 		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/24.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;11.4 夜晚 新水利馆后【木星】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/25.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;11.5 傍晚 西操&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/26.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;11.26 下午 清芬前&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/27.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;11.26 夜晚 紫操【初雪】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/28.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;12.4 清晨 紫操&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/29.jpg&#34;
+	width=&#34;3024&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;12.9 下午 清芬前&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/30.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;12.13 傍晚 C 楼&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/31.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;12.30 傍晚 六教 C&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/32.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;2268&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;12.31 傍晚 水木清华&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
 	
 &gt;&lt;/p&gt;
 </description>
@@ -3610,7 +3736,7 @@ $$
 &lt;p&gt;这个公式可以导出几个比较平凡的结论，在解题时可以用：
 $$
 (f(x+k))^{(n)}=f^{(n)}(x+k)\\
-(f(kx))^{(n)}=k^nf^{(n)}(x)\\
+(f(kx))^{(n)}=k^nf^{(n)}(kx)\\
 \left.\left(f(x^k)\right)^{(n)}\right|_{x=0}=\begin{cases}0,&amp;amp;k\nmid n\\ \dfrac{n!}{(n/k)!}f^{(n/k)}(0),&amp;amp;k\mid n\end{cases}
 $$
 最后一个可以直接展开级数证（很诡异），用于展开 $\arcsin x$ 之类的。&lt;/p&gt;

@@ -2181,7 +2181,7 @@ $$
 &lt;p&gt;这个公式可以导出几个比较平凡的结论，在解题时可以用：
 $$
 (f(x+k))^{(n)}=f^{(n)}(x+k)\\
-(f(kx))^{(n)}=k^nf^{(n)}(x)\\
+(f(kx))^{(n)}=k^nf^{(n)}(kx)\\
 \left.\left(f(x^k)\right)^{(n)}\right|_{x=0}=\begin{cases}0,&amp;amp;k\nmid n\\ \dfrac{n!}{(n/k)!}f^{(n/k)}(0),&amp;amp;k\mid n\end{cases}
 $$
 最后一个可以直接展开级数证（很诡异），用于展开 $\arcsin x$ 之类的。&lt;/p&gt;
