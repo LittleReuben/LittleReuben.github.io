@@ -157,7 +157,8 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;内嵌 pdf：&lt;a class=&#34;link&#34; href=&#34;https://github.com/anvithks/hugo-embed-pdf-shortcode&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/anvithks/hugo-embed-pdf-shortcode&lt;/a&gt;。&lt;/p&gt;
+    &gt;https://github.com/anvithks/hugo-embed-pdf-shortcode&lt;/a&gt;。Better choice：&lt;a class=&#34;link&#34; href=&#34;https://bugdrivendevelopment.net/pdf-reader-hugo-sites/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://bugdrivendevelopment.net/pdf-reader-hugo-sites/&lt;/a&gt;，如果希望像我一样在 pdf 下面再显示一个原文件的链接，可以加一行 &lt;code&gt;&amp;lt;a href=&amp;quot;{{ .Get 0 }}&amp;quot; style=&amp;quot;display:block;text-align:center;&amp;quot;&amp;gt;&amp;lt;b&amp;gt;[PDF file]&amp;lt;/b&amp;gt;&amp;lt;/a&amp;gt;&lt;/code&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;content-目录结构&#34;&gt;content 目录结构
@@ -243,6 +244,8 @@
 &lt;li&gt;配置里 params 的 comments 的 provider 改成 cusdis，下面 cusdis 里 host 和 id 改一下，具体改的内容看 cusdis 里你的 dashboard 上方的 Embeded Code。&lt;/li&gt;
 &lt;li&gt;如果想改中文，在 layout/partial/comments/provider/cusdis.html 里 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;{{ $host }}/js/cusdis.es.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt; 的上面加一句 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;https://cusdis.com/js/widget/lang/zh-cn.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;Cusdis 的块非常矮，目前我没有找到一个能使块长随着评论数量变化的方法，一个差一点的解决方法见 &lt;a class=&#34;link&#34; href=&#34;https://barthpaleologue.github.io/Blog/posts/add-and-customize-cusdis-hugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://barthpaleologue.github.io/Blog/posts/add-and-customize-cusdis-hugo/&lt;/a&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;日常维护&#34;&gt;日常维护
 &lt;/h3&gt;&lt;p&gt;我一般习惯这样：&lt;/p&gt;
 &lt;ol&gt;

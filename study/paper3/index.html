@@ -296,7 +296,7 @@
   <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
 </svg>
                 <time class="article-time--reading">
-                    1987 字
+                    1990 字
                 </time>
             </div>
         
@@ -342,7 +342,7 @@
 <p>然后还有一个对边归纳的思路。</p>
 <p>证 3（<a class="link" href="https://arxiv.org/pdf/1705.01648"  target="_blank" rel="noopener"
     >论文</a>）：任取一条边 $(u,v)$，归纳构造不含它的方案，这时如果在某个森林中 $u$、$v$ 不连通，则直接补进去即可；否则考虑某个森林 $G_1$ 中它们所在的连通块，设点集为 $S$。在其余森林中分别取出 $S$ 的导出子图，至少有一个导出子图不连通（否则加回 $(u,v)$ 时就不合法了），找出它对应的原森林 $G_2$。<br>
-如果考虑进 $G_2$ 的所有边时，$S$ 中的点仍不连通，那么可从 $G_1[S]$ 中取出一条边改放到 $G_2$ 中使 $G_2$ 仍为森林（与图拟阵的证明相同）；否则，若将 $G_2[S]$ 中各连通块缩成点，那么这些点在 $G_2$ 中的位置关系形成一棵树，至少有两个叶子。这说的意思是，$G_2[S]$ 中存在至少两个连通块，如果断开其与 $S$ 之外的某条边，它就与其他 $G_2[S]$ 的连通块都不连通了。选出非 $u$ 所在的这样一个连通块，设其点集为 $S^\prime$，它与其他连通块连接的唯一“向外通道”为边 $e_1$，$e_1$ 在 $S$ 中侧端点为 $w$，考虑 $G_1$ 中 $u\rightsquigarrow w$ 路径上第一条一端在 $S^\prime$ 内的边 $e_2$。将 $e_2$ 换到 $G_1$，$e_1$ 换到 $G_2$，这样两图仍为森林，且 $G_1$ 中 $u$ 所在连通块变小。如此进行下去，直到 $G_1$ 中 $u$、$v$ 不连通即可。<br>
+如果考虑进 $G_2$ 的所有边时，$S$ 中的点仍不连通，那么可从 $G_1[S]$ 中取出一条边改放到 $G_2$ 中使 $G_2$ 仍为森林（与图拟阵的证明相同）；否则，若将 $G_2[S]$ 中各连通块缩成点，那么这些点在 $G_2$ 中的位置关系形成类似树的结构，至少有两个叶子。这说的意思是，$G_2[S]$ 中存在至少两个连通块，如果断开其与 $S$ 之外的某条边，它就与其他 $G_2[S]$ 的连通块都不连通了。选出非 $u$ 所在的这样一个连通块，设其点集为 $S^\prime$，它与其他连通块连接的唯一“向外通道”为边 $e_1$，$e_1$ 在 $S$ 中侧端点为 $w$，考虑 $G_1$ 中 $u\rightsquigarrow w$ 路径上第一条一端在 $S^\prime$ 内的边 $e_2$。将 $e_1$ 换到 $G_1$，$e_2$ 换到 $G_2$，这样两图仍为森林，且 $G_1$ 中 $u$ 所在连通块变小。如此进行下去，直到 $G_1$ 中 $u$、$v$ 不连通即可。<br>
 下图为最后一种情况，红色边为 $G_1$，蓝色与深蓝色边为 $G_2$，深蓝色边省略了在 $S$ 以外的中转点。实质上最后一种情况就是费尽心思想强制让 $G_1[S]$ 丢掉一些点，同时在丢掉点时 $u$ 所在部分不能和别的连通块连起来。</p>
 <p><img src="/study/paper3/1.png"
 	width="800"
@@ -437,6 +437,25 @@
     })
 </script>
 
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px; height: 450px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+    </script>
 
     
 
