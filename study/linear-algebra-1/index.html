@@ -571,7 +571,7 @@ $$
 <p>关于特征值和特征向量。首先要明确，相似变换下，行列式、秩、迹、特征值都不变，但特征向量会变。</p>
 <p>无论是否满秩，特征值数量（算上重数）总为 $n$，但特征子空间的维数和就不一定了。如果满秩，则特征值全部非零，但是不满秩时，特征值 $0$ 的重数并不等于 $n-r$，而是大于等于，例如 $\begin{bmatrix}0&amp;1\\ 0&amp;0\end{bmatrix}$。相关证明见 <a class="link" href="https://www.zhihu.com/question/297458474/answer/1362625976"  target="_blank" rel="noopener"
     >https://www.zhihu.com/question/297458474/answer/1362625976</a>。</p>
-<p>几何重数小于等于代数重数的证明直观是很好理解的，你都构造出那几个线性无关的特征向量了，那不得至少有这几个嘛。证明的思路就是基变换，把这几个特征向量作为基，别的任选，然后 $|\lambda I-A&rsquo;|=0$ 就行。</p>
+<p>几何重数小于等于代数重数的证明直观是很好理解的，你都构造出那几个线性无关的特征向量了，那不得至少有这几个嘛。证明的思路就是基变换，把这几个特征向量作为基，别的任选，然后 $|\lambda I-A^\prime|=0$ 就行。</p>
 <p>不同特征值对应的特征向量不同，这个只需看一个简单情况就可以理解证明思路：如果 $A\alpha_1=\lambda_1\alpha_1,A\alpha_2=\lambda_2\alpha_2,c\alpha_1=\alpha_2$，那么 $\lambda_1c\alpha_1=Ac\alpha_1=A\alpha_2=\lambda_2\alpha_2=\lambda_2c\alpha_1\Rightarrow\lambda_1=\lambda_2$。后面的东西都是比较显然的。</p>
 </li>
 <li>

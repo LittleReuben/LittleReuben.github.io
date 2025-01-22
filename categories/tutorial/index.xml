@@ -204,9 +204,9 @@
 &lt;li&gt;如果要利用全局 \def，必须使用 \gdef。这个和 Typora 是不一样的，Typora 不识别 \gdef 但 \def 是全局的。&lt;/li&gt;
 &lt;li&gt;矩阵等多行的东西，需要打三个 &lt;code&gt;\&lt;/code&gt; 后再来个空格，以换行。这个很奇怪。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\,&lt;/code&gt;、&lt;code&gt;\;&lt;/code&gt; 之类的小空格必须改成 &lt;code&gt;\\,&lt;/code&gt;、&lt;code&gt;\\;&lt;/code&gt;。这个也很奇怪。&lt;/li&gt;
-&lt;li&gt;表格里公式偷懒不用 &lt;code&gt;\lvert\rvert&lt;/code&gt; 直接打 &lt;code&gt;|&lt;/code&gt; 时会出现与表格边界混淆的情况（Typora 会自动正确处理），这时要加转义 &lt;code&gt;\&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;公式内星号 &lt;code&gt;*&lt;/code&gt; 要加转义 &lt;code&gt;\&lt;/code&gt;（Typora 会自动正确处理）。&lt;/li&gt;
-&lt;li&gt;还有很多不加 &lt;code&gt;\&lt;/code&gt; 就会爆的情况。我遇到最诡异的是 &lt;code&gt;${a}_{b}{c}_{d}$&lt;/code&gt; 无法渲染。这种是因为垃圾 Markdown 渲染器把公式内外搞混了（两个下划线之间被识别为斜体）。遇到这种情况反正就在各个特殊字符前试着加 &lt;code&gt;\&lt;/code&gt; 就行。&lt;/li&gt;
+&lt;li&gt;表格里公式偷懒不用 &lt;code&gt;\lvert\rvert&lt;/code&gt; 直接打 &lt;code&gt;|&lt;/code&gt; 时会出现与表格边界混淆的情况（Typora 会自动正确处理），这时要加转义 &lt;code&gt;\&lt;/code&gt;。&lt;code&gt;\set&lt;/code&gt; 里第一个 &lt;code&gt;|&lt;/code&gt; 会被识别为“满足”符号，自动适应左右高度。&lt;/li&gt;
+&lt;li&gt;公式内星号 &lt;code&gt;*&lt;/code&gt;、百分号 &lt;code&gt;%&lt;/code&gt; 要加转义 &lt;code&gt;\&lt;/code&gt;（Typora 会自动正确处理）。&lt;/li&gt;
+&lt;li&gt;还有很多不加 &lt;code&gt;\&lt;/code&gt; 就会爆的情况。我遇到最诡异的是 &lt;code&gt;${a}_{b}{c}_{d}$&lt;/code&gt; 无法渲染。这种是因为垃圾 Markdown 渲染器把公式内外搞混了（两个下划线之间被识别为斜体，一般会出现在 &lt;code&gt;|_&lt;/code&gt;（代入值）和 &lt;code&gt;}_&lt;/code&gt; 这种地方）。遇到这种情况反正就在各个特殊字符前试着加 &lt;code&gt;\&lt;/code&gt; 就行。甚至多行推不等式出现多个 &lt;code&gt;&amp;gt;&lt;/code&gt; 会识别成引用，无语。&lt;/li&gt;
 &lt;li&gt;连接自动识别在遇到标点时会有问题，建议还是用 &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; 括起来。&lt;/li&gt;
 &lt;li&gt;撇号如果直接用 &lt;code&gt;&#39;&lt;/code&gt; 会很丑（$&amp;rsquo;$），必须用 &lt;code&gt;^\prime&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;html 格式的图片要居中必须单独写 center。&lt;/li&gt;

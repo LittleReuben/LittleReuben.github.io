@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="$\\gdef\\ker{\\mathop{\\mathrm{Ker}}}\\gdef\\im{\\mathop{\\mathrm{Im}}}\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\F{\\mathbb{F}}\\gdef\\r{\\operatorname{rank}}\\gdef\\L{\\mathsf{L}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\T{\\mathsf{T}}\\gdef\\U{\\mathsf{U}}\\gdef\\E{\\mathsf{E}}$ 这是一篇学习笔记。 前言 完全从线性变换角度去讲线性代数，主要就是六个递进的难点：秩—零化度定理、行列秩相等、Cayley–Hamilton 定">
+<title>线代的一些题</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/course-linear-algebra/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="线代的一些题">
+<meta property='og:description' content="$\\gdef\\ker{\\mathop{\\mathrm{Ker}}}\\gdef\\im{\\mathop{\\mathrm{Im}}}\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\F{\\mathbb{F}}\\gdef\\r{\\operatorname{rank}}\\gdef\\L{\\mathsf{L}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\T{\\mathsf{T}}\\gdef\\U{\\mathsf{U}}\\gdef\\E{\\mathsf{E}}$ 这是一篇学习笔记。 前言 完全从线性变换角度去讲线性代数，主要就是六个递进的难点：秩—零化度定理、行列秩相等、Cayley–Hamilton 定">
+<meta property='og:url' content='https://littlereuben.github.io/study/course-linear-algebra/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-01-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-22T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="线代的一些题">
+<meta name="twitter:description" content="$\\gdef\\ker{\\mathop{\\mathrm{Ker}}}\\gdef\\im{\\mathop{\\mathrm{Im}}}\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\F{\\mathbb{F}}\\gdef\\r{\\operatorname{rank}}\\gdef\\L{\\mathsf{L}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\T{\\mathsf{T}}\\gdef\\U{\\mathsf{U}}\\gdef\\E{\\mathsf{E}}$ 这是一篇学习笔记。 前言 完全从线性变换角度去讲线性代数，主要就是六个递进的难点：秩—零化度定理、行列秩相等、Cayley–Hamilton 定">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#题">题</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/math/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 数学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/course-linear-algebra/">线代的一些题</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-01-22</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    3658 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>$\gdef\ker{\mathop{\mathrm{Ker}}}\gdef\im{\mathop{\mathrm{Im}}}\gdef\e{\mathrm{e}}\gdef\d{\mathrm{d}}\gdef\F{\mathbb{F}}\gdef\r{\operatorname{rank}}\gdef\L{\mathsf{L}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\dat#1{\begin{vmatrix}#1\end{vmatrix}}\gdef\T{\mathsf{T}}\gdef\U{\mathsf{U}}\gdef\E{\mathsf{E}}$</p>
+<div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<h3 id="前言">前言
+</h3><p>完全从线性变换角度去讲线性代数，主要就是六个递进的难点：秩—零化度定理、行列秩相等、Cayley–Hamilton 定理、对偶、内积空间下的对偶、正交相关定理。反而行列式、SVD、Jordan 之类的没有那么难理解，只是麻烦罢了。</p>
+<p>线性变换最难解释的是转置，转置没有一个直观的意义，例如转置的行列式等于原行列式这种东西。无论是否在内积空间下，转置只能用范畴论去理解，画出对偶的交换图，它其实也是很自然的，但再往后，到了复正规矩阵和实对称矩阵可以正规对角化这里，就完全不懂了，只能背证明。</p>
+<p>但总的来说我线性代数没记特别多东西，Cayley–Hamilton 定理和对偶相关的理解就咕掉了。</p>
+<h3 id="题">题
+</h3><blockquote>
+<p>只使用线性变换的知识（不使用初等行变换）证明 $\dim\ker f+\dim\im f=\dim V$。</p>
+</blockquote>
+<p>$\ker f$ 是 $V$ 的一个子空间。取出它的一组基 $\set{v_{1\sim n}}$，并将它扩展成 $V$ 的基 $\set{v_{1\sim n},v_{n+1\sim m}}$。现在 $f(v_{1\sim n})=0$，而我们要证的是，$\set{f(v_{n+1\sim m})}$ 线性无关，从而它是 $\im f$ 的基。
+$$
+\sum c_if(v_i)=0\Longleftrightarrow f\left(\sum c_iv_i\right)=0\Longleftrightarrow \sum c_iv_i\in\ker f
+$$
+这里 $\sum$ 是 $\sum_{i=n+1}^m$。要么 $c$ 全都是 $0$，要么 $\set{v_{1\sim m}}$ 不是基。</p>
+<blockquote>
+<p>只使用线性变换的知识（不使用初等行变换）证明行秩等于列秩。</p>
+</blockquote>
+<p>考虑 $A_{n\times m}$ 的行空间的对偶空间，这个空间就是 $\F^m/\ker A$，于是
+$$
+行秩=m-\dim\ker A=m-(m-\dim\im A)=列秩
+$$
+这里的核心思路是说，将 $A$ 以两种方式看成同一个线性变换：一种是将 $A$ 视作某个对偶空间（对偶空间的对偶空间与原空间间存在自然映射，在这个问题里更简单，就是个点乘）——这个是行的，一种是直接考虑 $A$ 的线性变换——这个是列的。那么剩下的问题其实是证明原空间和对偶空间的维数相等，这个是用基来证的。</p>
+<p><img src="/study/course-linear-algebra/rrecr.png"
+	width="1317"
+	height="816"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="161"
+		data-flex-basis="387px"
+	
+></p>
+<blockquote>
+<p>$f:V\to V$。证明 $\exists k$，$V=\ker f^k\oplus\im f^k$。</p>
+</blockquote>
+<p>我们知道 $\im f^{k+1}\subseteq\im f^k$，于是 $\exists k$，$\dim V&gt;\dim\im f&gt;\dim\im f^2&gt;\cdots&gt;\dim\im f^k=\dim\im f^{k+1}=\dim\im f^{k+2}=\cdots$。如果 $\ker f^k\cap\im f^k\supseteq\set{0,v}$，则 $f^{2k}(v)=0$，矛盾。</p>
+<p>这个命题在抽代里也有一个对应的版本。</p>
+<blockquote>
+<p>$A_{n\times m}$，$B_{m\times l}$。证明 $\r(A)+\r(B)-m\le\r(AB)$。</p>
+</blockquote>
+<p>首先，我们有，对于 $f:U\to V$，$g:V\to W$，
+$$
+\dim\ker f+\dim\ker g\ge\dim\ker(g\circ f)
+$$
+直观上很好理解，证明：
+$$
+\dim\ker(g\circ f)=\dim(\ker f\oplus\ker g|_{\im f})=\dim\ker f+\dim\ker g|_{\im f}\le\dim\ker f+\dim\ker g
+$$</p>
+<p>于是
+$$
+\begin{align*}
+\r(AB)&amp;=\dim\im\L_{AB}\\
+&amp;=\dim\im(\L_A\circ\L_B)\\
+&amp;=l-\dim\ker(\L_A\circ\L_B)\\
+&amp;\ge l-\dim\ker\L_A-\dim\ker\L_B\\
+&amp;=l-m+\dim\im\L_A-l+\dim\im\L_v\\
+&amp;=\r(A)+\r(B)-m
+\end{align*}
+$$
+可选的一种类似的思路：先证 $\dim\im(g\circ f)\ge\dim\im f-\dim\ker g$：$\dim\im f=\dim\ker g|_{\im f}+\dim\im g|_{\im f}$。</p>
+<blockquote>
+<p>$A_{n\times n}$，$B_{n\times n}$，$AB=BA=O$，$\r(A^2)=\r(A)$。证明 $\r(A+B)=\r(A)+\r(B)$。</p>
+</blockquote>
+<p>思路 1：证明 $\ker\L_{A+B}=\ker\L_A\cap\ker\L_B$ 与 $\ker\L_A+\ker\L_B=\R^n$。</p>
+<ol>
+<li>$(A+B)x=0\Rightarrow Ax=A(A+B)x=0$，$(A+B)x=0\Rightarrow Bx=-Ax=0\Rightarrow\ker\L_{A+B}\subseteq\ker\L_A\cap\ker\L_B$。</li>
+<li>$\r(A^2)=\r(A)\Rightarrow\ker\L_A\oplus\im\L_A=\R^n$，$BA=0\Rightarrow\im\L_A\subseteq\ker\L_B\Rightarrow\ker\L_A+\ker\L_B=\R^n$。</li>
+</ol>
+<p>思路 2：证明 $\im\L_{A+B}=\im\L_A+\im\L_B$ 与 $\im\L_A\cap\im\L_B=\set{0}$。</p>
+<ol>
+<li>$\im\L_A=\im\L_{A^2+BA}=\im\L_{(A+B)A}\subseteq\im\L_{A+B}$；$\im\L_B=\im\L_{A+B-A}\subseteq\im\L_{A+B}+\im\L_A=\im\L_{A+B}$。</li>
+<li>$\r(A^2)=\r(A)\Rightarrow\ker\L_A\oplus\im\L_A=\R^n$，$AB=O\Rightarrow\im\L_B\subseteq\ker\L_A$。</li>
+</ol>
+<blockquote>
+<p>$A_{m\times n}$，$B_{n\times m}$，证明 $\r(AB)=\r(A)\Rightarrow\exists C_{m\times n},A=ABC$。</p>
+</blockquote>
+<p>设 $A=[\alpha_i]$。$Ae_i=\alpha_i$，而 $\ker\L_{AB}=\ker\L_A$ 故 $\exists\gamma_i$，$AB\gamma_i=\alpha_i$。令 $C=[\gamma_i]$。</p>
+<blockquote>
+<p>$A_{n\times n}$。证明若 $\forall x\in\R^n$，$x\ne 0$，$|x^\top Ax|&lt;|x^\top x|$，则 $I-A^2$ 可逆。</p>
+</blockquote>
+<p>$|x^\top Ax|&lt;|x^\top x|$ 展开：
+$$
+-\sum x_i^2&lt;\sum\sum x_ix_ja_{ij}&lt;+\sum x_i^2\\
+\Longrightarrow
+\left\{
+\begin{aligned}
+x^\top(I-A)x=\sum\sum x_ix_j(\delta_{ij}-a_{ij})&gt;0\\
+x^\top(I+A)x=\sum\sum x_ix_j(\delta_{ij}+a_{ij})&gt;0
+\end{aligned}
+\right.
+$$
+如果 $I-A$ 不可逆，则 $\exists x\ne 0$，$(I-A)x=0$，那么 $x^{\top}(I-A)x=0$，矛盾。</p>
+<p>同理 $I+A$ 可逆，于是 $I-A^2$ 可逆。</p>
+<blockquote>
+<p>$A_{m\times n}$，$B_{n\times m}$，证明 $\r(I_m+AB)-\r(I_n+BA)=m-n$。</p>
+</blockquote>
+<p>$$
+\begin{bmatrix}I_m+AB&amp;O\\ O&amp;I_n\end{bmatrix}\sim\begin{bmatrix}I_m+AB&amp;A\\ O&amp;I_n\end{bmatrix}\sim\begin{bmatrix}I_m&amp;A\\ -B&amp;I_n\end{bmatrix}\sim\begin{bmatrix}I_m&amp;A\\ O&amp;I_n+BA\end{bmatrix}\sim\begin{bmatrix}I_m&amp;O\\ O&amp;I_n+BA\end{bmatrix}
+$$</p>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/473406438"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/473406438</a></p>
+<p>TMD 为什么我记了这个期末考却没想起来？？</p>
+<blockquote>
+<p>$A_{l\times m}$，$B_{n\times p}$，$C_{l\times p}$。证明：</p>
+<ol>
+<li>$W_{p\times n}$，$BWB=B$ 总是有解。</li>
+<li>$X_{m\times n}$，$AXB=C$ 有解 $\Leftrightarrow \r(A)=\r(\begin{bmatrix}A&amp;C\end{bmatrix})\land\r\left(\begin{bmatrix}B\\ C\end{bmatrix}\right)$</li>
+</ol>
+</blockquote>
+<p>设 $\r(B)=r$。通过消成相抵标准形，可以得到 $B=PQ$ 满秩分解，其中 $P_{n\times r}$ 是列满秩，$Q_{r\times p}$ 是行满秩。构造 $W=B^+=Q^\top(QQ^\top)^{-1}(P^\top P)^{-1}P^\top$。只需证明 $\r(QQ^\top)=\r(P^\top P)=r$ 即可，这个直接用一般的公式（同解证）。</p>
+<p>$\Leftarrow$：构造 $X=A^+CB^+$。根据条件，$AY=C$、$ZB=C$ 均有解，故
+$$
+AXB=AA^+CB^+B=AA^+AYB^+B=AYB^+B=CB^+B=ZBB^+B=ZB=C
+$$</p>
+<blockquote>
+<p>$a\in\R^n$，求 $\dat{I+aa^\top}$。</p>
+</blockquote>
+<p>思路 1：根据行列式的拆分公式，可以把 $\dat{I+aa^\top}$ 拆成 $2^n$ 个行列式的和，其中如果有两行都取自 $aa^\top$ 就是 $0$，剩下的就是 $1+\sum a_i^2$。</p>
+<p>思路 2：考虑 $(I+aa^\top)v=\lambda v\Leftrightarrow aa^\top v=(\lambda-1)v$。我们知道 $a\ne 0$ 时 $\dim aa^\top=1$，故有 $n-1$ 重 $\lambda-1=0$。另一重怎么考虑呢？代入 $v=a$ 得 $aa^\top v=a(a^\top v)=\braket{a,a}a$。</p>
+<blockquote>
+<p>$$
+\dat{\lambda&amp;1&amp;0&amp;\cdots&amp;0&amp;0\\ n&amp;\lambda&amp;2&amp;\cdots&amp;0&amp;0\\ 0&amp;n-1&amp;\lambda&amp;\cdots&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;\lambda&amp;n\\ 0&amp;0&amp;0&amp;\cdots&amp;1&amp;\lambda}
+$$</p>
+</blockquote>
+<p>思路 1：令原式为 $D_n(\lambda)$。
+$$
+\begin{align*}
+D_n(\lambda)={}&amp;\dat{\lambda&amp;1&amp;0&amp;0&amp;\cdots&amp;0&amp;0&amp;0\\ n&amp;\lambda&amp;2&amp;0&amp;\cdots&amp;0&amp;0&amp;0\\ 0&amp;n-1&amp;\lambda&amp;3&amp;\cdots&amp;0&amp;0&amp;0\\ 0&amp;0&amp;n-2&amp;\lambda&amp;\cdots&amp;0&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;\lambda&amp;n-1&amp;0\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;2&amp;\lambda&amp;n\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;0&amp;1&amp;\lambda}\\
+\xlongequal{r_1\xleftarrow{+}r_2+\cdots+r_{n+1}}{}&amp;\dat{\lambda+n&amp;\lambda+n&amp;\lambda+n&amp;\lambda+n&amp;\cdots&amp;\lambda+n&amp;\lambda+n&amp;\lambda+n\\ n&amp;\lambda&amp;2&amp;0&amp;\cdots&amp;0&amp;0&amp;0\\ 0&amp;n-1&amp;\lambda&amp;3&amp;\cdots&amp;0&amp;0&amp;0\\ 0&amp;0&amp;n-2&amp;\lambda&amp;\cdots&amp;0&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;\lambda&amp;n-1&amp;0\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;2&amp;\lambda&amp;n\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;0&amp;1&amp;\lambda}\\
+\xlongequal{c_2,\cdots,c_{n+1}\xleftarrow{-}c_1}{}&amp;\dat{\lambda+n&amp;0&amp;0&amp;0&amp;\cdots&amp;0&amp;0&amp;0\\ n&amp;\lambda-n&amp;2-n&amp;-n&amp;\cdots&amp;-n&amp;-n&amp;-n\\ 0&amp;n-1&amp;\lambda&amp;3&amp;\cdots&amp;0&amp;0&amp;0\\ 0&amp;0&amp;n-2&amp;\lambda&amp;\cdots&amp;0&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;\lambda&amp;n-1&amp;0\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;2&amp;\lambda&amp;n\\ 0&amp;0&amp;0&amp;0&amp;\cdots&amp;0&amp;1&amp;\lambda}\\
+\xlongequal{r_1}{}&amp;\dat{\lambda-n&amp;2-n&amp;-n&amp;\cdots&amp;-n&amp;-n&amp;-n\\ n-1&amp;\lambda&amp;3&amp;\cdots&amp;0&amp;0&amp;0\\ 0&amp;n-2&amp;\lambda&amp;\cdots&amp;0&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;\lambda&amp;n-1&amp;0\\ 0&amp;0&amp;0&amp;\cdots&amp;2&amp;\lambda&amp;n\\ 0&amp;0&amp;0&amp;\cdots&amp;0&amp;1&amp;\lambda}\cdot(\lambda+n)\\
+\xlongequal{r_1\xleftarrow{+}r_2+\cdots+r_n}{}&amp;\dat{\lambda-1&amp;\lambda&amp;\lambda&amp;\cdots&amp;\lambda&amp;\lambda&amp;\lambda\\ n-1&amp;\lambda&amp;3&amp;\cdots&amp;0&amp;0&amp;0\\ 0&amp;n-2&amp;\lambda&amp;\cdots&amp;0&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;\lambda&amp;n-1&amp;0\\ 0&amp;0&amp;0&amp;\cdots&amp;2&amp;\lambda&amp;n\\ 0&amp;0&amp;0&amp;\cdots&amp;0&amp;1&amp;\lambda}\cdot(\lambda+n)\\
+\xlongequal{r_2\xleftarrow{+}r_3+\cdots+r_n}{}&amp;\cdots\cdots\\
+\xlongequal{r_{n-1}\xleftarrow{+}r_n}{}&amp;\dat{\lambda-1&amp;\lambda&amp;\lambda&amp;\cdots&amp;\lambda&amp;\lambda&amp;\lambda\\ n-1&amp;\lambda+n-2&amp;\lambda+n&amp;\cdots&amp;\lambda+n&amp;\lambda+n&amp;\lambda+n\\ 0&amp;n-2&amp;\lambda+n-3&amp;\cdots&amp;\lambda+n&amp;\lambda+n&amp;\lambda+n\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;\lambda+2&amp;\lambda+n&amp;\lambda+n\\ 0&amp;0&amp;0&amp;\cdots&amp;2&amp;\lambda+1&amp;\lambda+n\\ 0&amp;0&amp;0&amp;\cdots&amp;0&amp;1&amp;\lambda}\cdot(\lambda+n)\\
+\xlongequal{c_n\xleftarrow{-}c_{n-1}}{}&amp;\dat{\lambda-1&amp;\lambda&amp;\lambda&amp;\cdots&amp;\lambda&amp;\lambda&amp;0\\ n-1&amp;\lambda+n-2&amp;\lambda+n&amp;\cdots&amp;\lambda+n&amp;\lambda+n&amp;0\\ 0&amp;n-2&amp;\lambda+n-3&amp;\cdots&amp;\lambda+n&amp;\lambda+n&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;\lambda+2&amp;\lambda+n&amp;0\\ 0&amp;0&amp;0&amp;\cdots&amp;2&amp;\lambda+1&amp;n-1\\ 0&amp;0&amp;0&amp;\cdots&amp;0&amp;1&amp;\lambda-1}\cdot(\lambda+n)\\
+\xlongequal{c_{n-1}\xleftarrow{-}c_{n-2}}{}&amp;\cdots\cdots\\
+\xlongequal{c_2\xleftarrow{-}c_1}{}&amp;\dat{\lambda-1&amp;1&amp;0&amp;\cdots&amp;0&amp;0&amp;0\\ n-1&amp;\lambda-1&amp;2&amp;\cdots&amp;0&amp;0&amp;0\\ 0&amp;n-2&amp;\lambda-1&amp;\cdots&amp;0&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;\lambda-1&amp;n-2&amp;0\\ 0&amp;0&amp;0&amp;\cdots&amp;2&amp;\lambda-1&amp;n-1\\ 0&amp;0&amp;0&amp;\cdots&amp;0&amp;1&amp;\lambda-1}\cdot(\lambda+n)\\
+={}&amp;(\lambda+n)D_{n-1}(\lambda-1)\\
+={}&amp;(\lambda+n)(\lambda+n-2)D_{n-2}(\lambda-2)\\
+={}&amp;\cdots\cdots\\
+={}&amp;\prod_{i=0}^n(\lambda+n-2i)
+\end{align*}
+$$
+思路 2：<a class="link" href="https://math.stackexchange.com/a/340611"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/340611</a></p>
+<p>思路 3：记
+$$
+A=\mat{0&amp;1&amp;0&amp;\cdots&amp;0&amp;0\\ n&amp;0&amp;2&amp;\cdots&amp;0&amp;0\\ 0&amp;n-1&amp;0&amp;\cdots&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;0&amp;n\\ 0&amp;0&amp;0&amp;\cdots&amp;1&amp;0}
+$$
+（该矩阵被称为 Kac matrix）</p>
+<p>考虑 $Ax=\lambda x$，其中 $x=\mat{x_0&amp;\cdots&amp;x_n}^\top$。具体写成：
+$$
+\left\{\begin{align*}
+x_1&amp;=\lambda x_0\\
+nx_0+2x_2&amp;=\lambda x_1\\
+(n-1)x_1+3x_3&amp;=\lambda x_2\\
+\cdots&amp;\cdots\\
+x_{n-1}&amp;=\lambda x_n
+\end{align*}\right.
+$$
+令 $f(t)=\sum x_it^i$，可以写成 $t(nf-tf^\prime)+f^\prime=\lambda f$ 即
+$$
+\frac{f^\prime(t)}{f(t)}=\frac{nt-\lambda}{t^2-1}=\frac{n+\lambda}{2(t+1)}+\frac{n-\lambda}{2(t-1)}
+$$
+两端同时积分得
+$$
+f(t)=C(t+1)^{(n+\lambda)/2}(t-1)^{(n-\lambda)/2}
+$$
+也就是说，仅有这些 $f$ 展开可以作为 $x$，且这样的 $f$ 还需满足没有超过 $x^n$ 的项，因此只能有 $|\lambda|\le n$ 且 $\lambda$ 为与 $n$ 奇偶的整数。</p>
+<blockquote>
+<p>证明：如果一个方阵 $A$ 只有行列异奇偶的位置非零，则其特征值一定正负成对出现。</p>
+</blockquote>
+<p>考虑 $D=\operatorname{diag}(1,-1,1,-1,\cdots)$。注意到 $D^{-1}AD=-A$。因此，若 $Av=\lambda v$，则
+$$
+A(Dv)=(AD)v=-(DA)v=-D(Av)=-D\lambda v=-\lambda(Dv)
+$$</p>
+<blockquote>
+<p>求
+$$
+A=\mat{b&amp;c&amp;0&amp;\cdots&amp;0&amp;0\\ a&amp;b&amp;c&amp;\cdots&amp;0&amp;0\\ 0&amp;a&amp;b&amp;\cdots&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;b&amp;c\\ 0&amp;0&amp;0&amp;\cdots&amp;a&amp;b}
+$$
+的特征值与特征向量。</p>
+</blockquote>
+<p>我们知道，
+$$
+\dat{A}=\left\{\begin{aligned}&amp;\frac1{\sqrt\Delta}\left[\left(\frac{b+\sqrt\Delta}2\right)^{n+1}-\left(\frac{b-\sqrt\Delta}2\right)^{n+1}\right],&amp;\Delta\ne0\\ &amp;(n+1)\left(\frac b2\right)^n,&amp;\Delta=0\end{aligned}\right.
+$$
+如果 $ac=0$，那么唯一的特征值为 $b$，否则
+$$
+\lambda=b-2\sqrt{ac}\cos\frac{k\pi}{n+1}\;(k=1,\cdots,n)
+$$
+特征向量似乎有点难。</p>
+<blockquote>
+<p>求循环矩阵 $\Set{a_{(n-i+j)\bmod n}}$ 的特征值与特征向量。</p>
+</blockquote>
+<p>这个反倒很简单，既然知道求行列式的套路是
+$$
+\mat{a_0&amp;a_1&amp;\cdots&amp;a_{n-1}\\ a_{n-1}&amp;a_0&amp;\cdots&amp;a_1\\ \vdots&amp;\vdots&amp;\ddots&amp;\vdots\\ a_1&amp;a_2&amp;\cdots&amp;a_0}\mat{\omega^{0\cdot0}&amp;\omega^{1\cdot0}&amp;\cdots&amp;\omega^{(n-1)\cdot0}\\ \omega^{0\cdot1}&amp;\omega^{1\cdot1}&amp;\cdots&amp;\omega^{(n-1)\cdot1}\\ \vdots&amp;\vdots&amp;\ddots&amp;\vdots\\ \omega^{0\cdot(n-1)}&amp;\omega^{1\cdot(n-1)}&amp;\cdots&amp;\omega^{(n-1)\cdot(n-1)}}=\mat{\omega^{0\cdot0}f(\omega^0)&amp;\omega^{1\cdot0}f(\omega^1)&amp;\cdots&amp;\omega^{(n-1)\cdot0}f(\omega^{n-1})\\ \omega^{0\cdot1}f(\omega^0)&amp;\omega^{1\cdot1}f(\omega^1)&amp;\cdots&amp;\omega^{(n-1)\cdot1}f(\omega^{n-1})\\ \vdots&amp;\vdots&amp;\ddots&amp;\vdots\\ \omega^{0\cdot(n-1)}f(\omega^0)&amp;\omega^{1\cdot(n-1)}f(\omega^1)&amp;\cdots&amp;\omega^{(n-1)\cdot(n-1)}f(\omega^{n-1})}
+$$
+那就知道特征值和特征向量分别是
+$$
+f(\omega^k),\,\mat{\omega^{k\cdot0}\\ \omega^{k\cdot1}\\ \vdots\\ \omega^{k\cdot(n-1)}}\;(k=0,\cdots,n-1)
+$$
+其中 $f(x)=\sum a_ix^i$，$\omega=\e^{2\pi\mathrm{i}/n}$。</p>
+<blockquote>
+<p>对于 $A_{m\times n}$，$B_{n\times m}$，证明 $I_m-AB$ 可逆 $\Leftrightarrow$ $I_n-BA$ 可逆。</p>
+</blockquote>
+<p>证 1：若 $(I-AB)C=I$，则 $(I-BA)(BC)=BC-B(C-I)=B$，故 $(I-BA)(BCA)=BA=I-(I-BA)$，故 $(I-BA)(BCA+I)=I$。</p>
+<p>证 2：若对于某个 $x\ne 0$，$(I-AB)x=0$，则 $(I-BA)Bx=Bx-BABx=Bx-Bx=0$，其中 $Bx\ne 0$ 因为否则 $(I-AB)x=x\ne 0$。</p>
+<p>证 3：
+$$
+\mat{I-AB&amp;O\\ B&amp;I}\sim\mat{I&amp;A\\ B&amp;I}\sim\mat{I&amp;A\\ O&amp;I-BA}
+$$</p>
+<blockquote>
+<p>$A^2=I$，证明 $A$ 可对角化。</p>
+</blockquote>
+<p>$$
+\begin{align*}
+&amp;(A+I)(A-I)=0\\
+\Longrightarrow{}&amp;\im\L_{A-I}\subseteq\ker\L_{A+I}\\
+\Longrightarrow{}&amp;n-\dim\ker\L_{A-I}=\dim\im\L_{A-I}\le\dim\ker\L_{A+I}\\
+\Longrightarrow{}&amp;\dim\ker\L_{A-I}+\dim\ker\L_{A+I}\ge n
+\end{align*}
+$$</p>
+<p>又知道特征空间的维数和不能超过 $n$，故 $\dim\ker\L_{A-I}+\dim\ker\L_{A+I}=n$。</p>
+<p>这类问题可以扩展到最小多项式相关的定理：如果一个矩阵/线性变换的最小多项式为 $\prod(t-\lambda_i)^{m_i}$，那它的 Jordan 标准型中 $\lambda_i$ 对应的 Jordan 块的最大大小就是 $m_i$。</p>
+<blockquote>
+<p>对于 Jordan 块 $J_{n\times n}$，求 $J^k$。</p>
+</blockquote>
+<p>众所周知矩阵的幂次有一个组合意义：$A_{i,j}$ 表示 $i$ 到 $j$ 的边权，$(A^k)_{i,j}$ 表示 $i$ 到 $j$ 恰好走 $k$ 步，所有可能路径的边权之积的和。所以 $(J^k)_{i,j}$ 就是走 $j-i$，每次走 $0$ 或 $1$ 步，这个显然是
+$$
+\binom{k}{j-i}\lambda^{k-j+i}
+$$</p>
+<blockquote>
+<p>证明对于可对角化的 $\T$ 和 $\U$，$\T$ 和 $\U$ 可同时对角化当且仅当 $\T\U=\U\T$。如果 $\T$ 和 $\U$ 可正交对角化，类似的结论也成立。</p>
+</blockquote>
+<p>对于 $\T$ 的特征向量 $v\in\E_\lambda$，$\T\U(v)=\U\T(v)=\lambda\U(v)$ 从而 $\E_\lambda$ 是 $\U$ 的不变子空间。取 $\U$ 在其上的对角化即可。需要证明可对角化 $\Rightarrow$ 在不变子空间内可对角化，略。</p>
+<p>正交对角化的情况，考虑 $\mathbb{C}$。还是随便取一个 $\E_\lambda$，只需证明 $\E_\lambda^\perp$ 也是 $\T$ 和 $\U$ 的不变子空间即可。首先由内积的操作知道 $\E_\lambda^\perp$ 是 $\T^*$ 的不变子空间，其次 $\T^*$ 的特征向量都是 $\T$ 的特征向量，从而 $\E_\lambda^\perp$ 也是 $\T$ 的不变子空间。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="247da766f5b13aee354564aff7a91b59"
+    data-page-url="https://littlereuben.github.io/study/course-linear-algebra/"
+    data-page-title="线代的一些题"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px; height: 450px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+    </script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

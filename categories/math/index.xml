@@ -7,12 +7,2262 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sun, 03 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/math/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 22 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/math/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>微积分 A(1) 复习及一些题</title>
+        <link>https://littlereuben.github.io/study/course-calculus-1-2/</link>
+        <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-calculus-1-2/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/study/course-calculus-1-2/cover.jpg" alt="Featured image of post 微积分 A(1) 复习及一些题" /&gt;&lt;p&gt;$\gdef\eps{\varepsilon}\gdef\e{\mathrm{e}}\gdef\d{\mathrm{d}}\gdef\i{\mathrm{i}}\gdef\F{\mathbb{F}}\gdef\arcsinh{\operatorname{arcsinh}}\gdef\arccosh{\operatorname{arccosh}}\gdef\arctanh{\operatorname{arctanh}}\gdef\arccoth{\operatorname{arccoth}}\gdef\arcsech{\operatorname{arcsech}}\gdef\arccsch{\operatorname{arccsch}}\gdef\sgn{\operatorname{sgn}}\gdef\sech{\operatorname{sech}}\gdef\csch{\operatorname{csch}}\gdef\arccot{\operatorname{arccot}}\gdef\arcsec{\operatorname{arcsec}}\gdef\arccsc{\operatorname{arccsc}}\gdef\b#1{\boldsymbol{#1}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\dat#1{\begin{vmatrix}#1\end{vmatrix}}\gdef\tr{\operatorname{tr}}\gdef\R{\mathbb{R}}\gdef\Q{\mathbb{Q}}$&lt;/p&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;上半学期没什么东西，就记了一下大纲，然后记了些杂题，一部分放在下面，另一部分可以看期中复习 slide。&lt;/p&gt;
+&lt;p&gt;下半学期有比较详尽的内容。&lt;/p&gt;
+&lt;p&gt;参照了 wxf 的 ppt 和课。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://littlereuben.github.io/study/course-calculus-0/&#34; &gt;理论基础&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://littlereuben.github.io/study/course-calculus-1-1/&#34; &gt;期中复习&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;上半学期&#34;&gt;上半学期
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;实分析初步&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基础定义和性质、实数理论（略）&lt;/li&gt;
+&lt;li&gt;上下界、上下确界
+&lt;ol&gt;
+&lt;li&gt;确界的类 $\eps-\delta$ 语言&lt;/li&gt;
+&lt;li&gt;确界原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;初等函数
+&lt;ol&gt;
+&lt;li&gt;指数、对数、幂函数的定义
+&lt;ol&gt;
+&lt;li&gt;注意只考虑底数 $&amp;gt;0$ 的情况。&lt;/li&gt;
+&lt;li&gt;有理数指数（开根）、无理数指数都使用上确界定义。&lt;/li&gt;
+&lt;li&gt;指数、对数、幂函数的单调性。&lt;/li&gt;
+&lt;li&gt;对数函数在没有连续性理论的情况下，类似于开根，也使用上确界定义。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;三角函数、反三角函数的定义与性质&lt;/li&gt;
+&lt;li&gt;初等函数的定义
+&lt;ol&gt;
+&lt;li&gt;注意是有限次的四则运算与复合；注意定义域。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;极限与连续性&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\eps-\delta$ 语言&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;注意极限和连续性都可以定义在定义域为非区间的函数上，但是考试应该会避免这种事。定义极限时，$x_0$ 必须是定义域的聚点；定义连续性时，$x_0$ 必须在定义域内。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\eps-\delta$ 的证明策略&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;基础放缩方法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;上取整&lt;/li&gt;
+&lt;li&gt;反解不等式&lt;/li&gt;
+&lt;li&gt;多个条件取最值；分类讨论转求和&lt;/li&gt;
+&lt;li&gt;三角不等式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阿基米德性、有理数和无理数的稠密性&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;黎曼函数、狄利克雷函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;二项式展开 → 伯努利不等式&lt;/p&gt;
+&lt;p&gt;条件：$x&amp;gt;-1$&lt;/p&gt;
+&lt;p&gt;$a&amp;gt;1$：$(1+x)^a\ge 1+ax$，在 $x=0$ 处取等&lt;/p&gt;
+&lt;p&gt;$a=1$：$(1+x)^a=1+ax$&lt;/p&gt;
+&lt;p&gt;$0&amp;lt;a&amp;lt;1$：$(1+x)^a\le 1+ax$，在 $x=0$ 处取等&lt;/p&gt;
+&lt;p&gt;$a=0$：$(1+x)^a=1+ax$&lt;/p&gt;
+&lt;p&gt;$a&amp;lt;0$：$(1+x)^a\ge 1+ax$，在 $x=0$ 处取等&lt;/p&gt;
+&lt;p&gt;应用：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$n^k/a^n$&lt;/li&gt;
+&lt;li&gt;$\sqrt[n]a$&lt;/li&gt;
+&lt;li&gt;$\sqrt[n]n$&lt;/li&gt;
+&lt;li&gt;$(1+1/n)^n$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\e$ 和 $\ln$ 相关的不等式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\e^x\ge 1+x$，在 $x=0$ 处取等（求导证 $(1+x)^{1/x}$ 单降、凸性切线）&lt;/li&gt;
+&lt;li&gt;$\e^x\le(1+x)^{1+x}$（$x&amp;gt;-1$），在 $x=0$ 处取等（$(1+x)^{1/x+1}$ 单增）&lt;/li&gt;
+&lt;li&gt;$\ln(1+x)\le x\le(1+x)\ln(1+x)$（$x&amp;gt;-1$），在 $x=0$ 处取等&lt;/li&gt;
+&lt;li&gt;$\e^x\le1/(1-x)$（$x&amp;lt;1$），1 中 $x$ 换成 $-x$&lt;/li&gt;
+&lt;li&gt;$\e^x&amp;lt;(\e-1)x+1$（$0&amp;lt;x&amp;lt;1$），过 $\e^x$ 的 $(0,1)-(1,\e)$ 的割线，凸性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;三角函数相关的不等式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\sin x&amp;lt;x&amp;lt;\tan x$（$0&amp;lt;x&amp;lt;\pi/2$）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;极限的初步性质&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;唯一性、有界性&lt;/li&gt;
+&lt;li&gt;保序性与夹逼定理
+&lt;ol&gt;
+&lt;li&gt;取极限后，不含等变含等；极限不等，原邻域也不等。&lt;/li&gt;
+&lt;li&gt;夹逼定理本身蕴含着极限的存在性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;（连续也有）四则运算
+&lt;ol&gt;
+&lt;li&gt;注意分母不能是 $0$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;（连续也有）复合
+&lt;ol&gt;
+&lt;li&gt;注意定义域。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;初等函数的连续性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数列极限的特有性质&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;子列与原列的极限的关系
+&lt;ol&gt;
+&lt;li&gt;存在一个下标列同时使两个有界数列收敛&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;复合函数&lt;/li&gt;
+&lt;li&gt;单调有界原理&lt;/li&gt;
+&lt;li&gt;列紧性&lt;/li&gt;
+&lt;li&gt;柯西列&lt;/li&gt;
+&lt;li&gt;有界变差数列&lt;/li&gt;
+&lt;li&gt;闭区间套定理&lt;/li&gt;
+&lt;li&gt;Stolz 定理
+&lt;ol&gt;
+&lt;li&gt;注意使用条件：分母必须单调。&lt;/li&gt;
+&lt;li&gt;差分后极限存在 $\Rightarrow$ 原极限存在&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数列极限与函数极限的关系&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;归结原理与柯西收敛定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;间断点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可去间断点、跳跃间断点是第一类间断点（左右极限均存在但有至少一个 $\ne f(x_0)$），其他都是第二类。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\e$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;证明数列极限存在&lt;/li&gt;
+&lt;li&gt;证明函数极限存在&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;证明数列极限存在的方法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单调有界定理
+&lt;ol&gt;
+&lt;li&gt;$\e$&lt;/li&gt;
+&lt;li&gt;$H_n-\ln n$&lt;/li&gt;
+&lt;li&gt;一些可以用 Banach 不动点定理证的东西&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;保序性、夹逼
+&lt;ol&gt;
+&lt;li&gt;阶乘倒数和 $=\e$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Stolz
+&lt;ol&gt;
+&lt;li&gt;平均值的极限&lt;/li&gt;
+&lt;li&gt;$n!/n^n$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;求极限的方法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;（数列）等式两侧求极限解方程 → 找不动点&lt;/li&gt;
+&lt;li&gt;数列、函数互相归约&lt;/li&gt;
+&lt;li&gt;代数变形后利用连续性&lt;/li&gt;
+&lt;li&gt;换元、取对数
+&lt;ol&gt;
+&lt;li&gt;逆天三角换元&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;等价替换、渐进分析&lt;/li&gt;
+&lt;li&gt;Stolz、洛&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连续性相关定理&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单调函数、反函数的性质&lt;/li&gt;
+&lt;li&gt;介值定理&lt;/li&gt;
+&lt;li&gt;有界定理、最值定理
+&lt;ol&gt;
+&lt;li&gt;注意必须是闭区间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;压缩不动点定理&lt;/li&gt;
+&lt;li&gt;一致连续性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;渐近线&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;由定义求：写出曲线上点到直线距离公式，求极限。或者说 $k=\lim f(x)/x$，$b=\lim(f(x)-kx)$。&lt;/li&gt;
+&lt;li&gt;由渐近展开求：通过保留 $x$ 因子，剩下改成 $1/x$，写成 $f(x)/x=1+b/x+\omicron(x)\,(x\to\infty)$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无穷和阶&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;无穷大小量的表示的定义与初步性质
+&lt;ol&gt;
+&lt;li&gt;通过不等式避免除以 $0$。&lt;/li&gt;
+&lt;li&gt;证明对称性和传递性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;手动展开的方法
+&lt;ol&gt;
+&lt;li&gt;$1/(1-x)$：递归&lt;/li&gt;
+&lt;li&gt;$\e^x,\ln(1+x)$ 前几项：直接求极限，利用 $f(2h)-f(h)$ 可以展更多，展到 $x^3$ 项&lt;/li&gt;
+&lt;li&gt;$(1+x)^{m/n}$：$(1+y)^n=(1+x)^m$，利用 $f+\omicron(f)=G+\omicron(g)$ 定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;等价无穷小量替换
+&lt;ol&gt;
+&lt;li&gt;注意那个著名反例（$x^2\sin1/x$）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;导数&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;导数和微分的定义
+&lt;ol&gt;
+&lt;li&gt;注意闭区间上可微，要求端点单侧可导。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;导数的运算法则&lt;/li&gt;
+&lt;li&gt;求导的技巧
+&lt;ol&gt;
+&lt;li&gt;对于一些复杂导数的定性分析问题，可以写出“导数一定形如关于某些东西的多项式”，而不求出具体的解析式系数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;导数的应用&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;导数在几何与物理中的应用&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;切线。注意非正则光滑曲线的切线可能会爆。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;曲率。计算方法 1：求法线交点的极限。计算方法 2：$\frac{[\arctan(y/x)]^\prime}{\sqrt{{x^\prime}^2+{y^\prime}^2}}$
+$$
+\kappa=\left\lvert\frac1r\right\rvert=\frac{\left\lvert x^\prime(t)y^{\prime\prime}(t)-x^{\prime\prime}(t)y^\prime(t)\right\rvert}{\left[(x^\prime(t))^2+(y^\prime(t))^2\right]^{3/2}}
+$$
+曲率中心：
+$$
+\left(x(t)-y^\prime(t)\frac{(x^\prime(t))^2+(y^\prime(t))^2}{x^\prime(t)y^{\prime\prime}(t)-x^{\prime\prime}(t)y^\prime(t)},y(t)+x^\prime(t)\frac{(x^\prime(t))^2+(y^\prime(t))^2}{x^\prime(t)y^{\prime\prime}(t)-x^{\prime\prime}(t)y^\prime(t)}\right)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;微分中值定理&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;一般的罗尔定理、柯西中值定理、拉格朗日中值定理，注意要在闭区间上连续（左端点右连续，右端点左连续），在开区间上可导，$\xi\in$ 开区间。柯西中值定理要求 $g^\prime\not\equiv0$，也就是说 $g$ 严增或严减。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;广义柯西中值定理：$f$、$g$ 在 $(a,b)$ 上可导（$a,b$ 甚至可以是无穷），不要求 $g^\prime\ne 0$；$\exists\xi\in(a,b)$ 使得
+$$
+f^\prime(\xi)\left(\lim_{x\to b^-}g(x)-\lim_{x\to a^+}g(x)\right)=g^\prime(\xi)\left(\lim_{x\to b^-}f(x)-\lim_{x\to a^+}f(x)\right)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;达布定理：导数的介值性。证明考虑利用最值定理找导数为 $0$ 的点（先否定端点是最值点）。也就是说，导数只能有震荡间断点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;导数与图像的关系&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;最值&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;极值点处，导数不存在或等于 $0$。反之不一定成立。&lt;/li&gt;
+&lt;li&gt;如果 $\exists n\in\N_+$，$f$ 在 $x_0$ 处的 $1\sim 2n-1$ 阶导均为 $0$，且 $2n$ 阶导为正/负，则 $x_0$ 处是严格极小/大值点。证明考虑归纳，利用二阶导是个极值点推回。&lt;/li&gt;
+&lt;li&gt;有可能无法通过任何阶导判断极值点。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单调性&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;开区间还是闭区间无所谓。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单点的导数不能说明任何单调性，必须是区间。反例：$f(x)=\begin{cases}x+2x^2\sin(1/x),&amp;amp;x\ne0\\ 0,&amp;amp;x=0\end{cases}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果区间上导数恒正，则严格单增；如果恒非负，则单增。严格单增的充要条件是，任意子区间内导数不恒为 $0$。&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/585000983/answer/2900992507&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;证明&lt;/a&gt;，&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/648122351/answer/3427887373&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;拓展&lt;/a&gt;。严格单增并不意味着导数非 $0$，反例：$x^{2n}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果 $\exists n\in\N_+$，$f$ 在 $x_0$ 处的 $1\sim 2n$ 阶导均为 $0$，且 $2n+1$ 阶导为正/负，则 $x_0$ 附近严格单增/减，也就是说一阶和三阶及以上在这里是不一样的。证明考虑归纳，用上面那个说明一阶导是极值点。&lt;/p&gt;
+&lt;p&gt;高阶导均为 $0$ 不能说明单调性。单调：$f(x)=\begin{cases}\e^{-1/x^2},&amp;amp;x\ne0\\ 0,&amp;amp;x=0\end{cases}$；不单调：$f(x)=\begin{cases}\e^{-1/|x|}(0.1+\sin^2(1/x)),&amp;amp;x\ne0\\ 0,&amp;amp;x=0\end{cases}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连续性&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;连续可能处处不可导：Weierstrass 函数。&lt;/li&gt;
+&lt;li&gt;单点可导要求单点连续。&lt;/li&gt;
+&lt;li&gt;单点连续不说明邻域连续。$xD(x)$&lt;/li&gt;
+&lt;li&gt;单点可导不说明邻域连续。$x^2D(x)$&lt;/li&gt;
+&lt;li&gt;区间可导不说明导数连续。$f(x)=\begin{cases}x^2\sin(1/x),&amp;amp;x\ne0\\ 0,&amp;amp;x=0\end{cases}$&lt;/li&gt;
+&lt;li&gt;连续且趋近于单点的导数极限存在说明单点导数存在且等于导数极限。&lt;/li&gt;
+&lt;li&gt;两个达布函数（有介值性的）函数之和不一定是达布函数。$\pm \sin(1/x)$，$0$ 处取 $\pm 1$。&lt;/li&gt;
+&lt;li&gt;达布函数可能处处不连续：&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Conway_base_13_function&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Conway base 13 function&lt;/a&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;凸性&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;定义：琴森不等式。一阶导（严）单增/减 $\Leftrightarrow$（严）下/上凸，二阶导非负/正 $\Leftrightarrow$ 下/上凸。&lt;/p&gt;
+&lt;p&gt;不等式语言与导数语言的转化：$f^\prime_-(x_0)\le f^\prime_+(x_0)\le f^\prime_-(x&amp;gt;x_0)$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一阶导严单当且仅当严凸，二阶导恒正则严凸，但严凸不一定二阶导非零。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;相关不等式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Jensen&lt;/li&gt;
+&lt;li&gt;Information&lt;/li&gt;
+&lt;li&gt;Hölder&lt;/li&gt;
+&lt;li&gt;Minkowski&lt;/li&gt;
+&lt;li&gt;Young&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;洛必达法则与泰勒公式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;注意洛必达要求 $g^\prime(x)\ne0$。&lt;/li&gt;
+&lt;li&gt;泰勒公式的皮亚诺余项形式只要求单点 $n$ 阶可导，拉格朗日余项形式必须在 $[x_0,x]$ 连续，$[x_0,x)$ $n+1$ 阶可导。&lt;/li&gt;
+&lt;li&gt;泰勒多项式唯一。&lt;/li&gt;
+&lt;li&gt;注意只有在满足可导条件下说泰勒多项式才有意义。&lt;/li&gt;
+&lt;li&gt;有些情况下在某一阶之后就没法展了，比如 $x^{非整数}$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;不定积分&#34;&gt;不定积分
+&lt;/h2&gt;&lt;p&gt;第二类换元法要保证 $x=u(t)$ 的值域要包含原被积函数的定义域，在 $u(t)$ 整体反函数多值时，要指出 $t$ 的取值。&lt;/p&gt;
+&lt;p&gt;分部积分有一个很简单的几何直观。&lt;/p&gt;
+&lt;p&gt;特定的积分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{x^2\pm a^2}
+$$&lt;/p&gt;
+&lt;p&gt;部分分式
+$$
+\frac{1}{x^2\pm a^2}=\frac{1}{2\sqrt{\pm a}}\left(\frac{1}{x-\sqrt{\pm a}}-\frac{1}{x+\sqrt{\pm a}}\right)
+$$
+或换元 $+:a\tan t$，$-:a\tanh t,a\coth t$
+$$
+\int\frac{\d x}{x^2+a^2}=\frac1a\arctan\frac xa+C
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{a^2-x^2}=\left\{\begin{aligned}&amp;amp;\frac1a\arctanh\frac xa+C,&amp;amp;|x|&amp;lt;a\\ &amp;amp;\frac1a\arccoth\frac xa+C,&amp;amp;|x|&amp;gt;a\end{aligned}\right.=\frac1{2a}\ln\left\lvert\frac{a+x}{a-x}\right\rvert+C
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{\sqrt{\pm x^2\pm a^2}}
+$$&lt;/p&gt;
+&lt;p&gt;换元 $+a^2:a\tan t,a\sinh t$，$-a^2:a\sec t,a\cosh t$，$a^2-:a\sin t$
+$$
+\int\frac{\d x}{\sqrt{x^2+a^2}}=\arcsinh\frac xa+C=\ln\left(x+\sqrt{x^2+a^2}\right)+C
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{\sqrt{x^2-a^2}}=\sgn(x)\arccosh\left\lvert\frac xa\right\rvert+C=\ln\left\lvert x+\sqrt{x^2-a^2}\right\rvert+C
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{\sqrt{a^2-x^2}}=\arcsin\frac xa+C
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{x\sqrt{\pm x^2\pm a^2}}
+$$&lt;/p&gt;
+&lt;p&gt;换元 $+a^2:a\tan t,a\csch t$，$-a^2:a\sec t$，$a^2-:a\sin t$
+$$
+\int\frac{\d x}{x\sqrt{x^2+a^2}}=-\frac1a\arccsch\left\lvert\frac xa\right\rvert+C=-\frac1a\ln\left\lvert\frac{a+\sqrt{x^2+a^2}}{x}\right\rvert+C
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{x\sqrt{x^2-a^2}}=\frac1a\arcsec\left\lvert\frac xa\right\rvert+C
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{x\sqrt{a^2-x^2}}=-\frac1a\arcsech\left\lvert\frac xa\right\rvert+C=-\frac1a\ln\left\lvert\frac{a+\sqrt{x^2-a^2}}{x}\right\rvert+C
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\sqrt{\pm x^2\pm a^2}\d x
+$$&lt;/p&gt;
+&lt;p&gt;分部积分
+$$
+\int\sqrt{\pm x^2\pm a^2}\d x=x\sqrt{\pm x^2\pm a^2}-\int\frac{\pm x^2\d x}{\sqrt{\pm x^2\pm a^2}}=x\sqrt{\pm x^2\pm a^2}-\int\sqrt{\pm x^2\pm a^2}\d x\pm\int\frac{a^2\d x}{\sqrt{\pm x^2\pm a^2}}
+$$
+或换元 $+a^2:a\tan t$，$-a^2:a\sec t$，$a^2-:a\sin t$
+$$
+\int\sqrt{*}\d x=\frac12\left(x\sqrt{*}\pm a^2\int\frac{\d x}{\sqrt{*}}\right)
+$$
+其中 $-a^2$ 取负，其余取正。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int x^n\e^{kx}\d x
+$$&lt;/p&gt;
+&lt;p&gt;反复分部积分
+$$
+\int x^n\e^{kx}\d x=\e^{kx}\sum_{i=0}^{n}\frac{(-1)^in^{\underline{i}}}{k^{i+1}}x^{n-i}+C
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int x^n\ln^kx\d x
+$$&lt;/p&gt;
+&lt;p&gt;反复分部积分
+$$
+\int x^n\ln^kx\d x=x^{n+1}\sum_{i=0}^n\frac{(-1)^ik^{\underline{i}}}{(n+1)^{i+1}}\ln^{k-i}x+C
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{(a^2\pm x^2)^n}
+$$&lt;/p&gt;
+&lt;p&gt;分部积分递推
+$$
+\begin{align*}
+\int\frac{\d x}{(a^2\pm x^2)^n}&amp;amp;=\frac{1}{a^2}\left[\int\frac{(a^2\pm x^2)\d x}{(a^2\pm x^2)^n}\mp\int\frac{x^2\d x}{(a^2\pm x^2)^n}\right]\\
+&amp;amp;=\frac{1}{a^2}\left[\int\frac{\d x}{(a^2\pm x^2)^{n-1}}+\frac{1}{2(n-1)}\int x\d\frac{1}{(a^2\pm x^2)^{n-1}}\right]\\
+&amp;amp;=\frac{1}{a^2}\left[\int\frac{\d x}{(a^2\pm x^2)^{n-1}}+\frac{x}{2(n-1)(a^2\pm x^2)^{n-1}}-\frac{1}{2(n-1)}\int\frac{\d x}{(a^2\pm x^2)^{n-1}}\right]\\
+\Longrightarrow a^2I_n&amp;amp;=\left[1-\frac{1}{2(n-1)}\right]I_{n-1}+\frac{x}{2(n-1)(a^2\pm x^2)^{n-1}}
+\end{align*}
+$$
+或部分分式分解
+$$
+\frac{1}{(a^2-x^2)^n}=\sum_{i=1}^n\frac{\binom{2n-i-1}{n-1}}{(2a)^{2n-i}}\left[\frac{1}{(a+x)^i}+\frac{1}{(a-x)^i}\right]
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{(a^2-x^2)^n}=\frac{\binom{2n-2}{n-1}}{(2a)^{2n-1}}\ln\left\lvert\frac{a+x}{a-x}\right\rvert+\sum_{i=1}^{n-1}\frac{\binom{2n-i-2}{n-1}}{i(2a)^{2n-i-1}}\left[\frac{1}{(a-x)^i}-\frac{1}{(a+x)^i}\right]+C
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\sin^nx\cos^mx\d x
+$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;分部积分递推（点火公式）
+$$
+\begin{align*}
+\int\sin^nx\cos^mx\d x
+&amp;amp;=\int\sin^nx\cos^{m-1}x\d\sin x\\
+&amp;amp;=\sin^{n+1}x\cos^{m-1}x-\int\sin x\left[n\sin^{n-1}x\cos^mx-(m-1)\sin^{n+1}x\cos^{m-2}x\right]\d x\\
+&amp;amp;=\sin^{n+1}x\cos^{m-1}x-(n+m-1)\int\sin^nx\cos^mx\d x+(m-1)\int\sin^nx\cos^{m-2}x\d x\\
+\Longrightarrow I_{n,m}&amp;amp;=\frac{1}{n+m}\left[\sin^{n+1}x\cos^{m-1}x+(m-1)I_{n,m-2}\right]
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当 $n,m$ 有一个是奇数时换元
+$$
+\int\sin^nx\cos^mx\d x=\int\sin^nx\left(1-\sin^2x\right)^{(m-1)/2}\d\sin x=\int t^n\left(1-t^2\right)^{(m-1)/2}\d t
+$$
+都是偶数时只能用二倍角公式归约为 $\cos 2x$ 的多项式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;欧拉公式秒了！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\tan^nx\d x
+$$&lt;/p&gt;
+&lt;p&gt;凑换元递推
+$$
+\int\tan^nx\d x=\int\tan^{n-2}\sec^2x\d x-\int\tan^{n-2}x\d x=\frac{\tan^{n-1}x}{n-1}-\int\tan^{n-2}x\d x
+$$
+或直接换元
+$$
+\int\tan^nx\d x\xlongequal{t=\tan x}\int\frac{t^n\d t}{1+t^2}=
+\sum_{i=1}^{n/2}\frac{(-1)^{i-1}\tan^{n-2i+1}x}{n-2i+1}+
+\left\{\begin{aligned}
+&amp;amp;x,&amp;amp;2\mid n\\
+&amp;amp;\ln\lvert\sec x\rvert,&amp;amp;2\nmid n
+\end{aligned}\right.
++C
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\sec^nx\d x
+$$&lt;/p&gt;
+&lt;p&gt;分部积分递推
+$$
+\int\sec^nx\d x=\int\sec^{n-2}x\d\tan x=\sec^{n-2}x\tan x-\int(n-2)\sec^{n-2}x(\sec^2x-1)\d x
+$$
+或直接换元
+$$
+\int\sec^{2n}x\d x=\int\sec^{2n-2}x\d\tan x=\int(1+t^2)^{n-1}\d t
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\int\sec^{2n-1}x\d x=\int\frac{\d\sin x}{\cos^{2n}x}=\int\frac{\d t}{(1-t^2)^n}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\e^x\sin^nx\d x
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;有理函数（&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/619998711&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;参考&lt;/a&gt;），复数法的本质是扩展变成复变解析函数，相关的求导公式形式与实变函数类似。&lt;/p&gt;
+&lt;p&gt;首先把复根全部搞出来，分母不要留二次项。考虑确定以下系数：
+$$
+f(x)=\frac{P(x)}{(x-x_0)^kQ(x)}=\sum_{i=1}^k\frac{A_i}{(x-x_0)^i}+R(x)
+$$
+其中 $(x-x_0)\nmid Q(x)$。&lt;/p&gt;
+&lt;p&gt;两边同乘 $(x-x_0)^k$，然后不断求导，代入 $x=x_0$，可得
+$$
+A_i=\frac{1}{(k-i)!}\left.\left[\frac{P(x)}{Q(x)}\right]^{k-i}\right|_{x=x_0}
+$$
+如果有复根，我们知道它们一定是一对对的。容易证明在 $f$ 的系数是实数时，$(x-z_0)^{-i}$ 与 $(x-\overline{z_0})^{-i}$ 的系数是共轭的。&lt;/p&gt;
+&lt;p&gt;对于 $i=1$ 的部分，积出
+$$
+\begin{align*}
+&amp;amp;(c+\i d)\ln(x-a-\i b)+(c-\i d)\ln(x-a+\i b)\\
+={}&amp;amp;(c+\i d)\left[\ln\sqrt{(x-a)^2+b^2}+\i\arg(x-a-\i b)\right]+(c-\i d)\left[\ln\sqrt{(x-a)^2+b^2}+\i\arg(x-a+\i b)\right]+C\\
+={}&amp;amp;c\ln\left(x^2-2ax+a^2+b^2\right)+2d\arctan\frac{b}{x-a}+C
+\end{align*}
+$$
+注意到 $\arctan t=\arctan(-1/t)+C$。&lt;/p&gt;
+&lt;p&gt;对于 $i&amp;gt;1$ 的部分，就全是分式了
+$$
+\begin{align*}
+&amp;amp;-\frac{1}{i-1}\left[\frac{c+\i d}{(x-a-\i b)^{i-1}}+\frac{c-\i d}{(x-a+\i b)^{i-1}}\right]\\
+={}&amp;amp;-\frac{2}{(i-1)(x^2-2ax+a^2+b^2)^{i-1}}\left[c\sum_{j=0}^{\lceil i/2\rceil-1}\binom{i-1}{2j}(-1)^jb^{2j}(x-a)^{i-1-2j}-d\sum_{j=0}^{\lfloor i/2\rfloor-1}\binom{i-1}{2j+1}(-1)^jb^{2j+1}(x-a)^{i-2-2j}\right]
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{x^n+1}
+$$&lt;/p&gt;
+&lt;p&gt;直接部分分式分解。取 $\omega$ 为 $2n$ 次单位根 $\e^{\i\pi/n}$。
+$$
+\begin{align*}
+&amp;amp;\int\frac{\d x}{x^n+1}\\
+={}&amp;amp;\int\frac{\d x}{\displaystyle\prod_{k=0}^{n-1}\left(x-\omega^{2k+1}\right)}\\
+={}&amp;amp;\int\d x\sum_{k=0}^{n-1}\frac{\displaystyle\lim_{x\to\omega^{2k+1}}\frac{x-\omega^{2k+1}}{x^n+1}}{x-\omega^{2k+1}}\\
+\xlongequal{\rm l&amp;rsquo;H}{}&amp;amp;\int\d x\sum_{k=0}^{n-1}\frac{\displaystyle\frac{1}{n\omega^{(n-1)(2k+1)}}}{x-\omega^{2k+1}}\\
+={}&amp;amp;-\frac1n\int\d x\sum_{k=0}^{n-1}\frac{\omega^{2k+1}}{x-\omega^{2k+1}}\\
+={}&amp;amp;-\frac1n\sum_{k=0}^{n-1}\omega^{2k+1}\ln(x-\omega^{2k+1})+C\\
+={}&amp;amp;-\frac1n\sum_{k=0}^{n-1}\left(\cos\frac{(2k+1)\pi}{n}+\i\sin\frac{(2k+1)\pi}{n}\right)\left(\ln\sqrt{x^2-2x\cos\frac{(2k+1)\pi}{n}+1}+\i\arg\left(x-\cos\frac{(2k+1)\pi}{n}-\i\sin\frac{(2k+1)\pi}{n}\right)\right)+C\\
+={}&amp;amp;-\frac1n\sum_{k=0}^{n-1}\left[\frac12\cos\frac{(2k+1)\pi}{n}\ln\left(x^2-2x\cos\frac{(2k+1)\pi}{n}+1\right)+\sin\frac{(2k+1)\pi}{n}\arctan\frac{\displaystyle\cos\frac{(2k+1)\pi}{n}-x}{\displaystyle\sin\frac{(2k+1)\pi}{n}}\right]+C
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;二项式微分的积分（$m,n,p\in\mathbb Q$）
+$$
+\int x^m(a+bx^n)^p\d x
+$$
+有初等表示当且仅当 $p$、$(m+1)/n$、$p+(m+1)/n$ 中有一个是整数。&lt;/p&gt;
+&lt;p&gt;$p$ 为负整数的情况，取 $l$ 为 $m$、$n$ 分母的 $\operatorname{lcm}$：
+$$
+\int x^m(a+bx^n)^p\d x\xlongequal{x=t^l}k\int t^{ml+k-1}(a+bt^{nl})^p\d t
+$$
+$(m+1)/n$ 为整数的情况：
+$$
+\int x^m(a+bx^n)^p\d x\xlongequal{t=a+bx^n}\frac1n\int t^p\left(\frac{t-a}{b}\right)^{\frac{m+1}{n}-1}\d t
+$$
+$p+(m+1)/n$ 为整数的情况：
+$$
+\int x^m(a+bx^n)^p\d x=\int x^{m+np}(ax^{-n}+b)^p\d x
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\frac{\d x}{\sqrt[n]{1+x^n}}
+$$&lt;/p&gt;
+&lt;p&gt;这个复合上面第三种形式，但是如果直接换元 $t^n=x^{-n}+1$，会要开 $n$ 次根导致一些正负号很烦的问题。所以这里有个换元（&lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/a/306187&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;来源&lt;/a&gt;）：
+$$
+\int\frac{\d x}{\sqrt[n]{1+x^n}}\xlongequal[\d t=\frac{t-t^{n-1}}{x}\d x]{t=\frac{x}{\sqrt[n]{1+x^n}}}\int\frac{\d t}{1-t^n}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复杂根分式积分：&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/559773120&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/559773120&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int\sqrt{\tan x}\d x
+$$
+直接换元，剩下的分式有比直接部分分式分解简单点的方法。
+$$
+\begin{align*}
+\int\sqrt{\tan x}\d x
+&amp;amp;\xlongequal{t=\sqrt{\tan x}}\int\frac{2t^2}{1+t^4}\d t\\
+&amp;amp;=2\int\frac{\d t}{t^2+t^{-2}}\\
+&amp;amp;=\int\frac{1-t^{-2}+1+t^{-2}}{t^2+t^{-2}}\d t\\
+&amp;amp;=\int\frac{1-t^{-2}}{(t+t^{-1})^2-2}\d t+\int\frac{1+t^{-2}}{(t-t^{-1})^2+2}\d t\\
+&amp;amp;\xlongequal[v=t-t^{-1}]{u=t+t^{-1}}\int\frac{\d u}{u^2-2}+\int\frac{\d v}{v^2+2}\\
+&amp;amp;=\frac1{2\sqrt2}\ln\frac{u-\sqrt2}{u+\sqrt2}+\frac1{\sqrt2}\arctan\frac v{\sqrt2}+C\\
+&amp;amp;=\frac1{2\sqrt2}\ln\frac{t^2-\sqrt2t+1}{t^2+\sqrt2t+1}+\frac1{\sqrt2}\arctan\frac{t^2-1}{\sqrt2t}+C\\
+&amp;amp;=\frac1{2\sqrt2}\ln\frac{\tan x-\sqrt{2\tan x}+1}{\tan x+\sqrt{2\tan x}+1}+\frac1{\sqrt2}\arctan\frac{\tan x-1}{\sqrt{2\tan x}}+C
+\end{align*}
+$$
+注意 $\sqrt{\sin x}$ 是积不了的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;定积分&#34;&gt;定积分
+&lt;/h2&gt;&lt;p&gt;点火公式用的很多，这里先写一下。
+$$
+\int_0^{\pi/2}\sin^n x\d x=\left.-\sin^{n-1}x\cos x\right|_0^{\pi/2}+(n-1)\int_0^{\pi/2}\cos^2x\sin^{n-2}x\d x=(n-1)\int_0^{\pi/2}\sin^{n-2}x\d x-(n-1)\int_0^{\pi/2}\sin^nx\d x
+$$
+于是 $I_n=\frac{n-1}{n}I_{n-2}$，然后 $I_0=\pi/2$，$I_1=1$。$I_2=\frac12\frac\pi2=\frac\pi4$，$I_3=\frac23$，$I_4=\frac34\frac\pi4=\frac{3\pi}{16}$，$I_5=\frac45\frac23=\frac8{15}$。$I_{2n}=\frac{(2n-1)!!}{(2n)!!}\frac\pi2$，$I_{2n+1}=\frac{(2n)!!}{(2n+1)!!}$。同理可以得出
+$$
+\int_0^{\pi/2}\sin^nx\cos^mx\d x=\frac{(n-1)!!(m-1)!!}{(n+m)!!}\cdot\left\{\begin{aligned}&amp;amp;\frac\pi2,&amp;amp;2\mid n\land 2\mid m\\ &amp;amp;1,&amp;amp;\text{otherwise}\end{aligned}\right.
+$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;定积分的基本性质：拼区间、反向、线性性、保序性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;微积分基本定理。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;内容：
+&lt;ol&gt;
+&lt;li&gt;若被积函数可积，则积分上限函数连续。&lt;/li&gt;
+&lt;li&gt;若被积函数连续，则积分上限函数可导且导数对应相等。于是就是原函数，从而原函数两点的差就是被积函数两点间的积分。&lt;/li&gt;
+&lt;li&gt;若原函数的&lt;strong&gt;导数可积&lt;/strong&gt;，则原函数两点的差就是导数两点间的积分。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;注意：$\int_a^bf(x)\d x=F(b)-F(a)$ 仅在 $\forall x\in[a,b]$，$F^\prime(x)=f(x)$ 时可以用，但凡有一个间断点就不行。&lt;/li&gt;
+&lt;li&gt;证明 1：考虑 $g(t)=\int_a^tf(x)\d x-(F(t)-F(a))$，这个函数连续（因为它可导且导数处处为零）。如果它不是处处为零，就能找到导数非零的点。&lt;br&gt;
+证明 2：$F(b)-F(a)=\sum(F(x_i)-F(x_{i-1}))=\sum F^\prime(\xi_i)(x_i-x_{i-1})=S(F^\prime,P,\xi)\to\int_a^bF^\prime(x)\d x$。&lt;/li&gt;
+&lt;li&gt;注意：积分上限函数的导数不一定是被积函数（可去间断点消失、跳跃间断点不可导、震荡间断点不确定）；&lt;strong&gt;一个函数的导数不一定可积&lt;/strong&gt;，反例：&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Volterra%27s_function&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://en.wikipedia.org/wiki/Volterra%27s_function&lt;/a&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定积分换元，课内的使用条件是被积函数连续，换元函数的导数可积。如果换元函数的导数连续只需对换元前后的积分上限函数求导即可，如果导数不连续要一板一眼地用牛—莱证。课外（Kestelman）最松的条件是被积函数可积，换元函数是积分上限函数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;积分第一中值定理。使用条件：$f$ 在闭区间上连续，$g$（权重函数）可积且恒非负。$\xi$ 可以 $\in(a,b)$，需要讨论一下边界。&lt;/p&gt;
+&lt;p&gt;记忆方法：
+$$
+\begin{align*}
+&amp;amp;f(\xi)=\frac{\int_a^bf(x)g(x)\d x}{\int_a^bg(x)\d x}\\
+&amp;amp;\frac{F^\prime(\xi)}{G^\prime(\xi)}=\frac{F(b)-F(a)}{G(b)-G(a)}\\
+&amp;amp;F\leftrightarrow f\cdot g,\,G\leftrightarrow g
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;积分余项泰勒公式，证明思路反复分部积分。这里可以进行对比记忆：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;皮亚诺余项，只需单点 $n$ 阶可导，余项给得最不精确；&lt;/li&gt;
+&lt;li&gt;拉格朗日余项，需要区间 $n+1$ 阶可导，余项给得精确些，但 $\xi$ 未知；&lt;/li&gt;
+&lt;li&gt;积分余项，需要区间 $n+1$ 阶导数可积，给出确定可以计算的余项。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;积分余项与拉格朗日余项的关系可以根据积分中值定理得出：
+$$
+\int_{x_0}^x\frac{f^{(n+1)}(t)}{n!}(x-t)^n\d t=\frac{f^{(n+1)}(\xi)}{n!}\int_{x_0}^x(x-t)^n\d t=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}
+$$
+关于这个有一个很有意思的关系，就是当你试图求一个函数的 $n$ 阶原函数时，你求的是
+$$
+\begin{align*}
+F(x)&amp;amp;=\int_a^x\d x_1\left(\int_a^{x_1}\d x_2\left(\int_a^{x_2}\d x_3\left(\cdots\left(\int_a^{x_{n-1}}f(x_n)\d x_n+C_n\right)\cdots\right)+C_3\right)+C_2\right)+C_1\\
+&amp;amp;=\int_a^x\d x_1\int_a^{x_1}\d x_2\int_a^{x_2}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n+C_n^\prime x^{n-1}+\cdots+C_3^\prime x^2+C_2^\prime x+C_1
+\end{align*}
+$$
+而
+$$
+\begin{align*}
+&amp;amp;\int_a^x\d x_1\int_a^{x_1}\d x_2\int_a^{x_2}\d x_3\cdots\int_a^{x_{n-2}}\d x_{n-1}\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;amp;\left.\left(x_1\int_a^{x_1}\d x_2\int_a^{x_2}\d x_3\cdot\int_a^{x_{n-1}}f(x_n)\d x_n\right)\right|_a^x-\int_a^xx_1\d x_1\int_a^{x_1}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;amp;\int_a^x(x-x_1)\d x_1\int_a^{x_1}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;amp;{-\frac12}\int_a^x\d(x-x_1)^2\int_a^{x_1}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;amp;{-\frac12}\left.\left[(x-x_1)^2\int_a^{x_1}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\right]\right|_a^x+\frac12\int_a^x(x-x_1)^2\d x_1\int_a^{x_1}\d x_4\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;amp;\frac12\int_a^x(x-x_1)^2\d x_1\int_a^{x_1}\d x_4\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;amp;{-\frac16}\int_a^x\d(x-x_1)^3\int_a^{x_1}\d x_4\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;amp;\frac16\int_a^x(x-x_1)^3\d x_1\int_a^{x_1}\d x_5\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;amp;\cdots\ \cdots\\
+={}&amp;amp;\frac{1}{(n-1)!}\int_a^x(x-x_1)^{n-1}f(x_1)\d x_1
+\end{align*}
+$$
+也就是说你得到了一个将 $n$ 个积分号缩成一个积分号的方法，而且为啥最后的结果跟柯西余项这么像呢？你考虑在 $x=a$ 处展开这个 $F$（忽略尾部多项式），你发现，刚好它 $0\sim n-1$ 阶导都是 $0$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;误差估计。对于取平均长的小段并进行左/右/中端高矩形、梯形、二次函数拟合的方法，分析误差的思路是泰勒展开。辛普森公式。推广情况：&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Newton%E2%80%93Cotes_formulas&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Newton-Cotes 公式&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cauchy-Schwartz 不等式。一个与用 $\Delta$ 等价的方法是，（配方）找到取最低点的 $t$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定积分求面积。课上讲了一些和拓扑相关的简单东西，略。主要提两点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;将曲线（参数方程）分段成函数的方法：取所有竖切线。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参数方程定义的曲线（自然正向）的面积：
+$$
+S=-\int y\d x=\int x\d y=\frac12\int(x\d y-y\d x)=\frac12\int\b r\times\d\b r=\frac12\int r^2\d\theta
+$$
+前两个的思路就是用横/竖切线把区间分段函数化套用正常的定积分，叉乘这个相信会计算凸包面积的小朋友们一定不陌生。&lt;/p&gt;
+&lt;p&gt;我们可以证明积分式与参数的选择、与坐标系的选择无关，即在平移、旋转变换下为不变量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定积分求长度啥的。就是说，你在近似 + 无限小划分的过程中，关键的一点是，你取的端点必须在线上，不然就会导致 $\sqrt 2=2$、$\pi=4$、球表面积算错等情况。至于勾股定理，实际上它是个公理。&lt;/p&gt;
+&lt;p&gt;另外讲了个重参数化，大概就是将自变量从任意的 $t$ 变成弧长 $t^\prime=l$，让 $|\d\b x/\d t^\prime|=1$。这个鬼玩意可以用来&lt;em&gt;定义&lt;/em&gt;三角函数。于是现在我们有三种严格定义三角函数的方法：公理法、弧长法和无穷级数法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;曲线相关（拓展），细节太多了，略。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一些应用的公式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;曲率，弧长参数下表达式很简单，$\kappa(l)=|\widetilde{\b x}^{\prime\prime}(l)|$。一般参数可以通过链式求导法则：
+$$
+\widetilde{\b x}^{\prime\prime}(l)=[\b x(t)]^{\prime\prime}_l=[\b x^\prime(t)t^\prime(l)]^\prime_l=\left[\frac{\b x^\prime(t)}{|\b x^\prime(t)|}\right]^\prime_l=\frac{\b x^{\prime\prime}(t)}{|\b x^\prime(t)|^2}-\b x^\prime(t)\frac{[|\b x^\prime(t)|]^\prime}{|\b x^\prime(t)|^3}=\frac{\b x^{\prime\prime}(t)}{|\b x^\prime(t)|^2}-\b x^\prime(t)\frac{\b x^\prime(t)\cdot\b x^{\prime\prime}(t)}{|\b x^\prime(t)|^4}
+$$
+极坐标
+$$
+\kappa=\frac{\left\lvert 2{r^\prime}^2-rr^{\prime\prime}+r^2\right\rvert}{\left({r^\prime}^2+r^2\right)^{3/2}}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;弧长：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;正常函数
+$$
+\int\sqrt{1+\left(\frac{\d y}{\d x}\right)^2}\d x
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参数方程
+$$
+\int\sqrt{\left(\frac{\d x}{\d t}\right)^2+\left(\frac{\d y}{\d t}\right)^2}\d t
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;极坐标
+$$
+\int\sqrt{(\d r)^2+(r\d\theta)^2}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;旋转体体积（绕 $x$ 轴）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;正常函数
+$$
+\pi\int y^2\d x
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参数方程（自然正向，即使有凹陷也行）
+$$
+-\pi\int y^2\frac{\d x}{\d t}\d t=\pi\int x^2\frac{\d y}{\d t}\d t
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;极坐标
+$$
+\pi\int y^2\d x=\pi\int r^2\sin^2\theta(r\sin\theta\d\theta-\cos\theta\d r)
+$$
+或（考虑用球近似每一个 $\d\theta$ 对应的体积贡献）
+$$
+\int_0^{\pi}\int_0^r2\pi r\sin\theta\cdot r\d\theta\d r=\frac{2\pi}{3}\int r^3\sin\theta\d\theta
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;高维球的体积。设为 $V_n(r)=C_nr^n$。
+$$
+\begin{align*}
+V_n(r)&amp;amp;=\int_{-\pi/2}^{\pi/2} V_{n-1}(r\cos\theta)\d(r\sin\theta)\\
+&amp;amp;=C_{n-1}r^n\int_{-\pi/2}^{\pi/2}\cos^n\theta\d\theta\\
+&amp;amp;=(2+[2\mid n](\pi-2))\frac{(n-1)!!}{n!!}C_{n-1}r^n\\
+&amp;amp;=\frac{2^{\lceil n/2\rceil}\pi^{\lfloor n/2\rfloor}}{n!!}r^n
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;旋转体表面积（绕 $x$ 轴）（注意题目可能会要加上底面积！）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;正常函数
+$$
+2\pi\int y\sqrt{1+\left(\frac{\d y}{\d x}\right)^2}\d x
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参数方程
+$$
+2\pi\int y\sqrt{\left(\frac{\d x}{\d t}\right)^2+\left(\frac{\d y}{\d t}\right)^2}\d t
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;极坐标
+$$
+2\pi\int y\sqrt{(\d x)^2+(\d y)^2}=2\pi\int r\sin\theta\sqrt{(\d r)^2+(r\d\theta)^2}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pappus-Guldin 定理其实就是质心的定义。在线密度均匀时，质心为
+$$
+\overline{y}=\frac{\int y\d l}{\int\d l}
+$$
+而旋转体表面积为
+$$
+2\pi\int y\d l
+$$
+在面密度均匀时，质心的 $y$ 为
+$$
+\overline{y}=\frac{\int y^2/2\d x}{\int y\d x}
+$$
+而旋转体体积为
+$$
+\pi\int y^2\d x
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意一般而言，体积的导数不等于表面积，面积的导数不等于周长！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有空补一下 $2t/(1+t^2)$ 的换元。&lt;/p&gt;
+&lt;h2 id=&#34;广义积分&#34;&gt;广义积分
+&lt;/h2&gt;&lt;p&gt;分析敛散性的手段：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;所有一般的定积分可用的处理手段都可以，包括四则运算、换元、分部积分、牛—莱（注意是单侧极限）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;柯西&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比较，两种用法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比较（极限形式）：$f=\Omicron(g)$，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果 $g$ 绝对收敛，则 $f$ 绝对收敛；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果 $g$ 条件收敛，则得不出任何结论，如果 $g$ 恒非负，那就回到上一条。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;反例：$\int_0^{+\infty}\frac{\sin x}{\sqrt x}\d x$ 根据狄收敛，但 $\int_0^{+\infty}\frac{\sin x}{\sqrt x+\sin x}\d x$ 不收敛。因为
+$$
+\frac{\sin x}{\sqrt x}-\frac{\sin x}{\sqrt{x}+\sin x}=\frac{\sin^2x}{x+\sqrt x\sin x}&amp;gt;\frac{\sin^2x}{2x}
+$$
+而后者发散。但是这两个东西在 $x\to+\infty$ 时是等价无穷小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;狄利克雷：$f$ 的积分上限函数有界，$g$ &lt;strong&gt;单调&lt;/strong&gt;且 $\to 0$。如果不单调，反例就在楼上。证明（假定 $f$ 连续，$g$ 导数连续）：
+$$
+\int_a^{+\infty}f(x)g(x)\d x=\lim_{x\to+\infty}F(x)g(x)-F(a)g(a)-\int_a^{+\infty}F(x)g^\prime(x)\d x
+$$
+其中 $F(x)g(x)\to 0$，$\int_a^{+\infty}|F(x)g^\prime(x)|\d x\le M\int_a^{+\infty}|g^\prime(x)|\d x=Mg(a)$。&lt;/p&gt;
+&lt;p&gt;一般的证明见理论基础。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阿贝尔：$f$ 的积分收敛（更强），$g$ 单调且有界（更弱）。证明就直接把 $\lim g$ 拎出来就行。&lt;/p&gt;
+&lt;p&gt;不单调的反例：$\int_0^{+\infty}\left(\frac{\sin x}{\sqrt x}\right)^2$，单个这个玩意既是 $\to 0$，又是积分收敛，但是 $\int_0^{+\infty}\frac{\sin^2x}{x}$ 用二倍角公式得是发散的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注意：无穷限积分收敛并不代表被积函数趋近于 $0$。&lt;/p&gt;
+&lt;p&gt;特定的例子：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}\frac{\d x}{x^a\ln^bx}
+$$&lt;/p&gt;
+&lt;p&gt;首先注意一下定义域，下面就不提定义域的问题了。&lt;/p&gt;
+&lt;p&gt;$x\to+\infty$：$a&amp;gt;1$ 时与 $x^{-(a+1)/2}$ 比较以去掉 $\ln$，收敛；$a&amp;lt;1$ 时与 $x^{-1}$ 比较，发散。&lt;/p&gt;
+&lt;p&gt;$x\to 1$：比较去掉 $x^a$，比较把 $\ln^bx$ 变成 $(x-1)^b$。$b\ge 1$ 时发散，$b&amp;lt;1$ 时收敛。&lt;/p&gt;
+&lt;p&gt;$x\to 0^+$：关键是 $\forall\epsilon&amp;gt;0$，$\lim_{x\to0^+}x^\epsilon\ln^bx=0$。$a&amp;lt;1$ 时与 $x^{-(a+1)/2}$ 比较，收敛；$a&amp;gt;1$ 时与 $x^{-1}$ 比较，发散。这种情况还可以换元 $1/x$ 归约到 $x\to+\infty$。&lt;/p&gt;
+&lt;p&gt;$a=1$：换元，$b\ne 1$ 时不定积分为 $1/(b-1)\ln^{b-1}x$，$b&amp;gt;1$ 时 $x\to+\infty$ 和 $x\to 0^+$ 收敛，$x\to 1$ 发散；$b&amp;lt;1$ 时 $x\to 1$ 收敛，其余发散；$b=1$ 时是 $\ln|\ln x|$，全部发散。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;$a&amp;gt;1$&lt;/th&gt;
+&lt;th&gt;$a=1,b&amp;gt;1$&lt;/th&gt;
+&lt;th&gt;$a=1,b=1$&lt;/th&gt;
+&lt;th&gt;$a=1,b&amp;lt;1$&lt;/th&gt;
+&lt;th&gt;$a&amp;lt;1$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$x\to+\infty$&lt;/td&gt;
+&lt;td&gt;收敛&lt;/td&gt;
+&lt;td&gt;收敛&lt;/td&gt;
+&lt;td&gt;发散&lt;/td&gt;
+&lt;td&gt;发散&lt;/td&gt;
+&lt;td&gt;发散&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$x\to1$&lt;/td&gt;
+&lt;td&gt;$\rightarrow$&lt;/td&gt;
+&lt;td&gt;发散&lt;/td&gt;
+&lt;td&gt;发散&lt;/td&gt;
+&lt;td&gt;收敛&lt;/td&gt;
+&lt;td&gt;$\leftarrow$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$x\to0^+$&lt;/td&gt;
+&lt;td&gt;发散&lt;/td&gt;
+&lt;td&gt;收敛&lt;/td&gt;
+&lt;td&gt;发散&lt;/td&gt;
+&lt;td&gt;发散&lt;/td&gt;
+&lt;td&gt;收敛&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;记忆方法：$a=1$ 换元，$a\ne 1$ 时 $x$ 是主要项。
+$$
+\int_M^{+\infty}\frac{\d x}{x^a\cdot\ln^bx\cdot\ln^c\ln\ln x\cdot\ln^d\ln\ln\ln x\cdot\cdots}
+$$
+这样的情况就依次看，不断换元。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}\frac{\sin x}{x^a}\d x
+$$&lt;/p&gt;
+&lt;p&gt;$x\to+\infty$：$a\le 0$ 用柯西，发散。$a&amp;gt;1$ 时放缩至 $x^{-a}$，绝对收敛；$0&amp;lt;a\le 1$ 时，
+$$
+\int_1^{+\infty}\frac{\sin x}{x^a}\d x=\left.-\frac{\cos x}{x^a}\right|_1^{+\infty}-a\int_1^{+\infty}\frac{\cos x}{x^{a+1}}\d x
+$$
+两项都收敛。但是
+$$
+\int_1^{+\infty}\left\lvert\frac{\sin x}{x^a}\right\rvert\d x\ge\int_1^{+\infty}\frac{\sin^2x}{x^a}\d x=\int_1^{+\infty}\frac{1-\cos 2x}{2x^a}\d x=\left.-\frac{1}{2(a-1)}\frac{1}{x^{a-1}}\right|_1^{+\infty}-\frac12\int_1^{+\infty}\frac{\cos 2x}{x^a}\d x
+$$
+前一项（$a=1$ 时是 $\ln$）发散，后一项收敛，所以不绝对收敛。&lt;strong&gt;注意在实际考试时为保险起见，无论是四则运算还是分部积分，最好用柯西收敛准则的方式去说明。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;另一种证明思路是直接用狄利克雷说明 $a&amp;gt;0$ 时相对收敛。如果对于 $a\le 0$ 收敛，那么由
+$$
+\int_1^{+\infty}\sin x\d x=\int_1^{+\infty}\frac{\sin x}{x^a}x^a\d x
+$$
+由阿贝尔知 $\sin x$ 的积分收敛，矛盾。说明 $a&amp;gt;0$ 时的绝对收敛性还有一种神奇的方法，考虑取 $|\sin x|$ 的平均值 $2/\pi$。由于
+$$
+\left\lvert\int_0^A(|\sin x|-2/\pi)\d x\right\rvert=\left\lvert\int_0^{A\bmod\pi}(|\sin x|-2/\pi)\d x\right\rvert&amp;lt;2
+$$
+故由狄利克雷，
+$$
+\int_1^{+\infty}\frac{|\sin x|-2/\pi}{x^a}\d x
+$$
+收敛。而 $\int_1^{+\infty}2\d x/\pi x^a$仅在 $a&amp;gt;1$ 时收敛。&lt;/p&gt;
+&lt;p&gt;$x\to0^+$：$\sin x\sim x$，所以 $a\ge 2$ 时发散。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}\frac{\ln(1+x)}{x^a}\d x
+$$&lt;/p&gt;
+&lt;p&gt;$x\to+\infty$：$a\le 1$ 时显然发散，$a&amp;gt;1$ 时与 $x^{-(1+a)/2}$ 比较，收敛。&lt;/p&gt;
+&lt;p&gt;$x\to 0^+$：$\ln(1+x)\sim x$，$a\ge 2$ 时发散。&lt;/p&gt;
+&lt;p&gt;因此 $a\in(1,2)$ 时收敛。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}\frac{\sin x}{x^a+\sin x}\d x
+$$&lt;/p&gt;
+&lt;p&gt;$x\to+\infty$：$a&amp;lt;0$ 时有无穷个间断点，但由于 $x^a$ 不是主项，故直接用柯即可，发散。$a=0$ 同。$a&amp;gt;0$ 时考虑依赖已知的结果：
+$$
+\frac{\sin x}{x^a+\sin x}=\frac{\sin x}{x^a}-\frac{\sin^2x}{x^a(x^a+\sin x)}
+$$
+由于后面一项恒非负，故可以用比较的极限形式，$\sim \sin^2x/x^{2a}$。根据之前的分析，$a\le 1/2$ 时发散，$a&amp;gt;1/2$ 时收敛。&lt;/p&gt;
+&lt;p&gt;因此 $a&amp;gt;1$ 时绝对收敛，$1/2&amp;lt;a\le 1$ 是前一项相对收敛，后一项绝对收敛，所以是相对收敛；$0&amp;lt;a\le 1/2$ 时前一项相对收敛，后一项发散，所以是发散；$a\le 0$ 时发散。&lt;/p&gt;
+&lt;p&gt;$x\to 0^+$：$a&amp;gt;1$ 时 $\to 1$，$a=1$ 时 $\to1/2$，$a&amp;lt;1$ 时 $\to 0$，故不用管。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;超纲不定积分无初等表示积分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}x^{a-1}\e^{-x}\d x
+$$&lt;/p&gt;
+&lt;p&gt;$x\to+\infty$：与 $-\e^{x/2}$ 比较，去掉 $x^{a-1}$，收敛。$x\to 0$：$a\le0$ 时发散。&lt;/p&gt;
+&lt;p&gt;$\Gamma$ 函数。递推公式：
+$$
+\Gamma(n)=\int_0^{+\infty}x^{n-1}\e^{-x}\d x=\left.-x^{n-1}\e^{-x}\right|_0^{+\infty}+(n-1)\int_0^{+\infty}x^{n-2}\e^{-x}\d x=(n-1)\Gamma(n-1)
+$$
+余元公式：$\frac{1}{\Gamma(n)\Gamma(1-n)}=\frac{\sin\pi n}{\pi}$。证明思路：写成 $\Beta$ 函数后级数展开。&lt;/p&gt;
+&lt;p&gt;推论：$\Gamma\big(\frac12\big)=\sqrt\pi$，也可以用高斯积分得到。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^1x^{a-1}(1-x)^{b-1}\d x
+$$&lt;/p&gt;
+&lt;p&gt;$x\to1^-$：$b\le 0$ 时发散。$x\to0^+$：$a\le 0$ 时发散。&lt;/p&gt;
+&lt;p&gt;$\Beta$ 函数。递推公式：$\Beta(n,m)=\frac{m-1}{n+m-1}\Beta(n,m-1)$。&lt;/p&gt;
+&lt;p&gt;与 $\Gamma$ 函数的关系：$\Beta(n,m)=\frac{\Gamma(n)\Gamma(m)}{\Gamma(n+m)}$。证明思路：二重积分的换元。&lt;/p&gt;
+&lt;p&gt;与三角函数的关系：
+$$
+\begin{align*}
+\int_0^{\pi/2}\sin^nx\cos^mx\d x&amp;amp;\xlongequal{t=\sin^2x}\int_0^1\frac{t^{n/2}(1-t)^{m/2}}{2\sin x\cos x}\d t\\
+&amp;amp;=\frac12\int_0^1t^{(n-1)/2}(1-t)^{(m-1)/2}\d t\\
+&amp;amp;=\frac12\Beta\left(\frac{n+1}2,\frac{m+1}2\right)
+\end{align*}
+$$
+所以我们又得到了一种神秘的说明 $\Gamma(1/2)=\sqrt{\pi/2}$ 的方法。&lt;/p&gt;
+&lt;p&gt;一个奇妙的关系：
+$$
+\begin{align*}
+\int_0^{+\infty}\frac{\d x}{1+x^n}&amp;amp;\xlongequal{t=x^n}\frac1n\int_0^{+\infty}\frac{\d t}{t^{1-\frac1n}(1+t)}\\
+&amp;amp;\xlongequal{u=\frac1{1+t}}\frac1n\int_0^1u^{-\frac1n}(1-u)^{\frac1n-1}\d u\\
+&amp;amp;=\frac1n\Beta\left(1-\frac1n,\frac1n\right)\\
+&amp;amp;=\frac1n\Gamma\left(1-\frac1n\right)\Gamma\left(\frac1n\right)\\
+&amp;amp;=\frac{\pi}{n\sin\pi n}
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}\frac{\sin x}x\d x
+$$&lt;/p&gt;
+&lt;p&gt;Dirichlet 积分，用费曼积分法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}\sin x^2\d x
+$$&lt;/p&gt;
+&lt;p&gt;Fresnel 积分。收敛：换元 $t=x^2$ 变成 $\sin t/2\sqrt t$，套上面的。求的话要 Laplace 变换或转极坐标或留数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}\e^{-x^2}\d x
+$$&lt;/p&gt;
+&lt;p&gt;Gauss 积分。收敛：同样换元。求可以用极坐标或其他二重积分方法。wxf 写了个不超纲的，借助点火公式的复杂方法，非常牛。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不超纲不定积分无初等表示积分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{+\infty}\frac{f(ax)-f(bx)}{x}\d x
+$$&lt;/p&gt;
+&lt;p&gt;Froullani 积分（$f$ 连续），考虑拆开定义证。
+$$
+\begin{align*}
+&amp;amp;\int_0^{+\infty}\frac{f(ax)-f(bx)}x\d x\\
+={}&amp;amp;\lim_{l\to 0}\lim_{r\to+\infty}\int_l^r\frac{f(ax)-f(bx)}x\d x\\
+={}&amp;amp;\lim_{l\to 0}\lim_{r\to+\infty}\left(\int_l^r\frac{f(ax)}x\d x-\int_l^r\frac{f(bx)}x\d x\right)\\
+={}&amp;amp;\lim_{l\to 0}\lim_{r\to+\infty}\left(\int_{la}^{ra}\frac{f(t)}t\d t-\int_{lb}^{rb}\frac{f(t)}t\d t\right)\\
+={}&amp;amp;\lim_{l\to 0}\lim_{r\to+\infty}\left(\int_{la}^{lb}\frac{f(t)}t\d t-\int_{ra}^{rb}\frac{f(t)}t\d t\right)\\
+={}&amp;amp;\lim_{l\to 0}\lim_{r\to+\infty}\left(f(\xi_l)\ln\frac ba-f(\xi_r)\ln\frac ba\right)\\
+={}&amp;amp;\left(\lim_{x\to0^+}f(x)-\lim_{x\to+\infty}f(x)\right)\ln\frac ba
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^{\pi/2}\ln\sin x\d x
+$$&lt;/p&gt;
+&lt;p&gt;区间再现法的例题
+$$
+\begin{align*}
+\int_0^{\pi/2}\ln\sin x\d x&amp;amp;=\int_0^{\pi/2}\ln\cos x\d x\\
+&amp;amp;=\frac12\left(\int_0^{\pi/2}\ln(\sin x\cos x)\d x\right)\\
+&amp;amp;=\frac12\left(\int_0^{\pi/2}(\ln\sin 2x-\ln 2)\d x\right)\\
+&amp;amp;=\frac14\int_0^\pi\ln\sin t\d t-\frac{\pi\ln2}4\\
+&amp;amp;=\frac12\int_0^{\pi/2}\ln\sin t\d t-\frac{\pi\ln2}4\\
+\Longrightarrow\int_0^{\pi/2}\ln\sin x\d x&amp;amp;=-\frac{\pi\ln2}2
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^1\frac{\ln(1+x)}{1+x^2}\d x
+$$&lt;/p&gt;
+&lt;p&gt;神秘的区间再现法
+$$
+\begin{align*}
+\int_0^1\frac{\ln(1+x)}{1+x^2}\d x&amp;amp;=\left.\ln(1+x)\arctan x\right|_0^1-\int_0^1\frac{\arctan x}{1+x}\d x\\
+&amp;amp;\xlongequal{x=\tan t}\frac{\pi\ln 2}4-\int_0^{\pi/4}\frac{t}{1+\tan t}\sec^2 t\d t\\
+I=\int_0^{\pi/4}\frac{t}{1+\tan t}\sec^2 t\d t&amp;amp;=\int_0^{\pi/4}\frac{t\d t}{(\sin t+\cos t)\cos t}\\
+&amp;amp;=\int_0^{\pi/4}\frac{t\d t}{\sqrt2\sin(t+\pi/4)\cos t}\\
+&amp;amp;\xlongequal{u=\pi/4-t}\int_0^{\pi/4}\frac{(\pi/4-u)\d u}{\sqrt2\cos u\cos(\pi/4-u)}\\
+&amp;amp;=\frac\pi4\int_0^{\pi/4}\frac{\sec^2u\d u}{1+\tan u}-I\\
+&amp;amp;=\frac{\pi\ln2}4-I\\
+&amp;amp;=\frac{\pi\ln2}8
+\end{align*}
+$$
+神秘的换元法 from &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/512255255/answer/2355309447&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.zhihu.com/question/512255255/answer/2355309447&lt;/a&gt;：$x=\frac{1-t}{1+t}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^\pi\frac{x\sin x}{1+\cos^2x}\d x
+$$&lt;/p&gt;
+&lt;p&gt;无聊的区间再现法，答案是 $\pi^2/4$。感兴趣可以看&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/100951677&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\int_0^\pi\frac{\sin nx}{\sin x}\d x
+$$&lt;/p&gt;
+&lt;p&gt;赖皮方法：三角函数展开成 $\e$。正常方法：
+$$
+\begin{align*}
+I_n=\int_0^\pi\frac{\sin nx}{\sin x}\d x&amp;amp;=\int_0^\pi\frac{\sin(n-1)x\cos x+\sin x\cos(n-1)x}{\sin x}\d x\\
+&amp;amp;=\int_0^\pi\frac{\sin nx+\sin(n-2)x}{2\sin x}\d x\\
+&amp;amp;=\frac12\left(I_n+I_{n-2}\right)\\
+&amp;amp;=I_{n-2}\\
+&amp;amp;=(n\bmod 2)\pi
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;微分方程&#34;&gt;微分方程
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;如果遇到没法用下面方法解的微分方程，尝试两边同时求导！如果带积分还可以设 $g(x)=\int_0^xf(t)\d t$ 这种。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$y^\prime=f(x)$。最基本，直接不定积分。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$y^\prime=f(y)$。将 $x$ 和 $y$ 的地位互换，得到 $x^\prime_y=1/f(y)$，归为 1。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$y^\prime=f(x)g(y)$。分离变量型，把 $g$ 除过去，两边积分。这应该是唯一一个不能归约基本型的方程，几何意义也不是特别容易理解，硬要理解可以用下面这种方法：&lt;/p&gt;
+&lt;p&gt;考虑 $f(x,y)\d x+g(x,y)\d y=0$ 形式的微分方程，它的解是以 $(f,g)$ 为梯度场的二元函数的等高线。设原函数为 $\varphi(x,y)$，那么要求
+$$
+\varphi(x,y)=\int f(x,y)\d x+C_y(y)=\int g(x,y)\d y+C_x(x)
+$$
+这个连等要求了一个事，就是 $\int f(x,y)\d x-\int g(x,y)\d y$ 中不能有同时跟 $x$ 和 $y$ 有关的项，也就是
+$$
+\frac{\partial f}{\partial y}=\frac{\partial g}{\partial x}
+$$
+解为
+$$
+\int f(x,y)\d x+\int\left(g(x,y)-\frac{\partial}{\partial y}\int f(x,y)\d x\right)\d y=0
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$y^\prime=f(y/x)$。这说明 $x$ 和 $y$ 的同步伸缩不改变向量场。而 1 容易解是因为 $y$ 的上下移动不改变向量场，也就是走向只与 $x$ 有关。如果能把这个方程的伸缩不变性也变成 1 中的这个性质就好做的。所以可以换元$p=y/x$，$z=\ln|x|$，得到 $z^\prime_p=\frac{1}{f(p)-p}$，或者换元 $x=\e^{u}\cos\theta$，$y=\e^u\sin\theta$，得到
+$$
+\frac{u^\prime_\theta\tan\theta+1}{u^\prime_\theta-\tan\theta}=f(\tan\theta)\Longleftrightarrow u^\prime_\theta=\frac{f(\tan\theta)\tan\theta+1}{f(\tan\theta)-\tan\theta}
+$$
+为什么要换 $\ln$ 不直接换 $r$ 或 $x$？因为要求换元后是平移不变，而如果直接用 $(r,\theta)$ 去表示的话，其实是不满足的——因为在用极坐标表示位置的同时，也要用它表示向量场，而极坐标的切向基向量（未经单位化）$\b e_\theta=r\b{\hat\theta}$ 它的长度不是 $1$，就会导致原来看起来相等的向量在极坐标里不等。而如果改成换 $u=\ln r$ 的话，就利用对数把伸缩变成了平移，$\b e_\theta=\e^u\b{\hat\theta}$，而 $\b e_u=\e^u\b{\hat u}$，向量场在 $u$ 平移是两维同时伸缩的，由于我们只关心方向，故相当于不变。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+y^\prime=f\left(\frac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2}\right)
+$$&lt;/p&gt;
+&lt;p&gt;分平行和非平行考虑。平行换元分母转分离变量，非平行平移交点到原点后变为齐次。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不含 $y$ 和不含 $x$，两种降阶方法。核心思想是增加未知函数，增加方程数，减少求导阶数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$y^\prime=a(x)y+f(x)$。非齐次一阶，用常数变易法：先求出无 $f(x)$ 时的解 $y=\e^{\int a(x)\d x}$，然后设解为 $y=C(x)\e^{\int a(x)\d x}$（由于 $\e^*$ 恒非零故不会漏解），展开得 $C(x)=\int f(x)\e^{-\int a(x)\d x}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\b y^\prime=A\b y$。常系数一阶线性方程组。求出 $A$ 的 Jordan 标准型 $P^{-1}AP=J$，方程变为 $\b y^\prime=PJP^{-1}\b y$ 即 $(P^{-1}\b y)^\prime=J(P^{-1}\b y)$，然后直接解，再乘回来。对于可对角化的情况，有一个很优美的写法：
+$$
+\b y=P\mat{C_1\e^{\lambda_1x}\\ \vdots\\ C_n\e^{\lambda_nx}}=\sum_{i=1}^nC_iv_i\e^{\lambda_ix}=\mat{\e^{\lambda_1x}&amp;amp;\cdots&amp;amp;0\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\ 0&amp;amp;\cdots&amp;amp;\e^{\lambda_nx}}\b y(0)=\e^\Lambda\b y(0)
+$$
+对于 Jordan 块
+$$
+\b u^\prime=\mat{\lambda&amp;amp;1&amp;amp;0&amp;amp;\cdots&amp;amp;0\\ 0&amp;amp;\lambda&amp;amp;1&amp;amp;\cdots&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;1\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda}_{k\times k}\b u
+$$
+容易解得
+$$
+\b u=\mat{(C_kx^{k-1}+\cdots+C_1)\e^{\lambda x}\\ (C_kx^{k-2}+\cdots+C_2)\e^{\lambda x}\\ \vdots\\ (C_kx+C_{k-1})\e^{\lambda x}\\ C_k\e^{\lambda x}}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+y^{(n)}+\sum_{i=0}^{n-1}a_iy^{(i)}=0
+$$
+常系数高阶线性。核心思想是导数也是线性变换。求出左边对应多项式的根 $\lambda_1\sim\lambda_n$。于是整个可以写成
+$$
+\left[\prod_{i=1}^n\left(\frac{\d}{\d x}-\lambda_i\right)\right]y=0
+$$
+于是可以逐一求解。实际上不用暴力求——如果去重后根为 $\lambda_1\sim\lambda_k$ 且重数分别为 $m_1\sim m_k$，容易代入验证 $y$ 可以写成以下函数的线性组合：
+$$
+\e^{\lambda_1},x\e^{\lambda_1},\cdots,x^{m_1-1}\e^{\lambda_1},\cdots
+$$
+对于有非齐次项的情况，可以用常数变易法，更一般的方法见后。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+x^ny^{(n)}+\sum_{i=0}^{n-1}a_ix^iy^{(i)}=0
+$$
+Euler 方程。同样可以待定系数
+$$
+\left[\prod_{i=1}^n\left(\frac{x\d}{\d x}-\lambda_i\right)\right]y=0
+$$
+然后暴解。注意到 $x\d/\d x=\d/\d\ln|x|$，于是考虑直接把自变量换成 $t=\ln|x|$。于是
+$$
+\frac{x^i\d^i}{\d x^i}=\frac{x\d}{\d x}\left(\frac{x^{i-1}\d^{i-1}}{\d x^{i-1}}\right)-(i-1)\frac{x^{i-1}\d^{i-1}}{\d x^{i-1}}=\cdots=\prod_{j=0}^{i-1}\left(\frac{\d}{\d t}-j\right)
+$$
+于是原方程变为上一种类型
+$$
+\sum_{j=0}^ny^{(j)}_t\sum_{i=j}^n(-1)^{i-j}\begin{bmatrix}i\\ j\end{bmatrix}a_i=0
+$$
+其中 $\begin{bmatrix}i\\ j\end{bmatrix}$ 是第一类斯特林数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一些特殊的因式分解。例如：
+$$
+x\frac{\d^2}{\d x^2}-(x+1)\frac{\d}{\d x}+1=\left(x\frac{\d}{\d x}-1\right)\left(\frac{\d}{\d x}-1\right)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+x(x+1)\frac{\d^2}{\d x^2}-(4x+2)\frac{\d}{\d x}+6=\left(x\frac{\d}{\d x}-2\right)\left((x+1)\frac{\d}{\d x}-3\right)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+y^{(n)}+\sum_{i=0}^{n-1}a_i(x)y^{(i)}=f(x)
+$$&lt;/p&gt;
+&lt;p&gt;高阶非齐次线性。我们写成矩阵的形式：
+$$
+\mat{y\\ y^\prime\\ \vdots\\ y^{(n-1)}}^\prime=\mat{0&amp;amp;1&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;1&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1\\ -a_0(x)&amp;amp;-a_1(x)&amp;amp;-a_2(x)&amp;amp;\cdots&amp;amp;-a_{n-2}(x)&amp;amp;-a_{n-1}(x)}\mat{y\\ y^\prime\\ \vdots\\ y^{(n-1)}}+\mat{0\\ 0\\ \vdots\\ f(x)}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\b y^\prime=A\b y+\b f
+$$&lt;/p&gt;
+&lt;p&gt;假设在齐次的情况下，解得了 $n$ 个线性无关解 $y_1,\cdots,y_n$，把它们的 $0\sim n-1$ 阶导写成列向量，排起来成为 $U_{n\times n}$。使用常数变易法，考虑
+$$
+\b C=\mat{C_1(x)\\ C_2(x)\\ \vdots\\ C_n(x)},\;\b y=U\b C
+$$
+那么
+$$
+U^\prime\b C+U\b C^\prime=\b y^\prime=A\b y+\b f
+$$
+而
+$$
+U^\prime\b C=AU\b C=A\b y
+$$
+因此要解的就是
+$$
+U\b C^\prime=\b f\Longrightarrow\b C=\int U^{-1}\b f\d x
+$$
+以 $n=2$ 为例，最后要解的就是
+$$
+\left\{\begin{aligned}
+y_1C_1^\prime(x)+y_2C_2^\prime(x)&amp;amp;=0\\
+y_1^\prime C_1^\prime(x)+y_2^\prime C_2^\prime(x)&amp;amp;=f(x)
+\end{aligned}\right.
+$$
+这个矩阵方法很自然地加入了额外的 $n-1$ 条限制，其本质是在设 $\b y=U\b C$ 时默认了通解 $y$ 的高阶导由基础解系线性组合的系数与零阶组合的系数相同。这个其实是“冒险”的，但下面对解的性质的分析保证了这个是对的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果方程有个两个解 $\b y_1$，$\b y_2$，$\b y_1|_{x=x_0}=\b y_2|_{x=x_0}$，则 $\b y_1=\b y_2$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证：$\b y_1-\b y_2$ 是 $\b y^\prime=A\b y$ 的解，从而可以写成 $U\b C$ 的形式，其中 $\b C$ 与 $x$ 无关。而 $(U\b C)|_{x=x_0}=\b 0$，从而 $\b C=U^{-1}|_{x=x_0}\b 0=\b 0$。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当我们说“$n$ 个线性无关的解”时，我们不需要明确是在哪个 $x$ 处线性无关。$\set{\b y_1,\cdots,\b y_n}$ 线性无关，当且仅当对于某个 $x_0$，这组函数向量在 $x_0$ 处的实数向量线性无关。&lt;/p&gt;
+&lt;p&gt;引理（Liouville）：对于齐次情况（不要求 $\b y_i$ 形如一个 $y$ 的 $0\sim n-1$ 阶导），$\dat{U}^\prime=\tr A\dat{U}$。$\dat{U}$ 称为 $n$ 个解的 Wronsky 行列式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证：根据乘积的导数 → $\b y$ 满足的等式 → 行列式的性质，（$y_{j,k}$ 表示第 $j$ 个解的第 $k$ 项）
+$$
+\dat{U}^\prime=\sum_{r=1}^n\dat{\Set{y_{j,i}^{([i=r])}}_{n\times n}}=\sum_{r=1}^n\dat{\Set{\begin{cases}y_{j,i},&amp;amp;i\ne r\\ \sum_{k=1}^nA_{i,k}y_{j,k},&amp;amp;i=r\end{cases}}_{n\times n}}=\sum_{r=1}^nA_{r,r}\dat{U}=\tr A\dat{U}
+$$
+而 $\dat{U}^\prime=\tr A\dat{U}$ 是一个一阶齐次线性的方程，直接解得 $\dat{U}=\e^{\int\tr A\d x}$，代入初始条件得 $\dat{U}=\dat{U}|_{x=x_0}\e^{\int_{x_0}^x\tr A|_{x=t}\d t}$。由于 $\e^*$ 恒正，故只要某个 $x_0$ 处线性无关，就处处线性无关。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当 $A$ 的各项都是连续函数时，$\b y^\prime=A\b y$ 对于任何初始条件都存在解。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证明见理论基础（咕）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+y^{\prime\prime}+a_1(x)y^\prime+a_0(x)y=0
+$$&lt;/p&gt;
+&lt;p&gt;假定已经知道了一个解 $y_1$，求另一个线性无关的解 $y_2$。设 $y_2=C(x)y_1$。代入可得：
+$$
+C^\prime(x)=\frac{C}{y_1^2\e^{\int_{x_0}^xa_1(t)\d t}}
+$$
+再积回去即可，取 $C\ne 0$ 容易验证可以得到一个线性无关的解。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+y^\prime+a(x)y=b(x)y^n\;(n\ne 0,1)
+$$&lt;/p&gt;
+&lt;p&gt;Bernoulli 方程。换元 $z=y^{1-n}$，等式两边同除以 $y^n$：
+$$
+\frac{y^\prime}{y^n}+\frac{a(x)}{y^{n-1}}=b(x)\Longleftrightarrow\frac{z^\prime}{1-n}+a(x)z=b(x)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;杂题&#34;&gt;杂题
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;证明 $\R$ 是唯一的完备序域。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;答案见理论基础。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Lagrange 恒等式的几何意义？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;能否构造在 $\Q$ 处间断，$\R\setminus\Q$ 处连续的单增函数？能否构造在 $\Q$ 处连续，$\R\setminus\Q$ 处间断的单增函数？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;如果不要求单增，那就用黎曼函数。要求单增也不难，构造奇函数 $f$：
+$$
+f(x&amp;gt;0)=\sum_{0&amp;lt;p/q\le x}2^{-q}
+$$
+容易知道这玩意是收敛的，但是我们发现一个新的有趣的问题：求
+$$
+\sum_{i\ge 1}\mu(i)2^{-i}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不能。增函数的间断点都是跳跃间断点，这个跳跃处一定包含有理数，因此间断点是至多可数的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;证明 $\N$ 和 $\R$、$\N$ 和 $\mathcal{P}(\N)$ 不等势。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对角线法；或考虑 $\set{i\mid i\notin A_i}$，这个集合不能是某个 $A_j$，否则 $j$ 既不能 $\in A_j$，又不能 $\notin A_j$。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;证明 Stolz 定理：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\set{b_n}$ 严增，$\lim b_n=+\infty$，$\lim\Delta a_n/\Delta b_n\in\R\cup\set{\pm\infty}$，则 $\lim a_n/b_n=\lim\Delta a_n/\Delta b_n$。&lt;/li&gt;
+&lt;li&gt;$\set{b_n}$ 严降，$\lim b_n=\lim a_n=0$，$\lim\Delta a_n/\Delta b_n\in\R\cup\set{\pm\infty}$，则 $\lim a_n/b_n=\lim\Delta a_n/\Delta b_n$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;设 $\lim\Delta a_n/\Delta b_n=L$，$\forall\varepsilon&amp;gt;0$，$\exists N$，$\forall n&amp;gt;N$，
+$$
+(L-\varepsilon)(b_{n+1}-b_n)&amp;lt;a_{n+1}-a_n&amp;lt;(L+\varepsilon)(b_{n+1}-b_n)
+$$
+于是
+$$
+(L-\varepsilon)(b_{n+1}-b_{N+1})&amp;lt;a_{n+1}-a_{N+1}&amp;lt;(L+\varepsilon)(b_{n+1}-b_{N+1})
+$$
+即（容易取到 $b$ 为正）
+$$
+\left\lvert\frac{a_{n+1}}{b_{n+1}}-\frac{a_{N+1}}{b_{n+1}}-L+L\frac{b_{N+1}}{b_{n+1}}\right\rvert&amp;lt;\left(1-\frac{b_{N+1}}{b_{n+1}}\right)\varepsilon&amp;lt;\varepsilon
+$$
+取足够大的 $n$，即可
+$$
+\left\lvert\frac{a_{n+1}}{b_{n+1}}-L\right\rvert\le\left\lvert\frac{a_{n+1}}{b_{n+1}}-\frac{a_{N+1}}{b_{n+1}}-L+L\frac{b_{N+1}}{b_{n+1}}\right\rvert+\left\lvert\frac{a_{N+1}}{b_{n+1}}-L\frac{b_{N+1}}{b_{n+1}}\right\rvert&amp;lt;2\varepsilon
+$$
+Remark. 这里主要是考虑去除 $a_N$ 和 $b_N$ 的“垃圾”影响。如果硬处理的话，可以直接比对已知不等式和目标不等式，硬解出 $n$ 的范围，但这样会麻烦。这个证法主要是通过保留 $1-b_{N+1}/b_{n+1}$ 因子的方式，减少了讨论的复杂程度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设 $\lim\Delta a_n/\Delta b_n=L$，$\forall\varepsilon&amp;gt;0$，$\exists N$，$\forall n&amp;gt;N$，
+$$
+(L-\varepsilon)(b_{n+1}-b_n)&amp;lt;a_{n+1}-a_n&amp;lt;(L+\varepsilon)(b_{n+1}-b_n)
+$$
+于是 $\forall n^\prime &amp;gt;n$，
+$$
+(L-\varepsilon)(b_{n^\prime+1}-b_n)&amp;lt;a_{n^\prime+1}-a_n&amp;lt;(L+\varepsilon)(b_{n^\prime+1}-b_n)
+$$
+即
+$$
+\left\lvert\frac{a_n}{b_n}-\frac{a_{n^\prime+1}}{b_n}-L+L\frac{b_{n^\prime+1}}{b_n}\right\rvert&amp;lt;\left(1-\frac{b_{n^\prime+1}}{b_n}\right)\varepsilon&amp;lt;\varepsilon
+$$
+取足够大的 $n^\prime$，即可
+$$
+\left\lvert\frac{a_n}{b_n}-L\right\rvert\le\left\lvert\frac{a_n}{b_n}-\frac{a_{n^\prime+1}}{b_n}-L+L\frac{b_{n^\prime+1}}{b_n}\right\rvert+\left\lvert\frac{a_{n^\prime+1}}{b_n}-L\frac{b_{n^\prime+1}}{b_n}\right\rvert&amp;lt;2\varepsilon
+$$
+Remark. 这种情况奇怪的点在于，不能扔前缀的部分了，因为越前反而越大。所以要找到影响够小的部分，只能到后面去找，再减回来。洛必达法则的 $0/0$ 形式的思路也是类似。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$$
+\lim_{n\to\infty}\frac{n^k}{a^n}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解 1：
+$$
+*=\lim_{n\to\infty}\left(\frac{n}{a^{n/k}}\right)^k=k^k\left(\lim_{t\to\infty}\frac{t}{a^t}\right)^k=0
+$$
+因为
+$$
+\frac{t}{a^t}=\frac{t}{(1+a-1)^t}\le\frac{t}{\binom t2(a-1)^2}=\frac{2}{(t-1)(a-1)^2}\to 0
+$$
+解 2：当 $n&amp;gt;1/(1-a^{-1/k})$ 时，
+$$
+\frac{n^k/a^n}{(n+1)^k/a^{n+1}}=a\left(1-\frac1{n+1}\right)^k&amp;gt;1
+$$
+即递减，故极限存在。对
+$$
+\frac{n^k}{a^n}=a\left(\frac{n}{n+1}\right)^k\frac{(n+1)^k}{a^{n+1}}
+$$
+两边取极限得
+$$
+\lim_{n\to\infty}\frac{n^k}{a^n}=a\lim_{n\to\infty}\frac{n^k}{a^n}\Longrightarrow\lim_{n\to\infty}\frac{n^k}{a^n}=0
+$$
+解 3：取对数硬证。&lt;/p&gt;
+&lt;p&gt;解 4：用 Stolz 定理 + 归纳证。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不用洛必达，证明
+$$
+\lim_{x\to0^+}x\ln x=0
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+\lim_{x\to 0^+}x\ln x=\lim_{x\to 0^+}\e^{\ln x}\ln x\xlongequal{y=-\ln x}-\lim_{y\to+\infty}\frac{y}{\e^y}=0
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$$
+\lim_{x\to 0}\frac{(1+nx)^{1/m}-(1+mx)^{1/n}}{x}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+\begin{align*}
+&amp;amp;\lim_{x\to 0}\frac{(1+nx)^{1/m}-(1+mx)^{1/n}}{x}\\
+={}&amp;amp;\lim_{x\to 0}\frac{(1+nx)^{1/m}-1}{x}-\lim_{x\to 0}\frac{(1+mx)^{1/n}-1}{x}\\
+\xlongequal{t=(1+nx)^{1/m},u=(1+mx)^{1/n}}{}&amp;amp;\lim_{t\to 1}\frac{n(t-1)}{t^m-1}-\lim_{u\to 1}\frac{m(u-1)}{u^n-1}\\
+={}&amp;amp;\lim_{t\to 1}\frac{n}{t^{m-1}+\cdots+1}-\lim_{u\to 1}\frac{m}{u^{n-1}+\cdots+1}\\
+={}&amp;amp;\frac{n}{m}-\frac{m}{n}
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;另一种麻烦些的处理方法是考虑
+$$
+\begin{align*}
+&amp;amp;\lim_{x\to 0}\frac{(1+x)^p-1}{x}\\
+={}&amp;amp;\lim_{x\to 0}\frac{\e^{p\ln(1+x)}-1}{x}\\
+={}&amp;amp;\lim_{x\to 0}\frac{\e^{p\ln(1+x)}-1}{\ln(1+x)}\\
+\xlongequal{t=p\ln(1+x)}{}&amp;amp;p\lim_{t\to 0}\frac{\e^t-1}{t}\\
+\xlongequal{u=\e^t-1}{}&amp;amp;p\lim_{u\to 0}\frac{u}{\ln(1+u)}\\
+={}&amp;amp;p
+\end{align*}
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$\e$ 相关：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;证明 $(1+1/n)^n$ 单增且有界，$(1+1/n)^{n+1}$ 单减且有界，从而两者极限存在且相等。&lt;/li&gt;
+&lt;li&gt;证明 $(1+1/x)^x$ 在 $\R^\pm$ 上分别单增，$\lim_{x\to\infty}(1+1/x)^x=\e$。&lt;/li&gt;
+&lt;li&gt;证明 $\sum_{i=0}^{+\infty}1/i!=\e$。&lt;/li&gt;
+&lt;li&gt;证明 $\e\notin\Q$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;证 1（比值比较法）：
+$$
+\begin{align*}
+&amp;amp;\frac{\left(1+\frac1{n+1}\right)^{n+1}}{\left(1+\frac1n\right)^n}\\
+={}&amp;amp;\left(\frac{1+\frac1{n+1}}{1+\frac1n}\right)^n\frac{n+2}{n+1}\\
+={}&amp;amp;\left(1-\frac{1}{(n+1)^2}\right)^n\frac{n+2}{n+1}\\
+&amp;gt;{}&amp;amp;\left(1-\frac{n}{(n+1)^2}\right)\frac{n+2}{n+1}\\
+={}&amp;amp;\frac{n^3+3n^2+3n+2}{n^3+3n^2+3n+1}\\
+&amp;gt;{}&amp;amp;1
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;其中第一个 $&amp;gt;$ 是（归纳法可以证的）伯努利不等式。&lt;/p&gt;
+&lt;p&gt;证 2（均值不等式）：
+$$
+\left(1+\frac1n\right)^n=1\cdot\left(1+\frac1n\right)^n\le\left(\frac{1+n+1}{n+1}\right)^{n+1}=\left(1+\frac1{n+1}\right)^{n+1}
+$$
+证 3（二项式展开）：
+$$
+\begin{align*}
+\left(1+\frac1n\right)^n
+&amp;amp;=\sum_{i=0}^n\frac{n^{\underline{i}}}{i!}n^{-i}\\
+&amp;amp;=\sum_{i=0}^n\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac jn\right)\\
+&amp;amp;&amp;lt;\sum_{i=0}^{n+1}\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac j{n+1}\right)=\left(1+\frac1{n+1}\right)^{n+1}
+\end{align*}
+$$
+另一个：
+$$
+\begin{align*}
+&amp;amp;\frac{\left(1+\frac1n\right)^{n+1}}{\left(1+\frac1{n+1}\right)^{n+2}}\\
+={}&amp;amp;\left(\frac{1+\frac1n}{1+\frac1{n+1}}\right)^{n+1}\frac{n+1}{n+2}\\
+={}&amp;amp;\left(1+\frac{1}{n(n+2)}\right)^{n+1}\frac{n+1}{n+2}\\
+&amp;gt;{}&amp;amp;\left(1+\frac{n+1}{n(n+2)}\right)\frac{n+1}{n+2}\\
+={}&amp;amp;\frac{n^2+4n^2+4n+1}{n^3+4n^2+4n}\\
+&amp;gt;{}&amp;amp;1
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$&amp;gt;0$ 的情况：
+$$
+\left(1+\frac1{\lfloor x\rfloor+1}\right)^{\lfloor x\rfloor}\le\left(1+\frac1x\right)^x\le\left(1+\frac1{\lfloor x\rfloor}\right)^{\lfloor x\rfloor+1}
+$$&lt;/p&gt;
+&lt;p&gt;夹逼即可。$&amp;lt;0$ 时：
+$$
+\lim_{x\to-\infty}\left(1+\frac1x\right)^x=\lim_{x\to-\infty}\left(\frac{x}{x+1}\right)^{-x}=\lim_{t\to+\infty}\left(1+\frac{1}{t+1}\right)^t=\e
+$$
+似乎没有简单的方法证明其本身的单调性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一方面，
+$$
+\left(1+\frac1n\right)^n=\sum_{i=0}^n\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac jn\right)\le\sum_{i=0}^n\frac1{i!}
+$$
+另一方面，
+$$
+\lim_{n\to\infty}\left(1+\frac1n\right)^n\ge\lim_{n\to\infty}\sum_{i=0}^k\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac jn\right)=\sum_{i=0}^k\frac1{i!}
+$$
+或者也可以利用伯努利不等式（from &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/427108293/answer/3227359998&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.zhihu.com/question/427108293/answer/3227359998&lt;/a&gt;）
+$$
+\left(1+\frac1n\right)^n=\sum_{i=0}^n\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac jn\right)\ge\sum_{i=0}^n\frac1{i!}\left(1-\frac{i(i-1)}{n}\right)=\left(1-\frac1n\right)\sum_{i=0}^n\frac1{i!}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（from &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/341220643/answer/868684204&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.zhihu.com/question/341220643/answer/868684204&lt;/a&gt;）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;若
+$$
+\sum_{i=0}^{+\infty}\frac{1}{i!}=\e=\frac qp\Longrightarrow\sum_{i=0}^pp^{\underline{p-i}}+\sum_{i=p+1}^{+\infty}\frac1{i^{\underline{i-p}}}=q(p-1)!
+$$
+则
+$$
+\sum_{i=p+1}^{+\infty}\frac1{i^{\underline{i-p}}}&amp;lt;\sum_{i=1}^{\infty}\frac1{(p+1)^i}=\frac1p\le 1
+$$
+是整数，矛盾。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;错误解法：
+$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x}=\lim_{x\to 0}\frac{x^2\sin(1/x)}{x}=\lim_{x\to 0}x\sin\frac{1}{x}=0
+$$
+错误之处：当我们说 $\sin(x^2\sin(1/x))\sim x^2\sin(1/x)$ 时，我们实际上在说
+$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x^2\sin(1/x)}=1
+$$
+这个极限是在 $\R\setminus\set{0}\setminus\set{1/k\pi\mid k\in\Z\setminus\set{0}}$ 上说的，但是原极限并没有去掉这些点，而等价无穷小替换的原理是“硬拆出一个分式”方法，所以这样不行。&lt;/p&gt;
+&lt;p&gt;正确解法 1：夹逼。&lt;/p&gt;
+&lt;p&gt;正确解法 2：
+$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x}=\lim_{x\to 0}\frac{x^2\sin(1/x)}{x}=\lim_{x\to 0}x\sin\frac{1}{x}=0
+$$
+欸欸欸，不是，怎么跟上面的错误解法一样啊？&lt;/p&gt;
+&lt;p&gt;别急，我们这里用的是 wxf 的等价无穷小定义：$f\sim g$ 定义为 $f=g+\omicron(g)$，或者说 $\forall\varepsilon&amp;gt;0$，$\exists\delta&amp;gt;0$，$\forall|x-x_0|&amp;lt;\delta$，$|f(x)-g(x)|\le\varepsilon|g(x)|$（注意这里必须是 $\le$，不然 $0$ 就爆了）。容易验证还是有 $\sin(x^2\sin(1/x))\sim x^2\sin(1/x)$，于是
+$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x}=\lim_{x\to 0}\frac{x^2\sin(1/x)+\omicron(x^2\sin(1/x))}{x}=\lim_{x\to 0}\left(x\sin\frac 1x+\omicron\left(x\sin\frac 1x\right)\right)=0
+$$&lt;/p&gt;
+&lt;p&gt;这个定义在保证应用时可以替换的情况下，避免了除法。&lt;/p&gt;
+&lt;p&gt;说到这个定义，我们就不禁会关心一个东西：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;证明：$x\to x_0$，$f=g+\omicron(g)\Leftrightarrow g=f+\omicron(f)$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;设 $f-g=\omicron(g)$。$\forall\varepsilon\in(0,1)$，已知 $\exists\delta&amp;gt;0$，$\forall|x-x_0|&amp;lt;\delta$，
+$$
+\begin{align*}
+|f(x)-g(x)|&amp;amp;\le\frac{\varepsilon}{1+\varepsilon}|g(x)|\\
+&amp;amp;=\frac{\varepsilon}{1+\varepsilon}|g(x)-f(x)+f(x)|\\
+&amp;amp;\le\frac{\varepsilon}{1+\varepsilon}|f(x)-g(x)|+\frac{\varepsilon}{1+\varepsilon}|f(x)|\\
+\Longrightarrow\frac{1}{1+\varepsilon}|f(x)-g(x)|&amp;amp;\le\frac{\varepsilon}{1+\varepsilon}|f(x)|\\
+\Longrightarrow|f(x)-g(x)|&amp;amp;\le\varepsilon|f(x)|
+\end{align*}
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$y_n=2y_{n-1}^2-1, |y_0|\le 1$， 分析 $\set{y_n}$ 的敛散性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;设 $y_n=\cos\theta_n$, 则 $y_n=\cos(2^n\theta_0)$.&lt;/p&gt;
+&lt;p&gt;对于 $\theta_0$ 是 $\pi$ 的有理数倍的情况, 设 $\theta_0=q\pi/p$, 其中 $p,q$ 互质, $p&amp;gt;0$. 如果 $p=2^k$, 那么 ${y_n}$ 收敛至 $1$; 如果 $p=3\cdot 2^k$, 那么 ${y_n}$ 收敛至 $-1/2$; 否则 ${y_n}$ 震荡不收敛.&lt;/p&gt;
+&lt;p&gt;对于 $\theta_0$ 是 $\pi$ 的无理数倍的情况, $y_n\ne 1$. 如果 $\lim_{n\to\infty}y_n=1$, 那么 $\exists N$, $\forall n\ge N$, $1-y_n&amp;lt;1/2$. 设 $d_n=1-y_n$. 有 $d_n=2(1+y_{n-1})d_n$. 那么当 $n&amp;gt;N$ 时, $d_n&amp;gt;3d_{n-1}&amp;gt;\cdots&amp;gt;3^{n-N}d_N$. 取 $n=N-\lceil\log_3d_N\rceil$, 则 $d_n&amp;gt;1/2$, 矛盾.&lt;/p&gt;
+&lt;p&gt;同样, $y_n\ne-1/2$. 如果 $\lim_{n\to\infty}y_n=-1/2$, 那么 $\exists N$, $\forall n\ge N$, $|y_n+1/2|&amp;lt;1/4$. 设 $c_n=|y_n+1/2|$, 有 $c_n=2|y_n-1/2|c_{n-1}$. 那么当 $n&amp;gt;N$ 时, $c_n&amp;gt;(3/2)c_{n-1}&amp;gt;\cdots&amp;gt;(3/2)^{n-N}c_N$. 取 $n=N-\lceil\log_{3/2}c_N\rceil$, 则 $c_n&amp;gt;1/4$, 矛盾. 故 ${y_n}$ 不收敛.&lt;/p&gt;
+&lt;p&gt;综上所述, ${y_n}$ 收敛的充要条件是 $\arccos y_0\in{q\pi/2^k,q\pi/(3\cdot 2^k)\mid q,k\in\N}$.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$x_1=a$，$y_1=b$，$x_{n+1}=(x_n+y_n)/2$，$y_{n+1}=\sqrt{x_ny_n}$。分析两个数列收敛到的同一个值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$x_1=1$，$x_{n+1}=x_n+1/S_n$。分析 $\lim_{n\to\infty}\e^{x_n^2}/S_n$ 是否收敛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;求教教/kel&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不用微分中值定理证明洛必达定理。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$0/0$：已知存在 $x_0$ 的一个邻域，使得邻域内 $|f^\prime(x)/g^\prime(x)-A|&amp;lt;\varepsilon$。由于导数的介值性，可以假定 $g^\prime(x)$ 恒 $&amp;gt;0$。所以 $f^\prime(x)-(A-\varepsilon)g^\prime(x)&amp;gt;0$，$f^\prime(x)-(A+\varepsilon)g^\prime(x)&amp;lt;0$，所以 $f(x)-(A-\varepsilon)g(x)$ 严格单增，$f(x)-(A+\varepsilon)g(x)$ 严格单减。又由于在 $x_0$ 处这两者都等于 $0$，故 $x&amp;lt;x_0$ 时 $f(x)-(A-\varepsilon)g(x)&amp;lt;0$，同时 $g(x)&amp;lt;0$，故 $A-\varepsilon&amp;lt;f(x)/g(x)$。同理讨论其他三种情况，得 $A-\varepsilon&amp;lt;f(x)/g(x)&amp;lt;A+\varepsilon$。&lt;/p&gt;
+&lt;p&gt;这种情况因为要处理 $0^\pm$ 的情况所以用上了达布，不好看。下面这种情况会看起来比较牛：&lt;/p&gt;
+&lt;p&gt;$*/\infty$：只考虑左侧。设 $\lim_{x\to x_0^-}g(x)=+\infty$，从而 $g^\prime(x)&amp;gt;0$。同理我们会得到在 $x\in(x_1,x_0)$ 内 $f(x)-(A-\varepsilon)g(x)$ 严格单增。现在取 $x_0$ 的另一个左邻域 $(x_2,x_0)\subset(x_1,x_0)$ 使得 $\forall x\in(x_2,x_0)$，$-\varepsilon g(x)&amp;lt;f(x_1)-(A-\varepsilon)g(x_1)$，因为 $g(x)\to+\infty$ 所以这是可以的。这时对于其中的 $x$，
+$$
+f(x)-(A-\varepsilon)g(x)&amp;gt;f(x_1)-(A-\varepsilon)g(x_1)&amp;gt;-\varepsilon g(x)\Longrightarrow\frac{f(x)}{g(x)}&amp;gt;A-2\varepsilon
+$$
+其余情况同理。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$f(x)\in\mathscr{C}[0,1]$ 满足 $|f(x)|\le 1+\int_0^x|f(t)|\d t$。证明 $|f(x)|\le\e^x$。&lt;/p&gt;
+&lt;p&gt;这个题的非积分形式在教积分之前也出现过（5.1.13）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证 1：令 $g(x)=|f(x)|-\e^x$，则 $|g(x)|-\int_0^xg(x)\d x\le 0$。如果 $g(x)$ 出现了正的，取 $x_0=\operatorname{argmax}g(x)$。由中值定理，
+$$
+g(x_0)\le\int_0^{x_0}g(t)\d t=x_0g(\xi)\;(\xi\in(0,x_0))
+$$
+如果 $x_0=1$，让 $x_0=\xi$ 后再做一遍。现在 $g(\xi)\ge g(x_0)/x_0&amp;gt;g(x_0)$，与 $g(x_0)$ 最大矛盾。&lt;/p&gt;
+&lt;p&gt;证 2：令 $g(x)=\int_0^x|f(t)|\d t$。则
+$$
+g^\prime(x)\le 1+g(x)\Longrightarrow\frac{g^\prime(x)}{1+g(x)}\le 1\Longrightarrow\ln(1+g(x))\le x\Longrightarrow1+g(x)\le\e^x\Longrightarrow|f(x)|\le\e^x
+$$
+这种方法更通用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于 $[0,1]$ 上的连续函数 $f$ 与以 $1$ 为周期的非负可积函数 $g$，证明
+$$
+\lim_{n\to\infty}\int_0^1f(x)g(nx)\d x=\int_0^1f(x)\d x\int_0^1g(x)\d x
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+\begin{align*}
+&amp;amp;\lim_{n\to\infty}\int_0^1f(x)g(nx)\d x\\
+={}&amp;amp;\lim_{n\to\infty}\sum_{i=0}^{n-1}\int_{i/n}^{(i+1)/n}f(x)g(nx\bmod 1)\d x\\
+={}&amp;amp;\lim_{n\to\infty}\frac1n\sum_{i=0}^{n-1}f(\xi_{n,i})\int_0^1g(x)\d x\\
+={}&amp;amp;\int_0^1f(x)\d x\int_0^1g(x)\d x
+\end{align*}
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;设 $f(x)=\int_x^{x+1}\sin(t^2)\d t$。证明 $\forall x&amp;gt;0$，$|f(x)|\le 1/x$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;既然不能直接用 Dirichlet 判别法，就考虑其原理，试图魔改其证明的过程。
+$$
+\begin{align*}
+\left|\int_{x^2}^{(x+1)^2}\frac{\sin u}{2\sqrt u}\d u\right|&amp;amp;=\left|-\left.\frac{\cos u}{2\sqrt u}\right|_{x^2}^{(x+1)^2}-\int_{x^2}^{(x+1)^2}\frac{\cos u}{4u^{3/2}}\d u\right|\\
+&amp;amp;\le\frac{1}{2(x+1)}+\frac{1}{2x}+\int_{x^2}^{(x+1)^2}\frac{\d u}{4u^{3/2}}\\
+&amp;amp;=\frac{1}{2(x+1)}+\frac{1}{2x}-\frac{1}{2(x+1)}+\frac{1}{2x}\\
+&amp;amp;=\frac1x
+\end{align*}
+$$&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>微积分的理论基础</title>
+        <link>https://littlereuben.github.io/study/course-calculus-0/</link>
+        <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-calculus-0/</guid>
+        <description>&lt;p&gt;$\gdef\s{\operatorname{S}}\gdef\F{\mathbb{F}}\gdef\d{\mathrm{d}}\gdef\Q{\mathbb{Q}}$&lt;/p&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;h3 id=&#34;实数理论&#34;&gt;实数理论
+&lt;/h3&gt;&lt;p&gt;参考：chenxia25 与我的讨论、&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/48859870&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/48859870&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;所有 $\forall/\exists a$ 形式的东西，$a$ 默认属于当前讨论的集合。当你看见 $\Rightarrow$ 时，就说明不是形式语言。&lt;/p&gt;
+&lt;p&gt;Definition 1. 自然数集，利用 Peano 公理定义：&lt;/p&gt;
+&lt;p&gt;Axiom 1.0. 等价关系的确立&lt;br&gt;
+P.S. 这里我们默认了等价关系满足 $m=n\Rightarrow \s(m)=\s(n)$ 及其推论，也就是说“等价关系”在保证不产生矛盾的情况下被内化为了可替换关系。这是需要区分的，后面关于减法的定义就需要验证其良定义性。&lt;/p&gt;
+&lt;p&gt;Axiom 1.1. $0\in\N$&lt;/p&gt;
+&lt;p&gt;Axiom 1.2. $\forall i(i\in\N\rightarrow \s(i)\in\N)$&lt;/p&gt;
+&lt;p&gt;Axiom 1.3. $\forall i\forall j(\s(i)=\s(j)\rightarrow i=j)$（$\s$ 是单射）&lt;/p&gt;
+&lt;p&gt;Axiom 1.4. $\forall i(\s(i)\ne 0)$&lt;/p&gt;
+&lt;p&gt;Axiom 1.5. $\forall A((0\in A\land \forall n(n\in A\rightarrow \s(n)\in A))\rightarrow \N\subseteq A)$（数学归纳法原理）&lt;/p&gt;
+&lt;p&gt;Property 1.1. $\N=\set{0}\cup \s(\N)$，或者说 $\s$ 是到 $\N\setminus\set{0}$ 的满射（从而是双射）。&lt;br&gt;
+Proof. 3 和 6 保证了两个方向。&lt;/p&gt;
+&lt;p&gt;Definition 1.1. 加法，利用逐点归纳定义，$m+\s(n)=\s(m+n)$。我们将 $m+1$ 与 $\s(m)$ 划等号。&lt;/p&gt;
+&lt;p&gt;Definition 1.2. 乘法，利用逐行归纳定义，$m\cdot \s(n)=m\cdot n+m$。&lt;/p&gt;
+&lt;p&gt;下文中的归纳，均依赖于 Axiom 1.5。&lt;/p&gt;
+&lt;p&gt;Property 1.2. $\forall a(0+a=a+0=a)$（加法幺元）&lt;br&gt;
+Proof. $0+a=a$ 只需对 $a$ 归纳。&lt;/p&gt;
+&lt;p&gt;Property 1.3. $\forall a\forall b(a+b=b+a)$（加法交换律）&lt;br&gt;
+Proof. 对 $b$ 归纳。一种方法是，只需证明 $\s(b)+a=\s(b+a)$，对 $a$ 归纳，命题为 $\s(b)+\s(a)=\s(b+\s(a))$，由 $\s(b)+\s(a)\xlongequal{\text{def}}\s(\s(b)+a)\xlongequal{\text{ind}}\s(\s(b+a))\xlongequal{\text{def}}\s(b+\s(a))$ 得。另一种方法是，借助结合律，先证 $a+1=1+a$，再得 $a+\s(b)=a+(b+1)=(a+b)+1=(b+a)+1=b+(a+1)=b+(1+a)=(b+1)+a=\s(b)+a$。&lt;/p&gt;
+&lt;p&gt;Property 1.4. $\forall a\forall b\forall c((a+b)+c=a+(b+c))$（加法结合律）&lt;br&gt;
+Proof. 对 $c$ 归纳，不用 Property 1.3。可能需要单独证 $c=1$ 情况。&lt;/p&gt;
+&lt;p&gt;Property 1.5. $\forall a\forall b\forall c(a+c=b+c\rightarrow a=b)$（加法消去律）&lt;/p&gt;
+&lt;p&gt;Property 1.6. $\forall a(1\cdot a=a\cdot 1=a)$（乘法幺元）&lt;/p&gt;
+&lt;p&gt;Property 1.7. $\forall a\forall b(a\cdot b=b\cdot a)$（乘法交换律）&lt;br&gt;
+Proof. 同样首先证明 $\s(b)\cdot a=b\cdot a+a$，对 $a$ 归纳，命题为 $\s(b)\cdot\s(a)=b\cdot\s(a)+\s(a)$，由 $\s(b)\cdot\s(a)\xlongequal{\text{def}}\s(b)\cdot a+\s(b)\xlongequal{\text{ind}}b\cdot a+a+\s(b)\xlongequal{\text{def}}b\cdot a+\s(a+b)\xlongequal{\text{P1.3}}b\cdot a+\s(a)+b\xlongequal{\text{com}}b\cdot a+b+\s(a)\xlongequal{\text{def}}b\cdot\s(a)+\s(a)$ 得。于是原命题对 $b$ 归纳，$a\cdot\s(b)=a\cdot b+a=b\cdot a+a=\s(b)+a$。&lt;/p&gt;
+&lt;p&gt;Property 1.8. $\forall a\forall b\forall c((a\cdot b)\cdot c=a\cdot(b\cdot c))$（乘法结合律）&lt;br&gt;
+Proof. 对 $c$ 归纳，利用 Property 1.9。&lt;/p&gt;
+&lt;p&gt;Property 1.9. $\forall a\forall b\forall c((a+b)\cdot c=a\cdot c+b\cdot c)$（乘法对加法的分配律）&lt;br&gt;
+Proof. 对 $c$ 归纳。&lt;/p&gt;
+&lt;p&gt;Property 1.10 $\forall a\forall b\forall c((c\ne 0\land a\cdot c=b\cdot c)\rightarrow a=b)$（乘法消去律）&lt;/p&gt;
+&lt;p&gt;Definition 2. 整数集，以“减法字符串”定义其中的元素，同时定义了①相等的判断、②元素的加法、③元素的乘法。同时证明了加法和乘法是良定义的。同时定义了 $\Z_+$ 是 $\N\setminus\set{0}$ 对应的部分。&lt;/p&gt;
+&lt;p&gt;P.S. 我们常用的整数集实际上是书里这个整数集关于等价关系 $m+q=p+n\Leftrightarrow m-n=p-q$ 的商集。&lt;/p&gt;
+&lt;p&gt;下文的 $0$ 代指 $0-0$。&lt;/p&gt;
+&lt;p&gt;Property 2.1&amp;amp;2&amp;amp;3. 加法幺元、交换律、结合律&lt;/p&gt;
+&lt;p&gt;Property 2.4 $\forall a\exists b(a+b=b+a=0)$ 且 $b=-a$ 唯一（加法逆元）&lt;br&gt;
+Proof. 构造容易，证唯一性可以不用抽象代数的方法：设 $a+b=a+c=0$，即 $(a_1+b_1)-(a_2+b_2)=(a_1+c_1)-(a_2+c_2)$，即 $a_1+b_1+a_2+c_2=a_1+c_1+a_2+b_2$，利用 Property 1.5 得 $b_1+c_2=c_1+b_2$ 即 $b=c$。&lt;/p&gt;
+&lt;p&gt;Property 2.5&amp;amp;6&amp;amp;7&amp;amp;8. 乘法幺元、交换律、结合律、分配律&lt;/p&gt;
+&lt;p&gt;Property 2.9. $\forall a([a\in\Z_+]+[a=0]+[-a\in\Z_+])=1$&lt;br&gt;
+Proof. $\ge 1$ 好证，$\le 1$ 的证明方法是，如果 $a\in\Z_+\land-a\in\Z_+$，则设 $a_1-a_2=\s(k)-0$，$a_2-a_1=\s(l)-0$，两式相加得 $0-0=(\s(k)+\s(l))-0=\s(\s(k)+l)-0$ 与 $\s(\cdot)\not\equiv 0$ 矛盾。&lt;br&gt;
+P.S. 再次注意，这里“两式相加”的操作基于的是等号和加号的良定义性。&lt;/p&gt;
+&lt;p&gt;P.S. 环，自动有加法幺元等于乘法零元（$a\cdot 0=a\cdot (0+0)=a\cdot 0+a\cdot 0$ 两边消去）&lt;/p&gt;
+&lt;p&gt;Corollary 2.1. $\forall a(-(-a)=a)$&lt;/p&gt;
+&lt;p&gt;Corollary 2.2. $\forall a(a=-a\leftrightarrow a=0)$&lt;/p&gt;
+&lt;p&gt;Corollary 2.3. $\forall a\forall b(a,b\in\N\rightarrow a+(-b)=a-b)$&lt;/p&gt;
+&lt;p&gt;Corollary 2.4. $\forall a\forall b(a\cdot(-b)=(-a)\cdot b=-(a\cdot b))$&lt;/p&gt;
+&lt;p&gt;Definition 3. 有理数集，以“分数字符串”定义其中的元素，同时定义了①相等的判断、②元素的加法、③元素的乘法。同时证明了加法和乘法是良定义的。同时定义了 $\Q_+$ 是分子分母均为正整数对应的部分。&lt;/p&gt;
+&lt;p&gt;下文的 $0,1$ 分别代指 $0/1,1/1$。&lt;/p&gt;
+&lt;p&gt;Property 3.1&amp;amp;2&amp;amp;3&amp;amp;4 加法幺元、交换律、结合律、逆元&lt;/p&gt;
+&lt;p&gt;Property 3.5&amp;amp;6&amp;amp;7&amp;amp;8. 乘法幺元、交换律、结合律、分配律&lt;/p&gt;
+&lt;p&gt;Property 3.9. $\forall a(a\ne 0\rightarrow\exists b(a\cdot b=b\cdot a=1))$ 且 $b=a^{-1}$ 唯一（乘法逆元）&lt;/p&gt;
+&lt;p&gt;Corollary 3.1&amp;amp;2&amp;amp;3&amp;amp;4. 同上&lt;/p&gt;
+&lt;p&gt;Corollary 3.5. $\forall a(a\ne 0\rightarrow(a^{-1})^{-1}=a)$&lt;/p&gt;
+&lt;p&gt;Corollary 3.6. $\forall a(a=a^{-1}\leftrightarrow a=1)$&lt;/p&gt;
+&lt;p&gt;Corollary 3.7. $\forall a(a\ne 0\rightarrow(-a)^{-1}=-(a^{-1}))$&lt;/p&gt;
+&lt;p&gt;Corollary 3.8. $\forall a\forall b(a,b\ne 0\rightarrow (ab)^{-1}=a^{-1}b^{-1})$&lt;/p&gt;
+&lt;p&gt;Corollary 3.9. $\forall a\forall b((a,b\in\Z\land b\ne 0)\rightarrow a\cdot b^{-1}=a/b)$&lt;/p&gt;
+&lt;p&gt;Corollary 3.10. $\forall a\forall b((a,b\in\Z\land b\ne 0)\rightarrow a/(-b)=(-a)/b=-(a/b))$&lt;/p&gt;
+&lt;p&gt;Corollary 3.11. $\forall a\forall b((a,b\in\Z\land a,b\ne 0)\rightarrow (a/b)^{-1}=b/a)$&lt;/p&gt;
+&lt;p&gt;Definition 4. 序关系，利用减法与 $\Q_+$ 定义；序域。&lt;/p&gt;
+&lt;p&gt;Corollary 4.1. $\forall a\forall b([a&amp;lt;b]+[a=b]+[a&amp;gt;b]=1)$（三分律）&lt;/p&gt;
+&lt;p&gt;Corollary 4.2. $\forall a\forall b\forall c(a&amp;lt;b\rightarrow a+c&amp;lt;b+c)$&lt;/p&gt;
+&lt;p&gt;Corollary 4.3. $\forall a\forall b\forall c((a&amp;gt;0\land b&amp;gt;0\land c&amp;gt;0)\rightarrow(a&amp;lt;b\rightarrow a\cdot c&amp;lt;b\cdot c))$&lt;/p&gt;
+&lt;p&gt;Corollary 4.4. $\forall a(a\le a)$（自反性）&lt;/p&gt;
+&lt;p&gt;Corollary 4.5. $\forall a\forall b((a\le b\land b\le a)\rightarrow(a=b))$（反对称性）&lt;/p&gt;
+&lt;p&gt;Corollary 4.6. $\forall a\forall b\forall c((a\le b\land b\le c)\rightarrow(a\le c))$（传递性）&lt;/p&gt;
+&lt;p&gt;Corollary 4.7. $\forall a\forall b\forall c\forall d((a\le b\land c\le d)\rightarrow a+c\le b+d)$&lt;/p&gt;
+&lt;p&gt;Corollary 4.8. $\forall a\forall b\forall c\forall d((0\le a\le b\land 0\le c\le d)\rightarrow a\cdot c\le b\cdot d)$&lt;/p&gt;
+&lt;p&gt;Corollary 4.1&amp;amp;2&amp;amp;3 说明 $\Q$ 是一个序域。显然序域一定是无限的，且一定构成全序集。Corollary 4.4&amp;amp;5&amp;amp;6 是全序集的定义，从而是序域的性质。&lt;/p&gt;
+&lt;p&gt;Theorem 4.1. $\Q$ 是最小的序域，这个“最小”的意义在证明中给出。&lt;br&gt;
+Proof. 考虑域 $\F$。考虑其乘法幺元，它可以通过加法得到 $\Z$（它在加法群里的生成子群必须是无限的，否则无序），再通过乘法得到 $\Q$。&lt;/p&gt;
+&lt;p&gt;Definition 5. 实数集，以 Dedekind 分割定义。上面的 Definition 1&amp;amp;2&amp;amp;3&amp;amp;4 都没写明定义，这里很重要，所以写一下。&lt;/p&gt;
+&lt;p&gt;实数的四则运算和全序的性质略。&lt;/p&gt;
+&lt;p&gt;（from ycx）当我们定义一个结构的时候，有两种方法——一种是把它直接构造出来，一种是用一些不自相矛盾的公理声明这个结构所满足的性质，并“声称它存在”。例如 $\N$，第一种定义方法是用 ZFC 的无穷公理加 $\sup$ 构造 $M=\set{\varnothing,\set{\varnothing},\set{\varnothing,\set{\varnothing}},\cdots}$，一种就是用 Peano 公理。给出了存在性，然后容易验证其唯一性（唯一用同构映射定义）。&lt;/p&gt;
+&lt;p&gt;那么 $\R$ 也是一样的。我们先给出它的构造性定义。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（Dedekind 分割）实数 $A$ 是一个集合，它满足：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$A\subset\Q$&lt;/li&gt;
+&lt;li&gt;$A$ 存在上界&lt;/li&gt;
+&lt;li&gt;$\forall x\forall y((x\in A\land y&amp;lt;x)\rightarrow y\in A)$&lt;/li&gt;
+&lt;li&gt;若 $A$ 存在上确界，则 $A$ 的上确界 $\in A$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$\R$ 就是所有这样的 $A$。&lt;/p&gt;
+&lt;p&gt;定义实数的 $\le$ 就是 $\subseteq$。定义 $A+B=\set{x+y\mid x\in A,y\in B}$。定义 $A\cdot B=\overline{\set{xy\mid x\in\overline{A},y\in\overline{B}}}$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解释：在 $\Q$ 上，不是所有有上界的集合都有上确界。&lt;br&gt;
+4 不成立的话就会出现 $\set{x\mid x&amp;lt;1}$ 的东西，或者说可以理解为造成 $0.999\cdots\ne 1$。&lt;/p&gt;
+&lt;p&gt;我们再给出公理法定义。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（Dedekind 原理，$1$）$\R$ 满足：
+$$
+\forall A\forall B((A\subseteq\R\land B\subseteq\R\land A\ne\varnothing\land B\ne\varnothing\land\forall a\forall b((a\in A\land b\in B)\rightarrow a\le b))\rightarrow\exists c\forall a\forall b((a\in A\land b\in B)\rightarrow a\le c\le b))
+$$
+后面我们就尽量不用反人类语言了。&lt;/p&gt;
+&lt;p&gt;说的是，任何非空集 $A$，$B\subset\R$，$A$ 中元素全部 $\le$ $B$ 中元素，那么存在一个 $c$ 夹在 $A$，$B$ 之间。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们给出一些等价的公理：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（确界原理，$2$）$\R$ 满足：&lt;/p&gt;
+&lt;p&gt;$\forall A\subseteq\R$，$A\ne\varnothing$，$A$ 有上界 $\Rightarrow$ $A$ 有上确界。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$1\Rightarrow 2$：对于 $A$，取 $B=\set{b\mid\forall a,a\le b}$。由于 $A$ 有上界，故 $B\ne\varnothing$。由 1，得到一个 $c$，这个 $c$ 是 $A$ 的上界，接下来说明是上确界。如果有更小的上界 $c^\prime&amp;lt;c$，那么 $c^\prime\in B$，与 $c$ 是 $B$ 的下界矛盾。&lt;/p&gt;
+&lt;p&gt;$2\Rightarrow 1$：在 1 的 $\exists c$ 中，取 $c=\sup A$。既然 $\forall a\in A$，$b\in B$，都有 $a\le b$，那么 $B$ 中的元素都是 $A$ 的上界，于是 $c$ 不可能大于 $B$ 中的元素，于是 $c$ 满足条件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（单调有界定理，$3$）$\R$ 上的数列 $a$ 如果单调有界，则必收敛（$\exists A\forall\varepsilon\exist N\forall n(n&amp;gt;N\rightarrow |a_n-A|&amp;lt;\varepsilon)$）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$2\Rightarrow 3$：直接用确界就行。&lt;/p&gt;
+&lt;p&gt;$3\Rightarrow 2$：构造数列 $\set{a_n}$：$a_1$ 为 $A$ 中任一数（不妨设 $a_1$ 不是上界，否则就证完了），$a_{n+1}$ 通过 $a_n+d$ 得到，$d$ 这样确定：一开始考虑 $d=1$，如果 $a_n+d$ 成为上界了，就将 $d$ 除以 $2$。我们首先证明 $d$ 一定能取到——如果取不到，就意味着，$\forall k\ge 0$，$a_n+2^{-k}\ge\forall a\in A$，（$\Alpha^\prime$）故 $a_n\ge\forall a\in A$，也就是说 $a_n$ 就是上界了，这与构造 $d$ 的方式矛盾。&lt;br&gt;
+然后我们证明 $l=\lim_{n\to\infty}a_n$ 是上确界。如果 $l$ 不是上界，设 $A\ni a&amp;gt;l$，取 $\varepsilon=a-l$，那么有 $l-\varepsilon&amp;lt;a_n\le a$。如果 $a_{n+1}\ne a_n$，那么 $d$ 可以大一倍；如果 $a_{n+1}=a_n$，那由（$\Alpha^\prime$）也是不对的。如果 $l$ 不是确界，设 $l^\prime&amp;lt;l$ 也是上界，取 $\varepsilon=l-l^\prime$，那就有 $A\ni a&amp;gt;l^\prime$ 了，矛盾。&lt;br&gt;
+最后证 $\Alpha^\prime$：$\lim_{n\to\infty}2^{-n}=0$（与阿基米德性等价）。首先它一定有极限，然后如果它 $&amp;gt;0$，设为 $L$，取 $\varepsilon=L$，那么有 $2^{-n}&amp;lt;2L$，那么 $2^{-(n+1)}&amp;lt;L$，矛盾。&lt;/p&gt;
+&lt;p&gt;既然提到了，那也顺便讲好吧。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（Archimedes 性，$\Alpha$）任意实数都不是 $\N$ 的上界。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$2\Rightarrow\Alpha$：设有，那一定有上确界 $s$，那么 $\exists n\in\N$，$n&amp;gt;s-1$，故 $n+1&amp;gt;s$，矛盾。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（致密性定理，$4$）有界实数列必有收敛子列。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$2+3\Rightarrow 4$：构造子列 $\set{b_n}$：如果 $\set{a_n}$ 的上确界包含其中，为 $a_s$，那么取 $b_1=a_s$，接着看 $\set{a_{n+s}}$ 的上确界，以此类推。如果一直有，那么构造出单调不升的有界数列 $b$，收敛；如果某次发现上确界不包含其中了，那可以构造 $b_1=$ 此后随便一个数，然后 $b_{n+1}$ 为 $b_n$ 之后随便一个 $&amp;gt;b_n$ 的数（不可能不存在，否则由有限情况 $\sup=\max$ 就存在确界了），这样构造出单调不降的有界数列 $b$，收敛。&lt;/p&gt;
+&lt;p&gt;$3\Rightarrow 4$：设 $\set{a_n}$ 界为 $[l,r]$，取 $[l,(l+r)/2]$ 和 $[(l+r)/2,r]$ 之中，包含 $\set{a_n}$ 中无限项的一个区间，不断推下去。取 $b_i$ 为第 $i$ 次区间中对应的任意元素，只需保证 $b$ 取的下标递增即可（由于无限项，故一定可以取到）。$3$ 可得区间左右端点都收敛，由夹逼定理，$\set{b_n}$ 收敛。注意夹逼定理是不需要任何公理就可以证明的。&lt;/p&gt;
+&lt;p&gt;$2\Rightarrow 4$ 直接把 $3\Rightarrow 4$ 里的单调有界换成确界即可。&lt;/p&gt;
+&lt;p&gt;$4\Rightarrow 3$：取这个单调有界数列 $\set{a_n}$ 的收敛子列 $\set{b_n}$，$\forall\varepsilon&amp;gt;0$，$\set{b_n}$ 中有一项及之后都与极限值差少于 $\varepsilon$，取 $b$ 中这项对应 $a$ 中位置及之后即可。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（聚点定理，$5$）$\R$ 的有界无限子集 $S$ 必有聚点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$4\Rightarrow 5$：构造 $\set{a_n}$，$a_{n+1}$ 取 $S\setminus\set{a_{1\sim n}}$ 中任一点，于是我们找到一个收敛点列，它收敛到的点就是聚点。&lt;/p&gt;
+&lt;p&gt;$5\Rightarrow 4$：将有界数列视作有界无限集，取一聚点 $A$，取数列 $\set{b_n}$，$b_i$ 为 $\mathring{U}(A,1/i)$ 内的一个点，同时保证 $b$ 对应在 $a$ 中的位置递增（这是可以做到的，因为 $\mathring{U}(A,1/i)$ 里有无限个点）。由 $\Alpha^{\prime\prime}$，$\set{b_n}$ 收敛到 $A$。&lt;br&gt;
+$\Alpha^{\prime\prime}$：$\lim_{n\to\infty}1/n=0$。这个也和 $\Alpha$ 等价，可以直接用 $5$ 导出。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（有限覆盖定理，$6$）如果开区间 $\cal I$ 构成了闭区间 $[a,b]$ 的覆盖，则它有一个有限子集也是 $[a,b]$ 的覆盖。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Remark. 这个对 $\Q$ 不成立的原因是，在 $\Q$ 上 $[-\sqrt2,+\sqrt2]\cap\Q$ 是闭集（同时也是开集），只需搞一列不跨 $\sqrt2$ 的区间覆盖它就是反例。&lt;/p&gt;
+&lt;p&gt;$2\Rightarrow 6$：设 $S=\set{x\le b\mid [a,x],可以被有限覆盖}$，$S$ 有上确界 $s$。找 $\cal I$ 中包含 $s$ 的开区间 $(l,r)$，显然 $l\in S$，因此 $(s+r)/2\in S$，与 $\sup S=s$ 矛盾。&lt;br&gt;
+Remark. 如果 $b$ 开，那么 $\cal I$ 中可能找不到包含 $s$ 的区间。&lt;/p&gt;
+&lt;p&gt;$6\Rightarrow 2$：假设有界集合 $A\subseteq[a,b]$ 无上确界。现在我们考虑构造一些覆盖 $[a,b]$ 开区间。对于 $x$，如果 $x$ 不是 $A$ 的上界，即 $\exists A\ni y&amp;gt;x$，则取 $(2x-y,y)$；如果 $x$ 是 $A$ 的上界，即 $\exists y&amp;lt;x$ 也是 $A$ 的上界，则取 $(y,2x-y)$。每个 $x$ 搞出一个开区间，这些区间形成一个覆盖，必有有限子集也是覆盖。但这些区间的每个，要么在某个 $a\in A$ 左侧，要么在所有 $a\in A$ 右侧，因此必存在一个 $a$ 处于这两类区间之间，没被覆盖到，矛盾。&lt;/p&gt;
+&lt;p&gt;$6\Rightarrow 5$：假设 $S\subseteq[a,b]$ 无聚点，那么每个点都存在一个开邻域只包含它本身一个 $S$ 中的点。取 $[a,b]$ 的每个点的这样的开邻域，它们的一个有限子集同样形成 $[a,b]$ 的覆盖，与 $S$ 无限矛盾。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（柯西收敛定理，$\text{C}$）数列 $a$ 收敛，当且仅当 $\forall\varepsilon\exists N\forall m\forall n(m,n&amp;gt;N\rightarrow|a_m-a_n|&amp;lt;\varepsilon)$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$4\Rightarrow\text{C}$：一个方向是显然的，也不需完备性。另一个方向：显然 $a$ 有界。找到其一个收敛子列，容易利用柯西列性质证明整个序列也收敛到这个值。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（闭区间套定理，$\text{N}$）对于不降数列 $\set{a_n}$ 和不增数列 $\set{b_n}$，如果 $a_n\le b_n$，且 $\lim_{n\to\infty}(b_n-a_n)=0$，那么存在 $c$，$\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=c$ 且 $c$ 是满足 $\forall n$，$a_n\le c\le b_n$ 的唯一数。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$1/2/3\Rightarrow\text{N}$：证明至多一个不需要完备性，只需用极限的定义；证明存在一个，可以构造 $A=\set{a\mid\exists a_n\ge a}$ 和 $B=\set{b\mid\exists b_n\le b}$ 后用 $1$，也可以直接对 $\set{a_n}$ 用 $2/3$。&lt;/p&gt;
+&lt;p&gt;$\text{C}\Rightarrow\text{N}$：
+$$
+\begin{align*}
+\lim_{n\to\infty}(b_n-a_n)=0&amp;amp;\Rightarrow\fbox{blabla}(n&amp;gt;m&amp;gt;N\rightarrow|b_m-a_m-b_n+a_n|&amp;lt;\varepsilon)\\
+&amp;amp;\Rightarrow\fbox{blabla}(n&amp;gt;m&amp;gt;N\rightarrow a_n-a_m&amp;lt;\varepsilon\land b_m-b_n&amp;lt;\varepsilon)\\
+&amp;amp;\Rightarrow\lim_{n\to\infty}a_n=A\land\lim_{n\to\infty}b_n=B
+\end{align*}
+$$
+然后就是证明 $\forall a_n\le A,B\le\forall b_n$，再说明 $A=B$ 即可。&lt;/p&gt;
+&lt;p&gt;$\text{N}\Rightarrow\text{C}$：对于一个柯西列，构造一列不断缩紧的区间，我们的想法是，考虑一个收敛于 $0$ 的正数列 $\set{d_n}$。根据柯西列的性质，每个 $d_n$ 都可以找到一个 $N_n$，使 $\forall m&amp;gt;N_n$，$|a_m-a_{N_n}|&amp;lt;d_n$。这样，取 $[l_n,r_n]=[a_{N_n}-d_n,a_{N_n}+d_n]\cap[l_{n-1},r_{n-1}]$，这样就得到了一个符合条件的闭区间列，于是就搞出了极限 $c$。要证明 $\set{a_n}$ 极限为 $c$，$\forall\varepsilon&amp;gt;0$，找到 $d_m&amp;lt;\varepsilon/2$，于是 $c$ 和 $\set{a_{n+N_m}}$ 的所有元素都在这个长度 $&amp;lt;\varepsilon$ 的区间 $[l_m,r_m]$ 中。&lt;br&gt;
+但是怎么找 $\set{d_n}$ 呢？你发现没了 $\Alpha$，啥都干不成。但是这里摆着一个几乎能用的序列——$\Delta\set{a_n}$，但是要去掉里面为 $0$ 的项。因此要特殊讨论一下 $\Delta\set{a_n}$ 只有有限项非零的情况。&lt;/p&gt;
+&lt;p&gt;$\text{N}+\Alpha\Rightarrow 2$：对于有上界的集合 $A$，取区间 $[a,s]$，其中 $a\in A$（可以假设 $a$ 不是上界），$s$ 是 $A$ 的上界。每次取区间中点，如果中点是上界，那么往左半缩小，否则往右半缩小。根据 $\Alpha$，区间长度 $\to 0$。根据保序性，极限是上界。如果不是上确界，容易得到某个区间的左端点也不是上界，从而与构造矛盾。&lt;/p&gt;
+&lt;p&gt;$\text{N}+\Alpha\Rightarrow 3/4$ 都很简单。&lt;/p&gt;
+&lt;p&gt;实际上，连续函数的一些性质也可以作为实数公理，但这里就略去了。&lt;/p&gt;
+&lt;p&gt;容易验证 Dedekind 分割构造的集合满足公理，那么现在考虑唯一性。&lt;/p&gt;
+&lt;p&gt;Theorem 5.1. $\R$ 是唯一的完备序域。&lt;br&gt;
+Proof. 设这样的序域为 $\F$。首先 $\F$ 一定包含 $\Q$，设 $\varphi$ 是自然嵌入，我们考虑扩展 $\varphi$。$\forall A\in\R$，$\sup\varphi(A)$（显然上界存在，又由确界原理）在 $\F$ 中找到了 $A$ 对应的元素，同时上确界的唯一性很重要。如果 $\F$ 中还有别的元素 $x$，拿出 $\set{y\mid y\le x}\cap\varphi(\Q)=X$，由阿基米德性，$\varphi(\Q)$ 中有 $&amp;gt;x$ 的元素，因此 $\varphi^{-1}(X)$ 的上界存在，从而 $x=\varphi\left[\sup{\varphi^{-1}(X)}\right]$。于是就双射了。&lt;/p&gt;
+&lt;p&gt;Theorem 5.2. $\R$ 中有理数和无理数都是稠密的。&lt;br&gt;
+Proof. $\forall a,b\in\R$，$a&amp;lt;b$，由阿基米德性，$\exist n\in\N_+$，$1/n&amp;lt;b-a$。取 $c=\sup\set{k/n\mid k\in\Z}\cap(-\infty,b)$，同理可证这个交非空，然后 $c$ 就是 $\in(a,b)$ 的有理数。找到 $\left(a-\sqrt 2,b-\sqrt 2\right)$ 中的一个有理数 $c^\prime$，$c&amp;rsquo;+\sqrt{2}$ 就是 $\in(a,b)$ 的无理数。&lt;br&gt;
+P.S. 尽管 $(a,b)$ 尚未定义，但这里可以不用这个语言，所以只是为了方便才这么写。&lt;/p&gt;
+&lt;p&gt;Example 5.1. $\set{x\mid x&amp;lt;0\lor x^2&amp;lt;2}$ 对应的实数不是有理数。&lt;/p&gt;
+&lt;p&gt;Theorem 5.3. 定义区间 $I$ 为满足 $\forall x&amp;lt;y\in I,\forall x&amp;lt;z&amp;lt;y,z\in I$ 的集合。则 $I$ 只可能是 $[a,b]$、$[a,b)$、$(a,b]$、$(a,b)$、$(-\infty,b]$、$(-\infty,b)$、$[a,+\infty)$、$(a,+\infty)$、$(-\infty,+\infty)$ 中的一类。&lt;/p&gt;
+&lt;p&gt;Theorem 5.4. $y=x^n,(n\in\N_+)$ 在 $[0,+\infty)$ 上严格单调递增；对于 $y\ge 0$，对应的 $x$ 唯一存在。&lt;br&gt;
+Proof. 考虑归纳。由 Corollary 4.8，对于 $0\le x_1&amp;lt;x_2$，$x_1^n&amp;lt;x_2^n\rightarrow x_1^{n+1}&amp;lt;x_2^{n+1}$。&lt;br&gt;
+考虑解 $x_0=\sup\set{x\mid x^n&amp;lt;y}$。由于 $\max\set{y,1}^n\ge y$ 故上界存在。&lt;br&gt;
+如果 $x_0^n&amp;lt;y$，那么考虑构造 $[x_0(1+\varepsilon)]^n&amp;lt;y$ 即 $(1+\varepsilon)^n&amp;lt;y/x_0^n$，这个构造可考虑放缩
+$$
+(1+\varepsilon)^n=\frac{1}{\left(\frac{1}{1+\varepsilon}\right)^n}=\frac{1}{\left(1-\frac{\varepsilon}{1+\varepsilon}\right)^n}&amp;lt;\frac{1}{1-\frac{n\varepsilon}{1+\varepsilon}}&amp;lt;\frac{y}{x_0^n}\Rightarrow\frac{n\varepsilon}{1+\varepsilon}&amp;lt;1-\frac{x_0^n}{y}
+$$
+解一下可以解出合适的 $\varepsilon&amp;gt;0$，于是与 $x_0$ 是上界矛盾；如果 $x_0^n&amp;gt;y$，那么考虑构造 $(1-\varepsilon)^n&amp;gt;1-n\varepsilon&amp;gt;y/x_0^n$，与 $x_0$ 是确界矛盾。&lt;/p&gt;
+&lt;p&gt;Definition 6.1. 对于 $y\ge 0$，$\sqrt[n]{y}$ 为使得 $x^n=y$ 的唯一的 $x$。&lt;/p&gt;
+&lt;p&gt;P.S. 这类定义问题可以利用连续性和介值定理作为通法证明存在性，但这里就不讲这种方法了。&lt;/p&gt;
+&lt;p&gt;Definition 6.2. 对于 $y&amp;gt;0$，$y^{m/n}=\left(\sqrt[n]{y}\right)^m$。&lt;/p&gt;
+&lt;p&gt;Definition 6.3. 对于 $y\ge 1$，$y^\alpha=\sup_{a\in(-\infty,\alpha]\cap\Q}\set{y^a}$；对于 $0&amp;lt;y&amp;lt;1$，$y^\alpha=(1/y)^{-\alpha}$。&lt;/p&gt;
+&lt;p&gt;P.S. 这里我们只考虑 $y\ge 0$ 的情况。$y&amp;lt;0$ 属于复变函数的内容。&lt;/p&gt;
+&lt;p&gt;Corollary 6.1. 指数函数和幂函数的运算法则和单调性等。略。&lt;/p&gt;
+&lt;p&gt;Theorem 5.5. 对于 $a&amp;gt;1$，$y=a^x$ 在 $\R$ 上严格单调递增；对于 $y&amp;gt;0$，对应的 $x$ 唯一存在。&lt;br&gt;
+Lemma. $\inf_{n\in\N_+}\set{a^{1/n}}=1$。&lt;br&gt;
+Proof. $a^{1/n}&amp;gt;1$ 故下界存在且 $\ge 1$。如果下界为 $b&amp;gt;1$ 则 $\forall n$，$a^{1/n}\ge b\Rightarrow a\ge b^n&amp;gt;1+n(b-1)$ 即 $n&amp;lt;(a-1)/(b-1)$，与 $\Alpha$ 矛盾。&lt;br&gt;
+Proof. 我们可以不依赖 Corollary 6.1 证明单调性。对于 $x_1&amp;lt;x_2$，由 Theorem 5.2，$\exists q_1/p_1&amp;lt;q_2/p_2\in(x_1,x_2)\cap\Q$。我们知道 $a^{q_2/p_2}/a^{q_1/p_1}=\left(\sqrt[p_1p_2]{a}\right)^{q_2p_1-q_1p_2}\ge\sqrt[p_1p_2]{a}&amp;gt;\sqrt[p_1p_2]{1}=1$。于是 $a^{x_1}\le x^{q_1/p_1}&amp;lt;x^{q_2/p_2}\le a^{x_2}$。&lt;br&gt;
+考虑解 $x_0=\sup\set{x\mid a^x&amp;lt;y}$。由于 $a^{\lceil(y-1)/(a-1)\rceil}&amp;gt;y$（根据伯努利不等式）故上界存在。&lt;br&gt;
+如果 $a^{x_0}&amp;lt;y$，则 $\exists n$，$a^{1/n}&amp;lt;y/a^{x_0}$，故 $a^{x_0+1/n}&amp;lt;y$，与 $x_0$ 是上界矛盾；如果 $a^{x_0}&amp;gt;y$ 也是类似的。&lt;/p&gt;
+&lt;p&gt;Definition 6.4. 对于 $y&amp;gt;0$，$a&amp;gt;1$，$\log_ay$ 为使得 $a^x=y$ 的唯一的 $x$；对于 $0&amp;lt;a&amp;lt;1$，$\log_ay=-\log_{1/a}y$。&lt;/p&gt;
+&lt;p&gt;Corollary 6.2. 对数函数的运算法则和单调性等。略。&lt;/p&gt;
+&lt;p&gt;P.S. 我们可以用 $x^\alpha=\mathrm{e}^{\alpha\ln x}$ 来定义幂函数，但我看不出有什么必要。&lt;/p&gt;
+&lt;p&gt;Definition 6.5. 定义 $\sin x$ 和 $\cos x$ 为满足以下公理的两个 $\R\to\R$ 的函数（可以说明它们是唯一的）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\cos 0=\sin\pi/2=1$，$\cos\pi=-1$。&lt;/li&gt;
+&lt;li&gt;$\cos(x-y)=\cos x\cos y+\sin x\sin y$。&lt;/li&gt;
+&lt;li&gt;$\forall x\in(0,\pi/2)$，$0&amp;lt;\cos x&amp;lt;\sin x/x&amp;lt;1/\cos x$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;定积分理论&#34;&gt;定积分理论
+&lt;/h3&gt;&lt;p&gt;Definition 0. 一个区间 $[a,b]$ 的划分 $P$ 为一个有限的严格递增列 $a=x_0&amp;lt;x_1&amp;lt;\cdots&amp;lt;x_n=b$。定义其范数 $\lVert P\rVert=\max{x_{i}-x_{i-1}}$。&lt;/p&gt;
+&lt;p&gt;Definition 1. 对于定义在 $[a,b]$ 上的&lt;strong&gt;有界&lt;/strong&gt;函数 $f$，与一个 $[a,b]$ 的划分 $P$，定义 $f$ 关于 $P$ 的 Darboux 上和为
+$$
+\overline{S}(f,P)=\sum_{i=1}^n(x_i-x_{i-1})\cdot\sup_{x\in[x_{i-1},x_i]}f(x)
+$$
+下和同理。&lt;/p&gt;
+&lt;p&gt;Definition 2. （语境略）定义 Darboux 上积分为
+$$
+\overline{S}(f)=\overline{\int_a^b}f(x)\d x=\inf_P\overline{S}(f,P)
+$$
+下积分同理。如果上下积分存在且相等，就定义 Darboux 积分为这个相等的值，称 $f$ 在 $[a,b]$ 上 Darboux 可积。&lt;/p&gt;
+&lt;p&gt;Property 1. 对于两个划分 $P$，$Q$，$\underline{S}(f,P)\le\underline{S}(f,P\cup Q)\le\overline{S}(f,P\cup Q)\le\overline{S}(f,Q)$。&lt;br&gt;
+Proof. 直接使用 $\inf$ 和 $\sup$ 的性质。&lt;/p&gt;
+&lt;p&gt;Theorem 1.
+$$
+\underline{S}(f)=\overline{S}(f)
+\Longleftrightarrow\forall\varepsilon&amp;gt;0,\exists P,\overline{S}(f,P)-\underline{S}(f,P)&amp;lt;\varepsilon
+\Longleftrightarrow\exists I,\forall\varepsilon&amp;gt;0,I-\varepsilon&amp;lt;\underline{S}(f,P)\le I\le\overline{S}(f,P)&amp;lt;I+\varepsilon
+$$
+Proof. 只证 $2\Rightarrow 3$。取 $I=\underline{S}(f)$。$\forall\varepsilon&amp;gt;0$，$\exists P$，$\underline{S}(f,P)\le I\le\overline{S}(f)\le\overline{S}(f,P)&amp;lt;\underline{S}(f,P)+\varepsilon\le\underline{S}(f)+\varepsilon$。&lt;/p&gt;
+&lt;p&gt;Property 2. （大前提有界）递增函数、连续函数、间断点有限函数均 Darboux 可积。&lt;br&gt;
+Proof. 递增函数：$\overline{S}(f,P)-\underline{S}(f,P)\le(f(b)-f(a))\lVert P\rVert$。连续函数：利用一致连续性。间断点有限函数：在各间断点处搞个足够小的区间。&lt;/p&gt;
+&lt;p&gt;Property 3. $(a,b)$ 上连续的函数也 Darboux 可积。&lt;br&gt;
+Proof. 设极差为 $M$。对于 $\varepsilon$，考虑左右两端取短段 $\delta$ 以排除端点处震荡间断的影响，于是 $[a+\delta,b-\delta]$ 上一致连续。对于中间，如果对于 $\varepsilon^\prime$ 来说，一致连续保证 $\delta^\prime$ 内震荡 $&amp;lt;\varepsilon^\prime$，则总的就是
+$$
+\overline{S}(f,P)-\underline{S}(f,P)\le2\delta M+(b-a-2\delta)\varepsilon^\prime
+$$
+取要求 $\varepsilon^\prime=\varepsilon/2(b-a)$，以及 $\delta=\min{\delta^\prime,\varepsilon/4M}$ 即可。&lt;/p&gt;
+&lt;p&gt;Definition 3. 在 $P$ 的基础上额外加一组表示点 $\xi_{1\sim n}$，$\xi_i\in[x_{i-1},x_i]$。定义对应的 Riemann 和
+$$
+S(f,P,\xi)=\sum_{i=1}^n(x_i-x_{i-1})f(\xi_i)
+$$
+如果 $\exists I$，$\forall\varepsilon&amp;gt;0$，$\exists\delta&amp;gt;0$，$\forall P:\lVert P\rVert&amp;lt;\delta$，$\forall\xi$，$|S(f,P,\xi)-I|&amp;lt;\varepsilon$，则称 $I$ 为 $f$ 在 $[a,b]$ 上的 Riemann 积分，$f\in\mathscr{R}[a,b]$。
+$$
+I=\int_a^bf(x)\d x
+$$
+Remark. Darboux 定义的是无向的积分，更容易高维推广；Riemann 定义的是有向积分，处理正负更方便。&lt;/p&gt;
+&lt;p&gt;Definition 4. 一个点集为零测度集，定义为，$\forall\varepsilon&amp;gt;0$，存在一列开区间覆盖所有点，且长度和 $&amp;lt;\varepsilon$。&lt;/p&gt;
+&lt;p&gt;Property 4. 可数集为零测度集。&lt;br&gt;
+P.S. 零测度集可能不可数，如康托集。&lt;/p&gt;
+&lt;p&gt;Theorem 2.（Darboux 定理）若 $\overline{S}(f)$ 存在，则 $\displaystyle\lim_{\lVert P\rVert\to 0}\overline{S}(f,P)=\overline{S}(f)$。（不明确写这个 $\lim$ 的定义了，容易脑补）&lt;br&gt;
+Proof. 设极差为 $M$。$\forall\varepsilon&amp;gt;0$，由 $\inf$ 的定义，$\exists P$，$\overline{S}(f,P)&amp;lt;\overline{S}(f)+\varepsilon^\prime$。$\forall P^\prime:\lVert P^\prime\rVert&amp;lt;\delta$，考虑 $\overline{S}(f,P)$、$\overline{S}(f,P^\prime)$ 与 $\overline{S}(f,P\cup P^\prime)$ 的关系：当划分从 $P^\prime$ 变成 $P\cup P^\prime$ 时，至多 $|P|$ 个 $P^\prime$ 中的区间被细分了，假设这些细分的区间的贡献都变化极大，也就只有 $\overline{S}(f,P^\prime)-\overline{S}(f,P\cup P^\prime)\le|P|\delta M$。于是 $\overline{S}(f,P^\prime)\le\overline{S}(f,P\cup P^\prime)+|P|\delta M\le\overline{S}(f,P)+|P|\delta M&amp;lt;\overline{S}(f)+\varepsilon^\prime+|P|\delta M$。取 $\delta=\varepsilon/2|P|M$，$\varepsilon^\prime=\varepsilon/2$ 即可。&lt;/p&gt;
+&lt;p&gt;Theorem 3.（Lebesgue 可积性定理）$f$ 在 $[a,b]$ 上 Riemann 可积 $\Longleftrightarrow$ $f$ 在 $[a,b]$ 上有界且 Darboux 可积 $\Longleftrightarrow$ $f$ 在 $[a,b]$ 上的间断点为零测度集。&lt;br&gt;
+Proof. $1\Rightarrow 2$ 易（需先证有界）。$2\Rightarrow 1$ 用 Theorem 2。&lt;br&gt;
+定义 $f$ 在点 $x$ 处的振幅为
+$$
+\omega(x)=\lim_{\delta\to 0}\left(\sup_{x^\prime\in U(x,\delta)}f(x^\prime)-\inf_{x^\prime\in U(x,\delta)}f(x^\prime)\right)
+$$
+那么不连续点即为 $\omega&amp;gt;0$ 的点。&lt;/p&gt;
+&lt;p&gt;$2\Rightarrow 3$：由于存在划分 $P$ 使得 $\overline{S}(f,P)-\underline{S}(f,P)&amp;lt;\varepsilon/2k$，故所有 $\omega\ge1/k$ 的间断点形成的集合 $D_{1/k}$，一定能被长度 $&amp;lt;\varepsilon$ 的区间覆盖。这是因为，所有处于 $P$ 中非分割端点的 $D_{1/k}$ 中元素，它们对应的总段长至多 $\varepsilon/2$，在端点处的随意处理。从而 $D_{1/k}$ 是零测度集。现在，所有间断点的集合 $D=\bigcup_{k=1}^{\infty}D_{1/k}$，而可数个零测度集的并仍为零测度集。&lt;br&gt;
+$3\Rightarrow 2$：$\forall\varepsilon&amp;gt;0$，我们知道 $D_{\varepsilon/2(b-a)}$ 可以被一族长度和 $&amp;lt;\varepsilon/2M$ 的开区间覆盖，对于 $\omega&amp;lt;\varepsilon/2(b-a)$ 的每一点，都可以找到其一邻域，该邻域的振幅 $&amp;lt;[\omega+\varepsilon/2(b-a)]/2&amp;lt;\varepsilon/2(b-a)$。于是我们现在得到 $[a,b]$ 的一组开覆盖，从而有有限开覆盖 $C$。将该开覆盖的各端点作为划分点，得到的上下和之差必不超过各开区间振幅乘长度之和，而后者小于 $M\cdot\varepsilon/2M+(b-a)\cdot\varepsilon/2(b-a)=\varepsilon$。&lt;br&gt;
+参考：&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/450983357&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/450983357&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;狄利克雷判别法&#34;&gt;狄利克雷判别法
+&lt;/h3&gt;&lt;p&gt;Theorem 1.（微分中值定理）对于 $g\in\mathscr{R}[a,b]$，$f$ 在 $[a,b]$ 上单调不增，$\exists\xi\in[a,b]$，
+$$
+\int_a^bf(x)g(x)\d x=f(a)\int_a^\xi g(x)\d x+f(b)\int_\xi^bg(x)\d x
+$$
+Proof. 我们先考虑 $f(b)=0$ 的情况。令 $G$ 为 $g$ 的积分上限函数（以 $a$ 为下限），$M$ 为 $g$ 的界。第一步我们希望把乘积的积分的一半拆成和式：对于 $[a,b]$ 的一个划分 $P$，
+$$
+\begin{align*}
+&amp;amp;\left\lvert\sum_{i=1}^nf(x_{i-1})\int_{x_{i-1}}^{x_i}g(x)\d x-\int_a^bf(x)g(x)\d x\right\rvert\\
+={}&amp;amp;\left\lvert\sum_{i=1}^n\int_{x_{i-1}}^{x_i}(f(x_{i-1})-f(x))g(x)\d x\right\rvert\\
+\le{}&amp;amp;M\sum_{i=1}^n\int_{x_{i-1}}^{x_i}(f(x_{i-1})-f(x))\d x\\
+\le{}&amp;amp;M\sum_{i=1}^n(f(x_{i-1})-f(x_i))(x_i-x_{i-1})\\
+\le{}&amp;amp;M|P|\sum_{i=1}^n(f(x_{i-1})-f(x_i))\\
+={}&amp;amp;M|P|f(a)\to 0;(|P|\to 0)
+\end{align*}
+$$
+从而（$\in$ 号用了 $f$ 单调的性质）
+$$
+\begin{align*}
+&amp;amp;\int_a^bf(x)g(x)\d x\\
+={}&amp;amp;\lim_{|P|\to 0}\sum_{i=1}^nf(x_{i-1})(G(x_i)-G({x_{i-1}}))\\
+={}&amp;amp;\lim_{|P|\to 0}\left(\sum_{i=0}^{n-1}f(x_i)G(x_{i+1})-\sum_{i=0}^nf(x_i)G(x_i)\right)\\
+={}&amp;amp;\lim_{|P|\to 0}\left(\sum_{i=1}^nf(x_{i-1})G(x_i)-\sum_{i=1}^nf(x_i)G(x_i)\right)\\
+={}&amp;amp;\lim_{|P|\to 0}\sum_{i=1}^n(f(x_{i-1})-f(x_i))G(x_i)\\
+\in{}&amp;amp;\left[\lim_{|P|\to 0}\sum_{i=1}^n(f(x_{i-1})-f(x_i))\cdot\min_{x\in[a,b]}G(x),\lim_{|P|\to 0}\sum_{i=1}^n(f(x_{i-1})-f(x_i))\cdot\max_{x\in[a,b]}G(x)\right]\\
+={}&amp;amp;f(a)\left[\min_{x\in[a,b]}G(x),\max_{x\in[a,b]}G(x)\right]
+\end{align*}
+$$
+由于 $G$ 连续，故存在 $\xi$ 使
+$$
+\int_a^bf(x)g(x)\d x=f(a)\int_a^\xi g(x)\d x
+$$
+对于 $f(b)\ne 0$ 的情况，我们知道存在 $\xi$ 使
+$$
+\int_a^b(f(x)-f(b))g(x)\d x=(f(a)-f(b))\int_a^\xi g(x)\d x
+$$
+移项即可。&lt;br&gt;
+参考：&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/596132013/answer/3487524727&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.zhihu.com/question/596132013/answer/3487524727&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Theorem 2.（狄利克雷判别法）对于 $g\in\mathscr{R}[a,\forall b]$，$f$ 在 $[a,+\infty)$ 上单调不增，若 $G$ 有界，$f$ 趋近于 $0$，则
+$$
+\int_a^{+\infty}f(x)g(x)\d x
+$$
+存在。&lt;br&gt;
+Proof. 考虑使用柯西来判。考虑到 $\exists\xi\in[l,r]$，
+$$
+\int_l^rf(x)g(x)\d x=f(l)\int_l^\xi g(x)\d x+f(r)\int_\xi^rg(x)\d x=f(l)(G(\xi)-G(l))+f(r)(G(r)-G(\xi))
+$$
+由于 $G$ 有界，故只需取足够大的 $l$ 使 $f$ 足够小即可。&lt;/p&gt;
+&lt;h3 id=&#34;高阶线性微分方程解的存在性&#34;&gt;高阶线性微分方程解的存在性
+&lt;/h3&gt;&lt;p&gt;比较复杂（Picard-Lindelöf 定理），先咕了。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>线代的一些题</title>
+        <link>https://littlereuben.github.io/study/course-linear-algebra/</link>
+        <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-linear-algebra/</guid>
+        <description>&lt;p&gt;$\gdef\ker{\mathop{\mathrm{Ker}}}\gdef\im{\mathop{\mathrm{Im}}}\gdef\e{\mathrm{e}}\gdef\d{\mathrm{d}}\gdef\F{\mathbb{F}}\gdef\r{\operatorname{rank}}\gdef\L{\mathsf{L}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\dat#1{\begin{vmatrix}#1\end{vmatrix}}\gdef\T{\mathsf{T}}\gdef\U{\mathsf{U}}\gdef\E{\mathsf{E}}$&lt;/p&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;h3 id=&#34;前言&#34;&gt;前言
+&lt;/h3&gt;&lt;p&gt;完全从线性变换角度去讲线性代数，主要就是六个递进的难点：秩—零化度定理、行列秩相等、Cayley–Hamilton 定理、对偶、内积空间下的对偶、正交相关定理。反而行列式、SVD、Jordan 之类的没有那么难理解，只是麻烦罢了。&lt;/p&gt;
+&lt;p&gt;线性变换最难解释的是转置，转置没有一个直观的意义，例如转置的行列式等于原行列式这种东西。无论是否在内积空间下，转置只能用范畴论去理解，画出对偶的交换图，它其实也是很自然的，但再往后，到了复正规矩阵和实对称矩阵可以正规对角化这里，就完全不懂了，只能背证明。&lt;/p&gt;
+&lt;p&gt;但总的来说我线性代数没记特别多东西，Cayley–Hamilton 定理和对偶相关的理解就咕掉了。&lt;/p&gt;
+&lt;h3 id=&#34;题&#34;&gt;题
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;只使用线性变换的知识（不使用初等行变换）证明 $\dim\ker f+\dim\im f=\dim V$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$\ker f$ 是 $V$ 的一个子空间。取出它的一组基 $\set{v_{1\sim n}}$，并将它扩展成 $V$ 的基 $\set{v_{1\sim n},v_{n+1\sim m}}$。现在 $f(v_{1\sim n})=0$，而我们要证的是，$\set{f(v_{n+1\sim m})}$ 线性无关，从而它是 $\im f$ 的基。
+$$
+\sum c_if(v_i)=0\Longleftrightarrow f\left(\sum c_iv_i\right)=0\Longleftrightarrow \sum c_iv_i\in\ker f
+$$
+这里 $\sum$ 是 $\sum_{i=n+1}^m$。要么 $c$ 全都是 $0$，要么 $\set{v_{1\sim m}}$ 不是基。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;只使用线性变换的知识（不使用初等行变换）证明行秩等于列秩。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;考虑 $A_{n\times m}$ 的行空间的对偶空间，这个空间就是 $\F^m/\ker A$，于是
+$$
+行秩=m-\dim\ker A=m-(m-\dim\im A)=列秩
+$$
+这里的核心思路是说，将 $A$ 以两种方式看成同一个线性变换：一种是将 $A$ 视作某个对偶空间（对偶空间的对偶空间与原空间间存在自然映射，在这个问题里更简单，就是个点乘）——这个是行的，一种是直接考虑 $A$ 的线性变换——这个是列的。那么剩下的问题其实是证明原空间和对偶空间的维数相等，这个是用基来证的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-linear-algebra/rrecr.png&#34;
+	width=&#34;1317&#34;
+	height=&#34;816&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;161&#34;
+		data-flex-basis=&#34;387px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$f:V\to V$。证明 $\exists k$，$V=\ker f^k\oplus\im f^k$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们知道 $\im f^{k+1}\subseteq\im f^k$，于是 $\exists k$，$\dim V&amp;gt;\dim\im f&amp;gt;\dim\im f^2&amp;gt;\cdots&amp;gt;\dim\im f^k=\dim\im f^{k+1}=\dim\im f^{k+2}=\cdots$。如果 $\ker f^k\cap\im f^k\supseteq\set{0,v}$，则 $f^{2k}(v)=0$，矛盾。&lt;/p&gt;
+&lt;p&gt;这个命题在抽代里也有一个对应的版本。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A_{n\times m}$，$B_{m\times l}$。证明 $\r(A)+\r(B)-m\le\r(AB)$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先，我们有，对于 $f:U\to V$，$g:V\to W$，
+$$
+\dim\ker f+\dim\ker g\ge\dim\ker(g\circ f)
+$$
+直观上很好理解，证明：
+$$
+\dim\ker(g\circ f)=\dim(\ker f\oplus\ker g|_{\im f})=\dim\ker f+\dim\ker g|_{\im f}\le\dim\ker f+\dim\ker g
+$$&lt;/p&gt;
+&lt;p&gt;于是
+$$
+\begin{align*}
+\r(AB)&amp;amp;=\dim\im\L_{AB}\\
+&amp;amp;=\dim\im(\L_A\circ\L_B)\\
+&amp;amp;=l-\dim\ker(\L_A\circ\L_B)\\
+&amp;amp;\ge l-\dim\ker\L_A-\dim\ker\L_B\\
+&amp;amp;=l-m+\dim\im\L_A-l+\dim\im\L_v\\
+&amp;amp;=\r(A)+\r(B)-m
+\end{align*}
+$$
+可选的一种类似的思路：先证 $\dim\im(g\circ f)\ge\dim\im f-\dim\ker g$：$\dim\im f=\dim\ker g|_{\im f}+\dim\im g|_{\im f}$。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A_{n\times n}$，$B_{n\times n}$，$AB=BA=O$，$\r(A^2)=\r(A)$。证明 $\r(A+B)=\r(A)+\r(B)$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;思路 1：证明 $\ker\L_{A+B}=\ker\L_A\cap\ker\L_B$ 与 $\ker\L_A+\ker\L_B=\R^n$。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$(A+B)x=0\Rightarrow Ax=A(A+B)x=0$，$(A+B)x=0\Rightarrow Bx=-Ax=0\Rightarrow\ker\L_{A+B}\subseteq\ker\L_A\cap\ker\L_B$。&lt;/li&gt;
+&lt;li&gt;$\r(A^2)=\r(A)\Rightarrow\ker\L_A\oplus\im\L_A=\R^n$，$BA=0\Rightarrow\im\L_A\subseteq\ker\L_B\Rightarrow\ker\L_A+\ker\L_B=\R^n$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;思路 2：证明 $\im\L_{A+B}=\im\L_A+\im\L_B$ 与 $\im\L_A\cap\im\L_B=\set{0}$。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\im\L_A=\im\L_{A^2+BA}=\im\L_{(A+B)A}\subseteq\im\L_{A+B}$；$\im\L_B=\im\L_{A+B-A}\subseteq\im\L_{A+B}+\im\L_A=\im\L_{A+B}$。&lt;/li&gt;
+&lt;li&gt;$\r(A^2)=\r(A)\Rightarrow\ker\L_A\oplus\im\L_A=\R^n$，$AB=O\Rightarrow\im\L_B\subseteq\ker\L_A$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A_{m\times n}$，$B_{n\times m}$，证明 $\r(AB)=\r(A)\Rightarrow\exists C_{m\times n},A=ABC$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;设 $A=[\alpha_i]$。$Ae_i=\alpha_i$，而 $\ker\L_{AB}=\ker\L_A$ 故 $\exists\gamma_i$，$AB\gamma_i=\alpha_i$。令 $C=[\gamma_i]$。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A_{n\times n}$。证明若 $\forall x\in\R^n$，$x\ne 0$，$|x^\top Ax|&amp;lt;|x^\top x|$，则 $I-A^2$ 可逆。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$|x^\top Ax|&amp;lt;|x^\top x|$ 展开：
+$$
+-\sum x_i^2&amp;lt;\sum\sum x_ix_ja_{ij}&amp;lt;+\sum x_i^2\\
+\Longrightarrow
+\left\{
+\begin{aligned}
+x^\top(I-A)x=\sum\sum x_ix_j(\delta_{ij}-a_{ij})&amp;gt;0\\
+x^\top(I+A)x=\sum\sum x_ix_j(\delta_{ij}+a_{ij})&amp;gt;0
+\end{aligned}
+\right.
+$$
+如果 $I-A$ 不可逆，则 $\exists x\ne 0$，$(I-A)x=0$，那么 $x^{\top}(I-A)x=0$，矛盾。&lt;/p&gt;
+&lt;p&gt;同理 $I+A$ 可逆，于是 $I-A^2$ 可逆。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A_{m\times n}$，$B_{n\times m}$，证明 $\r(I_m+AB)-\r(I_n+BA)=m-n$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+\begin{bmatrix}I_m+AB&amp;amp;O\\ O&amp;amp;I_n\end{bmatrix}\sim\begin{bmatrix}I_m+AB&amp;amp;A\\ O&amp;amp;I_n\end{bmatrix}\sim\begin{bmatrix}I_m&amp;amp;A\\ -B&amp;amp;I_n\end{bmatrix}\sim\begin{bmatrix}I_m&amp;amp;A\\ O&amp;amp;I_n+BA\end{bmatrix}\sim\begin{bmatrix}I_m&amp;amp;O\\ O&amp;amp;I_n+BA\end{bmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/473406438&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/473406438&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TMD 为什么我记了这个期末考却没想起来？？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A_{l\times m}$，$B_{n\times p}$，$C_{l\times p}$。证明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$W_{p\times n}$，$BWB=B$ 总是有解。&lt;/li&gt;
+&lt;li&gt;$X_{m\times n}$，$AXB=C$ 有解 $\Leftrightarrow \r(A)=\r(\begin{bmatrix}A&amp;amp;C\end{bmatrix})\land\r\left(\begin{bmatrix}B\\ C\end{bmatrix}\right)$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;设 $\r(B)=r$。通过消成相抵标准形，可以得到 $B=PQ$ 满秩分解，其中 $P_{n\times r}$ 是列满秩，$Q_{r\times p}$ 是行满秩。构造 $W=B^+=Q^\top(QQ^\top)^{-1}(P^\top P)^{-1}P^\top$。只需证明 $\r(QQ^\top)=\r(P^\top P)=r$ 即可，这个直接用一般的公式（同解证）。&lt;/p&gt;
+&lt;p&gt;$\Leftarrow$：构造 $X=A^+CB^+$。根据条件，$AY=C$、$ZB=C$ 均有解，故
+$$
+AXB=AA^+CB^+B=AA^+AYB^+B=AYB^+B=CB^+B=ZBB^+B=ZB=C
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$a\in\R^n$，求 $\dat{I+aa^\top}$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;思路 1：根据行列式的拆分公式，可以把 $\dat{I+aa^\top}$ 拆成 $2^n$ 个行列式的和，其中如果有两行都取自 $aa^\top$ 就是 $0$，剩下的就是 $1+\sum a_i^2$。&lt;/p&gt;
+&lt;p&gt;思路 2：考虑 $(I+aa^\top)v=\lambda v\Leftrightarrow aa^\top v=(\lambda-1)v$。我们知道 $a\ne 0$ 时 $\dim aa^\top=1$，故有 $n-1$ 重 $\lambda-1=0$。另一重怎么考虑呢？代入 $v=a$ 得 $aa^\top v=a(a^\top v)=\braket{a,a}a$。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$$
+\dat{\lambda&amp;amp;1&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ n&amp;amp;\lambda&amp;amp;2&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ 0&amp;amp;n-1&amp;amp;\lambda&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda&amp;amp;n\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;1&amp;amp;\lambda}
+$$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;思路 1：令原式为 $D_n(\lambda)$。
+$$
+\begin{align*}
+D_n(\lambda)={}&amp;amp;\dat{\lambda&amp;amp;1&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ n&amp;amp;\lambda&amp;amp;2&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;n-1&amp;amp;\lambda&amp;amp;3&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;n-2&amp;amp;\lambda&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda&amp;amp;n-1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;2&amp;amp;\lambda&amp;amp;n\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1&amp;amp;\lambda}\\
+\xlongequal{r_1\xleftarrow{+}r_2+\cdots+r_{n+1}}{}&amp;amp;\dat{\lambda+n&amp;amp;\lambda+n&amp;amp;\lambda+n&amp;amp;\lambda+n&amp;amp;\cdots&amp;amp;\lambda+n&amp;amp;\lambda+n&amp;amp;\lambda+n\\ n&amp;amp;\lambda&amp;amp;2&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;n-1&amp;amp;\lambda&amp;amp;3&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;n-2&amp;amp;\lambda&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda&amp;amp;n-1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;2&amp;amp;\lambda&amp;amp;n\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1&amp;amp;\lambda}\\
+\xlongequal{c_2,\cdots,c_{n+1}\xleftarrow{-}c_1}{}&amp;amp;\dat{\lambda+n&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ n&amp;amp;\lambda-n&amp;amp;2-n&amp;amp;-n&amp;amp;\cdots&amp;amp;-n&amp;amp;-n&amp;amp;-n\\ 0&amp;amp;n-1&amp;amp;\lambda&amp;amp;3&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;0&amp;amp;n-2&amp;amp;\lambda&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda&amp;amp;n-1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;2&amp;amp;\lambda&amp;amp;n\\ 0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1&amp;amp;\lambda}\\
+\xlongequal{r_1}{}&amp;amp;\dat{\lambda-n&amp;amp;2-n&amp;amp;-n&amp;amp;\cdots&amp;amp;-n&amp;amp;-n&amp;amp;-n\\ n-1&amp;amp;\lambda&amp;amp;3&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;n-2&amp;amp;\lambda&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda&amp;amp;n-1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;2&amp;amp;\lambda&amp;amp;n\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1&amp;amp;\lambda}\cdot(\lambda+n)\\
+\xlongequal{r_1\xleftarrow{+}r_2+\cdots+r_n}{}&amp;amp;\dat{\lambda-1&amp;amp;\lambda&amp;amp;\lambda&amp;amp;\cdots&amp;amp;\lambda&amp;amp;\lambda&amp;amp;\lambda\\ n-1&amp;amp;\lambda&amp;amp;3&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;n-2&amp;amp;\lambda&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda&amp;amp;n-1&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;2&amp;amp;\lambda&amp;amp;n\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1&amp;amp;\lambda}\cdot(\lambda+n)\\
+\xlongequal{r_2\xleftarrow{+}r_3+\cdots+r_n}{}&amp;amp;\cdots\cdots\\
+\xlongequal{r_{n-1}\xleftarrow{+}r_n}{}&amp;amp;\dat{\lambda-1&amp;amp;\lambda&amp;amp;\lambda&amp;amp;\cdots&amp;amp;\lambda&amp;amp;\lambda&amp;amp;\lambda\\ n-1&amp;amp;\lambda+n-2&amp;amp;\lambda+n&amp;amp;\cdots&amp;amp;\lambda+n&amp;amp;\lambda+n&amp;amp;\lambda+n\\ 0&amp;amp;n-2&amp;amp;\lambda+n-3&amp;amp;\cdots&amp;amp;\lambda+n&amp;amp;\lambda+n&amp;amp;\lambda+n\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda+2&amp;amp;\lambda+n&amp;amp;\lambda+n\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;2&amp;amp;\lambda+1&amp;amp;\lambda+n\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1&amp;amp;\lambda}\cdot(\lambda+n)\\
+\xlongequal{c_n\xleftarrow{-}c_{n-1}}{}&amp;amp;\dat{\lambda-1&amp;amp;\lambda&amp;amp;\lambda&amp;amp;\cdots&amp;amp;\lambda&amp;amp;\lambda&amp;amp;0\\ n-1&amp;amp;\lambda+n-2&amp;amp;\lambda+n&amp;amp;\cdots&amp;amp;\lambda+n&amp;amp;\lambda+n&amp;amp;0\\ 0&amp;amp;n-2&amp;amp;\lambda+n-3&amp;amp;\cdots&amp;amp;\lambda+n&amp;amp;\lambda+n&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda+2&amp;amp;\lambda+n&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;2&amp;amp;\lambda+1&amp;amp;n-1\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1&amp;amp;\lambda-1}\cdot(\lambda+n)\\
+\xlongequal{c_{n-1}\xleftarrow{-}c_{n-2}}{}&amp;amp;\cdots\cdots\\
+\xlongequal{c_2\xleftarrow{-}c_1}{}&amp;amp;\dat{\lambda-1&amp;amp;1&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ n-1&amp;amp;\lambda-1&amp;amp;2&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ 0&amp;amp;n-2&amp;amp;\lambda-1&amp;amp;\cdots&amp;amp;0&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;\lambda-1&amp;amp;n-2&amp;amp;0\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;2&amp;amp;\lambda-1&amp;amp;n-1\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;1&amp;amp;\lambda-1}\cdot(\lambda+n)\\
+={}&amp;amp;(\lambda+n)D_{n-1}(\lambda-1)\\
+={}&amp;amp;(\lambda+n)(\lambda+n-2)D_{n-2}(\lambda-2)\\
+={}&amp;amp;\cdots\cdots\\
+={}&amp;amp;\prod_{i=0}^n(\lambda+n-2i)
+\end{align*}
+$$
+思路 2：&lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/a/340611&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/a/340611&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;思路 3：记
+$$
+A=\mat{0&amp;amp;1&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ n&amp;amp;0&amp;amp;2&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ 0&amp;amp;n-1&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;n\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;1&amp;amp;0}
+$$
+（该矩阵被称为 Kac matrix）&lt;/p&gt;
+&lt;p&gt;考虑 $Ax=\lambda x$，其中 $x=\mat{x_0&amp;amp;\cdots&amp;amp;x_n}^\top$。具体写成：
+$$
+\left\{\begin{align*}
+x_1&amp;amp;=\lambda x_0\\
+nx_0+2x_2&amp;amp;=\lambda x_1\\
+(n-1)x_1+3x_3&amp;amp;=\lambda x_2\\
+\cdots&amp;amp;\cdots\\
+x_{n-1}&amp;amp;=\lambda x_n
+\end{align*}\right.
+$$
+令 $f(t)=\sum x_it^i$，可以写成 $t(nf-tf^\prime)+f^\prime=\lambda f$ 即
+$$
+\frac{f^\prime(t)}{f(t)}=\frac{nt-\lambda}{t^2-1}=\frac{n+\lambda}{2(t+1)}+\frac{n-\lambda}{2(t-1)}
+$$
+两端同时积分得
+$$
+f(t)=C(t+1)^{(n+\lambda)/2}(t-1)^{(n-\lambda)/2}
+$$
+也就是说，仅有这些 $f$ 展开可以作为 $x$，且这样的 $f$ 还需满足没有超过 $x^n$ 的项，因此只能有 $|\lambda|\le n$ 且 $\lambda$ 为与 $n$ 奇偶的整数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;证明：如果一个方阵 $A$ 只有行列异奇偶的位置非零，则其特征值一定正负成对出现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;考虑 $D=\operatorname{diag}(1,-1,1,-1,\cdots)$。注意到 $D^{-1}AD=-A$。因此，若 $Av=\lambda v$，则
+$$
+A(Dv)=(AD)v=-(DA)v=-D(Av)=-D\lambda v=-\lambda(Dv)
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;求
+$$
+A=\mat{b&amp;amp;c&amp;amp;0&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ a&amp;amp;b&amp;amp;c&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ 0&amp;amp;a&amp;amp;b&amp;amp;\cdots&amp;amp;0&amp;amp;0\\ \vdots&amp;amp;\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots&amp;amp;\vdots\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;b&amp;amp;c\\ 0&amp;amp;0&amp;amp;0&amp;amp;\cdots&amp;amp;a&amp;amp;b}
+$$
+的特征值与特征向量。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们知道，
+$$
+\dat{A}=\left\{\begin{aligned}&amp;amp;\frac1{\sqrt\Delta}\left[\left(\frac{b+\sqrt\Delta}2\right)^{n+1}-\left(\frac{b-\sqrt\Delta}2\right)^{n+1}\right],&amp;amp;\Delta\ne0\\ &amp;amp;(n+1)\left(\frac b2\right)^n,&amp;amp;\Delta=0\end{aligned}\right.
+$$
+如果 $ac=0$，那么唯一的特征值为 $b$，否则
+$$
+\lambda=b-2\sqrt{ac}\cos\frac{k\pi}{n+1}\;(k=1,\cdots,n)
+$$
+特征向量似乎有点难。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;求循环矩阵 $\Set{a_{(n-i+j)\bmod n}}$ 的特征值与特征向量。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个反倒很简单，既然知道求行列式的套路是
+$$
+\mat{a_0&amp;amp;a_1&amp;amp;\cdots&amp;amp;a_{n-1}\\ a_{n-1}&amp;amp;a_0&amp;amp;\cdots&amp;amp;a_1\\ \vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\ a_1&amp;amp;a_2&amp;amp;\cdots&amp;amp;a_0}\mat{\omega^{0\cdot0}&amp;amp;\omega^{1\cdot0}&amp;amp;\cdots&amp;amp;\omega^{(n-1)\cdot0}\\ \omega^{0\cdot1}&amp;amp;\omega^{1\cdot1}&amp;amp;\cdots&amp;amp;\omega^{(n-1)\cdot1}\\ \vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\ \omega^{0\cdot(n-1)}&amp;amp;\omega^{1\cdot(n-1)}&amp;amp;\cdots&amp;amp;\omega^{(n-1)\cdot(n-1)}}=\mat{\omega^{0\cdot0}f(\omega^0)&amp;amp;\omega^{1\cdot0}f(\omega^1)&amp;amp;\cdots&amp;amp;\omega^{(n-1)\cdot0}f(\omega^{n-1})\\ \omega^{0\cdot1}f(\omega^0)&amp;amp;\omega^{1\cdot1}f(\omega^1)&amp;amp;\cdots&amp;amp;\omega^{(n-1)\cdot1}f(\omega^{n-1})\\ \vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\ \omega^{0\cdot(n-1)}f(\omega^0)&amp;amp;\omega^{1\cdot(n-1)}f(\omega^1)&amp;amp;\cdots&amp;amp;\omega^{(n-1)\cdot(n-1)}f(\omega^{n-1})}
+$$
+那就知道特征值和特征向量分别是
+$$
+f(\omega^k),\,\mat{\omega^{k\cdot0}\\ \omega^{k\cdot1}\\ \vdots\\ \omega^{k\cdot(n-1)}}\;(k=0,\cdots,n-1)
+$$
+其中 $f(x)=\sum a_ix^i$，$\omega=\e^{2\pi\mathrm{i}/n}$。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于 $A_{m\times n}$，$B_{n\times m}$，证明 $I_m-AB$ 可逆 $\Leftrightarrow$ $I_n-BA$ 可逆。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;证 1：若 $(I-AB)C=I$，则 $(I-BA)(BC)=BC-B(C-I)=B$，故 $(I-BA)(BCA)=BA=I-(I-BA)$，故 $(I-BA)(BCA+I)=I$。&lt;/p&gt;
+&lt;p&gt;证 2：若对于某个 $x\ne 0$，$(I-AB)x=0$，则 $(I-BA)Bx=Bx-BABx=Bx-Bx=0$，其中 $Bx\ne 0$ 因为否则 $(I-AB)x=x\ne 0$。&lt;/p&gt;
+&lt;p&gt;证 3：
+$$
+\mat{I-AB&amp;amp;O\\ B&amp;amp;I}\sim\mat{I&amp;amp;A\\ B&amp;amp;I}\sim\mat{I&amp;amp;A\\ O&amp;amp;I-BA}
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$A^2=I$，证明 $A$ 可对角化。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$$
+\begin{align*}
+&amp;amp;(A+I)(A-I)=0\\
+\Longrightarrow{}&amp;amp;\im\L_{A-I}\subseteq\ker\L_{A+I}\\
+\Longrightarrow{}&amp;amp;n-\dim\ker\L_{A-I}=\dim\im\L_{A-I}\le\dim\ker\L_{A+I}\\
+\Longrightarrow{}&amp;amp;\dim\ker\L_{A-I}+\dim\ker\L_{A+I}\ge n
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;又知道特征空间的维数和不能超过 $n$，故 $\dim\ker\L_{A-I}+\dim\ker\L_{A+I}=n$。&lt;/p&gt;
+&lt;p&gt;这类问题可以扩展到最小多项式相关的定理：如果一个矩阵/线性变换的最小多项式为 $\prod(t-\lambda_i)^{m_i}$，那它的 Jordan 标准型中 $\lambda_i$ 对应的 Jordan 块的最大大小就是 $m_i$。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于 Jordan 块 $J_{n\times n}$，求 $J^k$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;众所周知矩阵的幂次有一个组合意义：$A_{i,j}$ 表示 $i$ 到 $j$ 的边权，$(A^k)_{i,j}$ 表示 $i$ 到 $j$ 恰好走 $k$ 步，所有可能路径的边权之积的和。所以 $(J^k)_{i,j}$ 就是走 $j-i$，每次走 $0$ 或 $1$ 步，这个显然是
+$$
+\binom{k}{j-i}\lambda^{k-j+i}
+$$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;证明对于可对角化的 $\T$ 和 $\U$，$\T$ 和 $\U$ 可同时对角化当且仅当 $\T\U=\U\T$。如果 $\T$ 和 $\U$ 可正交对角化，类似的结论也成立。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于 $\T$ 的特征向量 $v\in\E_\lambda$，$\T\U(v)=\U\T(v)=\lambda\U(v)$ 从而 $\E_\lambda$ 是 $\U$ 的不变子空间。取 $\U$ 在其上的对角化即可。需要证明可对角化 $\Rightarrow$ 在不变子空间内可对角化，略。&lt;/p&gt;
+&lt;p&gt;正交对角化的情况，考虑 $\mathbb{C}$。还是随便取一个 $\E_\lambda$，只需证明 $\E_\lambda^\perp$ 也是 $\T$ 和 $\U$ 的不变子空间即可。首先由内积的操作知道 $\E_\lambda^\perp$ 是 $\T^*$ 的不变子空间，其次 $\T^*$ 的特征向量都是 $\T$ 的特征向量，从而 $\E_\lambda^\perp$ 也是 $\T$ 的不变子空间。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>微积分 A(1) 期中复习—一些有意思的难题</title>
-        <link>https://littlereuben.github.io/study/calculus-1-1/</link>
+        <link>https://littlereuben.github.io/study/course-calculus-1-1/</link>
         <pubDate>Sun, 03 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://littlereuben.github.io/study/calculus-1-1/</guid>
+        <guid>https://littlereuben.github.io/study/course-calculus-1-1/</guid>
         <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
 &lt;embed src= &#34;cal1_midterm.pdf&#34; width= &#34;100%&#34; height= &#34;800px&#34; type=&#34;application/pdf&#34; &gt;
 &lt;a href=&#34;cal1_midterm.pdf&#34; style=&#34;display:block;text-align:center;&#34;&gt;&lt;b&gt;[PDF file]&lt;/b&gt;&lt;/a&gt;
@@ -219,7 +2469,7 @@ $$
 &lt;p&gt;关于特征值和特征向量。首先要明确，相似变换下，行列式、秩、迹、特征值都不变，但特征向量会变。&lt;/p&gt;
 &lt;p&gt;无论是否满秩，特征值数量（算上重数）总为 $n$，但特征子空间的维数和就不一定了。如果满秩，则特征值全部非零，但是不满秩时，特征值 $0$ 的重数并不等于 $n-r$，而是大于等于，例如 $\begin{bmatrix}0&amp;amp;1\\ 0&amp;amp;0\end{bmatrix}$。相关证明见 &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/297458474/answer/1362625976&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://www.zhihu.com/question/297458474/answer/1362625976&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;几何重数小于等于代数重数的证明直观是很好理解的，你都构造出那几个线性无关的特征向量了，那不得至少有这几个嘛。证明的思路就是基变换，把这几个特征向量作为基，别的任选，然后 $|\lambda I-A&amp;rsquo;|=0$ 就行。&lt;/p&gt;
+&lt;p&gt;几何重数小于等于代数重数的证明直观是很好理解的，你都构造出那几个线性无关的特征向量了，那不得至少有这几个嘛。证明的思路就是基变换，把这几个特征向量作为基，别的任选，然后 $|\lambda I-A^\prime|=0$ 就行。&lt;/p&gt;
 &lt;p&gt;不同特征值对应的特征向量不同，这个只需看一个简单情况就可以理解证明思路：如果 $A\alpha_1=\lambda_1\alpha_1,A\alpha_2=\lambda_2\alpha_2,c\alpha_1=\alpha_2$，那么 $\lambda_1c\alpha_1=Ac\alpha_1=A\alpha_2=\lambda_2\alpha_2=\lambda_2c\alpha_1\Rightarrow\lambda_1=\lambda_2$。后面的东西都是比较显然的。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;

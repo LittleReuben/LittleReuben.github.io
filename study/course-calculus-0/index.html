@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="$\\gdef\\s{\\operatorname{S}}\\gdef\\F{\\mathbb{F}}\\gdef\\d{\\mathrm{d}}\\gdef\\Q{\\mathbb{Q}}$ 这是一篇学习笔记。 实数理论 参考：chenxia25 与我的讨论、https://zhuanlan.zhihu.com/p/48859870 所">
+<title>微积分的理论基础</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/course-calculus-0/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="微积分的理论基础">
+<meta property='og:description' content="$\\gdef\\s{\\operatorname{S}}\\gdef\\F{\\mathbb{F}}\\gdef\\d{\\mathrm{d}}\\gdef\\Q{\\mathbb{Q}}$ 这是一篇学习笔记。 实数理论 参考：chenxia25 与我的讨论、https://zhuanlan.zhihu.com/p/48859870 所">
+<meta property='og:url' content='https://littlereuben.github.io/study/course-calculus-0/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-01-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-22T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="微积分的理论基础">
+<meta name="twitter:description" content="$\\gdef\\s{\\operatorname{S}}\\gdef\\F{\\mathbb{F}}\\gdef\\d{\\mathrm{d}}\\gdef\\Q{\\mathbb{Q}}$ 这是一篇学习笔记。 实数理论 参考：chenxia25 与我的讨论、https://zhuanlan.zhihu.com/p/48859870 所">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#实数理论">实数理论</a></li>
+        <li><a href="#定积分理论">定积分理论</a></li>
+        <li><a href="#狄利克雷判别法">狄利克雷判别法</a></li>
+        <li><a href="#高阶线性微分方程解的存在性">高阶线性微分方程解的存在性</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/math/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 数学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/course-calculus-0/">微积分的理论基础</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-01-22</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    10519 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>$\gdef\s{\operatorname{S}}\gdef\F{\mathbb{F}}\gdef\d{\mathrm{d}}\gdef\Q{\mathbb{Q}}$</p>
+<div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<h3 id="实数理论">实数理论
+</h3><p>参考：chenxia25 与我的讨论、<a class="link" href="https://zhuanlan.zhihu.com/p/48859870"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/48859870</a></p>
+<p>所有 $\forall/\exists a$ 形式的东西，$a$ 默认属于当前讨论的集合。当你看见 $\Rightarrow$ 时，就说明不是形式语言。</p>
+<p>Definition 1. 自然数集，利用 Peano 公理定义：</p>
+<p>Axiom 1.0. 等价关系的确立<br>
+P.S. 这里我们默认了等价关系满足 $m=n\Rightarrow \s(m)=\s(n)$ 及其推论，也就是说“等价关系”在保证不产生矛盾的情况下被内化为了可替换关系。这是需要区分的，后面关于减法的定义就需要验证其良定义性。</p>
+<p>Axiom 1.1. $0\in\N$</p>
+<p>Axiom 1.2. $\forall i(i\in\N\rightarrow \s(i)\in\N)$</p>
+<p>Axiom 1.3. $\forall i\forall j(\s(i)=\s(j)\rightarrow i=j)$（$\s$ 是单射）</p>
+<p>Axiom 1.4. $\forall i(\s(i)\ne 0)$</p>
+<p>Axiom 1.5. $\forall A((0\in A\land \forall n(n\in A\rightarrow \s(n)\in A))\rightarrow \N\subseteq A)$（数学归纳法原理）</p>
+<p>Property 1.1. $\N=\set{0}\cup \s(\N)$，或者说 $\s$ 是到 $\N\setminus\set{0}$ 的满射（从而是双射）。<br>
+Proof. 3 和 6 保证了两个方向。</p>
+<p>Definition 1.1. 加法，利用逐点归纳定义，$m+\s(n)=\s(m+n)$。我们将 $m+1$ 与 $\s(m)$ 划等号。</p>
+<p>Definition 1.2. 乘法，利用逐行归纳定义，$m\cdot \s(n)=m\cdot n+m$。</p>
+<p>下文中的归纳，均依赖于 Axiom 1.5。</p>
+<p>Property 1.2. $\forall a(0+a=a+0=a)$（加法幺元）<br>
+Proof. $0+a=a$ 只需对 $a$ 归纳。</p>
+<p>Property 1.3. $\forall a\forall b(a+b=b+a)$（加法交换律）<br>
+Proof. 对 $b$ 归纳。一种方法是，只需证明 $\s(b)+a=\s(b+a)$，对 $a$ 归纳，命题为 $\s(b)+\s(a)=\s(b+\s(a))$，由 $\s(b)+\s(a)\xlongequal{\text{def}}\s(\s(b)+a)\xlongequal{\text{ind}}\s(\s(b+a))\xlongequal{\text{def}}\s(b+\s(a))$ 得。另一种方法是，借助结合律，先证 $a+1=1+a$，再得 $a+\s(b)=a+(b+1)=(a+b)+1=(b+a)+1=b+(a+1)=b+(1+a)=(b+1)+a=\s(b)+a$。</p>
+<p>Property 1.4. $\forall a\forall b\forall c((a+b)+c=a+(b+c))$（加法结合律）<br>
+Proof. 对 $c$ 归纳，不用 Property 1.3。可能需要单独证 $c=1$ 情况。</p>
+<p>Property 1.5. $\forall a\forall b\forall c(a+c=b+c\rightarrow a=b)$（加法消去律）</p>
+<p>Property 1.6. $\forall a(1\cdot a=a\cdot 1=a)$（乘法幺元）</p>
+<p>Property 1.7. $\forall a\forall b(a\cdot b=b\cdot a)$（乘法交换律）<br>
+Proof. 同样首先证明 $\s(b)\cdot a=b\cdot a+a$，对 $a$ 归纳，命题为 $\s(b)\cdot\s(a)=b\cdot\s(a)+\s(a)$，由 $\s(b)\cdot\s(a)\xlongequal{\text{def}}\s(b)\cdot a+\s(b)\xlongequal{\text{ind}}b\cdot a+a+\s(b)\xlongequal{\text{def}}b\cdot a+\s(a+b)\xlongequal{\text{P1.3}}b\cdot a+\s(a)+b\xlongequal{\text{com}}b\cdot a+b+\s(a)\xlongequal{\text{def}}b\cdot\s(a)+\s(a)$ 得。于是原命题对 $b$ 归纳，$a\cdot\s(b)=a\cdot b+a=b\cdot a+a=\s(b)+a$。</p>
+<p>Property 1.8. $\forall a\forall b\forall c((a\cdot b)\cdot c=a\cdot(b\cdot c))$（乘法结合律）<br>
+Proof. 对 $c$ 归纳，利用 Property 1.9。</p>
+<p>Property 1.9. $\forall a\forall b\forall c((a+b)\cdot c=a\cdot c+b\cdot c)$（乘法对加法的分配律）<br>
+Proof. 对 $c$ 归纳。</p>
+<p>Property 1.10 $\forall a\forall b\forall c((c\ne 0\land a\cdot c=b\cdot c)\rightarrow a=b)$（乘法消去律）</p>
+<p>Definition 2. 整数集，以“减法字符串”定义其中的元素，同时定义了①相等的判断、②元素的加法、③元素的乘法。同时证明了加法和乘法是良定义的。同时定义了 $\Z_+$ 是 $\N\setminus\set{0}$ 对应的部分。</p>
+<p>P.S. 我们常用的整数集实际上是书里这个整数集关于等价关系 $m+q=p+n\Leftrightarrow m-n=p-q$ 的商集。</p>
+<p>下文的 $0$ 代指 $0-0$。</p>
+<p>Property 2.1&amp;2&amp;3. 加法幺元、交换律、结合律</p>
+<p>Property 2.4 $\forall a\exists b(a+b=b+a=0)$ 且 $b=-a$ 唯一（加法逆元）<br>
+Proof. 构造容易，证唯一性可以不用抽象代数的方法：设 $a+b=a+c=0$，即 $(a_1+b_1)-(a_2+b_2)=(a_1+c_1)-(a_2+c_2)$，即 $a_1+b_1+a_2+c_2=a_1+c_1+a_2+b_2$，利用 Property 1.5 得 $b_1+c_2=c_1+b_2$ 即 $b=c$。</p>
+<p>Property 2.5&amp;6&amp;7&amp;8. 乘法幺元、交换律、结合律、分配律</p>
+<p>Property 2.9. $\forall a([a\in\Z_+]+[a=0]+[-a\in\Z_+])=1$<br>
+Proof. $\ge 1$ 好证，$\le 1$ 的证明方法是，如果 $a\in\Z_+\land-a\in\Z_+$，则设 $a_1-a_2=\s(k)-0$，$a_2-a_1=\s(l)-0$，两式相加得 $0-0=(\s(k)+\s(l))-0=\s(\s(k)+l)-0$ 与 $\s(\cdot)\not\equiv 0$ 矛盾。<br>
+P.S. 再次注意，这里“两式相加”的操作基于的是等号和加号的良定义性。</p>
+<p>P.S. 环，自动有加法幺元等于乘法零元（$a\cdot 0=a\cdot (0+0)=a\cdot 0+a\cdot 0$ 两边消去）</p>
+<p>Corollary 2.1. $\forall a(-(-a)=a)$</p>
+<p>Corollary 2.2. $\forall a(a=-a\leftrightarrow a=0)$</p>
+<p>Corollary 2.3. $\forall a\forall b(a,b\in\N\rightarrow a+(-b)=a-b)$</p>
+<p>Corollary 2.4. $\forall a\forall b(a\cdot(-b)=(-a)\cdot b=-(a\cdot b))$</p>
+<p>Definition 3. 有理数集，以“分数字符串”定义其中的元素，同时定义了①相等的判断、②元素的加法、③元素的乘法。同时证明了加法和乘法是良定义的。同时定义了 $\Q_+$ 是分子分母均为正整数对应的部分。</p>
+<p>下文的 $0,1$ 分别代指 $0/1,1/1$。</p>
+<p>Property 3.1&amp;2&amp;3&amp;4 加法幺元、交换律、结合律、逆元</p>
+<p>Property 3.5&amp;6&amp;7&amp;8. 乘法幺元、交换律、结合律、分配律</p>
+<p>Property 3.9. $\forall a(a\ne 0\rightarrow\exists b(a\cdot b=b\cdot a=1))$ 且 $b=a^{-1}$ 唯一（乘法逆元）</p>
+<p>Corollary 3.1&amp;2&amp;3&amp;4. 同上</p>
+<p>Corollary 3.5. $\forall a(a\ne 0\rightarrow(a^{-1})^{-1}=a)$</p>
+<p>Corollary 3.6. $\forall a(a=a^{-1}\leftrightarrow a=1)$</p>
+<p>Corollary 3.7. $\forall a(a\ne 0\rightarrow(-a)^{-1}=-(a^{-1}))$</p>
+<p>Corollary 3.8. $\forall a\forall b(a,b\ne 0\rightarrow (ab)^{-1}=a^{-1}b^{-1})$</p>
+<p>Corollary 3.9. $\forall a\forall b((a,b\in\Z\land b\ne 0)\rightarrow a\cdot b^{-1}=a/b)$</p>
+<p>Corollary 3.10. $\forall a\forall b((a,b\in\Z\land b\ne 0)\rightarrow a/(-b)=(-a)/b=-(a/b))$</p>
+<p>Corollary 3.11. $\forall a\forall b((a,b\in\Z\land a,b\ne 0)\rightarrow (a/b)^{-1}=b/a)$</p>
+<p>Definition 4. 序关系，利用减法与 $\Q_+$ 定义；序域。</p>
+<p>Corollary 4.1. $\forall a\forall b([a&lt;b]+[a=b]+[a&gt;b]=1)$（三分律）</p>
+<p>Corollary 4.2. $\forall a\forall b\forall c(a&lt;b\rightarrow a+c&lt;b+c)$</p>
+<p>Corollary 4.3. $\forall a\forall b\forall c((a&gt;0\land b&gt;0\land c&gt;0)\rightarrow(a&lt;b\rightarrow a\cdot c&lt;b\cdot c))$</p>
+<p>Corollary 4.4. $\forall a(a\le a)$（自反性）</p>
+<p>Corollary 4.5. $\forall a\forall b((a\le b\land b\le a)\rightarrow(a=b))$（反对称性）</p>
+<p>Corollary 4.6. $\forall a\forall b\forall c((a\le b\land b\le c)\rightarrow(a\le c))$（传递性）</p>
+<p>Corollary 4.7. $\forall a\forall b\forall c\forall d((a\le b\land c\le d)\rightarrow a+c\le b+d)$</p>
+<p>Corollary 4.8. $\forall a\forall b\forall c\forall d((0\le a\le b\land 0\le c\le d)\rightarrow a\cdot c\le b\cdot d)$</p>
+<p>Corollary 4.1&amp;2&amp;3 说明 $\Q$ 是一个序域。显然序域一定是无限的，且一定构成全序集。Corollary 4.4&amp;5&amp;6 是全序集的定义，从而是序域的性质。</p>
+<p>Theorem 4.1. $\Q$ 是最小的序域，这个“最小”的意义在证明中给出。<br>
+Proof. 考虑域 $\F$。考虑其乘法幺元，它可以通过加法得到 $\Z$（它在加法群里的生成子群必须是无限的，否则无序），再通过乘法得到 $\Q$。</p>
+<p>Definition 5. 实数集，以 Dedekind 分割定义。上面的 Definition 1&amp;2&amp;3&amp;4 都没写明定义，这里很重要，所以写一下。</p>
+<p>实数的四则运算和全序的性质略。</p>
+<p>（from ycx）当我们定义一个结构的时候，有两种方法——一种是把它直接构造出来，一种是用一些不自相矛盾的公理声明这个结构所满足的性质，并“声称它存在”。例如 $\N$，第一种定义方法是用 ZFC 的无穷公理加 $\sup$ 构造 $M=\set{\varnothing,\set{\varnothing},\set{\varnothing,\set{\varnothing}},\cdots}$，一种就是用 Peano 公理。给出了存在性，然后容易验证其唯一性（唯一用同构映射定义）。</p>
+<p>那么 $\R$ 也是一样的。我们先给出它的构造性定义。</p>
+<blockquote>
+<p>（Dedekind 分割）实数 $A$ 是一个集合，它满足：</p>
+<ol>
+<li>$A\subset\Q$</li>
+<li>$A$ 存在上界</li>
+<li>$\forall x\forall y((x\in A\land y&lt;x)\rightarrow y\in A)$</li>
+<li>若 $A$ 存在上确界，则 $A$ 的上确界 $\in A$。</li>
+</ol>
+<p>$\R$ 就是所有这样的 $A$。</p>
+<p>定义实数的 $\le$ 就是 $\subseteq$。定义 $A+B=\set{x+y\mid x\in A,y\in B}$。定义 $A\cdot B=\overline{\set{xy\mid x\in\overline{A},y\in\overline{B}}}$。</p>
+</blockquote>
+<p>解释：在 $\Q$ 上，不是所有有上界的集合都有上确界。<br>
+4 不成立的话就会出现 $\set{x\mid x&lt;1}$ 的东西，或者说可以理解为造成 $0.999\cdots\ne 1$。</p>
+<p>我们再给出公理法定义。</p>
+<blockquote>
+<p>（Dedekind 原理，$1$）$\R$ 满足：
+$$
+\forall A\forall B((A\subseteq\R\land B\subseteq\R\land A\ne\varnothing\land B\ne\varnothing\land\forall a\forall b((a\in A\land b\in B)\rightarrow a\le b))\rightarrow\exists c\forall a\forall b((a\in A\land b\in B)\rightarrow a\le c\le b))
+$$
+后面我们就尽量不用反人类语言了。</p>
+<p>说的是，任何非空集 $A$，$B\subset\R$，$A$ 中元素全部 $\le$ $B$ 中元素，那么存在一个 $c$ 夹在 $A$，$B$ 之间。</p>
+</blockquote>
+<p>我们给出一些等价的公理：</p>
+<blockquote>
+<p>（确界原理，$2$）$\R$ 满足：</p>
+<p>$\forall A\subseteq\R$，$A\ne\varnothing$，$A$ 有上界 $\Rightarrow$ $A$ 有上确界。</p>
+</blockquote>
+<p>$1\Rightarrow 2$：对于 $A$，取 $B=\set{b\mid\forall a,a\le b}$。由于 $A$ 有上界，故 $B\ne\varnothing$。由 1，得到一个 $c$，这个 $c$ 是 $A$ 的上界，接下来说明是上确界。如果有更小的上界 $c^\prime&lt;c$，那么 $c^\prime\in B$，与 $c$ 是 $B$ 的下界矛盾。</p>
+<p>$2\Rightarrow 1$：在 1 的 $\exists c$ 中，取 $c=\sup A$。既然 $\forall a\in A$，$b\in B$，都有 $a\le b$，那么 $B$ 中的元素都是 $A$ 的上界，于是 $c$ 不可能大于 $B$ 中的元素，于是 $c$ 满足条件。</p>
+<blockquote>
+<p>（单调有界定理，$3$）$\R$ 上的数列 $a$ 如果单调有界，则必收敛（$\exists A\forall\varepsilon\exist N\forall n(n&gt;N\rightarrow |a_n-A|&lt;\varepsilon)$）。</p>
+</blockquote>
+<p>$2\Rightarrow 3$：直接用确界就行。</p>
+<p>$3\Rightarrow 2$：构造数列 $\set{a_n}$：$a_1$ 为 $A$ 中任一数（不妨设 $a_1$ 不是上界，否则就证完了），$a_{n+1}$ 通过 $a_n+d$ 得到，$d$ 这样确定：一开始考虑 $d=1$，如果 $a_n+d$ 成为上界了，就将 $d$ 除以 $2$。我们首先证明 $d$ 一定能取到——如果取不到，就意味着，$\forall k\ge 0$，$a_n+2^{-k}\ge\forall a\in A$，（$\Alpha^\prime$）故 $a_n\ge\forall a\in A$，也就是说 $a_n$ 就是上界了，这与构造 $d$ 的方式矛盾。<br>
+然后我们证明 $l=\lim_{n\to\infty}a_n$ 是上确界。如果 $l$ 不是上界，设 $A\ni a&gt;l$，取 $\varepsilon=a-l$，那么有 $l-\varepsilon&lt;a_n\le a$。如果 $a_{n+1}\ne a_n$，那么 $d$ 可以大一倍；如果 $a_{n+1}=a_n$，那由（$\Alpha^\prime$）也是不对的。如果 $l$ 不是确界，设 $l^\prime&lt;l$ 也是上界，取 $\varepsilon=l-l^\prime$，那就有 $A\ni a&gt;l^\prime$ 了，矛盾。<br>
+最后证 $\Alpha^\prime$：$\lim_{n\to\infty}2^{-n}=0$（与阿基米德性等价）。首先它一定有极限，然后如果它 $&gt;0$，设为 $L$，取 $\varepsilon=L$，那么有 $2^{-n}&lt;2L$，那么 $2^{-(n+1)}&lt;L$，矛盾。</p>
+<p>既然提到了，那也顺便讲好吧。</p>
+<blockquote>
+<p>（Archimedes 性，$\Alpha$）任意实数都不是 $\N$ 的上界。</p>
+</blockquote>
+<p>$2\Rightarrow\Alpha$：设有，那一定有上确界 $s$，那么 $\exists n\in\N$，$n&gt;s-1$，故 $n+1&gt;s$，矛盾。</p>
+<blockquote>
+<p>（致密性定理，$4$）有界实数列必有收敛子列。</p>
+</blockquote>
+<p>$2+3\Rightarrow 4$：构造子列 $\set{b_n}$：如果 $\set{a_n}$ 的上确界包含其中，为 $a_s$，那么取 $b_1=a_s$，接着看 $\set{a_{n+s}}$ 的上确界，以此类推。如果一直有，那么构造出单调不升的有界数列 $b$，收敛；如果某次发现上确界不包含其中了，那可以构造 $b_1=$ 此后随便一个数，然后 $b_{n+1}$ 为 $b_n$ 之后随便一个 $&gt;b_n$ 的数（不可能不存在，否则由有限情况 $\sup=\max$ 就存在确界了），这样构造出单调不降的有界数列 $b$，收敛。</p>
+<p>$3\Rightarrow 4$：设 $\set{a_n}$ 界为 $[l,r]$，取 $[l,(l+r)/2]$ 和 $[(l+r)/2,r]$ 之中，包含 $\set{a_n}$ 中无限项的一个区间，不断推下去。取 $b_i$ 为第 $i$ 次区间中对应的任意元素，只需保证 $b$ 取的下标递增即可（由于无限项，故一定可以取到）。$3$ 可得区间左右端点都收敛，由夹逼定理，$\set{b_n}$ 收敛。注意夹逼定理是不需要任何公理就可以证明的。</p>
+<p>$2\Rightarrow 4$ 直接把 $3\Rightarrow 4$ 里的单调有界换成确界即可。</p>
+<p>$4\Rightarrow 3$：取这个单调有界数列 $\set{a_n}$ 的收敛子列 $\set{b_n}$，$\forall\varepsilon&gt;0$，$\set{b_n}$ 中有一项及之后都与极限值差少于 $\varepsilon$，取 $b$ 中这项对应 $a$ 中位置及之后即可。</p>
+<blockquote>
+<p>（聚点定理，$5$）$\R$ 的有界无限子集 $S$ 必有聚点。</p>
+</blockquote>
+<p>$4\Rightarrow 5$：构造 $\set{a_n}$，$a_{n+1}$ 取 $S\setminus\set{a_{1\sim n}}$ 中任一点，于是我们找到一个收敛点列，它收敛到的点就是聚点。</p>
+<p>$5\Rightarrow 4$：将有界数列视作有界无限集，取一聚点 $A$，取数列 $\set{b_n}$，$b_i$ 为 $\mathring{U}(A,1/i)$ 内的一个点，同时保证 $b$ 对应在 $a$ 中的位置递增（这是可以做到的，因为 $\mathring{U}(A,1/i)$ 里有无限个点）。由 $\Alpha^{\prime\prime}$，$\set{b_n}$ 收敛到 $A$。<br>
+$\Alpha^{\prime\prime}$：$\lim_{n\to\infty}1/n=0$。这个也和 $\Alpha$ 等价，可以直接用 $5$ 导出。</p>
+<blockquote>
+<p>（有限覆盖定理，$6$）如果开区间 $\cal I$ 构成了闭区间 $[a,b]$ 的覆盖，则它有一个有限子集也是 $[a,b]$ 的覆盖。</p>
+</blockquote>
+<p>Remark. 这个对 $\Q$ 不成立的原因是，在 $\Q$ 上 $[-\sqrt2,+\sqrt2]\cap\Q$ 是闭集（同时也是开集），只需搞一列不跨 $\sqrt2$ 的区间覆盖它就是反例。</p>
+<p>$2\Rightarrow 6$：设 $S=\set{x\le b\mid [a,x],可以被有限覆盖}$，$S$ 有上确界 $s$。找 $\cal I$ 中包含 $s$ 的开区间 $(l,r)$，显然 $l\in S$，因此 $(s+r)/2\in S$，与 $\sup S=s$ 矛盾。<br>
+Remark. 如果 $b$ 开，那么 $\cal I$ 中可能找不到包含 $s$ 的区间。</p>
+<p>$6\Rightarrow 2$：假设有界集合 $A\subseteq[a,b]$ 无上确界。现在我们考虑构造一些覆盖 $[a,b]$ 开区间。对于 $x$，如果 $x$ 不是 $A$ 的上界，即 $\exists A\ni y&gt;x$，则取 $(2x-y,y)$；如果 $x$ 是 $A$ 的上界，即 $\exists y&lt;x$ 也是 $A$ 的上界，则取 $(y,2x-y)$。每个 $x$ 搞出一个开区间，这些区间形成一个覆盖，必有有限子集也是覆盖。但这些区间的每个，要么在某个 $a\in A$ 左侧，要么在所有 $a\in A$ 右侧，因此必存在一个 $a$ 处于这两类区间之间，没被覆盖到，矛盾。</p>
+<p>$6\Rightarrow 5$：假设 $S\subseteq[a,b]$ 无聚点，那么每个点都存在一个开邻域只包含它本身一个 $S$ 中的点。取 $[a,b]$ 的每个点的这样的开邻域，它们的一个有限子集同样形成 $[a,b]$ 的覆盖，与 $S$ 无限矛盾。</p>
+<blockquote>
+<p>（柯西收敛定理，$\text{C}$）数列 $a$ 收敛，当且仅当 $\forall\varepsilon\exists N\forall m\forall n(m,n&gt;N\rightarrow|a_m-a_n|&lt;\varepsilon)$。</p>
+</blockquote>
+<p>$4\Rightarrow\text{C}$：一个方向是显然的，也不需完备性。另一个方向：显然 $a$ 有界。找到其一个收敛子列，容易利用柯西列性质证明整个序列也收敛到这个值。</p>
+<blockquote>
+<p>（闭区间套定理，$\text{N}$）对于不降数列 $\set{a_n}$ 和不增数列 $\set{b_n}$，如果 $a_n\le b_n$，且 $\lim_{n\to\infty}(b_n-a_n)=0$，那么存在 $c$，$\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=c$ 且 $c$ 是满足 $\forall n$，$a_n\le c\le b_n$ 的唯一数。</p>
+</blockquote>
+<p>$1/2/3\Rightarrow\text{N}$：证明至多一个不需要完备性，只需用极限的定义；证明存在一个，可以构造 $A=\set{a\mid\exists a_n\ge a}$ 和 $B=\set{b\mid\exists b_n\le b}$ 后用 $1$，也可以直接对 $\set{a_n}$ 用 $2/3$。</p>
+<p>$\text{C}\Rightarrow\text{N}$：
+$$
+\begin{align*}
+\lim_{n\to\infty}(b_n-a_n)=0&amp;\Rightarrow\fbox{blabla}(n&gt;m&gt;N\rightarrow|b_m-a_m-b_n+a_n|&lt;\varepsilon)\\
+&amp;\Rightarrow\fbox{blabla}(n&gt;m&gt;N\rightarrow a_n-a_m&lt;\varepsilon\land b_m-b_n&lt;\varepsilon)\\
+&amp;\Rightarrow\lim_{n\to\infty}a_n=A\land\lim_{n\to\infty}b_n=B
+\end{align*}
+$$
+然后就是证明 $\forall a_n\le A,B\le\forall b_n$，再说明 $A=B$ 即可。</p>
+<p>$\text{N}\Rightarrow\text{C}$：对于一个柯西列，构造一列不断缩紧的区间，我们的想法是，考虑一个收敛于 $0$ 的正数列 $\set{d_n}$。根据柯西列的性质，每个 $d_n$ 都可以找到一个 $N_n$，使 $\forall m&gt;N_n$，$|a_m-a_{N_n}|&lt;d_n$。这样，取 $[l_n,r_n]=[a_{N_n}-d_n,a_{N_n}+d_n]\cap[l_{n-1},r_{n-1}]$，这样就得到了一个符合条件的闭区间列，于是就搞出了极限 $c$。要证明 $\set{a_n}$ 极限为 $c$，$\forall\varepsilon&gt;0$，找到 $d_m&lt;\varepsilon/2$，于是 $c$ 和 $\set{a_{n+N_m}}$ 的所有元素都在这个长度 $&lt;\varepsilon$ 的区间 $[l_m,r_m]$ 中。<br>
+但是怎么找 $\set{d_n}$ 呢？你发现没了 $\Alpha$，啥都干不成。但是这里摆着一个几乎能用的序列——$\Delta\set{a_n}$，但是要去掉里面为 $0$ 的项。因此要特殊讨论一下 $\Delta\set{a_n}$ 只有有限项非零的情况。</p>
+<p>$\text{N}+\Alpha\Rightarrow 2$：对于有上界的集合 $A$，取区间 $[a,s]$，其中 $a\in A$（可以假设 $a$ 不是上界），$s$ 是 $A$ 的上界。每次取区间中点，如果中点是上界，那么往左半缩小，否则往右半缩小。根据 $\Alpha$，区间长度 $\to 0$。根据保序性，极限是上界。如果不是上确界，容易得到某个区间的左端点也不是上界，从而与构造矛盾。</p>
+<p>$\text{N}+\Alpha\Rightarrow 3/4$ 都很简单。</p>
+<p>实际上，连续函数的一些性质也可以作为实数公理，但这里就略去了。</p>
+<p>容易验证 Dedekind 分割构造的集合满足公理，那么现在考虑唯一性。</p>
+<p>Theorem 5.1. $\R$ 是唯一的完备序域。<br>
+Proof. 设这样的序域为 $\F$。首先 $\F$ 一定包含 $\Q$，设 $\varphi$ 是自然嵌入，我们考虑扩展 $\varphi$。$\forall A\in\R$，$\sup\varphi(A)$（显然上界存在，又由确界原理）在 $\F$ 中找到了 $A$ 对应的元素，同时上确界的唯一性很重要。如果 $\F$ 中还有别的元素 $x$，拿出 $\set{y\mid y\le x}\cap\varphi(\Q)=X$，由阿基米德性，$\varphi(\Q)$ 中有 $&gt;x$ 的元素，因此 $\varphi^{-1}(X)$ 的上界存在，从而 $x=\varphi\left[\sup{\varphi^{-1}(X)}\right]$。于是就双射了。</p>
+<p>Theorem 5.2. $\R$ 中有理数和无理数都是稠密的。<br>
+Proof. $\forall a,b\in\R$，$a&lt;b$，由阿基米德性，$\exist n\in\N_+$，$1/n&lt;b-a$。取 $c=\sup\set{k/n\mid k\in\Z}\cap(-\infty,b)$，同理可证这个交非空，然后 $c$ 就是 $\in(a,b)$ 的有理数。找到 $\left(a-\sqrt 2,b-\sqrt 2\right)$ 中的一个有理数 $c^\prime$，$c&rsquo;+\sqrt{2}$ 就是 $\in(a,b)$ 的无理数。<br>
+P.S. 尽管 $(a,b)$ 尚未定义，但这里可以不用这个语言，所以只是为了方便才这么写。</p>
+<p>Example 5.1. $\set{x\mid x&lt;0\lor x^2&lt;2}$ 对应的实数不是有理数。</p>
+<p>Theorem 5.3. 定义区间 $I$ 为满足 $\forall x&lt;y\in I,\forall x&lt;z&lt;y,z\in I$ 的集合。则 $I$ 只可能是 $[a,b]$、$[a,b)$、$(a,b]$、$(a,b)$、$(-\infty,b]$、$(-\infty,b)$、$[a,+\infty)$、$(a,+\infty)$、$(-\infty,+\infty)$ 中的一类。</p>
+<p>Theorem 5.4. $y=x^n,(n\in\N_+)$ 在 $[0,+\infty)$ 上严格单调递增；对于 $y\ge 0$，对应的 $x$ 唯一存在。<br>
+Proof. 考虑归纳。由 Corollary 4.8，对于 $0\le x_1&lt;x_2$，$x_1^n&lt;x_2^n\rightarrow x_1^{n+1}&lt;x_2^{n+1}$。<br>
+考虑解 $x_0=\sup\set{x\mid x^n&lt;y}$。由于 $\max\set{y,1}^n\ge y$ 故上界存在。<br>
+如果 $x_0^n&lt;y$，那么考虑构造 $[x_0(1+\varepsilon)]^n&lt;y$ 即 $(1+\varepsilon)^n&lt;y/x_0^n$，这个构造可考虑放缩
+$$
+(1+\varepsilon)^n=\frac{1}{\left(\frac{1}{1+\varepsilon}\right)^n}=\frac{1}{\left(1-\frac{\varepsilon}{1+\varepsilon}\right)^n}&lt;\frac{1}{1-\frac{n\varepsilon}{1+\varepsilon}}&lt;\frac{y}{x_0^n}\Rightarrow\frac{n\varepsilon}{1+\varepsilon}&lt;1-\frac{x_0^n}{y}
+$$
+解一下可以解出合适的 $\varepsilon&gt;0$，于是与 $x_0$ 是上界矛盾；如果 $x_0^n&gt;y$，那么考虑构造 $(1-\varepsilon)^n&gt;1-n\varepsilon&gt;y/x_0^n$，与 $x_0$ 是确界矛盾。</p>
+<p>Definition 6.1. 对于 $y\ge 0$，$\sqrt[n]{y}$ 为使得 $x^n=y$ 的唯一的 $x$。</p>
+<p>P.S. 这类定义问题可以利用连续性和介值定理作为通法证明存在性，但这里就不讲这种方法了。</p>
+<p>Definition 6.2. 对于 $y&gt;0$，$y^{m/n}=\left(\sqrt[n]{y}\right)^m$。</p>
+<p>Definition 6.3. 对于 $y\ge 1$，$y^\alpha=\sup_{a\in(-\infty,\alpha]\cap\Q}\set{y^a}$；对于 $0&lt;y&lt;1$，$y^\alpha=(1/y)^{-\alpha}$。</p>
+<p>P.S. 这里我们只考虑 $y\ge 0$ 的情况。$y&lt;0$ 属于复变函数的内容。</p>
+<p>Corollary 6.1. 指数函数和幂函数的运算法则和单调性等。略。</p>
+<p>Theorem 5.5. 对于 $a&gt;1$，$y=a^x$ 在 $\R$ 上严格单调递增；对于 $y&gt;0$，对应的 $x$ 唯一存在。<br>
+Lemma. $\inf_{n\in\N_+}\set{a^{1/n}}=1$。<br>
+Proof. $a^{1/n}&gt;1$ 故下界存在且 $\ge 1$。如果下界为 $b&gt;1$ 则 $\forall n$，$a^{1/n}\ge b\Rightarrow a\ge b^n&gt;1+n(b-1)$ 即 $n&lt;(a-1)/(b-1)$，与 $\Alpha$ 矛盾。<br>
+Proof. 我们可以不依赖 Corollary 6.1 证明单调性。对于 $x_1&lt;x_2$，由 Theorem 5.2，$\exists q_1/p_1&lt;q_2/p_2\in(x_1,x_2)\cap\Q$。我们知道 $a^{q_2/p_2}/a^{q_1/p_1}=\left(\sqrt[p_1p_2]{a}\right)^{q_2p_1-q_1p_2}\ge\sqrt[p_1p_2]{a}&gt;\sqrt[p_1p_2]{1}=1$。于是 $a^{x_1}\le x^{q_1/p_1}&lt;x^{q_2/p_2}\le a^{x_2}$。<br>
+考虑解 $x_0=\sup\set{x\mid a^x&lt;y}$。由于 $a^{\lceil(y-1)/(a-1)\rceil}&gt;y$（根据伯努利不等式）故上界存在。<br>
+如果 $a^{x_0}&lt;y$，则 $\exists n$，$a^{1/n}&lt;y/a^{x_0}$，故 $a^{x_0+1/n}&lt;y$，与 $x_0$ 是上界矛盾；如果 $a^{x_0}&gt;y$ 也是类似的。</p>
+<p>Definition 6.4. 对于 $y&gt;0$，$a&gt;1$，$\log_ay$ 为使得 $a^x=y$ 的唯一的 $x$；对于 $0&lt;a&lt;1$，$\log_ay=-\log_{1/a}y$。</p>
+<p>Corollary 6.2. 对数函数的运算法则和单调性等。略。</p>
+<p>P.S. 我们可以用 $x^\alpha=\mathrm{e}^{\alpha\ln x}$ 来定义幂函数，但我看不出有什么必要。</p>
+<p>Definition 6.5. 定义 $\sin x$ 和 $\cos x$ 为满足以下公理的两个 $\R\to\R$ 的函数（可以说明它们是唯一的）：</p>
+<ol>
+<li>$\cos 0=\sin\pi/2=1$，$\cos\pi=-1$。</li>
+<li>$\cos(x-y)=\cos x\cos y+\sin x\sin y$。</li>
+<li>$\forall x\in(0,\pi/2)$，$0&lt;\cos x&lt;\sin x/x&lt;1/\cos x$。</li>
+</ol>
+<h3 id="定积分理论">定积分理论
+</h3><p>Definition 0. 一个区间 $[a,b]$ 的划分 $P$ 为一个有限的严格递增列 $a=x_0&lt;x_1&lt;\cdots&lt;x_n=b$。定义其范数 $\lVert P\rVert=\max{x_{i}-x_{i-1}}$。</p>
+<p>Definition 1. 对于定义在 $[a,b]$ 上的<strong>有界</strong>函数 $f$，与一个 $[a,b]$ 的划分 $P$，定义 $f$ 关于 $P$ 的 Darboux 上和为
+$$
+\overline{S}(f,P)=\sum_{i=1}^n(x_i-x_{i-1})\cdot\sup_{x\in[x_{i-1},x_i]}f(x)
+$$
+下和同理。</p>
+<p>Definition 2. （语境略）定义 Darboux 上积分为
+$$
+\overline{S}(f)=\overline{\int_a^b}f(x)\d x=\inf_P\overline{S}(f,P)
+$$
+下积分同理。如果上下积分存在且相等，就定义 Darboux 积分为这个相等的值，称 $f$ 在 $[a,b]$ 上 Darboux 可积。</p>
+<p>Property 1. 对于两个划分 $P$，$Q$，$\underline{S}(f,P)\le\underline{S}(f,P\cup Q)\le\overline{S}(f,P\cup Q)\le\overline{S}(f,Q)$。<br>
+Proof. 直接使用 $\inf$ 和 $\sup$ 的性质。</p>
+<p>Theorem 1.
+$$
+\underline{S}(f)=\overline{S}(f)
+\Longleftrightarrow\forall\varepsilon&gt;0,\exists P,\overline{S}(f,P)-\underline{S}(f,P)&lt;\varepsilon
+\Longleftrightarrow\exists I,\forall\varepsilon&gt;0,I-\varepsilon&lt;\underline{S}(f,P)\le I\le\overline{S}(f,P)&lt;I+\varepsilon
+$$
+Proof. 只证 $2\Rightarrow 3$。取 $I=\underline{S}(f)$。$\forall\varepsilon&gt;0$，$\exists P$，$\underline{S}(f,P)\le I\le\overline{S}(f)\le\overline{S}(f,P)&lt;\underline{S}(f,P)+\varepsilon\le\underline{S}(f)+\varepsilon$。</p>
+<p>Property 2. （大前提有界）递增函数、连续函数、间断点有限函数均 Darboux 可积。<br>
+Proof. 递增函数：$\overline{S}(f,P)-\underline{S}(f,P)\le(f(b)-f(a))\lVert P\rVert$。连续函数：利用一致连续性。间断点有限函数：在各间断点处搞个足够小的区间。</p>
+<p>Property 3. $(a,b)$ 上连续的函数也 Darboux 可积。<br>
+Proof. 设极差为 $M$。对于 $\varepsilon$，考虑左右两端取短段 $\delta$ 以排除端点处震荡间断的影响，于是 $[a+\delta,b-\delta]$ 上一致连续。对于中间，如果对于 $\varepsilon^\prime$ 来说，一致连续保证 $\delta^\prime$ 内震荡 $&lt;\varepsilon^\prime$，则总的就是
+$$
+\overline{S}(f,P)-\underline{S}(f,P)\le2\delta M+(b-a-2\delta)\varepsilon^\prime
+$$
+取要求 $\varepsilon^\prime=\varepsilon/2(b-a)$，以及 $\delta=\min{\delta^\prime,\varepsilon/4M}$ 即可。</p>
+<p>Definition 3. 在 $P$ 的基础上额外加一组表示点 $\xi_{1\sim n}$，$\xi_i\in[x_{i-1},x_i]$。定义对应的 Riemann 和
+$$
+S(f,P,\xi)=\sum_{i=1}^n(x_i-x_{i-1})f(\xi_i)
+$$
+如果 $\exists I$，$\forall\varepsilon&gt;0$，$\exists\delta&gt;0$，$\forall P:\lVert P\rVert&lt;\delta$，$\forall\xi$，$|S(f,P,\xi)-I|&lt;\varepsilon$，则称 $I$ 为 $f$ 在 $[a,b]$ 上的 Riemann 积分，$f\in\mathscr{R}[a,b]$。
+$$
+I=\int_a^bf(x)\d x
+$$
+Remark. Darboux 定义的是无向的积分，更容易高维推广；Riemann 定义的是有向积分，处理正负更方便。</p>
+<p>Definition 4. 一个点集为零测度集，定义为，$\forall\varepsilon&gt;0$，存在一列开区间覆盖所有点，且长度和 $&lt;\varepsilon$。</p>
+<p>Property 4. 可数集为零测度集。<br>
+P.S. 零测度集可能不可数，如康托集。</p>
+<p>Theorem 2.（Darboux 定理）若 $\overline{S}(f)$ 存在，则 $\displaystyle\lim_{\lVert P\rVert\to 0}\overline{S}(f,P)=\overline{S}(f)$。（不明确写这个 $\lim$ 的定义了，容易脑补）<br>
+Proof. 设极差为 $M$。$\forall\varepsilon&gt;0$，由 $\inf$ 的定义，$\exists P$，$\overline{S}(f,P)&lt;\overline{S}(f)+\varepsilon^\prime$。$\forall P^\prime:\lVert P^\prime\rVert&lt;\delta$，考虑 $\overline{S}(f,P)$、$\overline{S}(f,P^\prime)$ 与 $\overline{S}(f,P\cup P^\prime)$ 的关系：当划分从 $P^\prime$ 变成 $P\cup P^\prime$ 时，至多 $|P|$ 个 $P^\prime$ 中的区间被细分了，假设这些细分的区间的贡献都变化极大，也就只有 $\overline{S}(f,P^\prime)-\overline{S}(f,P\cup P^\prime)\le|P|\delta M$。于是 $\overline{S}(f,P^\prime)\le\overline{S}(f,P\cup P^\prime)+|P|\delta M\le\overline{S}(f,P)+|P|\delta M&lt;\overline{S}(f)+\varepsilon^\prime+|P|\delta M$。取 $\delta=\varepsilon/2|P|M$，$\varepsilon^\prime=\varepsilon/2$ 即可。</p>
+<p>Theorem 3.（Lebesgue 可积性定理）$f$ 在 $[a,b]$ 上 Riemann 可积 $\Longleftrightarrow$ $f$ 在 $[a,b]$ 上有界且 Darboux 可积 $\Longleftrightarrow$ $f$ 在 $[a,b]$ 上的间断点为零测度集。<br>
+Proof. $1\Rightarrow 2$ 易（需先证有界）。$2\Rightarrow 1$ 用 Theorem 2。<br>
+定义 $f$ 在点 $x$ 处的振幅为
+$$
+\omega(x)=\lim_{\delta\to 0}\left(\sup_{x^\prime\in U(x,\delta)}f(x^\prime)-\inf_{x^\prime\in U(x,\delta)}f(x^\prime)\right)
+$$
+那么不连续点即为 $\omega&gt;0$ 的点。</p>
+<p>$2\Rightarrow 3$：由于存在划分 $P$ 使得 $\overline{S}(f,P)-\underline{S}(f,P)&lt;\varepsilon/2k$，故所有 $\omega\ge1/k$ 的间断点形成的集合 $D_{1/k}$，一定能被长度 $&lt;\varepsilon$ 的区间覆盖。这是因为，所有处于 $P$ 中非分割端点的 $D_{1/k}$ 中元素，它们对应的总段长至多 $\varepsilon/2$，在端点处的随意处理。从而 $D_{1/k}$ 是零测度集。现在，所有间断点的集合 $D=\bigcup_{k=1}^{\infty}D_{1/k}$，而可数个零测度集的并仍为零测度集。<br>
+$3\Rightarrow 2$：$\forall\varepsilon&gt;0$，我们知道 $D_{\varepsilon/2(b-a)}$ 可以被一族长度和 $&lt;\varepsilon/2M$ 的开区间覆盖，对于 $\omega&lt;\varepsilon/2(b-a)$ 的每一点，都可以找到其一邻域，该邻域的振幅 $&lt;[\omega+\varepsilon/2(b-a)]/2&lt;\varepsilon/2(b-a)$。于是我们现在得到 $[a,b]$ 的一组开覆盖，从而有有限开覆盖 $C$。将该开覆盖的各端点作为划分点，得到的上下和之差必不超过各开区间振幅乘长度之和，而后者小于 $M\cdot\varepsilon/2M+(b-a)\cdot\varepsilon/2(b-a)=\varepsilon$。<br>
+参考：<a class="link" href="https://zhuanlan.zhihu.com/p/450983357"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/450983357</a></p>
+<h3 id="狄利克雷判别法">狄利克雷判别法
+</h3><p>Theorem 1.（微分中值定理）对于 $g\in\mathscr{R}[a,b]$，$f$ 在 $[a,b]$ 上单调不增，$\exists\xi\in[a,b]$，
+$$
+\int_a^bf(x)g(x)\d x=f(a)\int_a^\xi g(x)\d x+f(b)\int_\xi^bg(x)\d x
+$$
+Proof. 我们先考虑 $f(b)=0$ 的情况。令 $G$ 为 $g$ 的积分上限函数（以 $a$ 为下限），$M$ 为 $g$ 的界。第一步我们希望把乘积的积分的一半拆成和式：对于 $[a,b]$ 的一个划分 $P$，
+$$
+\begin{align*}
+&amp;\left\lvert\sum_{i=1}^nf(x_{i-1})\int_{x_{i-1}}^{x_i}g(x)\d x-\int_a^bf(x)g(x)\d x\right\rvert\\
+={}&amp;\left\lvert\sum_{i=1}^n\int_{x_{i-1}}^{x_i}(f(x_{i-1})-f(x))g(x)\d x\right\rvert\\
+\le{}&amp;M\sum_{i=1}^n\int_{x_{i-1}}^{x_i}(f(x_{i-1})-f(x))\d x\\
+\le{}&amp;M\sum_{i=1}^n(f(x_{i-1})-f(x_i))(x_i-x_{i-1})\\
+\le{}&amp;M|P|\sum_{i=1}^n(f(x_{i-1})-f(x_i))\\
+={}&amp;M|P|f(a)\to 0;(|P|\to 0)
+\end{align*}
+$$
+从而（$\in$ 号用了 $f$ 单调的性质）
+$$
+\begin{align*}
+&amp;\int_a^bf(x)g(x)\d x\\
+={}&amp;\lim_{|P|\to 0}\sum_{i=1}^nf(x_{i-1})(G(x_i)-G({x_{i-1}}))\\
+={}&amp;\lim_{|P|\to 0}\left(\sum_{i=0}^{n-1}f(x_i)G(x_{i+1})-\sum_{i=0}^nf(x_i)G(x_i)\right)\\
+={}&amp;\lim_{|P|\to 0}\left(\sum_{i=1}^nf(x_{i-1})G(x_i)-\sum_{i=1}^nf(x_i)G(x_i)\right)\\
+={}&amp;\lim_{|P|\to 0}\sum_{i=1}^n(f(x_{i-1})-f(x_i))G(x_i)\\
+\in{}&amp;\left[\lim_{|P|\to 0}\sum_{i=1}^n(f(x_{i-1})-f(x_i))\cdot\min_{x\in[a,b]}G(x),\lim_{|P|\to 0}\sum_{i=1}^n(f(x_{i-1})-f(x_i))\cdot\max_{x\in[a,b]}G(x)\right]\\
+={}&amp;f(a)\left[\min_{x\in[a,b]}G(x),\max_{x\in[a,b]}G(x)\right]
+\end{align*}
+$$
+由于 $G$ 连续，故存在 $\xi$ 使
+$$
+\int_a^bf(x)g(x)\d x=f(a)\int_a^\xi g(x)\d x
+$$
+对于 $f(b)\ne 0$ 的情况，我们知道存在 $\xi$ 使
+$$
+\int_a^b(f(x)-f(b))g(x)\d x=(f(a)-f(b))\int_a^\xi g(x)\d x
+$$
+移项即可。<br>
+参考：<a class="link" href="https://www.zhihu.com/question/596132013/answer/3487524727"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/596132013/answer/3487524727</a></p>
+<p>Theorem 2.（狄利克雷判别法）对于 $g\in\mathscr{R}[a,\forall b]$，$f$ 在 $[a,+\infty)$ 上单调不增，若 $G$ 有界，$f$ 趋近于 $0$，则
+$$
+\int_a^{+\infty}f(x)g(x)\d x
+$$
+存在。<br>
+Proof. 考虑使用柯西来判。考虑到 $\exists\xi\in[l,r]$，
+$$
+\int_l^rf(x)g(x)\d x=f(l)\int_l^\xi g(x)\d x+f(r)\int_\xi^rg(x)\d x=f(l)(G(\xi)-G(l))+f(r)(G(r)-G(\xi))
+$$
+由于 $G$ 有界，故只需取足够大的 $l$ 使 $f$ 足够小即可。</p>
+<h3 id="高阶线性微分方程解的存在性">高阶线性微分方程解的存在性
+</h3><p>比较复杂（Picard-Lindelöf 定理），先咕了。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="45d7fad53a7e6f13928f2ff029d3a89d"
+    data-page-url="https://littlereuben.github.io/study/course-calculus-0/"
+    data-page-title="微积分的理论基础"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px; height: 450px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+    </script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

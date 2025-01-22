@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="$\\gdef\\eps{\\varepsilon}\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\i{\\mathrm{i}}\\gdef\\F{\\mathbb{F}}\\gdef\\arcsinh{\\operatorname{arcsinh}}\\gdef\\arccosh{\\operatorname{arccosh}}\\gdef\\arctanh{\\operatorname{arctanh}}\\gdef\\arccoth{\\operatorname{arccoth}}\\gdef\\arcsech{\\operatorname{arcsech}}\\gdef\\arccsch{\\operatorname{arccsch}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\sech{\\operatorname{sech}}\\gdef\\csch{\\operatorname{csch}}\\gdef\\arccot{\\operatorname{arccot}}\\gdef\\arcsec{\\operatorname{arcsec}}\\gdef\\arccsc{\\operatorname{arccsc}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\tr{\\operatorname{tr}}\\gdef\\R{\\mathbb{R}}\\gdef\\Q{\\mathbb{Q}}$ 这是一篇学习笔记。 前言 上半学期没什么东西，就记了一下大纲，然后记了些杂题，一部分放在下面，另一部分可以看期中复习 slide。 下半学期有比较">
+<title>微积分 A(1) 复习及一些题</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/course-calculus-1-2/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="微积分 A(1) 复习及一些题">
+<meta property='og:description' content="$\\gdef\\eps{\\varepsilon}\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\i{\\mathrm{i}}\\gdef\\F{\\mathbb{F}}\\gdef\\arcsinh{\\operatorname{arcsinh}}\\gdef\\arccosh{\\operatorname{arccosh}}\\gdef\\arctanh{\\operatorname{arctanh}}\\gdef\\arccoth{\\operatorname{arccoth}}\\gdef\\arcsech{\\operatorname{arcsech}}\\gdef\\arccsch{\\operatorname{arccsch}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\sech{\\operatorname{sech}}\\gdef\\csch{\\operatorname{csch}}\\gdef\\arccot{\\operatorname{arccot}}\\gdef\\arcsec{\\operatorname{arcsec}}\\gdef\\arccsc{\\operatorname{arccsc}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\tr{\\operatorname{tr}}\\gdef\\R{\\mathbb{R}}\\gdef\\Q{\\mathbb{Q}}$ 这是一篇学习笔记。 前言 上半学期没什么东西，就记了一下大纲，然后记了些杂题，一部分放在下面，另一部分可以看期中复习 slide。 下半学期有比较">
+<meta property='og:url' content='https://littlereuben.github.io/study/course-calculus-1-2/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-01-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-22T00:00:00&#43;00:00'/><meta property='og:image' content='https://littlereuben.github.io/study/course-calculus-1-2/cover.jpg' />
+<meta name="twitter:title" content="微积分 A(1) 复习及一些题">
+<meta name="twitter:description" content="$\\gdef\\eps{\\varepsilon}\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\i{\\mathrm{i}}\\gdef\\F{\\mathbb{F}}\\gdef\\arcsinh{\\operatorname{arcsinh}}\\gdef\\arccosh{\\operatorname{arccosh}}\\gdef\\arctanh{\\operatorname{arctanh}}\\gdef\\arccoth{\\operatorname{arccoth}}\\gdef\\arcsech{\\operatorname{arcsech}}\\gdef\\arccsch{\\operatorname{arccsch}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\sech{\\operatorname{sech}}\\gdef\\csch{\\operatorname{csch}}\\gdef\\arccot{\\operatorname{arccot}}\\gdef\\arcsec{\\operatorname{arcsec}}\\gdef\\arccsc{\\operatorname{arccsc}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\tr{\\operatorname{tr}}\\gdef\\R{\\mathbb{R}}\\gdef\\Q{\\mathbb{Q}}$ 这是一篇学习笔记。 前言 上半学期没什么东西，就记了一下大纲，然后记了些杂题，一部分放在下面，另一部分可以看期中复习 slide。 下半学期有比较"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://littlereuben.github.io/study/course-calculus-1-2/cover.jpg' />
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#上半学期">上半学期</a></li>
+    <li><a href="#不定积分">不定积分</a></li>
+    <li><a href="#定积分">定积分</a></li>
+    <li><a href="#广义积分">广义积分</a></li>
+    <li><a href="#微分方程">微分方程</a></li>
+    <li><a href="#杂题">杂题</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/study/course-calculus-1-2/">
+                <img src="/study/course-calculus-1-2/cover.jpg"
+                        
+                        width="2000" 
+                        height="451" 
+                        loading="lazy"
+                        alt="Featured image of post 微积分 A(1) 复习及一些题" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/math/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 数学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/course-calculus-1-2/">微积分 A(1) 复习及一些题</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-01-22</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    14507 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>$\gdef\eps{\varepsilon}\gdef\e{\mathrm{e}}\gdef\d{\mathrm{d}}\gdef\i{\mathrm{i}}\gdef\F{\mathbb{F}}\gdef\arcsinh{\operatorname{arcsinh}}\gdef\arccosh{\operatorname{arccosh}}\gdef\arctanh{\operatorname{arctanh}}\gdef\arccoth{\operatorname{arccoth}}\gdef\arcsech{\operatorname{arcsech}}\gdef\arccsch{\operatorname{arccsch}}\gdef\sgn{\operatorname{sgn}}\gdef\sech{\operatorname{sech}}\gdef\csch{\operatorname{csch}}\gdef\arccot{\operatorname{arccot}}\gdef\arcsec{\operatorname{arcsec}}\gdef\arccsc{\operatorname{arccsc}}\gdef\b#1{\boldsymbol{#1}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\dat#1{\begin{vmatrix}#1\end{vmatrix}}\gdef\tr{\operatorname{tr}}\gdef\R{\mathbb{R}}\gdef\Q{\mathbb{Q}}$</p>
+<div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<h2 id="前言">前言
+</h2><p>上半学期没什么东西，就记了一下大纲，然后记了些杂题，一部分放在下面，另一部分可以看期中复习 slide。</p>
+<p>下半学期有比较详尽的内容。</p>
+<p>参照了 wxf 的 ppt 和课。</p>
+<p><a class="link" href="/study/course-calculus-0/" >理论基础</a>、<a class="link" href="/study/course-calculus-1-1/" >期中复习</a>。</p>
+<h2 id="上半学期">上半学期
+</h2><ol>
+<li>
+<p>实分析初步</p>
+<ol>
+<li>基础定义和性质、实数理论（略）</li>
+<li>上下界、上下确界
+<ol>
+<li>确界的类 $\eps-\delta$ 语言</li>
+<li>确界原理</li>
+</ol>
+</li>
+<li>初等函数
+<ol>
+<li>指数、对数、幂函数的定义
+<ol>
+<li>注意只考虑底数 $&gt;0$ 的情况。</li>
+<li>有理数指数（开根）、无理数指数都使用上确界定义。</li>
+<li>指数、对数、幂函数的单调性。</li>
+<li>对数函数在没有连续性理论的情况下，类似于开根，也使用上确界定义。</li>
+</ol>
+</li>
+<li>三角函数、反三角函数的定义与性质</li>
+<li>初等函数的定义
+<ol>
+<li>注意是有限次的四则运算与复合；注意定义域。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>极限与连续性</p>
+<ol>
+<li>
+<p>$\eps-\delta$ 语言</p>
+<ol>
+<li>注意极限和连续性都可以定义在定义域为非区间的函数上，但是考试应该会避免这种事。定义极限时，$x_0$ 必须是定义域的聚点；定义连续性时，$x_0$ 必须在定义域内。</li>
+</ol>
+</li>
+<li>
+<p>$\eps-\delta$ 的证明策略</p>
+<ol>
+<li>
+<p>基础放缩方法</p>
+<ol>
+<li>上取整</li>
+<li>反解不等式</li>
+<li>多个条件取最值；分类讨论转求和</li>
+<li>三角不等式</li>
+</ol>
+</li>
+<li>
+<p>阿基米德性、有理数和无理数的稠密性</p>
+<ol>
+<li>黎曼函数、狄利克雷函数</li>
+</ol>
+</li>
+<li>
+<p>二项式展开 → 伯努利不等式</p>
+<p>条件：$x&gt;-1$</p>
+<p>$a&gt;1$：$(1+x)^a\ge 1+ax$，在 $x=0$ 处取等</p>
+<p>$a=1$：$(1+x)^a=1+ax$</p>
+<p>$0&lt;a&lt;1$：$(1+x)^a\le 1+ax$，在 $x=0$ 处取等</p>
+<p>$a=0$：$(1+x)^a=1+ax$</p>
+<p>$a&lt;0$：$(1+x)^a\ge 1+ax$，在 $x=0$ 处取等</p>
+<p>应用：</p>
+<ol>
+<li>$n^k/a^n$</li>
+<li>$\sqrt[n]a$</li>
+<li>$\sqrt[n]n$</li>
+<li>$(1+1/n)^n$</li>
+</ol>
+</li>
+<li>
+<p>$\e$ 和 $\ln$ 相关的不等式</p>
+<ol>
+<li>$\e^x\ge 1+x$，在 $x=0$ 处取等（求导证 $(1+x)^{1/x}$ 单降、凸性切线）</li>
+<li>$\e^x\le(1+x)^{1+x}$（$x&gt;-1$），在 $x=0$ 处取等（$(1+x)^{1/x+1}$ 单增）</li>
+<li>$\ln(1+x)\le x\le(1+x)\ln(1+x)$（$x&gt;-1$），在 $x=0$ 处取等</li>
+<li>$\e^x\le1/(1-x)$（$x&lt;1$），1 中 $x$ 换成 $-x$</li>
+<li>$\e^x&lt;(\e-1)x+1$（$0&lt;x&lt;1$），过 $\e^x$ 的 $(0,1)-(1,\e)$ 的割线，凸性</li>
+</ol>
+</li>
+<li>
+<p>三角函数相关的不等式</p>
+<ol>
+<li>$\sin x&lt;x&lt;\tan x$（$0&lt;x&lt;\pi/2$）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>极限的初步性质</p>
+<ol>
+<li>唯一性、有界性</li>
+<li>保序性与夹逼定理
+<ol>
+<li>取极限后，不含等变含等；极限不等，原邻域也不等。</li>
+<li>夹逼定理本身蕴含着极限的存在性。</li>
+</ol>
+</li>
+<li>（连续也有）四则运算
+<ol>
+<li>注意分母不能是 $0$。</li>
+</ol>
+</li>
+<li>（连续也有）复合
+<ol>
+<li>注意定义域。</li>
+</ol>
+</li>
+<li>初等函数的连续性</li>
+</ol>
+</li>
+<li>
+<p>数列极限的特有性质</p>
+<ol>
+<li>子列与原列的极限的关系
+<ol>
+<li>存在一个下标列同时使两个有界数列收敛</li>
+</ol>
+</li>
+<li>复合函数</li>
+<li>单调有界原理</li>
+<li>列紧性</li>
+<li>柯西列</li>
+<li>有界变差数列</li>
+<li>闭区间套定理</li>
+<li>Stolz 定理
+<ol>
+<li>注意使用条件：分母必须单调。</li>
+<li>差分后极限存在 $\Rightarrow$ 原极限存在</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>数列极限与函数极限的关系</p>
+<ol>
+<li>归结原理与柯西收敛定理</li>
+</ol>
+</li>
+<li>
+<p>间断点</p>
+<ol>
+<li>可去间断点、跳跃间断点是第一类间断点（左右极限均存在但有至少一个 $\ne f(x_0)$），其他都是第二类。</li>
+</ol>
+</li>
+<li>
+<p>$\e$</p>
+<ol>
+<li>证明数列极限存在</li>
+<li>证明函数极限存在</li>
+</ol>
+</li>
+<li>
+<p>证明数列极限存在的方法</p>
+<ol>
+<li>单调有界定理
+<ol>
+<li>$\e$</li>
+<li>$H_n-\ln n$</li>
+<li>一些可以用 Banach 不动点定理证的东西</li>
+</ol>
+</li>
+<li>保序性、夹逼
+<ol>
+<li>阶乘倒数和 $=\e$</li>
+</ol>
+</li>
+<li>Stolz
+<ol>
+<li>平均值的极限</li>
+<li>$n!/n^n$</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>求极限的方法</p>
+<ol>
+<li>（数列）等式两侧求极限解方程 → 找不动点</li>
+<li>数列、函数互相归约</li>
+<li>代数变形后利用连续性</li>
+<li>换元、取对数
+<ol>
+<li>逆天三角换元</li>
+</ol>
+</li>
+<li>等价替换、渐进分析</li>
+<li>Stolz、洛</li>
+</ol>
+</li>
+<li>
+<p>连续性相关定理</p>
+<ol>
+<li>单调函数、反函数的性质</li>
+<li>介值定理</li>
+<li>有界定理、最值定理
+<ol>
+<li>注意必须是闭区间</li>
+</ol>
+</li>
+<li>压缩不动点定理</li>
+<li>一致连续性</li>
+</ol>
+</li>
+<li>
+<p>渐近线</p>
+<ol>
+<li>由定义求：写出曲线上点到直线距离公式，求极限。或者说 $k=\lim f(x)/x$，$b=\lim(f(x)-kx)$。</li>
+<li>由渐近展开求：通过保留 $x$ 因子，剩下改成 $1/x$，写成 $f(x)/x=1+b/x+\omicron(x)\,(x\to\infty)$。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>无穷和阶</p>
+<ol>
+<li>无穷大小量的表示的定义与初步性质
+<ol>
+<li>通过不等式避免除以 $0$。</li>
+<li>证明对称性和传递性。</li>
+</ol>
+</li>
+<li>手动展开的方法
+<ol>
+<li>$1/(1-x)$：递归</li>
+<li>$\e^x,\ln(1+x)$ 前几项：直接求极限，利用 $f(2h)-f(h)$ 可以展更多，展到 $x^3$ 项</li>
+<li>$(1+x)^{m/n}$：$(1+y)^n=(1+x)^m$，利用 $f+\omicron(f)=G+\omicron(g)$ 定理</li>
+</ol>
+</li>
+<li>等价无穷小量替换
+<ol>
+<li>注意那个著名反例（$x^2\sin1/x$）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>导数</p>
+<ol>
+<li>导数和微分的定义
+<ol>
+<li>注意闭区间上可微，要求端点单侧可导。</li>
+</ol>
+</li>
+<li>导数的运算法则</li>
+<li>求导的技巧
+<ol>
+<li>对于一些复杂导数的定性分析问题，可以写出“导数一定形如关于某些东西的多项式”，而不求出具体的解析式系数。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>导数的应用</p>
+<ol>
+<li>
+<p>导数在几何与物理中的应用</p>
+<ol>
+<li>
+<p>切线。注意非正则光滑曲线的切线可能会爆。</p>
+</li>
+<li>
+<p>曲率。计算方法 1：求法线交点的极限。计算方法 2：$\frac{[\arctan(y/x)]^\prime}{\sqrt{{x^\prime}^2+{y^\prime}^2}}$
+$$
+\kappa=\left\lvert\frac1r\right\rvert=\frac{\left\lvert x^\prime(t)y^{\prime\prime}(t)-x^{\prime\prime}(t)y^\prime(t)\right\rvert}{\left[(x^\prime(t))^2+(y^\prime(t))^2\right]^{3/2}}
+$$
+曲率中心：
+$$
+\left(x(t)-y^\prime(t)\frac{(x^\prime(t))^2+(y^\prime(t))^2}{x^\prime(t)y^{\prime\prime}(t)-x^{\prime\prime}(t)y^\prime(t)},y(t)+x^\prime(t)\frac{(x^\prime(t))^2+(y^\prime(t))^2}{x^\prime(t)y^{\prime\prime}(t)-x^{\prime\prime}(t)y^\prime(t)}\right)
+$$</p>
+</li>
+</ol>
+</li>
+<li>
+<p>微分中值定理</p>
+<ol>
+<li>
+<p>一般的罗尔定理、柯西中值定理、拉格朗日中值定理，注意要在闭区间上连续（左端点右连续，右端点左连续），在开区间上可导，$\xi\in$ 开区间。柯西中值定理要求 $g^\prime\not\equiv0$，也就是说 $g$ 严增或严减。</p>
+</li>
+<li>
+<p>广义柯西中值定理：$f$、$g$ 在 $(a,b)$ 上可导（$a,b$ 甚至可以是无穷），不要求 $g^\prime\ne 0$；$\exists\xi\in(a,b)$ 使得
+$$
+f^\prime(\xi)\left(\lim_{x\to b^-}g(x)-\lim_{x\to a^+}g(x)\right)=g^\prime(\xi)\left(\lim_{x\to b^-}f(x)-\lim_{x\to a^+}f(x)\right)
+$$</p>
+</li>
+<li>
+<p>达布定理：导数的介值性。证明考虑利用最值定理找导数为 $0$ 的点（先否定端点是最值点）。也就是说，导数只能有震荡间断点。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>导数与图像的关系</p>
+<ol>
+<li>
+<p>最值</p>
+<ol>
+<li>极值点处，导数不存在或等于 $0$。反之不一定成立。</li>
+<li>如果 $\exists n\in\N_+$，$f$ 在 $x_0$ 处的 $1\sim 2n-1$ 阶导均为 $0$，且 $2n$ 阶导为正/负，则 $x_0$ 处是严格极小/大值点。证明考虑归纳，利用二阶导是个极值点推回。</li>
+<li>有可能无法通过任何阶导判断极值点。</li>
+</ol>
+</li>
+<li>
+<p>单调性</p>
+<ol>
+<li>
+<p>开区间还是闭区间无所谓。</p>
+</li>
+<li>
+<p>单点的导数不能说明任何单调性，必须是区间。反例：$f(x)=\begin{cases}x+2x^2\sin(1/x),&amp;x\ne0\\ 0,&amp;x=0\end{cases}$</p>
+</li>
+<li>
+<p>如果区间上导数恒正，则严格单增；如果恒非负，则单增。严格单增的充要条件是，任意子区间内导数不恒为 $0$。<a class="link" href="https://www.zhihu.com/question/585000983/answer/2900992507"  target="_blank" rel="noopener"
+    >证明</a>，<a class="link" href="https://www.zhihu.com/question/648122351/answer/3427887373"  target="_blank" rel="noopener"
+    >拓展</a>。严格单增并不意味着导数非 $0$，反例：$x^{2n}$。</p>
+</li>
+<li>
+<p>如果 $\exists n\in\N_+$，$f$ 在 $x_0$ 处的 $1\sim 2n$ 阶导均为 $0$，且 $2n+1$ 阶导为正/负，则 $x_0$ 附近严格单增/减，也就是说一阶和三阶及以上在这里是不一样的。证明考虑归纳，用上面那个说明一阶导是极值点。</p>
+<p>高阶导均为 $0$ 不能说明单调性。单调：$f(x)=\begin{cases}\e^{-1/x^2},&amp;x\ne0\\ 0,&amp;x=0\end{cases}$；不单调：$f(x)=\begin{cases}\e^{-1/|x|}(0.1+\sin^2(1/x)),&amp;x\ne0\\ 0,&amp;x=0\end{cases}$</p>
+</li>
+</ol>
+</li>
+<li>
+<p>连续性</p>
+<ol>
+<li>连续可能处处不可导：Weierstrass 函数。</li>
+<li>单点可导要求单点连续。</li>
+<li>单点连续不说明邻域连续。$xD(x)$</li>
+<li>单点可导不说明邻域连续。$x^2D(x)$</li>
+<li>区间可导不说明导数连续。$f(x)=\begin{cases}x^2\sin(1/x),&amp;x\ne0\\ 0,&amp;x=0\end{cases}$</li>
+<li>连续且趋近于单点的导数极限存在说明单点导数存在且等于导数极限。</li>
+<li>两个达布函数（有介值性的）函数之和不一定是达布函数。$\pm \sin(1/x)$，$0$ 处取 $\pm 1$。</li>
+<li>达布函数可能处处不连续：<a class="link" href="https://en.wikipedia.org/wiki/Conway_base_13_function"  target="_blank" rel="noopener"
+    >Conway base 13 function</a>。</li>
+</ol>
+</li>
+<li>
+<p>凸性</p>
+<ol>
+<li>
+<p>定义：琴森不等式。一阶导（严）单增/减 $\Leftrightarrow$（严）下/上凸，二阶导非负/正 $\Leftrightarrow$ 下/上凸。</p>
+<p>不等式语言与导数语言的转化：$f^\prime_-(x_0)\le f^\prime_+(x_0)\le f^\prime_-(x&gt;x_0)$。</p>
+</li>
+<li>
+<p>一阶导严单当且仅当严凸，二阶导恒正则严凸，但严凸不一定二阶导非零。</p>
+</li>
+<li>
+<p>相关不等式：</p>
+<ol>
+<li>Jensen</li>
+<li>Information</li>
+<li>Hölder</li>
+<li>Minkowski</li>
+<li>Young</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>洛必达法则与泰勒公式</p>
+<ol>
+<li>注意洛必达要求 $g^\prime(x)\ne0$。</li>
+<li>泰勒公式的皮亚诺余项形式只要求单点 $n$ 阶可导，拉格朗日余项形式必须在 $[x_0,x]$ 连续，$[x_0,x)$ $n+1$ 阶可导。</li>
+<li>泰勒多项式唯一。</li>
+<li>注意只有在满足可导条件下说泰勒多项式才有意义。</li>
+<li>有些情况下在某一阶之后就没法展了，比如 $x^{非整数}$。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="不定积分">不定积分
+</h2><p>第二类换元法要保证 $x=u(t)$ 的值域要包含原被积函数的定义域，在 $u(t)$ 整体反函数多值时，要指出 $t$ 的取值。</p>
+<p>分部积分有一个很简单的几何直观。</p>
+<p>特定的积分：</p>
+<ul>
+<li>
+<p>$$
+\int\frac{\d x}{x^2\pm a^2}
+$$</p>
+<p>部分分式
+$$
+\frac{1}{x^2\pm a^2}=\frac{1}{2\sqrt{\pm a}}\left(\frac{1}{x-\sqrt{\pm a}}-\frac{1}{x+\sqrt{\pm a}}\right)
+$$
+或换元 $+:a\tan t$，$-:a\tanh t,a\coth t$
+$$
+\int\frac{\d x}{x^2+a^2}=\frac1a\arctan\frac xa+C
+$$</p>
+<p>$$
+\int\frac{\d x}{a^2-x^2}=\left\{\begin{aligned}&amp;\frac1a\arctanh\frac xa+C,&amp;|x|&lt;a\\ &amp;\frac1a\arccoth\frac xa+C,&amp;|x|&gt;a\end{aligned}\right.=\frac1{2a}\ln\left\lvert\frac{a+x}{a-x}\right\rvert+C
+$$</p>
+</li>
+<li>
+<p>$$
+\int\frac{\d x}{\sqrt{\pm x^2\pm a^2}}
+$$</p>
+<p>换元 $+a^2:a\tan t,a\sinh t$，$-a^2:a\sec t,a\cosh t$，$a^2-:a\sin t$
+$$
+\int\frac{\d x}{\sqrt{x^2+a^2}}=\arcsinh\frac xa+C=\ln\left(x+\sqrt{x^2+a^2}\right)+C
+$$</p>
+<p>$$
+\int\frac{\d x}{\sqrt{x^2-a^2}}=\sgn(x)\arccosh\left\lvert\frac xa\right\rvert+C=\ln\left\lvert x+\sqrt{x^2-a^2}\right\rvert+C
+$$</p>
+<p>$$
+\int\frac{\d x}{\sqrt{a^2-x^2}}=\arcsin\frac xa+C
+$$</p>
+</li>
+<li>
+<p>$$
+\int\frac{\d x}{x\sqrt{\pm x^2\pm a^2}}
+$$</p>
+<p>换元 $+a^2:a\tan t,a\csch t$，$-a^2:a\sec t$，$a^2-:a\sin t$
+$$
+\int\frac{\d x}{x\sqrt{x^2+a^2}}=-\frac1a\arccsch\left\lvert\frac xa\right\rvert+C=-\frac1a\ln\left\lvert\frac{a+\sqrt{x^2+a^2}}{x}\right\rvert+C
+$$</p>
+<p>$$
+\int\frac{\d x}{x\sqrt{x^2-a^2}}=\frac1a\arcsec\left\lvert\frac xa\right\rvert+C
+$$</p>
+<p>$$
+\int\frac{\d x}{x\sqrt{a^2-x^2}}=-\frac1a\arcsech\left\lvert\frac xa\right\rvert+C=-\frac1a\ln\left\lvert\frac{a+\sqrt{x^2-a^2}}{x}\right\rvert+C
+$$</p>
+</li>
+<li>
+<p>$$
+\int\sqrt{\pm x^2\pm a^2}\d x
+$$</p>
+<p>分部积分
+$$
+\int\sqrt{\pm x^2\pm a^2}\d x=x\sqrt{\pm x^2\pm a^2}-\int\frac{\pm x^2\d x}{\sqrt{\pm x^2\pm a^2}}=x\sqrt{\pm x^2\pm a^2}-\int\sqrt{\pm x^2\pm a^2}\d x\pm\int\frac{a^2\d x}{\sqrt{\pm x^2\pm a^2}}
+$$
+或换元 $+a^2:a\tan t$，$-a^2:a\sec t$，$a^2-:a\sin t$
+$$
+\int\sqrt{*}\d x=\frac12\left(x\sqrt{*}\pm a^2\int\frac{\d x}{\sqrt{*}}\right)
+$$
+其中 $-a^2$ 取负，其余取正。</p>
+</li>
+<li>
+<p>$$
+\int x^n\e^{kx}\d x
+$$</p>
+<p>反复分部积分
+$$
+\int x^n\e^{kx}\d x=\e^{kx}\sum_{i=0}^{n}\frac{(-1)^in^{\underline{i}}}{k^{i+1}}x^{n-i}+C
+$$</p>
+</li>
+<li>
+<p>$$
+\int x^n\ln^kx\d x
+$$</p>
+<p>反复分部积分
+$$
+\int x^n\ln^kx\d x=x^{n+1}\sum_{i=0}^n\frac{(-1)^ik^{\underline{i}}}{(n+1)^{i+1}}\ln^{k-i}x+C
+$$</p>
+</li>
+<li>
+<p>$$
+\int\frac{\d x}{(a^2\pm x^2)^n}
+$$</p>
+<p>分部积分递推
+$$
+\begin{align*}
+\int\frac{\d x}{(a^2\pm x^2)^n}&amp;=\frac{1}{a^2}\left[\int\frac{(a^2\pm x^2)\d x}{(a^2\pm x^2)^n}\mp\int\frac{x^2\d x}{(a^2\pm x^2)^n}\right]\\
+&amp;=\frac{1}{a^2}\left[\int\frac{\d x}{(a^2\pm x^2)^{n-1}}+\frac{1}{2(n-1)}\int x\d\frac{1}{(a^2\pm x^2)^{n-1}}\right]\\
+&amp;=\frac{1}{a^2}\left[\int\frac{\d x}{(a^2\pm x^2)^{n-1}}+\frac{x}{2(n-1)(a^2\pm x^2)^{n-1}}-\frac{1}{2(n-1)}\int\frac{\d x}{(a^2\pm x^2)^{n-1}}\right]\\
+\Longrightarrow a^2I_n&amp;=\left[1-\frac{1}{2(n-1)}\right]I_{n-1}+\frac{x}{2(n-1)(a^2\pm x^2)^{n-1}}
+\end{align*}
+$$
+或部分分式分解
+$$
+\frac{1}{(a^2-x^2)^n}=\sum_{i=1}^n\frac{\binom{2n-i-1}{n-1}}{(2a)^{2n-i}}\left[\frac{1}{(a+x)^i}+\frac{1}{(a-x)^i}\right]
+$$</p>
+<p>$$
+\int\frac{\d x}{(a^2-x^2)^n}=\frac{\binom{2n-2}{n-1}}{(2a)^{2n-1}}\ln\left\lvert\frac{a+x}{a-x}\right\rvert+\sum_{i=1}^{n-1}\frac{\binom{2n-i-2}{n-1}}{i(2a)^{2n-i-1}}\left[\frac{1}{(a-x)^i}-\frac{1}{(a+x)^i}\right]+C
+$$</p>
+</li>
+<li>
+<p>$$
+\int\sin^nx\cos^mx\d x
+$$</p>
+<ol>
+<li>
+<p>分部积分递推（点火公式）
+$$
+\begin{align*}
+\int\sin^nx\cos^mx\d x
+&amp;=\int\sin^nx\cos^{m-1}x\d\sin x\\
+&amp;=\sin^{n+1}x\cos^{m-1}x-\int\sin x\left[n\sin^{n-1}x\cos^mx-(m-1)\sin^{n+1}x\cos^{m-2}x\right]\d x\\
+&amp;=\sin^{n+1}x\cos^{m-1}x-(n+m-1)\int\sin^nx\cos^mx\d x+(m-1)\int\sin^nx\cos^{m-2}x\d x\\
+\Longrightarrow I_{n,m}&amp;=\frac{1}{n+m}\left[\sin^{n+1}x\cos^{m-1}x+(m-1)I_{n,m-2}\right]
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>当 $n,m$ 有一个是奇数时换元
+$$
+\int\sin^nx\cos^mx\d x=\int\sin^nx\left(1-\sin^2x\right)^{(m-1)/2}\d\sin x=\int t^n\left(1-t^2\right)^{(m-1)/2}\d t
+$$
+都是偶数时只能用二倍角公式归约为 $\cos 2x$ 的多项式。</p>
+</li>
+<li>
+<p>欧拉公式秒了！</p>
+</li>
+</ol>
+</li>
+<li>
+<p>$$
+\int\tan^nx\d x
+$$</p>
+<p>凑换元递推
+$$
+\int\tan^nx\d x=\int\tan^{n-2}\sec^2x\d x-\int\tan^{n-2}x\d x=\frac{\tan^{n-1}x}{n-1}-\int\tan^{n-2}x\d x
+$$
+或直接换元
+$$
+\int\tan^nx\d x\xlongequal{t=\tan x}\int\frac{t^n\d t}{1+t^2}=
+\sum_{i=1}^{n/2}\frac{(-1)^{i-1}\tan^{n-2i+1}x}{n-2i+1}+
+\left\{\begin{aligned}
+&amp;x,&amp;2\mid n\\
+&amp;\ln\lvert\sec x\rvert,&amp;2\nmid n
+\end{aligned}\right.
++C
+$$</p>
+</li>
+<li>
+<p>$$
+\int\sec^nx\d x
+$$</p>
+<p>分部积分递推
+$$
+\int\sec^nx\d x=\int\sec^{n-2}x\d\tan x=\sec^{n-2}x\tan x-\int(n-2)\sec^{n-2}x(\sec^2x-1)\d x
+$$
+或直接换元
+$$
+\int\sec^{2n}x\d x=\int\sec^{2n-2}x\d\tan x=\int(1+t^2)^{n-1}\d t
+$$</p>
+<p>$$
+\int\sec^{2n-1}x\d x=\int\frac{\d\sin x}{\cos^{2n}x}=\int\frac{\d t}{(1-t^2)^n}
+$$</p>
+</li>
+<li>
+<p>$$
+\int\e^x\sin^nx\d x
+$$</p>
+</li>
+<li>
+<p>有理函数（<a class="link" href="https://zhuanlan.zhihu.com/p/619998711"  target="_blank" rel="noopener"
+    >参考</a>），复数法的本质是扩展变成复变解析函数，相关的求导公式形式与实变函数类似。</p>
+<p>首先把复根全部搞出来，分母不要留二次项。考虑确定以下系数：
+$$
+f(x)=\frac{P(x)}{(x-x_0)^kQ(x)}=\sum_{i=1}^k\frac{A_i}{(x-x_0)^i}+R(x)
+$$
+其中 $(x-x_0)\nmid Q(x)$。</p>
+<p>两边同乘 $(x-x_0)^k$，然后不断求导，代入 $x=x_0$，可得
+$$
+A_i=\frac{1}{(k-i)!}\left.\left[\frac{P(x)}{Q(x)}\right]^{k-i}\right|_{x=x_0}
+$$
+如果有复根，我们知道它们一定是一对对的。容易证明在 $f$ 的系数是实数时，$(x-z_0)^{-i}$ 与 $(x-\overline{z_0})^{-i}$ 的系数是共轭的。</p>
+<p>对于 $i=1$ 的部分，积出
+$$
+\begin{align*}
+&amp;(c+\i d)\ln(x-a-\i b)+(c-\i d)\ln(x-a+\i b)\\
+={}&amp;(c+\i d)\left[\ln\sqrt{(x-a)^2+b^2}+\i\arg(x-a-\i b)\right]+(c-\i d)\left[\ln\sqrt{(x-a)^2+b^2}+\i\arg(x-a+\i b)\right]+C\\
+={}&amp;c\ln\left(x^2-2ax+a^2+b^2\right)+2d\arctan\frac{b}{x-a}+C
+\end{align*}
+$$
+注意到 $\arctan t=\arctan(-1/t)+C$。</p>
+<p>对于 $i&gt;1$ 的部分，就全是分式了
+$$
+\begin{align*}
+&amp;-\frac{1}{i-1}\left[\frac{c+\i d}{(x-a-\i b)^{i-1}}+\frac{c-\i d}{(x-a+\i b)^{i-1}}\right]\\
+={}&amp;-\frac{2}{(i-1)(x^2-2ax+a^2+b^2)^{i-1}}\left[c\sum_{j=0}^{\lceil i/2\rceil-1}\binom{i-1}{2j}(-1)^jb^{2j}(x-a)^{i-1-2j}-d\sum_{j=0}^{\lfloor i/2\rfloor-1}\binom{i-1}{2j+1}(-1)^jb^{2j+1}(x-a)^{i-2-2j}\right]
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>$$
+\int\frac{\d x}{x^n+1}
+$$</p>
+<p>直接部分分式分解。取 $\omega$ 为 $2n$ 次单位根 $\e^{\i\pi/n}$。
+$$
+\begin{align*}
+&amp;\int\frac{\d x}{x^n+1}\\
+={}&amp;\int\frac{\d x}{\displaystyle\prod_{k=0}^{n-1}\left(x-\omega^{2k+1}\right)}\\
+={}&amp;\int\d x\sum_{k=0}^{n-1}\frac{\displaystyle\lim_{x\to\omega^{2k+1}}\frac{x-\omega^{2k+1}}{x^n+1}}{x-\omega^{2k+1}}\\
+\xlongequal{\rm l&rsquo;H}{}&amp;\int\d x\sum_{k=0}^{n-1}\frac{\displaystyle\frac{1}{n\omega^{(n-1)(2k+1)}}}{x-\omega^{2k+1}}\\
+={}&amp;-\frac1n\int\d x\sum_{k=0}^{n-1}\frac{\omega^{2k+1}}{x-\omega^{2k+1}}\\
+={}&amp;-\frac1n\sum_{k=0}^{n-1}\omega^{2k+1}\ln(x-\omega^{2k+1})+C\\
+={}&amp;-\frac1n\sum_{k=0}^{n-1}\left(\cos\frac{(2k+1)\pi}{n}+\i\sin\frac{(2k+1)\pi}{n}\right)\left(\ln\sqrt{x^2-2x\cos\frac{(2k+1)\pi}{n}+1}+\i\arg\left(x-\cos\frac{(2k+1)\pi}{n}-\i\sin\frac{(2k+1)\pi}{n}\right)\right)+C\\
+={}&amp;-\frac1n\sum_{k=0}^{n-1}\left[\frac12\cos\frac{(2k+1)\pi}{n}\ln\left(x^2-2x\cos\frac{(2k+1)\pi}{n}+1\right)+\sin\frac{(2k+1)\pi}{n}\arctan\frac{\displaystyle\cos\frac{(2k+1)\pi}{n}-x}{\displaystyle\sin\frac{(2k+1)\pi}{n}}\right]+C
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>二项式微分的积分（$m,n,p\in\mathbb Q$）
+$$
+\int x^m(a+bx^n)^p\d x
+$$
+有初等表示当且仅当 $p$、$(m+1)/n$、$p+(m+1)/n$ 中有一个是整数。</p>
+<p>$p$ 为负整数的情况，取 $l$ 为 $m$、$n$ 分母的 $\operatorname{lcm}$：
+$$
+\int x^m(a+bx^n)^p\d x\xlongequal{x=t^l}k\int t^{ml+k-1}(a+bt^{nl})^p\d t
+$$
+$(m+1)/n$ 为整数的情况：
+$$
+\int x^m(a+bx^n)^p\d x\xlongequal{t=a+bx^n}\frac1n\int t^p\left(\frac{t-a}{b}\right)^{\frac{m+1}{n}-1}\d t
+$$
+$p+(m+1)/n$ 为整数的情况：
+$$
+\int x^m(a+bx^n)^p\d x=\int x^{m+np}(ax^{-n}+b)^p\d x
+$$</p>
+</li>
+<li>
+<p>$$
+\int\frac{\d x}{\sqrt[n]{1+x^n}}
+$$</p>
+<p>这个复合上面第三种形式，但是如果直接换元 $t^n=x^{-n}+1$，会要开 $n$ 次根导致一些正负号很烦的问题。所以这里有个换元（<a class="link" href="https://math.stackexchange.com/a/306187"  target="_blank" rel="noopener"
+    >来源</a>）：
+$$
+\int\frac{\d x}{\sqrt[n]{1+x^n}}\xlongequal[\d t=\frac{t-t^{n-1}}{x}\d x]{t=\frac{x}{\sqrt[n]{1+x^n}}}\int\frac{\d t}{1-t^n}
+$$</p>
+</li>
+<li>
+<p>复杂根分式积分：<a class="link" href="https://zhuanlan.zhihu.com/p/559773120"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/559773120</a></p>
+</li>
+<li>
+<p>$$
+\int\sqrt{\tan x}\d x
+$$
+直接换元，剩下的分式有比直接部分分式分解简单点的方法。
+$$
+\begin{align*}
+\int\sqrt{\tan x}\d x
+&amp;\xlongequal{t=\sqrt{\tan x}}\int\frac{2t^2}{1+t^4}\d t\\
+&amp;=2\int\frac{\d t}{t^2+t^{-2}}\\
+&amp;=\int\frac{1-t^{-2}+1+t^{-2}}{t^2+t^{-2}}\d t\\
+&amp;=\int\frac{1-t^{-2}}{(t+t^{-1})^2-2}\d t+\int\frac{1+t^{-2}}{(t-t^{-1})^2+2}\d t\\
+&amp;\xlongequal[v=t-t^{-1}]{u=t+t^{-1}}\int\frac{\d u}{u^2-2}+\int\frac{\d v}{v^2+2}\\
+&amp;=\frac1{2\sqrt2}\ln\frac{u-\sqrt2}{u+\sqrt2}+\frac1{\sqrt2}\arctan\frac v{\sqrt2}+C\\
+&amp;=\frac1{2\sqrt2}\ln\frac{t^2-\sqrt2t+1}{t^2+\sqrt2t+1}+\frac1{\sqrt2}\arctan\frac{t^2-1}{\sqrt2t}+C\\
+&amp;=\frac1{2\sqrt2}\ln\frac{\tan x-\sqrt{2\tan x}+1}{\tan x+\sqrt{2\tan x}+1}+\frac1{\sqrt2}\arctan\frac{\tan x-1}{\sqrt{2\tan x}}+C
+\end{align*}
+$$
+注意 $\sqrt{\sin x}$ 是积不了的。</p>
+</li>
+</ul>
+<h2 id="定积分">定积分
+</h2><p>点火公式用的很多，这里先写一下。
+$$
+\int_0^{\pi/2}\sin^n x\d x=\left.-\sin^{n-1}x\cos x\right|_0^{\pi/2}+(n-1)\int_0^{\pi/2}\cos^2x\sin^{n-2}x\d x=(n-1)\int_0^{\pi/2}\sin^{n-2}x\d x-(n-1)\int_0^{\pi/2}\sin^nx\d x
+$$
+于是 $I_n=\frac{n-1}{n}I_{n-2}$，然后 $I_0=\pi/2$，$I_1=1$。$I_2=\frac12\frac\pi2=\frac\pi4$，$I_3=\frac23$，$I_4=\frac34\frac\pi4=\frac{3\pi}{16}$，$I_5=\frac45\frac23=\frac8{15}$。$I_{2n}=\frac{(2n-1)!!}{(2n)!!}\frac\pi2$，$I_{2n+1}=\frac{(2n)!!}{(2n+1)!!}$。同理可以得出
+$$
+\int_0^{\pi/2}\sin^nx\cos^mx\d x=\frac{(n-1)!!(m-1)!!}{(n+m)!!}\cdot\left\{\begin{aligned}&amp;\frac\pi2,&amp;2\mid n\land 2\mid m\\ &amp;1,&amp;\text{otherwise}\end{aligned}\right.
+$$</p>
+<ol>
+<li>
+<p>定积分的基本性质：拼区间、反向、线性性、保序性。</p>
+</li>
+<li>
+<p>微积分基本定理。</p>
+<ol>
+<li>内容：
+<ol>
+<li>若被积函数可积，则积分上限函数连续。</li>
+<li>若被积函数连续，则积分上限函数可导且导数对应相等。于是就是原函数，从而原函数两点的差就是被积函数两点间的积分。</li>
+<li>若原函数的<strong>导数可积</strong>，则原函数两点的差就是导数两点间的积分。</li>
+</ol>
+</li>
+<li>注意：$\int_a^bf(x)\d x=F(b)-F(a)$ 仅在 $\forall x\in[a,b]$，$F^\prime(x)=f(x)$ 时可以用，但凡有一个间断点就不行。</li>
+<li>证明 1：考虑 $g(t)=\int_a^tf(x)\d x-(F(t)-F(a))$，这个函数连续（因为它可导且导数处处为零）。如果它不是处处为零，就能找到导数非零的点。<br>
+证明 2：$F(b)-F(a)=\sum(F(x_i)-F(x_{i-1}))=\sum F^\prime(\xi_i)(x_i-x_{i-1})=S(F^\prime,P,\xi)\to\int_a^bF^\prime(x)\d x$。</li>
+<li>注意：积分上限函数的导数不一定是被积函数（可去间断点消失、跳跃间断点不可导、震荡间断点不确定）；<strong>一个函数的导数不一定可积</strong>，反例：<a class="link" href="https://en.wikipedia.org/wiki/Volterra%27s_function"  target="_blank" rel="noopener"
+    >https://en.wikipedia.org/wiki/Volterra%27s_function</a>。</li>
+</ol>
+</li>
+<li>
+<p>定积分换元，课内的使用条件是被积函数连续，换元函数的导数可积。如果换元函数的导数连续只需对换元前后的积分上限函数求导即可，如果导数不连续要一板一眼地用牛—莱证。课外（Kestelman）最松的条件是被积函数可积，换元函数是积分上限函数。</p>
+</li>
+<li>
+<p>积分第一中值定理。使用条件：$f$ 在闭区间上连续，$g$（权重函数）可积且恒非负。$\xi$ 可以 $\in(a,b)$，需要讨论一下边界。</p>
+<p>记忆方法：
+$$
+\begin{align*}
+&amp;f(\xi)=\frac{\int_a^bf(x)g(x)\d x}{\int_a^bg(x)\d x}\\
+&amp;\frac{F^\prime(\xi)}{G^\prime(\xi)}=\frac{F(b)-F(a)}{G(b)-G(a)}\\
+&amp;F\leftrightarrow f\cdot g,\,G\leftrightarrow g
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>积分余项泰勒公式，证明思路反复分部积分。这里可以进行对比记忆：</p>
+<ul>
+<li>皮亚诺余项，只需单点 $n$ 阶可导，余项给得最不精确；</li>
+<li>拉格朗日余项，需要区间 $n+1$ 阶可导，余项给得精确些，但 $\xi$ 未知；</li>
+<li>积分余项，需要区间 $n+1$ 阶导数可积，给出确定可以计算的余项。</li>
+</ul>
+<p>积分余项与拉格朗日余项的关系可以根据积分中值定理得出：
+$$
+\int_{x_0}^x\frac{f^{(n+1)}(t)}{n!}(x-t)^n\d t=\frac{f^{(n+1)}(\xi)}{n!}\int_{x_0}^x(x-t)^n\d t=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}
+$$
+关于这个有一个很有意思的关系，就是当你试图求一个函数的 $n$ 阶原函数时，你求的是
+$$
+\begin{align*}
+F(x)&amp;=\int_a^x\d x_1\left(\int_a^{x_1}\d x_2\left(\int_a^{x_2}\d x_3\left(\cdots\left(\int_a^{x_{n-1}}f(x_n)\d x_n+C_n\right)\cdots\right)+C_3\right)+C_2\right)+C_1\\
+&amp;=\int_a^x\d x_1\int_a^{x_1}\d x_2\int_a^{x_2}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n+C_n^\prime x^{n-1}+\cdots+C_3^\prime x^2+C_2^\prime x+C_1
+\end{align*}
+$$
+而
+$$
+\begin{align*}
+&amp;\int_a^x\d x_1\int_a^{x_1}\d x_2\int_a^{x_2}\d x_3\cdots\int_a^{x_{n-2}}\d x_{n-1}\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;\left.\left(x_1\int_a^{x_1}\d x_2\int_a^{x_2}\d x_3\cdot\int_a^{x_{n-1}}f(x_n)\d x_n\right)\right|_a^x-\int_a^xx_1\d x_1\int_a^{x_1}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;\int_a^x(x-x_1)\d x_1\int_a^{x_1}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;{-\frac12}\int_a^x\d(x-x_1)^2\int_a^{x_1}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;{-\frac12}\left.\left[(x-x_1)^2\int_a^{x_1}\d x_3\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\right]\right|_a^x+\frac12\int_a^x(x-x_1)^2\d x_1\int_a^{x_1}\d x_4\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;\frac12\int_a^x(x-x_1)^2\d x_1\int_a^{x_1}\d x_4\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;{-\frac16}\int_a^x\d(x-x_1)^3\int_a^{x_1}\d x_4\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;\frac16\int_a^x(x-x_1)^3\d x_1\int_a^{x_1}\d x_5\cdots\int_a^{x_{n-1}}f(x_n)\d x_n\\
+={}&amp;\cdots\ \cdots\\
+={}&amp;\frac{1}{(n-1)!}\int_a^x(x-x_1)^{n-1}f(x_1)\d x_1
+\end{align*}
+$$
+也就是说你得到了一个将 $n$ 个积分号缩成一个积分号的方法，而且为啥最后的结果跟柯西余项这么像呢？你考虑在 $x=a$ 处展开这个 $F$（忽略尾部多项式），你发现，刚好它 $0\sim n-1$ 阶导都是 $0$。</p>
+</li>
+<li>
+<p>误差估计。对于取平均长的小段并进行左/右/中端高矩形、梯形、二次函数拟合的方法，分析误差的思路是泰勒展开。辛普森公式。推广情况：<a class="link" href="https://en.wikipedia.org/wiki/Newton%E2%80%93Cotes_formulas"  target="_blank" rel="noopener"
+    >Newton-Cotes 公式</a>。</p>
+</li>
+<li>
+<p>Cauchy-Schwartz 不等式。一个与用 $\Delta$ 等价的方法是，（配方）找到取最低点的 $t$。</p>
+</li>
+<li>
+<p>定积分求面积。课上讲了一些和拓扑相关的简单东西，略。主要提两点：</p>
+<ol>
+<li>
+<p>将曲线（参数方程）分段成函数的方法：取所有竖切线。</p>
+</li>
+<li>
+<p>参数方程定义的曲线（自然正向）的面积：
+$$
+S=-\int y\d x=\int x\d y=\frac12\int(x\d y-y\d x)=\frac12\int\b r\times\d\b r=\frac12\int r^2\d\theta
+$$
+前两个的思路就是用横/竖切线把区间分段函数化套用正常的定积分，叉乘这个相信会计算凸包面积的小朋友们一定不陌生。</p>
+<p>我们可以证明积分式与参数的选择、与坐标系的选择无关，即在平移、旋转变换下为不变量。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>定积分求长度啥的。就是说，你在近似 + 无限小划分的过程中，关键的一点是，你取的端点必须在线上，不然就会导致 $\sqrt 2=2$、$\pi=4$、球表面积算错等情况。至于勾股定理，实际上它是个公理。</p>
+<p>另外讲了个重参数化，大概就是将自变量从任意的 $t$ 变成弧长 $t^\prime=l$，让 $|\d\b x/\d t^\prime|=1$。这个鬼玩意可以用来<em>定义</em>三角函数。于是现在我们有三种严格定义三角函数的方法：公理法、弧长法和无穷级数法。</p>
+</li>
+<li>
+<p>曲线相关（拓展），细节太多了，略。</p>
+</li>
+<li>
+<p>一些应用的公式：</p>
+<ol>
+<li>
+<p>曲率，弧长参数下表达式很简单，$\kappa(l)=|\widetilde{\b x}^{\prime\prime}(l)|$。一般参数可以通过链式求导法则：
+$$
+\widetilde{\b x}^{\prime\prime}(l)=[\b x(t)]^{\prime\prime}_l=[\b x^\prime(t)t^\prime(l)]^\prime_l=\left[\frac{\b x^\prime(t)}{|\b x^\prime(t)|}\right]^\prime_l=\frac{\b x^{\prime\prime}(t)}{|\b x^\prime(t)|^2}-\b x^\prime(t)\frac{[|\b x^\prime(t)|]^\prime}{|\b x^\prime(t)|^3}=\frac{\b x^{\prime\prime}(t)}{|\b x^\prime(t)|^2}-\b x^\prime(t)\frac{\b x^\prime(t)\cdot\b x^{\prime\prime}(t)}{|\b x^\prime(t)|^4}
+$$
+极坐标
+$$
+\kappa=\frac{\left\lvert 2{r^\prime}^2-rr^{\prime\prime}+r^2\right\rvert}{\left({r^\prime}^2+r^2\right)^{3/2}}
+$$</p>
+</li>
+<li>
+<p>弧长：</p>
+<ul>
+<li>
+<p>正常函数
+$$
+\int\sqrt{1+\left(\frac{\d y}{\d x}\right)^2}\d x
+$$</p>
+</li>
+<li>
+<p>参数方程
+$$
+\int\sqrt{\left(\frac{\d x}{\d t}\right)^2+\left(\frac{\d y}{\d t}\right)^2}\d t
+$$</p>
+</li>
+<li>
+<p>极坐标
+$$
+\int\sqrt{(\d r)^2+(r\d\theta)^2}
+$$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>旋转体体积（绕 $x$ 轴）：</p>
+<ul>
+<li>
+<p>正常函数
+$$
+\pi\int y^2\d x
+$$</p>
+</li>
+<li>
+<p>参数方程（自然正向，即使有凹陷也行）
+$$
+-\pi\int y^2\frac{\d x}{\d t}\d t=\pi\int x^2\frac{\d y}{\d t}\d t
+$$</p>
+</li>
+<li>
+<p>极坐标
+$$
+\pi\int y^2\d x=\pi\int r^2\sin^2\theta(r\sin\theta\d\theta-\cos\theta\d r)
+$$
+或（考虑用球近似每一个 $\d\theta$ 对应的体积贡献）
+$$
+\int_0^{\pi}\int_0^r2\pi r\sin\theta\cdot r\d\theta\d r=\frac{2\pi}{3}\int r^3\sin\theta\d\theta
+$$</p>
+</li>
+<li>
+<p>高维球的体积。设为 $V_n(r)=C_nr^n$。
+$$
+\begin{align*}
+V_n(r)&amp;=\int_{-\pi/2}^{\pi/2} V_{n-1}(r\cos\theta)\d(r\sin\theta)\\
+&amp;=C_{n-1}r^n\int_{-\pi/2}^{\pi/2}\cos^n\theta\d\theta\\
+&amp;=(2+[2\mid n](\pi-2))\frac{(n-1)!!}{n!!}C_{n-1}r^n\\
+&amp;=\frac{2^{\lceil n/2\rceil}\pi^{\lfloor n/2\rfloor}}{n!!}r^n
+\end{align*}
+$$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>旋转体表面积（绕 $x$ 轴）（注意题目可能会要加上底面积！）：</p>
+<ul>
+<li>
+<p>正常函数
+$$
+2\pi\int y\sqrt{1+\left(\frac{\d y}{\d x}\right)^2}\d x
+$$</p>
+</li>
+<li>
+<p>参数方程
+$$
+2\pi\int y\sqrt{\left(\frac{\d x}{\d t}\right)^2+\left(\frac{\d y}{\d t}\right)^2}\d t
+$$</p>
+</li>
+<li>
+<p>极坐标
+$$
+2\pi\int y\sqrt{(\d x)^2+(\d y)^2}=2\pi\int r\sin\theta\sqrt{(\d r)^2+(r\d\theta)^2}
+$$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pappus-Guldin 定理其实就是质心的定义。在线密度均匀时，质心为
+$$
+\overline{y}=\frac{\int y\d l}{\int\d l}
+$$
+而旋转体表面积为
+$$
+2\pi\int y\d l
+$$
+在面密度均匀时，质心的 $y$ 为
+$$
+\overline{y}=\frac{\int y^2/2\d x}{\int y\d x}
+$$
+而旋转体体积为
+$$
+\pi\int y^2\d x
+$$</p>
+</li>
+<li>
+<p>注意一般而言，体积的导数不等于表面积，面积的导数不等于周长！</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>有空补一下 $2t/(1+t^2)$ 的换元。</p>
+<h2 id="广义积分">广义积分
+</h2><p>分析敛散性的手段：</p>
+<ol>
+<li>
+<p>所有一般的定积分可用的处理手段都可以，包括四则运算、换元、分部积分、牛—莱（注意是单侧极限）。</p>
+</li>
+<li>
+<p>柯西</p>
+</li>
+<li>
+<p>比较，两种用法</p>
+</li>
+<li>
+<p>比较（极限形式）：$f=\Omicron(g)$，</p>
+<ul>
+<li>
+<p>如果 $g$ 绝对收敛，则 $f$ 绝对收敛；</p>
+</li>
+<li>
+<p>如果 $g$ 条件收敛，则得不出任何结论，如果 $g$ 恒非负，那就回到上一条。</p>
+</li>
+<li>
+<p>反例：$\int_0^{+\infty}\frac{\sin x}{\sqrt x}\d x$ 根据狄收敛，但 $\int_0^{+\infty}\frac{\sin x}{\sqrt x+\sin x}\d x$ 不收敛。因为
+$$
+\frac{\sin x}{\sqrt x}-\frac{\sin x}{\sqrt{x}+\sin x}=\frac{\sin^2x}{x+\sqrt x\sin x}&gt;\frac{\sin^2x}{2x}
+$$
+而后者发散。但是这两个东西在 $x\to+\infty$ 时是等价无穷小。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>狄利克雷：$f$ 的积分上限函数有界，$g$ <strong>单调</strong>且 $\to 0$。如果不单调，反例就在楼上。证明（假定 $f$ 连续，$g$ 导数连续）：
+$$
+\int_a^{+\infty}f(x)g(x)\d x=\lim_{x\to+\infty}F(x)g(x)-F(a)g(a)-\int_a^{+\infty}F(x)g^\prime(x)\d x
+$$
+其中 $F(x)g(x)\to 0$，$\int_a^{+\infty}|F(x)g^\prime(x)|\d x\le M\int_a^{+\infty}|g^\prime(x)|\d x=Mg(a)$。</p>
+<p>一般的证明见理论基础。</p>
+</li>
+<li>
+<p>阿贝尔：$f$ 的积分收敛（更强），$g$ 单调且有界（更弱）。证明就直接把 $\lim g$ 拎出来就行。</p>
+<p>不单调的反例：$\int_0^{+\infty}\left(\frac{\sin x}{\sqrt x}\right)^2$，单个这个玩意既是 $\to 0$，又是积分收敛，但是 $\int_0^{+\infty}\frac{\sin^2x}{x}$ 用二倍角公式得是发散的。</p>
+</li>
+</ol>
+<p>注意：无穷限积分收敛并不代表被积函数趋近于 $0$。</p>
+<p>特定的例子：</p>
+<ul>
+<li>
+<p>$$
+\int_0^{+\infty}\frac{\d x}{x^a\ln^bx}
+$$</p>
+<p>首先注意一下定义域，下面就不提定义域的问题了。</p>
+<p>$x\to+\infty$：$a&gt;1$ 时与 $x^{-(a+1)/2}$ 比较以去掉 $\ln$，收敛；$a&lt;1$ 时与 $x^{-1}$ 比较，发散。</p>
+<p>$x\to 1$：比较去掉 $x^a$，比较把 $\ln^bx$ 变成 $(x-1)^b$。$b\ge 1$ 时发散，$b&lt;1$ 时收敛。</p>
+<p>$x\to 0^+$：关键是 $\forall\epsilon&gt;0$，$\lim_{x\to0^+}x^\epsilon\ln^bx=0$。$a&lt;1$ 时与 $x^{-(a+1)/2}$ 比较，收敛；$a&gt;1$ 时与 $x^{-1}$ 比较，发散。这种情况还可以换元 $1/x$ 归约到 $x\to+\infty$。</p>
+<p>$a=1$：换元，$b\ne 1$ 时不定积分为 $1/(b-1)\ln^{b-1}x$，$b&gt;1$ 时 $x\to+\infty$ 和 $x\to 0^+$ 收敛，$x\to 1$ 发散；$b&lt;1$ 时 $x\to 1$ 收敛，其余发散；$b=1$ 时是 $\ln|\ln x|$，全部发散。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>$a&gt;1$</th>
+<th>$a=1,b&gt;1$</th>
+<th>$a=1,b=1$</th>
+<th>$a=1,b&lt;1$</th>
+<th>$a&lt;1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x\to+\infty$</td>
+<td>收敛</td>
+<td>收敛</td>
+<td>发散</td>
+<td>发散</td>
+<td>发散</td>
+</tr>
+<tr>
+<td>$x\to1$</td>
+<td>$\rightarrow$</td>
+<td>发散</td>
+<td>发散</td>
+<td>收敛</td>
+<td>$\leftarrow$</td>
+</tr>
+<tr>
+<td>$x\to0^+$</td>
+<td>发散</td>
+<td>收敛</td>
+<td>发散</td>
+<td>发散</td>
+<td>收敛</td>
+</tr>
+</tbody>
+</table></div>
+<p>记忆方法：$a=1$ 换元，$a\ne 1$ 时 $x$ 是主要项。
+$$
+\int_M^{+\infty}\frac{\d x}{x^a\cdot\ln^bx\cdot\ln^c\ln\ln x\cdot\ln^d\ln\ln\ln x\cdot\cdots}
+$$
+这样的情况就依次看，不断换元。</p>
+</li>
+<li>
+<p>$$
+\int_0^{+\infty}\frac{\sin x}{x^a}\d x
+$$</p>
+<p>$x\to+\infty$：$a\le 0$ 用柯西，发散。$a&gt;1$ 时放缩至 $x^{-a}$，绝对收敛；$0&lt;a\le 1$ 时，
+$$
+\int_1^{+\infty}\frac{\sin x}{x^a}\d x=\left.-\frac{\cos x}{x^a}\right|_1^{+\infty}-a\int_1^{+\infty}\frac{\cos x}{x^{a+1}}\d x
+$$
+两项都收敛。但是
+$$
+\int_1^{+\infty}\left\lvert\frac{\sin x}{x^a}\right\rvert\d x\ge\int_1^{+\infty}\frac{\sin^2x}{x^a}\d x=\int_1^{+\infty}\frac{1-\cos 2x}{2x^a}\d x=\left.-\frac{1}{2(a-1)}\frac{1}{x^{a-1}}\right|_1^{+\infty}-\frac12\int_1^{+\infty}\frac{\cos 2x}{x^a}\d x
+$$
+前一项（$a=1$ 时是 $\ln$）发散，后一项收敛，所以不绝对收敛。<strong>注意在实际考试时为保险起见，无论是四则运算还是分部积分，最好用柯西收敛准则的方式去说明。</strong></p>
+<p>另一种证明思路是直接用狄利克雷说明 $a&gt;0$ 时相对收敛。如果对于 $a\le 0$ 收敛，那么由
+$$
+\int_1^{+\infty}\sin x\d x=\int_1^{+\infty}\frac{\sin x}{x^a}x^a\d x
+$$
+由阿贝尔知 $\sin x$ 的积分收敛，矛盾。说明 $a&gt;0$ 时的绝对收敛性还有一种神奇的方法，考虑取 $|\sin x|$ 的平均值 $2/\pi$。由于
+$$
+\left\lvert\int_0^A(|\sin x|-2/\pi)\d x\right\rvert=\left\lvert\int_0^{A\bmod\pi}(|\sin x|-2/\pi)\d x\right\rvert&lt;2
+$$
+故由狄利克雷，
+$$
+\int_1^{+\infty}\frac{|\sin x|-2/\pi}{x^a}\d x
+$$
+收敛。而 $\int_1^{+\infty}2\d x/\pi x^a$仅在 $a&gt;1$ 时收敛。</p>
+<p>$x\to0^+$：$\sin x\sim x$，所以 $a\ge 2$ 时发散。</p>
+</li>
+<li>
+<p>$$
+\int_0^{+\infty}\frac{\ln(1+x)}{x^a}\d x
+$$</p>
+<p>$x\to+\infty$：$a\le 1$ 时显然发散，$a&gt;1$ 时与 $x^{-(1+a)/2}$ 比较，收敛。</p>
+<p>$x\to 0^+$：$\ln(1+x)\sim x$，$a\ge 2$ 时发散。</p>
+<p>因此 $a\in(1,2)$ 时收敛。</p>
+</li>
+<li>
+<p>$$
+\int_0^{+\infty}\frac{\sin x}{x^a+\sin x}\d x
+$$</p>
+<p>$x\to+\infty$：$a&lt;0$ 时有无穷个间断点，但由于 $x^a$ 不是主项，故直接用柯即可，发散。$a=0$ 同。$a&gt;0$ 时考虑依赖已知的结果：
+$$
+\frac{\sin x}{x^a+\sin x}=\frac{\sin x}{x^a}-\frac{\sin^2x}{x^a(x^a+\sin x)}
+$$
+由于后面一项恒非负，故可以用比较的极限形式，$\sim \sin^2x/x^{2a}$。根据之前的分析，$a\le 1/2$ 时发散，$a&gt;1/2$ 时收敛。</p>
+<p>因此 $a&gt;1$ 时绝对收敛，$1/2&lt;a\le 1$ 是前一项相对收敛，后一项绝对收敛，所以是相对收敛；$0&lt;a\le 1/2$ 时前一项相对收敛，后一项发散，所以是发散；$a\le 0$ 时发散。</p>
+<p>$x\to 0^+$：$a&gt;1$ 时 $\to 1$，$a=1$ 时 $\to1/2$，$a&lt;1$ 时 $\to 0$，故不用管。</p>
+</li>
+</ul>
+<p>超纲不定积分无初等表示积分：</p>
+<ul>
+<li>
+<p>$$
+\int_0^{+\infty}x^{a-1}\e^{-x}\d x
+$$</p>
+<p>$x\to+\infty$：与 $-\e^{x/2}$ 比较，去掉 $x^{a-1}$，收敛。$x\to 0$：$a\le0$ 时发散。</p>
+<p>$\Gamma$ 函数。递推公式：
+$$
+\Gamma(n)=\int_0^{+\infty}x^{n-1}\e^{-x}\d x=\left.-x^{n-1}\e^{-x}\right|_0^{+\infty}+(n-1)\int_0^{+\infty}x^{n-2}\e^{-x}\d x=(n-1)\Gamma(n-1)
+$$
+余元公式：$\frac{1}{\Gamma(n)\Gamma(1-n)}=\frac{\sin\pi n}{\pi}$。证明思路：写成 $\Beta$ 函数后级数展开。</p>
+<p>推论：$\Gamma\big(\frac12\big)=\sqrt\pi$，也可以用高斯积分得到。</p>
+</li>
+<li>
+<p>$$
+\int_0^1x^{a-1}(1-x)^{b-1}\d x
+$$</p>
+<p>$x\to1^-$：$b\le 0$ 时发散。$x\to0^+$：$a\le 0$ 时发散。</p>
+<p>$\Beta$ 函数。递推公式：$\Beta(n,m)=\frac{m-1}{n+m-1}\Beta(n,m-1)$。</p>
+<p>与 $\Gamma$ 函数的关系：$\Beta(n,m)=\frac{\Gamma(n)\Gamma(m)}{\Gamma(n+m)}$。证明思路：二重积分的换元。</p>
+<p>与三角函数的关系：
+$$
+\begin{align*}
+\int_0^{\pi/2}\sin^nx\cos^mx\d x&amp;\xlongequal{t=\sin^2x}\int_0^1\frac{t^{n/2}(1-t)^{m/2}}{2\sin x\cos x}\d t\\
+&amp;=\frac12\int_0^1t^{(n-1)/2}(1-t)^{(m-1)/2}\d t\\
+&amp;=\frac12\Beta\left(\frac{n+1}2,\frac{m+1}2\right)
+\end{align*}
+$$
+所以我们又得到了一种神秘的说明 $\Gamma(1/2)=\sqrt{\pi/2}$ 的方法。</p>
+<p>一个奇妙的关系：
+$$
+\begin{align*}
+\int_0^{+\infty}\frac{\d x}{1+x^n}&amp;\xlongequal{t=x^n}\frac1n\int_0^{+\infty}\frac{\d t}{t^{1-\frac1n}(1+t)}\\
+&amp;\xlongequal{u=\frac1{1+t}}\frac1n\int_0^1u^{-\frac1n}(1-u)^{\frac1n-1}\d u\\
+&amp;=\frac1n\Beta\left(1-\frac1n,\frac1n\right)\\
+&amp;=\frac1n\Gamma\left(1-\frac1n\right)\Gamma\left(\frac1n\right)\\
+&amp;=\frac{\pi}{n\sin\pi n}
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>$$
+\int_0^{+\infty}\frac{\sin x}x\d x
+$$</p>
+<p>Dirichlet 积分，用费曼积分法。</p>
+</li>
+<li>
+<p>$$
+\int_0^{+\infty}\sin x^2\d x
+$$</p>
+<p>Fresnel 积分。收敛：换元 $t=x^2$ 变成 $\sin t/2\sqrt t$，套上面的。求的话要 Laplace 变换或转极坐标或留数。</p>
+</li>
+<li>
+<p>$$
+\int_0^{+\infty}\e^{-x^2}\d x
+$$</p>
+<p>Gauss 积分。收敛：同样换元。求可以用极坐标或其他二重积分方法。wxf 写了个不超纲的，借助点火公式的复杂方法，非常牛。</p>
+</li>
+</ul>
+<p>不超纲不定积分无初等表示积分：</p>
+<ul>
+<li>
+<p>$$
+\int_0^{+\infty}\frac{f(ax)-f(bx)}{x}\d x
+$$</p>
+<p>Froullani 积分（$f$ 连续），考虑拆开定义证。
+$$
+\begin{align*}
+&amp;\int_0^{+\infty}\frac{f(ax)-f(bx)}x\d x\\
+={}&amp;\lim_{l\to 0}\lim_{r\to+\infty}\int_l^r\frac{f(ax)-f(bx)}x\d x\\
+={}&amp;\lim_{l\to 0}\lim_{r\to+\infty}\left(\int_l^r\frac{f(ax)}x\d x-\int_l^r\frac{f(bx)}x\d x\right)\\
+={}&amp;\lim_{l\to 0}\lim_{r\to+\infty}\left(\int_{la}^{ra}\frac{f(t)}t\d t-\int_{lb}^{rb}\frac{f(t)}t\d t\right)\\
+={}&amp;\lim_{l\to 0}\lim_{r\to+\infty}\left(\int_{la}^{lb}\frac{f(t)}t\d t-\int_{ra}^{rb}\frac{f(t)}t\d t\right)\\
+={}&amp;\lim_{l\to 0}\lim_{r\to+\infty}\left(f(\xi_l)\ln\frac ba-f(\xi_r)\ln\frac ba\right)\\
+={}&amp;\left(\lim_{x\to0^+}f(x)-\lim_{x\to+\infty}f(x)\right)\ln\frac ba
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>$$
+\int_0^{\pi/2}\ln\sin x\d x
+$$</p>
+<p>区间再现法的例题
+$$
+\begin{align*}
+\int_0^{\pi/2}\ln\sin x\d x&amp;=\int_0^{\pi/2}\ln\cos x\d x\\
+&amp;=\frac12\left(\int_0^{\pi/2}\ln(\sin x\cos x)\d x\right)\\
+&amp;=\frac12\left(\int_0^{\pi/2}(\ln\sin 2x-\ln 2)\d x\right)\\
+&amp;=\frac14\int_0^\pi\ln\sin t\d t-\frac{\pi\ln2}4\\
+&amp;=\frac12\int_0^{\pi/2}\ln\sin t\d t-\frac{\pi\ln2}4\\
+\Longrightarrow\int_0^{\pi/2}\ln\sin x\d x&amp;=-\frac{\pi\ln2}2
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>$$
+\int_0^1\frac{\ln(1+x)}{1+x^2}\d x
+$$</p>
+<p>神秘的区间再现法
+$$
+\begin{align*}
+\int_0^1\frac{\ln(1+x)}{1+x^2}\d x&amp;=\left.\ln(1+x)\arctan x\right|_0^1-\int_0^1\frac{\arctan x}{1+x}\d x\\
+&amp;\xlongequal{x=\tan t}\frac{\pi\ln 2}4-\int_0^{\pi/4}\frac{t}{1+\tan t}\sec^2 t\d t\\
+I=\int_0^{\pi/4}\frac{t}{1+\tan t}\sec^2 t\d t&amp;=\int_0^{\pi/4}\frac{t\d t}{(\sin t+\cos t)\cos t}\\
+&amp;=\int_0^{\pi/4}\frac{t\d t}{\sqrt2\sin(t+\pi/4)\cos t}\\
+&amp;\xlongequal{u=\pi/4-t}\int_0^{\pi/4}\frac{(\pi/4-u)\d u}{\sqrt2\cos u\cos(\pi/4-u)}\\
+&amp;=\frac\pi4\int_0^{\pi/4}\frac{\sec^2u\d u}{1+\tan u}-I\\
+&amp;=\frac{\pi\ln2}4-I\\
+&amp;=\frac{\pi\ln2}8
+\end{align*}
+$$
+神秘的换元法 from <a class="link" href="https://www.zhihu.com/question/512255255/answer/2355309447"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/512255255/answer/2355309447</a>：$x=\frac{1-t}{1+t}$。</p>
+</li>
+<li>
+<p>$$
+\int_0^\pi\frac{x\sin x}{1+\cos^2x}\d x
+$$</p>
+<p>无聊的区间再现法，答案是 $\pi^2/4$。感兴趣可以看<a class="link" href="https://zhuanlan.zhihu.com/p/100951677"  target="_blank" rel="noopener"
+    >这个</a>。</p>
+</li>
+<li>
+<p>$$
+\int_0^\pi\frac{\sin nx}{\sin x}\d x
+$$</p>
+<p>赖皮方法：三角函数展开成 $\e$。正常方法：
+$$
+\begin{align*}
+I_n=\int_0^\pi\frac{\sin nx}{\sin x}\d x&amp;=\int_0^\pi\frac{\sin(n-1)x\cos x+\sin x\cos(n-1)x}{\sin x}\d x\\
+&amp;=\int_0^\pi\frac{\sin nx+\sin(n-2)x}{2\sin x}\d x\\
+&amp;=\frac12\left(I_n+I_{n-2}\right)\\
+&amp;=I_{n-2}\\
+&amp;=(n\bmod 2)\pi
+\end{align*}
+$$</p>
+</li>
+</ul>
+<h2 id="微分方程">微分方程
+</h2><ol>
+<li>
+<p>如果遇到没法用下面方法解的微分方程，尝试两边同时求导！如果带积分还可以设 $g(x)=\int_0^xf(t)\d t$ 这种。</p>
+</li>
+<li>
+<p>$y^\prime=f(x)$。最基本，直接不定积分。</p>
+</li>
+<li>
+<p>$y^\prime=f(y)$。将 $x$ 和 $y$ 的地位互换，得到 $x^\prime_y=1/f(y)$，归为 1。</p>
+</li>
+<li>
+<p>$y^\prime=f(x)g(y)$。分离变量型，把 $g$ 除过去，两边积分。这应该是唯一一个不能归约基本型的方程，几何意义也不是特别容易理解，硬要理解可以用下面这种方法：</p>
+<p>考虑 $f(x,y)\d x+g(x,y)\d y=0$ 形式的微分方程，它的解是以 $(f,g)$ 为梯度场的二元函数的等高线。设原函数为 $\varphi(x,y)$，那么要求
+$$
+\varphi(x,y)=\int f(x,y)\d x+C_y(y)=\int g(x,y)\d y+C_x(x)
+$$
+这个连等要求了一个事，就是 $\int f(x,y)\d x-\int g(x,y)\d y$ 中不能有同时跟 $x$ 和 $y$ 有关的项，也就是
+$$
+\frac{\partial f}{\partial y}=\frac{\partial g}{\partial x}
+$$
+解为
+$$
+\int f(x,y)\d x+\int\left(g(x,y)-\frac{\partial}{\partial y}\int f(x,y)\d x\right)\d y=0
+$$</p>
+</li>
+<li>
+<p>$y^\prime=f(y/x)$。这说明 $x$ 和 $y$ 的同步伸缩不改变向量场。而 1 容易解是因为 $y$ 的上下移动不改变向量场，也就是走向只与 $x$ 有关。如果能把这个方程的伸缩不变性也变成 1 中的这个性质就好做的。所以可以换元$p=y/x$，$z=\ln|x|$，得到 $z^\prime_p=\frac{1}{f(p)-p}$，或者换元 $x=\e^{u}\cos\theta$，$y=\e^u\sin\theta$，得到
+$$
+\frac{u^\prime_\theta\tan\theta+1}{u^\prime_\theta-\tan\theta}=f(\tan\theta)\Longleftrightarrow u^\prime_\theta=\frac{f(\tan\theta)\tan\theta+1}{f(\tan\theta)-\tan\theta}
+$$
+为什么要换 $\ln$ 不直接换 $r$ 或 $x$？因为要求换元后是平移不变，而如果直接用 $(r,\theta)$ 去表示的话，其实是不满足的——因为在用极坐标表示位置的同时，也要用它表示向量场，而极坐标的切向基向量（未经单位化）$\b e_\theta=r\b{\hat\theta}$ 它的长度不是 $1$，就会导致原来看起来相等的向量在极坐标里不等。而如果改成换 $u=\ln r$ 的话，就利用对数把伸缩变成了平移，$\b e_\theta=\e^u\b{\hat\theta}$，而 $\b e_u=\e^u\b{\hat u}$，向量场在 $u$ 平移是两维同时伸缩的，由于我们只关心方向，故相当于不变。</p>
+</li>
+<li>
+<p>$$
+y^\prime=f\left(\frac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2}\right)
+$$</p>
+<p>分平行和非平行考虑。平行换元分母转分离变量，非平行平移交点到原点后变为齐次。</p>
+</li>
+<li>
+<p>不含 $y$ 和不含 $x$，两种降阶方法。核心思想是增加未知函数，增加方程数，减少求导阶数。</p>
+</li>
+<li>
+<p>$y^\prime=a(x)y+f(x)$。非齐次一阶，用常数变易法：先求出无 $f(x)$ 时的解 $y=\e^{\int a(x)\d x}$，然后设解为 $y=C(x)\e^{\int a(x)\d x}$（由于 $\e^*$ 恒非零故不会漏解），展开得 $C(x)=\int f(x)\e^{-\int a(x)\d x}$。</p>
+</li>
+<li>
+<p>$\b y^\prime=A\b y$。常系数一阶线性方程组。求出 $A$ 的 Jordan 标准型 $P^{-1}AP=J$，方程变为 $\b y^\prime=PJP^{-1}\b y$ 即 $(P^{-1}\b y)^\prime=J(P^{-1}\b y)$，然后直接解，再乘回来。对于可对角化的情况，有一个很优美的写法：
+$$
+\b y=P\mat{C_1\e^{\lambda_1x}\\ \vdots\\ C_n\e^{\lambda_nx}}=\sum_{i=1}^nC_iv_i\e^{\lambda_ix}=\mat{\e^{\lambda_1x}&amp;\cdots&amp;0\\ \vdots&amp;\ddots&amp;\vdots\\ 0&amp;\cdots&amp;\e^{\lambda_nx}}\b y(0)=\e^\Lambda\b y(0)
+$$
+对于 Jordan 块
+$$
+\b u^\prime=\mat{\lambda&amp;1&amp;0&amp;\cdots&amp;0\\ 0&amp;\lambda&amp;1&amp;\cdots&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;1\\ 0&amp;0&amp;0&amp;\cdots&amp;\lambda}_{k\times k}\b u
+$$
+容易解得
+$$
+\b u=\mat{(C_kx^{k-1}+\cdots+C_1)\e^{\lambda x}\\ (C_kx^{k-2}+\cdots+C_2)\e^{\lambda x}\\ \vdots\\ (C_kx+C_{k-1})\e^{\lambda x}\\ C_k\e^{\lambda x}}
+$$</p>
+</li>
+<li>
+<p>$$
+y^{(n)}+\sum_{i=0}^{n-1}a_iy^{(i)}=0
+$$
+常系数高阶线性。核心思想是导数也是线性变换。求出左边对应多项式的根 $\lambda_1\sim\lambda_n$。于是整个可以写成
+$$
+\left[\prod_{i=1}^n\left(\frac{\d}{\d x}-\lambda_i\right)\right]y=0
+$$
+于是可以逐一求解。实际上不用暴力求——如果去重后根为 $\lambda_1\sim\lambda_k$ 且重数分别为 $m_1\sim m_k$，容易代入验证 $y$ 可以写成以下函数的线性组合：
+$$
+\e^{\lambda_1},x\e^{\lambda_1},\cdots,x^{m_1-1}\e^{\lambda_1},\cdots
+$$
+对于有非齐次项的情况，可以用常数变易法，更一般的方法见后。</p>
+</li>
+<li>
+<p>$$
+x^ny^{(n)}+\sum_{i=0}^{n-1}a_ix^iy^{(i)}=0
+$$
+Euler 方程。同样可以待定系数
+$$
+\left[\prod_{i=1}^n\left(\frac{x\d}{\d x}-\lambda_i\right)\right]y=0
+$$
+然后暴解。注意到 $x\d/\d x=\d/\d\ln|x|$，于是考虑直接把自变量换成 $t=\ln|x|$。于是
+$$
+\frac{x^i\d^i}{\d x^i}=\frac{x\d}{\d x}\left(\frac{x^{i-1}\d^{i-1}}{\d x^{i-1}}\right)-(i-1)\frac{x^{i-1}\d^{i-1}}{\d x^{i-1}}=\cdots=\prod_{j=0}^{i-1}\left(\frac{\d}{\d t}-j\right)
+$$
+于是原方程变为上一种类型
+$$
+\sum_{j=0}^ny^{(j)}_t\sum_{i=j}^n(-1)^{i-j}\begin{bmatrix}i\\ j\end{bmatrix}a_i=0
+$$
+其中 $\begin{bmatrix}i\\ j\end{bmatrix}$ 是第一类斯特林数。</p>
+</li>
+<li>
+<p>一些特殊的因式分解。例如：
+$$
+x\frac{\d^2}{\d x^2}-(x+1)\frac{\d}{\d x}+1=\left(x\frac{\d}{\d x}-1\right)\left(\frac{\d}{\d x}-1\right)
+$$</p>
+<p>$$
+x(x+1)\frac{\d^2}{\d x^2}-(4x+2)\frac{\d}{\d x}+6=\left(x\frac{\d}{\d x}-2\right)\left((x+1)\frac{\d}{\d x}-3\right)
+$$</p>
+</li>
+<li>
+<p>$$
+y^{(n)}+\sum_{i=0}^{n-1}a_i(x)y^{(i)}=f(x)
+$$</p>
+<p>高阶非齐次线性。我们写成矩阵的形式：
+$$
+\mat{y\\ y^\prime\\ \vdots\\ y^{(n-1)}}^\prime=\mat{0&amp;1&amp;0&amp;\cdots&amp;0&amp;0\\ 0&amp;0&amp;1&amp;\cdots&amp;0&amp;0\\ \vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\\ 0&amp;0&amp;0&amp;\cdots&amp;0&amp;1\\ -a_0(x)&amp;-a_1(x)&amp;-a_2(x)&amp;\cdots&amp;-a_{n-2}(x)&amp;-a_{n-1}(x)}\mat{y\\ y^\prime\\ \vdots\\ y^{(n-1)}}+\mat{0\\ 0\\ \vdots\\ f(x)}
+$$</p>
+<p>$$
+\b y^\prime=A\b y+\b f
+$$</p>
+<p>假设在齐次的情况下，解得了 $n$ 个线性无关解 $y_1,\cdots,y_n$，把它们的 $0\sim n-1$ 阶导写成列向量，排起来成为 $U_{n\times n}$。使用常数变易法，考虑
+$$
+\b C=\mat{C_1(x)\\ C_2(x)\\ \vdots\\ C_n(x)},\;\b y=U\b C
+$$
+那么
+$$
+U^\prime\b C+U\b C^\prime=\b y^\prime=A\b y+\b f
+$$
+而
+$$
+U^\prime\b C=AU\b C=A\b y
+$$
+因此要解的就是
+$$
+U\b C^\prime=\b f\Longrightarrow\b C=\int U^{-1}\b f\d x
+$$
+以 $n=2$ 为例，最后要解的就是
+$$
+\left\{\begin{aligned}
+y_1C_1^\prime(x)+y_2C_2^\prime(x)&amp;=0\\
+y_1^\prime C_1^\prime(x)+y_2^\prime C_2^\prime(x)&amp;=f(x)
+\end{aligned}\right.
+$$
+这个矩阵方法很自然地加入了额外的 $n-1$ 条限制，其本质是在设 $\b y=U\b C$ 时默认了通解 $y$ 的高阶导由基础解系线性组合的系数与零阶组合的系数相同。这个其实是“冒险”的，但下面对解的性质的分析保证了这个是对的。</p>
+<blockquote>
+<p>如果方程有个两个解 $\b y_1$，$\b y_2$，$\b y_1|_{x=x_0}=\b y_2|_{x=x_0}$，则 $\b y_1=\b y_2$。</p>
+</blockquote>
+<p>证：$\b y_1-\b y_2$ 是 $\b y^\prime=A\b y$ 的解，从而可以写成 $U\b C$ 的形式，其中 $\b C$ 与 $x$ 无关。而 $(U\b C)|_{x=x_0}=\b 0$，从而 $\b C=U^{-1}|_{x=x_0}\b 0=\b 0$。</p>
+<blockquote>
+<p>当我们说“$n$ 个线性无关的解”时，我们不需要明确是在哪个 $x$ 处线性无关。$\set{\b y_1,\cdots,\b y_n}$ 线性无关，当且仅当对于某个 $x_0$，这组函数向量在 $x_0$ 处的实数向量线性无关。</p>
+<p>引理（Liouville）：对于齐次情况（不要求 $\b y_i$ 形如一个 $y$ 的 $0\sim n-1$ 阶导），$\dat{U}^\prime=\tr A\dat{U}$。$\dat{U}$ 称为 $n$ 个解的 Wronsky 行列式。</p>
+</blockquote>
+<p>证：根据乘积的导数 → $\b y$ 满足的等式 → 行列式的性质，（$y_{j,k}$ 表示第 $j$ 个解的第 $k$ 项）
+$$
+\dat{U}^\prime=\sum_{r=1}^n\dat{\Set{y_{j,i}^{([i=r])}}_{n\times n}}=\sum_{r=1}^n\dat{\Set{\begin{cases}y_{j,i},&amp;i\ne r\\ \sum_{k=1}^nA_{i,k}y_{j,k},&amp;i=r\end{cases}}_{n\times n}}=\sum_{r=1}^nA_{r,r}\dat{U}=\tr A\dat{U}
+$$
+而 $\dat{U}^\prime=\tr A\dat{U}$ 是一个一阶齐次线性的方程，直接解得 $\dat{U}=\e^{\int\tr A\d x}$，代入初始条件得 $\dat{U}=\dat{U}|_{x=x_0}\e^{\int_{x_0}^x\tr A|_{x=t}\d t}$。由于 $\e^*$ 恒正，故只要某个 $x_0$ 处线性无关，就处处线性无关。</p>
+<blockquote>
+<p>当 $A$ 的各项都是连续函数时，$\b y^\prime=A\b y$ 对于任何初始条件都存在解。</p>
+</blockquote>
+<p>证明见理论基础（咕）。</p>
+</li>
+<li>
+<p>$$
+y^{\prime\prime}+a_1(x)y^\prime+a_0(x)y=0
+$$</p>
+<p>假定已经知道了一个解 $y_1$，求另一个线性无关的解 $y_2$。设 $y_2=C(x)y_1$。代入可得：
+$$
+C^\prime(x)=\frac{C}{y_1^2\e^{\int_{x_0}^xa_1(t)\d t}}
+$$
+再积回去即可，取 $C\ne 0$ 容易验证可以得到一个线性无关的解。</p>
+</li>
+<li>
+<p>$$
+y^\prime+a(x)y=b(x)y^n\;(n\ne 0,1)
+$$</p>
+<p>Bernoulli 方程。换元 $z=y^{1-n}$，等式两边同除以 $y^n$：
+$$
+\frac{y^\prime}{y^n}+\frac{a(x)}{y^{n-1}}=b(x)\Longleftrightarrow\frac{z^\prime}{1-n}+a(x)z=b(x)
+$$</p>
+</li>
+</ol>
+<h2 id="杂题">杂题
+</h2><blockquote>
+<p>证明 $\R$ 是唯一的完备序域。</p>
+</blockquote>
+<p>答案见理论基础。</p>
+<blockquote>
+<p>Lagrange 恒等式的几何意义？</p>
+</blockquote>
+<blockquote>
+<p>能否构造在 $\Q$ 处间断，$\R\setminus\Q$ 处连续的单增函数？能否构造在 $\Q$ 处连续，$\R\setminus\Q$ 处间断的单增函数？</p>
+</blockquote>
+<ol>
+<li>
+<p>如果不要求单增，那就用黎曼函数。要求单增也不难，构造奇函数 $f$：
+$$
+f(x&gt;0)=\sum_{0&lt;p/q\le x}2^{-q}
+$$
+容易知道这玩意是收敛的，但是我们发现一个新的有趣的问题：求
+$$
+\sum_{i\ge 1}\mu(i)2^{-i}
+$$</p>
+</li>
+<li>
+<p>不能。增函数的间断点都是跳跃间断点，这个跳跃处一定包含有理数，因此间断点是至多可数的。</p>
+</li>
+</ol>
+<blockquote>
+<p>证明 $\N$ 和 $\R$、$\N$ 和 $\mathcal{P}(\N)$ 不等势。</p>
+</blockquote>
+<p>对角线法；或考虑 $\set{i\mid i\notin A_i}$，这个集合不能是某个 $A_j$，否则 $j$ 既不能 $\in A_j$，又不能 $\notin A_j$。</p>
+<blockquote>
+<p>证明 Stolz 定理：</p>
+<ol>
+<li>$\set{b_n}$ 严增，$\lim b_n=+\infty$，$\lim\Delta a_n/\Delta b_n\in\R\cup\set{\pm\infty}$，则 $\lim a_n/b_n=\lim\Delta a_n/\Delta b_n$。</li>
+<li>$\set{b_n}$ 严降，$\lim b_n=\lim a_n=0$，$\lim\Delta a_n/\Delta b_n\in\R\cup\set{\pm\infty}$，则 $\lim a_n/b_n=\lim\Delta a_n/\Delta b_n$。</li>
+</ol>
+</blockquote>
+<ol>
+<li>
+<p>设 $\lim\Delta a_n/\Delta b_n=L$，$\forall\varepsilon&gt;0$，$\exists N$，$\forall n&gt;N$，
+$$
+(L-\varepsilon)(b_{n+1}-b_n)&lt;a_{n+1}-a_n&lt;(L+\varepsilon)(b_{n+1}-b_n)
+$$
+于是
+$$
+(L-\varepsilon)(b_{n+1}-b_{N+1})&lt;a_{n+1}-a_{N+1}&lt;(L+\varepsilon)(b_{n+1}-b_{N+1})
+$$
+即（容易取到 $b$ 为正）
+$$
+\left\lvert\frac{a_{n+1}}{b_{n+1}}-\frac{a_{N+1}}{b_{n+1}}-L+L\frac{b_{N+1}}{b_{n+1}}\right\rvert&lt;\left(1-\frac{b_{N+1}}{b_{n+1}}\right)\varepsilon&lt;\varepsilon
+$$
+取足够大的 $n$，即可
+$$
+\left\lvert\frac{a_{n+1}}{b_{n+1}}-L\right\rvert\le\left\lvert\frac{a_{n+1}}{b_{n+1}}-\frac{a_{N+1}}{b_{n+1}}-L+L\frac{b_{N+1}}{b_{n+1}}\right\rvert+\left\lvert\frac{a_{N+1}}{b_{n+1}}-L\frac{b_{N+1}}{b_{n+1}}\right\rvert&lt;2\varepsilon
+$$
+Remark. 这里主要是考虑去除 $a_N$ 和 $b_N$ 的“垃圾”影响。如果硬处理的话，可以直接比对已知不等式和目标不等式，硬解出 $n$ 的范围，但这样会麻烦。这个证法主要是通过保留 $1-b_{N+1}/b_{n+1}$ 因子的方式，减少了讨论的复杂程度。</p>
+</li>
+<li>
+<p>设 $\lim\Delta a_n/\Delta b_n=L$，$\forall\varepsilon&gt;0$，$\exists N$，$\forall n&gt;N$，
+$$
+(L-\varepsilon)(b_{n+1}-b_n)&lt;a_{n+1}-a_n&lt;(L+\varepsilon)(b_{n+1}-b_n)
+$$
+于是 $\forall n^\prime &gt;n$，
+$$
+(L-\varepsilon)(b_{n^\prime+1}-b_n)&lt;a_{n^\prime+1}-a_n&lt;(L+\varepsilon)(b_{n^\prime+1}-b_n)
+$$
+即
+$$
+\left\lvert\frac{a_n}{b_n}-\frac{a_{n^\prime+1}}{b_n}-L+L\frac{b_{n^\prime+1}}{b_n}\right\rvert&lt;\left(1-\frac{b_{n^\prime+1}}{b_n}\right)\varepsilon&lt;\varepsilon
+$$
+取足够大的 $n^\prime$，即可
+$$
+\left\lvert\frac{a_n}{b_n}-L\right\rvert\le\left\lvert\frac{a_n}{b_n}-\frac{a_{n^\prime+1}}{b_n}-L+L\frac{b_{n^\prime+1}}{b_n}\right\rvert+\left\lvert\frac{a_{n^\prime+1}}{b_n}-L\frac{b_{n^\prime+1}}{b_n}\right\rvert&lt;2\varepsilon
+$$
+Remark. 这种情况奇怪的点在于，不能扔前缀的部分了，因为越前反而越大。所以要找到影响够小的部分，只能到后面去找，再减回来。洛必达法则的 $0/0$ 形式的思路也是类似。</p>
+</li>
+</ol>
+<blockquote>
+<p>$$
+\lim_{n\to\infty}\frac{n^k}{a^n}
+$$</p>
+</blockquote>
+<p>解 1：
+$$
+*=\lim_{n\to\infty}\left(\frac{n}{a^{n/k}}\right)^k=k^k\left(\lim_{t\to\infty}\frac{t}{a^t}\right)^k=0
+$$
+因为
+$$
+\frac{t}{a^t}=\frac{t}{(1+a-1)^t}\le\frac{t}{\binom t2(a-1)^2}=\frac{2}{(t-1)(a-1)^2}\to 0
+$$
+解 2：当 $n&gt;1/(1-a^{-1/k})$ 时，
+$$
+\frac{n^k/a^n}{(n+1)^k/a^{n+1}}=a\left(1-\frac1{n+1}\right)^k&gt;1
+$$
+即递减，故极限存在。对
+$$
+\frac{n^k}{a^n}=a\left(\frac{n}{n+1}\right)^k\frac{(n+1)^k}{a^{n+1}}
+$$
+两边取极限得
+$$
+\lim_{n\to\infty}\frac{n^k}{a^n}=a\lim_{n\to\infty}\frac{n^k}{a^n}\Longrightarrow\lim_{n\to\infty}\frac{n^k}{a^n}=0
+$$
+解 3：取对数硬证。</p>
+<p>解 4：用 Stolz 定理 + 归纳证。</p>
+<blockquote>
+<p>不用洛必达，证明
+$$
+\lim_{x\to0^+}x\ln x=0
+$$</p>
+</blockquote>
+<p>$$
+\lim_{x\to 0^+}x\ln x=\lim_{x\to 0^+}\e^{\ln x}\ln x\xlongequal{y=-\ln x}-\lim_{y\to+\infty}\frac{y}{\e^y}=0
+$$</p>
+<blockquote>
+<p>$$
+\lim_{x\to 0}\frac{(1+nx)^{1/m}-(1+mx)^{1/n}}{x}
+$$</p>
+</blockquote>
+<p>$$
+\begin{align*}
+&amp;\lim_{x\to 0}\frac{(1+nx)^{1/m}-(1+mx)^{1/n}}{x}\\
+={}&amp;\lim_{x\to 0}\frac{(1+nx)^{1/m}-1}{x}-\lim_{x\to 0}\frac{(1+mx)^{1/n}-1}{x}\\
+\xlongequal{t=(1+nx)^{1/m},u=(1+mx)^{1/n}}{}&amp;\lim_{t\to 1}\frac{n(t-1)}{t^m-1}-\lim_{u\to 1}\frac{m(u-1)}{u^n-1}\\
+={}&amp;\lim_{t\to 1}\frac{n}{t^{m-1}+\cdots+1}-\lim_{u\to 1}\frac{m}{u^{n-1}+\cdots+1}\\
+={}&amp;\frac{n}{m}-\frac{m}{n}
+\end{align*}
+$$</p>
+<p>另一种麻烦些的处理方法是考虑
+$$
+\begin{align*}
+&amp;\lim_{x\to 0}\frac{(1+x)^p-1}{x}\\
+={}&amp;\lim_{x\to 0}\frac{\e^{p\ln(1+x)}-1}{x}\\
+={}&amp;\lim_{x\to 0}\frac{\e^{p\ln(1+x)}-1}{\ln(1+x)}\\
+\xlongequal{t=p\ln(1+x)}{}&amp;p\lim_{t\to 0}\frac{\e^t-1}{t}\\
+\xlongequal{u=\e^t-1}{}&amp;p\lim_{u\to 0}\frac{u}{\ln(1+u)}\\
+={}&amp;p
+\end{align*}
+$$</p>
+<blockquote>
+<p>$\e$ 相关：</p>
+<ol>
+<li>证明 $(1+1/n)^n$ 单增且有界，$(1+1/n)^{n+1}$ 单减且有界，从而两者极限存在且相等。</li>
+<li>证明 $(1+1/x)^x$ 在 $\R^\pm$ 上分别单增，$\lim_{x\to\infty}(1+1/x)^x=\e$。</li>
+<li>证明 $\sum_{i=0}^{+\infty}1/i!=\e$。</li>
+<li>证明 $\e\notin\Q$。</li>
+</ol>
+</blockquote>
+<ol>
+<li>
+<p>证 1（比值比较法）：
+$$
+\begin{align*}
+&amp;\frac{\left(1+\frac1{n+1}\right)^{n+1}}{\left(1+\frac1n\right)^n}\\
+={}&amp;\left(\frac{1+\frac1{n+1}}{1+\frac1n}\right)^n\frac{n+2}{n+1}\\
+={}&amp;\left(1-\frac{1}{(n+1)^2}\right)^n\frac{n+2}{n+1}\\
+&gt;{}&amp;\left(1-\frac{n}{(n+1)^2}\right)\frac{n+2}{n+1}\\
+={}&amp;\frac{n^3+3n^2+3n+2}{n^3+3n^2+3n+1}\\
+&gt;{}&amp;1
+\end{align*}
+$$</p>
+<p>其中第一个 $&gt;$ 是（归纳法可以证的）伯努利不等式。</p>
+<p>证 2（均值不等式）：
+$$
+\left(1+\frac1n\right)^n=1\cdot\left(1+\frac1n\right)^n\le\left(\frac{1+n+1}{n+1}\right)^{n+1}=\left(1+\frac1{n+1}\right)^{n+1}
+$$
+证 3（二项式展开）：
+$$
+\begin{align*}
+\left(1+\frac1n\right)^n
+&amp;=\sum_{i=0}^n\frac{n^{\underline{i}}}{i!}n^{-i}\\
+&amp;=\sum_{i=0}^n\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac jn\right)\\
+&amp;&lt;\sum_{i=0}^{n+1}\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac j{n+1}\right)=\left(1+\frac1{n+1}\right)^{n+1}
+\end{align*}
+$$
+另一个：
+$$
+\begin{align*}
+&amp;\frac{\left(1+\frac1n\right)^{n+1}}{\left(1+\frac1{n+1}\right)^{n+2}}\\
+={}&amp;\left(\frac{1+\frac1n}{1+\frac1{n+1}}\right)^{n+1}\frac{n+1}{n+2}\\
+={}&amp;\left(1+\frac{1}{n(n+2)}\right)^{n+1}\frac{n+1}{n+2}\\
+&gt;{}&amp;\left(1+\frac{n+1}{n(n+2)}\right)\frac{n+1}{n+2}\\
+={}&amp;\frac{n^2+4n^2+4n+1}{n^3+4n^2+4n}\\
+&gt;{}&amp;1
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>$&gt;0$ 的情况：
+$$
+\left(1+\frac1{\lfloor x\rfloor+1}\right)^{\lfloor x\rfloor}\le\left(1+\frac1x\right)^x\le\left(1+\frac1{\lfloor x\rfloor}\right)^{\lfloor x\rfloor+1}
+$$</p>
+<p>夹逼即可。$&lt;0$ 时：
+$$
+\lim_{x\to-\infty}\left(1+\frac1x\right)^x=\lim_{x\to-\infty}\left(\frac{x}{x+1}\right)^{-x}=\lim_{t\to+\infty}\left(1+\frac{1}{t+1}\right)^t=\e
+$$
+似乎没有简单的方法证明其本身的单调性。</p>
+</li>
+<li>
+<p>一方面，
+$$
+\left(1+\frac1n\right)^n=\sum_{i=0}^n\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac jn\right)\le\sum_{i=0}^n\frac1{i!}
+$$
+另一方面，
+$$
+\lim_{n\to\infty}\left(1+\frac1n\right)^n\ge\lim_{n\to\infty}\sum_{i=0}^k\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac jn\right)=\sum_{i=0}^k\frac1{i!}
+$$
+或者也可以利用伯努利不等式（from <a class="link" href="https://www.zhihu.com/question/427108293/answer/3227359998"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/427108293/answer/3227359998</a>）
+$$
+\left(1+\frac1n\right)^n=\sum_{i=0}^n\frac1{i!}\prod_{j=0}^{i-1}\left(1-\frac jn\right)\ge\sum_{i=0}^n\frac1{i!}\left(1-\frac{i(i-1)}{n}\right)=\left(1-\frac1n\right)\sum_{i=0}^n\frac1{i!}
+$$</p>
+</li>
+<li>
+<p>（from <a class="link" href="https://www.zhihu.com/question/341220643/answer/868684204"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/341220643/answer/868684204</a>）</p>
+</li>
+</ol>
+<p>若
+$$
+\sum_{i=0}^{+\infty}\frac{1}{i!}=\e=\frac qp\Longrightarrow\sum_{i=0}^pp^{\underline{p-i}}+\sum_{i=p+1}^{+\infty}\frac1{i^{\underline{i-p}}}=q(p-1)!
+$$
+则
+$$
+\sum_{i=p+1}^{+\infty}\frac1{i^{\underline{i-p}}}&lt;\sum_{i=1}^{\infty}\frac1{(p+1)^i}=\frac1p\le 1
+$$
+是整数，矛盾。</p>
+<blockquote>
+<p>$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x}
+$$</p>
+</blockquote>
+<p>错误解法：
+$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x}=\lim_{x\to 0}\frac{x^2\sin(1/x)}{x}=\lim_{x\to 0}x\sin\frac{1}{x}=0
+$$
+错误之处：当我们说 $\sin(x^2\sin(1/x))\sim x^2\sin(1/x)$ 时，我们实际上在说
+$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x^2\sin(1/x)}=1
+$$
+这个极限是在 $\R\setminus\set{0}\setminus\set{1/k\pi\mid k\in\Z\setminus\set{0}}$ 上说的，但是原极限并没有去掉这些点，而等价无穷小替换的原理是“硬拆出一个分式”方法，所以这样不行。</p>
+<p>正确解法 1：夹逼。</p>
+<p>正确解法 2：
+$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x}=\lim_{x\to 0}\frac{x^2\sin(1/x)}{x}=\lim_{x\to 0}x\sin\frac{1}{x}=0
+$$
+欸欸欸，不是，怎么跟上面的错误解法一样啊？</p>
+<p>别急，我们这里用的是 wxf 的等价无穷小定义：$f\sim g$ 定义为 $f=g+\omicron(g)$，或者说 $\forall\varepsilon&gt;0$，$\exists\delta&gt;0$，$\forall|x-x_0|&lt;\delta$，$|f(x)-g(x)|\le\varepsilon|g(x)|$（注意这里必须是 $\le$，不然 $0$ 就爆了）。容易验证还是有 $\sin(x^2\sin(1/x))\sim x^2\sin(1/x)$，于是
+$$
+\lim_{x\to 0}\frac{\sin(x^2\sin(1/x))}{x}=\lim_{x\to 0}\frac{x^2\sin(1/x)+\omicron(x^2\sin(1/x))}{x}=\lim_{x\to 0}\left(x\sin\frac 1x+\omicron\left(x\sin\frac 1x\right)\right)=0
+$$</p>
+<p>这个定义在保证应用时可以替换的情况下，避免了除法。</p>
+<p>说到这个定义，我们就不禁会关心一个东西：</p>
+<blockquote>
+<p>证明：$x\to x_0$，$f=g+\omicron(g)\Leftrightarrow g=f+\omicron(f)$。</p>
+</blockquote>
+<p>设 $f-g=\omicron(g)$。$\forall\varepsilon\in(0,1)$，已知 $\exists\delta&gt;0$，$\forall|x-x_0|&lt;\delta$，
+$$
+\begin{align*}
+|f(x)-g(x)|&amp;\le\frac{\varepsilon}{1+\varepsilon}|g(x)|\\
+&amp;=\frac{\varepsilon}{1+\varepsilon}|g(x)-f(x)+f(x)|\\
+&amp;\le\frac{\varepsilon}{1+\varepsilon}|f(x)-g(x)|+\frac{\varepsilon}{1+\varepsilon}|f(x)|\\
+\Longrightarrow\frac{1}{1+\varepsilon}|f(x)-g(x)|&amp;\le\frac{\varepsilon}{1+\varepsilon}|f(x)|\\
+\Longrightarrow|f(x)-g(x)|&amp;\le\varepsilon|f(x)|
+\end{align*}
+$$</p>
+<blockquote>
+<p>$y_n=2y_{n-1}^2-1, |y_0|\le 1$， 分析 $\set{y_n}$ 的敛散性。</p>
+</blockquote>
+<p>设 $y_n=\cos\theta_n$, 则 $y_n=\cos(2^n\theta_0)$.</p>
+<p>对于 $\theta_0$ 是 $\pi$ 的有理数倍的情况, 设 $\theta_0=q\pi/p$, 其中 $p,q$ 互质, $p&gt;0$. 如果 $p=2^k$, 那么 ${y_n}$ 收敛至 $1$; 如果 $p=3\cdot 2^k$, 那么 ${y_n}$ 收敛至 $-1/2$; 否则 ${y_n}$ 震荡不收敛.</p>
+<p>对于 $\theta_0$ 是 $\pi$ 的无理数倍的情况, $y_n\ne 1$. 如果 $\lim_{n\to\infty}y_n=1$, 那么 $\exists N$, $\forall n\ge N$, $1-y_n&lt;1/2$. 设 $d_n=1-y_n$. 有 $d_n=2(1+y_{n-1})d_n$. 那么当 $n&gt;N$ 时, $d_n&gt;3d_{n-1}&gt;\cdots&gt;3^{n-N}d_N$. 取 $n=N-\lceil\log_3d_N\rceil$, 则 $d_n&gt;1/2$, 矛盾.</p>
+<p>同样, $y_n\ne-1/2$. 如果 $\lim_{n\to\infty}y_n=-1/2$, 那么 $\exists N$, $\forall n\ge N$, $|y_n+1/2|&lt;1/4$. 设 $c_n=|y_n+1/2|$, 有 $c_n=2|y_n-1/2|c_{n-1}$. 那么当 $n&gt;N$ 时, $c_n&gt;(3/2)c_{n-1}&gt;\cdots&gt;(3/2)^{n-N}c_N$. 取 $n=N-\lceil\log_{3/2}c_N\rceil$, 则 $c_n&gt;1/4$, 矛盾. 故 ${y_n}$ 不收敛.</p>
+<p>综上所述, ${y_n}$ 收敛的充要条件是 $\arccos y_0\in{q\pi/2^k,q\pi/(3\cdot 2^k)\mid q,k\in\N}$.</p>
+<blockquote>
+<p>$x_1=a$，$y_1=b$，$x_{n+1}=(x_n+y_n)/2$，$y_{n+1}=\sqrt{x_ny_n}$。分析两个数列收敛到的同一个值。</p>
+</blockquote>
+<p><a class="link" href="https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean"  target="_blank" rel="noopener"
+    >https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean</a></p>
+<blockquote>
+<p>$x_1=1$，$x_{n+1}=x_n+1/S_n$。分析 $\lim_{n\to\infty}\e^{x_n^2}/S_n$ 是否收敛。</p>
+</blockquote>
+<p>求教教/kel</p>
+<blockquote>
+<p>不用微分中值定理证明洛必达定理。</p>
+</blockquote>
+<p>$0/0$：已知存在 $x_0$ 的一个邻域，使得邻域内 $|f^\prime(x)/g^\prime(x)-A|&lt;\varepsilon$。由于导数的介值性，可以假定 $g^\prime(x)$ 恒 $&gt;0$。所以 $f^\prime(x)-(A-\varepsilon)g^\prime(x)&gt;0$，$f^\prime(x)-(A+\varepsilon)g^\prime(x)&lt;0$，所以 $f(x)-(A-\varepsilon)g(x)$ 严格单增，$f(x)-(A+\varepsilon)g(x)$ 严格单减。又由于在 $x_0$ 处这两者都等于 $0$，故 $x&lt;x_0$ 时 $f(x)-(A-\varepsilon)g(x)&lt;0$，同时 $g(x)&lt;0$，故 $A-\varepsilon&lt;f(x)/g(x)$。同理讨论其他三种情况，得 $A-\varepsilon&lt;f(x)/g(x)&lt;A+\varepsilon$。</p>
+<p>这种情况因为要处理 $0^\pm$ 的情况所以用上了达布，不好看。下面这种情况会看起来比较牛：</p>
+<p>$*/\infty$：只考虑左侧。设 $\lim_{x\to x_0^-}g(x)=+\infty$，从而 $g^\prime(x)&gt;0$。同理我们会得到在 $x\in(x_1,x_0)$ 内 $f(x)-(A-\varepsilon)g(x)$ 严格单增。现在取 $x_0$ 的另一个左邻域 $(x_2,x_0)\subset(x_1,x_0)$ 使得 $\forall x\in(x_2,x_0)$，$-\varepsilon g(x)&lt;f(x_1)-(A-\varepsilon)g(x_1)$，因为 $g(x)\to+\infty$ 所以这是可以的。这时对于其中的 $x$，
+$$
+f(x)-(A-\varepsilon)g(x)&gt;f(x_1)-(A-\varepsilon)g(x_1)&gt;-\varepsilon g(x)\Longrightarrow\frac{f(x)}{g(x)}&gt;A-2\varepsilon
+$$
+其余情况同理。</p>
+<blockquote>
+<p>$f(x)\in\mathscr{C}[0,1]$ 满足 $|f(x)|\le 1+\int_0^x|f(t)|\d t$。证明 $|f(x)|\le\e^x$。</p>
+<p>这个题的非积分形式在教积分之前也出现过（5.1.13）。</p>
+</blockquote>
+<p>证 1：令 $g(x)=|f(x)|-\e^x$，则 $|g(x)|-\int_0^xg(x)\d x\le 0$。如果 $g(x)$ 出现了正的，取 $x_0=\operatorname{argmax}g(x)$。由中值定理，
+$$
+g(x_0)\le\int_0^{x_0}g(t)\d t=x_0g(\xi)\;(\xi\in(0,x_0))
+$$
+如果 $x_0=1$，让 $x_0=\xi$ 后再做一遍。现在 $g(\xi)\ge g(x_0)/x_0&gt;g(x_0)$，与 $g(x_0)$ 最大矛盾。</p>
+<p>证 2：令 $g(x)=\int_0^x|f(t)|\d t$。则
+$$
+g^\prime(x)\le 1+g(x)\Longrightarrow\frac{g^\prime(x)}{1+g(x)}\le 1\Longrightarrow\ln(1+g(x))\le x\Longrightarrow1+g(x)\le\e^x\Longrightarrow|f(x)|\le\e^x
+$$
+这种方法更通用。</p>
+<blockquote>
+<p>对于 $[0,1]$ 上的连续函数 $f$ 与以 $1$ 为周期的非负可积函数 $g$，证明
+$$
+\lim_{n\to\infty}\int_0^1f(x)g(nx)\d x=\int_0^1f(x)\d x\int_0^1g(x)\d x
+$$</p>
+</blockquote>
+<p>$$
+\begin{align*}
+&amp;\lim_{n\to\infty}\int_0^1f(x)g(nx)\d x\\
+={}&amp;\lim_{n\to\infty}\sum_{i=0}^{n-1}\int_{i/n}^{(i+1)/n}f(x)g(nx\bmod 1)\d x\\
+={}&amp;\lim_{n\to\infty}\frac1n\sum_{i=0}^{n-1}f(\xi_{n,i})\int_0^1g(x)\d x\\
+={}&amp;\int_0^1f(x)\d x\int_0^1g(x)\d x
+\end{align*}
+$$</p>
+<blockquote>
+<p>设 $f(x)=\int_x^{x+1}\sin(t^2)\d t$。证明 $\forall x&gt;0$，$|f(x)|\le 1/x$。</p>
+</blockquote>
+<p>既然不能直接用 Dirichlet 判别法，就考虑其原理，试图魔改其证明的过程。
+$$
+\begin{align*}
+\left|\int_{x^2}^{(x+1)^2}\frac{\sin u}{2\sqrt u}\d u\right|&amp;=\left|-\left.\frac{\cos u}{2\sqrt u}\right|_{x^2}^{(x+1)^2}-\int_{x^2}^{(x+1)^2}\frac{\cos u}{4u^{3/2}}\d u\right|\\
+&amp;\le\frac{1}{2(x+1)}+\frac{1}{2x}+\int_{x^2}^{(x+1)^2}\frac{\d u}{4u^{3/2}}\\
+&amp;=\frac{1}{2(x+1)}+\frac{1}{2x}-\frac{1}{2(x+1)}+\frac{1}{2x}\\
+&amp;=\frac1x
+\end{align*}
+$$</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="dd326071c6a1197039d3ea088c858afc"
+    data-page-url="https://littlereuben.github.io/study/course-calculus-1-2/"
+    data-page-title="微积分 A(1) 复习及一些题"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px; height: 450px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+    </script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>
