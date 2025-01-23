@@ -491,7 +491,7 @@
   <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
 </svg>
                 <time class="article-time--reading">
-                    35433 字
+                    35442 字
                 </time>
             </div>
         
@@ -797,7 +797,7 @@ $$
 其实基于各基向量垂直，这个是很直观的。</p>
 <p>求散度、旋度这些，一种思路是，还是像上面这样，但是注意到 $\p{\b{\hat x}_i}/\p x_j$ 这种东西的结果不是 $\b 0$。通过转直角坐标系求出它们之后就简单了。</p>
 <p>所以为什么三种 $\nabla$ 都可以用这个式子呢？或者应该问为什么 $\nabla$ 在不同坐标系下有某个不变性呢？</p>
-<p>看到过有同学用更简洁的方法推 $\nabla^2$，但是忘了。</p>
+<p>看到过有同学用更简洁的方法推 $\nabla^2$，好像是用的一些更高端的方法。</p>
 <h2 id="静电学的基本公式">静电学的基本公式
 </h2><p>电势的思想略，这边默认会高中的内容。</p>
 <h3 id="高斯定律">高斯定律
@@ -2462,13 +2462,13 @@ $$
 $\b A$ 同理。这个玩意叫推迟势。虽然推导的时候用了近似，但代入检验（这里就不写了）一下就会发现这个在一般情况下也是对的。另外 $\b E$ 和 $\b B$ 的表达式更加复杂，推导可以看 Griffiths（就是些求导）。这里写一下结论：
 $$
 \left\{\begin{aligned}
-\varphi(\b r,t)&amp;=\frac{1}{4\pi\eps_0}\iiint\frac{\rho(\b r^\prime,t-\mathscr{\b r}/c)\d v}{\mathscr{r}}\\
-\b A(\b r,t)&amp;=\frac{\mu_0}{4\pi}\iiint\frac{\b j(\b r^\prime,t-\mathscr{\b r}/c)\d v}{\mathscr{r}}\\
-\b E(\b r,t)&amp;=\frac{1}{4\pi\eps_0}\iiint\left(\frac{\rho(\b r^\prime,t-\mathscr{\b r}/c)}{\mathscr{r}^2}\mathscr{\b{\hat r}}+\frac{\dot\rho(\b r^\prime,t-\mathscr{\b r}/c)}{c\mathscr{r}}\mathscr{\b{\hat r}}-\frac{\dot{\b j}(\b r^\prime,t-\mathscr{\b r}/c)}{c^2\mathscr{r}}\right)\d v\\
-\b B(\b r,t)&amp;=\frac{\mu_0}{4\pi}\iiint\left(\frac{\b j(\b r^\prime,t-\mathscr{\b r}/c)}{\mathscr{r}^2}+\frac{\dot{\b j}(\b r^\prime,t-\mathscr{\b r}/c)}{c\mathscr{r}}\right)\times\mathscr{\b{\hat r}}\d v
+\varphi(\b r,t)&amp;=\frac{1}{4\pi\eps_0}\iiint\frac{\rho(\b r^\prime,t-\mathfrak{\b r}/c)\d v}{\mathfrak{r}}\\
+\b A(\b r,t)&amp;=\frac{\mu_0}{4\pi}\iiint\frac{\b j(\b r^\prime,t-\mathfrak{\b r}/c)\d v}{\mathfrak{r}}\\
+\b E(\b r,t)&amp;=\frac{1}{4\pi\eps_0}\iiint\left(\frac{\rho(\b r^\prime,t-\mathfrak{\b r}/c)}{\mathfrak{r}^2}\mathfrak{\b{\hat r}}+\frac{\dot\rho(\b r^\prime,t-\mathfrak{\b r}/c)}{c\mathfrak{r}}\mathfrak{\b{\hat r}}-\frac{\dot{\b j}(\b r^\prime,t-\mathfrak{\b r}/c)}{c^2\mathfrak{r}}\right)\d v\\
+\b B(\b r,t)&amp;=\frac{\mu_0}{4\pi}\iiint\left(\frac{\b j(\b r^\prime,t-\mathfrak{\b r}/c)}{\mathfrak{r}^2}+\frac{\dot{\b j}(\b r^\prime,t-\mathfrak{\b r}/c)}{c\mathfrak{r}}\right)\times\mathfrak{\b{\hat r}}\d v
 \end{aligned}\right.
 $$
-其中 $\mathscr{\b r}=\b r-\b r^\prime$（我打不出那个玩意！），以及 $\dot\rho$ 和 $\dot{\b j}$（wtf is this）是关于第二维求偏导。</p>
+其中 $\mathfrak{\b r}=\b r-\b r^\prime$（我打不出那个玩意！），以及 $\dot\rho$ 和 $\dot{\b j}$（wtf is this）是关于第二维求偏导。</p>
 <p>解一般的波方程一般考虑复波函数。</p>
 <h2 id="交流电路">交流电路
 </h2><p>不知道为什么突然就开始讲电路了。</p>
