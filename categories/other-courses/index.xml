@@ -462,7 +462,7 @@ $$
 &lt;ol&gt;
 &lt;li&gt;通过周年视差 $p$ 确定距离 $d$。&lt;/li&gt;
 &lt;li&gt;测得视亮度 $B$，求得光度 $L=4\pi d^2B$。&lt;/li&gt;
-&lt;li&gt;测得色指数 $B\text{-}!V$ 确定温度 $T$。&lt;/li&gt;
+&lt;li&gt;测得色指数 $B\text{-}\!V$ 确定温度 $T$。&lt;/li&gt;
 &lt;li&gt;$R^2=L/4\pi\sigma T^4$。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;双星系统的推导等下学期普物一，这里就记两个公式：一个是，轨道半径（周长）与质量成反比，一个是开普勒第三定律
@@ -1016,7 +1016,7 @@ $$
 $$
 色指数：
 $$
-B\text{-}!V=-2.5\log_{10}\frac{b_B}{b_V}
+B\text{-}\!V=-2.5\log_{10}\frac{b_B}{b_V}
 $$&lt;/p&gt;
 &lt;p&gt;质寿关系（类日）：
 $$
@@ -2843,7 +2843,7 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;有空多复习 ppt 和作业，多刷《大题典》，不要像我这样记太多笔记。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;cheatsheet.zip&#34; &gt;我的 cheat sheet&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;致谢&#34;&gt;致谢
-&lt;/h2&gt;&lt;p&gt;Huge thanks to mjy, zzy, psy, qkx. 感谢你们解答了我这么多傻逼问题。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;Huge thanks to mjy, zzy, lhz, psy, qkx. 感谢你们解答了我这么多傻逼问题。&lt;/p&gt;
 &lt;h2 id=&#34;第一节课&#34;&gt;第一节课
 &lt;/h2&gt;&lt;h3 id=&#34;物理思想&#34;&gt;物理思想
 &lt;/h3&gt;&lt;p&gt;数学和物理的差异：&lt;/p&gt;
