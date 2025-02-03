@@ -421,7 +421,7 @@
   <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
 </svg>
                 <time class="article-time--reading">
-                    34871 字
+                    34883 字
                 </time>
             </div>
         
@@ -459,7 +459,8 @@
 <p>期末个人感觉难度适中，不会考得很偏，不复习肯定会出事。$50$ 道选择，$20$ 道填空，$10$ 道简单的计算，考点全部来自 ppt，建议背 ppt，ppt 里打 * 的不考。<strong>上课时务必留意老师说“这个考试要考的啊”之类的话并记下来</strong>，甚至观星活动时都会说（例如冬季大三角），这些是真的可能会考的。</p>
 <p>推荐 zzh 的<a class="link" href="https://www.luogu.com/article/yj5vlmt8"  target="_blank" rel="noopener"
     >带你速通 天文学导论</a>和<a class="link" href="https://www.luogu.com/article/43fli1jp"  target="_blank" rel="noopener"
-    >星空摄影入门</a>。</p>
+    >星空摄影入门</a>、Alex_Wei 的<a class="link" href="https://www.cnblogs.com/alex-wei/p/18628499/introduction_to_astronomy"  target="_blank" rel="noopener"
+    >笔记</a>。</p>
 <p>以下的图片与数据来源于教材和 Wikipedia。</p>
 <h2 id="第一节课">第一节课
 </h2><p>太阳系→银河系→本星系群→室女座超星系团→拉尼亚凯亚超星系团</p>
@@ -3298,6 +3299,17 @@ $$</p>
     window.addEventListener('onColorSchemeChange', (e) => {
         setCusdisTheme(e.detail)
     })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
 </script>
 
 <script>
@@ -3314,11 +3326,11 @@ $$</p>
             `;
             
             iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
-            iframe.style = 'width: 100%; border: 0px; height: 450px;';
+            iframe.style = 'width: 100%; border: 0px;';
         });
     });
     observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
-    </script>
+</script>
 
     
 

@@ -132,8 +132,8 @@
 &lt;p&gt;归档分类卡片渐变颜色：main.ts 里 articleDetails.style.background。我觉得不改也挺好看。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;归档多栏：&lt;a class=&#34;link&#34; href=&#34;https://blog.grew.cc/posts/stack.html#%E5%BD%92%E6%A1%A3%E9%A1%B5%E5%8F%8C%E6%A0%8F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://blog.grew.cc/posts/stack.html#%E5%BD%92%E6%A1%A3%E9%A1%B5%E5%8F%8C%E6%A0%8F&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;归档多栏：&lt;a class=&#34;link&#34; href=&#34;https://blog.grew.cc/posts/stack#%E5%BD%92%E6%A1%A3%E9%A1%B5%E5%8F%8C%E6%A0%8F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://blog.grew.cc/posts/stack#%E5%BD%92%E6%A1%A3%E9%A1%B5%E5%8F%8C%E6%A0%8F&lt;/a&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;图标可以在 &lt;a class=&#34;link&#34; href=&#34;https://tablericons.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -245,7 +245,7 @@
 &lt;li&gt;如果想改中文，在 layout/partial/comments/provider/cusdis.html 里 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;{{ $host }}/js/cusdis.es.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt; 的上面加一句 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;https://cusdis.com/js/widget/lang/zh-cn.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Cusdis 的块非常矮，目前我没有找到一个能使块长随着评论数量变化的方法，一个差一点的解决方法见 &lt;a class=&#34;link&#34; href=&#34;https://barthpaleologue.github.io/Blog/posts/add-and-customize-cusdis-hugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://barthpaleologue.github.io/Blog/posts/add-and-customize-cusdis-hugo/&lt;/a&gt;。&lt;/p&gt;
+    &gt;https://barthpaleologue.github.io/Blog/posts/add-and-customize-cusdis-hugo/&lt;/a&gt;。upd：问题已解决，见该博客评论。强迫症会发现暗色模式时底部有一像素高的区域会是纯黑（&lt;code&gt;#121212&lt;/code&gt;），这个似乎没法解决。&lt;/p&gt;
 &lt;h3 id=&#34;日常维护&#34;&gt;日常维护
 &lt;/h3&gt;&lt;p&gt;我一般习惯这样：&lt;/p&gt;
 &lt;ol&gt;

@@ -425,6 +425,17 @@ $t$ 表示任意串。前面一个串 $p=n/2$，红色部分 $q=n/3$。</p>
     window.addEventListener('onColorSchemeChange', (e) => {
         setCusdisTheme(e.detail)
     })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
 </script>
 
 <script>
@@ -441,11 +452,11 @@ $t$ 表示任意串。前面一个串 $p=n/2$，红色部分 $q=n/3$。</p>
             `;
             
             iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
-            iframe.style = 'width: 100%; border: 0px; height: 450px;';
+            iframe.style = 'width: 100%; border: 0px;';
         });
     });
     observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
-    </script>
+</script>
 
     
 
