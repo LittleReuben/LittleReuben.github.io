@@ -7,7 +7,212 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Wed, 22 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/other-courses/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 23 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/other-courses/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>狭义相对论笔记</title>
+        <link>https://littlereuben.github.io/study/special-relativity/</link>
+        <pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/special-relativity/</guid>
+        <description>&lt;p&gt;$\gdef\b#1{\boldsymbol{#1}}\gdef\d{\mathrm{d}}$&lt;/p&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;这篇笔记是学普物二时为了理解磁场和电场本质一致的关系时写的，侧重于理解狭相的推导过程。好像这学期普物一也会用，大家可以参考。&lt;/p&gt;
+&lt;p&gt;这篇文章里没包含的内容：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用闵氏空间语言讲相对论，包括时空间隔的几何意义、四维矢量，以及一些高级的上下标表示法。&lt;/li&gt;
+&lt;li&gt;钟慢、尺缩、质量的三个实验详细推导。&lt;/li&gt;
+&lt;li&gt;双生子佯谬。&lt;/li&gt;
+&lt;li&gt;四维加速度的推导（其实应该算是四维力的前置，但是后续只有力变换用得着，我就没推）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;公理 1&lt;/strong&gt;：在任意惯性系内，所有物理规律都是相同的。&lt;/p&gt;
+&lt;p&gt;这里“惯性系”根本没定义，我们可以理解成，是这几条公理定义了惯性系，或者说惯性系要满足这几条公理。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;公理 2&lt;/strong&gt;：在任意惯性系内，光速均 $=c$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;公理 *&lt;/strong&gt;：如果从惯性系 $A$ 来看，惯性系 $B$ 相对于 $A$ 以 $\b v$ 的速度运动，那么从惯性系 $B$ 来看，惯性系 $A$ 相对于 $B$ 以 $-\b v$ 的速度运动。&lt;/p&gt;
+&lt;p&gt;这条公理本来是可以由前两条公理推导出来，但是太复杂了（详见&lt;a class=&#34;link&#34; href=&#34;https://physics.stackexchange.com/questions/219390/why-is-the-relative-speed-between-two-inertial-frames-the-same-for-observers-in&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;），所以就默认它也算公理了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;惯性系的描述&lt;/strong&gt;：一个惯性系中，事件可以用三维空间加一维时间 $(x,y,z,t)$ 描述。同一个惯性（参考）系可以有很多惯性坐标系，但这些坐标系直接只是平移（含时间）和旋转（不含时间）关系，所以这个不是重点。注意，对坐标进行拉伸或压缩后，得到的并不是合法的惯性坐标系。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;惯性系中的观测&lt;/strong&gt;：可以认为，当一个事件发生时，这个惯性系可以立即得到其坐标，而并非一个站在原点处的人通过眼睛观测这个事件。书中具体实现这个事情，是通过在三维空间的每一点放一个钟，然后对时。
+$$
+\boxed{\gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}}
+$$
+&lt;strong&gt;钟慢效应&lt;/strong&gt;：当一个钟在运动时（不一定是惯性地），它本身有一个固有时 $\tau$。这个固有时与观测它的参考系无关。&lt;br&gt;
+通过对车上法向测距的几何分析（自己看书）（注意需要假设与速度垂直方向空间不伸缩）可得 $\Delta t=\gamma\Delta\tau$。&lt;br&gt;
+注意这个式子的含义&lt;em&gt;不是&lt;/em&gt;“在系 $A^\prime$ 中经过了 $\Delta\tau$ 时间，&lt;em&gt;对应&lt;/em&gt;在系 $A$ 中经过了 $\gamma\Delta\tau$ 时间”，这个&lt;em&gt;对应&lt;/em&gt;是非良定义的。它的严格表述是，“在 $A^\prime$ 中同一点处发生的间隔 $\Delta\tau$ 的事件，从 $A$ 中来看是间隔 $\gamma\Delta\tau$ 的事件”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;尺缩效应&lt;/strong&gt;：类似地，如果两点相对于钟静止，那么两点之间的距离就是固有长度 $l_0$。&lt;br&gt;
+通过对车上径向测距的几何分析（注意需要依赖钟慢效应的推导）可得（与速度方向相同的杆）$l=l_0/\gamma$。&lt;br&gt;
+更一般的尺缩效应会在下面解释。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;同时相对性&lt;/strong&gt;：一个系对时的过程中出现两处同时收到光信号，从另一个系看来是不同时的。注意这是一个定性的规律，因为从另一个系来看的长度还需分析。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;洛伦兹变换推导&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;这里我们默认两个参考系的 $(0,0)$ 重合。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;一维洛伦兹变换的推导（依赖于钟慢、尺缩）：&lt;/p&gt;
+&lt;p&gt;我们首先不加证明地说，变换存在，且是线性的。&lt;/p&gt;
+&lt;p&gt;钟慢效应说，在参考系 $A^\prime$ 中发生的事 $(0,0)-(0,t)$，可以对应到 $A$ 中发生的事 $(0,0)-(v\gamma t,t)$；&lt;/p&gt;
+&lt;p&gt;尺缩效应需要改一下才能用，书里说的是，长度的测量是通过“激光测距仪”实现的，这个不好搞。考虑这样：$A^\prime$ 中有一根 $-l\sim 0$ 的棍子，它的两端经过 $A$ 中的原点作为两个事件。$A^\prime$ 中是 $(0,0)-(-l,l/v)$，$A$ 中则由于两次测的点相同，故反用钟慢效应，是 $(0,0)-(0,l/\gamma v)$。&lt;/p&gt;
+&lt;p&gt;于是我们有方程：
+$$
+\left\{\begin{align*}
+\begin{bmatrix}0\\ t\end{bmatrix}&amp;amp;=\begin{bmatrix}a_{11}&amp;amp;a_{12}\\ a_{21}&amp;amp;a_{22}\end{bmatrix}\begin{bmatrix}v\gamma t\\ t\end{bmatrix}\\
+\begin{bmatrix}-l\\ \frac lv\end{bmatrix}&amp;amp;=\begin{bmatrix}a_{11}&amp;amp;a_{12}\\ a_{21}&amp;amp;a_{22}\end{bmatrix}\begin{bmatrix}0\\ \frac{l}{\gamma v}\end{bmatrix}
+\end{align*}\right.
+$$
+解得
+$$
+\Lambda=\begin{bmatrix}\gamma&amp;amp;-\gamma v\\ -\frac{\gamma v}{c^2}&amp;amp;\gamma\end{bmatrix}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一维洛伦兹变换的推导（依赖于时空间隔不变性）（《电动力学》（郭硕鸿））：&lt;/p&gt;
+&lt;p&gt;光速不变的说法强于 $\sqrt{x^2+y^2+z^2}=ct\Leftrightarrow \sqrt{{x^\prime}^2+{y^\prime}^2+{z^\prime}^2}=ct^\prime$。我们可以说&lt;strong&gt;时空间隔&lt;/strong&gt;是不变量
+$$
+x^2+y^2+z^2-c^2t^2={x^\prime}^2+{y^\prime}^2+{z^\prime}^2-c^2{t^\prime}^2
+$$
+于是
+$$
+(a_{11}x+a_{12}t)^2-c^2(a_{21}x+a_{22}t)^2=x^2-c^2t^2
+$$
+给出了三个方程（比对 $x^2$、$xt$、$t^2$ 的系数）。另外，考虑到 $v$，我们知道 $A$ 中的 $(vt,t)$ 对应着 $A^\prime$ 中的 $(0,?)$。于是
+$$
+\left\{
+\begin{align*}
+a_{11}^2-a_{21}^2&amp;amp;=1\\
+a_{11}a_{12}-c^2a_{21}a_{22}&amp;amp;=0\\
+a_{12}^2-c^2a_{22}^2&amp;amp;=-c^2\\
+a_{11}v+a_{12}&amp;amp;=0
+\end{align*}
+\right.
+$$
+其中 $a_{11},a_{22}&amp;gt;0$。解得同样的结果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;注：为什么我们必须要么构造实际场景，要么用有额外公理之感的时空间隔不变性，才能证明洛伦兹比变换呢？因为公理 2 要是用严格的语言描述，必须引入闵氏空间，就很麻烦了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;三维洛伦兹变换的推导（&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/266509750&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/266509750&lt;/a&gt;）：我们固然可以用基变换矩阵，但是另两维其实没必要分开。&lt;/p&gt;
+&lt;p&gt;空间的拉伸，只需将 $\b x=(x,y,z)$ 分解为与速度方向共线与垂直的两部分即可（至于垂直为啥不变，我也不知道）。即：
+$$
+\left\{\begin{align*}
+\b x_{\parallel}&amp;amp;=\frac{\b x\cdot\b v}{v^2}\b v\\
+\b x_{\perp}&amp;amp;=\b x-\b x_{\parallel}\\
+\begin{bmatrix}|\b x_{\parallel}^\prime|\\ \b x_{\perp}^\prime\\ t^\prime\end{bmatrix}&amp;amp;=\begin{bmatrix}\gamma&amp;amp;0&amp;amp;-\gamma v\\ 0&amp;amp;1&amp;amp;0\\ -\frac{\gamma v}{c^2}&amp;amp;0&amp;amp;\gamma\end{bmatrix}\begin{bmatrix}|\b x_{\parallel}|\\ \b x_{\perp}\\ t\end{bmatrix}
+\end{align*}\right.
+$$
+于是
+$$
+\begin{align*}
+&amp;amp;\b x^\prime=\b x_\parallel^\prime+\b x_\perp=\gamma\b x_\parallel-\gamma\b vt+\b x-\b x_\parallel\\
+&amp;amp;t^\prime=-\frac{\gamma v}{c^2}|\b x_\parallel|+\gamma t=-\frac{\gamma}{c^2}|\b x\cdot\b v|+\gamma t
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;主要要展开的就是（这里 $v$ 再加粗就太阴间了……）
+$$
+\b x_\parallel=\frac{xv_x+yv_y+zv_z}{v^2}\begin{bmatrix}v_x\\ v_y\\ v_z\end{bmatrix}
+$$
+于是
+$$
+\b x^\prime=\begin{bmatrix}
+\gamma tv_x+x+(\gamma-1)\frac{v_x^2}{v^2}x+(\gamma-1)\frac{v_xv_y}{v^2}y+(\gamma-1)\frac{v_xv_z}{v^2}z\\
+\gamma tv_y+(\gamma-1)\frac{v_yv_x}{v^2}x+y+(\gamma-1)\frac{v_y^2}{v^2}y+(\gamma-1)\frac{v_yv_z}{v^2}z\\
+\gamma tv_z+(\gamma-1)\frac{v_zv_x}{v^2}x+(\gamma-1)\frac{v_zv_y}{v^2}y+z+(\gamma-1)\frac{v_z^2}{v^2}z\\
+\end{bmatrix}
+$$
+即
+$$
+\begin{bmatrix}x^\prime\\ y^\prime\\ z^\prime\\ t^\prime\end{bmatrix}=
+\begin{bmatrix}
+1+(\gamma-1)\frac{v_x^2}{v^2}&amp;amp;(\gamma-1)\frac{v_xv_y}{v^2}&amp;amp;(\gamma-1)\frac{v_xv_z}{v^2}&amp;amp;\gamma v_x\\
+(\gamma-1)\frac{v_yv_x}{v^2}&amp;amp;1+(\gamma-1)\frac{v_y^2}{v^2}&amp;amp;(\gamma-1)\frac{v_yv_z}{v^2}&amp;amp;\gamma v_y\\
+(\gamma-1)\frac{v_zv_x}{v^2}&amp;amp;(\gamma-1)\frac{v_zv_y}{v^2}&amp;amp;1+(\gamma-1)\frac{v_z^2}{v^2}&amp;amp;\gamma v_z\\
+-\gamma\frac{v_x}{c^2}&amp;amp;-\gamma\frac{v_y}{c^2}&amp;amp;-\gamma\frac{v_z}{c^2}&amp;amp;\gamma
+\end{bmatrix}
+\begin{bmatrix}x\\ y\\ z\\ t\end{bmatrix}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;用洛伦兹变换解释尺缩效应&lt;/strong&gt;：值得注意的是，上面说的“尺缩效应”是一般情况的特例。简单分析是无法得到一般情况的。有洛伦兹变换之后就可以分析了。&lt;br&gt;
+尺缩效应的表述&lt;em&gt;是&lt;/em&gt;“在系 $A^\prime$ 中沿运动方向的长为 $l_0$ 的&lt;em&gt;静止&lt;/em&gt;的杆，&lt;em&gt;对应&lt;/em&gt;在系 $A$ 中长为 $l_0/\gamma$”。必须定义的是，如何在一个参考系中测量一个运动的杆：如果在系 $A$ 中有两个事件 $(x_0,t)$ 和 $(x_1,t)$（这里简化就用一维空间了），第一个事件是该地该时观测到杆的一头在该地，第二个事件是（另一）该地（同一）该时观测到杆的另一头在该地，那么 $|x_1-x_0|$ 就是观测到的长度。&lt;br&gt;
+那么严格的推导是 $l_0=x_1^\prime-x_0^\prime=\Lambda_{11}x_1+\Lambda_{12}t-\Lambda_{11}x_0-\Lambda_{12}t=\gamma(x_1-x_0)=\gamma l$。&lt;br&gt;
+现在我们可以明确，所谓“$A^\prime$ 比 $A$ 慢/短，反过来 $A$ 又比 $A^\prime$ 慢/短”，只是没有搞清钟慢和尺缩的严格表述犯的错，这两个效应不能正反连续两次应用（不是“对合”的）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;速度变换&lt;/strong&gt;：速度显然可以定义为，如果质点在两处分别出现的事件为 $(x_0,t_0)$ 和 $(x_0+\d x,t_0+\d t)$，那么 $v=\frac{\d x}{\d t}$。如果系 $A$ 中有个质点以 $v$ 的速度移动，而系 $A$ 相对于 $A^\prime$ 以 $v_0$ 的速度移动，那么从 $A^\prime$ 看来，
+$$
+v^\prime=\frac{\d x^\prime}{\d t^\prime}=\frac{\Lambda_{11}\d x+\Lambda_{12}\d t}{\Lambda_{21}\d x+\Lambda_{22}\d t}=\frac{\gamma_0\d x+\gamma_0v_0\d t}{\frac{\gamma_0v_0}{c^2}\d x+\gamma_0\d t}=\frac{v+v_0}{\frac{v_0v}{c^2}+1}
+$$
+从这里开始，$\gamma_0$ 表示 $v_0$ 对应的洛伦兹因子，$\gamma$ 表示 $v$ 对应的。如果是垂直方向的速度，则
+$$
+v_y^\prime=\frac{\d y}{\d t^\prime}=\frac{\d y}{\frac{\gamma_0v_0}{c^2}\d x+\gamma_0\d t}=\frac{v_y}{\gamma_0\left(\frac{v_0v_x}{c^2}+1\right)}
+$$
+例：两个相对地球反向分别以 $0.5c$ 的速度运动的飞船，从一架飞船上看另一架，相对速度为
+$$
+\frac{0.5c+0.5c}{0.25+1}=0.8c
+$$
+&lt;strong&gt;动量定义&lt;/strong&gt;：对于一个参考系中一个运动的质点，其动量 $\b p$ 为一个与它运动方向同向的向量。不同系中动量由于速度不同可能不同，但必须只依赖于 $v$ 和质点本身的性质（而不依赖于参考系），必须满足动量守恒。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;质量定义&lt;/strong&gt;：对于 $\b v\ne 0$ 的质点，动质量 $m_v$ 定义为使得 $\b p=m_v\b v$ 的标量，特殊地定义静质量 $m_0$，经过后续推导可知 $m_v$ 在 $v=0$ 处右连续。质量必须满足质量守恒。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;质量变换&lt;/strong&gt;：考虑 $A$ 中静质量相同的两个质点，一动一静发生完全非弹性碰撞。考虑与碰撞后状态相对静止的另一个系 $A^\prime$。在两个系中分别列出动量守恒与质量守恒方程，可以解得
+$$
+m_v=\gamma m_0
+$$
+同理可以得出动量变换，它有个更优美的形式，所以我们放到能量之后讲。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;力的定义&lt;/strong&gt;：和速度类似，$\b F=\frac{\d\b p}{\d t}$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;功与能量&lt;/strong&gt;：功的定义和经典力学一样：
+$$
+\begin{align*}
+\d W&amp;amp;=\b F\cdot\d\b x\\
+&amp;amp;=\frac{\d\b p\cdot\d\b x}{\d t}\\
+&amp;amp;=\b v\cdot\d\b p\\
+&amp;amp;=\b v\cdot\d(\gamma m_0\b v)\\
+&amp;amp;=m_0(v^2\d\gamma+\gamma\b v\cdot\d\b v)\\
+&amp;amp;=m_0v(v\d\gamma+\gamma\d v)\\
+&amp;amp;=m_0\gamma^3v\d v\\
+&amp;amp;=m_0c^2\d\gamma
+\end{align*}
+$$
+（最后两行就是在凑积分）也就是说，定义能量变化量为做功的话，
+$$
+\Delta E=W=\Delta\gamma m_0c^2=\Delta m_vc^2
+$$
+也是只跟初末状态有关。$m_0c^2$ 被称为&lt;strong&gt;静能&lt;/strong&gt;，$(\gamma-1)m_0c^2$ 被称为&lt;strong&gt;动能&lt;/strong&gt;，$m_vc^2=\gamma m_0c^2$ 被称为&lt;strong&gt;总能&lt;/strong&gt;。&lt;br&gt;
+动质量、动量、总能都是守恒量，但参考系不同会不同；静质量不是守恒量，但与参考系无关。考虑一个质量转换成能量的例子：原来一个静止的物体爆炸，碎片向各处飞去。动质量守恒说明，原静质量等于现动质量之和，从而大于现静质量之和。少的质量充当动能。&lt;br&gt;
+最后，我们可以推出能量与动量的关系：
+$$
+E^2=\gamma^2m_0^2c^4=\frac{1-\frac{v^2}{c^2}+\frac{v^2}{c^2}}{1-\frac{v^2}{c^2}}m_0^2c^4=m_0^2c^4+\gamma^2m_0^2v^2c^2=E_0^2+p^2c^2
+$$
+&lt;strong&gt;四维速度与四维动量&lt;/strong&gt;：我们希望用洛伦兹变换矩阵直接表示速度、动量变换。考虑速度，其一大问题在于，它在变换后是两个变换量之比 $\frac{\d\b x^\prime}{\d t^\prime}$，这个没法方便地写成线性变换的形式。很容易想到，我们希望让分母变成一个不需变换的东西。所以考虑定义一种初看起来有些不伦不类的速度：对于在系 $A$ 中运动的一个质点，它本身有一个固有时 $\tau$。若它在 $\d\tau$ 的时间内，从 $A$ 观测走了 $\d\b x$，定义 $\b u=\frac{\d\b x}{\d\tau}$。&lt;br&gt;
+由于 $\tau$ 与选取的参考系无关，现在我们就有（可根据实际情况选取一维空间或三维空间的 $\Lambda$）
+$$
+\begin{bmatrix}\frac{\d\b x^\prime}{\d \tau}\\ \frac{\d t^\prime}{\d\tau}\end{bmatrix}=\Lambda\begin{bmatrix}\frac{\d\b x}{\d\tau}\\ \frac{\d t}{\d\tau}\end{bmatrix}
+$$
+而 $\frac{\d}{\d\tau}=\frac{\d}{\d t}\frac{\d t}{\d\tau}=\gamma\frac{\d}{\d t}$，从而
+$$
+\begin{bmatrix}\gamma^\prime\b v^\prime\\ \gamma^\prime\end{bmatrix}=\Lambda\begin{bmatrix}\gamma\b v\\ \gamma\end{bmatrix}
+$$
+同样可以在 $\Lambda$ 中代入 $-v_0$，求出 $v_x^\prime$ 与 $v_x$ 的关系，与上面那种推导校验。&lt;br&gt;
+动量变换反而容易了！因为 $\b p=\gamma m_0\b v$，直接就有
+$$
+\begin{bmatrix}\b p^\prime\\ m_{v^\prime}\end{bmatrix}=\Lambda\begin{bmatrix}\b p\\ m_v\end{bmatrix}
+$$
+&lt;strong&gt;四维力&lt;/strong&gt;：动量非常自然地把 $\d\tau$ “吸收”进了 $\gamma$，于是我们又可以通过 $/\d\tau$ 定义一个怪怪的力了！（大雾）
+$$
+\begin{bmatrix}\frac{\d\b p^\prime}{\d\tau}\\ \frac{\d m_{v^\prime}}{\d\tau}\end{bmatrix}=\Lambda\begin{bmatrix}\frac{\d\b p}{\d\tau}\\ \frac{\d m_v}{\d\tau}\end{bmatrix}
+$$
+上面就是 $\gamma\b F$，但是下面这个呢？实际算问题的时候鬼知道 $\frac{\d m_v}{\d\tau}$ 是多少啊……
+$$
+\frac{\d m_v}{\d\tau}=m_0\frac{\d\gamma}{\d\tau}=\frac{\b F\cdot\d\b x}{c^2\d\tau}=\frac{\b F\cdot\b u}{c^2}=\gamma\frac{\b F\cdot\b v}{c^2}
+$$
+第二个等号参见&lt;strong&gt;功与能量&lt;/strong&gt;那边的推导。于是（网上有些文章是把 $/\d t$ 的速度记成 $\b u$，不要搞混了）
+$$
+\begin{bmatrix}\gamma^\prime\b F^\prime\\ \gamma^\prime\frac{\b F^\prime\cdot\b v^\prime}{c^2}\end{bmatrix}=\Lambda\begin{bmatrix}\gamma\b F\\ \gamma\frac{\b F\cdot\b v}{c^2}\end{bmatrix}
+$$
+于是我们发现，力的变换不仅与时空有关系，还与质点当前的速度有关系。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;四维加速度&lt;/strong&gt;见 &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/114045707&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/114045707&lt;/a&gt;。另一个比较靠谱的推导 &lt;a class=&#34;link&#34; href=&#34;https://dsl.nju.edu.cn/litao/teach/Ch6.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://dsl.nju.edu.cn/litao/teach/Ch6.pdf&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;参考书：《从零学相对论》（梁灿彬、曹周键），《新概念物理学教程 力学》（赵凯华、罗蔚茵）。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>带你慢通 天文学导论</title>
         <link>https://littlereuben.github.io/study/course-astronomy/</link>
         <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
@@ -5199,6 +5404,488 @@ $$
 \end{align*}\right.
 $$
 最低的截止频率对应的是 $\mathrm{TM}_{11}$。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>高中物理中的拓展问题</title>
+        <link>https://littlereuben.github.io/study/physics0/</link>
+        <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/physics0/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/study/physics0/cover.jpg" alt="Featured image of post 高中物理中的拓展问题" /&gt;&lt;p&gt;$\gdef\d{\mathrm{d}}\gdef\sgn{\operatorname{sgn}}\gdef\e{\mathrm{e}}\gdef\bm#1{\boldsymbol{#1}}$&lt;/p&gt;
+&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;这些内容主要写于 2024 年上半年我自学高中物理时想到的一些问题。实际上是 2025.2.23 upload 这个文章的，现在看起来很幼稚了，就只是当作记录吧。&lt;/p&gt;
+&lt;h3 id=&#34;小球上半圆弧模型&#34;&gt;小球上半圆弧模型
+&lt;/h3&gt;&lt;p&gt;众所周知，上到一半是 $\sqrt{2gr}$，从顶上飞出去是 $\sqrt{5gr}$。那斜抛刚好落到圆弧与水平面连接处呢？&lt;/p&gt;
+&lt;p&gt;设斜抛起始点与圆心连线与水平夹角为 $\theta$，高度为 $h$。
+$$
+\left\{\begin{align*}
+h&amp;amp;=r(1+\sin\theta)\\
+\dfrac 12mv_0^2&amp;amp;=\dfrac 12mv^2+mgh\\
+m\dfrac{v^2}r&amp;amp;=mg\sin\theta\\
+h&amp;amp;=\dfrac 12gt^2-vt\cos\theta\\
+r\cos\theta&amp;amp;=vt\sin\theta
+\end{align*}\right.
+$$
+解得 $\sin\theta=\frac 12,v_0=\sqrt{3.5gr}$。&lt;/p&gt;
+&lt;h3 id=&#34;恒定功率加速问题&#34;&gt;恒定功率加速问题
+&lt;/h3&gt;&lt;p&gt;考虑机车从静止开始以恒定功率 $P$ 加速，阻力为 $f$，希望求出 $v$ 关于 $t$ 的表达式。根据牛二，
+$$
+\frac Pv-f=m\dot v
+$$
+即
+$$
+\dfrac{mv}{P-fv}\d v=\d t
+$$&lt;/p&gt;
+&lt;p&gt;两边积分然后根据 $v|_{t=0}=0$ 即可解得 $C$。&lt;/p&gt;
+&lt;p&gt;当 $f=0$ 时，解得
+$$
+v=\sqrt{\frac{2Pt}m}
+$$
+其余情况下有
+$$
+\frac mf\left(\frac Pf\ln\frac P{P-fv}-v\right)=t
+$$
+当 $t\to+\infin$ 时 $v\to P/f$。$v$ 关于 $t$ 不存在初等表达式，需借助 Lambert W 函数。&lt;/p&gt;
+&lt;p&gt;如果阻力正比于 $v$ 即 $f(v)=kv$，则
+$$
+v=\sqrt{\frac{P(1-\e^{-\frac{2k}mt})}k}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;真正的自由落体运动&#34;&gt;真正的自由落体运动
+&lt;/h3&gt;&lt;p&gt;method from zby（的同学）.&lt;/p&gt;
+&lt;p&gt;视星体为质量为 $M$ 的质点，记 $y$ 为轻物体（如果是两个星体，以其中一个为参考系即可）距质点的距离。初始 $y|_{t=0}=d$，速度为 $0$。&lt;/p&gt;
+&lt;p&gt;然后会得到这样一个微分方程：
+$$
+\ddot yy=GM
+$$
+不会解……&lt;/p&gt;
+&lt;p&gt;换一个思路，由能量守恒，
+$$
+-{GM}d=-{GM}y+\frac12{\dot y}^2
+$$
+即
+$$
+\dot y=\sqrt{2GM\left(\frac 1y-\frac 1d\right)}
+$$
+那就是（我们来详细推导一下）
+$$
+\begin{align*}
+t={}&amp;amp;\int_{y}^d\frac{\d x}{\sqrt{2GM\left(\frac 1x-\frac 1d\right)}}\\
+\xlongequal{z=\sqrt{\frac 1x-\frac 1d}}{}&amp;amp;\sqrt{\frac{2}{GM}}\int_{0}^{\sqrt{\frac 1y-\frac 1d}}\frac{\d z}{\left(z^2+\frac 1d\right)^2}\\
+\xlongequal{\tan\alpha=\sqrt dz}{}&amp;amp;\sqrt{\frac{2d^3}{GM}}\int_0^{\arctan\sqrt{\frac dy-1}}\cos^2\alpha\d\alpha\\
+={}&amp;amp;\sqrt{\frac{2d^3}{GM}}\left.\left(\frac{\sin2\alpha}{4}+\frac\alpha2\right)\right|_0^{\arctan\sqrt{\frac dy-1}}\\
+={}&amp;amp;\sqrt{\frac{d}{2GM}}\left(y\sqrt{\frac dy-1}+d\arctan\sqrt{\frac dy-1}\right)
+\end{align*}
+$$
+因此，相撞时刻为
+$$
+t|_{y\to 0}=\frac\pi2d\sqrt\frac d{2GM}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;开普勒推万有引力&#34;&gt;开普勒推万有引力
+&lt;/h3&gt;&lt;h4 id=&#34;开普勒第一定律&#34;&gt;开普勒第一定律
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;所有行星绕恒星运动的轨道都是椭圆，且恒星处在椭圆的某个焦点上。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以 $F_1$ 为极点，$F_1F_2$ 为极轴建立极坐标系，行星轨迹为&lt;/p&gt;
+&lt;p&gt;$$
+r=\frac{ep}{1-e\cos\theta}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;开普勒第二定律&#34;&gt;开普勒第二定律
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;一对特定恒星与行星的连线在相等时间内所扫过的面积相等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;设 $S$ 为单位时间内扫过的面积，则
+$$
+2S=r^2\dot\theta
+$$&lt;/p&gt;
+&lt;h4 id=&#34;开普勒第三定律&#34;&gt;开普勒第三定律
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;对于一个恒星，其所有行星轨道半长轴的立方与公转周期的平方成正比。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;设该比例为 $k$，即
+$$
+\frac{a^3}{T^2}=k
+$$
+又
+$$
+T\cdot S=\pi ab
+$$
+故
+$$
+S^2=\frac{\pi^2kb^2}{a}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;极坐标下的加速度&#34;&gt;极坐标下的加速度
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;将极坐标下的加速度正交分解成径向加速度 $a_r$ 与切向加速度 $a_\theta$。&lt;/p&gt;
+&lt;p&gt;极坐标下有径向基矢 $\hat r=\hat x\cos\theta+\hat y\sin\theta$ 和 切向基矢 $\hat\theta=-\hat x\sin\theta+\hat y\cos\theta$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先有
+$$
+\begin{align*}
+\d\hat r&amp;amp;=\hat\theta\d\theta\\
+\d\hat\theta&amp;amp;=-\hat r\d r
+\end{align*}
+$$
+故
+$$
+\begin{align*}
+\frac{\d(r\hat r)}{\d t}&amp;amp;=\dot r\hat r+r\hat\theta\\
+\frac{\d^2(r\hat r)}{\d t^2}&amp;amp;=\left(\ddot r-r\dot\theta^2\right)\hat r+\left(2\dot r\dot\theta+r\ddot\theta\right)\hat\theta\\
+\end{align*}
+$$
+即
+$$
+\begin{align*}
+a_r&amp;amp;=\ddot r-r\dot\theta^2\\
+a_\theta&amp;amp;=2\dot r\dot\theta+r\ddot\theta
+\end{align*}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;推导&#34;&gt;推导
+&lt;/h4&gt;&lt;p&gt;综合上述公式，
+$$
+\begin{align*}
+\dot r&amp;amp;=-\frac{e^2p\sin\theta}{(1-e\cos\theta)^2}\dot\theta\\
+&amp;amp;=-\frac{r^2\dot\theta}{p}\sin\theta\\
+&amp;amp;=-\frac{2S}{p}\sin\theta\\
+\ddot r&amp;amp;=-\frac{2S}{p}\dot\theta\cos\theta\\
+&amp;amp;=-\frac{2S}{p}\left(\frac 1e-\frac pr\right)\dot\theta\\
+a_r&amp;amp;=\ddot r-r\dot\theta^2\\
+&amp;amp;=-\frac{2S}{ep}\dot\theta+\frac{2S}{r}\dot\theta-\frac{2S}{r}\dot\theta\\
+&amp;amp;=-\frac{2S}{ep}\cdot\frac{2S}{r^2}\\
+&amp;amp;=-\frac{4\pi^2kb^2}{aepr^2}\\
+&amp;amp;=-\frac{4\pi^2k}{r^2}\\
+a_\theta&amp;amp;=2\dot r\dot\theta+r\ddot\theta\\
+&amp;amp;=\frac{\d(r^2\theta)}{r\d t}\\
+&amp;amp;=0
+\end{align*}
+$$
+由牛二，引力方向为两星球连线，大小为
+$$
+F=\frac{4\pi^2km}{r^2}
+$$
+设恒星与行星质量分别为 $m_1,m_2$，对应常数分别为 $k_1,k_2$，由牛三，
+$$
+\frac{4\pi^2k_1m_2}{r^2}=\frac{4\pi^2k_2m_1}{r^2}
+$$
+即
+$$
+\frac{k_1}{m_1}=\frac{k_2}{m_2}
+$$
+由此可见，存在一常数，所有物体的 $k$ 比 $m$ 均为该常数，设其为 $\frac{G}{4\pi^2}$，则
+$$
+F=\frac{Gm_1m_2}{r^2}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;非质点的库仑力计算&#34;&gt;非质点的库仑力计算
+&lt;/h3&gt;&lt;p&gt;对于一个半径为 $R$，均匀带电 $Q$ 的圆环，与圆心连线垂直于圆面且长为 $D$ 的点处的电场大小为（相似三角形分解力）
+$$
+\frac{kQD}{(R^2+D^2)^{\frac 32}}
+$$
+对于一个半径为 $R$，均匀带电 $Q$ 的球壳，与球心距离为 $D$ 处的电场大小为
+$$
+\begin{align*}
+&amp;amp;\int_{-\frac\pi 2}^{\frac\pi 2}\frac{k\left(\frac{2\pi R^2\cos\theta\d\theta}{4\pi R^2}Q\right)(D-R\sin\theta)}{\left[R^2\cos^2\theta+(D-R\sin\theta)^2\right]^{\frac 32}}\\
+={}&amp;amp;\frac{kQ}{2}\int_{-\frac\pi 2}^{\frac\pi 2}\frac{\cos\theta\d\theta(D-R\sin\theta)}{\left(R^2+D^2-2RD\sin\theta\right)^{\frac 32}}\\
+={}&amp;amp;\frac{kQ}{2}\left.\frac{D\sin\theta-R}{D^2\sqrt{R^2+D^2-2RD\sin\theta}}\right|_{-\frac\pi 2}^{\frac\pi 2}\\
+={}&amp;amp;\frac{kQ}{2D^2}(1+\sgn(D-R))
+\end{align*}
+$$
+于是一个半径为 $R$，均匀带电 $Q$ 的实心球，与球心距离为 $D$ 处的电场大小为
+$$
+\left\{\begin{align*}
+&amp;amp;\dfrac{kQD}{R^3},&amp;amp;D&amp;lt;R\\
+&amp;amp;\dfrac{kQ}{D^2},&amp;amp;D\ge R
+\end{align*}\right.
+$$
+因此均匀带电的球对于某点的电场，等效于去除在该点外围的球的部分后，球心对其的电场。&lt;/p&gt;
+&lt;p&gt;对于一个半径为 $R$，均匀带电 $Q$ 的圆板，与圆心连线垂直于圆面且长为 $D$ 的点处的电场大小为
+$$
+\begin{align*}
+&amp;amp;\int_0^R\frac{k\left(\frac{2\pi r\d r}{\pi R^2}Q\right)D}{\left(r^2+D^2\right)^{\frac 32}}\\
+={}&amp;amp;\frac{2kQD}{R^2}\int_0^R\frac{r\d r}{(r^2+D^2)^{\frac 32}}\\
+={}&amp;amp;\frac{2kQD}{R^2}\left(\left.-\frac{1}{\sqrt{R^2+D^2}}\right|_0^R\right)\\
+={}&amp;amp;\frac{2kQ}{R^2}\left(1-\frac{D}{\sqrt{R^2+D^2}}\right)
+\end{align*}
+$$
+$R\to+\infty$ 可导出电荷面密度为 $\sigma$ 的无限大均匀带电平面的电场大小为 $2\pi k\sigma$（与距离无关），同时可以导出电容的决定式
+$$
+C=\frac QU=\frac Q{Ed}=\frac Q{2\cdot 2\pi k\sigma\cdot d}=\frac S{4\pi kd}
+$$
+对于一个电荷线密度为 $\lambda$ 的无限长均匀带电导线，与它距离为 $D$ 处的电场大小为
+$$
+\int_{-\infty}^{\infty}\frac{k(\lambda\d x)D}{(x^2+D^2)^{\frac 32}}=\frac{2k\lambda}{D}
+$$&lt;/p&gt;
+&lt;p&gt;对于一个半径为 $R$，均匀带电，电荷线密度为 $\lambda$ 的圆环，在圆所在平面内，与圆心距离为 $D$ 处的电场大小为
+$$
+\int_0^{2\pi}\frac{k(R\d\theta\cdot\lambda)(D-R\sin\theta)}{(R^2+D^2-2RD\sin\theta)^{\frac32}}
+$$
+然后这个玩意 TM 积不出来！是个椭圆积分。反而下面这个是可以积的：&lt;/p&gt;
+&lt;p&gt;对于一个半径为 $R$，均匀带电，电荷面密度为 $\sigma$ 的无限长圆筒，与轴心距离为 $D$ 处的电场大小为
+$$
+\int_0^{2\pi}\frac{2k(R\d\theta\cdot\sigma)(D-R\sin\theta)}{R^2+D^2-2RD\sin\theta}=\frac{2\pi k\sigma R}D(1+\sgn(D-R))
+$$
+于是一个半径为 $R$，均匀带电，电荷体密度为 $\rho$ 的无限长圆柱，与轴心距离为 $D$ 处的电场大小为
+$$
+\left\{\begin{align*}
+&amp;amp;2\pi k\rho D,&amp;amp;D&amp;lt;R\\
+&amp;amp;\dfrac{2\pi k\rho R^2}{D},&amp;amp;D\ge R
+\end{align*}\right.
+$$
+因此均匀带电的圆柱对于某点的电场，等效于去除在该点外围的圆柱的部分后，轴心对其的电场。&lt;/p&gt;
+&lt;h3 id=&#34;通电导线的磁场&#34;&gt;通电导线的磁场
+&lt;/h3&gt;&lt;p&gt;直导线的磁场分布和带电导线的电场分布是类似的，都是与距离成反比，只是方向不同。&lt;/p&gt;
+&lt;p&gt;对于一个半径为 $R$，电流为 $I$ 的圆导线，与圆心距离为 $D$ 处的磁感应强度大小为
+$$
+\int_0^{2\pi}这部分咕了
+$$&lt;/p&gt;
+&lt;h3 id=&#34;通电螺线管的磁场&#34;&gt;通电螺线管的磁场
+&lt;/h3&gt;&lt;p&gt;对于一个半径为 $R$，面电流密度为 $\sigma$（$\sigma$ 在数值上等于 $nI$，$n$ 为单位宽度上的匝数。电流为逆时针方向）的无限长通电螺线管，与轴心距离为 $D$ 处的磁感应强度大小为：&lt;/p&gt;
+&lt;p&gt;假设螺线管轴心与 $z$ 轴重合，现拿出一段宽为 $\d l$，与 $z$ 轴平行的无限长条，设它的电流方向为 $(d_x,d_y,0)$（模长为 $1$）。若将它平移到 $z$ 轴处，它对 $(x,y,0)$ 处的磁感应强度为
+$$
+\begin{align*}
+&amp;amp;\d l\int_{-\infty}^{+\infty}\frac{k\sigma\d z\cdot(d_x,d_y,0)\times(x,y,-z)}{\left(x^2+y^2+z^2\right)^{\frac32}}\\
+={}&amp;amp;k\sigma\d l\cdot(d_x,d_y,0)\times\left(\frac{2x}{x^2+y^2},\frac{2y}{x^2+y^2},0\right)\\
+={}&amp;amp;2k\sigma\d l\frac{d_xy-d_yx}{x^2+y^2}\cdot\vec k
+\end{align*}
+$$
+回到原问题
+$$
+\int_0^{2\pi}2k\sigma R\d\theta\frac{-\sin\theta(D-R\sin\theta)-\cos\theta(-R\cos\theta)}{R^2+D^2-2RD\sin\theta}=2\pi k\sigma(1-\sgn(D-R))
+$$
+因此理想的通电螺线管，管内为强度为 $\mu_0\sigma$ 的匀强磁场，管上的强度为管内的一半，管外无磁场。&lt;/p&gt;
+&lt;h3 id=&#34;电容充放电过程&#34;&gt;电容充放电过程
+&lt;/h3&gt;&lt;p&gt;充电过程中，设电源电压为 $E$，电容电压为 $U$，整个电路的电阻为 $R$。
+$$
+C\dot U=\dot Q=I=\frac{E-U}{R}
+$$
+解得
+$$
+U=E(1-\e^{-\frac t{CR}})
+$$
+同理可得到放电过程（这里的 $E$ 指电容的初始电压）
+$$
+U=E\e^{-\frac t{CR}}
+$$
+无论哪种情况，都有
+$$
+I=\frac{\e^{-\frac t{CR}}}{R}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;碰撞问题的理解&#34;&gt;碰撞问题的理解
+&lt;/h3&gt;&lt;p&gt;关于非弹性碰撞时的能量损耗，可以理解为两者相对于质心的速度的减小，详见&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/371215495/answer/1018301871&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个回答&lt;/a&gt;。在这个回答中提到说，一个系统的动能等于其质心动能加上各部分相对于质心的动能，这是一个有趣的结论：
+$$
+\sum m_i\bm{v_i}^2=M\bm{V}^2+\sum m_i(\bm{v_i}-\bm{V})^2\\
+\text{which }M=\sum m_i,\bm{V}=\sum\bm{v_i}
+$$
+直接展开即证。&lt;/p&gt;
+&lt;p&gt;关于完全非弹性碰撞必定共速的原因，可以从两个角度理解。&lt;/p&gt;
+&lt;p&gt;第一个角度就是直接求最值：
+$$
+\max;\frac12m_1v_1^2+\frac12m_2v_2^2-\frac12m_1{v_1&amp;rsquo;}^2-\frac12m_2{v_2&amp;rsquo;}^2\\
+\text{s.t.};m_1v_1+m_2v_2=m_1v_1&amp;rsquo;+m_2v_2&amp;rsquo;
+$$
+建立一个坐标系，横轴是 $\sqrt{m_1}v_1$，纵轴是 $\sqrt{m_2}v_2$。那么所有合法的情况都处于一条斜率为 $-\sqrt{m_1/m_2}$ 的直线上。完全非弹性碰撞就是其上与原点距离最近的点，也就是原点到该直线的垂足，而这条垂线的斜率为 $\sqrt{m_2/m_1}$，其上面的点就是 $v_1=v_2$。弹性碰撞可以视作关于这条垂线对称。&lt;/p&gt;
+&lt;p&gt;第二个角度就是假想两球之间连了一个轻弹簧。那么弹簧长度最小或最大时，两球相对静止，这时弹簧的弹性势能最大，动能减少量最大。&lt;/p&gt;
+&lt;p&gt;对了，考虑求一下弹簧的长度关于时间的函数？设伸长量为 $x$，初始为 $0$。
+$$
+\left\{\begin{align*}
+\dot{v_1}&amp;amp;=\frac{kx}{m_1}\\
+\dot{v_2}&amp;amp;=-\frac{kx}{m_2}\\
+\dot{x}&amp;amp;=v_2-v_1
+\end{align*}\right.\Rightarrow \ddot{x}=-k\left(\frac1{m_1}+\frac1{m_2}\right)x
+$$
+解得 $x=\dfrac{v\sin\sqrt cx}{\sqrt c}$，其中 $c=k\left(\dfrac1{m_1}+\dfrac1{m_2}\right)$，$v$ 为初始的相对速度。&lt;/p&gt;
+&lt;p&gt;因此这时实际上做的是类似简谐运动。同时可以轻松求出能量损耗最大值为
+$$
+\frac 12kx_{\max}^2=\frac{m_1m_2v^2}{2(m_1+m_2)}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;单摆相关&#34;&gt;单摆相关
+&lt;/h3&gt;&lt;p&gt;考察一个初始时轻绳与竖直方向夹角为 $\theta_0$ 且初速度为 $0$ 的摆的周期。&lt;/p&gt;
+&lt;p&gt;夹角到 $\theta$ 时，速度满足
+$$
+\frac12mv^2=mgl(\cos\theta-\cos\theta_0)
+$$
+故周期为
+$$
+\begin{align*}
+T(\theta_0)={}&amp;amp;4\int_0^{\theta_0}\frac{l\d\theta}{\sqrt{2gl(\cos\theta-\cos\theta_0)}}\\
+={}&amp;amp;2\sqrt{\frac lg}\int_0^{\theta_0}\frac{\d\theta}{\sqrt{\sin^2\frac{\theta_0}{2}-\sin^2\frac{\theta}{2}}}\\
+\xlongequal{\sin\alpha=\frac{\sin\frac{\theta}{2}}{\sin\frac{\theta_0}{2}}}{}&amp;amp;4\sqrt{\frac lg}\int_0^{\frac\pi2}\frac{\d\alpha}{\sqrt{1-\sin^2\frac{\theta_0}{2}\sin^2\alpha}}\\
+={}&amp;amp;4\sqrt{\frac lg}\cdot K\left(\sin\frac{\theta_0}{2}\right)
+\end{align*}
+$$
+其中 $K(a)$ 为第一类完全椭圆积分。推导中最难的一步是换元，我也是从知乎上看来的（几篇都是这么搞的）。&lt;/p&gt;
+&lt;p&gt;从而也可以验证书中的公式 $\lim_{\theta_0\to 0}T(\theta_0)=2\pi\sqrt{l/g}$。另外 $T(\pi/2)\approx 7.4163\sqrt{l/g}$。&lt;/p&gt;
+&lt;p&gt;如果换成轻杆也是一样的。对于能绕一整周的情况，设在顶部时速度为 $v_0$，那么周期为
+$$
+2\int_0^\pi\frac{l\d\theta}{\sqrt{2gl(1+\cos\theta)+v_0^2}}=\frac{4l}{\sqrt{4gl+v_0^2}}K\left(\sqrt\frac{4gl}{4gl+v_0^2}\right)
+$$&lt;/p&gt;
+&lt;p&gt;可以将上面的两种情况统一一下。如果能量等效高度为 $h$，令 $r=h/2l$，
+$$
+T&amp;rsquo;(r)=\left\{\begin{align*}&amp;amp;2\sqrt{\dfrac lg}K\left(\sqrt r\right),\quad&amp;amp;r&amp;lt;1\\ &amp;amp;2\sqrt{\dfrac l{gr}}K\left(\frac 1{\sqrt r}\right),\quad&amp;amp;r&amp;gt;1\end{align*}\right.
+$$
+为了整齐起见，$r&amp;lt;1$ 时 $T&amp;rsquo;(r)$ 表示半周期。&lt;/p&gt;
+&lt;h3 id=&#34;悬链线&#34;&gt;悬链线
+&lt;/h3&gt;&lt;p&gt;设曲线的函数为 $y=f(x)$，其中最低点在 $y$ 轴上，两头在 $(\pm d,0)$。&lt;/p&gt;
+&lt;p&gt;首先，由于悬空部分只受重力作用，故绳每一点的张力横向分力均相等，设为 $T$。则点 $x$ 处的张力纵向分力大小为 $T\cdot\lvert f&amp;rsquo;(x)\rvert$。&lt;/p&gt;
+&lt;p&gt;取绳上小段 $x$ 到 $x+\d x$，由受力平衡，
+$$
+T(f&amp;rsquo;(x+\d x)-f&amp;rsquo;(x))=\rho g\sqrt{1+f&amp;rsquo;(x)^2}\d x
+$$
+即
+$$
+y&amp;rsquo;&amp;rsquo;=\frac{\rho g}T\sqrt{1+{y&amp;rsquo;}^2}
+$$
+记 $k=\rho g/T$，解得
+$$
+y=\frac{\cosh kx-\cosh kd}{k}
+$$
+其中 $T$ 一般由绳长 $l$ 确定，满足
+$$
+l=\frac{2\sinh kd}{k}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;机械振动&#34;&gt;机械振动
+&lt;/h3&gt;&lt;h4 id=&#34;简谐振动&#34;&gt;简谐振动
+&lt;/h4&gt;&lt;p&gt;简谐振动满足方程
+$$
+\ddot x=-\frac kmx
+$$
+有通解
+$$
+x=A\sin(\omega t+\varphi)
+$$
+其中 $A,\omega,\varphi$ 可以由系统已知量和初始情况 $x_0,v_0$ 确定（记 $\alpha=k/m$）：
+$$
+\begin{align*}
+\omega&amp;amp;=\sqrt\alpha\\
+A&amp;amp;=\sqrt{x_0^2+\frac{v_0^2}\alpha}\\
+\varphi&amp;amp;=\mathrm{atan2}\left(x_0,\frac{v_0}{\sqrt\alpha}\right)
+\end{align*}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;阻尼振动&#34;&gt;阻尼振动
+&lt;/h4&gt;&lt;p&gt;阻尼振动满足方程（阻力正比于速度）
+$$
+\ddot x=-\alpha x-\beta\dot x
+$$
+根据微分方程相关理论，要讨论 $\Delta=\beta^2-4\alpha$ 的正负。&lt;/p&gt;
+&lt;h5 id=&#34;临界阻尼&#34;&gt;临界阻尼
+&lt;/h5&gt;&lt;p&gt;当 $\Delta=0$ 时
+$$
+x=\e^{-\frac\beta2t}\left(x_0+\frac\beta2x_0t+v_0t\right)
+$$&lt;/p&gt;
+&lt;p&gt;临界阻尼是收敛最快的。&lt;/p&gt;
+&lt;h5 id=&#34;过阻尼&#34;&gt;过阻尼
+&lt;/h5&gt;&lt;p&gt;当 $\Delta&amp;gt;0$ 时
+$$
+x=\e^{-\frac\beta2t}\left(x_0\cosh\frac{\sqrt\Delta}2t+\frac{\beta x_0+2v_0}{\sqrt\Delta}\sinh\frac{\sqrt\Delta}2t\right)
+$$&lt;/p&gt;
+&lt;h5 id=&#34;欠阻尼&#34;&gt;欠阻尼
+&lt;/h5&gt;&lt;p&gt;当 $\Delta&amp;lt;0$ 时
+$$
+x=\e^{-\frac\beta2t}A\sin(\omega t+\varphi)
+$$
+其中
+$$
+\begin{align*}
+\omega&amp;amp;=\frac{\sqrt{-\Delta}}2\\
+A&amp;amp;=\sqrt{x_0^2-\frac{(\beta x_0+2v_0)^2}\Delta}\\
+\varphi&amp;amp;=\mathrm{atan2}\left(\frac{x_0}A,\frac{\beta x_0+2v_0}{\sqrt{-\Delta}A}\right)
+\end{align*}
+$$
+由此可知欠阻尼振动的周期为
+$$
+T=\frac{4\pi}{\sqrt{4\alpha-\beta^2}}
+$$&lt;/p&gt;
+&lt;h5 id=&#34;对比图&#34;&gt;对比图
+&lt;/h5&gt;&lt;p&gt;令 $\alpha=1,x_0=1,v_0=0$。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/physics0/%E9%98%BB%E5%B0%BC%E6%8C%AF%E5%8A%A8.png&#34;
+	width=&#34;799&#34;
+	height=&#34;436&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;439px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;（有没有人能告诉我 Mathematica 里 Plot Legended 的图例的线长怎么改啊）&lt;/p&gt;
+&lt;h4 id=&#34;受迫振动&#34;&gt;受迫振动
+&lt;/h4&gt;&lt;p&gt;受迫振动满足方程
+$$
+\ddot x=-\alpha x-\beta\dot x+\gamma\cos\omega t
+$$
+解微分方程过程中，可以发现它能被拆分成无策动力的阻尼振动和频率为策动力频率的简谐振动。&lt;/p&gt;
+&lt;p&gt;对于 $\beta\ne 0$ 的情况，前者趋近于 $0$，后者振幅为（完整表达式这里就不算了）
+$$
+A=\frac\gamma{\sqrt{(\alpha-\omega^2)^2+(\beta\omega)^2}}
+$$
+如果 $\beta^2&amp;lt;2\alpha$，则取到最大值时
+$$
+\omega=\sqrt{\alpha-\frac{\beta^2}2},A=\frac\gamma{\beta\sqrt{\alpha-\dfrac{\beta^2}4}}
+$$
+否则 $\omega\to 0$ 时，$A\to A_{\max}=\gamma/\alpha$。&lt;/p&gt;
+&lt;p&gt;对于 $\beta=0$ 的情况，假设初始 $x|_{t=0}=\dot x|_{t=0}=0$。如果 $\omega^2\ne \alpha$，则
+$$
+x=\frac\gamma{\alpha-\omega^2}\left(\cos\omega t-\cos\sqrt\alpha t\right)
+$$
+在 $\omega/\sqrt\alpha\in\R\setminus\mathbb{Q}$ 时，$\sup\lvert x\rvert=2\gamma/\lvert\alpha-\omega^2\rvert$，其余情况下 $x_{\max}$ 或 $x_{\min}$ 会很难求。实际分析时，我们会认为 $\beta$ 较小但不为 $0$，这样 $A\approx\gamma/\lvert\alpha-\omega^2\rvert$。&lt;/p&gt;
+&lt;p&gt;如果 $\omega^2=\alpha$，则
+$$
+x=\frac{\gamma t\sin\omega t}{2\omega}
+$$
+综上，$A$ 的公式可以推广到任意 $\alpha,\omega&amp;gt;0,\beta\ge 0$。&lt;/p&gt;
+&lt;h5 id=&#34;对比图-1&#34;&gt;对比图
+&lt;/h5&gt;&lt;p&gt;令 $\alpha=\gamma=1$。蓝色虚线表示最优顶点。由此可见，当 $\beta\ll\alpha$ 时，$\omega=\sqrt\alpha$ 会导致共振。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/physics0/%E5%8F%97%E8%BF%AB%E6%8C%AF%E5%8A%A8.png&#34;
+	width=&#34;801&#34;
+	height=&#34;466&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;412px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;粒子在磁场中的运动轨迹&#34;&gt;粒子在磁场中的运动轨迹
+&lt;/h3&gt;&lt;p&gt;一个质量为 $m$，电荷量为 $+q$ 的带电粒子在磁感应强度为 $B$ 的匀强磁场中静止释放，考虑重力。取垂直于磁场的面作平面直角坐标系，磁场向内，原点为初始位置，向右为 $x$ 轴正方向，向下为 $y$ 轴正方向。
+$$
+\left\{\begin{align*}
+qB\dot y&amp;amp;=m\ddot x\\
+-qB\dot x+mg&amp;amp;=m\ddot y
+\end{align*}\right.
+$$
+令 $k=qB/m$。两式分别求导代入另一式，结合初始条件解得
+$$
+\left\{\begin{align*}
+x&amp;amp;=\frac g{k^2}(kt-\sin kt)\\
+y&amp;amp;=\frac g{k^2}(1-\cos kt)
+\end{align*}\right.
+$$
+这是摆线。&lt;/p&gt;
+&lt;h3 id=&#34;章动&#34;&gt;章动
+&lt;/h3&gt;&lt;p&gt;以陀螺脚为参考点。考虑质心在圆盘中心，设质量为 $m$，质心为 $\vec{l}$，转动惯量为 $I$，角动量为 $\vec{L}$。&lt;/p&gt;
+&lt;p&gt;陀螺在一个瞬间的运动可以用两个量描述：自转的角速度 $\omega$，公转的速度 $\vec{v}$。
+$$
+\left\{\begin{align*}
+\vec{l}\cdot\vec{v}&amp;amp;=\vec{0}\\
+m\vec{l}\times\vec{v}+I\omega\cdot\frac{\vec{l}}{\lvert\vec{l}\rvert}&amp;amp;=\vec{L}
+\end{align*}\right.
+$$
+解得
+$$
+\left\{\begin{align*}
+\omega&amp;amp;=\frac{\vec{L}\cdot\vec{l}}{I\lvert\vec{l}\rvert}\\
+m\vec{l}\times\vec{v}&amp;amp;=\vec{L}-\frac{\vec{L}\cdot\vec{l}}{\vec{l}\cdot\vec{l}}\cdot\vec{l}
+\end{align*}\right.
+$$
+另有
+$$
+\dot{\vec{L}}=\vec{l}\times\vec{G}
+$$
+不会解。猜想：$\vec{l}$ 是关于时间的三角函数。&lt;/p&gt;
 </description>
         </item>
         

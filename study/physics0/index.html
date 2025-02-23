@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="$\\gdef\\d{\\mathrm{d}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\e{\\mathrm{e}}\\gdef\\bm#1{\\boldsymbol{#1}}$ 这是一篇学习笔记。 这些内容主要写于 2024 年上半年我自学高中物理时想到的一些问题。实际上是 2025.2.23 upload 这个文章的，现在看起来很幼稚了，就只是当作记录吧。">
+<title>高中物理中的拓展问题</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/physics0/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="高中物理中的拓展问题">
+<meta property='og:description' content="$\\gdef\\d{\\mathrm{d}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\e{\\mathrm{e}}\\gdef\\bm#1{\\boldsymbol{#1}}$ 这是一篇学习笔记。 这些内容主要写于 2024 年上半年我自学高中物理时想到的一些问题。实际上是 2025.2.23 upload 这个文章的，现在看起来很幼稚了，就只是当作记录吧。">
+<meta property='og:url' content='https://littlereuben.github.io/study/physics0/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2024-08-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-08-30T00:00:00&#43;00:00'/><meta property='og:image' content='https://littlereuben.github.io/study/physics0/cover.jpg' />
+<meta name="twitter:title" content="高中物理中的拓展问题">
+<meta name="twitter:description" content="$\\gdef\\d{\\mathrm{d}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\e{\\mathrm{e}}\\gdef\\bm#1{\\boldsymbol{#1}}$ 这是一篇学习笔记。 这些内容主要写于 2024 年上半年我自学高中物理时想到的一些问题。实际上是 2025.2.23 upload 这个文章的，现在看起来很幼稚了，就只是当作记录吧。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://littlereuben.github.io/study/physics0/cover.jpg' />
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#小球上半圆弧模型">小球上半圆弧模型</a></li>
+        <li><a href="#恒定功率加速问题">恒定功率加速问题</a></li>
+        <li><a href="#真正的自由落体运动">真正的自由落体运动</a></li>
+        <li><a href="#开普勒推万有引力">开普勒推万有引力</a>
+          <ol>
+            <li><a href="#开普勒第一定律">开普勒第一定律</a></li>
+            <li><a href="#开普勒第二定律">开普勒第二定律</a></li>
+            <li><a href="#开普勒第三定律">开普勒第三定律</a></li>
+            <li><a href="#极坐标下的加速度">极坐标下的加速度</a></li>
+            <li><a href="#推导">推导</a></li>
+          </ol>
+        </li>
+        <li><a href="#非质点的库仑力计算">非质点的库仑力计算</a></li>
+        <li><a href="#通电导线的磁场">通电导线的磁场</a></li>
+        <li><a href="#通电螺线管的磁场">通电螺线管的磁场</a></li>
+        <li><a href="#电容充放电过程">电容充放电过程</a></li>
+        <li><a href="#碰撞问题的理解">碰撞问题的理解</a></li>
+        <li><a href="#单摆相关">单摆相关</a></li>
+        <li><a href="#悬链线">悬链线</a></li>
+        <li><a href="#机械振动">机械振动</a>
+          <ol>
+            <li><a href="#简谐振动">简谐振动</a></li>
+            <li><a href="#阻尼振动">阻尼振动</a></li>
+            <li><a href="#受迫振动">受迫振动</a></li>
+          </ol>
+        </li>
+        <li><a href="#粒子在磁场中的运动轨迹">粒子在磁场中的运动轨迹</a></li>
+        <li><a href="#章动">章动</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/study/physics0/">
+                <img src="/study/physics0/cover.jpg"
+                        
+                        width="3840" 
+                        height="1080" 
+                        loading="lazy"
+                        alt="Featured image of post 高中物理中的拓展问题" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/other-courses/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 其他科目
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/physics0/">高中物理中的拓展问题</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-08-30</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    4056 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>$\gdef\d{\mathrm{d}}\gdef\sgn{\operatorname{sgn}}\gdef\e{\mathrm{e}}\gdef\bm#1{\boldsymbol{#1}}$</p>
+<div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>这些内容主要写于 2024 年上半年我自学高中物理时想到的一些问题。实际上是 2025.2.23 upload 这个文章的，现在看起来很幼稚了，就只是当作记录吧。</p>
+<h3 id="小球上半圆弧模型">小球上半圆弧模型
+</h3><p>众所周知，上到一半是 $\sqrt{2gr}$，从顶上飞出去是 $\sqrt{5gr}$。那斜抛刚好落到圆弧与水平面连接处呢？</p>
+<p>设斜抛起始点与圆心连线与水平夹角为 $\theta$，高度为 $h$。
+$$
+\left\{\begin{align*}
+h&amp;=r(1+\sin\theta)\\
+\dfrac 12mv_0^2&amp;=\dfrac 12mv^2+mgh\\
+m\dfrac{v^2}r&amp;=mg\sin\theta\\
+h&amp;=\dfrac 12gt^2-vt\cos\theta\\
+r\cos\theta&amp;=vt\sin\theta
+\end{align*}\right.
+$$
+解得 $\sin\theta=\frac 12,v_0=\sqrt{3.5gr}$。</p>
+<h3 id="恒定功率加速问题">恒定功率加速问题
+</h3><p>考虑机车从静止开始以恒定功率 $P$ 加速，阻力为 $f$，希望求出 $v$ 关于 $t$ 的表达式。根据牛二，
+$$
+\frac Pv-f=m\dot v
+$$
+即
+$$
+\dfrac{mv}{P-fv}\d v=\d t
+$$</p>
+<p>两边积分然后根据 $v|_{t=0}=0$ 即可解得 $C$。</p>
+<p>当 $f=0$ 时，解得
+$$
+v=\sqrt{\frac{2Pt}m}
+$$
+其余情况下有
+$$
+\frac mf\left(\frac Pf\ln\frac P{P-fv}-v\right)=t
+$$
+当 $t\to+\infin$ 时 $v\to P/f$。$v$ 关于 $t$ 不存在初等表达式，需借助 Lambert W 函数。</p>
+<p>如果阻力正比于 $v$ 即 $f(v)=kv$，则
+$$
+v=\sqrt{\frac{P(1-\e^{-\frac{2k}mt})}k}
+$$</p>
+<h3 id="真正的自由落体运动">真正的自由落体运动
+</h3><p>method from zby（的同学）.</p>
+<p>视星体为质量为 $M$ 的质点，记 $y$ 为轻物体（如果是两个星体，以其中一个为参考系即可）距质点的距离。初始 $y|_{t=0}=d$，速度为 $0$。</p>
+<p>然后会得到这样一个微分方程：
+$$
+\ddot yy=GM
+$$
+不会解……</p>
+<p>换一个思路，由能量守恒，
+$$
+-{GM}d=-{GM}y+\frac12{\dot y}^2
+$$
+即
+$$
+\dot y=\sqrt{2GM\left(\frac 1y-\frac 1d\right)}
+$$
+那就是（我们来详细推导一下）
+$$
+\begin{align*}
+t={}&amp;\int_{y}^d\frac{\d x}{\sqrt{2GM\left(\frac 1x-\frac 1d\right)}}\\
+\xlongequal{z=\sqrt{\frac 1x-\frac 1d}}{}&amp;\sqrt{\frac{2}{GM}}\int_{0}^{\sqrt{\frac 1y-\frac 1d}}\frac{\d z}{\left(z^2+\frac 1d\right)^2}\\
+\xlongequal{\tan\alpha=\sqrt dz}{}&amp;\sqrt{\frac{2d^3}{GM}}\int_0^{\arctan\sqrt{\frac dy-1}}\cos^2\alpha\d\alpha\\
+={}&amp;\sqrt{\frac{2d^3}{GM}}\left.\left(\frac{\sin2\alpha}{4}+\frac\alpha2\right)\right|_0^{\arctan\sqrt{\frac dy-1}}\\
+={}&amp;\sqrt{\frac{d}{2GM}}\left(y\sqrt{\frac dy-1}+d\arctan\sqrt{\frac dy-1}\right)
+\end{align*}
+$$
+因此，相撞时刻为
+$$
+t|_{y\to 0}=\frac\pi2d\sqrt\frac d{2GM}
+$$</p>
+<h3 id="开普勒推万有引力">开普勒推万有引力
+</h3><h4 id="开普勒第一定律">开普勒第一定律
+</h4><blockquote>
+<p>所有行星绕恒星运动的轨道都是椭圆，且恒星处在椭圆的某个焦点上。</p>
+</blockquote>
+<p>以 $F_1$ 为极点，$F_1F_2$ 为极轴建立极坐标系，行星轨迹为</p>
+<p>$$
+r=\frac{ep}{1-e\cos\theta}
+$$</p>
+<h4 id="开普勒第二定律">开普勒第二定律
+</h4><blockquote>
+<p>一对特定恒星与行星的连线在相等时间内所扫过的面积相等。</p>
+</blockquote>
+<p>设 $S$ 为单位时间内扫过的面积，则
+$$
+2S=r^2\dot\theta
+$$</p>
+<h4 id="开普勒第三定律">开普勒第三定律
+</h4><blockquote>
+<p>对于一个恒星，其所有行星轨道半长轴的立方与公转周期的平方成正比。</p>
+</blockquote>
+<p>设该比例为 $k$，即
+$$
+\frac{a^3}{T^2}=k
+$$
+又
+$$
+T\cdot S=\pi ab
+$$
+故
+$$
+S^2=\frac{\pi^2kb^2}{a}
+$$</p>
+<h4 id="极坐标下的加速度">极坐标下的加速度
+</h4><blockquote>
+<p>将极坐标下的加速度正交分解成径向加速度 $a_r$ 与切向加速度 $a_\theta$。</p>
+<p>极坐标下有径向基矢 $\hat r=\hat x\cos\theta+\hat y\sin\theta$ 和 切向基矢 $\hat\theta=-\hat x\sin\theta+\hat y\cos\theta$。</p>
+</blockquote>
+<p>首先有
+$$
+\begin{align*}
+\d\hat r&amp;=\hat\theta\d\theta\\
+\d\hat\theta&amp;=-\hat r\d r
+\end{align*}
+$$
+故
+$$
+\begin{align*}
+\frac{\d(r\hat r)}{\d t}&amp;=\dot r\hat r+r\hat\theta\\
+\frac{\d^2(r\hat r)}{\d t^2}&amp;=\left(\ddot r-r\dot\theta^2\right)\hat r+\left(2\dot r\dot\theta+r\ddot\theta\right)\hat\theta\\
+\end{align*}
+$$
+即
+$$
+\begin{align*}
+a_r&amp;=\ddot r-r\dot\theta^2\\
+a_\theta&amp;=2\dot r\dot\theta+r\ddot\theta
+\end{align*}
+$$</p>
+<h4 id="推导">推导
+</h4><p>综合上述公式，
+$$
+\begin{align*}
+\dot r&amp;=-\frac{e^2p\sin\theta}{(1-e\cos\theta)^2}\dot\theta\\
+&amp;=-\frac{r^2\dot\theta}{p}\sin\theta\\
+&amp;=-\frac{2S}{p}\sin\theta\\
+\ddot r&amp;=-\frac{2S}{p}\dot\theta\cos\theta\\
+&amp;=-\frac{2S}{p}\left(\frac 1e-\frac pr\right)\dot\theta\\
+a_r&amp;=\ddot r-r\dot\theta^2\\
+&amp;=-\frac{2S}{ep}\dot\theta+\frac{2S}{r}\dot\theta-\frac{2S}{r}\dot\theta\\
+&amp;=-\frac{2S}{ep}\cdot\frac{2S}{r^2}\\
+&amp;=-\frac{4\pi^2kb^2}{aepr^2}\\
+&amp;=-\frac{4\pi^2k}{r^2}\\
+a_\theta&amp;=2\dot r\dot\theta+r\ddot\theta\\
+&amp;=\frac{\d(r^2\theta)}{r\d t}\\
+&amp;=0
+\end{align*}
+$$
+由牛二，引力方向为两星球连线，大小为
+$$
+F=\frac{4\pi^2km}{r^2}
+$$
+设恒星与行星质量分别为 $m_1,m_2$，对应常数分别为 $k_1,k_2$，由牛三，
+$$
+\frac{4\pi^2k_1m_2}{r^2}=\frac{4\pi^2k_2m_1}{r^2}
+$$
+即
+$$
+\frac{k_1}{m_1}=\frac{k_2}{m_2}
+$$
+由此可见，存在一常数，所有物体的 $k$ 比 $m$ 均为该常数，设其为 $\frac{G}{4\pi^2}$，则
+$$
+F=\frac{Gm_1m_2}{r^2}
+$$</p>
+<h3 id="非质点的库仑力计算">非质点的库仑力计算
+</h3><p>对于一个半径为 $R$，均匀带电 $Q$ 的圆环，与圆心连线垂直于圆面且长为 $D$ 的点处的电场大小为（相似三角形分解力）
+$$
+\frac{kQD}{(R^2+D^2)^{\frac 32}}
+$$
+对于一个半径为 $R$，均匀带电 $Q$ 的球壳，与球心距离为 $D$ 处的电场大小为
+$$
+\begin{align*}
+&amp;\int_{-\frac\pi 2}^{\frac\pi 2}\frac{k\left(\frac{2\pi R^2\cos\theta\d\theta}{4\pi R^2}Q\right)(D-R\sin\theta)}{\left[R^2\cos^2\theta+(D-R\sin\theta)^2\right]^{\frac 32}}\\
+={}&amp;\frac{kQ}{2}\int_{-\frac\pi 2}^{\frac\pi 2}\frac{\cos\theta\d\theta(D-R\sin\theta)}{\left(R^2+D^2-2RD\sin\theta\right)^{\frac 32}}\\
+={}&amp;\frac{kQ}{2}\left.\frac{D\sin\theta-R}{D^2\sqrt{R^2+D^2-2RD\sin\theta}}\right|_{-\frac\pi 2}^{\frac\pi 2}\\
+={}&amp;\frac{kQ}{2D^2}(1+\sgn(D-R))
+\end{align*}
+$$
+于是一个半径为 $R$，均匀带电 $Q$ 的实心球，与球心距离为 $D$ 处的电场大小为
+$$
+\left\{\begin{align*}
+&amp;\dfrac{kQD}{R^3},&amp;D&lt;R\\
+&amp;\dfrac{kQ}{D^2},&amp;D\ge R
+\end{align*}\right.
+$$
+因此均匀带电的球对于某点的电场，等效于去除在该点外围的球的部分后，球心对其的电场。</p>
+<p>对于一个半径为 $R$，均匀带电 $Q$ 的圆板，与圆心连线垂直于圆面且长为 $D$ 的点处的电场大小为
+$$
+\begin{align*}
+&amp;\int_0^R\frac{k\left(\frac{2\pi r\d r}{\pi R^2}Q\right)D}{\left(r^2+D^2\right)^{\frac 32}}\\
+={}&amp;\frac{2kQD}{R^2}\int_0^R\frac{r\d r}{(r^2+D^2)^{\frac 32}}\\
+={}&amp;\frac{2kQD}{R^2}\left(\left.-\frac{1}{\sqrt{R^2+D^2}}\right|_0^R\right)\\
+={}&amp;\frac{2kQ}{R^2}\left(1-\frac{D}{\sqrt{R^2+D^2}}\right)
+\end{align*}
+$$
+$R\to+\infty$ 可导出电荷面密度为 $\sigma$ 的无限大均匀带电平面的电场大小为 $2\pi k\sigma$（与距离无关），同时可以导出电容的决定式
+$$
+C=\frac QU=\frac Q{Ed}=\frac Q{2\cdot 2\pi k\sigma\cdot d}=\frac S{4\pi kd}
+$$
+对于一个电荷线密度为 $\lambda$ 的无限长均匀带电导线，与它距离为 $D$ 处的电场大小为
+$$
+\int_{-\infty}^{\infty}\frac{k(\lambda\d x)D}{(x^2+D^2)^{\frac 32}}=\frac{2k\lambda}{D}
+$$</p>
+<p>对于一个半径为 $R$，均匀带电，电荷线密度为 $\lambda$ 的圆环，在圆所在平面内，与圆心距离为 $D$ 处的电场大小为
+$$
+\int_0^{2\pi}\frac{k(R\d\theta\cdot\lambda)(D-R\sin\theta)}{(R^2+D^2-2RD\sin\theta)^{\frac32}}
+$$
+然后这个玩意 TM 积不出来！是个椭圆积分。反而下面这个是可以积的：</p>
+<p>对于一个半径为 $R$，均匀带电，电荷面密度为 $\sigma$ 的无限长圆筒，与轴心距离为 $D$ 处的电场大小为
+$$
+\int_0^{2\pi}\frac{2k(R\d\theta\cdot\sigma)(D-R\sin\theta)}{R^2+D^2-2RD\sin\theta}=\frac{2\pi k\sigma R}D(1+\sgn(D-R))
+$$
+于是一个半径为 $R$，均匀带电，电荷体密度为 $\rho$ 的无限长圆柱，与轴心距离为 $D$ 处的电场大小为
+$$
+\left\{\begin{align*}
+&amp;2\pi k\rho D,&amp;D&lt;R\\
+&amp;\dfrac{2\pi k\rho R^2}{D},&amp;D\ge R
+\end{align*}\right.
+$$
+因此均匀带电的圆柱对于某点的电场，等效于去除在该点外围的圆柱的部分后，轴心对其的电场。</p>
+<h3 id="通电导线的磁场">通电导线的磁场
+</h3><p>直导线的磁场分布和带电导线的电场分布是类似的，都是与距离成反比，只是方向不同。</p>
+<p>对于一个半径为 $R$，电流为 $I$ 的圆导线，与圆心距离为 $D$ 处的磁感应强度大小为
+$$
+\int_0^{2\pi}这部分咕了
+$$</p>
+<h3 id="通电螺线管的磁场">通电螺线管的磁场
+</h3><p>对于一个半径为 $R$，面电流密度为 $\sigma$（$\sigma$ 在数值上等于 $nI$，$n$ 为单位宽度上的匝数。电流为逆时针方向）的无限长通电螺线管，与轴心距离为 $D$ 处的磁感应强度大小为：</p>
+<p>假设螺线管轴心与 $z$ 轴重合，现拿出一段宽为 $\d l$，与 $z$ 轴平行的无限长条，设它的电流方向为 $(d_x,d_y,0)$（模长为 $1$）。若将它平移到 $z$ 轴处，它对 $(x,y,0)$ 处的磁感应强度为
+$$
+\begin{align*}
+&amp;\d l\int_{-\infty}^{+\infty}\frac{k\sigma\d z\cdot(d_x,d_y,0)\times(x,y,-z)}{\left(x^2+y^2+z^2\right)^{\frac32}}\\
+={}&amp;k\sigma\d l\cdot(d_x,d_y,0)\times\left(\frac{2x}{x^2+y^2},\frac{2y}{x^2+y^2},0\right)\\
+={}&amp;2k\sigma\d l\frac{d_xy-d_yx}{x^2+y^2}\cdot\vec k
+\end{align*}
+$$
+回到原问题
+$$
+\int_0^{2\pi}2k\sigma R\d\theta\frac{-\sin\theta(D-R\sin\theta)-\cos\theta(-R\cos\theta)}{R^2+D^2-2RD\sin\theta}=2\pi k\sigma(1-\sgn(D-R))
+$$
+因此理想的通电螺线管，管内为强度为 $\mu_0\sigma$ 的匀强磁场，管上的强度为管内的一半，管外无磁场。</p>
+<h3 id="电容充放电过程">电容充放电过程
+</h3><p>充电过程中，设电源电压为 $E$，电容电压为 $U$，整个电路的电阻为 $R$。
+$$
+C\dot U=\dot Q=I=\frac{E-U}{R}
+$$
+解得
+$$
+U=E(1-\e^{-\frac t{CR}})
+$$
+同理可得到放电过程（这里的 $E$ 指电容的初始电压）
+$$
+U=E\e^{-\frac t{CR}}
+$$
+无论哪种情况，都有
+$$
+I=\frac{\e^{-\frac t{CR}}}{R}
+$$</p>
+<h3 id="碰撞问题的理解">碰撞问题的理解
+</h3><p>关于非弹性碰撞时的能量损耗，可以理解为两者相对于质心的速度的减小，详见<a class="link" href="https://www.zhihu.com/question/371215495/answer/1018301871"  target="_blank" rel="noopener"
+    >这个回答</a>。在这个回答中提到说，一个系统的动能等于其质心动能加上各部分相对于质心的动能，这是一个有趣的结论：
+$$
+\sum m_i\bm{v_i}^2=M\bm{V}^2+\sum m_i(\bm{v_i}-\bm{V})^2\\
+\text{which }M=\sum m_i,\bm{V}=\sum\bm{v_i}
+$$
+直接展开即证。</p>
+<p>关于完全非弹性碰撞必定共速的原因，可以从两个角度理解。</p>
+<p>第一个角度就是直接求最值：
+$$
+\max;\frac12m_1v_1^2+\frac12m_2v_2^2-\frac12m_1{v_1&rsquo;}^2-\frac12m_2{v_2&rsquo;}^2\\
+\text{s.t.};m_1v_1+m_2v_2=m_1v_1&rsquo;+m_2v_2&rsquo;
+$$
+建立一个坐标系，横轴是 $\sqrt{m_1}v_1$，纵轴是 $\sqrt{m_2}v_2$。那么所有合法的情况都处于一条斜率为 $-\sqrt{m_1/m_2}$ 的直线上。完全非弹性碰撞就是其上与原点距离最近的点，也就是原点到该直线的垂足，而这条垂线的斜率为 $\sqrt{m_2/m_1}$，其上面的点就是 $v_1=v_2$。弹性碰撞可以视作关于这条垂线对称。</p>
+<p>第二个角度就是假想两球之间连了一个轻弹簧。那么弹簧长度最小或最大时，两球相对静止，这时弹簧的弹性势能最大，动能减少量最大。</p>
+<p>对了，考虑求一下弹簧的长度关于时间的函数？设伸长量为 $x$，初始为 $0$。
+$$
+\left\{\begin{align*}
+\dot{v_1}&amp;=\frac{kx}{m_1}\\
+\dot{v_2}&amp;=-\frac{kx}{m_2}\\
+\dot{x}&amp;=v_2-v_1
+\end{align*}\right.\Rightarrow \ddot{x}=-k\left(\frac1{m_1}+\frac1{m_2}\right)x
+$$
+解得 $x=\dfrac{v\sin\sqrt cx}{\sqrt c}$，其中 $c=k\left(\dfrac1{m_1}+\dfrac1{m_2}\right)$，$v$ 为初始的相对速度。</p>
+<p>因此这时实际上做的是类似简谐运动。同时可以轻松求出能量损耗最大值为
+$$
+\frac 12kx_{\max}^2=\frac{m_1m_2v^2}{2(m_1+m_2)}
+$$</p>
+<h3 id="单摆相关">单摆相关
+</h3><p>考察一个初始时轻绳与竖直方向夹角为 $\theta_0$ 且初速度为 $0$ 的摆的周期。</p>
+<p>夹角到 $\theta$ 时，速度满足
+$$
+\frac12mv^2=mgl(\cos\theta-\cos\theta_0)
+$$
+故周期为
+$$
+\begin{align*}
+T(\theta_0)={}&amp;4\int_0^{\theta_0}\frac{l\d\theta}{\sqrt{2gl(\cos\theta-\cos\theta_0)}}\\
+={}&amp;2\sqrt{\frac lg}\int_0^{\theta_0}\frac{\d\theta}{\sqrt{\sin^2\frac{\theta_0}{2}-\sin^2\frac{\theta}{2}}}\\
+\xlongequal{\sin\alpha=\frac{\sin\frac{\theta}{2}}{\sin\frac{\theta_0}{2}}}{}&amp;4\sqrt{\frac lg}\int_0^{\frac\pi2}\frac{\d\alpha}{\sqrt{1-\sin^2\frac{\theta_0}{2}\sin^2\alpha}}\\
+={}&amp;4\sqrt{\frac lg}\cdot K\left(\sin\frac{\theta_0}{2}\right)
+\end{align*}
+$$
+其中 $K(a)$ 为第一类完全椭圆积分。推导中最难的一步是换元，我也是从知乎上看来的（几篇都是这么搞的）。</p>
+<p>从而也可以验证书中的公式 $\lim_{\theta_0\to 0}T(\theta_0)=2\pi\sqrt{l/g}$。另外 $T(\pi/2)\approx 7.4163\sqrt{l/g}$。</p>
+<p>如果换成轻杆也是一样的。对于能绕一整周的情况，设在顶部时速度为 $v_0$，那么周期为
+$$
+2\int_0^\pi\frac{l\d\theta}{\sqrt{2gl(1+\cos\theta)+v_0^2}}=\frac{4l}{\sqrt{4gl+v_0^2}}K\left(\sqrt\frac{4gl}{4gl+v_0^2}\right)
+$$</p>
+<p>可以将上面的两种情况统一一下。如果能量等效高度为 $h$，令 $r=h/2l$，
+$$
+T&rsquo;(r)=\left\{\begin{align*}&amp;2\sqrt{\dfrac lg}K\left(\sqrt r\right),\quad&amp;r&lt;1\\ &amp;2\sqrt{\dfrac l{gr}}K\left(\frac 1{\sqrt r}\right),\quad&amp;r&gt;1\end{align*}\right.
+$$
+为了整齐起见，$r&lt;1$ 时 $T&rsquo;(r)$ 表示半周期。</p>
+<h3 id="悬链线">悬链线
+</h3><p>设曲线的函数为 $y=f(x)$，其中最低点在 $y$ 轴上，两头在 $(\pm d,0)$。</p>
+<p>首先，由于悬空部分只受重力作用，故绳每一点的张力横向分力均相等，设为 $T$。则点 $x$ 处的张力纵向分力大小为 $T\cdot\lvert f&rsquo;(x)\rvert$。</p>
+<p>取绳上小段 $x$ 到 $x+\d x$，由受力平衡，
+$$
+T(f&rsquo;(x+\d x)-f&rsquo;(x))=\rho g\sqrt{1+f&rsquo;(x)^2}\d x
+$$
+即
+$$
+y&rsquo;&rsquo;=\frac{\rho g}T\sqrt{1+{y&rsquo;}^2}
+$$
+记 $k=\rho g/T$，解得
+$$
+y=\frac{\cosh kx-\cosh kd}{k}
+$$
+其中 $T$ 一般由绳长 $l$ 确定，满足
+$$
+l=\frac{2\sinh kd}{k}
+$$</p>
+<h3 id="机械振动">机械振动
+</h3><h4 id="简谐振动">简谐振动
+</h4><p>简谐振动满足方程
+$$
+\ddot x=-\frac kmx
+$$
+有通解
+$$
+x=A\sin(\omega t+\varphi)
+$$
+其中 $A,\omega,\varphi$ 可以由系统已知量和初始情况 $x_0,v_0$ 确定（记 $\alpha=k/m$）：
+$$
+\begin{align*}
+\omega&amp;=\sqrt\alpha\\
+A&amp;=\sqrt{x_0^2+\frac{v_0^2}\alpha}\\
+\varphi&amp;=\mathrm{atan2}\left(x_0,\frac{v_0}{\sqrt\alpha}\right)
+\end{align*}
+$$</p>
+<h4 id="阻尼振动">阻尼振动
+</h4><p>阻尼振动满足方程（阻力正比于速度）
+$$
+\ddot x=-\alpha x-\beta\dot x
+$$
+根据微分方程相关理论，要讨论 $\Delta=\beta^2-4\alpha$ 的正负。</p>
+<h5 id="临界阻尼">临界阻尼
+</h5><p>当 $\Delta=0$ 时
+$$
+x=\e^{-\frac\beta2t}\left(x_0+\frac\beta2x_0t+v_0t\right)
+$$</p>
+<p>临界阻尼是收敛最快的。</p>
+<h5 id="过阻尼">过阻尼
+</h5><p>当 $\Delta&gt;0$ 时
+$$
+x=\e^{-\frac\beta2t}\left(x_0\cosh\frac{\sqrt\Delta}2t+\frac{\beta x_0+2v_0}{\sqrt\Delta}\sinh\frac{\sqrt\Delta}2t\right)
+$$</p>
+<h5 id="欠阻尼">欠阻尼
+</h5><p>当 $\Delta&lt;0$ 时
+$$
+x=\e^{-\frac\beta2t}A\sin(\omega t+\varphi)
+$$
+其中
+$$
+\begin{align*}
+\omega&amp;=\frac{\sqrt{-\Delta}}2\\
+A&amp;=\sqrt{x_0^2-\frac{(\beta x_0+2v_0)^2}\Delta}\\
+\varphi&amp;=\mathrm{atan2}\left(\frac{x_0}A,\frac{\beta x_0+2v_0}{\sqrt{-\Delta}A}\right)
+\end{align*}
+$$
+由此可知欠阻尼振动的周期为
+$$
+T=\frac{4\pi}{\sqrt{4\alpha-\beta^2}}
+$$</p>
+<h5 id="对比图">对比图
+</h5><p>令 $\alpha=1,x_0=1,v_0=0$。</p>
+<p><img src="/study/physics0/%E9%98%BB%E5%B0%BC%E6%8C%AF%E5%8A%A8.png"
+	width="799"
+	height="436"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="183"
+		data-flex-basis="439px"
+	
+></p>
+<p>（有没有人能告诉我 Mathematica 里 Plot Legended 的图例的线长怎么改啊）</p>
+<h4 id="受迫振动">受迫振动
+</h4><p>受迫振动满足方程
+$$
+\ddot x=-\alpha x-\beta\dot x+\gamma\cos\omega t
+$$
+解微分方程过程中，可以发现它能被拆分成无策动力的阻尼振动和频率为策动力频率的简谐振动。</p>
+<p>对于 $\beta\ne 0$ 的情况，前者趋近于 $0$，后者振幅为（完整表达式这里就不算了）
+$$
+A=\frac\gamma{\sqrt{(\alpha-\omega^2)^2+(\beta\omega)^2}}
+$$
+如果 $\beta^2&lt;2\alpha$，则取到最大值时
+$$
+\omega=\sqrt{\alpha-\frac{\beta^2}2},A=\frac\gamma{\beta\sqrt{\alpha-\dfrac{\beta^2}4}}
+$$
+否则 $\omega\to 0$ 时，$A\to A_{\max}=\gamma/\alpha$。</p>
+<p>对于 $\beta=0$ 的情况，假设初始 $x|_{t=0}=\dot x|_{t=0}=0$。如果 $\omega^2\ne \alpha$，则
+$$
+x=\frac\gamma{\alpha-\omega^2}\left(\cos\omega t-\cos\sqrt\alpha t\right)
+$$
+在 $\omega/\sqrt\alpha\in\R\setminus\mathbb{Q}$ 时，$\sup\lvert x\rvert=2\gamma/\lvert\alpha-\omega^2\rvert$，其余情况下 $x_{\max}$ 或 $x_{\min}$ 会很难求。实际分析时，我们会认为 $\beta$ 较小但不为 $0$，这样 $A\approx\gamma/\lvert\alpha-\omega^2\rvert$。</p>
+<p>如果 $\omega^2=\alpha$，则
+$$
+x=\frac{\gamma t\sin\omega t}{2\omega}
+$$
+综上，$A$ 的公式可以推广到任意 $\alpha,\omega&gt;0,\beta\ge 0$。</p>
+<h5 id="对比图-1">对比图
+</h5><p>令 $\alpha=\gamma=1$。蓝色虚线表示最优顶点。由此可见，当 $\beta\ll\alpha$ 时，$\omega=\sqrt\alpha$ 会导致共振。</p>
+<p><img src="/study/physics0/%E5%8F%97%E8%BF%AB%E6%8C%AF%E5%8A%A8.png"
+	width="801"
+	height="466"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="171"
+		data-flex-basis="412px"
+	
+></p>
+<h3 id="粒子在磁场中的运动轨迹">粒子在磁场中的运动轨迹
+</h3><p>一个质量为 $m$，电荷量为 $+q$ 的带电粒子在磁感应强度为 $B$ 的匀强磁场中静止释放，考虑重力。取垂直于磁场的面作平面直角坐标系，磁场向内，原点为初始位置，向右为 $x$ 轴正方向，向下为 $y$ 轴正方向。
+$$
+\left\{\begin{align*}
+qB\dot y&amp;=m\ddot x\\
+-qB\dot x+mg&amp;=m\ddot y
+\end{align*}\right.
+$$
+令 $k=qB/m$。两式分别求导代入另一式，结合初始条件解得
+$$
+\left\{\begin{align*}
+x&amp;=\frac g{k^2}(kt-\sin kt)\\
+y&amp;=\frac g{k^2}(1-\cos kt)
+\end{align*}\right.
+$$
+这是摆线。</p>
+<h3 id="章动">章动
+</h3><p>以陀螺脚为参考点。考虑质心在圆盘中心，设质量为 $m$，质心为 $\vec{l}$，转动惯量为 $I$，角动量为 $\vec{L}$。</p>
+<p>陀螺在一个瞬间的运动可以用两个量描述：自转的角速度 $\omega$，公转的速度 $\vec{v}$。
+$$
+\left\{\begin{align*}
+\vec{l}\cdot\vec{v}&amp;=\vec{0}\\
+m\vec{l}\times\vec{v}+I\omega\cdot\frac{\vec{l}}{\lvert\vec{l}\rvert}&amp;=\vec{L}
+\end{align*}\right.
+$$
+解得
+$$
+\left\{\begin{align*}
+\omega&amp;=\frac{\vec{L}\cdot\vec{l}}{I\lvert\vec{l}\rvert}\\
+m\vec{l}\times\vec{v}&amp;=\vec{L}-\frac{\vec{L}\cdot\vec{l}}{\vec{l}\cdot\vec{l}}\cdot\vec{l}
+\end{align*}\right.
+$$
+另有
+$$
+\dot{\vec{L}}=\vec{l}\times\vec{G}
+$$
+不会解。猜想：$\vec{l}$ 是关于时间的三角函数。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="78a90d4844848ddd4a079938b37b430e"
+    data-page-url="https://littlereuben.github.io/study/physics0/"
+    data-page-title="高中物理中的拓展问题"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="$\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\d{\\mathrm{d}}$ 这是一篇学习笔记。 这篇笔记是学普物二时为了理解磁场和电场本质一致的关系时写的，侧重于理解狭相的推导过程。好像这学期普物一也会用，大家可以参">
+<title>狭义相对论笔记</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/special-relativity/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="狭义相对论笔记">
+<meta property='og:description' content="$\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\d{\\mathrm{d}}$ 这是一篇学习笔记。 这篇笔记是学普物二时为了理解磁场和电场本质一致的关系时写的，侧重于理解狭相的推导过程。好像这学期普物一也会用，大家可以参">
+<meta property='og:url' content='https://littlereuben.github.io/study/special-relativity/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-02-23T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-02-23T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="狭义相对论笔记">
+<meta name="twitter:description" content="$\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\d{\\mathrm{d}}$ 这是一篇学习笔记。 这篇笔记是学普物二时为了理解磁场和电场本质一致的关系时写的，侧重于理解狭相的推导过程。好像这学期普物一也会用，大家可以参">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/other-courses/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 其他科目
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/special-relativity/">狭义相对论笔记</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-02-23</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    3649 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>$\gdef\b#1{\boldsymbol{#1}}\gdef\d{\mathrm{d}}$</p>
+<div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>这篇笔记是学普物二时为了理解磁场和电场本质一致的关系时写的，侧重于理解狭相的推导过程。好像这学期普物一也会用，大家可以参考。</p>
+<p>这篇文章里没包含的内容：</p>
+<ol>
+<li>用闵氏空间语言讲相对论，包括时空间隔的几何意义、四维矢量，以及一些高级的上下标表示法。</li>
+<li>钟慢、尺缩、质量的三个实验详细推导。</li>
+<li>双生子佯谬。</li>
+<li>四维加速度的推导（其实应该算是四维力的前置，但是后续只有力变换用得着，我就没推）。</li>
+</ol>
+<p><strong>公理 1</strong>：在任意惯性系内，所有物理规律都是相同的。</p>
+<p>这里“惯性系”根本没定义，我们可以理解成，是这几条公理定义了惯性系，或者说惯性系要满足这几条公理。</p>
+<p><strong>公理 2</strong>：在任意惯性系内，光速均 $=c$。</p>
+<p><strong>公理 *</strong>：如果从惯性系 $A$ 来看，惯性系 $B$ 相对于 $A$ 以 $\b v$ 的速度运动，那么从惯性系 $B$ 来看，惯性系 $A$ 相对于 $B$ 以 $-\b v$ 的速度运动。</p>
+<p>这条公理本来是可以由前两条公理推导出来，但是太复杂了（详见<a class="link" href="https://physics.stackexchange.com/questions/219390/why-is-the-relative-speed-between-two-inertial-frames-the-same-for-observers-in"  target="_blank" rel="noopener"
+    >这里</a>），所以就默认它也算公理了。</p>
+<p><strong>惯性系的描述</strong>：一个惯性系中，事件可以用三维空间加一维时间 $(x,y,z,t)$ 描述。同一个惯性（参考）系可以有很多惯性坐标系，但这些坐标系直接只是平移（含时间）和旋转（不含时间）关系，所以这个不是重点。注意，对坐标进行拉伸或压缩后，得到的并不是合法的惯性坐标系。</p>
+<p><strong>惯性系中的观测</strong>：可以认为，当一个事件发生时，这个惯性系可以立即得到其坐标，而并非一个站在原点处的人通过眼睛观测这个事件。书中具体实现这个事情，是通过在三维空间的每一点放一个钟，然后对时。
+$$
+\boxed{\gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}}
+$$
+<strong>钟慢效应</strong>：当一个钟在运动时（不一定是惯性地），它本身有一个固有时 $\tau$。这个固有时与观测它的参考系无关。<br>
+通过对车上法向测距的几何分析（自己看书）（注意需要假设与速度垂直方向空间不伸缩）可得 $\Delta t=\gamma\Delta\tau$。<br>
+注意这个式子的含义<em>不是</em>“在系 $A^\prime$ 中经过了 $\Delta\tau$ 时间，<em>对应</em>在系 $A$ 中经过了 $\gamma\Delta\tau$ 时间”，这个<em>对应</em>是非良定义的。它的严格表述是，“在 $A^\prime$ 中同一点处发生的间隔 $\Delta\tau$ 的事件，从 $A$ 中来看是间隔 $\gamma\Delta\tau$ 的事件”。</p>
+<p><strong>尺缩效应</strong>：类似地，如果两点相对于钟静止，那么两点之间的距离就是固有长度 $l_0$。<br>
+通过对车上径向测距的几何分析（注意需要依赖钟慢效应的推导）可得（与速度方向相同的杆）$l=l_0/\gamma$。<br>
+更一般的尺缩效应会在下面解释。</p>
+<p><strong>同时相对性</strong>：一个系对时的过程中出现两处同时收到光信号，从另一个系看来是不同时的。注意这是一个定性的规律，因为从另一个系来看的长度还需分析。</p>
+<p><strong>洛伦兹变换推导</strong>：</p>
+<p>这里我们默认两个参考系的 $(0,0)$ 重合。</p>
+<ol>
+<li>
+<p>一维洛伦兹变换的推导（依赖于钟慢、尺缩）：</p>
+<p>我们首先不加证明地说，变换存在，且是线性的。</p>
+<p>钟慢效应说，在参考系 $A^\prime$ 中发生的事 $(0,0)-(0,t)$，可以对应到 $A$ 中发生的事 $(0,0)-(v\gamma t,t)$；</p>
+<p>尺缩效应需要改一下才能用，书里说的是，长度的测量是通过“激光测距仪”实现的，这个不好搞。考虑这样：$A^\prime$ 中有一根 $-l\sim 0$ 的棍子，它的两端经过 $A$ 中的原点作为两个事件。$A^\prime$ 中是 $(0,0)-(-l,l/v)$，$A$ 中则由于两次测的点相同，故反用钟慢效应，是 $(0,0)-(0,l/\gamma v)$。</p>
+<p>于是我们有方程：
+$$
+\left\{\begin{align*}
+\begin{bmatrix}0\\ t\end{bmatrix}&amp;=\begin{bmatrix}a_{11}&amp;a_{12}\\ a_{21}&amp;a_{22}\end{bmatrix}\begin{bmatrix}v\gamma t\\ t\end{bmatrix}\\
+\begin{bmatrix}-l\\ \frac lv\end{bmatrix}&amp;=\begin{bmatrix}a_{11}&amp;a_{12}\\ a_{21}&amp;a_{22}\end{bmatrix}\begin{bmatrix}0\\ \frac{l}{\gamma v}\end{bmatrix}
+\end{align*}\right.
+$$
+解得
+$$
+\Lambda=\begin{bmatrix}\gamma&amp;-\gamma v\\ -\frac{\gamma v}{c^2}&amp;\gamma\end{bmatrix}
+$$</p>
+</li>
+<li>
+<p>一维洛伦兹变换的推导（依赖于时空间隔不变性）（《电动力学》（郭硕鸿））：</p>
+<p>光速不变的说法强于 $\sqrt{x^2+y^2+z^2}=ct\Leftrightarrow \sqrt{{x^\prime}^2+{y^\prime}^2+{z^\prime}^2}=ct^\prime$。我们可以说<strong>时空间隔</strong>是不变量
+$$
+x^2+y^2+z^2-c^2t^2={x^\prime}^2+{y^\prime}^2+{z^\prime}^2-c^2{t^\prime}^2
+$$
+于是
+$$
+(a_{11}x+a_{12}t)^2-c^2(a_{21}x+a_{22}t)^2=x^2-c^2t^2
+$$
+给出了三个方程（比对 $x^2$、$xt$、$t^2$ 的系数）。另外，考虑到 $v$，我们知道 $A$ 中的 $(vt,t)$ 对应着 $A^\prime$ 中的 $(0,?)$。于是
+$$
+\left\{
+\begin{align*}
+a_{11}^2-a_{21}^2&amp;=1\\
+a_{11}a_{12}-c^2a_{21}a_{22}&amp;=0\\
+a_{12}^2-c^2a_{22}^2&amp;=-c^2\\
+a_{11}v+a_{12}&amp;=0
+\end{align*}
+\right.
+$$
+其中 $a_{11},a_{22}&gt;0$。解得同样的结果。</p>
+</li>
+</ol>
+<ul>
+<li>注：为什么我们必须要么构造实际场景，要么用有额外公理之感的时空间隔不变性，才能证明洛伦兹比变换呢？因为公理 2 要是用严格的语言描述，必须引入闵氏空间，就很麻烦了。</li>
+</ul>
+<ol start="3">
+<li>
+<p>三维洛伦兹变换的推导（<a class="link" href="https://zhuanlan.zhihu.com/p/266509750"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/266509750</a>）：我们固然可以用基变换矩阵，但是另两维其实没必要分开。</p>
+<p>空间的拉伸，只需将 $\b x=(x,y,z)$ 分解为与速度方向共线与垂直的两部分即可（至于垂直为啥不变，我也不知道）。即：
+$$
+\left\{\begin{align*}
+\b x_{\parallel}&amp;=\frac{\b x\cdot\b v}{v^2}\b v\\
+\b x_{\perp}&amp;=\b x-\b x_{\parallel}\\
+\begin{bmatrix}|\b x_{\parallel}^\prime|\\ \b x_{\perp}^\prime\\ t^\prime\end{bmatrix}&amp;=\begin{bmatrix}\gamma&amp;0&amp;-\gamma v\\ 0&amp;1&amp;0\\ -\frac{\gamma v}{c^2}&amp;0&amp;\gamma\end{bmatrix}\begin{bmatrix}|\b x_{\parallel}|\\ \b x_{\perp}\\ t\end{bmatrix}
+\end{align*}\right.
+$$
+于是
+$$
+\begin{align*}
+&amp;\b x^\prime=\b x_\parallel^\prime+\b x_\perp=\gamma\b x_\parallel-\gamma\b vt+\b x-\b x_\parallel\\
+&amp;t^\prime=-\frac{\gamma v}{c^2}|\b x_\parallel|+\gamma t=-\frac{\gamma}{c^2}|\b x\cdot\b v|+\gamma t
+\end{align*}
+$$</p>
+<p>主要要展开的就是（这里 $v$ 再加粗就太阴间了……）
+$$
+\b x_\parallel=\frac{xv_x+yv_y+zv_z}{v^2}\begin{bmatrix}v_x\\ v_y\\ v_z\end{bmatrix}
+$$
+于是
+$$
+\b x^\prime=\begin{bmatrix}
+\gamma tv_x+x+(\gamma-1)\frac{v_x^2}{v^2}x+(\gamma-1)\frac{v_xv_y}{v^2}y+(\gamma-1)\frac{v_xv_z}{v^2}z\\
+\gamma tv_y+(\gamma-1)\frac{v_yv_x}{v^2}x+y+(\gamma-1)\frac{v_y^2}{v^2}y+(\gamma-1)\frac{v_yv_z}{v^2}z\\
+\gamma tv_z+(\gamma-1)\frac{v_zv_x}{v^2}x+(\gamma-1)\frac{v_zv_y}{v^2}y+z+(\gamma-1)\frac{v_z^2}{v^2}z\\
+\end{bmatrix}
+$$
+即
+$$
+\begin{bmatrix}x^\prime\\ y^\prime\\ z^\prime\\ t^\prime\end{bmatrix}=
+\begin{bmatrix}
+1+(\gamma-1)\frac{v_x^2}{v^2}&amp;(\gamma-1)\frac{v_xv_y}{v^2}&amp;(\gamma-1)\frac{v_xv_z}{v^2}&amp;\gamma v_x\\
+(\gamma-1)\frac{v_yv_x}{v^2}&amp;1+(\gamma-1)\frac{v_y^2}{v^2}&amp;(\gamma-1)\frac{v_yv_z}{v^2}&amp;\gamma v_y\\
+(\gamma-1)\frac{v_zv_x}{v^2}&amp;(\gamma-1)\frac{v_zv_y}{v^2}&amp;1+(\gamma-1)\frac{v_z^2}{v^2}&amp;\gamma v_z\\
+-\gamma\frac{v_x}{c^2}&amp;-\gamma\frac{v_y}{c^2}&amp;-\gamma\frac{v_z}{c^2}&amp;\gamma
+\end{bmatrix}
+\begin{bmatrix}x\\ y\\ z\\ t\end{bmatrix}
+$$</p>
+</li>
+</ol>
+<p><strong>用洛伦兹变换解释尺缩效应</strong>：值得注意的是，上面说的“尺缩效应”是一般情况的特例。简单分析是无法得到一般情况的。有洛伦兹变换之后就可以分析了。<br>
+尺缩效应的表述<em>是</em>“在系 $A^\prime$ 中沿运动方向的长为 $l_0$ 的<em>静止</em>的杆，<em>对应</em>在系 $A$ 中长为 $l_0/\gamma$”。必须定义的是，如何在一个参考系中测量一个运动的杆：如果在系 $A$ 中有两个事件 $(x_0,t)$ 和 $(x_1,t)$（这里简化就用一维空间了），第一个事件是该地该时观测到杆的一头在该地，第二个事件是（另一）该地（同一）该时观测到杆的另一头在该地，那么 $|x_1-x_0|$ 就是观测到的长度。<br>
+那么严格的推导是 $l_0=x_1^\prime-x_0^\prime=\Lambda_{11}x_1+\Lambda_{12}t-\Lambda_{11}x_0-\Lambda_{12}t=\gamma(x_1-x_0)=\gamma l$。<br>
+现在我们可以明确，所谓“$A^\prime$ 比 $A$ 慢/短，反过来 $A$ 又比 $A^\prime$ 慢/短”，只是没有搞清钟慢和尺缩的严格表述犯的错，这两个效应不能正反连续两次应用（不是“对合”的）。</p>
+<p><strong>速度变换</strong>：速度显然可以定义为，如果质点在两处分别出现的事件为 $(x_0,t_0)$ 和 $(x_0+\d x,t_0+\d t)$，那么 $v=\frac{\d x}{\d t}$。如果系 $A$ 中有个质点以 $v$ 的速度移动，而系 $A$ 相对于 $A^\prime$ 以 $v_0$ 的速度移动，那么从 $A^\prime$ 看来，
+$$
+v^\prime=\frac{\d x^\prime}{\d t^\prime}=\frac{\Lambda_{11}\d x+\Lambda_{12}\d t}{\Lambda_{21}\d x+\Lambda_{22}\d t}=\frac{\gamma_0\d x+\gamma_0v_0\d t}{\frac{\gamma_0v_0}{c^2}\d x+\gamma_0\d t}=\frac{v+v_0}{\frac{v_0v}{c^2}+1}
+$$
+从这里开始，$\gamma_0$ 表示 $v_0$ 对应的洛伦兹因子，$\gamma$ 表示 $v$ 对应的。如果是垂直方向的速度，则
+$$
+v_y^\prime=\frac{\d y}{\d t^\prime}=\frac{\d y}{\frac{\gamma_0v_0}{c^2}\d x+\gamma_0\d t}=\frac{v_y}{\gamma_0\left(\frac{v_0v_x}{c^2}+1\right)}
+$$
+例：两个相对地球反向分别以 $0.5c$ 的速度运动的飞船，从一架飞船上看另一架，相对速度为
+$$
+\frac{0.5c+0.5c}{0.25+1}=0.8c
+$$
+<strong>动量定义</strong>：对于一个参考系中一个运动的质点，其动量 $\b p$ 为一个与它运动方向同向的向量。不同系中动量由于速度不同可能不同，但必须只依赖于 $v$ 和质点本身的性质（而不依赖于参考系），必须满足动量守恒。</p>
+<p><strong>质量定义</strong>：对于 $\b v\ne 0$ 的质点，动质量 $m_v$ 定义为使得 $\b p=m_v\b v$ 的标量，特殊地定义静质量 $m_0$，经过后续推导可知 $m_v$ 在 $v=0$ 处右连续。质量必须满足质量守恒。</p>
+<p><strong>质量变换</strong>：考虑 $A$ 中静质量相同的两个质点，一动一静发生完全非弹性碰撞。考虑与碰撞后状态相对静止的另一个系 $A^\prime$。在两个系中分别列出动量守恒与质量守恒方程，可以解得
+$$
+m_v=\gamma m_0
+$$
+同理可以得出动量变换，它有个更优美的形式，所以我们放到能量之后讲。</p>
+<p><strong>力的定义</strong>：和速度类似，$\b F=\frac{\d\b p}{\d t}$。</p>
+<p><strong>功与能量</strong>：功的定义和经典力学一样：
+$$
+\begin{align*}
+\d W&amp;=\b F\cdot\d\b x\\
+&amp;=\frac{\d\b p\cdot\d\b x}{\d t}\\
+&amp;=\b v\cdot\d\b p\\
+&amp;=\b v\cdot\d(\gamma m_0\b v)\\
+&amp;=m_0(v^2\d\gamma+\gamma\b v\cdot\d\b v)\\
+&amp;=m_0v(v\d\gamma+\gamma\d v)\\
+&amp;=m_0\gamma^3v\d v\\
+&amp;=m_0c^2\d\gamma
+\end{align*}
+$$
+（最后两行就是在凑积分）也就是说，定义能量变化量为做功的话，
+$$
+\Delta E=W=\Delta\gamma m_0c^2=\Delta m_vc^2
+$$
+也是只跟初末状态有关。$m_0c^2$ 被称为<strong>静能</strong>，$(\gamma-1)m_0c^2$ 被称为<strong>动能</strong>，$m_vc^2=\gamma m_0c^2$ 被称为<strong>总能</strong>。<br>
+动质量、动量、总能都是守恒量，但参考系不同会不同；静质量不是守恒量，但与参考系无关。考虑一个质量转换成能量的例子：原来一个静止的物体爆炸，碎片向各处飞去。动质量守恒说明，原静质量等于现动质量之和，从而大于现静质量之和。少的质量充当动能。<br>
+最后，我们可以推出能量与动量的关系：
+$$
+E^2=\gamma^2m_0^2c^4=\frac{1-\frac{v^2}{c^2}+\frac{v^2}{c^2}}{1-\frac{v^2}{c^2}}m_0^2c^4=m_0^2c^4+\gamma^2m_0^2v^2c^2=E_0^2+p^2c^2
+$$
+<strong>四维速度与四维动量</strong>：我们希望用洛伦兹变换矩阵直接表示速度、动量变换。考虑速度，其一大问题在于，它在变换后是两个变换量之比 $\frac{\d\b x^\prime}{\d t^\prime}$，这个没法方便地写成线性变换的形式。很容易想到，我们希望让分母变成一个不需变换的东西。所以考虑定义一种初看起来有些不伦不类的速度：对于在系 $A$ 中运动的一个质点，它本身有一个固有时 $\tau$。若它在 $\d\tau$ 的时间内，从 $A$ 观测走了 $\d\b x$，定义 $\b u=\frac{\d\b x}{\d\tau}$。<br>
+由于 $\tau$ 与选取的参考系无关，现在我们就有（可根据实际情况选取一维空间或三维空间的 $\Lambda$）
+$$
+\begin{bmatrix}\frac{\d\b x^\prime}{\d \tau}\\ \frac{\d t^\prime}{\d\tau}\end{bmatrix}=\Lambda\begin{bmatrix}\frac{\d\b x}{\d\tau}\\ \frac{\d t}{\d\tau}\end{bmatrix}
+$$
+而 $\frac{\d}{\d\tau}=\frac{\d}{\d t}\frac{\d t}{\d\tau}=\gamma\frac{\d}{\d t}$，从而
+$$
+\begin{bmatrix}\gamma^\prime\b v^\prime\\ \gamma^\prime\end{bmatrix}=\Lambda\begin{bmatrix}\gamma\b v\\ \gamma\end{bmatrix}
+$$
+同样可以在 $\Lambda$ 中代入 $-v_0$，求出 $v_x^\prime$ 与 $v_x$ 的关系，与上面那种推导校验。<br>
+动量变换反而容易了！因为 $\b p=\gamma m_0\b v$，直接就有
+$$
+\begin{bmatrix}\b p^\prime\\ m_{v^\prime}\end{bmatrix}=\Lambda\begin{bmatrix}\b p\\ m_v\end{bmatrix}
+$$
+<strong>四维力</strong>：动量非常自然地把 $\d\tau$ “吸收”进了 $\gamma$，于是我们又可以通过 $/\d\tau$ 定义一个怪怪的力了！（大雾）
+$$
+\begin{bmatrix}\frac{\d\b p^\prime}{\d\tau}\\ \frac{\d m_{v^\prime}}{\d\tau}\end{bmatrix}=\Lambda\begin{bmatrix}\frac{\d\b p}{\d\tau}\\ \frac{\d m_v}{\d\tau}\end{bmatrix}
+$$
+上面就是 $\gamma\b F$，但是下面这个呢？实际算问题的时候鬼知道 $\frac{\d m_v}{\d\tau}$ 是多少啊……
+$$
+\frac{\d m_v}{\d\tau}=m_0\frac{\d\gamma}{\d\tau}=\frac{\b F\cdot\d\b x}{c^2\d\tau}=\frac{\b F\cdot\b u}{c^2}=\gamma\frac{\b F\cdot\b v}{c^2}
+$$
+第二个等号参见<strong>功与能量</strong>那边的推导。于是（网上有些文章是把 $/\d t$ 的速度记成 $\b u$，不要搞混了）
+$$
+\begin{bmatrix}\gamma^\prime\b F^\prime\\ \gamma^\prime\frac{\b F^\prime\cdot\b v^\prime}{c^2}\end{bmatrix}=\Lambda\begin{bmatrix}\gamma\b F\\ \gamma\frac{\b F\cdot\b v}{c^2}\end{bmatrix}
+$$
+于是我们发现，力的变换不仅与时空有关系，还与质点当前的速度有关系。</p>
+<p><strong>四维加速度</strong>见 <a class="link" href="https://zhuanlan.zhihu.com/p/114045707"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/114045707</a>。另一个比较靠谱的推导 <a class="link" href="https://dsl.nju.edu.cn/litao/teach/Ch6.pdf"  target="_blank" rel="noopener"
+    >https://dsl.nju.edu.cn/litao/teach/Ch6.pdf</a>。</p>
+<p>参考书：《从零学相对论》（梁灿彬、曹周键），《新概念物理学教程 力学》（赵凯华、罗蔚茵）。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="d5bb0238d69ac29af245e601678697b9"
+    data-page-url="https://littlereuben.github.io/study/special-relativity/"
+    data-page-title="狭义相对论笔记"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

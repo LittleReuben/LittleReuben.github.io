@@ -7,7 +7,32 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/life/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 23 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/life/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>一个微积分的故事</title>
+        <link>https://littlereuben.github.io/life/course-calculus-story/</link>
+        <pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/life/course-calculus-story/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/life/course-calculus-story/cover.jpg" alt="Featured image of post 一个微积分的故事" /&gt;&lt;div style=&#34;background-color: #F4B1C5; color: #6C0021; padding-left: 1em; border-left: 4px solid #C63A64; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;记事&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;想分享自己经历的一个一波三折的故事，感觉里面蕴含着很多处事和学习的道理，希望能作为大家的前车之鉴。&lt;/p&gt;
+&lt;p&gt;Prerequisite：微积分是作业 $20$、期中 $30$、期末 $50$，A- 要求总评 $\ge 90$，B+ 要求总评 $\ge 85$。期中期末都是 1~10 填空 $3$ 分/题，11~17 大题平均 $10$ 分/题。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;开学，我报了 wxf 的微积分。因为自己之前已经学过 A(1) 的大部分内容，所以听了第一节课之后就没去了。wxf 的课有录屏，我就开倍速看录屏跟着进度，2.5h 的课我一般 1.5h 就能听完，节约了时间。&lt;/li&gt;
+&lt;li&gt;期中之前，回顾了一下，发现，诶，知识点细节还挺多，最好还是梳理梳理，所以依据课件和录屏列了一下知识点的提纲，还讲了个复习会。&lt;/li&gt;
+&lt;li&gt;期中考了 $98$，似乎是全校前 12，感觉还不错。考完后分批查卷，第一批是 $\le 63$ 和 $\ge 95$ 的，那天晚上我自己有点安排（学点东西不想被打断），就没去查；第二天，第二批是 $\le 70$ 和 $\ge 90$ 的，我有点空，就去了，结果到查卷的会议室发现已经坐了 20 个人这样，完全排不上。所以没能知道期中自己错哪了。&lt;/li&gt;
+&lt;li&gt;期中之后开始有考勤，说是捞 F 的，所以我就没管，心想期末考得好些就行了。&lt;/li&gt;
+&lt;li&gt;下半学期比较难，而且之前没学过微分方程，我就每次看完录屏后记点笔记。期末前大概有三整天复习时间，但因为我把算设的大作业拖到 ddl 前，搞完就剩下一整天了，我那天回顾了一下笔记和错题，做了一套完整真题，和三套真题的压轴题。&lt;/li&gt;
+&lt;li&gt;期末考当天状态不太好，可能是因为考试是 9~11 点，但平时我一般 9 点才起。填空做了 ~45min，做完第 15 题剩下 30min。当时大脑还是能思考的，就是想东西很乱没啥条理，16 题微分方程，想了各种思路都不会，17 题也不会，最后这两题基本空着了。出来发现 16 题漏想了一种最简单的思路（两边同时求导）。估分至多 $83$。&lt;/li&gt;
+&lt;li&gt;出成绩发现是 B，我想怎么挂分都没法挂到 $\le 70$ 啊，有没有可能因为没去签到被调分了。就想去复议。&lt;/li&gt;
+&lt;li&gt;新学期第一周周二上午向 wxf 发邮件问能不能去查卷，想好了过两天去他办公室见到他，怎么说比较能体现自己认错的态度。下午五点打开邮箱（没有新邮件提醒功能）发现 wxf 上午就秒回了，让我下午过去。我赶紧过去发现他已经下班了，我想如果他是比较严肃的老师，就已经留给他不好的印象了。&lt;/li&gt;
+&lt;li&gt;周三，第一次微积分课下我当面找 wxf 问他接下来还有什么时候有机会，他说今天下午。下午去找他，发现他在和另一个老师谈话，我就在外面等了 30min 这样。进去发现其实是很平易近人的老师，没说啥，直接打开评卷网页让我自己看。$68$，发现填空 8 旁边有个符号，我指出来，似乎是因为没有分母有理化被判错了，wxf 说这里可以加回 $3$ 分。另外 15 题答案错了 $-2$，16、17 没问题 $-17$。惊讶地发现 14 题答题卡上是空的，我当时应该是在草稿纸上算过了，没写到答题卡上去，这个 $-10$。wxf 说回头帮我查一下 $+3$ 后的总评，如果能改等第会联系我。我自己回去算了一下总评是 $84.9$。&lt;/li&gt;
+&lt;li&gt;周四周五 wxf 没联系我，我想他可能比较忙就没催。周六我发邮件问了下，周日 wxf 回我说可以改到 B+，一早看到我就兴奋了，看来不是因为考勤。去打印复议表。结果看到官方复议通知上写复议截止周五下午 5 点。这个通知之前我就看过，但没仔细注意日期。&lt;/li&gt;
+&lt;li&gt;很担心。但不管了，赶紧填完表去办公室，门锁着，我想因为周末嘛，得等明天了，越晚希望越渺茫了。去图书馆路上就发了封邮件问他什么时候能给他复议表。刚落座就看到他回邮件说他在（刚到）办公室，微信大群里也 @ 我。我赶紧又过去。他说超过截止日期没关系，会弄好的。总算松了口气。&lt;/li&gt;
+&lt;li&gt;回去半路上他在大群里 @ 我让我再回去，上去后给我看评卷网页，说仔细看了下小分，发现其实是填空 3 错了（那个半对半错是针对整个 10 道填空的），这是真的错了，没得改了。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>我与 OI 的故事</title>
         <link>https://littlereuben.github.io/life/oi-memoir/</link>
         <pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate>
