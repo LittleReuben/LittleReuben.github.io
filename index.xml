@@ -8947,7 +8947,73 @@ $$
 $$
 \lambda=b-2\sqrt{ac}\cos\frac{k\pi}{n+1}\;(k=1,\cdots,n)
 $$
-特征向量似乎有点难。&lt;/p&gt;
+特征向量似乎有点难。我们来看一下 deepseek 怎么说，这边它先通过相似变换（$D=\operatorname{diag}((a/c)^{i/2})$）把矩阵变成对称的。&lt;/p&gt;
+&lt;p&gt;对于对称三对角矩阵的特征向量问题，我们可以通过以下步骤详细推导：&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;步骤1：建立特征方程&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;设对称三对角矩阵为：
+$$
+S = \begin{bmatrix}
+b &amp;amp; \sqrt{ac} &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 \\
+\sqrt{ac} &amp;amp; b &amp;amp; \sqrt{ac} &amp;amp; \cdots &amp;amp; 0 \\
+0 &amp;amp; \sqrt{ac} &amp;amp; b &amp;amp; \cdots &amp;amp; 0 \\
+\vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \sqrt{ac} \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \sqrt{ac} &amp;amp; b
+\end{bmatrix},
+$$
+其特征方程为 $S \mathbf{v} = \lambda \mathbf{v}$。假设特征向量为 $\mathbf{v} = [v_1, v_2, \dots, v_n]^T$，则分量满足递推关系：&lt;/p&gt;
+&lt;p&gt;$$
+\sqrt{ac} \cdot v_{k-1} + b \cdot v_k + \sqrt{ac} \cdot v_{k+1} = \lambda v_k, \quad k = 1, 2, \dots, n,
+$$
+其中约定 $v_0 = v_{n+1} = 0$。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;步骤2：引入正弦函数试探解&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;观察到边界条件 $v_0 = v_{n+1} = 0$，尝试用正弦函数作为解：&lt;/p&gt;
+&lt;p&gt;$$
+v_k = \sin\left(\theta k\right),
+$$&lt;/p&gt;
+&lt;p&gt;代入递推方程：&lt;/p&gt;
+&lt;p&gt;$$
+\sqrt{ac} \cdot \sin\left(\theta (k-1)\right) + b \cdot \sin\left(\theta k\right) + \sqrt{ac} \cdot \sin\left(\theta (k+1)\right) = \lambda \sin\left(\theta k\right).
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;步骤3：利用三角恒等式化简&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;利用正弦函数的和差公式：&lt;/p&gt;
+&lt;p&gt;$$
+\sin\left(\theta (k-1)\right) + \sin\left(\theta (k+1)\right) = 2 \sin\left(\theta k\right) \cos\theta,
+$$&lt;/p&gt;
+&lt;p&gt;方程简化为：&lt;/p&gt;
+&lt;p&gt;$$
+\sqrt{ac} \cdot 2 \sin\left(\theta k\right) \cos\theta + b \cdot \sin\left(\theta k\right) = \lambda \sin\left(\theta k\right).
+$$&lt;/p&gt;
+&lt;p&gt;消去 $\sin\left(\theta k\right)$（非零解要求）后得到：&lt;/p&gt;
+&lt;p&gt;$$
+\lambda = b + 2\sqrt{ac} \cos\theta.
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;步骤4：应用边界条件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由 $v_{n+1} = 0$，即：
+$$
+\sin\left(\theta (n+1)\right) = 0 \implies \theta (n+1) = m\pi \implies \theta = \frac{m\pi}{n+1}, \quad m = 1, 2, \dots, n.
+$$&lt;/p&gt;
+&lt;p&gt;因此，特征值为：&lt;/p&gt;
+&lt;p&gt;$$
+\lambda_m = b + 2\sqrt{ac} \cos\left(\frac{m\pi}{n+1}\right),
+$$&lt;/p&gt;
+&lt;p&gt;对应特征向量分量为：&lt;/p&gt;
+&lt;p&gt;$$
+v^{(m)}_k = \sin\left(\frac{mk\pi}{n+1}\right).
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;步骤5：正交归一性验证&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;通过计算内积 $ \sum_{k=1}^n v^{(m)}_k v^{(p)}_k$，可验证不同特征向量正交，且归一化常数为 $\sqrt{\frac{2}{n+1}}$。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对称三对角矩阵的特征向量由正弦函数构成，其形式为：&lt;/p&gt;
+&lt;p&gt;$$
+\mathbf{v}^{(m)} = \left[ \sin\left(\frac{m\pi}{n+1}\right), \sin\left(\frac{2m\pi}{n+1}\right), \dots, \sin\left(\frac{nm\pi}{n+1}\right) \right]^T,
+$$&lt;/p&gt;
+&lt;p&gt;满足正交性和完备性，构成一组基底。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;求循环矩阵 $\Set{a_{(n-i+j)\bmod n}}$ 的特征值与特征向量。&lt;/p&gt;
 &lt;/blockquote&gt;
