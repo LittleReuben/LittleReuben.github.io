@@ -6277,7 +6277,7 @@ $$
 \b B(\b r,t)&amp;amp;=\frac{\mu_0}{4\pi}\iiint\left(\frac{\b j(\b r^\prime,t-\mathfrak{\b r}/c)}{\mathfrak{r}^2}+\frac{\dot{\b j}(\b r^\prime,t-\mathfrak{\b r}/c)}{c\mathfrak{r}}\right)\times\mathfrak{\b{\hat r}}\d v
 \end{aligned}\right.
 $$
-其中 $\mathfrak{\b r}=\b r-\b r^\prime$（我打不出那个玩意！），以及 $\dot\rho$ 和 $\dot{\b j}$（wtf is this）是关于第二维求偏导。&lt;/p&gt;
+其中 $\mathfrak{r}=\b r-\b r^\prime$（我打不出那个玩意！），以及 $\dot\rho$ 和 $\dot{\b j}$（wtf is this）是关于第二维求偏导。&lt;/p&gt;
 &lt;p&gt;解一般的波方程一般考虑复波函数。&lt;/p&gt;
 &lt;h2 id=&#34;交流电路&#34;&gt;交流电路
 &lt;/h2&gt;&lt;p&gt;不知道为什么突然就开始讲电路了。&lt;/p&gt;
@@ -10160,6 +10160,104 @@ $$
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;177&#34;
 		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/33.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2025.2.20 傍晚 水木清华&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/34.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;2880&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2.21 深夜 水木清华&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;336px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/35.jpg&#34;
+	width=&#34;5712&#34;
+	height=&#34;4284&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3.2 傍晚 紫二&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/36.jpg&#34;
+	width=&#34;2268&#34;
+	height=&#34;4032&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3.15 下午 水木清华【春雪】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;56&#34;
+		data-flex-basis=&#34;135px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/37.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3.15 下午 水木清华【春雪】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/38.jpg&#34;
+	width=&#34;4032&#34;
+	height=&#34;3024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3.15 下午 水木清华【春雪】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/collection/thu-photo/39.jpg&#34;
+	width=&#34;3024&#34;
+	height=&#34;4032&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3.15 下午 水木清华【春雪】&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;180px&#34;
 	
 &gt;&lt;/p&gt;
 </description>
