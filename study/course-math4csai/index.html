@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 $\\gdef\\P{\\mathsf{Pr}}\\gdef\\E{\\mathsf{E}}\\gdef\\e{\\mathrm{e}}\\gdef\\eq#1{\\begin{align*}#1\\end{align*}}\\gdef\\V{\\mathsf{Var}}\\gdef\\acc{\\operatorname{acc}}\\gdef\\eps{\\varepsilon}\\gdef\\Ext{\\mathsf{Ext}}\\gdef\\Com{\\mathsf{Com}}\\gdef\\Enc{\\mathsf{Enc}}\\gdef\\Dec{\\mathsf{Dec}}\\gdef\\Err{\\mathsf{Err}}\\gdef\\Ring{\\mathsf{Ring}}\\gdef\\d{\\mathrm{d}}\\gdef\\p{\\partial}\\gdef\\i{\\mathrm{i}}\\gdef\\res{\\operatorname{Res}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\Nd{\\mathcal{N}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\ip#1{\\left\\langle #1\\right\\rangle}\\gdef\\span#1{\\operatorname{span}\\Set{#1}}\\gdef\\r{\\operatorname{rank}}\\gdef\\diag{\\operatorname{diag}}$ 一些书： Discrete Mathematics by Lovász, Pelikán, and Vesztergombi All of Statistics A Concise Course in Statistical Inference by Larry Wasserman Foundations of Data Science by Avrim Blum, John Hopcroft, and Ravindran Kannan 这边没记 Matrix Tree Theorem 和 Pfaffian 相关">
+<title>计算机与人工智能应用数学笔记</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/course-math4csai/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="计算机与人工智能应用数学笔记">
+<meta property='og:description' content="这是一篇学习笔记。 $\\gdef\\P{\\mathsf{Pr}}\\gdef\\E{\\mathsf{E}}\\gdef\\e{\\mathrm{e}}\\gdef\\eq#1{\\begin{align*}#1\\end{align*}}\\gdef\\V{\\mathsf{Var}}\\gdef\\acc{\\operatorname{acc}}\\gdef\\eps{\\varepsilon}\\gdef\\Ext{\\mathsf{Ext}}\\gdef\\Com{\\mathsf{Com}}\\gdef\\Enc{\\mathsf{Enc}}\\gdef\\Dec{\\mathsf{Dec}}\\gdef\\Err{\\mathsf{Err}}\\gdef\\Ring{\\mathsf{Ring}}\\gdef\\d{\\mathrm{d}}\\gdef\\p{\\partial}\\gdef\\i{\\mathrm{i}}\\gdef\\res{\\operatorname{Res}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\Nd{\\mathcal{N}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\ip#1{\\left\\langle #1\\right\\rangle}\\gdef\\span#1{\\operatorname{span}\\Set{#1}}\\gdef\\r{\\operatorname{rank}}\\gdef\\diag{\\operatorname{diag}}$ 一些书： Discrete Mathematics by Lovász, Pelikán, and Vesztergombi All of Statistics A Concise Course in Statistical Inference by Larry Wasserman Foundations of Data Science by Avrim Blum, John Hopcroft, and Ravindran Kannan 这边没记 Matrix Tree Theorem 和 Pfaffian 相关">
+<meta property='og:url' content='https://littlereuben.github.io/study/course-math4csai/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-06-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-06-15T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="计算机与人工智能应用数学笔记">
+<meta name="twitter:description" content="这是一篇学习笔记。 $\\gdef\\P{\\mathsf{Pr}}\\gdef\\E{\\mathsf{E}}\\gdef\\e{\\mathrm{e}}\\gdef\\eq#1{\\begin{align*}#1\\end{align*}}\\gdef\\V{\\mathsf{Var}}\\gdef\\acc{\\operatorname{acc}}\\gdef\\eps{\\varepsilon}\\gdef\\Ext{\\mathsf{Ext}}\\gdef\\Com{\\mathsf{Com}}\\gdef\\Enc{\\mathsf{Enc}}\\gdef\\Dec{\\mathsf{Dec}}\\gdef\\Err{\\mathsf{Err}}\\gdef\\Ring{\\mathsf{Ring}}\\gdef\\d{\\mathrm{d}}\\gdef\\p{\\partial}\\gdef\\i{\\mathrm{i}}\\gdef\\res{\\operatorname{Res}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\Nd{\\mathcal{N}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\ip#1{\\left\\langle #1\\right\\rangle}\\gdef\\span#1{\\operatorname{span}\\Set{#1}}\\gdef\\r{\\operatorname{rank}}\\gdef\\diag{\\operatorname{diag}}$ 一些书： Discrete Mathematics by Lovász, Pelikán, and Vesztergombi All of Statistics A Concise Course in Statistical Inference by Larry Wasserman Foundations of Data Science by Avrim Blum, John Hopcroft, and Ravindran Kannan 这边没记 Matrix Tree Theorem 和 Pfaffian 相关">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#计应数">计应数</a>
+      <ol>
+        <li><a href="#概率论">概率论</a></li>
+        <li><a href="#信息论">信息论</a></li>
+        <li><a href="#概率密度">概率密度</a></li>
+        <li><a href="#复分析">复分析</a></li>
+      </ol>
+    </li>
+    <li><a href="#智应数">智应数</a>
+      <ol>
+        <li><a href="#高维几何">高维几何</a></li>
+        <li><a href="#线代">线代</a></li>
+        <li><a href="#svd-的工业应用">SVD 的工业应用</a></li>
+        <li><a href="#马尔可夫链">马尔可夫链</a></li>
+        <li><a href="#马尔可夫链蒙特卡洛方法">马尔可夫链蒙特卡洛方法</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/math/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 数学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/course-math4csai/">计算机与人工智能应用数学笔记</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-06-15</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    9964 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<style>
+  .theorem-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(240, 248, 255, 0.75);
+    padding: 10px 20px;
+    margin: 30px 0;
+    position: relative;
+    font-family: sans-serif;
+    max-width: 100%;
+  }
+
+  .theorem-title {
+    position: absolute;
+    top: -1.0em;
+    left: 15px;
+    background-color: rgba(70, 130, 180, 0.9);
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .problem-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 248, 235, 0.75);
+    padding: 10px 20px;
+    margin: 30px 0;
+    position: relative;
+    font-family: sans-serif;
+    max-width: 100%;
+  }
+
+  .problem-title {
+    position: absolute;
+    top: -1.0em;
+    left: 15px;
+    background-color: rgba(230, 150, 80, 0.9);
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .solution-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(240, 255, 240, 0.75);
+    padding: 10px 20px;
+    margin: 30px 0;
+    position: relative;
+    font-family: sans-serif;
+    max-width: 100%;
+  }
+
+  .solution-title {
+    position: absolute;
+    top: -1.0em;
+    left: 15px;
+    background-color: rgba(100, 160, 100, 0.9);
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .definition-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(245, 245, 250, 0.75);
+    padding: 10px 20px;
+    margin: 30px 0;
+    position: relative;
+    font-family: sans-serif;
+    max-width: 100%;
+  }
+
+  .definition-title {
+    position: absolute;
+    top: -1.0em;
+    left: 15px;
+    background-color: rgba(100, 100, 120, 0.9);
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .card-text {
+    padding-top: 10px;
+    font-size: 1em;
+    color: #000;
+  }
+</style>
+<p>$\gdef\P{\mathsf{Pr}}\gdef\E{\mathsf{E}}\gdef\e{\mathrm{e}}\gdef\eq#1{\begin{align*}#1\end{align*}}\gdef\V{\mathsf{Var}}\gdef\acc{\operatorname{acc}}\gdef\eps{\varepsilon}\gdef\Ext{\mathsf{Ext}}\gdef\Com{\mathsf{Com}}\gdef\Enc{\mathsf{Enc}}\gdef\Dec{\mathsf{Dec}}\gdef\Err{\mathsf{Err}}\gdef\Ring{\mathsf{Ring}}\gdef\d{\mathrm{d}}\gdef\p{\partial}\gdef\i{\mathrm{i}}\gdef\res{\operatorname{Res}}\gdef\b#1{\boldsymbol{#1}}\gdef\Nd{\mathcal{N}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\ip#1{\left\langle #1\right\rangle}\gdef\span#1{\operatorname{span}\Set{#1}}\gdef\r{\operatorname{rank}}\gdef\diag{\operatorname{diag}}$</p>
+<p>一些书：</p>
+<ul>
+<li>Discrete Mathematics by Lovász, Pelikán, and Vesztergombi</li>
+<li>All of Statistics A Concise Course in Statistical Inference by Larry Wasserman</li>
+<li>Foundations of Data Science by Avrim Blum, John Hopcroft, and Ravindran Kannan</li>
+</ul>
+<p>这边没记 Matrix Tree Theorem 和 Pfaffian 相关的，有空可能会补 Pfaffian。</p>
+<h2 id="计应数">计应数
+</h2><h3 id="概率论">概率论
+</h3><div class="theorem-box">
+  <div class="theorem-title">Theorem (全概率公式)</div>
+  <div class="card-text">
+$$
+\boxed{\eq{
+&\P\left[\bigcap_iA_i\right]=\prod_i\P\left[A_i\Big|\bigcap_{j{<}i}A_j\right]\\
+&\P[A]=\sum_i\P[A|B_i]\P[B_i]
+}}
+$$
+如果后件概率为 $0$，那么条件概率为 $0$！！！
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Monty Hall Problem)</div>
+  <div class="card-text">
+There are $n$ closed doors. Behind one (randomly chosen) door is a beautiful sports car, while the other $n-1$ doors each has a donkey behind it. Now the guest choose one door, Monty opens $n-2$ doors which have donkeys behind them. Should the guest switch the choice or not?
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+略。
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Birthday Paradox)</div>
+  <div class="card-text">
+$n$ random  integers $x_{1\sim n}$ chosen uniformly from $1$ to $m$. Estimate $q(n)=\P[\forall i\ne j,x_i\ne x_j]$.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+$q(n)=\P[\text{all distinct}]\approx\exp(-\binom n2/365)=d(n)$，$|d(n)-q(n)|\ll q(n)-q(n-1)$, specifically:
+$$
+\exp\left(\frac{n(n-1)(2n-1)}{12m^2}\right)\le\frac{\exp\left(-\frac{n(n-1)}{2m}\right)}{\prod_{i{<}n}\left(1-\frac im\right)}\le\exp\left(\frac{n(n-1)(2n-1)}{6m^2}\right)
+$$
+(Prove by $\e^{x^2/2}\le\e^x/(1+x)\le\e^{x^2}$.) $d(n)$ 必然是把无重率估大了。
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Online Auction Problem)</div>
+  <div class="card-text">
+Given a stream of $n$ distinct random values  $x_{1\sim n}$, you have to make decision (choose once) in real-time. You want to maximize the probability of accepting the greatest value.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+基本策略未证明。考虑枚举最大值所在位置，在 $j$ 的话，总贡献概率为 $\frac k{n(j-1)}$。于是总共就是 $\frac kn\left(\frac1k+\cdots+\frac1{n-1}\right)\approx\frac kn\ln\frac nk$，取 $k=n/\e$。
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Ramsey Number)</div>
+  <div class="card-text">
+$R(k)=$ minimum $N$ such that any graph with $N$ vertices has either a $k$ clique or a $k$ independent set.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+$R(3)=6$，五元环，$n=6$ 取一点，如果 $d\ge 3$，那么取三个邻点，无论有无边都找到；$d<3$ 就找三个不邻点。<br/>
+$R(k)\ge\lfloor 2^{k/2}\rfloor$: 概率方法，证随机图有 $k$ 团/独立集的概率 $<1$，用 union bound：
+$$
+2\binom{\lfloor 2^{k/2}\rfloor}{k}2^{-\binom k2}\le\frac{\lfloor 2^{k/2}\rfloor^k}{k!2^{\binom k2-1}}\le\frac{2^{k^2/2-k(k-1)/2+1}}{k!}=\frac{2^{k/2+1}}{k!}<1
+$$
+$R(k)\le\binom{2k-2}{k-1}<4^k$: 相邻两个组合数的比值为 $4-2/k$；$R(r,s)\le R(r,s-1)+R(r-1,s)\le\binom{r+s-2}{r-1}$。
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem</div>
+  <div class="card-text">
+随机 $n$ 排列中 $1$ 所在的环长？环个数的期望？
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+$E_i$ 表示 $|C_1|>i$。$\P[E_i\mid E_{i-1}]=\frac{n-i}{n-i+1}$，用 chain rule。Bijection：$S_n\text{ with }|C_1|=i\longleftrightarrow S_{n-1}$，$\forall\pi\in S_n$，取出 $1$ 所在的环先列出来，其余再列出来。<br/>
+$\E(\text{\# of cycles})=\E(\sum 1/L_i)=n\E(L_i^{-1})=H_n$。Also $(x^{\overline{n}})^\prime|_{x=1}$。
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem</div>
+  <div class="card-text">
+Given a random graph ($|V|=n$, every edge $1/2$), find a great clique.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution (Greedy Clique Algorithm)</div>
+  <div class="card-text">
+直接逐一贪心，能选就选。<br/>
+$\P[|A(G)|>\log_2n+\log_2\log_2n]=\omicron(1)$。思路 1：枚举前 $k$ 个是哪几个选上，概率是定的。思路 2：
+$$
+\begin{align*}
+\P[|A(G)|>k]&=\sum\P[k+1\text{-th is chosen after }i\mid k\text{-th is chosen at }i]\\
+&\le\sum\frac{n}{2^k}\P[k\text{-th is chosen at }i]\\
+&\le\frac{n}{2^k}\cdot 1\\
+&=\Omicron((\log n)^{-1})
+\end{align*}
+$$
+$\P[|A(G)|<\log_2n-\log_2\log_2n]=\omicron(1)$。考虑相邻两个被选中直接的 gap（期望为 $2^i$），然后希望前 $k$ 个 gap 加起来 $\le n$ 这种。<br/>
+第 $i$ 个和第 $i+1$ 个之间，方差为 $p^{-2}-p^{-1}=4^i-2^i$。因此满 $k$ 个的 $\E=2^k-1$，$\V=(4^k-1)/3-2^k+1$。$n$ 个不够的概率：
+$$
+\eq{
+\P[|A(G)|{{}<{}}k]&=\P[v_k>n]\\
+&=\P[v_k-\E[v_k]>n-\E[v_k]]\\
+&\le\P[v_k-\E[v_k]>n/2]\\
+&<\V(v_k)/(n/2)^2&\rm(Chebyshev)\\
+&=\Omicron((\log n)^{-2})
+}
+$$
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Finding Pet)</div>
+  <div class="card-text">
+一个随机未知 $n$ 排列 $p$，两个人 $i$，$j$ 要均找到各自 $p_i^{-1}$、$p_j^{-1}$，各自只能查看 $n/2$ 个值且不能交流。
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+单个人：$1/2$；两个人策略：$i\to p_i\to\cdots$，$\P[i\text{ succeed}]=\P[|C_i|\le n/2]$。<br/>
+① $i$ 和 $j$ 同环：
+$$
+\begin{align*}
+\P[i,j\text{ succeed}]&=\P[C_i=C_j\land |C_i|\le n/2]\\
+&=\sum_{l\le n/2}\P[|C_i|=l]\cdot\P[C_j=C_i\mid|C_i|=l]\\
+&=\sum_{l\le n/2}\frac1n\cdot\frac{l-1}{n-1}\\
+&=\frac{(n/2)(n/2-1)}{2n(n-1)}\\
+&=\frac{n-2}{8(n-1)}
+\end{align*}
+$$
+② $i$ 和 $j$ 异环：
+$$
+\begin{align*}
+\P[i,j\text{ succeed}]&=\P[C_i\ne C_j\land |C_i|\le n/2\land |C_j|\le n/2]\\
+&=\sum_{l\le n/2}\frac1n\cdot\P[C_j\ne C_i\land|C_j|\le n/2\mid|C_i|=l]\\
+&=\sum_{l\le n/2}\frac1n\cdot\P[C_j\ne C_i\mid|C_i|=l]\cdot\P[|C_j|\le n/2\mid |C_i|=l\land C_j\ne C_i]\\
+&=\sum_{l\le n/2}\frac1n\cdot\frac{n-l}{n-1}\cdot\frac{n/2}{n-l}\\
+&=\frac{n}{4(n-1)}
+\end{align*}
+$$
+共 $\boxed{(3n-2)/(8n-8)}$。<br/>
+所有人：绝对众数的性质，$1-H_n+H_{n/2}\sim1-\ln2$。<br/>
+最优性：考虑开门之后不再关，这时成功概率与策略无关，等于原问题最优策略的成功率。
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem</div>
+  <div class="card-text">
+Find the variance of the geometric distribution.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+$\V(X)=(1-p)/p^2$, by $\sum(1-p)^{i-1}pi^2$ or $p^\prime(1)-p^{\prime\prime}(1)-p^\prime(1)^2$.  
+By recurrence:
+$$
+\eq{
+&\E(X^2)=\sum_{i\ge 1}p_ii^2=p+\sum_{i\ge 2}p_ii^2=p+(1-p)\sum_{i\ge 1}p_i(i+1)^2=p+(1-p)[\V(X)+2\E(X)+1]\\
+\Longrightarrow{}&p\E(X^2)=p+2\frac{1-p}p+1-p\Longrightarrow\E(X^2)=\frac{2-p}{p^2}\Longrightarrow\V(X)=\boxed{\frac{1-p}{p^2}}
+}
+$$
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Markov's Inequality)</div>
+  <div class="card-text">
+Nonnegative $X$, $\boxed{\P[X>a\E(X)]<1/a}$, or $\boxed{\P[X>a]<\E(X)/a}$.
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Chebyshev's Inequality)</div>
+  <div class="card-text">
+Allow negative! $X\mapsto(X-\E(x))^2$, $\P[(X-\E(X))^2>a\V(X)]<1/a$ $\Longrightarrow$ $\boxed{\P[|X-\E(X)|>\sqrt a\sigma(X)]<1/a}$, or $\boxed{\P[|X-\E(X)|>a\sigma(X)]<1/a^2}$, or $\boxed{\P[|X-\E(X)|>a]<\V(X)/a^2}$. Not always better than Markov. 几何解释：考虑用直线（Markov）或二次函数曲线（Chebyshev）去 bound X，保证各处都大于等于（在 $x=a$/$x=\mu$ 处等）。Chebyshev 保证在 $\mu$ 附近比较逼进，离 $\mu$ 远的地方可能比 Markov 差。
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Chernoff Bound)</div>
+  <div class="card-text">
+$$
+\boxed{\text{Condition}:X=\sum_{i=1}^nX_i,\text{independent }X_i\in\set{0,1}}
+$$
+Consider $g(x)=\e^{tx}/\e^{ta}$，then $\P[X\ge a]\le\E[g(X)]=\E(\e^{tX})/\e^{ta}$. Now consider $X=\sum X_i$, where $X_i\in\set{0,1}$ and $\set{X_i}$ are independent. $\mu=\E(X)=\sum\P[X_i=1]$. Let $\P[X_i=1]=b_i$.
+$$
+\eq{
+\E(\e^{tX})=\E(\e^{t\sum X_i})=\E(\prod\e^{tX_i})=\prod\E(\e^{tX_i})=\prod(1-b_i+\e^{t}b_i)\le\prod\e^{(\e^t-1)b_i}=\e^{(\e^t-1)\sum b_i}=\e^{(\e^t-1)\mu}
+}
+$$
+Now, $a=(1+\delta)\mu$, $\min\e^{(\e^t-1)\mu-t(1+\delta)\mu}$, take derivative, $t=\ln(1+\delta)$, we get
+$$
+\min=\left(\frac{\e^\delta}{(1+\delta)^{1+\delta}}\right)^\mu
+$$
+<p>$$
+\left(\frac{\e^\delta}{(1+\delta)^{1+\delta}}\right)^\mu\longrightarrow \e^{-\frac{\delta^2}{2+\delta}\mu}:\text{take log then use }\ln(1+x)\ge \frac{2x}{2+x}
+$$</p>
+<p>Remark. For $\P[X\ge a]=\E(\e^{tX})/\e^{ta}$, we can simple use Markov: $\P[X\ge a]=\P[tX\ge ta]=\P[\e^{tX}\ge\e^{ta}]=\cdots$.</p>
+<p>For $\P[X\le a]$, $a=(1-\delta)\eps$, the best $t$ will be negative.
+$$
+\left(\frac{\e^{-\delta}}{(1-\delta)^{1-\delta}}\right)^\mu\longrightarrow \e^{-\frac{\delta^2}2\mu}:(1-x)\ln(1-x)\ge-x+\frac{x^2}2\text{ for }x\in(0,1)
+$$</p>
+<p><strong>Overall</strong>:
+$$
+\boxed{
+\left\{\eq{&amp;\P[X\ge(1+\delta)\mu]\le\left(\frac{\e^\delta}{(1+\delta)^{1+\delta}}\right)^\mu\le\e^{-\frac{\delta^2}{2+\delta}\mu}&amp;(\delta\ge 0)\\ &amp;\P[X\le(1-\delta)\mu]\le\left(\frac{\e^{-\delta}}{(1-\delta)^{1-\delta}}\right)^\mu\le\e^{-\frac{\delta^2}2\mu}&amp;(0\le\delta&lt;1)}\right\}\longrightarrow\P[|X-\mu|\ge\delta\mu]\le2\e^{-\frac{\delta^2}3\mu}
+}
+$$</p>
+<p>$$
+\boxed{\P[X\ge c]\le 2^{-c}\text{ if } c\ge 7\mu}
+$$</p>
+<p>$$
+\boxed{\P[|\overline{X}-\E(\overline{X})|\ge\eps]\le2\e^{-\frac{\eps^2}{2+\eps}n}}
+$$</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Hoeffding)</div>
+  <div class="card-text">
+$Z=\sum Z_i$, $Z_i\in[a,b]$ independent
+$$
+\boxed{\P[\overline{Z}-\E(\overline{Z})\ge t],\P[\overline{Z}-\E(\overline{Z})\le-t]\le\e^{-\frac{2nt^2}{(b-a)^2}}}
+$$
+Prove by considering $\E[\e^{tZ}]$, from convexity of $\e^x$, we have
+$$
+\E[\e^{tZ}]\le\e^{\frac{t^2(b-a^2)}8}
+$$
+For the original $\P[\overline{Z}-\E(\overline{Z})\ge t]$, first convert to $\e^{t\cdot}$ form, then use Hoeffding lemma, then minimize it by derivative.
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Machine Learning Problem)</div>
+  <div class="card-text">
+There are several hypothesis $h_1\sim h_k$, find the minimal $n$ that given $n$ samples $X\sim D(X)$, we can find $h_j$ with $\acc(h_j)\ge{\acc^*}-\eps$ with probability $1-\delta$. 
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+The worst case: except the best $h_j$, others all have $\acc<{\acc^*}-\eps$. So we must use the samples to approximate each $\acc(h_j)$ with deviation $<\eps/2$.
+$$
+\P\left[\bigwedge_i\left\lvert\widetilde{\acc}(h_i)-\acc(h_i)\right\rvert<\frac\varepsilon2\right]\le
+k\P\left[\left\lvert\widetilde{\acc}(h_i)-\acc(h_i)\right\rvert<\frac\varepsilon2\right]\le 2k\exp\left(-\frac{\varepsilon^2}{8+2\varepsilon}n\right)\le\delta
+$$
+The result is
+$$
+n=\Omicron\left(\frac1{\varepsilon^2}\log\frac k\delta\right)
+$$
+If $\acc^*=1$, we only care about whether there exists some $h_i$ with $\acc<1-\eps$ correctly answering all the samples. The bound can be improved to
+$$
+n=\Omicron\left(\frac1{\varepsilon}\log\frac k\delta\right)
+$$
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Largest Clique Problem)</div>
+  <div class="card-text">
+Bound the size of the largest clique $w(G)$ of a $n$-vertices random graph.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+$\P[(2-\eps)\log_2n\le w(G)\le (2+\eps)\log_2n]=1-\omicron(1)$. For the first $\le$:
+<ol>
+<li>Let $X=\sum[\text{is a clique}]$ over all subset of $V$, of size $(2-\eps)\log_2n$.</li>
+<li>$\P[X\le0]=\P[X\le\E(X)/2]\le\P[|X-\E(X)|\ge\E(X)/2]\le4\V(X)/\E(X)^2$. We wanna prove $\V(X)$ grows slower than $\E(X)^2$.</li>
+<li>First we need $\E(X)\to\infty$. $\E(X)=\binom nm2^{-\binom m2}$, it $\to+\infty$ exactly when $\eps&gt;0$.</li>
+<li>Then we need to expand $\V(X)$. $\V(X)=\E(X^2)-\E(X)^2$. Divide $X^2$ into three types: $\cap\le 1$, $\cap=m$, $1&lt;\cap&lt;m$. The first type can be cancelled out by $\E(X)^2$, the second type is simply $\E(X)$. The last type $\le\frac{m^5}{n-m+1}\E(X)^2=\omicron(\E(X)^2)$. Done.
+ </div>
+ </div>
+</li>
+</ol>
+<div class="problem-box">
+  <div class="problem-title">Problem (Network Routing Problem)</div>
+  <div class="card-text">
+There's an $n$-hypercube network, packet on vertex $i$ need to go to $\sigma(i)$. An edge takes $1$ unit time, and can transfer a single packet at one time. Find a routing scheme to transfer all the packets within a short time.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+BSA (Bit-Fixing Algorithm): 每次选 $i\mathop{\mathrm{xor}}\sigma(i)$ 的最高位走。<br/>
+Simple BSA counterexample: $\sigma(\overline{u0v})=\overline{v1u}$, then all of these must pass through $(\overline{v0v}, \overline{v1v})$.<br/>
+Randomized: choose random $v_i$ for each $i$. $i\to v_i\to\sigma(i)$. $\exists i,T_{i\to v_i}>6n$ 的概率为 $\Omicron(2^{-3n})$. 考虑 $\P[T_{i\to u}>6n]$, 最后乘 $2^n$ 即可. 已知 $T_{i\to u}\le d(i,u)+|S|\le n+|S|$, $S$ 为路径与 $i\to u$ 有交的 $j\to v_j$. 我们有 $|S|\le n/2$ 因为每条边有其他路径经过的概率为 $1/2$. 于是由 Chernoff bound, $\P[|S|>5n]=\Omicron(2^{-4n})$. $v_i\to\sigma(i)$ 是对称的.
+  </div>
+</div>
+<h3 id="信息论">信息论
+</h3><div class="theorem-box">
+  <div class="theorem-title">Property (Inequality about Binomial Coefficient)</div>
+  <div class="card-text">
+$$
+\boxed{\frac{2^{nH(q)}}{n+1}\le\binom{n}{nq}\le 2^{nH(q)}}
+$$
+where $nq\in[0,n]\cap\Z$, $H(q)=-q\log_2q-(1-q)\log_2(1-q)$. Can be proven by $1=(q+1-q)^n=\sum\binom niq^i(1-q)^{n-i}$, 后一个只取 $\binom{n}{nq}$ 一项，前一个证明 $\binom{n}{nq}q^{nq}(1-q)^{n(1-q)}$ 是最大的，别的都放成它。
+$$
+2^{H(q)}=\frac1{q^q(1-q)^{1-q}}
+$$
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Extraction)</div>
+  <div class="card-text">
+将随机变量映到 01 串，某一长度的 01 串如果可能的话，所有 $2^l$ 种必须等概率。
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+对于各位均以 $p$ 概率独立随机的 01 串：
+<ul>
+<li>$\forall n$, $\forall\Ext$, $\E(|\Ext|)\le nH(p)$</li>
+<li>$\forall\delta&gt;0$, $\forall n&gt;N$, $\exists\Ext$, $\E(|\Ext|)\ge(1-\delta)nH(p)$.</li>
+</ul>
+<p>1 证：考虑到如果一个串它以某个概率 $q$ 出现，那一个 deterministic 的 $\Ext$ 就必须把它映到长度不超过 $\log_2 q^{-1}$ 的串。<br/>
+2 证：考虑发掘 $p\ne 1/2$ 的不均匀性中的均匀性——同 $\#1$ 的串都是等概率的。对于等概率的 $m$ 种情况，可以用二进制拆分，使得 $\E(|\Ext|)\ge\lfloor\log_2m\rfloor-1$。所有可能的 $\#1$ 求和后，只关注 $np$ 附近的一部分，因为 $\E(|\Ext|)$ 容易放缩而且 $\P$ 可以用 Chernoff。具体放缩用上面那个式子的左侧。</p>
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Compression)</div>
+  <div class="card-text">
+构造把不均匀的随机变量的（期望）长度压缩的单射。
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+对于各位均以 $p$ 概率独立随机的 01 串：
+<ul>
+<li>$\forall\delta&gt;0$, $\forall n&gt;N$, $\forall\Com$, $\E(|\Com|)\ge(1-\delta)nH(p)$.</li>
+<li>$\forall\delta&gt;0$, $\forall n&gt;N$, $\exists\Com$, $\E(|\Com|)\le(1+\delta)nH(p)$.</li>
+</ul>
+<p>1 证：证明最优方案中，出现概率小的对应的压缩长度一定越长，然后考虑 $\lfloor(p+\varepsilon)n\rfloor$ 个 1 的序列有几种。<br/>
+2 证：$U_\eps(p)$ 个 $1$ 的用等概率编码，其余的用原编码，用 Chernoff bound。</p>
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Channel with Noise)</div>
+  <div class="card-text">
+一个有 $p$ 的错误率的信道，每 $n$ 位能传输多少有效信息？
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution (Shannon's Theorem)</div>
+  <div class="card-text">
+<ul>
+<li>$\forall \delta,\eps&gt;0$, $\forall n&gt;N$, $\forall k\le n(1-H(p)-\delta)$, $\exists(k,n)\Enc$ with every input $\Err\le\eps$.</li>
+<li>$\forall \delta,\eps&gt;0$, $\forall n&gt;N$, $\forall k\ge n(1-H(p)+\delta)$, $\nexists(k,n)\Enc$ with random input $\Err\le\eps$.</li>
+</ul>
+<p>$1-H(p)$ is called channel capacity.</p>
+<p>1 证：需要在 $\set{0,1}^n$ 中找到大小为 $2^k$ 的子集，使得它们各自偏移其中约 $p$ 的部分之后，形成的一堆“环”的交不大。核心困难是，以高概率找到对大部分输入均高概率成功的，和证明存在对所有输入均高概率成功，此两者之间的 gap。对于第一个“高概率”，用 probabilistic method 证；对“大部分”，用冗余筛选证。<br>
+考虑所有 $2^{k+1}$ 大小的子集，随机选一个情况失败的概率。
+$$
+\eq{
+\P_{C,i}[\text{Fail}]&amp;\le\P_{C,i}[\tilde{c}_i\notin\Ring_\gamma(c_i)]+\P_{C,i}[\tilde{c}_i\in\Ring_\gamma(c_{j\ne i})]\\
+&amp;\le\eps_1+2^{k+1}\frac{|\Ring_\gamma|}{2^n}
+}
+$$
+$\Ring_\gamma$ 是错 $pn$ 个附近的邻域。$\eps_1$ 可由 Chernoff bound 得到，性质：$|\Ring|\le2^{(H(p)+\delta^\prime)n}(\delta^\prime\to 0\text{ as }n\to\infty)$. 后一项就是
+$$
+2^{k+1+(H(p)+\delta^\prime)n-n}=2^{1+(\delta^\prime-\delta)n}\to 0
+$$
+因为 $\delta$ 是定的，而 $\delta^\prime$ 可以任意小。从而 $\Pr_{C,i}[\text{Fail}]$ 可以任意小，因此存在一个 $C$ 使 $\P_i[\text{Fail}]$ 足够小，取 $2^{k+1}$ 个 $i$ 中前一半优的，由类似于 Markov 的论证，它们的失败率都 $&lt;2\P_i[\text{Fail}]$ 从而成功。</p>
+<p>2 证：如果存在，设解码为 $i$ 的集合为 $S_i$。
+$$
+\eq{
+\P[\text{Success}]&amp;=\frac{1}{2^k}\sum_i\sum_{s\in S_i}\P[\tilde c_i=s]\\
+&amp;=\frac{1}{2^k}\sum_i\left(\sum_{s\in S_i\cap\Ring_\gamma(c_i)}\P[\tilde c_i=s]+\sum_{s\in S_i\setminus\Ring_\gamma(c_i)}\P[\tilde c_i=s]\right)\\
+&amp;\le\frac{1}{2^k}\sum_i|S_i|p^{(p-\eps)n}(1-p)^{(1-p+\eps)n}+\eps_1&amp;(\text{WLOG }p&lt;\frac12)\\
+&amp;\le \eps_1+\eps_2
+}
+$$</p>
+  </div>
+</div>
+<h3 id="概率密度">概率密度
+</h3><div class="problem-box">
+  <div class="problem-title">Problem</div>
+  <div class="card-text">
+We need to sample from some weird probability distribution.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution (Importance Sampling)</div>
+  <div class="card-text">
+Consider $\E_{x\sim p}(f(x))$ where sampling from $p$ is difficult. For a sampleable distribution $q$, 
+$$
+I=\E_{x\sim p}(f(x))=\E_{x\sim q}\left(f(x)\frac{p(x)}{q(x)}\right)
+$$
+Let
+$$
+\hat I_n=\frac1n\sum_{i=1}^nf(x_i)\frac{p(x_i)}{q(x_i)}
+$$
+<p>$$
+\P[|\hat I_n-I|\ge\eps]\le\frac{\V(\hat I_n)}{\eps^2}=\frac1{\eps^2n}\left(\int f(x)^2\frac{p(x_i)^2}{q(x_i)}\d x-I^2\right)
+$$</p>
+<p>may diverge. The optimal $q$ is
+$$
+q^*(x)=\frac{f(x)p(x)}{\int f(x)p(x)\d x}
+$$
+which is unachievable.</p>
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution (Rejection Sampling)</div>
+  <div class="card-text">
+Accept rate = $\sup f(x)/g(x)$. 思想就是在概率分布图象内部随便取一个点，其横坐标就符合该分布。
+  </div>
+</div>
+<h3 id="复分析">复分析
+</h3><p><a class="link" href="https://www.bilibili.com/video/BV15F41137Nn/"  target="_blank" rel="noopener"
+    >https://www.bilibili.com/video/BV15F41137Nn/</a></p>
+<ol>
+<li>解析函数的定义
+<ol>
+<li>保角性质（通过棣莫弗定理）</li>
+<li>C-R 条件的等价性</li>
+<li>偏导的几种形式（$f^\prime$、$\frac{\p f}{\p x}$、$\frac{\p f}{\p y}$、$u^\prime$、$\frac{\p u}{\p x}$、$\frac{\p u}{\p y}$、$v^\prime$、$\frac{\p v}{\p x}$、$\frac{\p v}{\p y}$、$\frac{\p f}{\p z}$、$\frac{\p f}{\p\bar z}$）及解析的偏导表示</li>
+<li>调和函数与解析函数的关系（在单连通集上唯一确定）
+<ol>
+<li>调和多项式的基（考虑齐次→维数→极坐标）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>复变函数的积分
+<ol>
+<li>积分合法的条件及积分的参数化</li>
+<li>同伦的定义</li>
+<li>积分的展开及柯西积分定理（用 Green 公式）
+<ol>
+<li>通过切开连接的方法将围道推向无穷远，从而求一些积分的方法</li>
+</ol>
+</li>
+<li>柯西积分公式（通过展开到一阶项）推论：
+<ol>
+<li>一点由其围道 $\sup$ bound</li>
+<li>高阶导数公式</li>
+<li>Liouville 定理</li>
+<li>Taylor 展开及级数收敛性质</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>Cauchy&rsquo;s Residue Theorem:
+$$
+\oint_\gamma f(z)\d z=2\pi\i\sum_k\res(f,z_k)
+$$
+If
+$$
+f(z)=\sum_{j=-\infty}^{+\infty}c_{j}(z-z_k)^{j}
+$$
+then $\res(f(z),z_k)=c_{-1}$. So for simple pole:
+$$
+\res(f(z),z_k)=\lim_{z\to z_k}(z-z_k)f(z)
+$$
+(usually calculated by l'H)</p>
+<p>For pole of order $m$:
+$$
+\res(f(z),z_k)=\frac1{(m-1)!}\lim_{z\to z_k}\frac{\d^{m-1}}{\d z^{m-1}}\left[(z-z_k)^mf(z)\right]
+$$
+For infinity, if
+$$
+f(z)=\sum_{j=-\infty}^{+\infty}c_jz^j
+$$
+then $\res(f(z),\infty)=-c_{-1}$. If the pole is of order $m$ ($\max\set{j\mid c_j\ne 0}=m$), then
+$$
+\res(f(z),\infty)=\frac{(-1)^m}{(m+1)!}\lim_{z\to\infty}\left(z^{m+1}\frac{\d^{m+1}}{\d z^{m+1}}f(z)\right)
+$$
+also,
+$$
+\res(f(z),\infty)=-\res\left(\frac{1}{z^2}f\left(\frac1z\right),0\right)
+$$
+So another form of Residue Theorem:
+$$
+\oint_{\gamma^-}f(z)\d z=2\pi\i\res(f(z),\infty)\quad(\text{for contour enclosing all the singularities})
+$$</p>
+<p>$$
+\sum\res(f(z),z_k)+\res(f(z),\infty)=0
+$$</p>
+<p>Estimate the asymptotics of coefficients of a GF:
+$$
+f(z)=\text{some closed form}=\sum a_iz^i
+$$</p>
+<p>$$
+a_i=\res\left(\frac{f(z)}{z^{i+1}},0\right)
+$$</p>
+<p>Also:
+$$
+\oint_{\gamma}\frac{f(z)}{z^{i+1}}\d z=a_i+\sum_k\res\left(\frac{f(z)}{z^{i+1}},z_k\right)
+$$
+For most of the functions, we can choose a family of contours, to make
+$$
+f(z)=\Omicron(1)\Longrightarrow\oint_\gamma\frac{f(z)}{z^{i+1}}\d z\to 0
+$$
+so that we can get $a_i$ from those residues. For rational functions, the asymptotic behavior is governed by the nearest singularity to $0$.</p>
+<h2 id="智应数">智应数
+</h2><h3 id="高维几何">高维几何
+</h3><div class="problem-box">
+  <div class="problem-title">Problem (Volume of a ball)</div>
+  <div class="card-text">
+Calculate the volume and surface area of a $d$-dimensional unit ball.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+$$
+V_d=\int_{|\b x|\le 1}\d x=\int_0^1\int\d\Omega\cdot r^{d-1}\d r=\frac{A_d}{d}
+$$
+Here, 
+$$
+\d x_1\cdots\d x_d=\left\lvert\frac{\p(x_1,\cdots,x_d)}{\p(r,\theta_1,\cdots,\theta_{d-1})}\right\rvert\d r\d\theta_1\cdots\d\theta_{d-1}=\left(r^{d-1}\d r\right)\underline{\left(\sin^{d-2}\theta_1\cdots\sin\theta_{d-2}\d\theta_1\cdots\d\theta_{d-1}\right)}_{\d\Omega}
+$$
+How to get $V_d$ and $A_d$? A strange way is consider normal distribution:
+$$
+\int_{\b x}\e^{-|\b x|^2}\d x=\left(\int_{-\infty}^{+\infty}\e^{-x^2}\d x\right)^d=\pi^{d/2}
+$$
+Also:
+$$
+\int_{\b x}\e^{-|\b x|^2}\d x=\int_0^{+\infty}\int\e^{-r^2}\d\Omega\cdot r^{d-1}\d r=A_d\int_0^{+\infty}\e^{-r^2}r^{d-1}\d r\xlongequal{t=r^2}\frac{A_d}2\int_0^{+\infty}\e^{-t}t^{d/2-1}\d t=\frac{A_d}{2}\Gamma\left(\frac d2\right)
+$$
+<p>$$
+\frac{A_d}2\Gamma\left(\frac d2\right)=\pi^{d/2}\Longrightarrow\boxed{A_d=\frac{2\pi^{d/2}}{\Gamma(d/2)}}\Longrightarrow\boxed{V_d=\frac{2\pi^{d/2}}{d\Gamma(d/2)}}
+$$</p>
+<p>Here a useful formula is
+$$
+\boxed{\int_{0}^{+\infty}\e^{-x^2}x^n\d x=\frac12\Gamma\left(\frac{n+1}2\right)=\left\{\begin{aligned}&amp;\frac{(2n-1)!!}{2^{n+1}}\sqrt{\pi},&amp;2\mid n\\ &amp;\frac{n!}{2},&amp;2\nmid n\end{aligned}\right.}
+$$</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property (Volume Near the Shell)</div>
+  <div class="card-text">
+$$
+1-(1-\eps)^d\le 1-\e^{-\eps d}
+$$
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property (Volume Near the Equator)</div>
+  <div class="card-text">
+$$
+1-\text{ratio}=\frac{V\text{ above }\frac{c}{\sqrt{d-1}}}{V_d/2}
+$$
+<p>$$
+\begin{align*}
+V\text{ above }\frac{c}{\sqrt{d-1}}&amp;=\int_{c/\sqrt{d-1}}^1\sqrt{1-r^2}^{d-1}V_{d-1}\d r\\
+&amp;\le V_{d-1}\int_{c/\sqrt{d-1}}^1\e^{-\frac{d-1}2r^2}\d r\\
+&amp;\le V_{d-1}\int_{c/\sqrt{d-1}}^{+\infty}\e^{-\frac{d-1}2r^2}\d r\\
+&amp;\le V_{d-1}\int_{c/\sqrt{d-1}}^{+\infty}\e^{-\frac{d-1}2r^2}\cdot\frac{r}{c/\sqrt{d-1}}\d r\\
+&amp;=\frac{V_{d-1}\sqrt{d-1}}{2c}\int_{c/\sqrt{d-1}}^{+\infty}\e^{-\frac{d-1}2r^2}\d(r^2)\\
+&amp;=\frac{V_{d-1}\sqrt{d-1}}{2c}\cdot\frac{2}{d-1}\e^{-\frac{d-1}2\cdot\frac{c^2}{d-1}}\\
+&amp;=\frac{V_{d-1}}{c\sqrt{d-1}}\e^{-c^2/2}
+\end{align*}
+$$</p>
+<p>(Main idea: 凑 $V_{d-1}$ and $\e^{-x^2}\to x\e^{-x^2}$)
+$$
+\begin{align*}
+\frac{V_d}2&amp;=\int_0^1\sqrt{1-r^2}^{d-1}V_{d-1}\d r\\
+&amp;=V_{d-1}\int_0^1(1-r^2)^{(d-1)/2}\d r\\
+&amp;\ge V_{d-1}\int_0^{1/\sqrt{d-1}}\left(1-\frac{d-1}2r^2\right)\d r&amp;\left(\text{need }\frac{d-1}2\ge 1\text{ !!!}\right)\\
+&amp;\ge V_{d-1}\frac{1}{\sqrt{d-1}}\left(1-\frac{d-1}2\left(\frac1{\sqrt{d-1}}\right)^2\right)\\
+&amp;=\frac{V_{d-1}}{2\sqrt{d-1}}
+\end{align*}
+$$
+(Main idea: 取一个圆柱)</p>
+<p>So,
+$$
+1-\text{ratio}\le\boxed{\frac c2\e^{c^2/2}}\qquad\color{red}\text{when }d\ge 3,c\ge 1
+$$</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property (Random vectors in the ball)</div>
+  <div class="card-text">
+With $\P=1-\Omicron(n^{-1})$:
+<ul>
+<li>all $|\b x_i|\ge 1-\frac{2\ln n}d$. Directly union bound.</li>
+<li>all pairs $|\b x_i\cdot\b x_j|\le\frac{\sqrt{6\ln n}}{\sqrt{d-1}}$. 把 $\b x_i$ 视作 equator 的法向量，$\b x_j$ 大概率在 equator 的圆盘附近，再 union bound.
+</div>
+</div>
+</li>
+</ul>
+<div class="definition-box">
+  <div class="definition-title">Definition (Normal Distribution)</div>
+  <div class="card-text">
+PDE of $\Nd(\mu,\sigma^2)$:
+$$
+f(x)=\frac{1}{\sqrt{2\pi}\sigma}\e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+$$
+<img src="https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/1_empirical-rule.jpg" alt="68–95–99.7 rule]">
+<p>when $\sigma=1$, it is called <strong>standard</strong>.</p>
+<p>PDE of $\Nd(\b{\mu}, \b{\Sigma})$:
+$$
+f(\b{x}) = \frac{1}{(2\pi)^{d/2} |\b{\Sigma}|^{1/2}} \exp\left( -\frac{1}{2} (\b{x} - \b{\mu})^\top \b{\Sigma}^{-1} (\b{x} - \b{\mu}) \right)
+$$
+when $\b\Sigma=kI$, it is called <strong>spherical</strong>.</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (3 Different Tail Bounds)</div>
+  <div class="card-text">
+<ul>
+<li>
+<p><strong>Hoeffding</strong>. i.i.d. $X_i\sim\mathcal{U}(-a,+a)$,
+$$
+\boxed{\P\left[\left\lvert S_n - \E(S_n)\right\rvert\geq t \right] \leq2\exp\left( -\frac{t^2}{2na^2} \right)}
+$$</p>
+</li>
+<li>
+<p><strong>sub-Gaussian</strong>. i.i.d. $X_i$ s.t. $\forall \lambda$, $\E\left[\e^{\lambda(X_i-\E(X_i))}\right]\le\e^{\lambda^2\sigma^2/2}$,
+$$
+\boxed{\P\left[\left\lvert S_n - \E(S_n)\right\rvert\geq t \right] \leq 2\exp\left( -\frac{t^2}{2n\sigma^2} \right)}
+$$</p>
+</li>
+<li>
+<p><strong>sub-Exponential</strong>. i.i.d. $X_i$ s.t. $\forall|\lambda|&lt;\alpha^{-1}$, $\E\left[\e^{\lambda(X_i-\E(X_i))}\right]\le\e^{\lambda^2\nu^2/2}$,
+$$
+\boxed{\P\left[\left\lvert S_n - \E(S_n)\right\rvert\geq t \right] \leq 2\exp\left(-\min\Set{\frac{t^2}{2n\nu^2},\frac{t}{2\alpha}}\right)}
+$$</p>
+</li>
+</ul>
+<p>sub-Gaussian is $(\sigma,0)$ sub-exp.</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Gaussian Annulus Theorem)</div>
+  <div class="card-text">
+$$
+\boxed{\underset{x\sim\mathcal{N}(\b 0,I)}\P\left[\left\lvert|\b x|-\sqrt d\right\rvert\le\beta\right]\ge 1-3\e^{-c\beta^2}\text{ for any }\beta\le\sqrt{d}\text{ and some constant }c}
+$$
+First,
+$$
+\P\left[\left\lvert|\b x|-\sqrt{d}\right\rvert\ge\beta\right]=\P\left[\left\lvert|\b x|^2-d\right\rvert\ge\beta\left(|\b x|+\sqrt{d}\right)\right]\le\P\left[\left\lvert|\b x|^2-d\right\rvert\ge\beta\sqrt{d}\right]
+$$
+<big><b>证 1.</b></big> use sub-exp tail bound.
+<ol>
+<li>
+<p>易证 $\E(|\b x|^2)=d$. 这玩意叫卡方分布（$k$ 个标准正态的平方和记作 $\chi_k^2$）。</p>
+</li>
+<li>
+<p>证明 $\chi_1^2$ 是 sub-exp with $(\nu,\alpha)=(2,4)$:</p>
+<ol>
+<li>MGF $\E[\e^{\lambda (Z-1)}]=\frac{\e^{-\lambda}}{\sqrt{1 - 2\lambda}}$.</li>
+<li>取 $\ln$，为 $-\lambda-\frac12\ln(1-2\lambda)=-\lambda-\frac12\left(-2\lambda-2\lambda^2-\frac83(\theta\lambda)^3\right)=\lambda^2+\frac43\theta^3\lambda^3\le\lambda^2+\frac13\theta^3\lambda^2\le 2\lambda^2$.</li>
+</ol>
+</li>
+<li>
+<p>$$
+\P\left[\left\lvert|\b x|^2-d\right\rvert\ge\beta\sqrt{d}\right]\le 2\exp\left(-\min\Set{\frac{(\beta\sqrt d)^2}{8d},\frac{\beta\sqrt d}{8}}\right)=2\e^{-\beta^2/8}
+$$</p>
+</li>
+</ol>
+<p><big><b>证 2.</b></big> <strong>Master tail bound theorem</strong>: i.i.d. $X_i$ s.t. $\E=0$ and $\V\le\sigma^2$. $0\le a\le \sqrt2n\sigma^2$, $|\E(X_i^s)|\le \sigma^2s!$ for $s=3\sim\lfloor a^2/4n\sigma^2\rfloor$,
+$$
+\boxed{\P[|S_n|\ge a]\le 3\exp\left(-\frac{a^2}{12n\sigma^2}\right)}
+$$
+We have $\left\lvert|\b x^2|-d\right\rvert=\left\lvert\sum_{i=1}^d(\b x_i^2-1)\right\rvert$, let $X_i=\frac{\b x_i^2-1}2$.
+$$
+\begin{align*}
+|\E(X_i^s)|&amp;\le\E(|X_i|^s)\\
+&amp;\le 2^{-s}\E(1+\b x_i^{2s})\\
+&amp;=2^{-s}(1+(2s-1)!!)\\
+&amp;\le s!
+\end{align*}
+$$
+So, we can let $\sigma=2$, $a=\beta\sqrt d/2$, $|\E(X_i^s)|\le \sigma^2s!$ is easily satisfied, thus
+$$
+\P\left[\left||\b x|^2-d\right|\ge\beta\sqrt d\right]=\P\left[\left|\sum_{i=1}^dX_i\right|\ge a\right]\le 3\e^{-\frac{\beta^2}{96}}
+$$
+<big><b>证 3.</b></big> Chernoff bound:
+$$
+\P[X\ge a]\le\inf_{t\ge0}\frac{\E(\e^{tX})}{\e^{ta}}
+$$
+Here $\E(\e^{tX})=M_X(t)$ is the MGF of $X$. Consider $Y=|\b x|^2$.
+$$
+\begin{align*}
+M_Y(t)&amp;=\E\left(\e^{tY}\right)\\
+&amp;=\E\left(\e^{t\sum_{i=1}^d\b x_i^2}\right)\\
+&amp;=\E\left(\prod_{i=1}^d\e^{t\b x_i^2}\right)\\
+&amp;=\left(\E\left(\e^{t\b x_1^2}\right)\right)^d\\
+&amp;=\left(\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}\e^{-x^2/2}\e^{tx^2}\d x\right)^d\\
+&amp;=\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\e^{-(1/2-t)x^2}\d x\right)^d\\
+&amp;=\left(\frac{1}{\sqrt{2\pi}}\sqrt{\frac{\pi}{1/2-t}}\right)^d\\
+&amp;=\left(1-2t\right)^{-d/2}
+\end{align*}
+$$</p>
+<p>$$
+\begin{align*}
+\P\left[|\b x|^2\ge d(1+\eps)^2\right]&amp;\le\frac{(1-2t)^{-d/2}}{\e^{td(1+\eps)^2}}\\
+&amp;=\exp\left(-\frac d2\ln(1-2t)-d(1+\eps)^2t\right)\\
+&amp;=\exp\left(d\ln(1+\eps)-d\eps\left(1+\frac\eps2\right)\right)&amp;\left(t=\frac12\left(1-\frac1{(1+\eps)^2}\right)\right)\\
+&amp;\le\exp\left(d\eps-d\eps\left(1+\frac\eps2\right)\right)\\
+&amp;=\e^{-d\eps^2/2}
+\end{align*}
+$$</p>
+<p>Take $Z=-Y$, we can similarly prove $\P\left[|\b x|^2\le d(1-\eps)^2\right]\le\e^{-d\eps^2/2}$.
+$$
+\P\left[\left\lvert|\b x|-\sqrt d\right\rvert\ge\beta\right]=\P\left[|\b x|^2\ge d\left(1+\frac{\beta}{\sqrt d}\right)^2\right]+\P\left[|\b x|^2\le d\left(1-\frac{\beta}{\sqrt d}\right)^2\right]\le2\e^{-\beta^2/2}\quad(\eps=\beta/\sqrt d)
+$$</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property (MGF of $\Nd(\mu,\sigma^2)$)</div>
+  <div class="card-text">
+$$
+\begin{align*}
+M_X(t)&=\E\left[\e^{t X}\right]\\\
+&=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}\e^{t(x+\mu)}\e^{-x^2/2\sigma^2}\d x\\\
+&=\frac{\e^{\mu t+\sigma^2t^2/2}}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}\e^{-(x/\sigma+\sigma t)^2/2}\d x\\\
+&=\e^{\mu t+\sigma^2t^2/2}
+\end{align*}
+$$
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property (Tail Bound of $\Nd(\mu,\sigma^2)$)</div>
+  <div class="card-text">
+$$
+\begin{align*}
+&\P[X-\mu\ge t]\le\inf_\lambda\frac{\E\left[\e^{\lambda X}\right]}{\e^{\lambda(t+\mu)}}=\e^{-t^2/2\sigma^2}\\\
+&\boxed{\P[|X-\mu|\ge t]\le 2\e^{-t^2/2\sigma^2}}
+\end{align*}
+$$
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Random Projection Theorem)</div>
+  <div class="card-text">
+For $\b v\in\R^d$, i.i.d. $\b u_i\sim\Nd(\b 0,I_d)$, $f(\b v):\b v\mapsto\mat{\b u_1\cdot\b v&\cdots&\b u_k\cdot\b v}$.
+$$
+\boxed{\P\left[\left\lvert|f(\b v)|-\sqrt k|\b v|\right\rvert\ge\eps\sqrt k|\b v|\right]\le 3\e^{-ck\eps^2}\text{ for some constant }c\text{ and any }\eps\in(0,1)}
+$$
+Proof. i.i.d. $\b u_i\cdot\b{\hat v}\sim\Nd(0,1)$, then use GAT with $\beta=\sqrt k\eps$.  
+注意这里关键的一点是，i.i.d. 的随机变量的相同线性组合也是 i.i.d. 的。
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Johnson-Lindenstrauss Lemma)</div>
+  <div class="card-text">
+$c$ and $\eps$ as above. For any $n$ points in $\R^d$, let $k\ge\frac{3}{c\eps^2}\ln n$, $f:\R^d\to\R^k$ as above.
+$$
+\boxed{\P\left[\forall i,j,(1-\eps)\sqrt k|\b v_i-\b v_j|\le |f(\b v_i)-f(\b v_j)|\le (1+\eps)\sqrt k|\b v_i-\b v_j|\right]\ge 1-\frac{3}{2n}}
+$$
+<p>Proof. $f(\b v_i)-f(\b v_j)=f(\b v_i-\b v_j)$, then use RPT above. $3\e^{-ck\eps^2}\le 3n^{-3}$ then union bound, times $\binom n2$.</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (JL Lemma Inner Product Version)</div>
+  <div class="card-text">
+Under the same setting, plus $|\b v_i|\le 1$, we have with high Pr:
+$$
+\boxed{\forall i,j,\left\lvert\frac{\ip{f(\b v_i),f(\b v_j)}}k-\ip{\b v_i,\b v_j}\right\rvert\le 2\eps+\frac{\eps^2}4}
+$$
+Proof. Consider
+$$
+\ip{f(\b v_i),f(\b v_j)}=\frac14\left(|f(\b v_i)+f(\b v_j)|^2-|f(\b v_i)-f(\b v_j)|^2\right)
+$$
+Other versions: <a href="https://kexue.fm/archives/8679/comment-page-1">https://kexue.fm/archives/8679/comment-page-1</a>
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Separating Two Gaussians or Sphericals)</div>
+  <div class="card-text">
+There are points sampled from two Gaussians/Sphericals (only the centers differ), $n$ points each. Identify (cluster) them.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+求出每对点之间的距离。在足够大的概率下，同一个分布内的点对距离和不同分布的点对距离有个可辨别的 gap：
+<ol>
+<li>用球壳/GAT bound 模长；</li>
+<li>用“体积集中在赤道”bound 点积；</li>
+<li>同一个分布的两个向量差平方 $\le$ $2$ 倍模长$^2$ $+$ $2$ 倍点积；</li>
+<li>不同个分布的两个向量差平方 $\ge$ $2$ 倍模长$^2$ $+$ $\delta^2$ $-$ $2$ 倍点积 $-$ $4\delta$ 倍点积；</li>
+<li>只要 $\delta=\Omega(\log d/d^{1/4})$ 就能分离。
+ </div>
+ </div>
+</li>
+</ol>
+<h3 id="线代">线代
+</h3><div class="definition-box">
+  <div class="definition-title">Definition (Best-Fit Space)</div>
+  <div class="card-text">
+$\b a_{1\sim n}\in\R^d$, $A=\mat{\b a_1&\cdots&\b a_n}^\top$. The best-fit $k$-dim space $V_k$ is a space that minimizes $\sum\operatorname{dis}(\b a_i,V_k)^2$ $\Longleftrightarrow$ maximizing $\sum_i\sum_{j\le k}(\b a_i\cdot\b v_j)^2=\sum|A\b v_j|^2$, here $\set{\b v_j}$ is an orthonormal basis for $V_k$.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution (The Greedy Algorithm)</div>
+  <div class="card-text">
+定义 the $k$-th singular vector:
+$$
+\boxed{\b v_k=\operatorname*{argmax}_{|\b v|=1,\b v\perp\b v_{1\sim k-1}}|A\b v_k|}
+$$
+and the $k$-th singular value: $\sigma_k=|A\b v_k|$. $\span{\b v_1,\cdots,\b v_k}$ is the best-fit $k$-dim space.
+<p>Proof. 归纳。考虑 $W_k\ne V_k$，取 $\b w_k\in W_k\cap V_{k-1}^\perp$，将它扩展成 $W_k$ 的一组基 $\set{\b w_1,\cdots,\b w_k}$。由归纳假设，
+$$
+\sum_{i=1}^k|A\b w_i|^2\le\sum_{i=1}^{k-1}|A\b v_i|^2+|A\b w_k|^2
+$$
+由 $\b v_k$ 定义 $|A\b w_k|\le|A\b v_k|$。</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property</div>
+  <div class="card-text">
+$$
+\boxed{\sum\sigma_i^2=\sum|A\b v_i|^2=\sum\sum(\b a_i\cdot\b v_j)^2=\sum|\b a_i|^2=\sum\sum a_{i,j}^2=\|A\|_F^2}
+$$
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property</div>
+  <div class="card-text">
+定义 left singular vectors $\b u_k=\sigma_k^{-1}A\b v_k$, we have: $\boxed{\b u_i\perp\b u_j}$.
+<p>Proof. 反证，找到最小的 $\b u_i\not\perp\b u_j$（$i&lt;j$），不妨设 $\b u_i\cdot\b u_j=\delta&gt;0$。
+$$
+A\frac{\b v_i+\eps\b v_j}{|\b v_i+\eps\b v_j|}=\frac{\sigma_i\b u_i+\eps\sigma_j\b u_j}{\sqrt{1+\eps^2}}\Longrightarrow \b u_i\left(A\frac{\b v_i+\eps\b v_j}{|\b v_i+\eps\b v_j|}\right)=\frac{\sigma_i+\eps\sigma_j\delta}{\sqrt{1+\eps^2}}=\sigma_i+\sigma_j\delta\eps+\omicron(\eps^2)
+$$
+这与 $\b v_i$ 定义（$\max.|A\b v_i|$）矛盾。</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Singular Value Decomposition)</div>
+  <div class="card-text">
+$$
+\boxed{A_{n\times m}=\sum\sigma_i\b u_i\b v_i^\top=\mat{\b u_1&\cdots&\b u_r}\mat{\sigma_1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\sigma_r}\mat{\b v_1^\top\\\vdots\\\b v_r^\top}=U_{n\times r}\Sigma_{r\times r}V^\top_{r\times m}}
+$$
+Proof.
+$$
+\sum\sigma_i\b u_i\b v_i^\top=\sum A\b v_i\b v_i^\top=A\mat{\b v_1&\cdots&\b v_n}\mat{\b v_1^\top\\\vdots\\\b v_n^\top}
+$$
+and by definition,
+$$
+\mat{\b v_1^\top\\\vdots\\\b v_n^\top}\mat{\b v_1&\cdots&\b v_n}=I\Longrightarrow \mat{\b v_1&\cdots&\b v_n}\mat{\b v_1^\top\\\vdots\\\b v_n^\top}=I
+$$
+or we can prove by $\forall\b x(A\b x=B\b x)\Longrightarrow A=B$.
+<p>Let $A_k=\sum_{i\le k}\sigma_i\b u_i\b v_i^\top$.</p>
+<p>Note. 当 $A$ 是实对称矩阵时，$\set{\sigma_i}=\set{\lvert\lambda_i\rvert}$，如果 $\lambda_i$ 是负的，则 $U$ 和 $V$ 的对应列符号相反。$A$ 有重复特征值时 $U$ 和 $V$ 不唯一。求 SVD 的手工方法是 $A^\top A=V\Sigma^2 V^\top$，对它做正交对角化。<strong>对称正定矩阵的特征值分解保证 $U=V$，但半正定不保证 $U=V$。</strong></p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property</div>
+  <div class="card-text">
+The rows of $A_k$ are the projections of the rows of $A$ onto the subspace $V_k$ spanned by the first $k$ singular vectors of $A$.
+<p>Proof.
+$$
+\sum_{i\le k}A\b v_i\b v_i^\top=\sum_{i\le k}\sigma_i\b u_i\b v_i^\top=A_k
+$$</p>
+  </div>
+</div>
+<div class="definition-box">
+  <div class="definition-title">Definition (Operator $p$-norm)</div>
+  <div class="card-text">
+$$
+\boxed{\|A\|_p=\max_{\|\b x\|_p=1}\|A\b x\|_p}
+$$
+<ul>
+<li>$\|A\|_1$ 是 $A$ 的各列 $1$-范数的 $\max$。</li>
+<li>$\|A\|_2$（谱范数）是 $A$ 的奇异值 $\max$ (so $\lVert A-A_k\rVert_2=\sigma_{k+1}$)。</li>
+<li>$\|A\|_\infty$ 是 $A$ 的各行 $1$-范数的 $\max$。
+</div>
+</div>
+</li>
+</ul>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Best Rank-$k$ Approximation)</div>
+  <div class="card-text">
+$$
+\boxed{\|A-A_k\|_F=\min_{\r(B)\le k}\|A-B\|_F,\|A-A_k\|_2=\min_{\r(B)\le k}\|A-B\|_2}
+$$
+Proof. $\min$ 差的 Frobenius 范数可以理解成 $A$ 的各行到 $\operatorname{R}(B)$ 的距离，于是从 best-fit space 的角度即可说明。  
+对于 $2$ 范数，找单位向量 $\b z\in\operatorname{N}(B)\cap\span{\b v_1,\cdots,\b v_{k+1}}$，设 $\b z=\sum c_i\b v_i$，
+$$
+\|A-B\|_2\ge|(A-B)\b z|=|A\b z|=\left\lvert\sum Ac_i\b v_i\right\rvert=\left\lvert\sum c_i\sigma_i\b u_i\right\rvert=\sqrt{\sum c_i^2\sigma_i^2}\ge\sigma_{k+1}\sqrt{\sum c_i}=\sigma_{k+1}|\b z|=\sigma_{k+1}
+$$
+  </div>
+</div>
+<div class="definition-box">
+  <div class="definition-title">Definition (Schatten $p$-norm)</div>
+  <div class="card-text">
+$$
+\boxed{\|A\|_{S_p}=\left\lVert\mat{\sigma_1&\cdots&\sigma_r}\right\rVert_p}
+$$
+<ul>
+<li>$\|A\|_{S_1}$ 是核范数。</li>
+<li>$\|A\|_{S_2}=\|A\|_F$。</li>
+<li>$\|A\|_{S_\infty}=\|A\|_2$。
+</div>
+</div>
+</li>
+</ul>
+<p>注意：</p>
+<ol>
+<li>
+<p>奇异值 &amp; 向量有两种定义方式：$\set{A\b v_i=\sigma_i\b u_i}$（$\set{\b v_i}$、$\set{\b u_i}$ 分别单位正交，$\sigma_i\ge 0$），以及 $\max_{|\b v|=1}|A\b v|$ 这类。类似地，特征值 &amp; 向量也有两种定义，第二种是 $\max_{|\b v|=1}\set{\b v^\top A\b v}$。</p>
+</li>
+<li>
+<p>当特征值互异时，正交对角化唯一 up to 特征向量乘 $\pm 1$；奇异值互异时，SVD 也是一样。</p>
+</li>
+<li>
+<p>方阵的左右特征值必然相同，左右特征向量一般不同。</p>
+</li>
+<li>
+<p>对于正规矩阵（$AA^\dagger=A^\dagger A$），$\sigma_i=|\lambda_i|$，否则反例：$A=E^{1,2}$。</p>
+</li>
+<li>
+<p>$A$ 的所有单位特征向量和所有奇异向量完全相同（与此同时左右奇异向量相同）$\Longleftrightarrow$ $A$ 对称半正定。对称反例：$\mat{0&amp;1\\1&amp;0}$。</p>
+<p>证明核心步骤：对于 $A=B^\top B$，设 $B=U\Sigma V^\top$，这里只证明最大右奇异向量 $=$ 最大单位特征向量：</p>
+<p>$\color{white}\Longleftrightarrow$ $\b v$ 是 $A$ 的右奇异向量<br>
+$\Longleftrightarrow$ $\b v$ 最大化了 $|A\b v|$（定义）<br>
+$\Longleftrightarrow$ $\b v$ 最大化了 $\b v^\top A^\top A\b v=\b v^\top V\Sigma^4V^\top\b v=(V^\top\b v)^\top\Sigma^4(V^\top\b v)$<br>
+$\Longleftrightarrow$ $\b v$ 最大化了 $(V^\top\b v)^\top\Sigma^2(V^\top\b v)=\b v^\top B^\top B\b v$（这一步是因为 $V^\top\b v$ 是单位向量，对于单位向量 $\b u$ 而言，最大化 $\sum\sigma_i^4\b u_i^2$ 和最大化 $\sum\sigma_i^2\b u_i^2$ 是等价的，都必须只有 $\sigma$ 最大的那些部分对应的 $\b u$ 的分量不是 $0$）<br>
+$\Longleftrightarrow$ $\b v$ 最大化了 $|B\b v|$<br>
+$\Longleftrightarrow$ $\b v$ 是 $B$ 的右奇异向量（定义）<br>
+$\Longleftrightarrow$ $\b v$ 是 $B^\top B=A$ 的特征向量（奇异向量的求法）</p>
+</li>
+</ol>
+<h3 id="svd-的工业应用">SVD 的工业应用
+</h3><div class="solution-box">
+  <div class="solution-title">Solution (The Power Method)</div>
+  <div class="card-text">
+<ol>
+<li>Sample a unit vector $\b x$.</li>
+<li>Calculate $(A^\top A)^k\b x$, $k=\Omega(-\eps^{-1}\log\eps)$. Every time <strong>normalize</strong> the resulting vector.</li>
+<li>The resulting vector $\b v$ is very likely to be a eigenvector corresponding to the greatest eigenvalue of $A$.</li>
+<li>$A\xleftarrow{-}A\b v\b v^\top$, goto 1.</li>
+</ol>
+<p>Intuition: let $\b x=\sum c_i\b v_i$,
+$$
+A^\top A=\left(\sum\sigma_i\b v_i\b u_i^\top\right)\left(\sum\sigma_i\b u_i\b v_i^\top\right)=\sum\sigma_i^2\b v_i\b v_i^\top\Longrightarrow\left(A^\top A\right)^k=\sum\sigma_i^{2k}\b v_i\b v_i^\top\Longrightarrow\left(A^\top A\right)^k\b x=\sum\sigma_i^{2k}c_i\b v_i
+$$
+We can also do the first $k$ eigenvectors in parallel, just do Gram-Schmidt orthogonalization every time.</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Correctness of the Power Method)</div>
+  <div class="card-text">
+Unit vector $\b x$ satisfies $|\b x^\top\b v_1|\ge\delta$. Let $V$ be the subspace spanned by 特征值 $>(1-\eps)\sigma_1$ 的 $\b v$ 们. For
+$$
+\boxed{k=\frac{-\ln(\eps\delta)}{2\eps}}
+$$
+the result $\b w=\left(A^\top A\right)^k\b x$ satisfies that
+$$
+\boxed{\left\lvert\b{\hat w}_{V^\perp}\right\rvert\le\eps}
+$$
+Proof. 单位化后垂直分量的长度，就是 $\b w$ 垂直分量部分占总模长的比例：
+$$
+\left\lvert\b w\right\rvert=\left\lvert\sum\sigma_i^{2k}c_i\b v_i\right\rvert\ge\sigma_1^{2k}c_1=\sigma_1^{2k}\delta
+$$
+<p>$$
+\left\lvert\b w_\perp\right\rvert=\left\lvert\sum_{\sigma_i\le(1-\eps)\sigma_1}\sigma_i^{2k}c_i\b v_i\right\rvert\le(1-\eps)^{2k}\sigma_1^{2k}\sqrt{\sum_{\sigma_i\le(1-\eps)\sigma_1}c_i^2}\le(1-\eps)^{2k}\sigma_1^{2k}
+$$</p>
+<p>$$
+\text{ratio}\le\frac{(1-\eps)^{2k}}\delta\le\frac{\e^{-2k\eps}}\delta=\eps
+$$</p>
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution (How to Sample $\b x$)</div>
+  <div class="card-text">
+直接均匀随机。书里的结论很傻逼：
+$$
+\P\left[\left\lvert\b x^\top\b v_1\right\rvert\le\frac{1}{20\sqrt d}\right]\le\frac1{10}+3\e^{-d/96}
+$$
+它是通过单位化 $\b y\sim\Nd(\b 0,I_d)$ 随机的，然后没单位化的时候，$\b y^\top\b v_1\sim \Nd(\b 0,I_d)$，因此
+$$
+\P\left[\left\lvert\b x^\top\b v_1\right\rvert\le\frac{1}{20\sqrt d}\right]\le\P\left[\left\lvert\b y^\top\b v_1\right\rvert\le\frac{1}{10}\right]+\P\left[\left\lvert\b y\right\rvert\ge 2\sqrt d\right]
+$$
+这里我们有一个更智慧的分析，注意到 $\b x^\top\b v_1$ 和球面第一维分布的坐标相同。这货的 PDF 是
+$$
+\boxed{f(t)=\frac{(1-t^2)^{(d-3)/2}}{\Beta((d-1)/2,1/2)}=\frac{\Gamma(d/2)}{\sqrt{\pi}\Gamma((d-1)/2)}(1-t^2)^{(d-3)/2}}
+$$
+(note that for $d=3$, $f$ is uniform distribution)
+<p>稍微 bound 一下，根据不等式
+$$
+\frac{\Gamma(x+1/2)}{\Gamma(x)}&lt;\sqrt x
+$$
+我们得到
+$$
+\boxed{\P[x_1\le\eps]&lt;\sqrt{\frac{2(d-1)}\pi}\eps}
+$$
+这样就可以放心大胆地只随机单次 $\b x$ 了。</p>
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Principal Component Analysis)</div>
+  <div class="card-text">
+$n$ sample size, $d$ data dim, $A\in\R^{n\times d}$. We want to compress $A$ to $\hat A\in\R^{n\times r}$.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+由于 $A$ 的每行是一个样本，它与 $\b v_{1\sim r}$ 点积就可以得到在前 $r$ 个特征方向上的投影，这是“最优的”秩 $r$ 近似：
+$$
+AV_r=\mat{\sigma_1\b u_1&\cdots&\sigma_r\b u_r}
+$$
+这就同时说明一个事情：右奇异向量给出数据的方向，左奇异向量给出各数据投影到 fit plane 上某一维后的坐标。从另一个角度看 $U_r^\top A$ 给出的就是数据的前 $r$ 个“特征方向”，在 $A$ 每行都是一组人脸数据（二维像素排开）时，$U_r^\top A$ 就是前 $r$ 个“特征脸”。<br/>
+将一个数据投影到前 $r$ 个特征脸上：
+$$
+\b x\sum_{i=1}^r\b v_i\b v_i^\top
+$$
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Page Ranking)</div>
+  <div class="card-text">
+A directed graph representing the hyperlinks between $n$ websites. We want to calculate: hub weights $\b u$ and authority weights $\b v$. Definition:
+$$
+\begin{align*}
+\b v_i&\propto\sum_j[j\to i]\b u_j\Longrightarrow\b v\propto A^\top\b u\\
+\b u_i&\propto\sum_j[i\to j]\b v_j\Longrightarrow\b u\propto A\b v
+\end{align*}
+$$
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+Set $|\b u|=|\b v|=1$, we can iteratively update $\b u$ and $\b v$... Wait, $\b u$ and $\b v$ are just the first left and right singular vectors!
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Clustering Problem)</div>
+  <div class="card-text">
+A undirected graph $G$ with $n$ vertices separated into two $n/2$ groups. We only know the graph and
+$$
+\P[(i,j)\in E]=\begin{cases}p,&i\text{ and }j\text{ are in the same group}\\q,&i\text{ and }j\text{ are in different groups}\end{cases}
+$$
+Goal: detect the division.
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution</div>
+  <div class="card-text">
+Motivation: let $t_i=(-1)^{[i\text{ is in the second group}]}$, we have
+$$
+P:=\E[A]=\Set{\frac{p+q}2+\frac{p-q}2t_it_j}=\frac{p+q}2\b 1\b 1^\top+\frac{p-q}2\b t\b t^\top
+$$
+Thus $\r(A)=2$ and the second eigenvector encodes the division. So we guess taking the second eigenvector of random $A$ is also viable. To verify the guess, we need to answer these two questions:
+<ol>
+<li>How large is the noise?</li>
+<li>How does the noise changes the singular vectors?</li>
+</ol>
+<p><strong>Bernstein inequality</strong>: independent zero-mean $X_i$ s.t. $|X_i|\le R$,
+$$
+\boxed{\P\left[|S_n|\ge t\right]\le 2\exp\left(-\frac{t^2/2}{\sum\E(X_i^2)+Rt/3}\right)}
+$$
+<strong>Bernstein inequality, self-adjoint matrix form</strong>: independent zero-mean self-adjoint $d\times d$ matrix $X_i$ s.t. $|X_i|_2\le R$,
+$$
+\boxed{\P\left[|S_n|_2\ge t\right]\le 2d\exp\left(-\frac{t^2/2}{\left|\sum\E(X_i^2)\right|_2+Rt/3}\right)}
+$$
+（这种东西说的是，$t$ 小的时候像 sub-Gaussian tail，$\e^{-\Theta(t^2)}$；$t$ 大的时候像 sub-exp tail，$\e^{-\Theta(t)}$）</p>
+<p>Now,
+$$
+A-P=\sum_{i\sim j}X_{i,j}(E^{i,j}+E^{j,i})+\sum_iX_iE^{i,i}+\sum_{i\nsim j}Y_{i,j}(E^{i,j}+E^{j,i})
+$$
+Here $X\sim\begin{cases}1-p,&amp;\text{w.p. }p\\ -p,&amp;\text{w.p. }1-p\end{cases}$, $Y\sim\begin{cases}1-q,&amp;\text{w.p. }q\\ -q,&amp;\text{w.p. }1-q\end{cases}$, so
+$$
+\sum\E(Z_i^2)=\left(\frac n2p(1-p)+\frac n2q(1-q)\right)I_n
+$$
+also all $|Z|_2\le 1$, so
+$$
+\P\left[|A-P|_2\ge t\right]\le 2n\exp\left(-\frac{t^2/2}{n\max\set{p,q}+t/3}\right)
+$$
+take $t=2\sqrt{n\max\set{p,q}\log n}$,
+$$
+\P\left[|A-P|_2\ge 2\sqrt{n\max\set{p,q}\log n}\right]=\Omicron(n^{-1})
+$$
+which is small compared to $|P|_2=n(p+q)/2$.</p>
+<p><strong>Davis-Kahan theorem</strong>: symmetric matrices $M$, $\tilde M=M+E$, let the eigenvalues be $\lambda_1\ge\cdots\ge\lambda_n$ and $\tilde\lambda_1\ge\cdots\ge\tilde\lambda_n$, for $S\subseteq\set{1,\cdots,n}$, define the eigen-gap as
+$$
+\gamma=\min_{i\in S,j\notin S}\set{|\lambda_i-\lambda_j|}
+$$
+Let $V$, $\tilde V$ be the subspace generated by the eigenvectors of $M$, $\tilde M$ corresponding to $\lambda_S$, $\tilde\lambda_S$ respectively, then
+$$
+\boxed{\left\lVert\sin\Theta(V,\tilde V)\right\rVert_2\le\frac{\|E\|_2}{\gamma}}
+$$
+where $\Theta(V,\tilde V)$ is defined as
+$$
+\Theta(V,\tilde V)=\diag\left(\theta_1,\cdots\theta_n\right),\cos\theta_1=\max_{\b v\in V,\b{\tilde v}\in\tilde V,|\b v|=|\b{\tilde v}|=1}\ip{\b v,\b{\tilde v}},\theta_{2\sim n}\text{ is defined similarly to singular values}
+$$
+or, take orthonormal basis matrix $Q$, $\tilde Q$ of $V$, $\tilde V$, we have
+$$
+\cos\theta_i=\sigma_i\text{ of }Q^\top\tilde Q
+$$
+这个事情套到 clustering 问题就相当于在说什么呢？由于 $|S|=1$ 时相当于考虑对应的单个特征向量之夹角，所以取 $S=\set{2}$，我们就知道，$A$ 的第二个特征向量和 $\b t/\sqrt n$ 差不太多。具体来说，
+$$
+\gamma=\min\Set{qn,\frac{p-q}2n}
+$$
+所以
+$$
+\P\left[\left\lvert\sin\angle(\b t,\b v_2\text{ of }A)\right\rvert\le\frac{2\sqrt{\max\set{p,q}\log n}}{\min\set{q,(p-q)/2}\sqrt n}\right]=1-\Omicron(n^{-1})
+$$
+考虑 $p\ge q\ge p-q$. 记 $\b{\hat t}:=\b v_2\text{ of }A$, $\eta$ 为“符号校正”参数, 下文 $\b t$, $\b{\hat t}$ 都认为已经单位化:
+$$
+\eta=\operatorname*{argmax}_{\eta\in\set{\pm 1}}\langle{\eta\b{\hat t},\b t}\rangle
+$$
+错误个数
+$$
+\text{err}\le n\sum(\eta\b{\hat t}_i-\b t_i)^2=n|\eta\b{\hat t}-\b t|^2_2=2n(1-\langle\b{\hat t},\b t\rangle)\le2n(1-\langle\b{\hat t},\b t\rangle^2)=2n\sin^2\angle(\b{\hat t},\b t)\le\frac{32p\log n}{p-q}
+$$
+with high Pr.</p>
+<p>多个 cluster 的 clustering 方法跟这里讲的很不一样，参见 <a class="link" href="https://people.csail.mit.edu/dsontag/courses/ml14/notes/Luxburg07_tutorial_spectral_clustering.pdf"  target="_blank" rel="noopener"
+    >https://people.csail.mit.edu/dsontag/courses/ml14/notes/Luxburg07_tutorial_spectral_clustering.pdf</a>。</p>
+  </div>
+</div>
+<h3 id="马尔可夫链">马尔可夫链
+</h3><div class="definition-box">
+  <div class="definition-title">Definitions (Random Process)</div>
+  <div class="card-text">
+<ul>
+<li>First-return time: $T_{i,j}=\inf\set{n\ge 1\mid X_n=i}\text{ when }X_0=j$</li>
+<li>Return probability: $f_{i,j}=\P[T_{i,j}&lt;\infty]$</li>
+<li># of visits: $N_{i,j}=\sum_{n\ge 0}[X_n=i]$</li>
+<li>$i$ is recurrent iff $f_i=1$</li>
+<li>当 $i=j$ 时以上下标都只记一个 $i$。</li>
+<li>Property: $\E_i[N_i]=1/(1-f_i)$, so $i$ is recurrent iff $\E_i[N_i]=\infty$.
+</div>
+</div>
+</li>
+</ul>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Returning of $n$-dimensional Random Walk)</div>
+  <div class="card-text">
+<ol>
+<li>
+<p>$1\text{-D}$ case:
+$$
+\P[X_{2n}=0]=4^{-n}\binom{2n}n=\frac{1}{\sqrt{\pi n}}\left(1+\Omicron(n^{-1})\right)\Longrightarrow\E[N_0]=\sum_{n}\P[X_{2n}=0]\sim\sum_nn^{-1/2}=\infty
+$$
+so $f_0=1$.</p>
+</li>
+<li>
+<p>$2\text{-D}$ case (考虑组合恒等式或转 $45^\circ$):
+$$
+\P[X_{2n}=(0,0)]=16^{-n}\binom{2n}{n}^2=\frac{1}{\pi n}\left(1+\Omicron(n^{-1})\right)\Longrightarrow\E[N_{(0,0)}]=\infty
+$$
+so $f_{(0,0)}=1$.</p>
+</li>
+<li>
+<p>For any $(x,y)$, it is also reached almost surely, because $\P[(0,0)\to(x,y)]\ne 0\Longrightarrow\E[N_{(0,0),(x,y)}]=\infty\Longrightarrow f_{(0,0),(x,y)}=1$.</p>
+</li>
+<li>
+<p>$\ge 3\text{-D}$ case: approximately $\E[N_{(0,0,0)}]\sim\sum_nn^{-3/2}&lt;\infty$, so we expect that it is not recurrent. Accurately, consider
+$$
+\P[X_{2n}=\b 0]=[x_1^0\cdots x_k^0]\left(\frac{x_1+x_1^{-1}+\cdots+x_k+x_k^{-1}}{2k}\right)^{2n}
+$$
+to get something like $[x^0]P(x)$, we can consider $\frac{1}{2\pi}\int_0^{2\pi}P(\e^{\i\theta})\d\theta$. So
+$$
+\P[X_{2n}=\b 0]=\frac{1}{(2\pi)^k}\int_{[0,2\pi]^k}\left(\frac{\sum_{i=1}^k\cos x_k}{k}\right)^{2n}\d x
+$$
+Notice that $2n+1$ does not contribute to the result, so we can also have
+$$
+\E[N_{\b 0}]=\frac{k}{(2\pi)^k}\int_{[0,2\pi]}\left(k-\sum_{i=1}^k\cos x_k\right)^{-1}
+$$
+For $k=3$, it's called Watson integral, and the result is $\approx 1.516$, leading to $f_{(0,0,0)}\approx 0.34$.</p>
+ </div>
+</div>
+</li>
+</ol>
+<div class="definition-box">
+  <div class="definition-title">Definitions (Markov Chain)</div>
+  <div class="card-text">
+We have a state space $\mathcal{S}=\set{1,\cdots,m}$, a distribution over states $\b p(t)=(p_1(t),\cdots,p_m(t))\in[0,1]^m$, $\sum p_i(t)=1$, and a transition matrix $P=\set{P_{i,j}}_{m\times m}$, each row summing to $1$. Markovian: $\P[X_{t+1}=i_{t+1}\mid X_t,\cdots,X_0]=\P[X_{t+1}=i_{t+1}\mid X_t]=P_{X_t,i_{t+1}}$. So:
+$$
+\boxed{\b p(t)P=\b p(t+1)}
+$$
+<b>Connected/irreducible</b> Markov chain: $\forall i,j,\exists n,P^n_{i,j}\ne 0$, or $P$ 非零的位置对应的图强连通.
+  </div>
+</div>
+<p>Note. 对于不可约的 Markov chain，它要么收敛到唯一的状态（无论初始如何），要么在某些状态之间震荡（依赖初始状态），最简单的考虑方法是考虑对角化（实际上不一定能对角化，<a class="link" href="https://math.stackexchange.com/q/332659"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/332659</a>），我们有个结论（Perron-Frobenius 定理）是：不可约的情况下，$|\lambda|\le 1$ 且所有 $|\lambda|=1$ 的根都是单根。于是可以想象，$\Lambda^n$ 在 $1$ 处不动，在其他 $\e^{2k\pi\i/d}$ 处震荡，其余 $\to 0$。</p>
+<p>实际上上述说法可以感性理解。首先 $I/m$ 一定是个特征向量，然后后面的 fundamental theorem 说明对应 $\lambda=1$ 的特征空间维数为 $1$。如果 $|\lambda|=1$ 的部分代数重数 $&gt;$ 几何重数，会造成 Jordan 块 $n$ 次方指数增长，就爆了。另外，除了 $\lambda=1$ 对应的特征向量之外，别的特征向量各个分量的和必为 $0$，可以考虑 $\b vP=\lambda\b v$ 然后把两边分量都加起来会得到 $s=\lambda s$。</p>
+<p>总而言之，结论就是：如果 chain 是非周期性的，那么 $\b p(t)\to \b\pi$；否则就不行。严格证明首先用 P-F 定理，设出 Jordan 分解，就可以得到 $P^n\to\b 1\b\pi$。还有一种证明方法是 coupling。</p>
+<div class="theorem-box">
+  <div class="theorem-title">Property</div>
+  <div class="card-text">
+$$\r(\mat{P-I&\b 1})=m.$$
+Proof. We need to how that $\operatorname{Nul}\mat{P-I&\b 1}=\span{\mat{1&\cdots&1&0}^\top}$. If there\'s another vector $\mat{\b x&\alpha}^\top$, then
+$$
+\forall i,\b x_i=\sum_{j}P_{i,j}\b x_j+\alpha
+$$
+and $\sum\b x_i=0$ (so that $\mat{\b x&\alpha}\perp\mat{1&\cdots&1&0}$), thus $\b x_i$ are not all the same. By irreducibility, 存在一个 $\b x_i\ge$ 它所有出边且有 $>$ 的, so $\alpha>0$; also 存在一个 $\b x_i\le$ 它所有出边且有 $<$ 的, so $\alpha<0$. Contradiction.
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Fundamental Theorem of Markov Chains)</div>
+  <div class="card-text">
+$\exists$ unique distribution $\b\pi$ s.t. $\b\pi P=\b\pi$. $\b\pi=\lim_{t\to\infty}\b a(t)$, here $\b a(t)=$ average of $\b p(0)\sim\b p(t-1)$.  
+Proof. Let $\b b(t)=\b a(t)P-\b a(t)$. On one hand,
+$$
+\b b(t)=\frac1t\left(\sum_{i=0}^{t-1}\b a(i)P-\sum_{i=0}^{t-1}\b a(i)\right)=\frac1t\left(\sum_{i=1}^{t}\b a(i)-\sum_{i=0}^{t-1}\b a(i)\right)=\frac1t(\b a(t)-\b a(0))\Longrightarrow|\b b(t)|\le\frac{2}{t}
+$$
+On the other hand, let $B=\mat{P-I&\b 1}$, and $\b x_1$ denote $\b x$ removing the first column, taking limit on both side,
+$$
+\b a(t)B_1=\mat{(\b a(t)P-\b a(t))_1&1}=\mat{\b b(t)_1&1}\Longrightarrow\lim_{t\to\infty}\b a(t)B_1=\mat{0&\cdots&0&1}\Longrightarrow\lim_{t\to\infty}\b a(t)=B_1^{-1}\mat{0&\cdots&0&1}
+$$
+Uniqueness is from $\r(P-I)=m-1$.
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Corollry (Reversible Markov Chain)</div>
+  <div class="card-text">
+For SCC, if $\b\pi$ satisfies $\b\pi_xp_{x,y}=\b\pi_yp_{y,x}$ for every edge and $\sum_i\b\pi_i=0$, then $\b\pi$ is the stationary distribution.<br/>
+注意这里加强了条件，所以这样的向量不总是存在。如果稳态分布满足该条件，则称它为 reversible. $P$ 对称一定是 reversible 的。
+  </div>
+</div>
+<h3 id="马尔可夫链蒙特卡洛方法">马尔可夫链蒙特卡洛方法
+</h3><div class="problem-box">
+  <div class="problem-title">Problem (Sampling)</div>
+  <div class="card-text">
+我们假设有一个难求的概率分布 $\b\pi\in\R^{n^d}$，存在一个倍数 $Z$ 使得 $Z\b\pi$ 的每一位都好求，也就是各情况概率的比例好求。但是要把它 normalize 需要求和得到 $Z$，而维数是指数级，所以没法算，也没法从中采样。MCMC 可以用来 sample。我们让难求的概率分布为 $\b\pi$，设计一个 Markov chain 使得它的稳态分布为 $\b\pi$。这样，如果我们想要求 $\E_{x\sim\b\pi}(f(x))$，就可以通过 $\b a(t)$ 来求：
+$$
+\E_{x\sim\b\pi}(f(x))=\lim_{t\to\infty}\sum_{x}f(x)\b a(t)_x
+$$
+最好这个马尔可夫链是 reversible 的，这样证明起来方便。设计马尔可夫链的过程是基于一张无向图 $G$。
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution (Metropolis-Hastings)</div>
+  <div class="card-text">
+For desired distribution $\pi$ (with no zero entry) and any given $G$, define $P$: $\boxed{P_{i,j}=\min(1,\pi_j/\pi_i)/r}$, $P_{i,i}=1-\sum_{j}P_{i,j}$. Here $r=\max\deg$. By the corollary:
+$$
+\pi_xp_{x,y}=\min(\pi_i,\pi_j)=\pi_yp_{y,x}
+$$
+so $\pi P=\pi$. Now 我们就是要根据 $P$ 随机游走，由于 $\pi$ 的两个位置的比是容易求的，所以相对容易些。然而，$\deg$ 是指数级的时候，仍然太慢了，所以还得优化。这个 M-H 还有一个更加一般的算法：我们可以将上述算法理解成以 $1/r$ 走到相邻点，再根据两点的概率关系，以某一概率”撤回“。那么 $1/r$ 其实可以改成一个更一般的“提议分布”$T$，然后让
+$$
+P_{i,j}=T_{i,j}\cdot\min\left(1,\frac{T_{j,i}\pi_j}{T_{i,j}\pi_i}\right)
+$$
+从这种意义上来说，下面的 Gibbs 采样是 M-H 的一种特殊情况。
+  </div>
+</div>
+<div class="solution-box">
+  <div class="solution-title">Solution (Gibbs Sampling)</div>
+  <div class="card-text">
+样本空间可以视作一个 $n^d$ 的空间，考虑设计超立方体图 $G$，只有差一维坐标的样本之间有边，最后仍能达到稳态分布，牺牲收敛速度。For $\b x$, $\b y$ that differ in exactly one coordinate $i$,
+$$
+\boxed{P_{\b x,\b y}=\frac{\P[\b y_i\mid\b x_1,\cdots\b x_{i-1},\b x_{i+1},\cdots,\b x_n]}d}
+$$
+<p>$$
+P_{\b x,\b x}=1-\sum_{\b y}P_{\b x,\b y}
+$$</p>
+<p>验证：
+$$
+\pi_{\b x}P_{\b x,\b y}=\frac1d\frac{\pi_{\b x}\pi_{\b y}}{\P[\b x_1,\cdots,\b x_{i-1},\forall,\b x_{i+1},\cdots,\b x_n]}=\pi_{\b y}P_{\b y,\b x}
+$$</p>
+  </div>
+</div>
+<div class="problem-box">
+  <div class="problem-title">Problem (Vertex Cover Problem)</div>
+  <div class="card-text">
+For a subset presented by a 示性函数 $\sigma$, define the energy function
+$$
+H(\sigma)=\begin{cases}\text{\# of 1s in }\sigma,&\sigma\text{ is valid}\\+\infty,&\sigma\text{ is invalid}\end{cases}
+$$
+and Gibbs measure $\pi_\beta(\sigma)=\e^{-\beta H(\sigma)}/Z_\beta$, $Z_\beta$ is taken in order to make $\sum_\sigma\pi_\beta(\sigma)=1$. If we run the above algorithm on $\pi_\beta$, we will get a great $\sigma$, and if $\beta\to+\infty$, $\sigma$ will $\to$ the best solution. But VC is NPC, so we can imagine that the mixing time must be exponential.
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Property (L1 Norm)</div>
+  <div class="card-text">
+$$
+\|\b p-\b q\|_1=2\sum(p_i-q_i)^+=2\sum(q_i-p_i)^+
+$$
+  </div>
+</div>
+<div class="definition-box">
+  <div class="definition-title">Definition (Total Variation Distance)</div>
+  <div class="card-text">
+$$\|\b p-\b q\|_{\rm TV}=\frac12\|\b p-\b q\|_1$$
+  </div>
+</div>
+<p>接下来讨论的都是无向图，即 $w_{x,y}=w_{y,x}$，记 $w_x=\sum w_{x,y}$，马尔可夫链 $p_{x,y}=w_{x,y}/w_x$，这时稳态分布 $\pi_x=w_x/\sum w_y$。</p>
+<div class="definition-box">
+  <div class="definition-title">Definition (Mixing Time)</div>
+  <div class="card-text">
+$$
+\tau(\eps)=\sup_{\b p(0)}\min_t\Set{t\mid\lVert\b a(t)-\b\pi\rVert_1\le\eps}
+$$
+Remark. 这里可能会担心：如果时刻 $t$ 之后又超过 $\eps$ 了呢？接下来我们会看到，差距是指数缩小的，所以定义成 $\sup_{\b p(0)}\max_t\Set{t+1\mid\forall\lVert \b a(t)-\b\pi\rVert_1>\eps}$，得到的结果和上面的定义就差常数倍（upd: 实际上可以用 coupling 证明，（对于非周期性的）$\|\b p(t)-\b\pi\|_1$ 单调不增）。另外可能在其他地方定义的直接是 $\|\b p(t)-\b\pi\|_1\le\eps$（对于非周期性的马尔可夫链），同样可以证明它们只差一个常数。
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Bound the Mixing Time through Conductance)</div>
+  <div class="card-text">
+Intuition: 找到图的一个割，使得两部分之间以低概率互通。Conductance:
+$$
+\boxed{\Phi(S)=\frac{\sum_{x\in S,y\notin S}\pi_xp_{x,y}}{\min\left(\pi(S),\pi(\overline S)\right)},\Phi=\min_{\varnothing\subset S\subset V}\Phi(S)}
+$$
+$$
+\boxed{\Theta\left(\frac{1}{\Phi}\right)\le\tau(\eps)\le\Theta\left(\frac{-\ln\min\pi}{\Phi^2\eps^3}\right)}
+$$
+Proof. WLOG assume $\pi(S)\le1/2$, then we can write $\Phi(S)$ as
+$$
+\Phi(S)=\sum_{x\in S}\frac{\pi_x}{\pi(S)}\sum_{y\notin S}p_{x,y}
+$$
+For the lower bound, consider starting in $S$, and each time with $\P=\sum_{x\in S,y\notin S}p_{x,y}\quad(*)$ we get to $\overline{S}$ so by union bound, $\P[\text{from }S\text{ to }\overline{S}\text{ in }t]\le t\cdot(*)$, and under the condition that $X_0\in S$ (we can do this since $\b p(0)$ is arbitrary), $\P[\text{stays in }S\text{ in }t\text{ steps}\mid X_0\in S]=\Phi(S)$. thus $\|\b a(t)-\b\pi\|_1\ge1-t\Phi(S)-\pi(S)\ge1/2-t\Phi(S)$. For $\eps=1/4$, $t$ need to be $\ge 1/4\Phi(S)$.
+<p>For the upper bound:</p>
+<ol>
+<li>
+<p>Let $\tau=-C(\ln\min\pi)/\Phi^2\eps^3$. Denote $a_i=\b a(t)_i$, $v_i=a_i/\pi_i$ (multiplicative error) and sort $v_i$s in decreasing order.</p>
+</li>
+<li>
+<p>Now $\|\b a(t)-\b\pi\|_1=2\sum_{i\le i_0}(v_i-1)\pi_i=2\sum_{i&gt;i_0}(1-v_i)\pi_i$, where $i_0$ is the split point between $\pi_i&gt;1$ and $&lt;1$.</p>
+</li>
+<li>
+<p>$&gt;i_0$ 的再大也大不过 $2\sum_{i&gt;i_0}\pi_i$，如果它 $\le\eps/2$ 就完事了。</p>
+</li>
+<li>
+<p>否则将 $\le i_0$ 的部分划分连续段 $G_1\sim G_?$。令 $\gamma=\sum\pi$（前缀和），$G_1=[1]$，每次从上次的末尾加一（记为 $k$）往后找到最后一个
+$$
+\sum_{j=k+1}^l\pi_j\le\frac{\eps\Phi\gamma_{k}}4
+$$
+的 $l$，$G_{\text{next}}=[k\sim l]$。</p>
+<ol>
+<li>
+<p>已知 $\gamma_{l+1}-\gamma_{k}&gt;\eps\Phi\gamma_{k}/4\Longrightarrow \gamma_{l+1}&gt;(1+\eps\Phi/4)\gamma_{k}$，至少每次跳跃都乘了这个倍数，所以至多跳 $\log_{1+\eps\Phi/4}\pi_1\le-4\ln\pi_1/\eps\Phi$ 次。</p>
+</li>
+<li>
+<p>现在我们只需 bound 每次的贡献即可。此处先得修改一下求和的顺序。令 $u_i$ 为 $G_i$ 开头的 $v$。
+$$
+\sum_{i\le i_0}(v_i-1)\pi_i\le\sum_i(u_i-1)\sum_{j\in G_i}\pi_j=\sum_i\pi(G_1\sim G_i)\cdot(u_i-u_{i+1})
+$$
+其中 $u_{r+1}=1$。我们将证明求和中的每一项都 $\le 8/\eps\Phi\tau$。</p>
+</li>
+<li>
+<p>对于 $G_r=[k\sim l]$：</p>
+<ol>
+<li>
+<p>By the proof of fundamental theorem of Markov chain,
+$$
+\begin{align*}
+\frac2\tau&amp;\ge\left\lVert\b a-\b aP\right\rVert_1\\
+&amp;\ge\sum_{i=1}^k(\b a-\b aP)_i\\
+&amp;=\sum_{i\le k}\sum_{j&gt;k}(p_{i,j}a_i-p_{j,i}a_j)&amp;(\text{imagine as flow})\\
+&amp;=\sum_{i\le k}\sum_{j&gt;k}(p_{i,j}\pi_iv_i-p_{j,i}\pi_jv_j)\\
+&amp;=\sum_{i\le k}\sum_{j&gt;k}p_{j,i}\pi_j(v_i-v_j)\\
+&amp;\ge\sum_{i\le k}\sum_{j&gt;l}p_{j,i}\pi_j(v_i-v_j)\\
+&amp;\ge(v_k-v_{l+1})\sum_{i\le k}\sum_{j&gt;l}p_{j,i}\pi_j\\
+&amp;=(u_r-u_{r+1})\sum_{i\le k}\sum_{j&gt;l}p_{j,i}\pi_j
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>Dealing with the stupid $\sum\sum$:
+$$
+\begin{align*}
+\sum_{i\le k}\sum_{j&gt;l}p_{j,i}\pi_j&amp;=\sum_{i\le k}\sum_{j&gt;k}p_{j,i}\pi_j-\sum_{i\le k}\sum_{k&lt;j\le l}p_{j,i}\pi_j\\
+&amp;\ge\sum_{i\le k}\sum_{j&gt;k}p_{j,i}\pi_j-\sum_{j=k+1}^l\pi_j\\
+&amp;\ge\Phi\cdot\min(\pi(1\sim k),\pi(k+1\sim n))-\frac{\eps\Phi\gamma_k}4\\
+&amp;\ge\Phi\cdot\min(\gamma_k,\pi(i_0+1\sim n))-\frac{\eps\Phi\gamma_k}4\\
+&amp;\ge\Phi\cdot\gamma_k\cdot\pi(i_0+1\sim n)-\frac{\eps\Phi\gamma_k}4\\
+&amp;\ge\frac{\eps\Phi\gamma_k}4&amp;\left(\text{by }\sum_{i\ge i_0}\pi_i&gt;\frac\eps4\right)
+\end{align*}
+$$</p>
+</li>
+<li>
+<p>Dividing:
+$$
+u_r-u_{r+1}\le\frac{8}{\eps\Phi\gamma_k\tau}
+$$</p>
+<p>$$
+\sum_i\pi(G_1\sim G_i)\cdot(u_i-u_{i+1})\le-\frac{4\ln\pi_1}{\eps\Phi}\cdot\frac{8}{\eps\Phi\gamma_k\tau}\le\frac{32\eps}{C}
+$$</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Yippee!</p>
+</li>
+<li>
+<p>BTW this proof is as stupid as shit.</p>
+ </div>
+ </div>
+</li>
+</ol>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Bound the Mixing Time throught Eigengap)</div>
+  <div class="card-text">
+For irreducible, aperiodic, reversible Markov chain, let $\lambda_2$ be the second largest eigenvalue norm of the transition matrix, for mixing time of $\b p(t)$:
+$$
+\boxed{\left(\frac{1}{1-\lambda_2}-1\right)\ln\frac1\eps\le\tau(\eps)\le\frac{1}{1-\lambda_2}\ln\frac{1}{\eps\pi_{\min}}}
+$$
+Remark. 如果 $P$ 是对称的，直接设出谱分解，然后 $1$ 范数和 $2$ 范数之间来回放缩即可，证明较简单（期末考了！）。
+<p>Proof. WLOG assume $\lambda_2=$ actual $\lambda_2$. Let $D=\diag(\pi)$. Although $P$ is not symmetric, $A=D^{1/2}PD^{-1/2}$ is symmetric by reversibility. So we have spectral decomposition
+$$
+A=\sum\lambda_i\b v_i\b v_i^\top\Longrightarrow P^t=D^{-1/2}\sum\lambda_i^t\b v_i\b v_i^\top D^{1/2}
+$$
+For some (row vector) $\b p_0$,
+$$
+\b p_0P^t-\b\pi=\b p_0D^{-1/2}\sum\lambda_i^t\b v_i\b v_i^\top D^{1/2}-\b 1^\top D
+$$
+For $i=1$, $\lambda_1=1$, $\b v_1=D^{1/2}\b 1$, so
+$$
+\b p_0D^{-1/2}\b v_1\b v_1^\top D^{1/2}=\b p_0\b 1\b 1^\top D=\b 1^\top D
+$$
+so
+$$
+\b p_0P^t-\b\pi=\b p_0D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}
+$$
+我们可以把 $|\b p_0P^t-\b\pi|_1$ 想象成一个高维凸多面体上离一个点的距离，最远的一定是顶点，因此只考虑 $\b p_0=\b e_x^\top$。
+$$
+\begin{align*}
+\left\lvert\left(\b e_x^\top D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}\right)_y\right\rvert&amp;=\left|\b e_x^\top D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}\b e_y\right|\\
+&amp;\le\sqrt{\frac{\pi_y}{\pi_x}}\sum_{i\ge 2}|\lambda_i|^t|v_{i,x}||v_{i,y}|\\
+&amp;\le\sqrt{\frac{\pi_y}{\pi_x}}\lambda_2^t\sum_{i\ge 2}|v_{i,x}||v_{i,y}|\\
+&amp;\le\sqrt{\frac{\pi_y}{\pi_x}}\lambda_2^t\sqrt{\left(\sum_{i\ge 2}v_{i,x}^2\right)\left(\sum_{i\ge 2}v_{i,y}^2\right)}\\
+&amp;\le\sqrt{\frac{\pi_y}{\pi_x}}\lambda_2^t
+\end{align*}
+$$
+这里最后一个不等式是因为 $\set{\b v_i}$ 是一组单位正交基。现在
+$$
+\|\b p_0P^t-\b\pi\|_1\le\frac{\lambda_2^t}{\sqrt{\pi_x}}\sum\sqrt{\pi_y}\le\frac{\lambda_2^t}{\sqrt{\pi_x}}\sqrt{n}
+$$
+因此
+$$
+\max\lVert\b p_0P^t-\b\pi\rVert_1\le\lambda_2^t\cdot\sqrt n\cdot\max\frac{1}{\sqrt{\pi_x}}\le\frac{\lambda_2^t}{\pi_{\min}}
+$$
+所以可以要求 $t\ge\log_{\lambda_2}(\eps\pi_{\min})=\ln(\eps\pi_{\min})/\ln\lambda_2$，这里
+$$
+\ln\lambda_2=\ln(1-(1-\lambda_2))\le-\frac{1}{1-\lambda_2}
+$$</p>
+<p>下界（<del>不要问我为什么突然开始右乘，我也不知道</del>）：考虑 $P$ 的 $\lambda_2$ 对应的右特征向量 $\b v_2$（用于硬凑 $\|\b p_0P^t-\b\pi\|_1$ 形式）
+$$
+\lambda_2^t|(\b v_2)_x|=|(P^t\b v_2)_x|=\left|\sum_yP_{x,y}^t(\b v_2)_y\right|=\left|\sum_y(P_{x,y}^t-\pi_y)(\b v_2)_y\right|\le\|\b v_2\|_1\sum_y|P_{x,y}^t-\pi_y|
+$$
+其中 $\b\pi\cdot\b v_2=0$ 是因为 $P\b v_2=\lambda_2\b v_2$，而 $\b\pi^\top\lambda_2\b v_2=\b\pi^\top P\b v_2=\b\pi^\top\b v_2$。现在注意到
+$$
+\lVert\b e_xP^t-\b\pi\rVert_1=\sum_y|P_{x,y}^t-\pi_y|
+$$
+取 $x=\operatorname{argmax}|(\b v_2)_x|$，得到
+$$
+\eps\ge\lambda_2^{\tau(\eps)}\Longrightarrow\tau(\eps)\ge\log_{\lambda_2}\eps=\frac{\ln(1/\eps)}{\ln(1/\lambda_2)}\ge\frac{\ln(1/\eps)}{1/\lambda_2-1}=\left(\frac{1}{1-\lambda_2}-1\right)\ln\frac1\eps
+$$</p>
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Theorem (Cheeger Inequality)</div>
+  <div class="card-text">
+$$
+\frac{\Phi^2}2\le1-\lambda_2\le2\Phi
+$$
+  </div>
+</div>
+<div class="theorem-box">
+  <div class="theorem-title">Corollary</div>
+  <div class="card-text">
+$$
+\left(1-\frac{1}{2\Phi}\right)\ln\frac{1}{\eps}\le\tau(\eps)\le\frac{2}{\Phi^2}\ln{\frac{1}{\pi_{\min}\eps}}
+$$
+  </div>
+</div>
+<ul>
+<li>clique: $\Phi=\frac12$.</li>
+<li>无向连通图: $\Phi\ge\frac1m$, $\pi_{\min}\ge\frac1{2m}$.</li>
+<li>two clique connected by one edge: $\Phi=\frac{1}{n^2-n+1}$, $1-\gamma_2=\Theta(n^{-2})$.</li>
+<li>one clique + one vertex with one edge: $\tau=\Omicron(\log(n\eps^{-1}))$.</li>
+<li>1D path/cycle: $\Phi=\frac1n$, $1-\gamma_2=1-\cos\frac{2\pi}{n}=\Theta(\frac1{n^2})$.</li>
+<li>2D $n\times n$ grid: $\Phi=\Theta(\frac1n)$.</li>
+<li>dD $n^d$ grid: $\Phi=\Theta(\frac{1}{nd})$ ($S$ takes $x_1\in[1,n/2]$, $x_2\sim x_d\in[1,n]$).</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="165058ffa493be31a842b7d62525e4f4"
+    data-page-url="https://littlereuben.github.io/study/course-math4csai/"
+    data-page-title="计算机与人工智能应用数学笔记"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

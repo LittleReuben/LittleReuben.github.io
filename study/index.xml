@@ -7,7 +7,2928 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sun, 23 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 16 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>微积分 A(2) 复习</title>
+        <link>https://littlereuben.github.io/study/course-calculus-2-1/</link>
+        <pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-calculus-2-1/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/study/course-calculus-2-1/cover.png" alt="Featured image of post 微积分 A(2) 复习" /&gt;&lt;p&gt;$\gdef\e{\mathrm{e}}\gdef\d{\mathrm{d}}\gdef\i{\mathrm{i}}\gdef\N{\mathbb{N}}\gdef\Z{\mathbb{Z}}\gdef\Q{\mathbb{Q}}\gdef\R{\mathbb{R}}\gdef\C{\mathbb{C}}\gdef\F{\mathbb{F}}\gdef\E{\mathbb{E}}\gdef\P{\mathbb{P}}\gdef\M{\mathbb{M}}\gdef\O{\mathrm{O}}\gdef\b#1{\boldsymbol{#1}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\r{\operatorname{rank}}\gdef\id{\mathrm{id}}\gdef\span{\operatorname{span}}\gdef\spec{\operatorname{spec}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\dat#1{\begin{vmatrix}#1\end{vmatrix}}\gdef\eps{\varepsilon}\gdef\arcsinh{\operatorname{arcsinh}}\gdef\arccosh{\operatorname{arccosh}}\gdef\arctanh{\operatorname{arctanh}}\gdef\arccoth{\operatorname{arccoth}}\gdef\arcsech{\operatorname{arcsech}}\gdef\arccsch{\operatorname{arccsch}}\gdef\sgn{\operatorname{sgn}}\gdef\sech{\operatorname{sech}}\gdef\csch{\operatorname{csch}}\gdef\arccot{\operatorname{arccot}}\gdef\arcsec{\operatorname{arcsec}}\gdef\arccsc{\operatorname{arccsc}}\gdef\tr{\operatorname{tr}}\gdef\unit#1{\mathop{}!\mathrm{#1}}\gdef\re{\operatorname{Re}}\gdef\aut{\operatorname{Aut}}\gdef\diag{\operatorname{diag}}\gdef\D{\mathrm{D}}\gdef\p{\partial}\gdef\eq#1{\begin{align*}#1\end{align*}}\gdef\Pr{\mathsf{Pr}}\gdef\Ex{\mathsf{E}}\gdef\Var{\mathsf{Var}}\gdef\ip#1{\left\langle #1\right\rangle}\gdef\J{\mathrm{J}}\gdef\w{\wedge}$&lt;/p&gt;
+&lt;p&gt;封面 from wxf 的课件。&lt;/p&gt;
+&lt;p&gt;这次选择以问答的方式做笔记帮助复习。不过事实证明基本定义清楚之后刷题就够了。括号里面的编号表示出自 wxf ppt，如果想知道答案可以评论问。&lt;/p&gt;
+&lt;h3 id=&#34;多元函数极限与连续&#34;&gt;多元函数极限与连续
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;距离，三个公理。对于线性空间，加&lt;strong&gt;平移不变性&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;哪三个公理？&lt;/mark&gt;（1-16）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;范数，三个公理。线性空间下的距离和范数一一对应。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;哪三个公理？&lt;/mark&gt;（1-18）&lt;/p&gt;
+&lt;p&gt;$p$-范数，必须要求 $p\ge 1$。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明 $p\ge 1$ 可以构成范数，$p&amp;lt;1$ 不行。&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    &lt;a href=&#34;https://www.zhihu.com/question/667693249/answer/3633863935&#34;&gt;https://www.zhihu.com/question/667693249/answer/3633863935&lt;/a&gt;&lt;br/&gt;
+    对于 $p&lt;1$，$\\|(0,1)+(1,0)\\|&gt;\\|(0,1)\\|+\\|(1,0)\\|$。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;内积，三个公理。内积可以定义范数，范数&lt;strong&gt;不一定&lt;/strong&gt;可以由内积定义。$p$-范数中只有 $2$-范数可以。范数可以由内积得到，当且仅当 $\|\b x+\b y\|^2+\|\b x-\b y\|^2=2(\|\b x\|^2+\|\b y\|^2)$。（1-25）&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明？&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    &lt;a href=&#34;https://math.stackexchange.com/a/43848&#34;&gt;https://math.stackexchange.com/a/43848&lt;/a&gt;
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;拓扑相关的定义，略。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;当我们讨论连续性和极限时，对定义域的限定不同，具体是怎样的？&lt;/mark&gt;（1-29）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    极限要求 $\b x_0$ 是聚点，连续性要求 $\b x_0$ 属于定义域。如果直接把连续性定义为极限等于该点的取值，可是可以，但是如果 $\b x_0$ 是个孤立点，就没法说了。在 wxf 讲的连续性中，孤立点处必连续。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;任意范数在以下意义下与 $\|\cdot\|_{\infty}$ &lt;strong&gt;等价&lt;/strong&gt;：$\exists M_1,M_2$，使得 $\forall\b x$，$M_1\|\b x\|_{\infty}\le\|\b x\|\le M_2\|\b x\|_{\infty}$。（1-32）从而与有界、收敛、连续等相关的定理都可以只证明无穷范数下的情况。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明？&lt;/mark&gt;（1-35）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    $\|\b x\|\le C\|\b x\|_{\infty}$：写出 $\b x$ 的基的表示，用三角不等式拆开。&lt;br/&gt;
+    另一个方向：考虑反证，如果有一列 $\set{\b x_n}$，$\|\b x_n\|_{\infty}$ 比 $\|\b x_n\|$ 大得越来越离谱，那么可以找到一个范数的收敛子列，从而是柯西列，从而对应的 $\b x$ 子列也收敛（这个没有循环论证，可以先证柯西列收敛的），这个极限点处的两种范数就爆了。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一元微积分里的一些性质在多元情况也成立：&lt;strong&gt;柯西收敛定理、致密性定理、最值定理、闭集连续 = 一致连续&lt;/strong&gt;。多元函数除了没有一元函数的单调性，别的都可以讨论。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明？&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：$S\subseteq V$ 是有界闭集，当且仅当 $S$ 中的任何点列的极限也在 $S$ 中。&lt;/mark&gt;（1-37）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：如果 $S\subseteq\R^n$ 既是开集又是闭集，则它只能是全集或空集。&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    找到一条从 $x\in S$ 到 $y\notin S$ 的路径 $\pi$，构造 $f:\pi\to\set{0,1}$。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明多元情况下的闭区间套定理。&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在证明多元连续函数的含参积分对参数的连续性时，必须搞出&lt;strong&gt;一致连续性&lt;/strong&gt;才行。（1-41）&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;现在我们说 $(x,y_1,\cdots,y_n)\in[a,b]\times A$，$x$ 是被积变量，$\b y_0=(y_1,\cdots,y_n)$ 是参数。如何找到一个闭集？&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    如果 $\b y_0$ 是内点，那选个完全包含在 $A$ 内的闭邻域就行。否则，如果 $A$ 是闭集，那随便选个闭邻域就行。否则，证明起来有点麻烦。我想到的一个思路是，对于一个 $\eps$，对于每个 $x\in [a,b]$，找到一个 $\delta(x)$ 为最大的（$\sup$），不超过某个阈值的，使邻域内的函数值都 $\le\eps/2$ 的 $\delta$。可以通过测度的三角形不等式证明 $\delta(x)$ 连续，从而一致连续，从而 $\inf\delta(x)&gt;0$ 就是选择的 $\delta$。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;如何证明，$\R^2\setminus\set{(x,x^2)}$ 是开的？&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    思路 1：通过闭集的充要条件证明 $\set{(x,x^2)}$ 是闭的；思路 2：对于上方的一个点 $(x_0,y_0)$，考虑 $f(x)=y_0-x^2$，它一定在 $x_0$ 附近 $&gt;0$，就行了。思路 3：构造把抛物线拉平的连续函数 $\R^2\to\R^2$。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;对于多元函数，无论按多少路径逼近是连续/极限相等，都不能说连续/极限存在。​&lt;/strong&gt;累次极限/大量路径极限存在 $\not\Rightarrow$ 连续；因定义域奇形怪状导致的：连续 $\not\Rightarrow$ 累次极限存在（如果存在一定等于）、在一个趋近于完整定义域的定义域子集内连续 $\not\Rightarrow$ 连续（2-11，$f(x,y)=x^y$）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;证明连续：用定义证；证明不连续：找到一条路径，极限不对。如何找？如果 $\to(0,0)$，就分析最低次项；如果不是，把 $x_0$、$y_0$ 减去后同理。注意还是要具体情况具体分析，&lt;strong&gt;多元函数中单项式的次数并不绝对说明增长速度，因为 $x$ 和 $y$ 之间可以有不同的关系&lt;/strong&gt;（2-8，$xy/(x+y)$）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无穷小量、渐进关系、同阶，这些概念都与范数的选择&lt;strong&gt;无关&lt;/strong&gt;。wxf 讲的同阶不要求极限存在。（2-13）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：$x,y\to 0$ 时 $ax^2+2bxy+cy^2$ 与 $x^2+y^2$ 同阶，当且仅当 $b^2&amp;lt;ac$。&lt;/mark&gt;（2-17）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    一个方向可以用三角换元。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;双线性映射都是连续的。可以通过拆成基之和的方式来放缩，得到 $\|B(\b x,\b y)\|\le C\|(\b x,\b y)\|^2$，然后再利用双线性性。（2-28）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;二元分式极限的求法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;极坐标。用于次数不是很大的情况。&lt;/li&gt;
+&lt;li&gt;换元 $y/x$。齐次的时候会比较好搞，不是齐次也不是不行。&lt;/li&gt;
+&lt;li&gt;不等式放缩。一般比较难，因为得考虑正负的问题。&lt;/li&gt;
+&lt;li&gt;渐进估计。用于出现 $\ln$、$\sin$、指数等的情况。&lt;/li&gt;
+&lt;li&gt;取 $y=f(x)$，把 $x$ 的成分减掉。这样可以证明极限不存在。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一定要注意，次数没有意义。哪怕分子的次数比分母大很多，极限仍有可能不存在——因为可以相减抵消，增高次数。&lt;/p&gt;
+&lt;p&gt;比较难的例子：$\lim_{(x,y)\to (0,0)}\frac{x^5+y^5}{x^3+y^3}$。这个用 1 可以搞但得分析三角函数的分式；用 2 的话会好处理。注意到 $\lim_{(x,y)\to (0,0)}\frac{x^p+y^p}{x^3+y^3}$ 在 $p=3,5,7,\cdots$ 时存在，$p=4,6,8,\cdots$ 时不存在。&lt;/p&gt;
+&lt;p&gt;一般性的方法：&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/648080280&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/648080280&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;定义矩阵的范数为 $\sqrt{\tr(A^\top A)}$ 或者 $\max\set{\lvert A_{i,j}\rvert}$ whatever，证明所有行列式 $&amp;gt;0$ 的实矩阵构成开集、道路连通集。&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    行列式是 $\M_{n\times n}(\R)\to\R$ 的连续函数，这个证明和上面一样。于是就是开集。&lt;br/&gt;
+    道路连通集：思路 1（with psy）：所有初等变换都可以“慢动作”做成连续的，所以可以把 $A$ 变成 $\diag(\pm 1)$ 的形式，然后可以用 $\rm SO(2)$ 里旋转的方式，将任意两个元素同时取负号。所有操作都是可逆的。思路 2（deepseek）：把矩阵极分解啰，正定矩阵是凸集，行列式为 $1$ 的正交矩阵可以通过同上的旋转方法，严谨证明可以见 &lt;a href=&#34;https://math.stackexchange.com/q/711492&#34;&gt;https://math.stackexchange.com/q/711492&lt;/a&gt;。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可逆矩阵虽然不是道路连通的，但是是稠密开的。考虑 $|A-\varepsilon I|$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：设 $A$ 为正定矩阵，证明 $\b x^\top A\b x$ 与 $\b x^\top\b x$ 同阶。&lt;/mark&gt;（2-32）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    考虑相减后利用正定的等价定义，相除单位化，或归为范数问题。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;证明实对称矩阵可正交对角化。线性代数里的证明是利用代数基本定理搞出一个特征值，再证明这个特征值是实的（扩域的又一个应用）。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;不通过这个来证明，能找到一个特征值。&lt;/mark&gt;（3-13）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    对于所有 $\b x$ 满足 $\|\b x\|_2=1$，找到 $\max\set{\b x^\top A\b x}=\lambda$。利用反证法，证明 $A\b x^*-\lambda\b x^*=\b 0$。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出压缩不动点的使用条件及证明。&lt;/mark&gt;（3-18）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定义矩阵算子范数 $\|A\|_p=\max_{\|\b x\|_p=1}{\|A\b x\|_p}$，每种向量范数都可以导出一种算子范数，例如 $p=1$ 时，对应的算子范数求的是最大的【列的绝对值之和】。证明：&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/30674132&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/30674132&lt;/a&gt;。算子范数满足 $\|AB\|\le\|A\|\|B\|$。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明当 $\|B\|&amp;lt;1$ 时，$I-B$ 可逆；$\|(I-B)^{-1}-I\|\le\|B\|/(1-\|B\|)$；$\|(I-B)^{-1}-I-B\|\le\|B\|^2/(1-\|B\|)$。&lt;/mark&gt;（3-21）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    用压缩不动点定理。先证唯一。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;多元函数的微分与偏导&#34;&gt;多元函数的微分与偏导
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;陈述公式 $\D\ip{,}(\b a,\b b)(\b x,\b y)=\ip{\b x,\b b}+\ip{\b a,\b y}$ 的含义。&lt;/mark&gt;（4-8）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;求 $\D\det(A)(B)$。&lt;/mark&gt;（4-14）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    行列式是多重线性函数，展开。&lt;br/&gt;
+    答案为 $\tr({A^*}^\top B)$。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;求 $\D(A^{-1})(B)$。&lt;/mark&gt;（4-14）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;回顾 $\b y^\prime=A(x)\b y$ 的解系构成的 $Y(x)$，它的行列式称为 Wronsky 行列式。其满足 $|Y(x)|^\prime=\tr A(x)|Y(x)|$。毕竟它说到底是个一元的函数，所以上个学期给出了证明，就是直接展开分析。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;现在，通过 2 的答案，给出一个更高大上的推导。&lt;/mark&gt;注意多元情况下，导数的除法极限定义会很不好搞，用渐进表示可能更容易。当然最终还是对一个变量 $x$ 求导。（4-11）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明多元情况下，微分的链索法则 $\D(g\circ f)(\b x)=\D g(f(\b x))\circ\D f(\b x)$。&lt;/mark&gt;（4-16）&lt;/p&gt;
+&lt;p&gt;注意这里要求 $g$ 和 $f$ 在对应点都可微，而不仅仅是偏导存在。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当 $f$ 是 $\to\R$ 时，$\D f$ 会写成 $\d f$。（4-3）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这里的链索法则，看似是“一元”的，实际上它是普适的。例如，我们考虑 $\d\ip{f(\b x),g(\b y)}$，它本质上是笛卡尔积上的映射（4-15）
+$$
+(\b x,\b y)\xrightarrow{(f(\cdot_1),g(\cdot_2))}(f(\b x),g(\b y))\xrightarrow{\ip{\cdot_1,\cdot_2}}\ip{f(\b x),g(\b y)}
+$$
+所以
+$$
+\d\ip{f(\b x),g(\b y)}(\b u,\b v)=(\ip{f(\b x),\cdot_2}+\ip{\cdot_1,g(\b y)})\circ(\d f(\b x)(\cdot_1),\d g(\b y)(\cdot_2))(\b u,\b v)=\ip{f(\b x),\d g(\b y)(\b v)}+\ip{\d f(\b x)(\b u),g(\b y)}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果 $\b x=\sum\xi_i\b e_i$，那么
+$$
+\d f(\b x_0)(\b x)=\sum\xi_i\d f(\b x_0)(\b e_i)=\sum\xi_i\frac{\p f}{\p\b e_i}(\b x_0)=\sum\frac{\p f}{\p x_i}(\b x_0)\d x_i(\b x)
+$$
+其中 $\d x_i$ 也是线性映射，即为取第 $i$ 维坐标的投影。因此
+$$
+\d f(\b x_0)=\sum\frac{\p f}{\p x_i}(\b x_0)\d x_k=\mat{\frac{\p f}{\p x_1}(\b x_0)&amp;amp;\cdots&amp;amp;\frac{\p f}{\p x_n}(\b x_0)}\mat{\d x_1\\ \vdots\\ \d x_n}
+$$
+这个东西和梯度没有任何关系，但是可以以矩阵形式处理复合运算——复合的微分，就是线性变换的复合。例如要求 $\D(g\circ f)(\b x_0)$，那么
+$$
+\begin{array}{ccccc}
+\D(g\circ f)(\b x_0)&amp;amp;=&amp;amp;\D g(f(\b x_0))&amp;amp;\circ&amp;amp;\D f(\b x_0)\\
+\mat{\frac{\p(g\circ f)_1}{\p x_1}(\b x_0)&amp;amp;\cdots&amp;amp;\frac{\p(g\circ f)_1}{\p x_k}(\b x_0)\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\ \frac{\p(g\circ f)_n}{\p x_1}(\b x_0)&amp;amp;\cdots&amp;amp;\frac{\p(g\circ f)_n}{\p x_k}(\b x_0)}&amp;amp;=&amp;amp;\mat{\frac{\p g_1}{\p x_1}(f(\b x_0))&amp;amp;\cdots&amp;amp;\frac{\p g_1}{\p x_m}(f(\b x_0))\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\ \frac{\p g_n}{\p x_1}(f(\b x_0))&amp;amp;\cdots&amp;amp;\frac{\p g_n}{\p x_m}(f(\b x_0))}&amp;amp;\cdot&amp;amp;\mat{\frac{\p f_1}{\p x_1}(\b x_0)&amp;amp;\cdots&amp;amp;\frac{\p f_1}{\p x_k}(\b x_0)\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\ \frac{\p f_m}{\p x_1}(\b x_0)&amp;amp;\cdots&amp;amp;\frac{\p f_m}{\p x_k}(\b x_0)}\\
+\J(g\circ f)(\b x_0)&amp;amp;=&amp;amp;\J(g)(f(\b x_0))&amp;amp;\cdot&amp;amp;\J(f)(\b x_0)\\
+\displaystyle\frac{\p(g\circ f)_i}{\p x_j}(\b x_0)&amp;amp;=&amp;amp;\displaystyle\sum_k\frac{\p g_i}{\p t_k}(f(\b x_0))&amp;amp;\cdot&amp;amp;\displaystyle\frac{\p f_k}{\p x_j}(\b x_0)
+\end{array}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们说线性泛函 $L$ 的梯度向量，是指向量 $\b b$ 使得 $\forall\b x$，$L(\b x)=\ip{\b b,\b x}$。现在对于一般的（不一定单位正交的）基底 $\b e_1,\cdots,\b e_n$，已知 $L(\b e_1),\cdots,L(\b e_n)$，&lt;strong&gt;不一定&lt;/strong&gt;有 $\b b=L(\b e_1)\b e_1+\cdots+L(\b e_n)\b e_n$。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;用 $\b e_i$ 和 $L(\b e_i)$ 表示出 $\b b$。&lt;/mark&gt;（4-25、5-26）&lt;/p&gt;
+&lt;p&gt;上面那个式子一般而言并不是内积。仅在单位正交基时，内积等于行向量乘列向量。一般而言，设 $\b b=\sum c_i\b e_i$，根据内积的定义，
+$$
+\ip{\b b,\b x}=\sum_{i,j}c_i\xi_j\ip{\b e_i,\b e_j}=\mat{c_1&amp;amp;\cdots&amp;amp;c_n}\mat{\ip{\b e_1,\b e_1}&amp;amp;\cdots&amp;amp;\ip{\b e_1,\b e_n}\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\ \ip{\b e_n,\b e_1}&amp;amp;\cdots&amp;amp;\ip{\b e_n,\b e_n}}\mat{\xi_1\\ \vdots\\ \xi_n}
+$$
+但另一方面，上面我们看到，根据微分的定义，
+$$
+\d f(\b x_0)(\b x)=\mat{\frac{\p f}{\p x_1}(\b x_0)&amp;amp;\cdots&amp;amp;\frac{\p f}{\p x_n}(\b x_0)}\mat{\xi_1\\ \vdots\\ \xi_n}
+$$
+因此
+$$
+\b b=\mat{c_1&amp;amp;\cdots&amp;amp;c_n}^\top=\mat{\ip{\b e_1,\b e_1}&amp;amp;\cdots&amp;amp;\ip{\b e_1,\b e_n}\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\ \ip{\b e_n,\b e_1}&amp;amp;\cdots&amp;amp;\ip{\b e_n,\b e_n}}^{-1}\mat{\frac{\p f}{\p x_1}(\b x_0)\\ \vdots\\ \frac{\p f}{\p x_n}(\b x_0)}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;利用梯度的定义证明 $\nabla(fg)=g\nabla f+f\nabla g$。&lt;/mark&gt;（4-28）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$f$ 在某点的各方向导数都存在，哪怕各方向导数能统一写成内积的形式，也不意味着它在该点连续或可微。例如 $f(\rho,\theta)=[\rho\le\theta]$（$\theta\in(0,2\pi]$），这个“平台”的分界不是“一致”的，在原点处无法取得一个全 $1$ 邻域。也可以定义路径导数，当可微时，路径 $\gamma$ 的导数 $\d f(\gamma(t))/\d t=\nabla f\cdot\gamma^\prime$（链索法则）；一般情况下也行，如果要求方向导数（单位化），就取弧长参数。与连续性相同的是，可能出现各方向导数都一致，但沿某个曲线的方向导数爆炸，例如 $y/x^3(x=0\rightarrow 0)$。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;求单位球面上的函数 $f$，沿经线与纬线分别的方向导数。&lt;/mark&gt;（5-16）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;区分沿&lt;strong&gt;向量&lt;/strong&gt;的导数与&lt;strong&gt;方向&lt;/strong&gt;导数，主要是是否单位化的区别。“一个函数沿坐标轴方向的方向导数就是该函数对这个坐标求的偏导数”这句话是错的，因为坐标的基向量可能不是单位的。用公式来表示，就是
+$$
+\frac{\p f}{\p\b{\hat e}_i}\ne\frac{\p f}{\p\b e_i}=\frac{\p f}{\p x_i}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Jacobi 矩阵行列记忆方法：线性泛函的微分是行向量，因此每行对应值域的一个维度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;利用复合函数的链索法则，解释多元函数的一阶微分不变性。&lt;/mark&gt;（5-31）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于一个函数 $f$，如果原来它的自变量为 $x,y$，然后换元后成了 $u,v$，那么求相关导数的思路是：将 $x,y$ 视作中间变量——也就是说，要求出 $x,y$ 关于 $u,v$ 的表达式，这样就可以求出 $f_u,f_v$ 等了。如果要将 $f_x,f_y$ 表示成 $u,v$ 相关的，那么要么用 $u,v$ 表示出 $x,y$，要么把第一个问题的东西反解出来（矩阵求逆）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;多元函数的高阶微分&#34;&gt;多元函数的高阶微分
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;$\mathscr{C}^k$ 类函数的定义是？&lt;/mark&gt;（6-7）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明矩阵求逆是 $\mathscr{C}^\infty$ 的。&lt;/mark&gt;（6-8）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意高阶偏导数“分母”上顺序与求导的顺序。（6-12）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;简述以下命题的证明思路&lt;/mark&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;$f$ 关于 $x$ 连续、$y$ 连续单调 $\Longrightarrow$ $f$ 连续。&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;$f$ 在单点处 $x$ 偏导存在，邻域内 $y$ 偏导存在且连续 $\Longrightarrow$ $f$ 单点可导。&lt;/mark&gt;（6-5）&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Clairaut 定理&lt;/mark&gt;（6-33）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clairaut 定理条件：等式两边的导数都是连续的，允许减弱到一侧连续。反例：&lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/a/4603178&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/a/4603178&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;高阶微分：
+$$
+\eq{
+\d^kf(\b x_0)(\b u_1,\cdots,\b u_k)&amp;amp;=\left.\frac{\d}{\d t}\left(\d^{k-1}f(\b x_0+t\b u_k)(\b u_1,\cdots,\b u_{k-1})\right)\right|_{t=0}\\
+&amp;amp;=\left.\frac{\d}{\d t}\sum_{i_1,\cdots,i_{k-1}}\frac{\p^{k-1}f(\b x_0+t\b u_k)}{\p x_{i_{k-1}}\cdots\p x_{i_1}}\b u_{1,i_1}\cdots\b u_{k-1,i_{k-1}}\right|_{t=0}\\
+&amp;amp;=\sum_{i_1,\cdots,i_k}\frac{\p^kf(\b x_0)}{\p x_{i_k}\cdots\p x_{i_1}}\b u_{1,i_1}\cdots\b u_{k,i_k}
+}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;推导微分方程 $u_{tt}=u_{xx}$ 的解。&lt;/mark&gt;（6-17）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;简述求拉普拉斯算子在极坐标下表述的思路。&lt;/mark&gt;（6-25）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    我们要使用 $r$ 和 $\theta$ 表示 $u_x$ 和 $u_y$，这个东西如果直接用链式求导法则，会涉及到 $r$ 关于 $x$ 的偏导之类的，会比较麻烦。合适的方式是：
+    $$
+    \frac{\p u}{\p(r,\theta)}=\frac{\p u}{\p(x,y)}\frac{\p(x,y)}{\p(r,\theta)}
+    $$
+    这样之后，矩阵求逆反解出 $\p u/\p(x,y)$ 即可。&lt;br/&gt;
+    然后会得到 $\p_x$ 和 $\p_y$ 被 $\p_r$ 和 $\p_\theta$ 表示的式子，再作用一次即可。对于 $\p_{yy}$，可以将坐标系关于 $x=y$ 对称一下，直接从 $\p_{xx}$ 的表达式推得。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;偏导与积分交换的条件：求完偏导的函数中，求偏导的变量关于被积变量一致连续。（6-36）一个充分条件是，函数本身的偏导均连续。不可换序的反例：&lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/question/661186049&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.zhihu.com/question/661186049&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：多元函数 $f\in\mathscr{C}^r\Longrightarrow g=\int_tf(t)\d t\in\mathscr{C}^r$。&lt;/mark&gt;（6-37）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;不用定义证明变上下限积分的偏导。&lt;/mark&gt;（6-39）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    考虑把积分写成一个多元（中间变量）函数。&lt;br/&gt;
+    注意说明链索法则的使用条件。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于二重积分的换序，一个充分条件是被积函数是连续的。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明这种情况下可以换序。&lt;/mark&gt;（6-43）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    考虑利用上一个问题。注意偏导与积分可交换的条件。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;积分换序条件：Fubini 定理。&lt;a class=&#34;link&#34; href=&#34;https://wuli.wiki/online/Fubin0.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://wuli.wiki/online/Fubin0.html&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;泰勒展开推导。对于 $f\in\mathscr{C}^r$，我们考虑近似 $f(\b x_0+\b v)$。&lt;/p&gt;
+&lt;p&gt;根据一元泰勒展开，
+$$
+\eq{
+f(\b x_0+t\b v)&amp;amp;=\sum_{i=0}^{r-1}\frac{1}{i!}\left.\frac{\d^i}{\d t^i}f(\b x_0+t\b v)\right|_{t=0}t^i+\frac1{(r-1)!}\int_0^t\left.\frac{\d^r}{\d t^r}f(\b x_0+t\b v)\right|_{t=s}(t-s)^{r-1}\d s\\
+f(\b x_0+\b v)&amp;amp;=\sum_{i=0}^{r-1}\frac{1}{i!}\left.\frac{\d^i}{\d t^i}f(\b x_0+t\b v)\right|_{t=0}+\frac{1}{(r-1)!}\int_0^1\left.\frac{\d^r}{\d t^r}f(\b x_0+t\b v)\right|_{t=s}(1-s)^{r-1}\d s\\
+\text{(Integral)}&amp;amp;=\sum_{i=0}^{r-1}\frac{1}{i!}\sum_{j_1,\cdots,j_i}\frac{\p^i f}{\p x_{j_i}\cdots\p x_{j_1}}(\b x_0)\b v^{j_1}\cdots\b v^{j_i}+\frac{1}{(r-1)!}\int_0^1\sum_{j_1,\cdots,j_r}\frac{\p^r f}{\p x_{j_r}\cdots\p x_{j_1}}(\b x_0+s\b v)\b v^{j_1}\cdots\b v^{j_r}(1-s)^{r-1}\d s\\
+&amp;amp;=\sum_{i=0}^{r-1}\frac{1}{i!}\sum_{j_1,\cdots,j_i}\frac{\p^i f}{\p x_{j_i}\cdots\p x_{j_1}}(\b x_0)\b v^{j_1}\cdots\b v^{j_i}+\frac{1}{(r-1)!}\sum_{j_1,\cdots,j_r}\frac{\p^r f}{\p x_{j_r}\cdots\p x_{j_1}}(\b x_0+\theta\b v)\b v^{j_1}\cdots\b v^{j_r}\int_0^1(1-s)^{r-1}\d s\\
+\text{(Lagrange)}&amp;amp;=\sum_{i=0}^{r-1}\frac{1}{i!}\sum_{j_1,\cdots,j_i}\frac{\p^i f}{\p x_{j_i}\cdots\p x_{j_1}}(\b x_0)\b v^{j_1}\cdots\b v^{j_i}+\frac{1}{r!}\sum_{j_1,\cdots,j_r}\frac{\p^r f}{\p x_{j_r}\cdots\p x_{j_1}}(\b x_0+\theta\b v)\b v^{j_1}\cdots\b v^{j_r}\\
+&amp;amp;=\sum_{i=0}^{r}\frac{1}{i!}\sum_{j_1,\cdots,j_i}\frac{\p^i f}{\p x_{j_i}\cdots\p x_{j_1}}(\b x_0)\b v^{j_1}\cdots\b v^{j_i}+\frac{1}{r!}\sum_{j_1,\cdots,j_r}\left(\frac{\p^r f}{\p x_{j_r}\cdots\p x_{j_1}}(\b x_0+\theta\b v)-\frac{\p^r f}{\p x_{j_r}\cdots\p x_{j_1}}(\b x_0)\right)\b v^{j_1}\cdots\b v^{j_r}\\
+\text{(Peano)}&amp;amp;=\sum_{i=0}^{r-1}\frac{1}{i!}\sum_{j_1,\cdots,j_i}\frac{\p^i f}{\p x_{j_i}\cdots\p x_{j_1}}(\b x_0)\b v^{j_1}\cdots\b v^{j_i}+\omicron(\|\b v\|^r)
+}
+$$
+这里 Peano 余项是通过 $r$ 阶偏导的连续性得到（所以实际上 $r$ 阶可导的 Lagrange 余项，加上连续条件，就可以推出 $r+1$ 阶的 Peano 余项。这个上学期没提到）。&lt;/p&gt;
+&lt;p&gt;由于 $f\in\mathscr{C}^r$，故偏导的顺序无所谓。可以枚举每个自变量求了几次偏导，这样，
+$$
+\frac{1}{i!}\sum_{j_1,\cdots,j_i}\frac{\p^if}{\p x_{j_1}\cdots\p x_{j_i}}(\b x_0)\b v^{j_1}\cdots\b v^{j_i}=\sum_{\alpha_1+\cdots+\alpha_k=i}\frac{\p^if}{\alpha_1!\cdots\alpha_k!\p^{\alpha_1}x_1\cdots\p^{\alpha_k}x_k}(\b x_0)(\b v^1)^{\alpha_1}\cdots(\b v^k)^{\alpha_k}
+$$
+方便计算。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明：$f\in\mathscr{C}^r$ 在 Peano 余项形式的泰勒展开中的 $r$ 次多项式唯一。&lt;/mark&gt;（7-10）从而有更方便的分多步展开方法。&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    相减后通过一些简化的手段，变成单变量的情况。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;默写二元函数极值点的分类讨论，并基于泰勒公式证明。&lt;/mark&gt;（7-16）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;说明为什么非退化驻点附近的等高线是椭圆或双曲线。&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一个二元函数在某一点上，各个方向该点都是极小值点，该点不一定是极小值点。（7-23）&lt;/p&gt;
+&lt;p&gt;进一步地，甚至对于可微的函数，唯一的驻点是极值点，也不一定是最值点：&lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/a/3730294&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/a/3730294&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一些泰勒展开的套路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$f(x,y)=\left\{\begin{aligned}&amp;amp;\frac{1-\e^{x(x^2+y^2)}}{x^2+y^2},&amp;amp;(x,y)\ne(0,0)\\ &amp;amp;0,&amp;amp;(x,y)=(0,0)\end{aligned}\right.$&lt;/li&gt;
+&lt;li&gt;$f(x,y)=\sin(xy)\e^{x+y}$&lt;/li&gt;
+&lt;li&gt;$f(x,y)=\arctan\frac{1+x+y}{1-x+y}$&lt;/li&gt;
+&lt;li&gt;$f(x,y)=x^y((x,y)\to(1,0))$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hesse 矩阵在 $f$ 不二阶连续时，$(H_f)_{i,j}=f_{i,j}$，先对 $i$ 元求偏导。&lt;mark&gt;存疑&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关于多元函数极值的推导（7-14~7-18）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;从方向导数的角度描述驻点的必要条件，并写成代数语言。&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;为什么二阶部分不退化时，Hesse 矩阵的性质是极值点的充要条件？&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出极大、极小、鞍点的 Hesse 矩阵等价表述。&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明正定与顺序主子式 $&amp;gt;0$ 的等价性。&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    &lt;a href=&#34;https://zhuanlan.zhihu.com/p/410049589&#34;&gt;https://zhuanlan.zhihu.com/p/410049589&lt;/a&gt;
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;用数学语言说明：沿梯度反方向能走到极小值点。进一步说明为什么不太可能走到鞍点，或者说极小值是吸引不动点。进一步给出吸引的速度。&lt;/mark&gt;（7-34、8-16、8-17）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;共轭梯度法的思路：延续最速下降法的二次截断解极值点，然后只改方向——改为反伸缩时的正交方向。如果有多维，正交方向取负梯度被已有向量 Gram-Schmidt $H_f$-正交化后的结果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;说明牛顿迭代法是二阶收敛的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;再次强调凸是向下凸，凹是向上凸。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多元函数的凸性和任意线段上的凸性是等价的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明 $\mathscr{C}^2$ 函数在非退化极小值点的一个凸邻域内是严格凸函数。&lt;/mark&gt;（9-9）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明 $\mathscr{C}^2$ 函数是凸的 $\Longleftrightarrow$ $H$ 处处半正定；$H$ 处处正定 $\Longrightarrow$ 严格凸。&lt;/mark&gt;（9-10）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明凸函数的驻点是最小值点，以及严格凸 $\Longrightarrow$ 最小值点唯一。&lt;/mark&gt;（9-12）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 Legendre 变换的定义，用 $f$、$\nabla f$ 及其反函数表示 $f^*$。&lt;/mark&gt;（9-15~9-17）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Legendre 变换是对合的。&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;证明（deepseek）&lt;/summary&gt;
+    Legendre 变换在多元情形下的对合性证明如下：设 $ f(\mathbf{x}) $ 为严格凸且二阶连续可导的 $ n $ 元函数，其 Legendre 变换定义为&lt;br/&gt;
+    $$
+    g(\mathbf{p}) = \sup_{\mathbf{x}} \left[ \mathbf{p} \cdot \mathbf{x} - f(\mathbf{x}) \right],
+    $$
+    其中 $\mathbf{p} = \nabla f(\mathbf{x})$ （梯度）。由严格凸性，Hessian 矩阵 $\nabla^2 f(\mathbf{x})$ 正定，故 $\mathbf{x}$ 与 $\mathbf{p}$ 一一对应，记 $\mathbf{x} = \mathbf{x}(\mathbf{p})$ ，则 $ g(\mathbf{p}) = \mathbf{p} \cdot \mathbf{x}(\mathbf{p}) - f(\mathbf{x}(\mathbf{p})) $ 。&lt;br/&gt;
+    对 $ g(\mathbf{p}) $ 再次应用 Legendre 变换，得到&lt;br/&gt;
+    $$
+    h(\mathbf{y}) = \sup_{\mathbf{p}} \left[ \mathbf{y} \cdot \mathbf{p} - g(\mathbf{p}) \right].
+    $$
+    计算 $ g(\mathbf{p}) $ 的梯度：&lt;br/&gt;
+    $$
+    \nabla g(\mathbf{p}) = \mathbf{x}(\mathbf{p}) + \left[ \mathbf{p} \cdot \nabla_{\mathbf{p}} \mathbf{x}(\mathbf{p}) - \nabla f(\mathbf{x}(\mathbf{p})) \cdot \nabla_{\mathbf{p}} \mathbf{x}(\mathbf{p}) \right].
+    $$
+    由于 $\mathbf{p} = \nabla f(\mathbf{x}(\mathbf{p}))$ ，第二项抵消，得 $\nabla g(\mathbf{p}) = \mathbf{x}(\mathbf{p})$ ，即 $\mathbf{y} = \nabla g(\mathbf{p}) = \mathbf{x}(\mathbf{p})$ ，故 $\mathbf{p} = \mathbf{p}(\mathbf{y})$ 为 $\mathbf{y} = \mathbf{x}(\mathbf{p})$ 的逆映射。&lt;br/&gt;
+    将 $ g(\mathbf{p}) = \mathbf{p} \cdot \mathbf{x}(\mathbf{p}) - f(\mathbf{x}(\mathbf{p})) $ 代入 $ h(\mathbf{y}) $ ，得&lt;br/&gt;
+    $$
+    h(\mathbf{y}) = \mathbf{y} \cdot \mathbf{p}(\mathbf{y}) - \left[ \mathbf{p}(\mathbf{y}) \cdot \mathbf{y} - f(\mathbf{y}) \right] = f(\mathbf{y}).
+    $$
+    因此，两次 Legendre 变换后恢复原函数，即 $ h(\mathbf{y}) = f(\mathbf{y}) $ ，证毕。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Young 不等式：$x^\alpha/\alpha+x^\beta/\beta\ge xy\;(x,y&amp;gt;0)$，$1/\alpha+1/\beta=1$，当且仅当 $x=y^{1/(\alpha-1)}$ 时取等。（9-19）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;隐函数相关&#34;&gt;隐函数相关
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;隐函数定理：$\mathscr{C}^r\ni F:\R^m\times\R^n\to\R^n$ 写成 $F(\b x,\b y)$，$\b x\in\R^m$，$\b y\in\R^n$。已知 $F(\b x_0,\b y_0)=\b 0$ 且 $\J_{\b y}F(\b x_0,\b y_0)$ 可逆，那么存在 $\b x_0$ 的一个邻域 $U$ 及 $\b y_0$ 的一个邻域 $V$，存在 $\mathscr{C}^r\ni g:U\to V$，使得邻域内 $F(\b x,\b y)=0\Longleftrightarrow g(\b x)=\b y$。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明：&lt;/mark&gt;（10-9~10-20）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当 $n=1$ 时（记 $\b y$ 为 $y$，$F$ 为 $f$），存在 $U$、$V$，使得 $\b x\in U$ 时有唯一零点 $y(\b x)\in V$。&lt;/li&gt;
+&lt;li&gt;这样的 $y(\b x)$ 连续。&lt;/li&gt;
+&lt;li&gt;这样的 $y(\b x)$ 可微。&lt;/li&gt;
+&lt;li&gt;$\J y(\b x)=\dfrac{\J_{\b x}f(\b x,y(\b x))}{f_y(\b x,y(\b x))}$，其中上下两个偏导都是对 $f$ 的变量求导而不是对整个复合函数求导。&lt;/li&gt;
+&lt;li&gt;当 $n&amp;gt;1$ 时结论也成立，且构造得到的 $G\in\mathscr{C}^r$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    1. 利用 $\mathscr{C}^1$ 连续性，介值定理。只需 bound 在两个界之间。
+    2. 增加 $y$ 的邻域限制。
+    3. 先构造 4 中的这个结果，然后考虑直接证可微的定义。利用 $\mathscr{C}^1$，再进行一些移项，反解出 $y(\b x)-y_0$ 的界。
+    4. 链索法则。
+    5. 通过乘上 $\left[\J_{\b y}F(\b x_0,\b y_0)\right]^{-1}$，将 Jacobi 矩阵变成 $I_n$。这样一来可以直接确定 $y$ 的第 $n$ 个分量，依赖于 $\b x$ 以及前 $n-1$ 个分量。归纳。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意隐函数定理的逆命题不一定成立。例如 $\sqrt[3]x$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;逆映射定理：$\mathscr{C}^r\ni H:\R^n\to\R^n$，若 $\b y_0=H(\b x_0)$ 且 $\J H(\b x_0)$ 可逆，则在 $\b x_0$ 的小邻域内，$\b x$ 可以写成关于 $\b y$ 的 $\mathscr{C}^r$ 函数。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;证明隐函数定理和逆映射定理等价。&lt;/mark&gt;（10-21~10-22）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;整体微分同胚定理：$U$ 是 $\R^n$ 的开集。$\mathscr{C}^r\ni F:U\to\R^n$。$F$ 是同胚 $\Longleftrightarrow$ $F$ 单，且 $\D F$ 处处可逆。&lt;/p&gt;
+&lt;p&gt;这个定理的意思大概说的是，如果处处存在连续逆映射，那么整体就存在。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 $x^3+ax^2+bx-1=0$ 的解的近似表达式（$a\to 0$ 且 $b\to 0$）。&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 $n$ 维空间中 $m$ 维 $\mathscr{C}^r$ 曲面的定义。&lt;/mark&gt;（11-6）&lt;mark&gt;$\set{(x,y,z)\mid x,y\ge 0\land z=x+y}$ 是二维曲面吗？$\set{(x,y,z)\mid |x|=|y|}$ 呢？&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    不是，$x=0$ 处没法取邻域；不是，$x=y=0$ 处没法写成函数。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\Sigma=\set{\b x\mid \b x_1^2+\cdots+\b x_n^2=1}\subset\R^n$ 是一个 $n-1$ 维球面。这个说法的证明是，每一处一定存在一个非零的 $\b x_i$，这个 $\b x_i$ 可以写成关于其他量的根式。&lt;br&gt;
+&lt;mark&gt;证明若 $F:\R^n\to\R$，$F^{-1}(0)$ 非空且不含 $F$ 的驻点，则它为一个 $n-1$ 维曲面。&lt;/mark&gt;（11-10）&lt;mark&gt;推广到多个限制的情况。&lt;/mark&gt;（11-11）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出并证明参数曲面相应的命题。&lt;/mark&gt;（11-15）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意以上所有命题都要在开集上——隐函数的 $F$、参数方程中的 $f_i$ 都要定义在开集上。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;当 $\left(\sqrt{x^2+y^2}-R\right)^2+z^2=r^2$ 在 $r\ge R&amp;gt;1$ 时不再是个曲面。之前用隐函数和参数化对其的证明在哪里出了问题？&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    隐函数：$F$ 在 $x=y=0$ 不可微；参数化：不是单射。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于参数化曲面 $\b x(\b t)$，证明 $\span\J\b x(\b t_0)$ 恰好是所有过 $\b t_0$ 的曲线的切向量。思路是：每个向量都是切向量——构造 $\b t$ 各分量的线性组合（直线），然后代入 $\b x$；每个切向量都是向量——对于一个以另一个 $s$ 参数化的曲线，先把它写成一部分 $\b x$ 分量关于另一部分（一个）$\b x$ 分量的表达式，再根据后一部分 $\b x$ 和 $\b t$ 的可逆关系得出 $\b t$。现在就得到 $\b t$ 关于 $s$ 的表达式，再对 $\b x(\b t(s))$ 求导。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参数化曲面的切平面方程：$\b x=\b x(\b t_0)+\span\Set{\frac{\p\b x}{\p t_1}(\b t_0),\cdots,\frac{\p\b x}{\p t_n}(\b t_0)}$，即（可以理解为 $\b x$ 的一阶泰勒展开）
+$$
+\b x-\b x_0=(\J\b x)\b t\quad\text{i.e.}\quad\left\{\begin{aligned}x-x_0&amp;amp;=\lambda\frac{\p x}{\p u}+\mu\frac{\p x}{\p v}+\cdots\\ y-y_0&amp;amp;=\lambda\frac{\p y}{\p u}+\mu\frac{\p y}{\p v}+\cdots\\ \vdots\end{aligned}\right.
+$$
+隐函数曲面的切平面方程：考虑任意一条曲线 $F(\b x(t))=0\Rightarrow\sum F_i\frac{\p\b x_i}{\p t}=0$，即 $\nabla F\cdot\Delta\b x=0$。对于多个限制（可以理解为 $F$ 的一阶泰勒展开等于零）
+$$
+(\J F)(\b x-\b x_0)=0\quad\text{i.e.}\quad\left\{\begin{aligned}\frac{\p F_1}{\p x}(x-x_0)+\frac{\p F_1}{\p y}(y-y_0)+\cdots&amp;amp;=0\\ \frac{\p F_2}{\p x}(x-x_0)+\frac{\p F_2}{\p y}(y-y_0)+\cdots&amp;amp;=0\\ \vdots\end{aligned}\right.
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;条件极值（$\min F(\b x)\text{ s.t. } \b g(\b x)=\b 0$）的思路：其实很简单。就是要求梯度向量在约束曲面上的投影为 $\b 0$，也就相当于梯度向量在约束曲面的切空间上投影为 $\b 0$，即 $\nabla F$ 可以表示为切空间的法向量，即 $\set{\nabla\b g_i}$ 的线性组合。即
+$$
+\frac{\p}{\p x_i}\left(F(\b x)-\sum_{j=1}^n\lambda_jg_j(\b x)\right)=0
+$$
+对于定义域无限的情况，需要考虑无穷远处；否则需要考虑边界。一般处理都是说，当 $\|\b x\|&amp;gt;C$ 时 $F(\b x)$ 肯定过大。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;条件极值的充分条件：$\mathcal{L}(\b x)=F(\b x)-\b\lambda\cdot\b g(\b x)$，在其驻点，如果固定 $\b\lambda$ 后关于 $\b x$ 的 $H_{\mathcal{L}}$ 在约束曲面的切空间上正定，那么 $\b x$ 就是极小值点。&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;证明（deepseek）&lt;/summary&gt;
+    在多元条件极值问题中，若拉格朗日函数 $ L(x, \lambda) = F(x) - \lambda \cdot g(x) $ 在驻点处关于 $ x $ 的 Hessian 矩阵限制在约束曲面的切空间上正定，则 $ F(x) $ 在该点处取得局部极小值。以下是严格证明：&lt;br/&gt;
+    &lt;b&gt;步骤 1：设定与隐函数定理的应用&lt;/b&gt;&lt;br/&gt;
+    设 $ x^* $ 是满足 $ g(x^*) = 0 $ 的可行点，且存在 $ \lambda^* $ 使得 $ \nabla_x L(x^*, \lambda^*) = 0 $。根据隐函数定理，若 $ g $ 关于后 $ n $ 个变量的 Jacobian 矩阵 $ J_v g(x^*) $ 非奇异，则存在局部参数化 $ v = G(u) $，其中 $ u \in \mathbb{R}^m $ 为前 $ m $ 个变量，$ v \in \mathbb{R}^n $ 为后 $ n $ 个变量，使得 $ g(u, G(u)) = 0 $。&lt;br/&gt;
+    &lt;b&gt;步骤 2：参数化目标函数&lt;/b&gt;&lt;br/&gt;
+    将约束问题转化为无约束优化问题，定义参数化函数：
+    $$
+    f(u) = F(u, G(u)).
+    $$
+    目标转化为证明 $ u^* $ 是 $ f(u) $ 的局部极小点，对应 $ x^* = (u^*, G(u^*)) $。&lt;br/&gt;
+    &lt;b&gt;步骤 3：一阶条件&lt;/b&gt;&lt;br/&gt;
+    由隐函数定理，参数化后的梯度为：
+    $$
+    \nabla f(u) = \nabla_u F + \nabla_v F \cdot DG(u),
+    $$
+    其中 $ DG(u) = -[J_v g]^{-1} J_u g $。在驻点 $ x^* $，由于 $ \nabla_x L = 0 $，即：
+    $$
+    \nabla F(x^*) = \lambda^{*T} J_g(x^*),
+    $$
+    代入 $ J_g = [J_u g, J_v g] $，可得 $ \nabla_u F = \lambda^{*T} J_u g $ 和 $ \nabla_v F = \lambda^{*T} J_v g $。由此验证：
+    $$
+    \nabla f(u^*) = \lambda^{*T} J_u g + \lambda^{*T} J_v g \cdot (-[J_v g]^{-1} J_u g) = 0,
+    $$
+    即 $ u^* $ 是 $ f(u) $ 的临界点。&lt;br/&gt;
+    &lt;b&gt;步骤 4：二阶条件与 Hessian 分析&lt;/b&gt;&lt;br/&gt;
+    计算 $ f(u) $ 的二阶导数：
+    $$
+    H_f(u^*) = \nabla_{uu}^2 F + \nabla_{uv}^2 F \cdot DG + DG^T \cdot \nabla_{vu}^2 F + DG^T \cdot \nabla_{vv}^2 F \cdot DG + \nabla_v F \cdot D^2 G(u^*).
+    $$
+    其中 $ D^2 G(u^*) $ 由隐函数定理的二阶展开确定：
+    $$
+    D^2 G = -[J_v g]^{-1} \left( \nabla_{uu}^2 g + 2 \nabla_{uv}^2 g \cdot DG + DG^T \cdot \nabla_{vv}^2 g \cdot DG \right).
+    $$
+    代入 $ \nabla_v F = \lambda^{*T} J_v g $，可得：
+    $$
+    \nabla_v F \cdot D^2 G = -\lambda^{*T} \left( \nabla_{uu}^2 g + 2 \nabla_{uv}^2 g \cdot DG + DG^T \cdot \nabla_{vv}^2 g \cdot DG \right).
+    $$
+    因此，$ H_f(u^*) $ 可整理为：
+    $$
+    H_f(u^*) = \left[ \nabla_{xx}^2 F - \lambda^{*T} \nabla_{xx}^2 g \right] \bigg|_{\text{切空间}}.
+    $$
+    这恰好是拉格朗日函数 $ L $ 的 Hessian $ \nabla_{xx}^2 L(x^*, \lambda^*) $ 在切空间上的投影。&lt;br/&gt;
+    &lt;b&gt;步骤 5：正定性结论&lt;/b&gt;&lt;br/&gt;
+    若 $ \nabla_{xx}^2 L(x^*, \lambda^*) $ 在切空间上正定，则 $ H_f(u^*) $ 正定，故 $ u^* $ 是 $ f(u) $ 的严格局部极小点，对应 $ x^* $ 为 $ F(x) $ 在约束 $ g(x) = 0 $ 下的严格局部极小点。&lt;br/&gt;
+    &lt;b&gt;结论&lt;/b&gt;&lt;br/&gt;
+    当拉格朗日函数 $ L(x, \lambda) $ 在驻点处的 Hessian 矩阵限制于约束曲面的切空间上正定时，原函数 $ F(x) $ 在该点取得局部极小值。这由二阶充分条件保证，其核心在于参数化后的无约束问题中，Hessian 的正定性与拉格朗日 Hessian 的投影正定性一致。
+    &lt;hr&gt;
+    （详细步骤解释）在约束优化问题中，关键是将带约束的优化转化为无约束优化，并分析参数化后函数的二阶导数。下面详细解释为什么参数化后的Hessian矩阵 $ H_f(u^*) $ 等于拉格朗日函数Hessian在切空间上的投影。
+    &lt;hr&gt;
+    &lt;b&gt;1. 参数化函数的二阶导数&lt;/b&gt;&lt;br/&gt;
+    设约束曲面 $ g(x) = 0 $ 在 $ x^* = (u^*, v^*) $ 附近局部可表示为 $ v = G(u) $，其中 $ u \in \mathbb{R}^m $，$ v \in \mathbb{R}^n $。参数化目标函数为：
+    $$
+    f(u) = F(u, G(u)).
+    $$
+    其Hessian矩阵 $ H_f(u) $ 的完整表达式为：
+    $$
+    H_f(u) = \underbrace{\nabla_{uu}^2 F}_{\text{直接项}} + \underbrace{\nabla_{uv}^2 F \cdot DG + DG^T \cdot \nabla_{vu}^2 F}_{\text{交叉项}} + \underbrace{DG^T \cdot \nabla_{vv}^2 F \cdot DG}_{\text{二次项}} + \underbrace{\nabla_v F \cdot D^2 G}_{\text{隐函数二阶项}}.
+    $$
+    其中 $ DG = \frac{\partial G}{\partial u} $，$ D^2 G $ 为 $ G $ 的二阶导数。
+    &lt;hr&gt;
+    &lt;b&gt;2. 隐函数定理的二阶导数公式&lt;/b&gt;&lt;br/&gt;
+    由于 $ g(u, G(u)) = 0 $，对两边求导可得：
+    $$
+    \nabla_u g + \nabla_v g \cdot DG = 0 \implies DG = -[\nabla_v g]^{-1} \nabla_u g.
+    $$
+    进一步对 $ u $ 求导，得到 $ D^2 G $：
+    $$
+    D^2 G = -[\nabla_v g]^{-1} \left( \nabla_{uu}^2 g + \nabla_{uv}^2 g \cdot DG + DG^T \cdot \nabla_{vu}^2 g + DG^T \cdot \nabla_{vv}^2 g \cdot DG \right).
+    $$
+    注意这里用到了链式法则和隐函数定理的二阶展开。
+    &lt;hr&gt;
+    &lt;b&gt;3. 代入拉格朗日条件&lt;/b&gt;&lt;br/&gt;
+    在驻点 $ x^* $，一阶条件为：
+    $$
+    \nabla_x L = \nabla F - \lambda^* \nabla g = 0 \implies \nabla F = \lambda^* \nabla g.
+    $$
+    具体分块为：
+    $$
+    \nabla_u F = \lambda^* \nabla_u g, \quad \nabla_v F = \lambda^* \nabla_v g.
+    $$
+    利用这一关系，我们可以将参数化Hessian中的 $ \nabla_v F \cdot D^2 G $ 项替换为 $ \lambda^* \nabla_v g \cdot D^2 G $。
+    &lt;hr&gt;
+    &lt;b&gt;4. 显式展开参数化Hessian&lt;/b&gt;&lt;br/&gt;
+    将 $ D^2 G $ 的表达式代入 $ H_f(u^*) $，并利用一阶条件：
+    $$
+    \nabla_v F \cdot D^2 G = -\lambda^* \left( \nabla_{uu}^2 g + 2 \nabla_{uv}^2 g \cdot DG + DG^T \cdot \nabla_{vv}^2 g \cdot DG \right).
+    $$
+    因此，参数化Hessian可写为：
+    $$
+    H_f(u^*) = \nabla_{uu}^2 F + 2 \nabla_{uv}^2 F \cdot DG + DG^T \cdot \nabla_{vv}^2 F \cdot DG - \lambda^* \left( \nabla_{uu}^2 g + 2 \nabla_{uv}^2 g \cdot DG + DG^T \cdot \nabla_{vv}^2 g \cdot DG \right).
+    $$
+    观察到：
+    $$
+    H_f(u^*) = \left[ \nabla_{uu}^2 F + 2 \nabla_{uv}^2 F \cdot DG + DG^T \cdot \nabla_{vv}^2 F \cdot DG \right] - \lambda^* \left[ \nabla_{uu}^2 g + 2 \nabla_{uv}^2 g \cdot DG + DG^T \cdot \nabla_{vv}^2 g \cdot DG \right].
+    $$
+    这正是：
+    $$
+    H_f(u^*) = \left[ \nabla_{xx}^2 F - \lambda^* \nabla_{xx}^2 g \right] \bigg|_{(u, G(u))} \text{在切空间上的投影}.
+    $$
+    &lt;hr&gt;
+    &lt;b&gt;5. 切空间与Hessian投影&lt;/b&gt;&lt;br/&gt;
+    &lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;切空间定义&lt;/b&gt;：约束曲面 $ g(x) = 0 $ 在 $ x^* $ 处的切空间由满足 $ \nabla g(x^*) \cdot h = 0 $ 的向量 $ h \in \mathbb{R}^{m+n} $ 构成。&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;参数化切向量&lt;/b&gt;：在参数化 $ x = (u, G(u)) $ 下，切向量可表示为 $ h = (du, DG \cdot du) $，其中 $ du \in \mathbb{R}^m $。&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;Hessian的作用&lt;/b&gt;：对任意切向量 $ h $，有：
+    $$
+    h^T \cdot \nabla_{xx}^2 L \cdot h = h^T \cdot (\nabla_{xx}^2 F - \lambda^* \nabla_{xx}^2 g) \cdot h.
+    $$
+    这正是参数化Hessian $ H_f(u^*) $ 的作用方式。&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;hr&gt;
+    &lt;b&gt;6. 关键结论&lt;/b&gt;&lt;br/&gt;
+    参数化后的Hessian $ H_f(u^*) $ 与拉格朗日Hessian $ \nabla_{xx}^2 L $ 在切空间上的投影完全一致。因此：&lt;br/&gt;
+    - 若 $ \nabla_{xx}^2 L $ 在切空间上正定，则 $ H_f(u^*) $ 正定。
+    - 由无约束优化的二阶充分条件，$ u^* $ 是 $ f(u) $ 的严格局部极小点，对应 $ x^* $ 为原问题的严格局部极小点。
+    &lt;hr&gt;
+    &lt;b&gt;总结图示&lt;/b&gt;
+    $$
+    \boxed{
+    \begin{aligned}
+    &amp;\text{参数化Hessian } H_f(u^*) \\\ 
+    &amp;= \text{拉格朗日Hessian } \nabla_{xx}^2 L \text{ 在切空间上的投影} \\\ 
+    &amp;= \left[ \nabla_{xx}^2 F - \lambda^* \nabla_{xx}^2 g \right] \bigg|_{\text{切向量 } h = (du, DG \cdot du)}.
+    \end{aligned}
+    }
+    $$
+&lt;/details&gt;
+&lt;p&gt;这里有另一个问题是，既然已知“$\mathcal{L}$ 在某个驻点处关于 $\b x$ 的 Hessian 局限在该点约束曲面的切空间上正定，则对应 $F(\b x)$ 是约束曲面上的极小值点”，那么是否有“$F(\b x)$ 在 $\cal L$ 驻点对应的 $\b x$ 处的 Hessian 局限在该点约束曲面的切空间上正定，则对应 $F(\b x)$ 是约束曲面上的极小值点”？&lt;/p&gt;
+&lt;p&gt;答案应该是否定的，具体反例不太会构造。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;广义含参积分&#34;&gt;广义含参积分
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;几个换序定理的条件（继累次极限交换以及 Clairaut）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$f$ 连续，$g(\b x)=\int_a^bf(t,\b x)\d t$，则 $g$ 连续。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$f_{x_i}$ 连续，$g(\b x)=\int_a^bf(t,\b x)\d t$，则 $g_{x_i}(\b x)=\int_a^bf_{x_i}(t,\b x)\d t$ 且连续。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$f$ 连续，则 $\int_c^d\int_a^bf(t,x)\d t\d x=\int_a^b\int_c^df(t,x)\d x\d t$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$f$ 连续，$g(\b x)=\int_a^\omega f(t,\b x)\d t$ 一致收敛，则 $g$ 连续。&lt;/p&gt;
+&lt;p&gt;用连续的定义，将 $\int_a^\omega f(t,\b x)\d t-\int_a^\omega f(t,\b x_0)\d t$ 拆成 $\int_a^b(f(t,\b x)-f(t,\b x_0))\d t$、$\int_b^\omega f(t,\b x_0)\d t$、$\int_b^\omega f(t,\b x)\d t$ 三部分放缩。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$f$ 连续，$\int_a^\omega f(t,x)\d t$ 一致收敛，则 $\int_c^d\int_a^\omega f(t,x)\d t\d x=\int_a^\omega\int_c^df(t,x)\d x\d t$。&lt;/p&gt;
+&lt;p&gt;$\int_c^d\int_a^\omega\gets\int_c^d\int_a^b=\int_a^b\int_c^d\to\int_a^\omega\int_c^d$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$f_{x_i}$ 连续，$g(\b x)=\int_a^\omega f(t,\b x)\d t$（某单点）收敛，$\int_a^\omega f_{x_i}(t,\b x)\d t$ 一致收敛，则 $g_{x_i}(\b x)=\int_a^\omega f_{x_i}(t,\b x)\d t$ 且连续。&lt;/p&gt;
+&lt;p&gt;用定义拆导数，$f(t,\b x+s\b e_i)-f(t,\b x)$ 写成积分，用 5 换序。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;叙述广义积分的一致 Cauchy 条件，并证明 Weierstrass 判别法。&lt;/mark&gt;（14-20~14-22）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;说明含参积分不一致收敛的几个方法：定义的否命题、一致 Cauchy 条件的否命题、一致收敛 $\Rightarrow$ 连续的逆否命题。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关于几个一致收敛判别法的对比（严格证明：&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/700675944&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/700675944&lt;/a&gt;）：&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;展开&lt;/summary&gt;
+    1. &lt;b&gt;Cauchy 准则（引理）&lt;/b&gt;&lt;br/&gt;
+       &lt;b&gt;定理&lt;/b&gt;：$\int_a^{+\infty} f(x) \d x $ 收敛 $\Longleftrightarrow$ $\forall \epsilon &gt; 0$，$\exists N &gt; a $，$\forall b, c &gt; N $，$\left| \int_b^c f(x) \d x \right| &lt; \epsilon $。&lt;br/&gt;
+       &lt;b&gt;一致版本&lt;/b&gt;：$\int_a^{+\infty} f(x, \theta) \d x $ 对 $\theta$ 一致收敛 $\Longleftrightarrow$ $\forall \epsilon &gt; 0$，$\exists N &gt; a $，$\forall b, c &gt; N $，$\forall\theta$，$\left| \int_b^c f(x, \theta) \d x \right| &lt; \epsilon $。&lt;br/&gt;
+    2. &lt;b&gt;比较判别法。&lt;/b&gt;&lt;br/&gt;
+       &lt;b&gt;定理&lt;/b&gt;：若 $ |f(x)| \leq M(x) $ 且 $\int_a^{+\infty} M(x) \d x $ 收敛，则 $\int_a^{+\infty} f(x) \d x $ 绝对收敛。&lt;br/&gt;
+       &lt;b&gt;证明&lt;/b&gt;：对任意 $ b &gt; a $，有 $\int_a^b |f(x)| \d x \leq \int_a^b M(x) \d x \leq \int_a^{+\infty} M(x) \d x $，故 $\int_a^{+\infty} |f(x)| \d x $ 收敛。&lt;br/&gt;
+       &lt;b&gt;一致版本（Weierstrass 判别法）&lt;/b&gt;：若 $ |f(x, \theta)| \leq M(x,\theta) $ 且 $\int_a^{+\infty} M(x,\theta)\d x $ 对 $\theta$ 一致收敛，则 $\int_a^{+\infty} f(x, \theta)\d x $ 对 $\theta$ 一致收敛。&lt;br/&gt;
+       &lt;b&gt;证明&lt;/b&gt;：由一致收敛的 Cauchy 准则，$\forall\epsilon &gt; 0$，$\exists N &gt; a $，$\forall b, c &gt; N $，$\forall \theta$，$\int_b^c M(x,\theta) \d x &lt; \epsilon $。从而 $\left| \int_b^c f(x, \theta) \d x \right| \leq \int_b^c |f(x, \theta)| \d x \leq \int_b^c M(x,\theta) \d x &lt; \epsilon $，与 $\theta$ 无关。&lt;br/&gt;
+    3. &lt;b&gt;Dirichlet 判别法&lt;/b&gt;&lt;br/&gt;
+       &lt;b&gt;定理&lt;/b&gt;：设 $ f(x) $ 和 $ g(x) $ 满足 $ F(b) = \int_a^b f(x) \d x $ 有界，$g(x)$ 单调且 $\to 0$，则 $\int_a^{+\infty} f(x)g(x) \d x $ 收敛。&lt;br/&gt;
+       &lt;b&gt;证明&lt;/b&gt;：分部积分得：$\int_a^b f(x)g(x) \d x = F(b)g(b) - F(a)g(a)-\int_a^b F(x)g^\prime(x) \d x $。当 $ b \to +\infty $，第一项 $ F(b)g(b) \to 0 $（因 $ g(b) \to 0 $），第二项因 $ |F(x)| \leq C $ 且 $ \int_a^{+\infty} g^\prime(x) \d x=-g(a)$，故绝对收敛。&lt;br/&gt;
+       &lt;b&gt;一致版本&lt;/b&gt;：设 $ f(x, \theta) $ 和 $ g(x, \theta) $ 满足 $F(b,\theta)=\int_a^b f(x, \theta) \d x $ 对 $\theta$ 一致有界，$ g(x, \theta) $ 关于 $ x $ 单调且 $ g(x, \theta) \to 0 $ 对 $\theta$ 一致收敛，则 $\int_a^{+\infty} f(x, \theta)g(x, \theta) \d x $ 一致收敛。&lt;br/&gt;
+       &lt;b&gt;证明&lt;/b&gt;：$F(b,\theta)g(b,\theta)$ 是一致有界乘一致收敛，所以一致收敛；$\int_a^bF(x,\theta)g^\prime(x,\theta)\d x$ 把 $F$ 提出来也是一致有界乘一致收敛。&lt;br/&gt;
+    4. &lt;b&gt;Abel 判别法&lt;/b&gt;&lt;br/&gt;
+       &lt;b&gt;定理&lt;/b&gt;：设 $ f(x) $ 和 $ g(x) $ 满足 $\int_a^{+\infty} f(x) \d x $ 收敛，$ g(x) $ 单调有界，则 $\int_a^{+\infty} f(x)g(x) \d x $ 收敛。&lt;br/&gt;
+       &lt;b&gt;证明&lt;/b&gt;：$\int_a^{+\infty}f(x)g(x)\d x=g(+\infty)\int_a^{+\infty}f(x)\d x+\int_a^{+\infty}f(x)(g(x)-g(+\infty))\d x$，第一部分收敛，第二部分由 Dirichlet 判别法收敛。&lt;br/&gt;
+       &lt;b&gt;一致版本&lt;/b&gt;：设 $ f(x, \theta) $ 和 $ g(x, \theta) $ 满足 $\int_a^{+\infty} f(x, \theta) \d x $ 对 $\theta$ 一致收敛，$ g(x, \theta) $ 关于 $ x $ 单调且对 $\theta$ 一致有界，则 $\int_a^{+\infty} f(x, \theta)g(x, \theta) \d x $ 对 $\theta$ 一致收敛。&lt;br/&gt;
+       &lt;b&gt;证明&lt;/b&gt;：$g(+\infty,\theta)\int_a^{+\infty}f(x,\theta)\d x$ 是一致有界乘一致收敛，后面是一样的。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;重积分&#34;&gt;重积分
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;高维矩形 $I$ 上的 Lebesgue 准则：$f$ Riemann 可积 $\Longleftrightarrow$ $f$ 有界且 Darboux 可积 $\Longleftrightarrow$ $f$ 有界且间断点测度为零。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;写出高维情况下，零测度的定义。&lt;/mark&gt;（15-12）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：对 $I=[a,b]\times[\alpha,\beta]$ 上的连续函数 $f$，&lt;/mark&gt;（15-13）
+$$
+\iint_I f(x,y)\d x\d y=\int_a^b\int_\alpha^\beta f(x,y)\d y\d x=\int_\alpha^\beta\int_a^b f(x,y)\d x\d y
+$$&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    将重积分写成
+    $$\lim\sum_{i,j}f(\xi_{i,j},\eta_{i,j})\Delta x_i\Delta y_j$$
+    的形式，然后利用 $\sum$ 的交换律得到后两种积分。
+&lt;/details&gt;
+&lt;p&gt;一般情况（Fubini 定理）：&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/695338328&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/695338328&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/668687961&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/668687961&lt;/a&gt;。这里值得注意的点是，广义积分的情况要求绝对可积。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：$\p A$ 是闭的。&lt;/mark&gt;（15-23）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于一般区域 $A$ 上的积分，是通过乘上示性函数，转化为矩形上的积分来定义的。如果有界 $f:A\to\R$ 的间断点为零测集，且 $\p A$ 为零测集，则 $\int_A f\d x$ 有定义。（15-24）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;通过换元的方式，将以下积分变成 $[0,1]^3$上的积分：&lt;/mark&gt;（15-34）
+$$
+\iiint_{x,y,z\ge 0,\|(x,y,z)\|\le 1}xyz\d x\d y\d z
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;理一下重积分换元的逻辑：假设有一个映射（微分同胚）$f:U\to V$，那么一个小区域 $I$ 经过 $f$ 映射后，体积变为 $\lvert\det\J f\rvert$ 倍。这意味着，在 $V$ 中的区域的积分 $\int_V w(\b x)\d v$，如果要换到 $U$ 中，就需要逐点乘上这个伸缩倍数，也就是 $\int_U w(f(\b t))\lvert\det\J f(\b t)\rvert\d v$。换句话说，这个换元的逻辑关系是逆过来的，或者说可以记忆为，重积分换元的标准形式是第二类换元法，其中 $f^\prime(t)$ 变为了 $\lvert\det\J\rvert$。如果要用第一类换元法，就是把同胚逆过来，用第二类换元法。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;给出以下重积分的换元，使得区域变为矩形：&lt;/mark&gt;（16-21）
+$$
+\iint_{(x^2-y^2,2xy)\in[a,b]\times[\alpha,\beta]}f(x,y)\d x\d y
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;求 $\iint_D(x^2+y^2+1)^{-2}\d x\d y$，其中 $D$ 为圆心在 $(1,1)$ 且经过原点的圆盘。&lt;/mark&gt;（16-26）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;计算 $\int_{[0,1]^m}\min\set{x_1,\cdots,x_n}\d x_1\cdots\d x_n$。&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;曲线曲面积分&#34;&gt;曲线曲面积分
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明曲线积分与参数化方法无关。即 $\gamma$ 的两种参数化方法 $\b x(s)$、$\b x(t)$，有&lt;/mark&gt;（17-5）
+$$
+\int_\gamma f(\b x)\d l=\int_a^bf(\b x(s))\|\b x^\prime(s)\|\d s=\int_\alpha^\beta f(\b x(t))\|\b x^\prime(t)\|\d t
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;根据叉积公式写出二维曲面的面积公式。&lt;/mark&gt;（17-8）&lt;mark&gt;证明与参数选择无关。&lt;/mark&gt;（17-11）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明 $n$ 维空间中的 $k$ 维体的体积，可以由它 $k$ 条边的向量的度量矩阵开根算出。&lt;/mark&gt;（17-12~17-15）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    考虑 Gram-Schmidt 正交化，归纳法。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;求 $n$ 维超曲面 $x^{n+1}=f(x^1,\cdots,x^n)$ 的面积公式，利用 3。&lt;/mark&gt;（17-19~17-20）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;利用上面的方法，严格说明三维旋转体的表面积公式 $\int 2\pi y\sqrt{1+(y^\prime)^2}\d x$。&lt;/mark&gt;（17-26~17-27）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;说明曲面维数和背景空间维数相同时，积分系数即为换元系数。&lt;/mark&gt;（16-16）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;总结：第一类曲线/曲面积分：
+$$
+\int_Df(\b x)\d v=\int_Df(\b x)\sqrt{\det\left(\ip{\frac{\p\b x}{\p t_i},\frac{\p\b x}{\p t_j}}\right)}\d t_1\cdots\d t_k
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;说明做功、环量、通量都可以写成以下形式：&lt;/mark&gt;（18-7~18-9）
+$$
+\int_\gamma\b F\cdot\d\b l=\int_a^b\b F(\b x(t))\cdot\b x^\prime(t)\d t=\int_a^b\sum_i\b F^i(\b x(t))\d\b x^i(t)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;一阶微分形式的定义？一阶微分形式的积分的定义？&lt;/mark&gt;（18-12）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    一阶微分形式 $\omega$ 是一个从向量场到函数的映射。在区域（严格来说是微分流形）$R$ 上，$\omega$ 将一个定义在 $R$ 上各点的向量函数（可以理解为每个点上的切向量）映射到定义在 $R$ 上各个点的实函数，这里对于单个点来说，向量到实数的映射是线性的。如果要取向量场 $\b v$ 经过 $\omega$ 后某一点 $\b x$ 处的结果，写作 $\omega(\b v)(\b x)$ 或 $\omega(\b x)\b v$。&lt;br/&gt;
+    $\int_\gamma\omega$ 定义为 $\int_a^b\omega(\b x(t))(\b x^\prime(t))\d t$，其中 $\b x(t)$ 是 $\gamma$ 的参数化表示。&lt;br/&gt;
+    值得注意的是，对于 $f:\R^n\to\R$，$\D f$ 也是个一阶微分形式，但 $\D f(\b x_0)$ 只是一个线性泛函。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;说明 $\int_\gamma\omega$ 与（保方向）参数化表达选取无关。&lt;/mark&gt;（18-13）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;保守场的定义？&lt;/mark&gt;（18-18）&lt;mark&gt;无旋场的定义？&lt;/mark&gt;（18-24）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;mark&gt;证明梯度场是保守场。&lt;/mark&gt;（18-16）&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;证明保守场是梯度场。&lt;/mark&gt;（18-19）&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;证明保守场是无旋场。&lt;/mark&gt;（18-23）&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;说明什么时候无旋场不是保守场。&lt;/mark&gt;（18-31）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;求第二类曲线积分的方法是：首先先尝试凑全微分。剩下凑不了的部分，参数化之后暴力积。&lt;/p&gt;
+&lt;p&gt;注意凑出全微分后还要保证区域单连通。&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;求 $\int_\gamma(z\d x+x\d y+y\d z)$，其中 $\gamma$ 为 $\set{x^2+y^2+z^2=R^2}\cap\set{x+y+z=0}$ 在 $xy$ 平面上的投影，逆时针。&lt;/mark&gt;（18-28）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明 $\int_\gamma x\d y=-\int_\gamma y\d x=\frac12\int_\gamma(x\d y-y\d x)$。&lt;/mark&gt;（18-29）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;拉回&lt;/strong&gt;的概念：对于 $\Phi:A(\subseteq\R^m)\to B(\subseteq\R^n)$，它的微分 $\D\Phi$（记为 $\Phi_*$）在 $A$ 的每一个点上定义了一个 $\R^m\to\R^n$ 的线性映射（或者也可以理解为将 $A$ 上的向量场映到 $B$ 上的向量场），就是切向量的线性映射。$\Phi$ 的拉回 $\Phi^*$ 定义了 $\Omega^1(B)\to\Omega^1(A)$ 的线性映射，这个线性映射将 $B$ 上的一阶微分形式 $\omega$ 映射成这样的一个 $\R^m$ 上的微分形式：拿到一个向量场，将它先依据 $\Phi_*$ 映到 $\R^m$ 上，再应用 $\omega$。直观地说，就是 $\omega$ 对应 $B$ 上积分时的“权重函数”，$\Phi^*(\omega)$ 就是 $A$ 上积分时对应的权重。它首先将 $A$ 上切向量微元对应到 $B$ 上，再应用原来的权重。用数学语言来说就是，对于一个 $A$ 上的向量场 $\b v$，
+$$
+\Phi^*(\omega)(\b v)(\b x)=\omega(\Phi_*(\b v))(\b x)
+$$
+（这里 $\Phi_*$ 用的是括号里的定义，就是向量场之间的映射，注意笔记和课件的其他地方一般不会用这种方式看待微分，所以微分后面的括号里一般写的是个位置而不是向量场）&lt;/p&gt;
+&lt;p&gt;拉回严格定义了第二类曲线积分的换元方式：
+$$
+\int_{\Phi(\gamma)}\omega=\int_\gamma\Phi^*(\omega)
+$$
+证明：
+$$
+\begin{align*}
+\int_\gamma\Phi^*(\omega)&amp;amp;=\int_a^b\Phi^*(\omega)(\b x^\prime)(\b x(t))\d t\\
+&amp;amp;=\int_a^b\omega(\Phi_*(\b x^\prime))(\b x(t))\d t\\
+&amp;amp;=\int_a^b\sum_i F^i(\Phi(\b x(t)))(\D\Phi)(\b x^\prime)(\b x(t))^i\d t\\
+&amp;amp;=\int_a^b\sum_i F^i(\b y(t))\b y^\prime(t)^i\d t\\
+&amp;amp;=\int_a^b\omega(\b y^\prime)(\b y(t))\d t\\
+&amp;amp;=\int_{\Phi(\gamma)}\omega
+\end{align*}
+$$
+其中 $\b y(t)=\Phi(\b x(t))$，而 $\b y^\prime(t)=\D\Phi(\b x(t))\cdot\b x^\prime(t)$，如果把 $\D\Phi$ 理解成向量场之间的映射，就是 $\D\Phi(\b x^\prime)(\b x(t))$。&lt;/p&gt;
+&lt;p&gt;对于 18-39~18-45 的例子，$\Phi$ 是从 $(\xi,\eta,\zeta)$ 到 $(x,y,z)$ 的映射，为了计算 $\Phi^*(z\d x+x\d y+y\d z)$，把 $\xi,\eta,\zeta$ 代入展开即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明一个 $\R^2\to\R^2$ 的线性函数（$\R^2$ 上的 $\R^2$ 向量场）可以拆成一个无旋场和一个无源场之和。&lt;/mark&gt;（19-5）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：对于一个矩形 $R$ 而言，$\int_{\p R}X\d x+Y\d y=\iint_R(Y_x-X_y)\d x\d y$。&lt;/mark&gt;（19-9）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;同理可以证明 $\int_{\p R}(-Y\d x+X\d y)=\iint_R(X_x+Y_y)\d x\d y$。&lt;mark&gt;写出由这两个式子给出的旋度和散度的另一种表达式。&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;二阶微分形式将两个向量场映到一个标量场。&lt;mark&gt;写出斜积的定义。&lt;/mark&gt;（19-21）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;超曲面定义为维数比背景空间维数小 $1$ 的曲面。对于隐函数 $F(\b x)=0$（$0$ 是 $F$ 的正则值），它定义了一个&lt;strong&gt;可定向&lt;/strong&gt;的超曲面。法向量场为 $\nabla F$ 单位化的结果。利用这个结果证明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;可微函数的图像是一个可定向曲面。&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    $y=f(\b x)$ 可以写成 $y-f(\b x)=0$，它的梯度向量为 $\mat{-\nabla f\\\ 1}$。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;正则参数曲面是一个可定向曲面。回顾正则指的是单射且 $\p\b x/\p\b t$ 列满秩。&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    构造函数 $L(\b v)=\dat{\b v&amp;\frac{\p\b x}{\p\b t}}$，我们声称 $\nabla L$ 就是法向量。这是因为，如果代入某个 $\frac{\p\b x}{\p t_i}=\b v$，$L(\b v)$ 就等于 $0$ 了，在笛卡尔坐标系下，这就说明 $\nabla L$ 与所有 $\frac{\p\b x}{\p t_i}$ 内积为 $0$，即垂直。$\nabla L$ 是线性函数，从而是连续的。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算高维超曲面通量的方法：首先记 $\b A=\nabla L$，面积微元在数值上等于单位高度的体积，也就是
+$$
+L(\b{\hat A})=\dat{\frac{\b A_1}{|\b A|}&amp;amp;\frac{\p\b x_1}{\p t_1}&amp;amp;\cdots&amp;amp;\frac{\p\b x_1}{\p t_m}\\ \vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\ \frac{\b A_{m+1}}{|\b A|}&amp;amp;\frac{\p\b x_{m+1}}{\p t_1}&amp;amp;\cdots&amp;amp;\frac{\p\b x_{m+1}}{\p t_m}}=\sum_{i=1}^{m+1}\frac{\b A_i^2}{|\b A|}=|\b A|
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{align*}
+\int_\Omega\b V\cdot\b n\d S&amp;amp;=\int_T\b V\cdot\frac{\b A}{|\b A|}(|\b A|\d t_1\cdots\d t_m)\\
+&amp;amp;=\int_T\b V\cdot\b A\d t_1\cdots\d t_m\\
+&amp;amp;=\int_T\dat{\b V_1&amp;amp;\frac{\p\b x_1}{\p t_1}&amp;amp;\cdots&amp;amp;\frac{\p\b x_1}{\p t_m}\\ \vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\ \b V_1&amp;amp;\frac{\p\b x_{m+1}}{\p t_1}&amp;amp;\cdots&amp;amp;\frac{\p\b x_{m+1}}{\p t_m}}\d t_1\cdots\d t_m
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;其中 $T$ 为参数的定义域。&lt;mark&gt;证明这个计算与参数化表达的选择无关。&lt;/mark&gt;（20-17）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;三维中二阶微分形式的定义：&lt;/p&gt;
+&lt;p&gt;对于一个二阶微分形式 $\omega=X\d y\w\d z+Y\d z\w\d x+Z\d x\w\d y$，对于定向曲面 $\Sigma$ 上 $\omega$ 的积分，这里通过参数化表达来定义。设参数化表达为 $(x,y,z)=(x(u,v),y(u,v),z(u,v))$，其中通过 $\nabla\det\left(\b v,\frac{\p(x,y,z)}{\p(u,v)}\right)$ 得到的法向量和 $\Sigma$ 的定向一致（否则需要加负号），那么
+$$
+\iint_\Sigma\omega=\iint_D\left(X\det\frac{\p(y,z)}{\p(u,v)}+Y\det\frac{\p(z,x)}{\p(u,v)}+Z\det\frac{\p(x,y)}{\p(u,v)}\right)\d u\d v
+$$
+如果觉得难理解的话，可以以换元的角度来看。例如
+$$
+\d y\w\d z(u,v)=\det\frac{\p(y,z)}{\p(u,v)}
+$$
+以及
+$$
+\d y\w\d z=(y_u\d u+y_v\d v)\w(z_u\d u+z_v\d v)=(y_uz_v-y_vz_u)\d u\w\d v
+$$
+而在一致定向的情况下，$\iint\d u\w\d v=\iint\d u\d v$，也就是说，我们将微分形式的积分转换成黎曼积分。&lt;/p&gt;
+&lt;p&gt;二维曲面通量积分与二阶微分形式积分的关系：注意到
+$$
+\iint_\Sigma\b V\cdot\b n\d S=\iint_D\dat{\b V_x&amp;amp;x_u&amp;amp;x_v\\ \b V_y&amp;amp;y_u&amp;amp;y_v\\ \b V_z&amp;amp;z_u&amp;amp;z_v}\d u\d v=\iint_\Sigma\omega
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;证明：任意微分形式 $\omega$，$\d(\d\omega)=0$。&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
+    $$
+    \begin{align*}
+    \d\omega&amp;=\sum_{i_1,\cdots,i_m}\left(\sum_{i=1}^n\frac{\p F_{i_1,\cdots,i_m}}{\p x_i}\d x_i\right)\w\d x_{i_1}\w\cdots\w\d x_{i_m}\\\ 
+    \d(\d\omega)&amp;=\sum_{i_1,\cdots,i_m}\left(\sum_{i=1}^n\sum_{j=1}^n\frac{\p F_{i_1,\cdots,i_m}}{\p x_j\p x_i}\d x_j\w\d x_i\right)\w\d x_{i_1}\w\cdots\w\d x_{i_m}
+    \end{align*}
+    $$
+    其中 $x_i$ 和 $x_j$ 可互换，正负抵消；$i=j$ 的时候 $\d x_j\w\d x_i=0$。
+&lt;/details&gt;
+&lt;p&gt;顺带一提，对于 $n-1$ 阶微分形式，它的外微分是 $\tr\frac{\p\b F}{\p\b x}x_1\w\cdots\w x_n$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;三维的 Gauss 公式证明大致思路：将体拆成一堆小块，每个小块侧面是悬崖，每个 $(x,y)$ 对应一个 $z$ 区间，不过俯视图不一定是矩形。然后分三个部分，分别会得到 $X_x$，$Y_y$ 和 $Z_z$。做的过程中会得到形似 $\iint(Z(x,y,g(x,y))-Z(x,y,f(x,y)))\d x\d y$ 的，硬把里面一层写成积分即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;三维的 Stokes 公式证明思路：考虑把参数化曲面上的一个小正方形，换元变到参数自变量的 $[0,1]^2$，然后利用二维 Green 公式，再变回去。用微分形式的语言来说，就是
+$$
+\iint_{\p\Sigma_k}\omega=\iint_{\p[0,1]^2}\Phi^*(\omega)\xlongequal{\text{Green}}\iint_{[0,1]^2}\d\Phi^*(\omega)\xlongequal{?}\iint_{[0,1]^2}\Phi^*(\d\omega)=\iint_{\Sigma_k}\d\omega
+$$
+证明 $\d\Phi^*=\Phi^*\d$ 可以直接展开 $\Phi$ 和 $\d$ 的定义，问题不大。（21-25）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;微分形式统一 Stokes 公式：
+$$
+\begin{array}{}
+\Omega^0&amp;amp;{}\xrightarrow{\quad\d\quad}{}&amp;amp;\Omega^1&amp;amp;{}\xrightarrow{\quad\d\quad}{}&amp;amp;\Omega^2&amp;amp;{}\xrightarrow{\quad\d\quad}{}&amp;amp;\Omega^3\\
+f&amp;amp;&amp;amp;X\d x+Y\d y+Z\d z&amp;amp;&amp;amp;X\d y\w\d z+Y\d z\w\d x+Z\d x\w\d y&amp;amp;&amp;amp;f\d x\w\d y\w\d z\\
+f&amp;amp;{}\xrightarrow{\quad\nabla\quad}{}&amp;amp;\b V&amp;amp;{}\xrightarrow{\quad\nabla\times\quad}{}&amp;amp;\b V&amp;amp;{}\xrightarrow{\quad\nabla\cdot\quad}{}&amp;amp;f\\
+&amp;amp;\displaystyle f|_{\p\Gamma}=\int_\Gamma\nabla f\cdot\d\b x&amp;amp;&amp;amp;\displaystyle\oint_{\p\Sigma}\b V\cdot\d\b l=\iint_\Sigma(\nabla\times\b V)\cdot\d\b s&amp;amp;&amp;amp;\displaystyle\oiint_{\p\Omega}\b V\cdot\d\b s=\iiint_\Omega\nabla\cdot\b V\d v
+\end{array}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;级数&#34;&gt;级数
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;注意以下涉及到绝对值的地方都可以换成范数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出级数收敛的 Cauchy 准则。&lt;/mark&gt;（22-18）推论：收敛的必要条件是 $|u_n|\to 0$，注意这个对积分不一定成立。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明 $\sum n^{-x}$ 收敛当且仅当 $x&amp;gt;1$。&lt;/mark&gt;（22-21）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出积分判别法，并证明。&lt;/mark&gt;（22-23）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出比较判别法，并证明。&lt;/mark&gt;（22-32）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;幂级数的收敛是怎样刻画的？&lt;/mark&gt;（22-33）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    ${&lt;{}}r$ 收敛，$=r$ 不知道，$&gt;r$ 发散。考虑使用比较判别法证明。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$a_n\le b_n\le c_n$，若 $\sum a_n$ 和 $\sum c_n$ 都收敛，则 $\sum b_n$ 收敛。进一步，若 $\sum a_n$ 或 $\sum c_n$ 绝对收敛，则全都绝对收敛。&lt;mark&gt;证明？&lt;/mark&gt;（22-36）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    考虑 $b_n-a_n$、$c_n-a_n$，以及比较判别法、收敛的线性性。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 D&#39;Alembert 判别法，并证明。&lt;/mark&gt;（22-37）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 Cauchy 判别法，并证明。&lt;/mark&gt;（22-38）&lt;/p&gt;
+&lt;p&gt;第一种的优势是比值容易求，第二种的优势在于可以处理 $1/2,1/3,1/2^2,1/3^2,\cdots$ 这种有震荡的情况。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;利用 Cauchy 判别法写出幂级数的收敛半径的表达式。&lt;/mark&gt;（32-44）幂级数求导、积分后的幂级数收敛半径不变。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 Raabe 判别法，并证明。&lt;/mark&gt;（22-48）Raabe 判别法的思想是：已知 $\sum n^{-x}$ 的收敛半径，注意到 $(n+1)^x/n^x=1+x/n+\omicron(1/n)$，所以我们可以关注 $n^{-1}$ 项的系数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 Leibniz 判别法，并证明。&lt;/mark&gt;（23-3）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;分析 $\sum\frac{(-1)^{n-1}}{n^\alpha+(-1)^{n-1}}$ 在不同 $\alpha$ 下的收敛情况。&lt;/mark&gt;（23-7）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 Dirichlet 与 Abel 判别法，并证明。&lt;/mark&gt;（23-11~23-13）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;分析 $\sum\frac{z^n}{n^\alpha}$ 的收敛情况。&lt;/mark&gt;（23-14）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明条件收敛的实数级数不满足交换律，换句话说可以通过重排项得到任何收敛值（包括 $\pm\infty$）或震荡。&lt;/mark&gt;（23-17~23-21）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明绝对收敛的级数满足交换律。&lt;/mark&gt;（23-22~23-23）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果一个级数加括号之后收敛，且它单项 $\to 0$，则它本身也不一定收敛。考虑 $1-1+\frac12+\frac12-\frac12-\frac12+\frac13+\frac13+\frac13-\frac13-\frac13-\frac13+\cdots$。只有每个括号内的符号相同才能保证原级数收敛。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意条件收敛指的就是收敛不绝对收敛。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;绝对收敛和一致收敛是无关的。（ylj 26-55）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于函数项级数 $\sum u_n(x)\to S(x)$，证明如果在 $x\to a$ 时 $S(x)\to+\infty$，那它在 $(a,b]$ 上不一致收敛。&lt;/p&gt;
+&lt;p&gt;然而逆命题是不对的，&lt;mark&gt;给出一个反例，$S(x)$ 在 $[a,b]$ 上连续，然而在 $(a,b]$ 上不一致收敛。&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;insane counterexample: ylj 26-67&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;如何说明函数项级数在某个区间上不一致收敛？&lt;/mark&gt;（24-3）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;函数项级数 $\sum u_n(x)\overset I\rightrightarrows S(x)$，证明 $S(x)$ 保持有界性与连续性；若每项都可积，则 $S(x)$ 可积。&lt;/mark&gt;（24-14~24-15）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明：若导数的级数一致收敛且原级数单点收敛，则原函数一致收敛且 $S(x)$ 可导。&lt;/mark&gt;（24-16~24-17）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;如何说明每个 Taylor 级数都对应多个 $\mathscr{C}^\infty$ 函数？&lt;/mark&gt;&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    考虑函数 $f(x)=\begin{cases}\e^{-1/x^2},&amp;x\ne 0\\\ 0,&amp;x=0\end{cases}$
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;说明一个幂级数的封闭形式是某个函数的方法：构造微分方程，利用初值问题解的唯一性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;傅里叶级数&#34;&gt;傅里叶级数
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\sum_n\frac{\sin nx}n$ 这类级数的求法：首先由于
+$$
+\sum_{n\le N}\sin nx=\frac{1}{\sin\frac x2}\sum_{n\le N}\sin nx\sin\frac x2=\frac{1}{2\sin\frac x2}\sum_{n\le N}\left(\cos\left(n-\frac12\right)x-\cos\left(n+\frac12\right)x\right)=\frac{\cos\frac x2-\cos(N+\frac 12)x}{2\sin\frac x2}=\frac{\sin\frac{(N+1)x}2\sin\frac{Nx}2}{\sin\frac x2}
+$$
+有界，故由 Dirichlet，它收敛，且在 $x$ 的取值范围不包含（接近）$2k\pi$ 时一致收敛。其次
+$$
+\sum_{n\le N}\frac{\sin nx}{n}=\sum_{n\le N}\int_\pi^x\cos nt\d t=\int_\pi^x\sum_{n\le N}\cos nt\d t=\int_\pi^x\frac{\sin(N+\frac12)t-\sin\frac t2}{2\sin\frac t2}\d t\to\frac{\pi-x}{2}
+$$
+其中 $\int\sin(N+\frac 12)t\d t$ 这个东西可以通过一次分部积分让分母出来一个 $2N+1$，所以 $\to 0$。&lt;/p&gt;
+&lt;p&gt;对于 $x=2k\pi$ 显然和为 $0$。&lt;/p&gt;
+&lt;p&gt;上面那个 $\to 0$ 有个一般的定理，就是 Riemann-Lebesgue 引理：
+$$
+\lim_{n\to\infty}\int_a^bf(x)g(nx)\d x=\frac1T\left(\int_a^bf(x)\d x\right)\left(\int_0^Tg(x)\d x\right)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;写出 $\mathscr{L}^p(I)$ 函数的定义。&lt;/mark&gt;（26-3）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;傅里叶级数的定义：
+$$
+a_n=\frac1\pi\int_{-\pi}^{+\pi}f(x)\cos nx\d x,b_n=\frac1\pi\int_{-\pi}^{+\pi}f(x)\sin nx\d x
+$$&lt;/p&gt;
+&lt;p&gt;$$
+f(x)\textcolor{red}\sim\frac{a_0}2+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定义内积：$\ip{f,g}=\int_{-\pi}^{+\pi}f(x)g(x)\d x$。&lt;/p&gt;
+&lt;p&gt;Bessel 不等式：根据正交性—勾股定理，已知 $\sum\frac{(\b v\cdot\b e_i)^2}{\b e_i\cdot\b e_i}\le\|\b v\|^2$。对于傅里叶级数的情况，即为（取极限）：
+$$
+\frac{a_0^2}{2}+\sum_n(a_n^2+b_n^2)\le\frac1\pi\int_{-\pi}^{+\pi}f(x)^2\d x
+$$
+Parseval 等式即为上式取等。Parseval 等式与内积形式（两个不同函数）等价。&lt;/p&gt;
+&lt;p&gt;对于 $2\pi$ 周期函数 $f$，Parseval 等式成立等价于 $f$ 的傅里叶级数均方收敛：
+$$
+\lim_{n\to\infty}\left\lVert S_n-f\right\rVert_2&amp;lt;\infty
+$$
+而均方收敛当且仅当 $f\in\mathscr{L}^2$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Riemann 可积函数一定满足 Parseval 等式，从而均方收敛。证明思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;首先证明方波 $f(x)=[x\bmod 2\pi\le L]$ 满足：$a_0=\frac{L}{\pi}$，$a_n=\frac{\sin nL}{n\pi}$，$b_n=\frac{1-\cos nL}{n\pi}$。于是
+$$
+\frac{a_0^2}{2}+\sum_n(a_n^2+b_n^2)=\frac{L^2}{2\pi^2}+\sum_n\frac{2-2\cos nL}{n^2\pi^2}\qquad\cdots(1)
+$$
+这里需要计算一个关键的式子：
+$$
+\sum_n\frac{\cos nx}{n^2}=-\sum_n\left(\frac{1}{n^2}+\int_0^x\frac{\sin nt}n\d t\right)=\sum_n\frac1{n^2}-\int_0^x\frac{\pi-t}2\d t=\sum_n\frac1{n^2}-\frac{\pi x}{2}+\frac{x^2}4
+$$
+神秘处理：两边同时关于 $x$ 积分：
+$$
+0=\sum_n\frac1{n^2}\int_0^{2\pi}\cos nx\d x=2\pi\sum_n\frac{1}{n^2}-\frac{\pi^3}3
+$$
+故 $\zeta(2)=\pi^2/6$，
+$$
+\sum_n\frac{\cos nx}{n^2}=\frac14x^2-\frac\pi2x+\frac{\pi^2}6
+$$
+代回 $(1)$ 得 $a_0^2/2+\sum_n(a_n^2+b_n^2)=L/\pi$，这恰好等于 $\int_0^{2\pi}f(x)^2\d x$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;满足 Parseval 等式的，正交的两个函数之和也满足。这个通过展开 $f+g$ 和 $f-g$ 积分，然后代回 Bessel 不等式，可得到交叉乘积项 $=0$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分段常值函数满足 Parseval 不等式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用分段常值函数逼近 $f$。通过达布积分的方式得到 $f$ 的一个下界分段函数 $g$。于是
+$$
+\|f-S_n(f)\|_2\le\|f-S_n(g)\|_2\le\|f-g\|_2+\|g-S_n(g)\|_2
+$$
+第一个不等号是最小二乘性质。最后两个距离都可以任意小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;上述定理说明了 $\mathscr{L}^2$ 函数和 $\ell^2$ 函数通过傅里叶级数构成一个等距同构（这里 $\mathscr{L}^2$ 中两个函数相等当且仅当差的模为 $0$），求积分和求级数可以互相转换。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明 $f$ 连续且一致收敛，则傅里叶级数收敛到 $f$。&lt;/mark&gt;（27-22~27-24）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    用 $S_n$ 联系 $f$ 和极限 $S$。一方面用均方收敛，一方面用一致收敛。过程中可能要用 Cauchy 不等式在平方和绝对值积分之间转换。最后得到 $\int|f-S|=0$，再用连续性。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;mark&gt;证明 $\sum_n n^p(|a_n|+|b_n|)$ 收敛则傅里叶级数是 $\mathscr{C}^p$ 的。&lt;/mark&gt;（27-37）&lt;/p&gt;
+&lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
+    &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;提示&lt;/summary&gt;
+    归纳。利用导数、极限与函数项级数的交换条件。
+&lt;/details&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分段连续的情况下（不要求傅里叶级数收敛），
+$$
+\int_\alpha^\beta f(x)\d x=\frac{a_0}2(\beta-\alpha)+\sum_n\left(a_n\frac{\sin n\alpha-\sin n\beta}{n}+b_n\frac{\cos n\beta-\cos n\alpha}{n}\right)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;重要定理汇总&#34;&gt;重要定理汇总
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;判定条件&lt;/th&gt;
+&lt;th&gt;Cauchy&lt;/th&gt;
+&lt;th&gt;比较&lt;/th&gt;
+&lt;th&gt;Dirichlet&lt;/th&gt;
+&lt;th&gt;Abel&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;广义积分收敛&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;广义含参积分一致收敛&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;数项级数收敛&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;函数项级数一致收敛&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol&gt;
+&lt;li&gt;$\int_a^\omega f(x)\d x$ 收敛当且仅当 $\forall\eps&amp;gt;0$，$\exists b&amp;lt;\omega$，$\forall b_2\ge b_1&amp;gt;b$，$\left\lvert\int_{b_1}^{b_2}f(x)\d x\right\rvert&amp;lt;\eps$。&lt;/li&gt;
+&lt;li&gt;若 $\int_a^\omega g(x)\d x$ 收敛且 $\exists b&amp;lt;\omega$，$x\in(b,\omega)$ 时 $|f(x)|\le g(x)$，则 $\int_a^\omega f(x)\d x$ 收敛。&lt;/li&gt;
+&lt;li&gt;若 $\int_a^bf(x)\d x$（关于 $b$）有界且 $g(x)$ 单调 $\to 0$，则 $\int_a^\omega f(x)g(x)\d x$ 收敛。&lt;/li&gt;
+&lt;li&gt;若 $\int_a^\omega f(x)\d x$ 收敛且 $g(x)$ 单调有界，则 $\int_a^\omega f(x)g(x)\d x$ 收敛。&lt;/li&gt;
+&lt;li&gt;$\int_a^\omega f(x,y) \d x $ 在 $I$ 上一致收敛当且仅当 $\forall \eps&amp;gt; 0$，$\exists b&amp;lt;\omega$，$\forall y\in I$，$\forall b_2\ge b_1 &amp;gt; b$，$\left| \int_{b_1}^{b_2} f(x,y) \d x \right| &amp;lt; \eps$。&lt;/li&gt;
+&lt;li&gt;若 $\int_a^\omega g(x,y)\d x$ 一致收敛且 $\exists b&amp;lt;\omega$，$x\in(b,\omega)$ 时 $|f(x,y)|\le g(x,y)$，则 $\int_a^\omega f(x,y)\d x$ 一致收敛。&lt;/li&gt;
+&lt;li&gt;若 $\int_a^bf(x,y)\d x$ 对 $b$ 和 $y$ 一致有界，$g(x,y)$ 关于 $x$ 单调且 $x\to\omega$ 时一致 $\to 0$，则 $\int_a^\omega f(x,y)g(x,y)\d x$ 一致收敛。&lt;/li&gt;
+&lt;li&gt;若 $\int_a^\omega f(x,y)\d x$ 一致收敛，$g(x,y)$ 关于 $x$ 单调且对 $x$ 和 $y$ 一致有界，则 $\int_a^\omega f(x,y)g(x,y)\d x$ 一致收敛。&lt;/li&gt;
+&lt;li&gt;$\sum_na_n$ 收敛当且仅当 $\forall\eps&amp;gt;0$，$\exists N$，$\forall N_2\ge N_1&amp;gt;N$，$\left\lVert\sum_{n=N_1}^{N_2}a_n\right\rVert&amp;lt;\eps$。&lt;/li&gt;
+&lt;li&gt;若正项级数 $\sum_nb_n$ 收敛且 $\|a_n\|=\Omicron(b_n)$，则 $\sum_na_n$ 绝对收敛。&lt;/li&gt;
+&lt;li&gt;若 $\sum_na_n$ 部分和有界，$b_n$ 单调且 $\to 0$，则 $\sum_na_nb_n$ 收敛。&lt;/li&gt;
+&lt;li&gt;若 $\sum_na_n$ 收敛，$b_n$ 单调有界，则 $\sum_na_nb_n$ 收敛。&lt;/li&gt;
+&lt;li&gt;$\sum_nf_n(x)$ 在 $I$ 上一致收敛当且仅当 $\forall\eps&amp;gt;0$，$\exists N$，$\forall x\in I$，$\forall N_2\ge N_1&amp;gt;N$，$\left\lvert\sum_{n=N_1}^{N_2}f_n(x)\right\rvert&amp;lt;\eps$。&lt;/li&gt;
+&lt;li&gt;若恒正的函数项级数 $\sum_ng_n(x)$ 一致收敛且 $\forall x\in I$，$|f_n(x)|=\Omicron(g_n(x))$，则 $\sum_nf_n(x)$ 一致收敛。&lt;/li&gt;
+&lt;li&gt;若 $\sum_nf_n(x)$ 部分和一致有界，$g_n(x)$ 关于 $n$ 单调且一致 $\to 0$，则 $\sum_nf_n(x)g_n(x)$ 一致收敛。&lt;/li&gt;
+&lt;li&gt;若 $\sum_nf_n(x)$ 一致收敛，$g_n(x)$ 关于 $n$ 单调且一致有界，则 $\sum_nf_n(x)g_n(x)$ 一致收敛。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;正项级数. 若部分和有界则收敛。&lt;/p&gt;
+&lt;p&gt;积分判别法. 若 $a_n$ 能扩展为减函数 $f:[1,+\infty)\to\R$，则 $\sum_na_n=\sum_nf(n)$ 收敛 $\Longleftrightarrow$ $\int_1^{+\infty}f(x)\d x$ 收敛。&lt;/p&gt;
+&lt;p&gt;“夹逼”判别法. 若 $a_n\le b_n\le c_n$ 且 $\sum_na_n$ 与 $\sum_nc_n$ 都收敛，则 $\sum_nb_n$ 收敛。若 $\sum_na_n$ 或 $\sum_nc_n$ 绝对收敛，则另外两个也绝对收敛。&lt;/p&gt;
+&lt;p&gt;D&#39;Alembert. 若 $\overline\lim_{n\to\infty}\left\lvert\frac{a_{n+1}}{a_n}\right\rvert&amp;lt;1$ 则 $\sum_na_n$ 绝对收敛，若 $\underline\lim_{n\to\infty}\left\lvert\frac{a_{n+1}}{a_n}\right\rvert&amp;gt;1$，则 $\sum_na_n$ 发散。&lt;/p&gt;
+&lt;p&gt;Cauchy. 若 $\overline\lim_{n\to\infty}\sqrt[n]{|a_n|}&amp;lt;1$ 则 $\sum_na_n$ 绝对收敛，若 $\overline\lim_{n\to\infty}\sqrt[n]{|a_n|}&amp;gt;1$，则 $\sum_na_n$ 发散。&lt;/p&gt;
+&lt;p&gt;幂级数. $\frac1R=\overline\lim_{n\to\infty}\sqrt[n]{|a_n|}$。&lt;/p&gt;
+&lt;p&gt;Raabe. 对于正项级数，若 $\underline\lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)&amp;gt;1$ 则 $\sum_na_n$ 收敛，若 $\overline\lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)&amp;lt;1$，则 $\sum_na_n$ 发散。&lt;/p&gt;
+&lt;p&gt;Leibniz. 对于单调不增的 $a_n\ge 0$，$\sum_n(-1)^na_n$ 收敛仅要求 $a_n\to 0$。&lt;/p&gt;
+&lt;p&gt;Hardy. 若 $\sum_nf_n(x)$ 部分和一致有界，$\sum_n|g_{n+1}(x)-g_n(x)|$ 一致收敛且 $g_n(x)$ 一致 $\to 0$，则 $\sum_nf_n(x)g_n(x)$ 一致收敛。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;换序条件&lt;/th&gt;
+&lt;th&gt;极限&lt;/th&gt;
+&lt;th&gt;求导&lt;/th&gt;
+&lt;th&gt;积分&lt;/th&gt;
+&lt;th&gt;广义积分&lt;/th&gt;
+&lt;th&gt;级数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;极限&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;求导&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;积分&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;广义积分&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;级数&lt;/td&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol&gt;
+&lt;li&gt;若 $\lim_{y\to y_0}f(x,y)$ 在 $U(x_0)$ 内&lt;strong&gt;一致&lt;/strong&gt;收敛，$\lim_{x\to x_0}f(x,y)$ 在 $U(y_0)$ 内收敛，则 $\lim_{x\to x_0}\lim_{y\to y_0}f(x,y)$ 与 $\lim_{y\to y_0}\lim_{x\to x_0}f(x,y)$ 存在且相等。&lt;/li&gt;
+&lt;li&gt;若 $\frac{\p f}{\p y}(x,y_0)$ 在 $U(x_0)$ 内存在且求导的极限&lt;strong&gt;一致&lt;/strong&gt;收敛，$\lim_{x\to x_0}f(x,y)$ 在 $U(y_0)$ 内收敛，则 $\frac{\p}{\p y}\left(\lim_{x\to x_0}f(x,y)\right)\big|_{y=y_0}$ 与 $\lim_{x\to x_0}\frac{\p f}{\p y}(x,y_0)$ 存在且相等。&lt;/li&gt;
+&lt;li&gt;若 $\frac{\p f}{\p x\p y}$ 在 $U(x_0,y_0)$ 内存在且&lt;strong&gt;连续&lt;/strong&gt;，$\frac{\p f}{\p y\p x}(x_0,y_0)$ 存在，则 $\frac{\p f}{\p x\p y}(x_0,y_0)=\frac{\p f}{\p y\p x}(x_0,y_0)$。（加强：&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Symmetry_of_second_derivatives#Sufficiency_of_twice-differentiability&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://en.wikipedia.org/wiki/Symmetry_of_second_derivatives#Sufficiency_of_twice-differentiability&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;若 $f$ 在 $[a,b]\times U(y_0)$ 内&lt;strong&gt;连续&lt;/strong&gt;，则 $\lim_{y\to y_0}\int_a^bf(x,y)\d x=\int_a^bf(y_0)\d x$。&lt;/li&gt;
+&lt;li&gt;若 $\frac{\p f}{\p y}$ 在 $[a,b]\times U(y_0)$ 内&lt;strong&gt;连续&lt;/strong&gt;，则 $\frac{\p}{\p y}\left(\int_a^bf(x,y)\d x\right)\big|_{y=y_0}=\int_a^b\frac{\p f}{\p y}(x,y_0)\d x$。&lt;/li&gt;
+&lt;li&gt;若 $f$ 在 $[a,b]\times[c,d]$ 内&lt;strong&gt;连续&lt;/strong&gt;，则 $\int_a^b\int_c^df(x,y)\d y\d x=\int_c^d\int_a^bf(x,y)\d x\d y$。&lt;/li&gt;
+&lt;li&gt;若 $f$ 在 $[a,\omega)\times U(y_0)$ 内&lt;strong&gt;连续&lt;/strong&gt;，且 $\int_a^\omega f(x,y)\d x$ &lt;strong&gt;一致&lt;/strong&gt;收敛，则 $\lim_{y\to y_0}\int_a^\omega f(x,y)\d x =\int_a^\omega f(x,y_0)\d x$。&lt;/li&gt;
+&lt;li&gt;若 $\frac{\p f}{\p y}$ 在 $[a,\omega)\times U(y_0)$ 内&lt;strong&gt;连续&lt;/strong&gt;，且 $\int_a^\omega\frac{\p f}{\p y}(x,y)\d x$ &lt;strong&gt;一致&lt;/strong&gt;收敛，且 $\int_a^\omega f(x,y_0)\d x$ 收敛，则 $\int_a^\omega f(x,y)\d x$ 在闭区间上一致收敛，且 $\frac{\p}{\p y}\left(\int_a^\omega f(x,y)\d x\right)=\int_a^\omega\frac{\p f}{\p y}(x,y)\d x$。&lt;/li&gt;
+&lt;li&gt;若 $f$ 在 $[a,\omega)\times[c,d]$ 内&lt;strong&gt;连续&lt;/strong&gt;，且 $\int_a^\omega f(x,y)\d x$ &lt;strong&gt;一致&lt;/strong&gt;收敛，则 $\int_a^\omega\int_c^df(x,y)\d y\d x=\int_c^d\int_a^\omega f(x,y)\d x\d y$。&lt;/li&gt;
+&lt;li&gt;若 $f$ 在 $[a,\omega)\times[c,\psi)$ 内&lt;strong&gt;连续&lt;/strong&gt;，且 $\int_a^\omega f(x,y)\d x$ &lt;strong&gt;一致&lt;/strong&gt;收敛，$\int_c^\psi f(x,y)\d y$ &lt;strong&gt;一致&lt;/strong&gt;收敛，$\int_a^\omega\int_c^\psi |f(x,y)|\d y\d x$ 和 $\int_c^\psi\int_a^\omega |f(x,y)|\d x\d y$ &lt;strong&gt;至少一个&lt;/strong&gt;收敛，则 $\int_a^\omega\int_c^\psi f(x,y)\d y\d x$ 与 $\int_c^\psi\int_a^\omega f(x,y)\d x\d y$ 存在且相等。&lt;/li&gt;
+&lt;li&gt;若 $\sum_nf_n(x)$ 在 $U(x_0)$ 上&lt;strong&gt;一致&lt;/strong&gt;收敛，且 $\lim_{x\to x_0}f_n(x)$ 存在，则 $\sum_n\lim_{x\to x_0}f_n(x)$ 与 $\lim_{x\to x_0}\sum_nf_n(x)$ 存在且相等。&lt;/li&gt;
+&lt;li&gt;若 $\sum_nf_n(x)$ 满足在 $U(x_0)$ 上 $f^\prime_n(x)$ 存在且连续，且 $\sum_nf^\prime_n(x)$ &lt;strong&gt;一致&lt;/strong&gt;收敛，且 $\sum_nf(x_0)$ 收敛，则 $\sum_nf_n(x)$ 在闭区间上一致收敛，且 $\left(\sum_nf_n(x)\right)^\prime=\sum_nf^\prime_n(x)$。&lt;/li&gt;
+&lt;li&gt;若 $\sum_nf_n(x)$ 在 $[a,b]$ 上&lt;strong&gt;一致&lt;/strong&gt;收敛，且 $\int_a^bf_n(x)\d x$ 可积，则 $\sum_n\int_a^bf_n(x)\d x$ 与 $\int_a^b\sum_nf_n(x)\d x$ 存在且相等。&lt;/li&gt;
+&lt;li&gt;若在 $[a,\omega)$ 上 $\sum_nf_n(x)=f(x)$，且存在可积函数 $F(x)$ 使 $\forall N$，$\left\lvert\sum_{n=1}^Nf_n(x)\right\rvert\le F(x)$，则 $\sum_n\int_a^\omega f_n(x)\d x$ 与 $\int_a^\omega\sum_nf_n(x)\d x$ 存在且相等。（控制收敛定理）&lt;/li&gt;
+&lt;li&gt;若 $\sum_{m,n}a_{m,n}$ 能通过安排顺序变为绝对收敛的级数，则 $\sum_{m,n}a_{m,n}$ 绝对收敛，且等于 $\sum_m\sum_na_{m,n}=\sum_n\sum_ma_{m,n}$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;傅里叶级数的收敛：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一致收敛 $+$ 连续 $\implies$ 逐点收敛到 $f$。&lt;/li&gt;
+&lt;li&gt;参数级数绝对收敛 $\implies$ 一致收敛 $+$ 连续。如果 $f$ 也连续则逐点收敛到 $f$（注意 $f$ 可能有可去间断点）。&lt;/li&gt;
+&lt;li&gt;参数单调 $\to 0$ $\implies$ 内闭一致收敛 $+$ 开区间连续。&lt;/li&gt;
+&lt;li&gt;连续 $+$ 分段 $\mathscr{C}^1$ $\implies$ 一致逐点收敛到 $f$。&lt;/li&gt;
+&lt;li&gt;分段 $\mathscr{C}^1$ $+$ 只有第一类间断点 $\implies$ 逐点收敛到两侧极限的平均值。&lt;/li&gt;
+&lt;li&gt;有界 $+$ 分段单调连续 $\implies$ 逐点收敛到两侧极限的平均值。&lt;/li&gt;
+&lt;li&gt;$\mathscr{L}^1$ $+$ 各点左右极限存在 $+$ $\int_{0^+}|(f(x-t)-f(x-)+f(x+t)-f(x+))/t|\d t&amp;lt;\infty$ $\implies$ 逐点收敛到两侧极限的平均值。&lt;/li&gt;
+&lt;li&gt;（存疑）分段可微 $\implies$ 逐点收敛到两侧极限的平均值。&lt;/li&gt;
+&lt;li&gt;$\mathscr{L}^{p&amp;gt;1}$ $\implies$ 几乎处处收敛。&lt;/li&gt;
+&lt;li&gt;$\sum_n n^p(|a_n|+|b_n|)$ 收敛 $\implies$ $S(n)\in\mathscr{C}^p$。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>计算机与人工智能应用数学笔记</title>
+        <link>https://littlereuben.github.io/study/course-math4csai/</link>
+        <pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-math4csai/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;style&gt;
+  .theorem-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(240, 248, 255, 0.75);
+    padding: 10px 20px;
+    margin: 30px 0;
+    position: relative;
+    font-family: sans-serif;
+    max-width: 100%;
+  }
+
+  .theorem-title {
+    position: absolute;
+    top: -1.0em;
+    left: 15px;
+    background-color: rgba(70, 130, 180, 0.9);
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .problem-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 248, 235, 0.75);
+    padding: 10px 20px;
+    margin: 30px 0;
+    position: relative;
+    font-family: sans-serif;
+    max-width: 100%;
+  }
+
+  .problem-title {
+    position: absolute;
+    top: -1.0em;
+    left: 15px;
+    background-color: rgba(230, 150, 80, 0.9);
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .solution-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(240, 255, 240, 0.75);
+    padding: 10px 20px;
+    margin: 30px 0;
+    position: relative;
+    font-family: sans-serif;
+    max-width: 100%;
+  }
+
+  .solution-title {
+    position: absolute;
+    top: -1.0em;
+    left: 15px;
+    background-color: rgba(100, 160, 100, 0.9);
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .definition-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(245, 245, 250, 0.75);
+    padding: 10px 20px;
+    margin: 30px 0;
+    position: relative;
+    font-family: sans-serif;
+    max-width: 100%;
+  }
+
+  .definition-title {
+    position: absolute;
+    top: -1.0em;
+    left: 15px;
+    background-color: rgba(100, 100, 120, 0.9);
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .card-text {
+    padding-top: 10px;
+    font-size: 1em;
+    color: #000;
+  }
+&lt;/style&gt;
+&lt;p&gt;$\gdef\P{\mathsf{Pr}}\gdef\E{\mathsf{E}}\gdef\e{\mathrm{e}}\gdef\eq#1{\begin{align*}#1\end{align*}}\gdef\V{\mathsf{Var}}\gdef\acc{\operatorname{acc}}\gdef\eps{\varepsilon}\gdef\Ext{\mathsf{Ext}}\gdef\Com{\mathsf{Com}}\gdef\Enc{\mathsf{Enc}}\gdef\Dec{\mathsf{Dec}}\gdef\Err{\mathsf{Err}}\gdef\Ring{\mathsf{Ring}}\gdef\d{\mathrm{d}}\gdef\p{\partial}\gdef\i{\mathrm{i}}\gdef\res{\operatorname{Res}}\gdef\b#1{\boldsymbol{#1}}\gdef\Nd{\mathcal{N}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\ip#1{\left\langle #1\right\rangle}\gdef\span#1{\operatorname{span}\Set{#1}}\gdef\r{\operatorname{rank}}\gdef\diag{\operatorname{diag}}$&lt;/p&gt;
+&lt;p&gt;一些书：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Discrete Mathematics by Lovász, Pelikán, and Vesztergombi&lt;/li&gt;
+&lt;li&gt;All of Statistics A Concise Course in Statistical Inference by Larry Wasserman&lt;/li&gt;
+&lt;li&gt;Foundations of Data Science by Avrim Blum, John Hopcroft, and Ravindran Kannan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这边没记 Matrix Tree Theorem 和 Pfaffian 相关的，有空可能会补 Pfaffian。&lt;/p&gt;
+&lt;h2 id=&#34;计应数&#34;&gt;计应数
+&lt;/h2&gt;&lt;h3 id=&#34;概率论&#34;&gt;概率论
+&lt;/h3&gt;&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (全概率公式)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{\eq{
+&amp;\P\left[\bigcap_iA_i\right]=\prod_i\P\left[A_i\Big|\bigcap_{j{&lt;}i}A_j\right]\\
+&amp;\P[A]=\sum_i\P[A|B_i]\P[B_i]
+}}
+$$
+如果后件概率为 $0$，那么条件概率为 $0$！！！
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Monty Hall Problem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+There are $n$ closed doors. Behind one (randomly chosen) door is a beautiful sports car, while the other $n-1$ doors each has a donkey behind it. Now the guest choose one door, Monty opens $n-2$ doors which have donkeys behind them. Should the guest switch the choice or not?
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+略。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Birthday Paradox)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$n$ random  integers $x_{1\sim n}$ chosen uniformly from $1$ to $m$. Estimate $q(n)=\P[\forall i\ne j,x_i\ne x_j]$.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$q(n)=\P[\text{all distinct}]\approx\exp(-\binom n2/365)=d(n)$，$|d(n)-q(n)|\ll q(n)-q(n-1)$, specifically:
+$$
+\exp\left(\frac{n(n-1)(2n-1)}{12m^2}\right)\le\frac{\exp\left(-\frac{n(n-1)}{2m}\right)}{\prod_{i{&lt;}n}\left(1-\frac im\right)}\le\exp\left(\frac{n(n-1)(2n-1)}{6m^2}\right)
+$$
+(Prove by $\e^{x^2/2}\le\e^x/(1+x)\le\e^{x^2}$.) $d(n)$ 必然是把无重率估大了。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Online Auction Problem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Given a stream of $n$ distinct random values  $x_{1\sim n}$, you have to make decision (choose once) in real-time. You want to maximize the probability of accepting the greatest value.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+基本策略未证明。考虑枚举最大值所在位置，在 $j$ 的话，总贡献概率为 $\frac k{n(j-1)}$。于是总共就是 $\frac kn\left(\frac1k+\cdots+\frac1{n-1}\right)\approx\frac kn\ln\frac nk$，取 $k=n/\e$。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Ramsey Number)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$R(k)=$ minimum $N$ such that any graph with $N$ vertices has either a $k$ clique or a $k$ independent set.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$R(3)=6$，五元环，$n=6$ 取一点，如果 $d\ge 3$，那么取三个邻点，无论有无边都找到；$d&lt;3$ 就找三个不邻点。&lt;br/&gt;
+$R(k)\ge\lfloor 2^{k/2}\rfloor$: 概率方法，证随机图有 $k$ 团/独立集的概率 $&lt;1$，用 union bound：
+$$
+2\binom{\lfloor 2^{k/2}\rfloor}{k}2^{-\binom k2}\le\frac{\lfloor 2^{k/2}\rfloor^k}{k!2^{\binom k2-1}}\le\frac{2^{k^2/2-k(k-1)/2+1}}{k!}=\frac{2^{k/2+1}}{k!}&lt;1
+$$
+$R(k)\le\binom{2k-2}{k-1}&lt;4^k$: 相邻两个组合数的比值为 $4-2/k$；$R(r,s)\le R(r,s-1)+R(r-1,s)\le\binom{r+s-2}{r-1}$。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+随机 $n$ 排列中 $1$ 所在的环长？环个数的期望？
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$E_i$ 表示 $|C_1|&gt;i$。$\P[E_i\mid E_{i-1}]=\frac{n-i}{n-i+1}$，用 chain rule。Bijection：$S_n\text{ with }|C_1|=i\longleftrightarrow S_{n-1}$，$\forall\pi\in S_n$，取出 $1$ 所在的环先列出来，其余再列出来。&lt;br/&gt;
+$\E(\text{\# of cycles})=\E(\sum 1/L_i)=n\E(L_i^{-1})=H_n$。Also $(x^{\overline{n}})^\prime|_{x=1}$。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Given a random graph ($|V|=n$, every edge $1/2$), find a great clique.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (Greedy Clique Algorithm)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+直接逐一贪心，能选就选。&lt;br/&gt;
+$\P[|A(G)|&gt;\log_2n+\log_2\log_2n]=\omicron(1)$。思路 1：枚举前 $k$ 个是哪几个选上，概率是定的。思路 2：
+$$
+\begin{align*}
+\P[|A(G)|&gt;k]&amp;=\sum\P[k+1\text{-th is chosen after }i\mid k\text{-th is chosen at }i]\\
+&amp;\le\sum\frac{n}{2^k}\P[k\text{-th is chosen at }i]\\
+&amp;\le\frac{n}{2^k}\cdot 1\\
+&amp;=\Omicron((\log n)^{-1})
+\end{align*}
+$$
+$\P[|A(G)|&lt;\log_2n-\log_2\log_2n]=\omicron(1)$。考虑相邻两个被选中直接的 gap（期望为 $2^i$），然后希望前 $k$ 个 gap 加起来 $\le n$ 这种。&lt;br/&gt;
+第 $i$ 个和第 $i+1$ 个之间，方差为 $p^{-2}-p^{-1}=4^i-2^i$。因此满 $k$ 个的 $\E=2^k-1$，$\V=(4^k-1)/3-2^k+1$。$n$ 个不够的概率：
+$$
+\eq{
+\P[|A(G)|{{}&lt;{}}k]&amp;=\P[v_k&gt;n]\\
+&amp;=\P[v_k-\E[v_k]&gt;n-\E[v_k]]\\
+&amp;\le\P[v_k-\E[v_k]&gt;n/2]\\
+&amp;&lt;\V(v_k)/(n/2)^2&amp;\rm(Chebyshev)\\
+&amp;=\Omicron((\log n)^{-2})
+}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Finding Pet)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+一个随机未知 $n$ 排列 $p$，两个人 $i$，$j$ 要均找到各自 $p_i^{-1}$、$p_j^{-1}$，各自只能查看 $n/2$ 个值且不能交流。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+单个人：$1/2$；两个人策略：$i\to p_i\to\cdots$，$\P[i\text{ succeed}]=\P[|C_i|\le n/2]$。&lt;br/&gt;
+① $i$ 和 $j$ 同环：
+$$
+\begin{align*}
+\P[i,j\text{ succeed}]&amp;=\P[C_i=C_j\land |C_i|\le n/2]\\
+&amp;=\sum_{l\le n/2}\P[|C_i|=l]\cdot\P[C_j=C_i\mid|C_i|=l]\\
+&amp;=\sum_{l\le n/2}\frac1n\cdot\frac{l-1}{n-1}\\
+&amp;=\frac{(n/2)(n/2-1)}{2n(n-1)}\\
+&amp;=\frac{n-2}{8(n-1)}
+\end{align*}
+$$
+② $i$ 和 $j$ 异环：
+$$
+\begin{align*}
+\P[i,j\text{ succeed}]&amp;=\P[C_i\ne C_j\land |C_i|\le n/2\land |C_j|\le n/2]\\
+&amp;=\sum_{l\le n/2}\frac1n\cdot\P[C_j\ne C_i\land|C_j|\le n/2\mid|C_i|=l]\\
+&amp;=\sum_{l\le n/2}\frac1n\cdot\P[C_j\ne C_i\mid|C_i|=l]\cdot\P[|C_j|\le n/2\mid |C_i|=l\land C_j\ne C_i]\\
+&amp;=\sum_{l\le n/2}\frac1n\cdot\frac{n-l}{n-1}\cdot\frac{n/2}{n-l}\\
+&amp;=\frac{n}{4(n-1)}
+\end{align*}
+$$
+共 $\boxed{(3n-2)/(8n-8)}$。&lt;br/&gt;
+所有人：绝对众数的性质，$1-H_n+H_{n/2}\sim1-\ln2$。&lt;br/&gt;
+最优性：考虑开门之后不再关，这时成功概率与策略无关，等于原问题最优策略的成功率。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Find the variance of the geometric distribution.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$\V(X)=(1-p)/p^2$, by $\sum(1-p)^{i-1}pi^2$ or $p^\prime(1)-p^{\prime\prime}(1)-p^\prime(1)^2$.  
+By recurrence:
+$$
+\eq{
+&amp;\E(X^2)=\sum_{i\ge 1}p_ii^2=p+\sum_{i\ge 2}p_ii^2=p+(1-p)\sum_{i\ge 1}p_i(i+1)^2=p+(1-p)[\V(X)+2\E(X)+1]\\
+\Longrightarrow{}&amp;p\E(X^2)=p+2\frac{1-p}p+1-p\Longrightarrow\E(X^2)=\frac{2-p}{p^2}\Longrightarrow\V(X)=\boxed{\frac{1-p}{p^2}}
+}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Markov&#39;s Inequality)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Nonnegative $X$, $\boxed{\P[X&gt;a\E(X)]&lt;1/a}$, or $\boxed{\P[X&gt;a]&lt;\E(X)/a}$.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Chebyshev&#39;s Inequality)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Allow negative! $X\mapsto(X-\E(x))^2$, $\P[(X-\E(X))^2&gt;a\V(X)]&lt;1/a$ $\Longrightarrow$ $\boxed{\P[|X-\E(X)|&gt;\sqrt a\sigma(X)]&lt;1/a}$, or $\boxed{\P[|X-\E(X)|&gt;a\sigma(X)]&lt;1/a^2}$, or $\boxed{\P[|X-\E(X)|&gt;a]&lt;\V(X)/a^2}$. Not always better than Markov. 几何解释：考虑用直线（Markov）或二次函数曲线（Chebyshev）去 bound X，保证各处都大于等于（在 $x=a$/$x=\mu$ 处等）。Chebyshev 保证在 $\mu$ 附近比较逼进，离 $\mu$ 远的地方可能比 Markov 差。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Chernoff Bound)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{\text{Condition}:X=\sum_{i=1}^nX_i,\text{independent }X_i\in\set{0,1}}
+$$
+Consider $g(x)=\e^{tx}/\e^{ta}$，then $\P[X\ge a]\le\E[g(X)]=\E(\e^{tX})/\e^{ta}$. Now consider $X=\sum X_i$, where $X_i\in\set{0,1}$ and $\set{X_i}$ are independent. $\mu=\E(X)=\sum\P[X_i=1]$. Let $\P[X_i=1]=b_i$.
+$$
+\eq{
+\E(\e^{tX})=\E(\e^{t\sum X_i})=\E(\prod\e^{tX_i})=\prod\E(\e^{tX_i})=\prod(1-b_i+\e^{t}b_i)\le\prod\e^{(\e^t-1)b_i}=\e^{(\e^t-1)\sum b_i}=\e^{(\e^t-1)\mu}
+}
+$$
+Now, $a=(1+\delta)\mu$, $\min\e^{(\e^t-1)\mu-t(1+\delta)\mu}$, take derivative, $t=\ln(1+\delta)$, we get
+$$
+\min=\left(\frac{\e^\delta}{(1+\delta)^{1+\delta}}\right)^\mu
+$$
+&lt;p&gt;$$
+\left(\frac{\e^\delta}{(1+\delta)^{1+\delta}}\right)^\mu\longrightarrow \e^{-\frac{\delta^2}{2+\delta}\mu}:\text{take log then use }\ln(1+x)\ge \frac{2x}{2+x}
+$$&lt;/p&gt;
+&lt;p&gt;Remark. For $\P[X\ge a]=\E(\e^{tX})/\e^{ta}$, we can simple use Markov: $\P[X\ge a]=\P[tX\ge ta]=\P[\e^{tX}\ge\e^{ta}]=\cdots$.&lt;/p&gt;
+&lt;p&gt;For $\P[X\le a]$, $a=(1-\delta)\eps$, the best $t$ will be negative.
+$$
+\left(\frac{\e^{-\delta}}{(1-\delta)^{1-\delta}}\right)^\mu\longrightarrow \e^{-\frac{\delta^2}2\mu}:(1-x)\ln(1-x)\ge-x+\frac{x^2}2\text{ for }x\in(0,1)
+$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Overall&lt;/strong&gt;:
+$$
+\boxed{
+\left\{\eq{&amp;amp;\P[X\ge(1+\delta)\mu]\le\left(\frac{\e^\delta}{(1+\delta)^{1+\delta}}\right)^\mu\le\e^{-\frac{\delta^2}{2+\delta}\mu}&amp;amp;(\delta\ge 0)\\ &amp;amp;\P[X\le(1-\delta)\mu]\le\left(\frac{\e^{-\delta}}{(1-\delta)^{1-\delta}}\right)^\mu\le\e^{-\frac{\delta^2}2\mu}&amp;amp;(0\le\delta&amp;lt;1)}\right\}\longrightarrow\P[|X-\mu|\ge\delta\mu]\le2\e^{-\frac{\delta^2}3\mu}
+}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\boxed{\P[X\ge c]\le 2^{-c}\text{ if } c\ge 7\mu}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\boxed{\P[|\overline{X}-\E(\overline{X})|\ge\eps]\le2\e^{-\frac{\eps^2}{2+\eps}n}}
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Hoeffding)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$Z=\sum Z_i$, $Z_i\in[a,b]$ independent
+$$
+\boxed{\P[\overline{Z}-\E(\overline{Z})\ge t],\P[\overline{Z}-\E(\overline{Z})\le-t]\le\e^{-\frac{2nt^2}{(b-a)^2}}}
+$$
+Prove by considering $\E[\e^{tZ}]$, from convexity of $\e^x$, we have
+$$
+\E[\e^{tZ}]\le\e^{\frac{t^2(b-a^2)}8}
+$$
+For the original $\P[\overline{Z}-\E(\overline{Z})\ge t]$, first convert to $\e^{t\cdot}$ form, then use Hoeffding lemma, then minimize it by derivative.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Machine Learning Problem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+There are several hypothesis $h_1\sim h_k$, find the minimal $n$ that given $n$ samples $X\sim D(X)$, we can find $h_j$ with $\acc(h_j)\ge{\acc^*}-\eps$ with probability $1-\delta$. 
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+The worst case: except the best $h_j$, others all have $\acc&lt;{\acc^*}-\eps$. So we must use the samples to approximate each $\acc(h_j)$ with deviation $&lt;\eps/2$.
+$$
+\P\left[\bigwedge_i\left\lvert\widetilde{\acc}(h_i)-\acc(h_i)\right\rvert&lt;\frac\varepsilon2\right]\le
+k\P\left[\left\lvert\widetilde{\acc}(h_i)-\acc(h_i)\right\rvert&lt;\frac\varepsilon2\right]\le 2k\exp\left(-\frac{\varepsilon^2}{8+2\varepsilon}n\right)\le\delta
+$$
+The result is
+$$
+n=\Omicron\left(\frac1{\varepsilon^2}\log\frac k\delta\right)
+$$
+If $\acc^*=1$, we only care about whether there exists some $h_i$ with $\acc&lt;1-\eps$ correctly answering all the samples. The bound can be improved to
+$$
+n=\Omicron\left(\frac1{\varepsilon}\log\frac k\delta\right)
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Largest Clique Problem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Bound the size of the largest clique $w(G)$ of a $n$-vertices random graph.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$\P[(2-\eps)\log_2n\le w(G)\le (2+\eps)\log_2n]=1-\omicron(1)$. For the first $\le$:
+&lt;ol&gt;
+&lt;li&gt;Let $X=\sum[\text{is a clique}]$ over all subset of $V$, of size $(2-\eps)\log_2n$.&lt;/li&gt;
+&lt;li&gt;$\P[X\le0]=\P[X\le\E(X)/2]\le\P[|X-\E(X)|\ge\E(X)/2]\le4\V(X)/\E(X)^2$. We wanna prove $\V(X)$ grows slower than $\E(X)^2$.&lt;/li&gt;
+&lt;li&gt;First we need $\E(X)\to\infty$. $\E(X)=\binom nm2^{-\binom m2}$, it $\to+\infty$ exactly when $\eps&amp;gt;0$.&lt;/li&gt;
+&lt;li&gt;Then we need to expand $\V(X)$. $\V(X)=\E(X^2)-\E(X)^2$. Divide $X^2$ into three types: $\cap\le 1$, $\cap=m$, $1&amp;lt;\cap&amp;lt;m$. The first type can be cancelled out by $\E(X)^2$, the second type is simply $\E(X)$. The last type $\le\frac{m^5}{n-m+1}\E(X)^2=\omicron(\E(X)^2)$. Done.
+ &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Network Routing Problem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+There&#39;s an $n$-hypercube network, packet on vertex $i$ need to go to $\sigma(i)$. An edge takes $1$ unit time, and can transfer a single packet at one time. Find a routing scheme to transfer all the packets within a short time.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+BSA (Bit-Fixing Algorithm): 每次选 $i\mathop{\mathrm{xor}}\sigma(i)$ 的最高位走。&lt;br/&gt;
+Simple BSA counterexample: $\sigma(\overline{u0v})=\overline{v1u}$, then all of these must pass through $(\overline{v0v}, \overline{v1v})$.&lt;br/&gt;
+Randomized: choose random $v_i$ for each $i$. $i\to v_i\to\sigma(i)$. $\exists i,T_{i\to v_i}&gt;6n$ 的概率为 $\Omicron(2^{-3n})$. 考虑 $\P[T_{i\to u}&gt;6n]$, 最后乘 $2^n$ 即可. 已知 $T_{i\to u}\le d(i,u)+|S|\le n+|S|$, $S$ 为路径与 $i\to u$ 有交的 $j\to v_j$. 我们有 $|S|\le n/2$ 因为每条边有其他路径经过的概率为 $1/2$. 于是由 Chernoff bound, $\P[|S|&gt;5n]=\Omicron(2^{-4n})$. $v_i\to\sigma(i)$ 是对称的.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;信息论&#34;&gt;信息论
+&lt;/h3&gt;&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property (Inequality about Binomial Coefficient)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{\frac{2^{nH(q)}}{n+1}\le\binom{n}{nq}\le 2^{nH(q)}}
+$$
+where $nq\in[0,n]\cap\Z$, $H(q)=-q\log_2q-(1-q)\log_2(1-q)$. Can be proven by $1=(q+1-q)^n=\sum\binom niq^i(1-q)^{n-i}$, 后一个只取 $\binom{n}{nq}$ 一项，前一个证明 $\binom{n}{nq}q^{nq}(1-q)^{n(1-q)}$ 是最大的，别的都放成它。
+$$
+2^{H(q)}=\frac1{q^q(1-q)^{1-q}}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Extraction)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+将随机变量映到 01 串，某一长度的 01 串如果可能的话，所有 $2^l$ 种必须等概率。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+对于各位均以 $p$ 概率独立随机的 01 串：
+&lt;ul&gt;
+&lt;li&gt;$\forall n$, $\forall\Ext$, $\E(|\Ext|)\le nH(p)$&lt;/li&gt;
+&lt;li&gt;$\forall\delta&amp;gt;0$, $\forall n&amp;gt;N$, $\exists\Ext$, $\E(|\Ext|)\ge(1-\delta)nH(p)$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;1 证：考虑到如果一个串它以某个概率 $q$ 出现，那一个 deterministic 的 $\Ext$ 就必须把它映到长度不超过 $\log_2 q^{-1}$ 的串。&lt;br/&gt;
+2 证：考虑发掘 $p\ne 1/2$ 的不均匀性中的均匀性——同 $\#1$ 的串都是等概率的。对于等概率的 $m$ 种情况，可以用二进制拆分，使得 $\E(|\Ext|)\ge\lfloor\log_2m\rfloor-1$。所有可能的 $\#1$ 求和后，只关注 $np$ 附近的一部分，因为 $\E(|\Ext|)$ 容易放缩而且 $\P$ 可以用 Chernoff。具体放缩用上面那个式子的左侧。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Compression)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+构造把不均匀的随机变量的（期望）长度压缩的单射。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+对于各位均以 $p$ 概率独立随机的 01 串：
+&lt;ul&gt;
+&lt;li&gt;$\forall\delta&amp;gt;0$, $\forall n&amp;gt;N$, $\forall\Com$, $\E(|\Com|)\ge(1-\delta)nH(p)$.&lt;/li&gt;
+&lt;li&gt;$\forall\delta&amp;gt;0$, $\forall n&amp;gt;N$, $\exists\Com$, $\E(|\Com|)\le(1+\delta)nH(p)$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;1 证：证明最优方案中，出现概率小的对应的压缩长度一定越长，然后考虑 $\lfloor(p+\varepsilon)n\rfloor$ 个 1 的序列有几种。&lt;br/&gt;
+2 证：$U_\eps(p)$ 个 $1$ 的用等概率编码，其余的用原编码，用 Chernoff bound。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Channel with Noise)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+一个有 $p$ 的错误率的信道，每 $n$ 位能传输多少有效信息？
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (Shannon&#39;s Theorem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;$\forall \delta,\eps&amp;gt;0$, $\forall n&amp;gt;N$, $\forall k\le n(1-H(p)-\delta)$, $\exists(k,n)\Enc$ with every input $\Err\le\eps$.&lt;/li&gt;
+&lt;li&gt;$\forall \delta,\eps&amp;gt;0$, $\forall n&amp;gt;N$, $\forall k\ge n(1-H(p)+\delta)$, $\nexists(k,n)\Enc$ with random input $\Err\le\eps$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$1-H(p)$ is called channel capacity.&lt;/p&gt;
+&lt;p&gt;1 证：需要在 $\set{0,1}^n$ 中找到大小为 $2^k$ 的子集，使得它们各自偏移其中约 $p$ 的部分之后，形成的一堆“环”的交不大。核心困难是，以高概率找到对大部分输入均高概率成功的，和证明存在对所有输入均高概率成功，此两者之间的 gap。对于第一个“高概率”，用 probabilistic method 证；对“大部分”，用冗余筛选证。&lt;br&gt;
+考虑所有 $2^{k+1}$ 大小的子集，随机选一个情况失败的概率。
+$$
+\eq{
+\P_{C,i}[\text{Fail}]&amp;amp;\le\P_{C,i}[\tilde{c}_i\notin\Ring_\gamma(c_i)]+\P_{C,i}[\tilde{c}_i\in\Ring_\gamma(c_{j\ne i})]\\
+&amp;amp;\le\eps_1+2^{k+1}\frac{|\Ring_\gamma|}{2^n}
+}
+$$
+$\Ring_\gamma$ 是错 $pn$ 个附近的邻域。$\eps_1$ 可由 Chernoff bound 得到，性质：$|\Ring|\le2^{(H(p)+\delta^\prime)n}(\delta^\prime\to 0\text{ as }n\to\infty)$. 后一项就是
+$$
+2^{k+1+(H(p)+\delta^\prime)n-n}=2^{1+(\delta^\prime-\delta)n}\to 0
+$$
+因为 $\delta$ 是定的，而 $\delta^\prime$ 可以任意小。从而 $\Pr_{C,i}[\text{Fail}]$ 可以任意小，因此存在一个 $C$ 使 $\P_i[\text{Fail}]$ 足够小，取 $2^{k+1}$ 个 $i$ 中前一半优的，由类似于 Markov 的论证，它们的失败率都 $&amp;lt;2\P_i[\text{Fail}]$ 从而成功。&lt;/p&gt;
+&lt;p&gt;2 证：如果存在，设解码为 $i$ 的集合为 $S_i$。
+$$
+\eq{
+\P[\text{Success}]&amp;amp;=\frac{1}{2^k}\sum_i\sum_{s\in S_i}\P[\tilde c_i=s]\\
+&amp;amp;=\frac{1}{2^k}\sum_i\left(\sum_{s\in S_i\cap\Ring_\gamma(c_i)}\P[\tilde c_i=s]+\sum_{s\in S_i\setminus\Ring_\gamma(c_i)}\P[\tilde c_i=s]\right)\\
+&amp;amp;\le\frac{1}{2^k}\sum_i|S_i|p^{(p-\eps)n}(1-p)^{(1-p+\eps)n}+\eps_1&amp;amp;(\text{WLOG }p&amp;lt;\frac12)\\
+&amp;amp;\le \eps_1+\eps_2
+}
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;概率密度&#34;&gt;概率密度
+&lt;/h3&gt;&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+We need to sample from some weird probability distribution.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (Importance Sampling)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Consider $\E_{x\sim p}(f(x))$ where sampling from $p$ is difficult. For a sampleable distribution $q$, 
+$$
+I=\E_{x\sim p}(f(x))=\E_{x\sim q}\left(f(x)\frac{p(x)}{q(x)}\right)
+$$
+Let
+$$
+\hat I_n=\frac1n\sum_{i=1}^nf(x_i)\frac{p(x_i)}{q(x_i)}
+$$
+&lt;p&gt;$$
+\P[|\hat I_n-I|\ge\eps]\le\frac{\V(\hat I_n)}{\eps^2}=\frac1{\eps^2n}\left(\int f(x)^2\frac{p(x_i)^2}{q(x_i)}\d x-I^2\right)
+$$&lt;/p&gt;
+&lt;p&gt;may diverge. The optimal $q$ is
+$$
+q^*(x)=\frac{f(x)p(x)}{\int f(x)p(x)\d x}
+$$
+which is unachievable.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (Rejection Sampling)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Accept rate = $\sup f(x)/g(x)$. 思想就是在概率分布图象内部随便取一个点，其横坐标就符合该分布。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;复分析&#34;&gt;复分析
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV15F41137Nn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.bilibili.com/video/BV15F41137Nn/&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;解析函数的定义
+&lt;ol&gt;
+&lt;li&gt;保角性质（通过棣莫弗定理）&lt;/li&gt;
+&lt;li&gt;C-R 条件的等价性&lt;/li&gt;
+&lt;li&gt;偏导的几种形式（$f^\prime$、$\frac{\p f}{\p x}$、$\frac{\p f}{\p y}$、$u^\prime$、$\frac{\p u}{\p x}$、$\frac{\p u}{\p y}$、$v^\prime$、$\frac{\p v}{\p x}$、$\frac{\p v}{\p y}$、$\frac{\p f}{\p z}$、$\frac{\p f}{\p\bar z}$）及解析的偏导表示&lt;/li&gt;
+&lt;li&gt;调和函数与解析函数的关系（在单连通集上唯一确定）
+&lt;ol&gt;
+&lt;li&gt;调和多项式的基（考虑齐次→维数→极坐标）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;复变函数的积分
+&lt;ol&gt;
+&lt;li&gt;积分合法的条件及积分的参数化&lt;/li&gt;
+&lt;li&gt;同伦的定义&lt;/li&gt;
+&lt;li&gt;积分的展开及柯西积分定理（用 Green 公式）
+&lt;ol&gt;
+&lt;li&gt;通过切开连接的方法将围道推向无穷远，从而求一些积分的方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;柯西积分公式（通过展开到一阶项）推论：
+&lt;ol&gt;
+&lt;li&gt;一点由其围道 $\sup$ bound&lt;/li&gt;
+&lt;li&gt;高阶导数公式&lt;/li&gt;
+&lt;li&gt;Liouville 定理&lt;/li&gt;
+&lt;li&gt;Taylor 展开及级数收敛性质&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Cauchy&amp;rsquo;s Residue Theorem:
+$$
+\oint_\gamma f(z)\d z=2\pi\i\sum_k\res(f,z_k)
+$$
+If
+$$
+f(z)=\sum_{j=-\infty}^{+\infty}c_{j}(z-z_k)^{j}
+$$
+then $\res(f(z),z_k)=c_{-1}$. So for simple pole:
+$$
+\res(f(z),z_k)=\lim_{z\to z_k}(z-z_k)f(z)
+$$
+(usually calculated by l&#39;H)&lt;/p&gt;
+&lt;p&gt;For pole of order $m$:
+$$
+\res(f(z),z_k)=\frac1{(m-1)!}\lim_{z\to z_k}\frac{\d^{m-1}}{\d z^{m-1}}\left[(z-z_k)^mf(z)\right]
+$$
+For infinity, if
+$$
+f(z)=\sum_{j=-\infty}^{+\infty}c_jz^j
+$$
+then $\res(f(z),\infty)=-c_{-1}$. If the pole is of order $m$ ($\max\set{j\mid c_j\ne 0}=m$), then
+$$
+\res(f(z),\infty)=\frac{(-1)^m}{(m+1)!}\lim_{z\to\infty}\left(z^{m+1}\frac{\d^{m+1}}{\d z^{m+1}}f(z)\right)
+$$
+also,
+$$
+\res(f(z),\infty)=-\res\left(\frac{1}{z^2}f\left(\frac1z\right),0\right)
+$$
+So another form of Residue Theorem:
+$$
+\oint_{\gamma^-}f(z)\d z=2\pi\i\res(f(z),\infty)\quad(\text{for contour enclosing all the singularities})
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\sum\res(f(z),z_k)+\res(f(z),\infty)=0
+$$&lt;/p&gt;
+&lt;p&gt;Estimate the asymptotics of coefficients of a GF:
+$$
+f(z)=\text{some closed form}=\sum a_iz^i
+$$&lt;/p&gt;
+&lt;p&gt;$$
+a_i=\res\left(\frac{f(z)}{z^{i+1}},0\right)
+$$&lt;/p&gt;
+&lt;p&gt;Also:
+$$
+\oint_{\gamma}\frac{f(z)}{z^{i+1}}\d z=a_i+\sum_k\res\left(\frac{f(z)}{z^{i+1}},z_k\right)
+$$
+For most of the functions, we can choose a family of contours, to make
+$$
+f(z)=\Omicron(1)\Longrightarrow\oint_\gamma\frac{f(z)}{z^{i+1}}\d z\to 0
+$$
+so that we can get $a_i$ from those residues. For rational functions, the asymptotic behavior is governed by the nearest singularity to $0$.&lt;/p&gt;
+&lt;h2 id=&#34;智应数&#34;&gt;智应数
+&lt;/h2&gt;&lt;h3 id=&#34;高维几何&#34;&gt;高维几何
+&lt;/h3&gt;&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Volume of a ball)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Calculate the volume and surface area of a $d$-dimensional unit ball.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+V_d=\int_{|\b x|\le 1}\d x=\int_0^1\int\d\Omega\cdot r^{d-1}\d r=\frac{A_d}{d}
+$$
+Here, 
+$$
+\d x_1\cdots\d x_d=\left\lvert\frac{\p(x_1,\cdots,x_d)}{\p(r,\theta_1,\cdots,\theta_{d-1})}\right\rvert\d r\d\theta_1\cdots\d\theta_{d-1}=\left(r^{d-1}\d r\right)\underline{\left(\sin^{d-2}\theta_1\cdots\sin\theta_{d-2}\d\theta_1\cdots\d\theta_{d-1}\right)}_{\d\Omega}
+$$
+How to get $V_d$ and $A_d$? A strange way is consider normal distribution:
+$$
+\int_{\b x}\e^{-|\b x|^2}\d x=\left(\int_{-\infty}^{+\infty}\e^{-x^2}\d x\right)^d=\pi^{d/2}
+$$
+Also:
+$$
+\int_{\b x}\e^{-|\b x|^2}\d x=\int_0^{+\infty}\int\e^{-r^2}\d\Omega\cdot r^{d-1}\d r=A_d\int_0^{+\infty}\e^{-r^2}r^{d-1}\d r\xlongequal{t=r^2}\frac{A_d}2\int_0^{+\infty}\e^{-t}t^{d/2-1}\d t=\frac{A_d}{2}\Gamma\left(\frac d2\right)
+$$
+&lt;p&gt;$$
+\frac{A_d}2\Gamma\left(\frac d2\right)=\pi^{d/2}\Longrightarrow\boxed{A_d=\frac{2\pi^{d/2}}{\Gamma(d/2)}}\Longrightarrow\boxed{V_d=\frac{2\pi^{d/2}}{d\Gamma(d/2)}}
+$$&lt;/p&gt;
+&lt;p&gt;Here a useful formula is
+$$
+\boxed{\int_{0}^{+\infty}\e^{-x^2}x^n\d x=\frac12\Gamma\left(\frac{n+1}2\right)=\left\{\begin{aligned}&amp;amp;\frac{(2n-1)!!}{2^{n+1}}\sqrt{\pi},&amp;amp;2\mid n\\ &amp;amp;\frac{n!}{2},&amp;amp;2\nmid n\end{aligned}\right.}
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property (Volume Near the Shell)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+1-(1-\eps)^d\le 1-\e^{-\eps d}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property (Volume Near the Equator)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+1-\text{ratio}=\frac{V\text{ above }\frac{c}{\sqrt{d-1}}}{V_d/2}
+$$
+&lt;p&gt;$$
+\begin{align*}
+V\text{ above }\frac{c}{\sqrt{d-1}}&amp;amp;=\int_{c/\sqrt{d-1}}^1\sqrt{1-r^2}^{d-1}V_{d-1}\d r\\
+&amp;amp;\le V_{d-1}\int_{c/\sqrt{d-1}}^1\e^{-\frac{d-1}2r^2}\d r\\
+&amp;amp;\le V_{d-1}\int_{c/\sqrt{d-1}}^{+\infty}\e^{-\frac{d-1}2r^2}\d r\\
+&amp;amp;\le V_{d-1}\int_{c/\sqrt{d-1}}^{+\infty}\e^{-\frac{d-1}2r^2}\cdot\frac{r}{c/\sqrt{d-1}}\d r\\
+&amp;amp;=\frac{V_{d-1}\sqrt{d-1}}{2c}\int_{c/\sqrt{d-1}}^{+\infty}\e^{-\frac{d-1}2r^2}\d(r^2)\\
+&amp;amp;=\frac{V_{d-1}\sqrt{d-1}}{2c}\cdot\frac{2}{d-1}\e^{-\frac{d-1}2\cdot\frac{c^2}{d-1}}\\
+&amp;amp;=\frac{V_{d-1}}{c\sqrt{d-1}}\e^{-c^2/2}
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;(Main idea: 凑 $V_{d-1}$ and $\e^{-x^2}\to x\e^{-x^2}$)
+$$
+\begin{align*}
+\frac{V_d}2&amp;amp;=\int_0^1\sqrt{1-r^2}^{d-1}V_{d-1}\d r\\
+&amp;amp;=V_{d-1}\int_0^1(1-r^2)^{(d-1)/2}\d r\\
+&amp;amp;\ge V_{d-1}\int_0^{1/\sqrt{d-1}}\left(1-\frac{d-1}2r^2\right)\d r&amp;amp;\left(\text{need }\frac{d-1}2\ge 1\text{ !!!}\right)\\
+&amp;amp;\ge V_{d-1}\frac{1}{\sqrt{d-1}}\left(1-\frac{d-1}2\left(\frac1{\sqrt{d-1}}\right)^2\right)\\
+&amp;amp;=\frac{V_{d-1}}{2\sqrt{d-1}}
+\end{align*}
+$$
+(Main idea: 取一个圆柱)&lt;/p&gt;
+&lt;p&gt;So,
+$$
+1-\text{ratio}\le\boxed{\frac c2\e^{c^2/2}}\qquad\color{red}\text{when }d\ge 3,c\ge 1
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property (Random vectors in the ball)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+With $\P=1-\Omicron(n^{-1})$:
+&lt;ul&gt;
+&lt;li&gt;all $|\b x_i|\ge 1-\frac{2\ln n}d$. Directly union bound.&lt;/li&gt;
+&lt;li&gt;all pairs $|\b x_i\cdot\b x_j|\le\frac{\sqrt{6\ln n}}{\sqrt{d-1}}$. 把 $\b x_i$ 视作 equator 的法向量，$\b x_j$ 大概率在 equator 的圆盘附近，再 union bound.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;definition-box&#34;&gt;
+  &lt;div class=&#34;definition-title&#34;&gt;Definition (Normal Distribution)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+PDE of $\Nd(\mu,\sigma^2)$:
+$$
+f(x)=\frac{1}{\sqrt{2\pi}\sigma}\e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+$$
+&lt;img src=&#34;https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/1_empirical-rule.jpg&#34; alt=&#34;68–95–99.7 rule]&#34;&gt;
+&lt;p&gt;when $\sigma=1$, it is called &lt;strong&gt;standard&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;PDE of $\Nd(\b{\mu}, \b{\Sigma})$:
+$$
+f(\b{x}) = \frac{1}{(2\pi)^{d/2} |\b{\Sigma}|^{1/2}} \exp\left( -\frac{1}{2} (\b{x} - \b{\mu})^\top \b{\Sigma}^{-1} (\b{x} - \b{\mu}) \right)
+$$
+when $\b\Sigma=kI$, it is called &lt;strong&gt;spherical&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (3 Different Tail Bounds)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Hoeffding&lt;/strong&gt;. i.i.d. $X_i\sim\mathcal{U}(-a,+a)$,
+$$
+\boxed{\P\left[\left\lvert S_n - \E(S_n)\right\rvert\geq t \right] \leq2\exp\left( -\frac{t^2}{2na^2} \right)}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;sub-Gaussian&lt;/strong&gt;. i.i.d. $X_i$ s.t. $\forall \lambda$, $\E\left[\e^{\lambda(X_i-\E(X_i))}\right]\le\e^{\lambda^2\sigma^2/2}$,
+$$
+\boxed{\P\left[\left\lvert S_n - \E(S_n)\right\rvert\geq t \right] \leq 2\exp\left( -\frac{t^2}{2n\sigma^2} \right)}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;sub-Exponential&lt;/strong&gt;. i.i.d. $X_i$ s.t. $\forall|\lambda|&amp;lt;\alpha^{-1}$, $\E\left[\e^{\lambda(X_i-\E(X_i))}\right]\le\e^{\lambda^2\nu^2/2}$,
+$$
+\boxed{\P\left[\left\lvert S_n - \E(S_n)\right\rvert\geq t \right] \leq 2\exp\left(-\min\Set{\frac{t^2}{2n\nu^2},\frac{t}{2\alpha}}\right)}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;sub-Gaussian is $(\sigma,0)$ sub-exp.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Gaussian Annulus Theorem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{\underset{x\sim\mathcal{N}(\b 0,I)}\P\left[\left\lvert|\b x|-\sqrt d\right\rvert\le\beta\right]\ge 1-3\e^{-c\beta^2}\text{ for any }\beta\le\sqrt{d}\text{ and some constant }c}
+$$
+First,
+$$
+\P\left[\left\lvert|\b x|-\sqrt{d}\right\rvert\ge\beta\right]=\P\left[\left\lvert|\b x|^2-d\right\rvert\ge\beta\left(|\b x|+\sqrt{d}\right)\right]\le\P\left[\left\lvert|\b x|^2-d\right\rvert\ge\beta\sqrt{d}\right]
+$$
+&lt;big&gt;&lt;b&gt;证 1.&lt;/b&gt;&lt;/big&gt; use sub-exp tail bound.
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;易证 $\E(|\b x|^2)=d$. 这玩意叫卡方分布（$k$ 个标准正态的平方和记作 $\chi_k^2$）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;证明 $\chi_1^2$ 是 sub-exp with $(\nu,\alpha)=(2,4)$:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;MGF $\E[\e^{\lambda (Z-1)}]=\frac{\e^{-\lambda}}{\sqrt{1 - 2\lambda}}$.&lt;/li&gt;
+&lt;li&gt;取 $\ln$，为 $-\lambda-\frac12\ln(1-2\lambda)=-\lambda-\frac12\left(-2\lambda-2\lambda^2-\frac83(\theta\lambda)^3\right)=\lambda^2+\frac43\theta^3\lambda^3\le\lambda^2+\frac13\theta^3\lambda^2\le 2\lambda^2$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$
+\P\left[\left\lvert|\b x|^2-d\right\rvert\ge\beta\sqrt{d}\right]\le 2\exp\left(-\min\Set{\frac{(\beta\sqrt d)^2}{8d},\frac{\beta\sqrt d}{8}}\right)=2\e^{-\beta^2/8}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;big&gt;&lt;b&gt;证 2.&lt;/b&gt;&lt;/big&gt; &lt;strong&gt;Master tail bound theorem&lt;/strong&gt;: i.i.d. $X_i$ s.t. $\E=0$ and $\V\le\sigma^2$. $0\le a\le \sqrt2n\sigma^2$, $|\E(X_i^s)|\le \sigma^2s!$ for $s=3\sim\lfloor a^2/4n\sigma^2\rfloor$,
+$$
+\boxed{\P[|S_n|\ge a]\le 3\exp\left(-\frac{a^2}{12n\sigma^2}\right)}
+$$
+We have $\left\lvert|\b x^2|-d\right\rvert=\left\lvert\sum_{i=1}^d(\b x_i^2-1)\right\rvert$, let $X_i=\frac{\b x_i^2-1}2$.
+$$
+\begin{align*}
+|\E(X_i^s)|&amp;amp;\le\E(|X_i|^s)\\
+&amp;amp;\le 2^{-s}\E(1+\b x_i^{2s})\\
+&amp;amp;=2^{-s}(1+(2s-1)!!)\\
+&amp;amp;\le s!
+\end{align*}
+$$
+So, we can let $\sigma=2$, $a=\beta\sqrt d/2$, $|\E(X_i^s)|\le \sigma^2s!$ is easily satisfied, thus
+$$
+\P\left[\left||\b x|^2-d\right|\ge\beta\sqrt d\right]=\P\left[\left|\sum_{i=1}^dX_i\right|\ge a\right]\le 3\e^{-\frac{\beta^2}{96}}
+$$
+&lt;big&gt;&lt;b&gt;证 3.&lt;/b&gt;&lt;/big&gt; Chernoff bound:
+$$
+\P[X\ge a]\le\inf_{t\ge0}\frac{\E(\e^{tX})}{\e^{ta}}
+$$
+Here $\E(\e^{tX})=M_X(t)$ is the MGF of $X$. Consider $Y=|\b x|^2$.
+$$
+\begin{align*}
+M_Y(t)&amp;amp;=\E\left(\e^{tY}\right)\\
+&amp;amp;=\E\left(\e^{t\sum_{i=1}^d\b x_i^2}\right)\\
+&amp;amp;=\E\left(\prod_{i=1}^d\e^{t\b x_i^2}\right)\\
+&amp;amp;=\left(\E\left(\e^{t\b x_1^2}\right)\right)^d\\
+&amp;amp;=\left(\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}\e^{-x^2/2}\e^{tx^2}\d x\right)^d\\
+&amp;amp;=\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\e^{-(1/2-t)x^2}\d x\right)^d\\
+&amp;amp;=\left(\frac{1}{\sqrt{2\pi}}\sqrt{\frac{\pi}{1/2-t}}\right)^d\\
+&amp;amp;=\left(1-2t\right)^{-d/2}
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{align*}
+\P\left[|\b x|^2\ge d(1+\eps)^2\right]&amp;amp;\le\frac{(1-2t)^{-d/2}}{\e^{td(1+\eps)^2}}\\
+&amp;amp;=\exp\left(-\frac d2\ln(1-2t)-d(1+\eps)^2t\right)\\
+&amp;amp;=\exp\left(d\ln(1+\eps)-d\eps\left(1+\frac\eps2\right)\right)&amp;amp;\left(t=\frac12\left(1-\frac1{(1+\eps)^2}\right)\right)\\
+&amp;amp;\le\exp\left(d\eps-d\eps\left(1+\frac\eps2\right)\right)\\
+&amp;amp;=\e^{-d\eps^2/2}
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;Take $Z=-Y$, we can similarly prove $\P\left[|\b x|^2\le d(1-\eps)^2\right]\le\e^{-d\eps^2/2}$.
+$$
+\P\left[\left\lvert|\b x|-\sqrt d\right\rvert\ge\beta\right]=\P\left[|\b x|^2\ge d\left(1+\frac{\beta}{\sqrt d}\right)^2\right]+\P\left[|\b x|^2\le d\left(1-\frac{\beta}{\sqrt d}\right)^2\right]\le2\e^{-\beta^2/2}\quad(\eps=\beta/\sqrt d)
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property (MGF of $\Nd(\mu,\sigma^2)$)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\begin{align*}
+M_X(t)&amp;=\E\left[\e^{t X}\right]\\\
+&amp;=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}\e^{t(x+\mu)}\e^{-x^2/2\sigma^2}\d x\\\
+&amp;=\frac{\e^{\mu t+\sigma^2t^2/2}}{\sqrt{2\pi}\sigma}\int_{-\infty}^{+\infty}\e^{-(x/\sigma+\sigma t)^2/2}\d x\\\
+&amp;=\e^{\mu t+\sigma^2t^2/2}
+\end{align*}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property (Tail Bound of $\Nd(\mu,\sigma^2)$)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\begin{align*}
+&amp;\P[X-\mu\ge t]\le\inf_\lambda\frac{\E\left[\e^{\lambda X}\right]}{\e^{\lambda(t+\mu)}}=\e^{-t^2/2\sigma^2}\\\
+&amp;\boxed{\P[|X-\mu|\ge t]\le 2\e^{-t^2/2\sigma^2}}
+\end{align*}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Random Projection Theorem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+For $\b v\in\R^d$, i.i.d. $\b u_i\sim\Nd(\b 0,I_d)$, $f(\b v):\b v\mapsto\mat{\b u_1\cdot\b v&amp;\cdots&amp;\b u_k\cdot\b v}$.
+$$
+\boxed{\P\left[\left\lvert|f(\b v)|-\sqrt k|\b v|\right\rvert\ge\eps\sqrt k|\b v|\right]\le 3\e^{-ck\eps^2}\text{ for some constant }c\text{ and any }\eps\in(0,1)}
+$$
+Proof. i.i.d. $\b u_i\cdot\b{\hat v}\sim\Nd(0,1)$, then use GAT with $\beta=\sqrt k\eps$.  
+注意这里关键的一点是，i.i.d. 的随机变量的相同线性组合也是 i.i.d. 的。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Johnson-Lindenstrauss Lemma)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$c$ and $\eps$ as above. For any $n$ points in $\R^d$, let $k\ge\frac{3}{c\eps^2}\ln n$, $f:\R^d\to\R^k$ as above.
+$$
+\boxed{\P\left[\forall i,j,(1-\eps)\sqrt k|\b v_i-\b v_j|\le |f(\b v_i)-f(\b v_j)|\le (1+\eps)\sqrt k|\b v_i-\b v_j|\right]\ge 1-\frac{3}{2n}}
+$$
+&lt;p&gt;Proof. $f(\b v_i)-f(\b v_j)=f(\b v_i-\b v_j)$, then use RPT above. $3\e^{-ck\eps^2}\le 3n^{-3}$ then union bound, times $\binom n2$.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (JL Lemma Inner Product Version)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Under the same setting, plus $|\b v_i|\le 1$, we have with high Pr:
+$$
+\boxed{\forall i,j,\left\lvert\frac{\ip{f(\b v_i),f(\b v_j)}}k-\ip{\b v_i,\b v_j}\right\rvert\le 2\eps+\frac{\eps^2}4}
+$$
+Proof. Consider
+$$
+\ip{f(\b v_i),f(\b v_j)}=\frac14\left(|f(\b v_i)+f(\b v_j)|^2-|f(\b v_i)-f(\b v_j)|^2\right)
+$$
+Other versions: &lt;a href=&#34;https://kexue.fm/archives/8679/comment-page-1&#34;&gt;https://kexue.fm/archives/8679/comment-page-1&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Separating Two Gaussians or Sphericals)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+There are points sampled from two Gaussians/Sphericals (only the centers differ), $n$ points each. Identify (cluster) them.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+求出每对点之间的距离。在足够大的概率下，同一个分布内的点对距离和不同分布的点对距离有个可辨别的 gap：
+&lt;ol&gt;
+&lt;li&gt;用球壳/GAT bound 模长；&lt;/li&gt;
+&lt;li&gt;用“体积集中在赤道”bound 点积；&lt;/li&gt;
+&lt;li&gt;同一个分布的两个向量差平方 $\le$ $2$ 倍模长$^2$ $+$ $2$ 倍点积；&lt;/li&gt;
+&lt;li&gt;不同个分布的两个向量差平方 $\ge$ $2$ 倍模长$^2$ $+$ $\delta^2$ $-$ $2$ 倍点积 $-$ $4\delta$ 倍点积；&lt;/li&gt;
+&lt;li&gt;只要 $\delta=\Omega(\log d/d^{1/4})$ 就能分离。
+ &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;线代&#34;&gt;线代
+&lt;/h3&gt;&lt;div class=&#34;definition-box&#34;&gt;
+  &lt;div class=&#34;definition-title&#34;&gt;Definition (Best-Fit Space)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$\b a_{1\sim n}\in\R^d$, $A=\mat{\b a_1&amp;\cdots&amp;\b a_n}^\top$. The best-fit $k$-dim space $V_k$ is a space that minimizes $\sum\operatorname{dis}(\b a_i,V_k)^2$ $\Longleftrightarrow$ maximizing $\sum_i\sum_{j\le k}(\b a_i\cdot\b v_j)^2=\sum|A\b v_j|^2$, here $\set{\b v_j}$ is an orthonormal basis for $V_k$.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (The Greedy Algorithm)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+定义 the $k$-th singular vector:
+$$
+\boxed{\b v_k=\operatorname*{argmax}_{|\b v|=1,\b v\perp\b v_{1\sim k-1}}|A\b v_k|}
+$$
+and the $k$-th singular value: $\sigma_k=|A\b v_k|$. $\span{\b v_1,\cdots,\b v_k}$ is the best-fit $k$-dim space.
+&lt;p&gt;Proof. 归纳。考虑 $W_k\ne V_k$，取 $\b w_k\in W_k\cap V_{k-1}^\perp$，将它扩展成 $W_k$ 的一组基 $\set{\b w_1,\cdots,\b w_k}$。由归纳假设，
+$$
+\sum_{i=1}^k|A\b w_i|^2\le\sum_{i=1}^{k-1}|A\b v_i|^2+|A\b w_k|^2
+$$
+由 $\b v_k$ 定义 $|A\b w_k|\le|A\b v_k|$。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{\sum\sigma_i^2=\sum|A\b v_i|^2=\sum\sum(\b a_i\cdot\b v_j)^2=\sum|\b a_i|^2=\sum\sum a_{i,j}^2=\|A\|_F^2}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+定义 left singular vectors $\b u_k=\sigma_k^{-1}A\b v_k$, we have: $\boxed{\b u_i\perp\b u_j}$.
+&lt;p&gt;Proof. 反证，找到最小的 $\b u_i\not\perp\b u_j$（$i&amp;lt;j$），不妨设 $\b u_i\cdot\b u_j=\delta&amp;gt;0$。
+$$
+A\frac{\b v_i+\eps\b v_j}{|\b v_i+\eps\b v_j|}=\frac{\sigma_i\b u_i+\eps\sigma_j\b u_j}{\sqrt{1+\eps^2}}\Longrightarrow \b u_i\left(A\frac{\b v_i+\eps\b v_j}{|\b v_i+\eps\b v_j|}\right)=\frac{\sigma_i+\eps\sigma_j\delta}{\sqrt{1+\eps^2}}=\sigma_i+\sigma_j\delta\eps+\omicron(\eps^2)
+$$
+这与 $\b v_i$ 定义（$\max.|A\b v_i|$）矛盾。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Singular Value Decomposition)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{A_{n\times m}=\sum\sigma_i\b u_i\b v_i^\top=\mat{\b u_1&amp;\cdots&amp;\b u_r}\mat{\sigma_1&amp;\cdots&amp;0\\\vdots&amp;\ddots&amp;\vdots\\0&amp;\cdots&amp;\sigma_r}\mat{\b v_1^\top\\\vdots\\\b v_r^\top}=U_{n\times r}\Sigma_{r\times r}V^\top_{r\times m}}
+$$
+Proof.
+$$
+\sum\sigma_i\b u_i\b v_i^\top=\sum A\b v_i\b v_i^\top=A\mat{\b v_1&amp;\cdots&amp;\b v_n}\mat{\b v_1^\top\\\vdots\\\b v_n^\top}
+$$
+and by definition,
+$$
+\mat{\b v_1^\top\\\vdots\\\b v_n^\top}\mat{\b v_1&amp;\cdots&amp;\b v_n}=I\Longrightarrow \mat{\b v_1&amp;\cdots&amp;\b v_n}\mat{\b v_1^\top\\\vdots\\\b v_n^\top}=I
+$$
+or we can prove by $\forall\b x(A\b x=B\b x)\Longrightarrow A=B$.
+&lt;p&gt;Let $A_k=\sum_{i\le k}\sigma_i\b u_i\b v_i^\top$.&lt;/p&gt;
+&lt;p&gt;Note. 当 $A$ 是实对称矩阵时，$\set{\sigma_i}=\set{\lvert\lambda_i\rvert}$，如果 $\lambda_i$ 是负的，则 $U$ 和 $V$ 的对应列符号相反。$A$ 有重复特征值时 $U$ 和 $V$ 不唯一。求 SVD 的手工方法是 $A^\top A=V\Sigma^2 V^\top$，对它做正交对角化。&lt;strong&gt;对称正定矩阵的特征值分解保证 $U=V$，但半正定不保证 $U=V$。&lt;/strong&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+The rows of $A_k$ are the projections of the rows of $A$ onto the subspace $V_k$ spanned by the first $k$ singular vectors of $A$.
+&lt;p&gt;Proof.
+$$
+\sum_{i\le k}A\b v_i\b v_i^\top=\sum_{i\le k}\sigma_i\b u_i\b v_i^\top=A_k
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;definition-box&#34;&gt;
+  &lt;div class=&#34;definition-title&#34;&gt;Definition (Operator $p$-norm)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{\|A\|_p=\max_{\|\b x\|_p=1}\|A\b x\|_p}
+$$
+&lt;ul&gt;
+&lt;li&gt;$\|A\|_1$ 是 $A$ 的各列 $1$-范数的 $\max$。&lt;/li&gt;
+&lt;li&gt;$\|A\|_2$（谱范数）是 $A$ 的奇异值 $\max$ (so $\lVert A-A_k\rVert_2=\sigma_{k+1}$)。&lt;/li&gt;
+&lt;li&gt;$\|A\|_\infty$ 是 $A$ 的各行 $1$-范数的 $\max$。
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Best Rank-$k$ Approximation)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{\|A-A_k\|_F=\min_{\r(B)\le k}\|A-B\|_F,\|A-A_k\|_2=\min_{\r(B)\le k}\|A-B\|_2}
+$$
+Proof. $\min$ 差的 Frobenius 范数可以理解成 $A$ 的各行到 $\operatorname{R}(B)$ 的距离，于是从 best-fit space 的角度即可说明。  
+对于 $2$ 范数，找单位向量 $\b z\in\operatorname{N}(B)\cap\span{\b v_1,\cdots,\b v_{k+1}}$，设 $\b z=\sum c_i\b v_i$，
+$$
+\|A-B\|_2\ge|(A-B)\b z|=|A\b z|=\left\lvert\sum Ac_i\b v_i\right\rvert=\left\lvert\sum c_i\sigma_i\b u_i\right\rvert=\sqrt{\sum c_i^2\sigma_i^2}\ge\sigma_{k+1}\sqrt{\sum c_i}=\sigma_{k+1}|\b z|=\sigma_{k+1}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;definition-box&#34;&gt;
+  &lt;div class=&#34;definition-title&#34;&gt;Definition (Schatten $p$-norm)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\boxed{\|A\|_{S_p}=\left\lVert\mat{\sigma_1&amp;\cdots&amp;\sigma_r}\right\rVert_p}
+$$
+&lt;ul&gt;
+&lt;li&gt;$\|A\|_{S_1}$ 是核范数。&lt;/li&gt;
+&lt;li&gt;$\|A\|_{S_2}=\|A\|_F$。&lt;/li&gt;
+&lt;li&gt;$\|A\|_{S_\infty}=\|A\|_2$。
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;奇异值 &amp;amp; 向量有两种定义方式：$\set{A\b v_i=\sigma_i\b u_i}$（$\set{\b v_i}$、$\set{\b u_i}$ 分别单位正交，$\sigma_i\ge 0$），以及 $\max_{|\b v|=1}|A\b v|$ 这类。类似地，特征值 &amp;amp; 向量也有两种定义，第二种是 $\max_{|\b v|=1}\set{\b v^\top A\b v}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当特征值互异时，正交对角化唯一 up to 特征向量乘 $\pm 1$；奇异值互异时，SVD 也是一样。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方阵的左右特征值必然相同，左右特征向量一般不同。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于正规矩阵（$AA^\dagger=A^\dagger A$），$\sigma_i=|\lambda_i|$，否则反例：$A=E^{1,2}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$A$ 的所有单位特征向量和所有奇异向量完全相同（与此同时左右奇异向量相同）$\Longleftrightarrow$ $A$ 对称半正定。对称反例：$\mat{0&amp;amp;1\\1&amp;amp;0}$。&lt;/p&gt;
+&lt;p&gt;证明核心步骤：对于 $A=B^\top B$，设 $B=U\Sigma V^\top$，这里只证明最大右奇异向量 $=$ 最大单位特征向量：&lt;/p&gt;
+&lt;p&gt;$\color{white}\Longleftrightarrow$ $\b v$ 是 $A$ 的右奇异向量&lt;br&gt;
+$\Longleftrightarrow$ $\b v$ 最大化了 $|A\b v|$（定义）&lt;br&gt;
+$\Longleftrightarrow$ $\b v$ 最大化了 $\b v^\top A^\top A\b v=\b v^\top V\Sigma^4V^\top\b v=(V^\top\b v)^\top\Sigma^4(V^\top\b v)$&lt;br&gt;
+$\Longleftrightarrow$ $\b v$ 最大化了 $(V^\top\b v)^\top\Sigma^2(V^\top\b v)=\b v^\top B^\top B\b v$（这一步是因为 $V^\top\b v$ 是单位向量，对于单位向量 $\b u$ 而言，最大化 $\sum\sigma_i^4\b u_i^2$ 和最大化 $\sum\sigma_i^2\b u_i^2$ 是等价的，都必须只有 $\sigma$ 最大的那些部分对应的 $\b u$ 的分量不是 $0$）&lt;br&gt;
+$\Longleftrightarrow$ $\b v$ 最大化了 $|B\b v|$&lt;br&gt;
+$\Longleftrightarrow$ $\b v$ 是 $B$ 的右奇异向量（定义）&lt;br&gt;
+$\Longleftrightarrow$ $\b v$ 是 $B^\top B=A$ 的特征向量（奇异向量的求法）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;svd-的工业应用&#34;&gt;SVD 的工业应用
+&lt;/h3&gt;&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (The Power Method)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;Sample a unit vector $\b x$.&lt;/li&gt;
+&lt;li&gt;Calculate $(A^\top A)^k\b x$, $k=\Omega(-\eps^{-1}\log\eps)$. Every time &lt;strong&gt;normalize&lt;/strong&gt; the resulting vector.&lt;/li&gt;
+&lt;li&gt;The resulting vector $\b v$ is very likely to be a eigenvector corresponding to the greatest eigenvalue of $A$.&lt;/li&gt;
+&lt;li&gt;$A\xleftarrow{-}A\b v\b v^\top$, goto 1.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Intuition: let $\b x=\sum c_i\b v_i$,
+$$
+A^\top A=\left(\sum\sigma_i\b v_i\b u_i^\top\right)\left(\sum\sigma_i\b u_i\b v_i^\top\right)=\sum\sigma_i^2\b v_i\b v_i^\top\Longrightarrow\left(A^\top A\right)^k=\sum\sigma_i^{2k}\b v_i\b v_i^\top\Longrightarrow\left(A^\top A\right)^k\b x=\sum\sigma_i^{2k}c_i\b v_i
+$$
+We can also do the first $k$ eigenvectors in parallel, just do Gram-Schmidt orthogonalization every time.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Correctness of the Power Method)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Unit vector $\b x$ satisfies $|\b x^\top\b v_1|\ge\delta$. Let $V$ be the subspace spanned by 特征值 $&gt;(1-\eps)\sigma_1$ 的 $\b v$ 们. For
+$$
+\boxed{k=\frac{-\ln(\eps\delta)}{2\eps}}
+$$
+the result $\b w=\left(A^\top A\right)^k\b x$ satisfies that
+$$
+\boxed{\left\lvert\b{\hat w}_{V^\perp}\right\rvert\le\eps}
+$$
+Proof. 单位化后垂直分量的长度，就是 $\b w$ 垂直分量部分占总模长的比例：
+$$
+\left\lvert\b w\right\rvert=\left\lvert\sum\sigma_i^{2k}c_i\b v_i\right\rvert\ge\sigma_1^{2k}c_1=\sigma_1^{2k}\delta
+$$
+&lt;p&gt;$$
+\left\lvert\b w_\perp\right\rvert=\left\lvert\sum_{\sigma_i\le(1-\eps)\sigma_1}\sigma_i^{2k}c_i\b v_i\right\rvert\le(1-\eps)^{2k}\sigma_1^{2k}\sqrt{\sum_{\sigma_i\le(1-\eps)\sigma_1}c_i^2}\le(1-\eps)^{2k}\sigma_1^{2k}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\text{ratio}\le\frac{(1-\eps)^{2k}}\delta\le\frac{\e^{-2k\eps}}\delta=\eps
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (How to Sample $\b x$)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+直接均匀随机。书里的结论很傻逼：
+$$
+\P\left[\left\lvert\b x^\top\b v_1\right\rvert\le\frac{1}{20\sqrt d}\right]\le\frac1{10}+3\e^{-d/96}
+$$
+它是通过单位化 $\b y\sim\Nd(\b 0,I_d)$ 随机的，然后没单位化的时候，$\b y^\top\b v_1\sim \Nd(\b 0,I_d)$，因此
+$$
+\P\left[\left\lvert\b x^\top\b v_1\right\rvert\le\frac{1}{20\sqrt d}\right]\le\P\left[\left\lvert\b y^\top\b v_1\right\rvert\le\frac{1}{10}\right]+\P\left[\left\lvert\b y\right\rvert\ge 2\sqrt d\right]
+$$
+这里我们有一个更智慧的分析，注意到 $\b x^\top\b v_1$ 和球面第一维分布的坐标相同。这货的 PDF 是
+$$
+\boxed{f(t)=\frac{(1-t^2)^{(d-3)/2}}{\Beta((d-1)/2,1/2)}=\frac{\Gamma(d/2)}{\sqrt{\pi}\Gamma((d-1)/2)}(1-t^2)^{(d-3)/2}}
+$$
+(note that for $d=3$, $f$ is uniform distribution)
+&lt;p&gt;稍微 bound 一下，根据不等式
+$$
+\frac{\Gamma(x+1/2)}{\Gamma(x)}&amp;lt;\sqrt x
+$$
+我们得到
+$$
+\boxed{\P[x_1\le\eps]&amp;lt;\sqrt{\frac{2(d-1)}\pi}\eps}
+$$
+这样就可以放心大胆地只随机单次 $\b x$ 了。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Principal Component Analysis)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$n$ sample size, $d$ data dim, $A\in\R^{n\times d}$. We want to compress $A$ to $\hat A\in\R^{n\times r}$.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+由于 $A$ 的每行是一个样本，它与 $\b v_{1\sim r}$ 点积就可以得到在前 $r$ 个特征方向上的投影，这是“最优的”秩 $r$ 近似：
+$$
+AV_r=\mat{\sigma_1\b u_1&amp;\cdots&amp;\sigma_r\b u_r}
+$$
+这就同时说明一个事情：右奇异向量给出数据的方向，左奇异向量给出各数据投影到 fit plane 上某一维后的坐标。从另一个角度看 $U_r^\top A$ 给出的就是数据的前 $r$ 个“特征方向”，在 $A$ 每行都是一组人脸数据（二维像素排开）时，$U_r^\top A$ 就是前 $r$ 个“特征脸”。&lt;br/&gt;
+将一个数据投影到前 $r$ 个特征脸上：
+$$
+\b x\sum_{i=1}^r\b v_i\b v_i^\top
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Page Ranking)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+A directed graph representing the hyperlinks between $n$ websites. We want to calculate: hub weights $\b u$ and authority weights $\b v$. Definition:
+$$
+\begin{align*}
+\b v_i&amp;\propto\sum_j[j\to i]\b u_j\Longrightarrow\b v\propto A^\top\b u\\
+\b u_i&amp;\propto\sum_j[i\to j]\b v_j\Longrightarrow\b u\propto A\b v
+\end{align*}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Set $|\b u|=|\b v|=1$, we can iteratively update $\b u$ and $\b v$... Wait, $\b u$ and $\b v$ are just the first left and right singular vectors!
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Clustering Problem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+A undirected graph $G$ with $n$ vertices separated into two $n/2$ groups. We only know the graph and
+$$
+\P[(i,j)\in E]=\begin{cases}p,&amp;i\text{ and }j\text{ are in the same group}\\q,&amp;i\text{ and }j\text{ are in different groups}\end{cases}
+$$
+Goal: detect the division.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Motivation: let $t_i=(-1)^{[i\text{ is in the second group}]}$, we have
+$$
+P:=\E[A]=\Set{\frac{p+q}2+\frac{p-q}2t_it_j}=\frac{p+q}2\b 1\b 1^\top+\frac{p-q}2\b t\b t^\top
+$$
+Thus $\r(A)=2$ and the second eigenvector encodes the division. So we guess taking the second eigenvector of random $A$ is also viable. To verify the guess, we need to answer these two questions:
+&lt;ol&gt;
+&lt;li&gt;How large is the noise?&lt;/li&gt;
+&lt;li&gt;How does the noise changes the singular vectors?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Bernstein inequality&lt;/strong&gt;: independent zero-mean $X_i$ s.t. $|X_i|\le R$,
+$$
+\boxed{\P\left[|S_n|\ge t\right]\le 2\exp\left(-\frac{t^2/2}{\sum\E(X_i^2)+Rt/3}\right)}
+$$
+&lt;strong&gt;Bernstein inequality, self-adjoint matrix form&lt;/strong&gt;: independent zero-mean self-adjoint $d\times d$ matrix $X_i$ s.t. $|X_i|_2\le R$,
+$$
+\boxed{\P\left[|S_n|_2\ge t\right]\le 2d\exp\left(-\frac{t^2/2}{\left|\sum\E(X_i^2)\right|_2+Rt/3}\right)}
+$$
+（这种东西说的是，$t$ 小的时候像 sub-Gaussian tail，$\e^{-\Theta(t^2)}$；$t$ 大的时候像 sub-exp tail，$\e^{-\Theta(t)}$）&lt;/p&gt;
+&lt;p&gt;Now,
+$$
+A-P=\sum_{i\sim j}X_{i,j}(E^{i,j}+E^{j,i})+\sum_iX_iE^{i,i}+\sum_{i\nsim j}Y_{i,j}(E^{i,j}+E^{j,i})
+$$
+Here $X\sim\begin{cases}1-p,&amp;amp;\text{w.p. }p\\ -p,&amp;amp;\text{w.p. }1-p\end{cases}$, $Y\sim\begin{cases}1-q,&amp;amp;\text{w.p. }q\\ -q,&amp;amp;\text{w.p. }1-q\end{cases}$, so
+$$
+\sum\E(Z_i^2)=\left(\frac n2p(1-p)+\frac n2q(1-q)\right)I_n
+$$
+also all $|Z|_2\le 1$, so
+$$
+\P\left[|A-P|_2\ge t\right]\le 2n\exp\left(-\frac{t^2/2}{n\max\set{p,q}+t/3}\right)
+$$
+take $t=2\sqrt{n\max\set{p,q}\log n}$,
+$$
+\P\left[|A-P|_2\ge 2\sqrt{n\max\set{p,q}\log n}\right]=\Omicron(n^{-1})
+$$
+which is small compared to $|P|_2=n(p+q)/2$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Davis-Kahan theorem&lt;/strong&gt;: symmetric matrices $M$, $\tilde M=M+E$, let the eigenvalues be $\lambda_1\ge\cdots\ge\lambda_n$ and $\tilde\lambda_1\ge\cdots\ge\tilde\lambda_n$, for $S\subseteq\set{1,\cdots,n}$, define the eigen-gap as
+$$
+\gamma=\min_{i\in S,j\notin S}\set{|\lambda_i-\lambda_j|}
+$$
+Let $V$, $\tilde V$ be the subspace generated by the eigenvectors of $M$, $\tilde M$ corresponding to $\lambda_S$, $\tilde\lambda_S$ respectively, then
+$$
+\boxed{\left\lVert\sin\Theta(V,\tilde V)\right\rVert_2\le\frac{\|E\|_2}{\gamma}}
+$$
+where $\Theta(V,\tilde V)$ is defined as
+$$
+\Theta(V,\tilde V)=\diag\left(\theta_1,\cdots\theta_n\right),\cos\theta_1=\max_{\b v\in V,\b{\tilde v}\in\tilde V,|\b v|=|\b{\tilde v}|=1}\ip{\b v,\b{\tilde v}},\theta_{2\sim n}\text{ is defined similarly to singular values}
+$$
+or, take orthonormal basis matrix $Q$, $\tilde Q$ of $V$, $\tilde V$, we have
+$$
+\cos\theta_i=\sigma_i\text{ of }Q^\top\tilde Q
+$$
+这个事情套到 clustering 问题就相当于在说什么呢？由于 $|S|=1$ 时相当于考虑对应的单个特征向量之夹角，所以取 $S=\set{2}$，我们就知道，$A$ 的第二个特征向量和 $\b t/\sqrt n$ 差不太多。具体来说，
+$$
+\gamma=\min\Set{qn,\frac{p-q}2n}
+$$
+所以
+$$
+\P\left[\left\lvert\sin\angle(\b t,\b v_2\text{ of }A)\right\rvert\le\frac{2\sqrt{\max\set{p,q}\log n}}{\min\set{q,(p-q)/2}\sqrt n}\right]=1-\Omicron(n^{-1})
+$$
+考虑 $p\ge q\ge p-q$. 记 $\b{\hat t}:=\b v_2\text{ of }A$, $\eta$ 为“符号校正”参数, 下文 $\b t$, $\b{\hat t}$ 都认为已经单位化:
+$$
+\eta=\operatorname*{argmax}_{\eta\in\set{\pm 1}}\langle{\eta\b{\hat t},\b t}\rangle
+$$
+错误个数
+$$
+\text{err}\le n\sum(\eta\b{\hat t}_i-\b t_i)^2=n|\eta\b{\hat t}-\b t|^2_2=2n(1-\langle\b{\hat t},\b t\rangle)\le2n(1-\langle\b{\hat t},\b t\rangle^2)=2n\sin^2\angle(\b{\hat t},\b t)\le\frac{32p\log n}{p-q}
+$$
+with high Pr.&lt;/p&gt;
+&lt;p&gt;多个 cluster 的 clustering 方法跟这里讲的很不一样，参见 &lt;a class=&#34;link&#34; href=&#34;https://people.csail.mit.edu/dsontag/courses/ml14/notes/Luxburg07_tutorial_spectral_clustering.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://people.csail.mit.edu/dsontag/courses/ml14/notes/Luxburg07_tutorial_spectral_clustering.pdf&lt;/a&gt;。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;马尔可夫链&#34;&gt;马尔可夫链
+&lt;/h3&gt;&lt;div class=&#34;definition-box&#34;&gt;
+  &lt;div class=&#34;definition-title&#34;&gt;Definitions (Random Process)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;First-return time: $T_{i,j}=\inf\set{n\ge 1\mid X_n=i}\text{ when }X_0=j$&lt;/li&gt;
+&lt;li&gt;Return probability: $f_{i,j}=\P[T_{i,j}&amp;lt;\infty]$&lt;/li&gt;
+&lt;li&gt;# of visits: $N_{i,j}=\sum_{n\ge 0}[X_n=i]$&lt;/li&gt;
+&lt;li&gt;$i$ is recurrent iff $f_i=1$&lt;/li&gt;
+&lt;li&gt;当 $i=j$ 时以上下标都只记一个 $i$。&lt;/li&gt;
+&lt;li&gt;Property: $\E_i[N_i]=1/(1-f_i)$, so $i$ is recurrent iff $\E_i[N_i]=\infty$.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Returning of $n$-dimensional Random Walk)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$1\text{-D}$ case:
+$$
+\P[X_{2n}=0]=4^{-n}\binom{2n}n=\frac{1}{\sqrt{\pi n}}\left(1+\Omicron(n^{-1})\right)\Longrightarrow\E[N_0]=\sum_{n}\P[X_{2n}=0]\sim\sum_nn^{-1/2}=\infty
+$$
+so $f_0=1$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$2\text{-D}$ case (考虑组合恒等式或转 $45^\circ$):
+$$
+\P[X_{2n}=(0,0)]=16^{-n}\binom{2n}{n}^2=\frac{1}{\pi n}\left(1+\Omicron(n^{-1})\right)\Longrightarrow\E[N_{(0,0)}]=\infty
+$$
+so $f_{(0,0)}=1$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For any $(x,y)$, it is also reached almost surely, because $\P[(0,0)\to(x,y)]\ne 0\Longrightarrow\E[N_{(0,0),(x,y)}]=\infty\Longrightarrow f_{(0,0),(x,y)}=1$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\ge 3\text{-D}$ case: approximately $\E[N_{(0,0,0)}]\sim\sum_nn^{-3/2}&amp;lt;\infty$, so we expect that it is not recurrent. Accurately, consider
+$$
+\P[X_{2n}=\b 0]=[x_1^0\cdots x_k^0]\left(\frac{x_1+x_1^{-1}+\cdots+x_k+x_k^{-1}}{2k}\right)^{2n}
+$$
+to get something like $[x^0]P(x)$, we can consider $\frac{1}{2\pi}\int_0^{2\pi}P(\e^{\i\theta})\d\theta$. So
+$$
+\P[X_{2n}=\b 0]=\frac{1}{(2\pi)^k}\int_{[0,2\pi]^k}\left(\frac{\sum_{i=1}^k\cos x_k}{k}\right)^{2n}\d x
+$$
+Notice that $2n+1$ does not contribute to the result, so we can also have
+$$
+\E[N_{\b 0}]=\frac{k}{(2\pi)^k}\int_{[0,2\pi]}\left(k-\sum_{i=1}^k\cos x_k\right)^{-1}
+$$
+For $k=3$, it&#39;s called Watson integral, and the result is $\approx 1.516$, leading to $f_{(0,0,0)}\approx 0.34$.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;definition-box&#34;&gt;
+  &lt;div class=&#34;definition-title&#34;&gt;Definitions (Markov Chain)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+We have a state space $\mathcal{S}=\set{1,\cdots,m}$, a distribution over states $\b p(t)=(p_1(t),\cdots,p_m(t))\in[0,1]^m$, $\sum p_i(t)=1$, and a transition matrix $P=\set{P_{i,j}}_{m\times m}$, each row summing to $1$. Markovian: $\P[X_{t+1}=i_{t+1}\mid X_t,\cdots,X_0]=\P[X_{t+1}=i_{t+1}\mid X_t]=P_{X_t,i_{t+1}}$. So:
+$$
+\boxed{\b p(t)P=\b p(t+1)}
+$$
+&lt;b&gt;Connected/irreducible&lt;/b&gt; Markov chain: $\forall i,j,\exists n,P^n_{i,j}\ne 0$, or $P$ 非零的位置对应的图强连通.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Note. 对于不可约的 Markov chain，它要么收敛到唯一的状态（无论初始如何），要么在某些状态之间震荡（依赖初始状态），最简单的考虑方法是考虑对角化（实际上不一定能对角化，&lt;a class=&#34;link&#34; href=&#34;https://math.stackexchange.com/q/332659&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://math.stackexchange.com/q/332659&lt;/a&gt;），我们有个结论（Perron-Frobenius 定理）是：不可约的情况下，$|\lambda|\le 1$ 且所有 $|\lambda|=1$ 的根都是单根。于是可以想象，$\Lambda^n$ 在 $1$ 处不动，在其他 $\e^{2k\pi\i/d}$ 处震荡，其余 $\to 0$。&lt;/p&gt;
+&lt;p&gt;实际上上述说法可以感性理解。首先 $I/m$ 一定是个特征向量，然后后面的 fundamental theorem 说明对应 $\lambda=1$ 的特征空间维数为 $1$。如果 $|\lambda|=1$ 的部分代数重数 $&amp;gt;$ 几何重数，会造成 Jordan 块 $n$ 次方指数增长，就爆了。另外，除了 $\lambda=1$ 对应的特征向量之外，别的特征向量各个分量的和必为 $0$，可以考虑 $\b vP=\lambda\b v$ 然后把两边分量都加起来会得到 $s=\lambda s$。&lt;/p&gt;
+&lt;p&gt;总而言之，结论就是：如果 chain 是非周期性的，那么 $\b p(t)\to \b\pi$；否则就不行。严格证明首先用 P-F 定理，设出 Jordan 分解，就可以得到 $P^n\to\b 1\b\pi$。还有一种证明方法是 coupling。&lt;/p&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$\r(\mat{P-I&amp;\b 1})=m.$$
+Proof. We need to how that $\operatorname{Nul}\mat{P-I&amp;\b 1}=\span{\mat{1&amp;\cdots&amp;1&amp;0}^\top}$. If there\&#39;s another vector $\mat{\b x&amp;\alpha}^\top$, then
+$$
+\forall i,\b x_i=\sum_{j}P_{i,j}\b x_j+\alpha
+$$
+and $\sum\b x_i=0$ (so that $\mat{\b x&amp;\alpha}\perp\mat{1&amp;\cdots&amp;1&amp;0}$), thus $\b x_i$ are not all the same. By irreducibility, 存在一个 $\b x_i\ge$ 它所有出边且有 $&gt;$ 的, so $\alpha&gt;0$; also 存在一个 $\b x_i\le$ 它所有出边且有 $&lt;$ 的, so $\alpha&lt;0$. Contradiction.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Fundamental Theorem of Markov Chains)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$\exists$ unique distribution $\b\pi$ s.t. $\b\pi P=\b\pi$. $\b\pi=\lim_{t\to\infty}\b a(t)$, here $\b a(t)=$ average of $\b p(0)\sim\b p(t-1)$.  
+Proof. Let $\b b(t)=\b a(t)P-\b a(t)$. On one hand,
+$$
+\b b(t)=\frac1t\left(\sum_{i=0}^{t-1}\b a(i)P-\sum_{i=0}^{t-1}\b a(i)\right)=\frac1t\left(\sum_{i=1}^{t}\b a(i)-\sum_{i=0}^{t-1}\b a(i)\right)=\frac1t(\b a(t)-\b a(0))\Longrightarrow|\b b(t)|\le\frac{2}{t}
+$$
+On the other hand, let $B=\mat{P-I&amp;\b 1}$, and $\b x_1$ denote $\b x$ removing the first column, taking limit on both side,
+$$
+\b a(t)B_1=\mat{(\b a(t)P-\b a(t))_1&amp;1}=\mat{\b b(t)_1&amp;1}\Longrightarrow\lim_{t\to\infty}\b a(t)B_1=\mat{0&amp;\cdots&amp;0&amp;1}\Longrightarrow\lim_{t\to\infty}\b a(t)=B_1^{-1}\mat{0&amp;\cdots&amp;0&amp;1}
+$$
+Uniqueness is from $\r(P-I)=m-1$.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Corollry (Reversible Markov Chain)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+For SCC, if $\b\pi$ satisfies $\b\pi_xp_{x,y}=\b\pi_yp_{y,x}$ for every edge and $\sum_i\b\pi_i=0$, then $\b\pi$ is the stationary distribution.&lt;br/&gt;
+注意这里加强了条件，所以这样的向量不总是存在。如果稳态分布满足该条件，则称它为 reversible. $P$ 对称一定是 reversible 的。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;马尔可夫链蒙特卡洛方法&#34;&gt;马尔可夫链蒙特卡洛方法
+&lt;/h3&gt;&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Sampling)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+我们假设有一个难求的概率分布 $\b\pi\in\R^{n^d}$，存在一个倍数 $Z$ 使得 $Z\b\pi$ 的每一位都好求，也就是各情况概率的比例好求。但是要把它 normalize 需要求和得到 $Z$，而维数是指数级，所以没法算，也没法从中采样。MCMC 可以用来 sample。我们让难求的概率分布为 $\b\pi$，设计一个 Markov chain 使得它的稳态分布为 $\b\pi$。这样，如果我们想要求 $\E_{x\sim\b\pi}(f(x))$，就可以通过 $\b a(t)$ 来求：
+$$
+\E_{x\sim\b\pi}(f(x))=\lim_{t\to\infty}\sum_{x}f(x)\b a(t)_x
+$$
+最好这个马尔可夫链是 reversible 的，这样证明起来方便。设计马尔可夫链的过程是基于一张无向图 $G$。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (Metropolis-Hastings)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+For desired distribution $\pi$ (with no zero entry) and any given $G$, define $P$: $\boxed{P_{i,j}=\min(1,\pi_j/\pi_i)/r}$, $P_{i,i}=1-\sum_{j}P_{i,j}$. Here $r=\max\deg$. By the corollary:
+$$
+\pi_xp_{x,y}=\min(\pi_i,\pi_j)=\pi_yp_{y,x}
+$$
+so $\pi P=\pi$. Now 我们就是要根据 $P$ 随机游走，由于 $\pi$ 的两个位置的比是容易求的，所以相对容易些。然而，$\deg$ 是指数级的时候，仍然太慢了，所以还得优化。这个 M-H 还有一个更加一般的算法：我们可以将上述算法理解成以 $1/r$ 走到相邻点，再根据两点的概率关系，以某一概率”撤回“。那么 $1/r$ 其实可以改成一个更一般的“提议分布”$T$，然后让
+$$
+P_{i,j}=T_{i,j}\cdot\min\left(1,\frac{T_{j,i}\pi_j}{T_{i,j}\pi_i}\right)
+$$
+从这种意义上来说，下面的 Gibbs 采样是 M-H 的一种特殊情况。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;solution-box&#34;&gt;
+  &lt;div class=&#34;solution-title&#34;&gt;Solution (Gibbs Sampling)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+样本空间可以视作一个 $n^d$ 的空间，考虑设计超立方体图 $G$，只有差一维坐标的样本之间有边，最后仍能达到稳态分布，牺牲收敛速度。For $\b x$, $\b y$ that differ in exactly one coordinate $i$,
+$$
+\boxed{P_{\b x,\b y}=\frac{\P[\b y_i\mid\b x_1,\cdots\b x_{i-1},\b x_{i+1},\cdots,\b x_n]}d}
+$$
+&lt;p&gt;$$
+P_{\b x,\b x}=1-\sum_{\b y}P_{\b x,\b y}
+$$&lt;/p&gt;
+&lt;p&gt;验证：
+$$
+\pi_{\b x}P_{\b x,\b y}=\frac1d\frac{\pi_{\b x}\pi_{\b y}}{\P[\b x_1,\cdots,\b x_{i-1},\forall,\b x_{i+1},\cdots,\b x_n]}=\pi_{\b y}P_{\b y,\b x}
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;problem-box&#34;&gt;
+  &lt;div class=&#34;problem-title&#34;&gt;Problem (Vertex Cover Problem)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+For a subset presented by a 示性函数 $\sigma$, define the energy function
+$$
+H(\sigma)=\begin{cases}\text{\# of 1s in }\sigma,&amp;\sigma\text{ is valid}\\+\infty,&amp;\sigma\text{ is invalid}\end{cases}
+$$
+and Gibbs measure $\pi_\beta(\sigma)=\e^{-\beta H(\sigma)}/Z_\beta$, $Z_\beta$ is taken in order to make $\sum_\sigma\pi_\beta(\sigma)=1$. If we run the above algorithm on $\pi_\beta$, we will get a great $\sigma$, and if $\beta\to+\infty$, $\sigma$ will $\to$ the best solution. But VC is NPC, so we can imagine that the mixing time must be exponential.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Property (L1 Norm)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\|\b p-\b q\|_1=2\sum(p_i-q_i)^+=2\sum(q_i-p_i)^+
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;definition-box&#34;&gt;
+  &lt;div class=&#34;definition-title&#34;&gt;Definition (Total Variation Distance)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$\|\b p-\b q\|_{\rm TV}=\frac12\|\b p-\b q\|_1$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;接下来讨论的都是无向图，即 $w_{x,y}=w_{y,x}$，记 $w_x=\sum w_{x,y}$，马尔可夫链 $p_{x,y}=w_{x,y}/w_x$，这时稳态分布 $\pi_x=w_x/\sum w_y$。&lt;/p&gt;
+&lt;div class=&#34;definition-box&#34;&gt;
+  &lt;div class=&#34;definition-title&#34;&gt;Definition (Mixing Time)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\tau(\eps)=\sup_{\b p(0)}\min_t\Set{t\mid\lVert\b a(t)-\b\pi\rVert_1\le\eps}
+$$
+Remark. 这里可能会担心：如果时刻 $t$ 之后又超过 $\eps$ 了呢？接下来我们会看到，差距是指数缩小的，所以定义成 $\sup_{\b p(0)}\max_t\Set{t+1\mid\forall\lVert \b a(t)-\b\pi\rVert_1&gt;\eps}$，得到的结果和上面的定义就差常数倍（upd: 实际上可以用 coupling 证明，（对于非周期性的）$\|\b p(t)-\b\pi\|_1$ 单调不增）。另外可能在其他地方定义的直接是 $\|\b p(t)-\b\pi\|_1\le\eps$（对于非周期性的马尔可夫链），同样可以证明它们只差一个常数。
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Bound the Mixing Time through Conductance)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+Intuition: 找到图的一个割，使得两部分之间以低概率互通。Conductance:
+$$
+\boxed{\Phi(S)=\frac{\sum_{x\in S,y\notin S}\pi_xp_{x,y}}{\min\left(\pi(S),\pi(\overline S)\right)},\Phi=\min_{\varnothing\subset S\subset V}\Phi(S)}
+$$
+$$
+\boxed{\Theta\left(\frac{1}{\Phi}\right)\le\tau(\eps)\le\Theta\left(\frac{-\ln\min\pi}{\Phi^2\eps^3}\right)}
+$$
+Proof. WLOG assume $\pi(S)\le1/2$, then we can write $\Phi(S)$ as
+$$
+\Phi(S)=\sum_{x\in S}\frac{\pi_x}{\pi(S)}\sum_{y\notin S}p_{x,y}
+$$
+For the lower bound, consider starting in $S$, and each time with $\P=\sum_{x\in S,y\notin S}p_{x,y}\quad(*)$ we get to $\overline{S}$ so by union bound, $\P[\text{from }S\text{ to }\overline{S}\text{ in }t]\le t\cdot(*)$, and under the condition that $X_0\in S$ (we can do this since $\b p(0)$ is arbitrary), $\P[\text{stays in }S\text{ in }t\text{ steps}\mid X_0\in S]=\Phi(S)$. thus $\|\b a(t)-\b\pi\|_1\ge1-t\Phi(S)-\pi(S)\ge1/2-t\Phi(S)$. For $\eps=1/4$, $t$ need to be $\ge 1/4\Phi(S)$.
+&lt;p&gt;For the upper bound:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Let $\tau=-C(\ln\min\pi)/\Phi^2\eps^3$. Denote $a_i=\b a(t)_i$, $v_i=a_i/\pi_i$ (multiplicative error) and sort $v_i$s in decreasing order.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now $\|\b a(t)-\b\pi\|_1=2\sum_{i\le i_0}(v_i-1)\pi_i=2\sum_{i&amp;gt;i_0}(1-v_i)\pi_i$, where $i_0$ is the split point between $\pi_i&amp;gt;1$ and $&amp;lt;1$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$&amp;gt;i_0$ 的再大也大不过 $2\sum_{i&amp;gt;i_0}\pi_i$，如果它 $\le\eps/2$ 就完事了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;否则将 $\le i_0$ 的部分划分连续段 $G_1\sim G_?$。令 $\gamma=\sum\pi$（前缀和），$G_1=[1]$，每次从上次的末尾加一（记为 $k$）往后找到最后一个
+$$
+\sum_{j=k+1}^l\pi_j\le\frac{\eps\Phi\gamma_{k}}4
+$$
+的 $l$，$G_{\text{next}}=[k\sim l]$。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;已知 $\gamma_{l+1}-\gamma_{k}&amp;gt;\eps\Phi\gamma_{k}/4\Longrightarrow \gamma_{l+1}&amp;gt;(1+\eps\Phi/4)\gamma_{k}$，至少每次跳跃都乘了这个倍数，所以至多跳 $\log_{1+\eps\Phi/4}\pi_1\le-4\ln\pi_1/\eps\Phi$ 次。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;现在我们只需 bound 每次的贡献即可。此处先得修改一下求和的顺序。令 $u_i$ 为 $G_i$ 开头的 $v$。
+$$
+\sum_{i\le i_0}(v_i-1)\pi_i\le\sum_i(u_i-1)\sum_{j\in G_i}\pi_j=\sum_i\pi(G_1\sim G_i)\cdot(u_i-u_{i+1})
+$$
+其中 $u_{r+1}=1$。我们将证明求和中的每一项都 $\le 8/\eps\Phi\tau$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于 $G_r=[k\sim l]$：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;By the proof of fundamental theorem of Markov chain,
+$$
+\begin{align*}
+\frac2\tau&amp;amp;\ge\left\lVert\b a-\b aP\right\rVert_1\\
+&amp;amp;\ge\sum_{i=1}^k(\b a-\b aP)_i\\
+&amp;amp;=\sum_{i\le k}\sum_{j&amp;gt;k}(p_{i,j}a_i-p_{j,i}a_j)&amp;amp;(\text{imagine as flow})\\
+&amp;amp;=\sum_{i\le k}\sum_{j&amp;gt;k}(p_{i,j}\pi_iv_i-p_{j,i}\pi_jv_j)\\
+&amp;amp;=\sum_{i\le k}\sum_{j&amp;gt;k}p_{j,i}\pi_j(v_i-v_j)\\
+&amp;amp;\ge\sum_{i\le k}\sum_{j&amp;gt;l}p_{j,i}\pi_j(v_i-v_j)\\
+&amp;amp;\ge(v_k-v_{l+1})\sum_{i\le k}\sum_{j&amp;gt;l}p_{j,i}\pi_j\\
+&amp;amp;=(u_r-u_{r+1})\sum_{i\le k}\sum_{j&amp;gt;l}p_{j,i}\pi_j
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dealing with the stupid $\sum\sum$:
+$$
+\begin{align*}
+\sum_{i\le k}\sum_{j&amp;gt;l}p_{j,i}\pi_j&amp;amp;=\sum_{i\le k}\sum_{j&amp;gt;k}p_{j,i}\pi_j-\sum_{i\le k}\sum_{k&amp;lt;j\le l}p_{j,i}\pi_j\\
+&amp;amp;\ge\sum_{i\le k}\sum_{j&amp;gt;k}p_{j,i}\pi_j-\sum_{j=k+1}^l\pi_j\\
+&amp;amp;\ge\Phi\cdot\min(\pi(1\sim k),\pi(k+1\sim n))-\frac{\eps\Phi\gamma_k}4\\
+&amp;amp;\ge\Phi\cdot\min(\gamma_k,\pi(i_0+1\sim n))-\frac{\eps\Phi\gamma_k}4\\
+&amp;amp;\ge\Phi\cdot\gamma_k\cdot\pi(i_0+1\sim n)-\frac{\eps\Phi\gamma_k}4\\
+&amp;amp;\ge\frac{\eps\Phi\gamma_k}4&amp;amp;\left(\text{by }\sum_{i\ge i_0}\pi_i&amp;gt;\frac\eps4\right)
+\end{align*}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dividing:
+$$
+u_r-u_{r+1}\le\frac{8}{\eps\Phi\gamma_k\tau}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\sum_i\pi(G_1\sim G_i)\cdot(u_i-u_{i+1})\le-\frac{4\ln\pi_1}{\eps\Phi}\cdot\frac{8}{\eps\Phi\gamma_k\tau}\le\frac{32\eps}{C}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Yippee!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;BTW this proof is as stupid as shit.&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Bound the Mixing Time throught Eigengap)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+For irreducible, aperiodic, reversible Markov chain, let $\lambda_2$ be the second largest eigenvalue norm of the transition matrix, for mixing time of $\b p(t)$:
+$$
+\boxed{\left(\frac{1}{1-\lambda_2}-1\right)\ln\frac1\eps\le\tau(\eps)\le\frac{1}{1-\lambda_2}\ln\frac{1}{\eps\pi_{\min}}}
+$$
+Remark. 如果 $P$ 是对称的，直接设出谱分解，然后 $1$ 范数和 $2$ 范数之间来回放缩即可，证明较简单（期末考了！）。
+&lt;p&gt;Proof. WLOG assume $\lambda_2=$ actual $\lambda_2$. Let $D=\diag(\pi)$. Although $P$ is not symmetric, $A=D^{1/2}PD^{-1/2}$ is symmetric by reversibility. So we have spectral decomposition
+$$
+A=\sum\lambda_i\b v_i\b v_i^\top\Longrightarrow P^t=D^{-1/2}\sum\lambda_i^t\b v_i\b v_i^\top D^{1/2}
+$$
+For some (row vector) $\b p_0$,
+$$
+\b p_0P^t-\b\pi=\b p_0D^{-1/2}\sum\lambda_i^t\b v_i\b v_i^\top D^{1/2}-\b 1^\top D
+$$
+For $i=1$, $\lambda_1=1$, $\b v_1=D^{1/2}\b 1$, so
+$$
+\b p_0D^{-1/2}\b v_1\b v_1^\top D^{1/2}=\b p_0\b 1\b 1^\top D=\b 1^\top D
+$$
+so
+$$
+\b p_0P^t-\b\pi=\b p_0D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}
+$$
+我们可以把 $|\b p_0P^t-\b\pi|_1$ 想象成一个高维凸多面体上离一个点的距离，最远的一定是顶点，因此只考虑 $\b p_0=\b e_x^\top$。
+$$
+\begin{align*}
+\left\lvert\left(\b e_x^\top D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}\right)_y\right\rvert&amp;amp;=\left|\b e_x^\top D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}\b e_y\right|\\
+&amp;amp;\le\sqrt{\frac{\pi_y}{\pi_x}}\sum_{i\ge 2}|\lambda_i|^t|v_{i,x}||v_{i,y}|\\
+&amp;amp;\le\sqrt{\frac{\pi_y}{\pi_x}}\lambda_2^t\sum_{i\ge 2}|v_{i,x}||v_{i,y}|\\
+&amp;amp;\le\sqrt{\frac{\pi_y}{\pi_x}}\lambda_2^t\sqrt{\left(\sum_{i\ge 2}v_{i,x}^2\right)\left(\sum_{i\ge 2}v_{i,y}^2\right)}\\
+&amp;amp;\le\sqrt{\frac{\pi_y}{\pi_x}}\lambda_2^t
+\end{align*}
+$$
+这里最后一个不等式是因为 $\set{\b v_i}$ 是一组单位正交基。现在
+$$
+\|\b p_0P^t-\b\pi\|_1\le\frac{\lambda_2^t}{\sqrt{\pi_x}}\sum\sqrt{\pi_y}\le\frac{\lambda_2^t}{\sqrt{\pi_x}}\sqrt{n}
+$$
+因此
+$$
+\max\lVert\b p_0P^t-\b\pi\rVert_1\le\lambda_2^t\cdot\sqrt n\cdot\max\frac{1}{\sqrt{\pi_x}}\le\frac{\lambda_2^t}{\pi_{\min}}
+$$
+所以可以要求 $t\ge\log_{\lambda_2}(\eps\pi_{\min})=\ln(\eps\pi_{\min})/\ln\lambda_2$，这里
+$$
+\ln\lambda_2=\ln(1-(1-\lambda_2))\le-\frac{1}{1-\lambda_2}
+$$&lt;/p&gt;
+&lt;p&gt;下界（&lt;del&gt;不要问我为什么突然开始右乘，我也不知道&lt;/del&gt;）：考虑 $P$ 的 $\lambda_2$ 对应的右特征向量 $\b v_2$（用于硬凑 $\|\b p_0P^t-\b\pi\|_1$ 形式）
+$$
+\lambda_2^t|(\b v_2)_x|=|(P^t\b v_2)_x|=\left|\sum_yP_{x,y}^t(\b v_2)_y\right|=\left|\sum_y(P_{x,y}^t-\pi_y)(\b v_2)_y\right|\le\|\b v_2\|_1\sum_y|P_{x,y}^t-\pi_y|
+$$
+其中 $\b\pi\cdot\b v_2=0$ 是因为 $P\b v_2=\lambda_2\b v_2$，而 $\b\pi^\top\lambda_2\b v_2=\b\pi^\top P\b v_2=\b\pi^\top\b v_2$。现在注意到
+$$
+\lVert\b e_xP^t-\b\pi\rVert_1=\sum_y|P_{x,y}^t-\pi_y|
+$$
+取 $x=\operatorname{argmax}|(\b v_2)_x|$，得到
+$$
+\eps\ge\lambda_2^{\tau(\eps)}\Longrightarrow\tau(\eps)\ge\log_{\lambda_2}\eps=\frac{\ln(1/\eps)}{\ln(1/\lambda_2)}\ge\frac{\ln(1/\eps)}{1/\lambda_2-1}=\left(\frac{1}{1-\lambda_2}-1\right)\ln\frac1\eps
+$$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Theorem (Cheeger Inequality)&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\frac{\Phi^2}2\le1-\lambda_2\le2\Phi
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;theorem-box&#34;&gt;
+  &lt;div class=&#34;theorem-title&#34;&gt;Corollary&lt;/div&gt;
+  &lt;div class=&#34;card-text&#34;&gt;
+$$
+\left(1-\frac{1}{2\Phi}\right)\ln\frac{1}{\eps}\le\tau(\eps)\le\frac{2}{\Phi^2}\ln{\frac{1}{\pi_{\min}\eps}}
+$$
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;clique: $\Phi=\frac12$.&lt;/li&gt;
+&lt;li&gt;无向连通图: $\Phi\ge\frac1m$, $\pi_{\min}\ge\frac1{2m}$.&lt;/li&gt;
+&lt;li&gt;two clique connected by one edge: $\Phi=\frac{1}{n^2-n+1}$, $1-\gamma_2=\Theta(n^{-2})$.&lt;/li&gt;
+&lt;li&gt;one clique + one vertex with one edge: $\tau=\Omicron(\log(n\eps^{-1}))$.&lt;/li&gt;
+&lt;li&gt;1D path/cycle: $\Phi=\frac1n$, $1-\gamma_2=1-\cos\frac{2\pi}{n}=\Theta(\frac1{n^2})$.&lt;/li&gt;
+&lt;li&gt;2D $n\times n$ grid: $\Phi=\Theta(\frac1n)$.&lt;/li&gt;
+&lt;li&gt;dD $n^d$ grid: $\Phi=\Theta(\frac{1}{nd})$ ($S$ takes $x_1\in[1,n/2]$, $x_2\sim x_d\in[1,n]$).&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>微积分 A(2) 期中复习—知识点梳理</title>
+        <link>https://littlereuben.github.io/study/course-calculus-2-2/</link>
+        <pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-calculus-2-2/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;embed src= &#34;cal2-final.pdf&#34; width= &#34;100%&#34; height= &#34;800px&#34; type=&#34;application/pdf&#34; &gt;
+&lt;a href=&#34;cal2-final.pdf&#34; style=&#34;display:block;text-align:center;&#34;&gt;&lt;b&gt;[PDF file]&lt;/b&gt;&lt;/a&gt;
+</description>
+        </item>
+        <item>
         <title>狭义相对论笔记</title>
         <link>https://littlereuben.github.io/study/special-relativity/</link>
         <pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
@@ -9836,7 +12757,7 @@ $$
 &lt;p&gt;$p^2$。中心个数是 $p$ 的倍数，于是 $G/C(G)$ 是 $1$ 或 $p$ 阶的，后一种情况通过写出元素的形式可得交换，于是 $G$ 是阿贝尔群。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;$pq,(p&amp;lt;q)$。存在唯一 Sylow $q$ 子群 $\lang a\rang$，$n_p&amp;gt;1$ 就必须是 $q\mid(p-1)$ 情况，取个其中的元素 $b$，$bab^{-1}=a^s\Rightarrow a=b^pab^{-p}=a^{s^p}\Rightarrow s^p\equiv 1\pmod q$。证明所有 $ba=a^sb$ 的群同构只需构造 $\varphi(a)=a^\prime ,\varphi(b)={b^\prime }^{\operatorname{ind}_{s^\prime }s}$ 即可，这给出了 $G\cong\Z_q\rtimes\Z_p$ 且半直积的下标可以省略。&lt;/p&gt;
+&lt;p&gt;$pq\,(p&amp;lt;q)$。存在唯一 Sylow $q$ 子群 $\lang a\rang$，$n_p&amp;gt;1$ 就必须是 $q\mid(p-1)$ 情况，取个其中的元素 $b$，$bab^{-1}=a^s\Rightarrow a=b^pab^{-p}=a^{s^p}\Rightarrow s^p\equiv 1\pmod q$。证明所有 $ba=a^sb$ 的群同构只需构造 $\varphi(a)=a^\prime ,\varphi(b)={b^\prime }^{\operatorname{ind}_{s^\prime }s}$ 即可，这给出了 $G\cong\Z_q\rtimes\Z_p$ 且半直积的下标可以省略。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;$8$。非阿贝尔的情况一定有一个阶为 $4$ 的元素 $a$，取 $b\notin\lang a\rang$，① $b$ 对 $\lang a\rang$ 的共轭形成 $\lang a\rang$ 的自同构，于是不交换只能是 $bab^{-1}=a^3\Rightarrow ba=a^{-1}b$；② $b^2\in\lang a\rang\Rightarrow b^2=e\or a^2$。分别对应 $D_4$ 和 $Q_8$。&lt;/p&gt;
