@@ -30,7 +30,7 @@
 &lt;details style=&#34;background-color: rgba(127, 191, 255, 0.25);border-radius: 8px;padding: 10px;margin: 12px 0;border: 1px solid #d0e3ff;&#34;&gt;
     &lt;summary style=&#34;cursor: pointer;font-weight: bold;outline: none;&#34;&gt;答案&lt;/summary&gt;
     &lt;a href=&#34;https://www.zhihu.com/question/667693249/answer/3633863935&#34;&gt;https://www.zhihu.com/question/667693249/answer/3633863935&lt;/a&gt;&lt;br/&gt;
-    对于 $p&lt;1$，$\\|(0,1)+(1,0)\\|&gt;\\|(0,1)\\|+\\|(1,0)\\|$。
+    对于 $p&lt;1$，$\|(0,1)+(1,0)\|&gt;\|(0,1)\|+\|(1,0)\|$。
 &lt;/details&gt;
 &lt;/li&gt;
 &lt;li&gt;
