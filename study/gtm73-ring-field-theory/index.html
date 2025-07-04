@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 $\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gde">
+<title>抽代（环、域论部分）自学笔记</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/gtm73-ring-field-theory/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="抽代（环、域论部分）自学笔记">
+<meta property='og:description' content="这是一篇学习笔记。 $\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gde">
+<meta property='og:url' content='https://littlereuben.github.io/study/gtm73-ring-field-theory/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-07-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-04T00:00:00&#43;00:00'/><meta property='og:image' content='https://littlereuben.github.io/study/gtm73-ring-field-theory/all_234.png' />
+<meta name="twitter:title" content="抽代（环、域论部分）自学笔记">
+<meta name="twitter:description" content="这是一篇学习笔记。 $\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gde"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://littlereuben.github.io/study/gtm73-ring-field-theory/all_234.png' />
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#环论">环论</a>
+      <ol>
+        <li><a href="#1-环的概念">1. 环的概念</a>
+          <ol>
+            <li><a href="#大纲">大纲</a></li>
+            <li><a href="#笔记">笔记</a></li>
+          </ol>
+        </li>
+        <li><a href="#2-理想">2. 理想</a>
+          <ol>
+            <li><a href="#大纲-1">大纲</a></li>
+            <li><a href="#笔记-1">笔记</a></li>
+          </ol>
+        </li>
+        <li><a href="#3-交换环中的分解">3. 交换环中的分解</a>
+          <ol>
+            <li><a href="#大纲-2">大纲</a></li>
+            <li><a href="#笔记-2">笔记</a></li>
+          </ol>
+        </li>
+        <li><a href="#4-商环与局部化">4. 商环与局部化</a>
+          <ol>
+            <li><a href="#大纲-3">大纲</a></li>
+            <li><a href="#笔记-3">笔记</a></li>
+          </ol>
+        </li>
+        <li><a href="#5--6-多项式形式幂级数多项式的分解">5 &amp; 6. 多项式、形式幂级数、多项式的分解</a>
+          <ol>
+            <li><a href="#大纲-4">大纲</a></li>
+            <li><a href="#笔记-4">笔记</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#模论">模论</a>
+      <ol>
+        <li><a href="#1-模模同态正合列">1. 模、模同态、正合列</a></li>
+        <li><a href="#2-自由模与向量空间">2. 自由模与向量空间</a></li>
+        <li><a href="#3-投射模与内射模">3. 投射模与内射模</a></li>
+      </ol>
+    </li>
+    <li><a href="#域论">域论</a>
+      <ol>
+        <li><a href="#1-域扩张">1. 域扩张</a></li>
+        <li><a href="#2-galois-理论基本定理">2. Galois 理论基本定理</a></li>
+        <li><a href="#3-分裂域代数闭包正规性">3. 分裂域、代数闭包、正规性</a></li>
+        <li><a href="#4-多项式的-galois-群">4. 多项式的 Galois 群</a></li>
+        <li><a href="#5-有限域">5. 有限域</a></li>
+        <li><a href="#6-可分性">6. 可分性</a></li>
+        <li><a href="#7-循环扩张">7. 循环扩张</a></li>
+        <li><a href="#8-分圆扩张">8. 分圆扩张</a></li>
+        <li><a href="#9-根式扩张">9. 根式扩张</a></li>
+        <li><a href="#补充">补充</a>
+          <ol>
+            <li><a href="#有限域的表示">有限域的表示</a></li>
+            <li><a href="#n-次剩余问题">n 次剩余问题</a></li>
+          </ol>
+        </li>
+        <li><a href="#待研究的问题">待研究的问题</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/study/gtm73-ring-field-theory/">
+                <img src="/study/gtm73-ring-field-theory/all_234.png"
+                        
+                        width="8192" 
+                        height="8192" 
+                        loading="lazy"
+                        alt="Featured image of post 抽代（环、域论部分）自学笔记" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/math/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 数学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/gtm73-ring-field-theory/">抽代（环、域论部分）自学笔记</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-07-04</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    39269 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>$\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\F{\mathbb{F}}\gdef\M{\mathbb{M}}\gdef\i{\mathrm{i}}\gdef\id{\mathrm{id}}\gdef\span{\operatorname{span}}\gdef\aut{\operatorname{Aut}}\gdef\cha{\operatorname{char}}\gdef\P{\mathbb{P}}\gdef\Q{\mathbb{Q}}\gdef\C{\mathbb{C}}$封面图：复平面上的代数数，大小与按最小多项式系数最大绝对值负相关。红二次，绿三次，蓝四次。</p>
+<h2 id="前言">前言
+</h2><p>学环论的时候还是想，按照群论的方式只记一些理解性的笔记，但后面感觉效率太低，就决定直接过一遍书的内容。所以从模论开始就是抄书 + 一些自己的理解。</p>
+<p>上课用的是 Dummit &amp; Foote 的书，明显感觉比 GTM 73 更适合初学，不过代价就是很冗长。相比 GTM 73，其中的定理更容易用直觉理解，印象最深的是明白了正规子群（理想）的概念是从“能成为 $\ker$”来的。群论和环论的基础都比较清楚，不过上课只花了四节课讲域论，还是不容易形成对 Galois 理论整体的把握，可能选 GTM 73 或者把 Dummit Chapter 13, 14 完整看一遍会比较好。</p>
+<p>这里列举一下个人认为关键的知识路线：</p>
+<ol>
+<li>环的一些概念细节，例如子环含不含单位元、一些环需不需要交换/含幺，同态下哪些会保持之类的。环的这种细节、反例比群多很多。</li>
+<li>极大理想、素理想、不可约元、素元、ED、PID、UFD 这堆东西之间的定理，尤其是每个定理能在什么限制的环下成立。这部分其实没什么思维含量，就是各种按定义推导。</li>
+<li>多项式环。主要关注不同环下多项式性质的关系。这里有重要的一个思想，就是在扩张下考虑一些性质。这个跟后面域有很重要的衔接关系。<br>
+环的部分做题其实难点就是跟一些代数技巧（主要是数论）结合，感觉跟数竞关系更大。</li>
+<li>域扩张的刻画，整个域论的基础。</li>
+<li>分裂域、可分扩张、正规扩张、纯不可分扩张、循环扩张、分圆扩张，它们的性质。这些东西和 Galois 理论是两条线，互相有关联，最终，高次方程可解问题依赖于这两者。</li>
+<li>Galois 理论。主要就是得理解基本定理，其他就是 Galois 扩张和其他这些扩张的关系。</li>
+<li>根式扩张，即五次方程可解问题。</li>
+</ol>
+<p>我感觉很重要的一点是明白 Galois 理论是怎么来的，显然我并没有想清楚这件事，而是一头扎进一堆定理里去了。所以建议先看数学史（雾）。历史上抽象代数是这么来的：为了解决高次方程可解问题，先有了 Galois 理论，同时需要用到群论，然后再出现域论和环论，最后遍地开花。所以其实书里是倒着学的。之前书里说群体现的是对称关系，我还以为这只是群的几何/组合意义解释罢了，实际上我因果倒置了，是先有了根的对称关系，才拿群去刻画的。</p>
+<p>扯远了，核心的 principle 大概来说就是，一个高次方程的解是对域的扩张，这样的一个扩张，可以由扩张域的自同构刻画，而自同构可以由根之间允许的置换来刻画，而这些置换与它的根式解之间有对应关系——因为根式对应的自同构就是轮换。所以 Galois 理论相关的东西，就是在说这些内容：</p>
+<ul>
+<li>Galois 理论基本定理，就是在证明上面讲的这个 principle。</li>
+<li>分裂域与闭包，就是在凑 Galois 扩张，为了能用这个 principle。</li>
+<li>正规、可分、纯不可分这一分支，处理非零特征的情况，最后还是为了凑 Galois 扩张。</li>
+<li>求多项式的 Galois 群，就是实操，确定对称性。对称性的显式体现就是一些判别式是否 $\in K$，通过这个看根之间能否互相区分。</li>
+<li>循环扩张和分圆扩张为根式扩张做准备，而根式扩张就对应最简单的一种对称性。</li>
+</ul>
+<p>这篇文章说得比较好：<a class="link" href="https://www.zhihu.com/question/473033315/answer/1923314360878629688"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/473033315/answer/1923314360878629688</a>。</p>
+<p>由于 GTM73 的 notation 比较奇怪，然后我跟 Dummit 的混着用了，所以下文中 $&lt;,\le,\subset,\subseteq$ 都表示子群，$\lhd,\unlhd$ 都表示正规子群，不需要是真包含。</p>
+<h2 id="环论">环论
+</h2><h3 id="1-环的概念">1. 环的概念
+</h3><h4 id="大纲">大纲
+</h4><ol>
+<li>环的定义与基本推论。</li>
+<li>交换环、幺环、无零因子环、整环、除环、域、群环的定义，注意整环和除环不能是平凡环。（左右）零因子、（左右）可逆元的定义。</li>
+<li>环同态（等）的定义。</li>
+<li>特征的定义。</li>
+</ol>
+<h4 id="笔记">笔记
+</h4><ol>
+<li>整环、除环、域都不能是平凡环。零因子不包括零元。</li>
+<li>在有限环中，一个元素要么是零因子/零元，要么是单元。</li>
+<li>环可以只有单侧幺元。例如 $(a,b)+(c,d)=(a+b,c+d)$，$(a,b)(c,d)=(ac,ad)$。</li>
+<li>无左零因子等价于有左消去律。证：无左零因子时，$ab=ac\Rightarrow a(b-c)=0\Rightarrow b-c=0$。有左消去律时，如果 $ab=0$（$a\ne 0$）则 $ab=a0\Rightarrow b=0$。</li>
+<li>左可逆元不一定是右可逆元，且可能有多个左逆，其实这个不需要是环，考虑半群就行。考虑所有 $\N\to\N$ 的映射，运算为复合，$f:x\mapsto x+1$ 有无数个左逆 $x\mapsto x-1,0\mapsto\forall$，无右逆。如果一定要是环的话，考虑无穷序列 $\set{a_0,a_1,\cdots}$（加法为对应位置加）的自同态环，$f:\set{a_0,a_1,\cdots}\mapsto\set{0,a_0,a_1,\cdots}$ 同样。</li>
+<li>左可逆元如果不是右零因子，则只有唯一左逆元。这个直接用右消去律。</li>
+<li>单元（既有左逆元又有右逆元）的左右逆一定相等，这个已经说过很多遍了。</li>
+<li>零元等于幺元当且仅当环大小为 $1$。</li>
+<li>子环的幺元不一定是原环的幺元，例如 $\Z\times\set{0}\subset\Z\times\Z$。</li>
+<li>环同态 $f:R\to S$ 不保持幺元。例如 $\Z_2\to\Z_6$，其中 $1\mapsto 3$。一般地（<a class="link" href="https://math.stackexchange.com/a/270911"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/270911</a>），如果 $R$ 是交换环，且有元素 $e$ 满足 $e^2=e$，那么 $x\mapsto xe$ 是一个不保幺元的自同态。但以下情况是保幺元的：</li>
+<li>$f$ 是满射。显。</li>
+<li>存在 $R$ 的一个单元 $u$，$f(u)$ 是 $S$ 的单元。这种情况下，$u1=u\Rightarrow f(u)f(1)=f(u)$，而 $f(u)$ 存在逆元，故 $f(1)=1$。同时 $f(u^{-1})=f(u)^{-1}$。</li>
+<li>$\ker f\ne R$ 且 $S$ 无零因子。这时 $1\cdot1=1\Rightarrow f(1_R)\cdot(f(1_R)-1_S)=0_S$（我们只在容易混淆的时候标出零元和幺元是哪一侧的），如果 $f(1)=0$ 则 $\forall r\in R$，$f(r)=f(r1)=f(r)f(1)=0$，这个不对，因此只有可能 $f(1_R)=1_S$。<br>
+进一步地，在不给出 $S$ 存在幺元的前提下，我们也能说明 $f(1)$ 是 $S$ 的幺元：$\forall s\in S$，$f(1)s=f(1)^2s$，故 $f(1)(s-f(1)s)=0$，故 $s=f(1)s$。</li>
+</ol>
+<h3 id="2-理想">2. 理想
+</h3><h4 id="大纲-1">大纲
+</h4><ol>
+<li>（左右）理想的定义，理想的初步性质：真理想不含幺元、除环无真理想、理想的交仍为理想。</li>
+<li>生成理想、主理想、主理想环、主理想整环的定义。主理想的刻画。</li>
+<li>理想的和、积的定义及在和、积下的封闭性。</li>
+<li>理想和正规子群的类比，商环的定义。环的四个同构定理。</li>
+<li>素理想的定义及（几乎等价的）性质。</li>
+<li>极大理想的定义及存在性。</li>
+<li>素理想与极大理想从商环角度的刻画，及它们的关系。</li>
+<li>环的直积。环的中国剩余定理。</li>
+</ol>
+<h4 id="笔记-1">笔记
+</h4><ol>
+<li>子环必含 $0$，不一定含 $1$。</li>
+<li>原环本身不是素理想。</li>
+<li>注意理想的积的定义不是简单地取各自的一个元素相乘！</li>
+<li>$\Z_n$ 的理想就是加法群的子群，单元是所有与 $n$ 互质的元素，素元是所有与 $n$ 的 $\gcd$ 为质数的元素，不可约元是所有与 $n$ 的 $\gcd$ 为质数且这个质数的平方整除 $n$ 的元素。</li>
+<li>幺环是除环当且仅当无真左理想。如果除环有真左理想，那么它必包含幺元，就爆了。如果一个环它包含 $a\ne0$ 不存在逆元，那么 $a$ 的左主理想 $\set{ra\mid r\in R}$ 不包含 $1$，于是 $a$ 的左主理想是一个真左理想。如果一个环无真左理想，除了可能是除环以外，还有唯一的可能是 $R^2=\set{0}$。考虑反证，如果 $\exists cd\ne0$，考虑左理想 $\set{r\in R\mid rd=0}$，它只能是 $\set{0}$，又因为 $Rd$ 也是个左理想，故 $Rd=R$，故 $\exists e$ 使 $ed=d$，另外 $\set{rd}$ 是不重的。现在再考虑 $\set{r\in R\mid Rr=\set{0}}$，它是个理想且不包含 $d$，因此只能是 $\set{0}$，因此可以对每个 $r\in R$ 使用上面的论述，得到 $R$ 无零因子，因此有消去律：$ed=d\Rightarrow red=rd\Rightarrow re=r$，$re=r\Rightarrow rer^\prime=rr^\prime\Rightarrow er^\prime=r^\prime$，$e$ 是幺元，从而 $R$ 是除环。</li>
+<li>（省略“真”）有左理想，有右理想，但无双侧理想的例子：考虑除环 $D$ 上的 $n\times n$ 矩阵环。只有某列非零的矩阵组成左理想，只有某行非零的矩阵组成右理想。如果 $I$ 是一个双侧理想，那么 $\forall A\in I$，$E^{i,j}AE^{k,l}=A_{j,k}E^{i,l}$，所以说如果 $I$ 中的矩阵中出现的所有数为 $S$，那么 $I$ 应当恰好是所有各位置元素均 $\in S$ 的矩阵，所以至少 $S$ 得是个 $D$ 的理想，但 $D$ 是除环，就爆了。</li>
+<li>根据上面的推理，环应该不会出现无真左理想但有真右理想的情况，但是会出现左右理想数量不同的情况：<a class="link" href="https://math.stackexchange.com/q/211977"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/211977</a>。</li>
+<li>在非交换环 $R$ 中：① 极大理想不等价于商环为域，而是商环为除环 $\Rightarrow$ 极大。② 素理想 $P$ 不一定满足 $ab\in P\Rightarrow a\in P\lor b\in P$。还是上面矩阵的那个例子，$\set{0}$ 是极大理想同时也是素理想，但这个环本身（即商掉 $\set{0}$）并不是除环，它是有零因子环。</li>
+<li>若 $R^2\ne R$，极大理想不一定是素理想。考虑 $2\Z$ 的极大理想 $4\Z$ 并不是素理想。<a class="link" href="https://math.stackexchange.com/q/169188"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/169188</a>。</li>
+<li>如果 $R$ 非交换环但 $R^2=R$，极大理想一定是素理想吗？没找到反例。</li>
+<li>无幺环可能没有极大理想。这个很简单（<del>想不到反例纯属学傻了，比如我</del>），就是 $\Z_{p^\infty}$，乘法的结果全部为 $0$。<a class="link" href="https://math.stackexchange.com/q/154547"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/154547</a>。</li>
+<li>即使交换环满足 $R^2=R$，素理想也不一定是极大理想。书里的反例是 $\set{0}\subset\Z$，一个更不平凡的反例：<a class="link" href="https://math.stackexchange.com/a/693807"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/693807</a>。</li>
+<li>关于理想之交和理想之积的关系：对于交换幺环 $R$ 的理想 $I$，$J$，$I+J=R\Rightarrow IJ=I\cap J$。证明：$IJ$ 中的元素形如 $\sum ij$，由于各自是理想，故 $ij\in I\cap J$，故 $IJ\subseteq I\cap J$。任何 $k\in I\cap J$，取 $i+j=1$，则 $k=(i+j)k=ik+kj$，因此 $I\cap J\subseteq IJ$。参考：<a class="link" href="https://math.stackexchange.com/q/2901265"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/2901265</a>。</li>
+<li>对于交换环，应该容易证明 $(a)(b)=(ab)$，为什么书里写 $(a)(b)\subset(ab)$？</li>
+<li>对于交换幺环中，极大理想为素理想，一个更简单的证明是，极大 $\Leftrightarrow$ 商为域 $\Rightarrow$ 商为整环 $\Leftrightarrow$ 素。</li>
+<li>幺环的直积的理想可以写成各自理想的直积。证明：取 $(0,\cdots,0,1,0,\cdots,0)$ 和理想中的一个元素相乘，于是可以得出这个组成部分的所有取值，再由加法的封闭性。对于无幺的情况不对，很简单，考虑 $\Z_2^2$ 中乘法定义为结果恒为 $(0,0)$，然后取 $\langle(1,1)\rangle$。</li>
+<li>CRT 的部分，要求 $R^2+A_i=R$ 以及 $A_i+A_j=R$。后者明显就是要求互质，但是前者呢？有前者不满足就无法构造的反例吗？注意到 CRT 本体中没有出现任何乘法。</li>
+</ol>
+<h3 id="3-交换环中的分解">3. 交换环中的分解
+</h3><h4 id="大纲-2">大纲
+</h4><ol>
+<li>整除、相伴、不可约元、素元的定义。</li>
+<li>素元、素理想、不可约元、极大理想之间的关系。</li>
+<li>唯一分解整环、欧几里得环的定义。唯一分解整环的一些性质。</li>
+<li>主理想整环、欧几里得整环均是唯一分解整环。</li>
+<li>最大公因子的定义、存在性以及裴蜀定理。</li>
+</ol>
+<h4 id="笔记-2">笔记
+</h4><ol>
+<li>这章的所有东西都定义在交换环上。</li>
+<li>考虑唯一分解时我们只考虑整环，为什么？因为比如 $\Z_6$ 中，$2=2\cdot 4=2\cdot 4\cdot 4=\cdots$。</li>
+<li>欧几里得整环 $\subsetneq$ 主理想整环 $\subsetneq$ 唯一分解整环。$\Z[(1+\sqrt{19}\i)/2]$ 是主理想整环不是欧几里得整环，$\Z[x]$ 是唯一分解整环不是主理想整环。</li>
+<li>升链条件是最重要的，它保证了分解的存在性。</li>
+<li>在《具体数学》中说到，裴蜀定理是一切整除、互质定理（例如 $a\perp b\land a\perp c\Rightarrow a\perp bc$）的基础，而其中裴蜀定理的证明是靠 exgcd，是构造性的。这章就给出了个非构造性的：首先存在性由全序保证，其次 $\Z$ 是主理想整环由取模反证（这个是最简单的循环群里的内容），那么设 $\sum(a_i)=(d)$，显然 $d$ 整除每个 $a_i$，且如果有别的公因子 $d^\prime$，由于整除的可加性不依赖于裴蜀定理，故 $d^\prime\mid d$。</li>
+<li>习题 2：<a class="link" href="https://math.stackexchange.com/a/150848"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/150848</a>、<a class="link" href="https://planetmath.org/EquivalentDefinitionsForUFD"  target="_blank" rel="noopener"
+    >https://planetmath.org/EquivalentDefinitionsForUFD</a>、<a class="link" href="https://zhuanlan.zhihu.com/p/519069426"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/519069426</a>。</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>定理</th>
+<th>条件</th>
+<th>反例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>理想 $P$ 素 $\Longrightarrow$ $ab\in P\Rightarrow a\in P\lor b\in P$</td>
+<td>交换</td>
+<td>$\M_{n\times n}(D)$</td>
+</tr>
+<tr>
+<td>理想 $P$ 素 $\Longleftrightarrow$ $R/P$ 整</td>
+<td>交换、幺</td>
+<td>$\set{0}\lhd\M_{n\times n}(D)$</td>
+</tr>
+<tr>
+<td>极大真理想存在</td>
+<td>幺</td>
+<td>$\Z_{p^\infty}$，$ab\equiv0$</td>
+</tr>
+<tr>
+<td>极大理想 $\Longrightarrow$ 素</td>
+<td>交换、$R^2=R$</td>
+<td>$4\Z\lhd2\Z$</td>
+</tr>
+<tr>
+<td>理想 $M$ 极大 $\Longrightarrow$ $R/M$ 域</td>
+<td>交换、幺</td>
+<td>$\set{0}\lhd\M_{n\times n}(D)$、$4\Z\lhd2\Z$</td>
+</tr>
+<tr>
+<td>理想 $M$ 极大 $\Longleftarrow$ $R/M$ 除</td>
+<td>幺</td>
+<td>？</td>
+</tr>
+<tr>
+<td>域 $\Longleftrightarrow$ 无真理想</td>
+<td>交换、幺</td>
+<td>$\M_{n\times n}(D)$</td>
+</tr>
+<tr>
+<td>直积的理想 $\Longrightarrow$ 理想的直积</td>
+<td>幺</td>
+<td>$\Z_2^2$，$ab\equiv0$</td>
+</tr>
+<tr>
+<td>中国剩余定理</td>
+<td>$R^2+A_i=R$、$A_i+A_j=R$</td>
+<td>不互质</td>
+</tr>
+<tr>
+<td>相伴 $\Longrightarrow$ 通过乘单元可互转</td>
+<td>整</td>
+<td><a class="link" href="https://math.stackexchange.com/a/3021275"  target="_blank" rel="noopener"
+    >link</a></td>
+</tr>
+<tr>
+<td>$a$ 不可约 $\Longleftarrow$ $(a)$ 是极大主理想</td>
+<td>整</td>
+<td>？</td>
+</tr>
+<tr>
+<td>$a$ 不可约 $\Longleftrightarrow$ $(a)$ 是极大理想</td>
+<td>主理想整</td>
+<td>$(x)\subset(x,2)\lhd\Z[x]$</td>
+</tr>
+<tr>
+<td>素元 $\Longrightarrow$ 不可约元</td>
+<td>整</td>
+<td>$2\in\Z_6$</td>
+</tr>
+<tr>
+<td>素元 $\Longleftarrow$ 不可约元</td>
+<td>唯一分解整</td>
+<td>$2,3,4\pm\sqrt{10}\in\Z[\sqrt{10}]$</td>
+</tr>
+<tr>
+<td>ACC</td>
+<td>主理想</td>
+<td><a class="link" href="https://math.stackexchange.com/a/4816186"  target="_blank" rel="noopener"
+    >link</a>：$\Z+x\Q[x]$，$(x)\subset(x/2)\subset(x/4)\subset\cdots$</td>
+</tr>
+<tr>
+<td>最大公因子存在</td>
+<td>唯一分解整</td>
+<td><a class="link" href="https://math.stackexchange.com/q/107304"  target="_blank" rel="noopener"
+    >link</a>：$3(1\pm\sqrt{5}\i)\in\Z[\sqrt{5}\i]$</td>
+</tr>
+<tr>
+<td>最大公因子可表出为线性组合</td>
+<td>主理想整</td>
+<td>$2,x\in\Z[x]$</td>
+</tr>
+<tr>
+<td>局部环 $\Longleftrightarrow$ 非单元形成理想</td>
+<td>交换幺</td>
+<td>？</td>
+</tr>
+<tr>
+<td>$f=gh\Longrightarrow f(c)=g(c)h(c)$</td>
+<td>交换</td>
+<td></td>
+</tr>
+<tr>
+<td>$R[[x]]$ 的非单元恰为 $(x)$</td>
+<td>除</td>
+<td></td>
+</tr>
+<tr>
+<td>$R[[x]]$ 为局部环</td>
+<td>域</td>
+<td></td>
+</tr>
+<tr>
+<td>$n$ 次多项式至多有 $n$ 个根</td>
+<td>整</td>
+<td>$x^2\equiv1\pmod8$</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="4-商环与局部化">4. 商环与局部化
+</h3><h4 id="大纲-3">大纲
+</h4><ol>
+<li>乘性子集、分式环的定义。分式环良定义的证明。</li>
+<li>分式环、环嵌入分式环的性质。</li>
+<li>分式环的 universal 性。</li>
+<li>理想取分式之后的性质（略）。</li>
+<li>局部环的定义及性质。</li>
+</ol>
+<h4 id="笔记-3">笔记
+</h4><ol>
+<li>
+<p>同样还是默认 $R$ 交换。分式环的三个层级：交换幺（无特殊性质）、整（$R$ 无零因子）、域（$R$ 无零因子且 $S=R\setminus\set{0}$）。嵌入的三个层级：同态（无特殊性质）、单同态（$S$ 不含零元及零因子）、同构（$R$ 幺且 $S$ 由单元组成）。</p>
+</li>
+<li>
+<p>我不太明白局部化和局部环的关系。现在我只知道，就是 $P$ 本身的局部化存在唯一极大理想，然后存在唯一极大理想的环叫局部环。有什么更深的理解吗？</p>
+</li>
+<li>
+<p>分式环不一定变大，例如 $\set{2,4}^{-1}\Z_6\cong\Z_3$。如果 $S$ 中包含 $0$，那么 $S^{-1}R=\set{0}$，这就从一个角度解释了为什么能有 $\sqrt{-1}$ 但不能除以零。</p>
+</li>
+<li>
+<p>$S^{-1}\Z=\Q$ 当且仅当任何质数都有一个倍数在 $S$ 中。相关问题 <a class="link" href="https://math.stackexchange.com/q/3451090"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/3451090</a> 中的这段话很有意思，把这节的几个知识点联系在一起了：</p>
+<blockquote>
+<p>More generally call a submonoid $M\subseteq\Z$ <em>saturated</em> when $ab\in M\Longleftrightarrow a,b\in M$. Then it is easy to show that localizing at $S$ is the same as localizing at its saturation (smallest saturated monoid containing $S$), and, further, the complement of a saturated monoid is the union of the prime ideals that don&rsquo;t meet it. So localizations are characterized by the prime ideals that survive.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="5--6-多项式形式幂级数多项式的分解">5 &amp; 6. 多项式、形式幂级数、多项式的分解
+</h3><h4 id="大纲-4">大纲
+</h4><ol>
+<li>多项式与形式幂级数相关的定义、扩张的可交换性。</li>
+<li>多项式的 universal 性。</li>
+<li>形式幂级数环中的单元、不可约元的性质。</li>
+<li>多项式除法，分离单个根的方法，域上的多项式有唯一分解。</li>
+<li>容度、本原多项式的定义。</li>
+<li>多项式环下，元素性质的关系：关于根、互素、不可约、容度、相伴等的保持。</li>
+<li>唯一分解环上的多项式环有唯一分解。</li>
+<li>Eisenstein 准则。</li>
+</ol>
+<h4 id="笔记-4">笔记
+</h4><ol>
+<li>基于书中的定义，应该就算 $R$ 非交换，也有 $R[x][y]\cong R[y][x]\cong R[x,y]$。</li>
+<li>习题 5.7：<a class="link" href="https://math.stackexchange.com/q/263413"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/263413</a>。不能构造 $b_0^{n+m}$，因为可能幂零。</li>
+<li>$(x-c)\mid f\Longrightarrow f(c)=0$ 这个不要求 $R$ 交换，详见 <a class="link" href="https://math.stackexchange.com/q/3084508"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/3084508</a>。</li>
+<li>Remainder theorem 可以不依赖于多项式除法：$x^k-a^k=(x-a)(x^{k-1}+\cdots+a^{k-1})$。但不能靠直接代入证。</li>
+<li>关于 6.10 的第三条，一个例子：<a class="link" href="https://math.stackexchange.com/q/3806042"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/3806042</a>。</li>
+<li>最后的一部分做的思路是这样的：首先通过 $\varphi=\deg$ 说明域上的多项式可唯一分解，然后让这个域是分式域，推到一般的唯一分解环上。要证明引理，保证不可约性和相伴性不变，然后归到单变量本原多项式上，干的就是死命通分。其中一个经典的操作是，已知在分式域的 $F[x]$ 上本原多项式 $f$ 和 $g$ 相伴，则 $f=ug$，设 $u=a/b\Rightarrow bf=ag\Rightarrow b\approx C(bf)\approx C(ag)\approx a$，因此 $f\approx g$（$D$ 是整的）。</li>
+<li>唯一分解为什么是唯一分解为不可约元而不是素元？</li>
+<li>为什么 $x^p-a$ 无根 $\Longrightarrow$ $x^p-a$ 不可约这个事情不用扩域没法证？关于这个问题，我其实可以类比 $D[x]$ 的唯一分解性以及拉格朗日插值来理解。就是如果在分式域/扩域下证明了唯一性，再证明这个唯一的解的系数不属于 $D$，就可以说明不存在。对于这类扩大范围能解决的问题，可以看这个：<a class="link" href="https://www.zhihu.com/question/1888657881399817045"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/1888657881399817045</a>。</li>
+<li>寻找所有不可约多项式似乎很难，$\F_p$ 上不可约多项式的数量见 <a class="link" href="https://mathoverflow.net/q/297618"  target="_blank" rel="noopener"
+    >https://mathoverflow.net/q/297618</a>、<a class="link" href="https://zhuanlan.zhihu.com/p/486528229"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/486528229</a>，判定见 <a class="link" href="https://en.wikipedia.org/wiki/Factorization_of_polynomials_over_finite_fields#Rabin%27s_test_of_irreducibility"  target="_blank" rel="noopener"
+    >https://en.wikipedia.org/wiki/Factorization_of_polynomials_over_finite_fields#Rabin's_test_of_irreducibility</a>，快速分解见 <a class="link" href="https://en.wikipedia.org/wiki/Berlekamp%27s_algorithm"  target="_blank" rel="noopener"
+    >https://en.wikipedia.org/wiki/Berlekamp's_algorithm</a>。</li>
+</ol>
+<h2 id="模论">模论
+</h2><h3 id="1-模模同态正合列">1. 模、模同态、正合列
+</h3><blockquote>
+<p><strong>D 1.1</strong>（模）：对于环 $R$ 与阿贝尔群 $A$，称 $A$ 为左 $R$-模为：增加对 $A$ 封闭的，$R$ 与 $A$ 之间的“数乘”运算，满足结合律与双侧分配律。如果 $R$ 为幺环且 $1_Ra=a$，则 $A$ 称为幺左 $R$-模；如果 $R$ 为除环且 $1_Ra=a$，则 $A$ 称为左向量空间。</p>
+</blockquote>
+<p>记忆时可以将 $R$ 视作“标量”。</p>
+<p>幺环非幺模：<a class="link" href="https://math.stackexchange.com/q/464000"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/464000</a>。</p>
+<blockquote>
+<p><strong>Ex 1.17</strong>：对于幺环 $R$ 的一个 $R$-模 $A$，$A=B\oplus C$，其中 $B$ 是幺 $R$-模，$C$ 满足 $RC=0$。</p>
+<p>P：考虑 $f:a\mapsto 1_Ra$，发现 $B=\im f$，$C=\ker f$。因为 $1_R(1_Ra)=(1_R1_R)a=1_Ra$，从而，$1_R(a-1_Ra)=0$。</p>
+</blockquote>
+<blockquote>
+<p>如果 $R$ 为交换环，不区分左右模。</p>
+</blockquote>
+<p>但是仍然有可能有多个 $R$-模。</p>
+<blockquote>
+<p>E：阿贝尔群 $A$ 可视作一个 $\Z$-模。</p>
+<p>E：环是子环上的模，反之不然；特殊地，理想是环上的模。</p>
+</blockquote>
+<blockquote>
+<p><strong>D 1.2</strong>（模同态）：保两个性质。向量空间的同态称为线性变换。</p>
+</blockquote>
+<blockquote>
+<p><strong>D 1.3</strong>（子模）：不仅要求 $B$ 是 $A$ 的子群，还要求 $B$ 在数乘下封闭。向量空间的子模称为子空间。</p>
+</blockquote>
+<p>例如其实 $\Z^n$ 也是 $\R^n$ 的子群，但是 $\Z^n$ 不能是 $\R$-模，不能作为向量空间。</p>
+<blockquote>
+<p>E：核和像分别是子模。</p>
+</blockquote>
+<blockquote>
+<p><strong>D 1.4</strong>（生成子模）：略。</p>
+</blockquote>
+<p>注意生成子模的定义意味着对于无穷个生成元，它们的有限个的组合才是生成子模中的元素。</p>
+<blockquote>
+<p><strong>T 1.5</strong>（生成子模的刻画）：分有幺与无幺，略。</p>
+</blockquote>
+<blockquote>
+<p><strong>T 1.6</strong>（商模）：$B$ 为 $A$ 的子模，$A/B$ 也是一个 $R$-模，满足 $r(a+B)=ra+B$。</p>
+<p>P：只需证明所有原先的运算在 $=$ 下是良定义的即可。</p>
+</blockquote>
+<blockquote>
+<p><strong>T 1.7, 1.8, 1.9, 1.10</strong>（四大同构定理）：略。</p>
+</blockquote>
+<blockquote>
+<p><strong>T 1.11, 1.12, 1.13</strong>（直积与直和）：同一个 $R$，对于一族 $R$-模 $\set{A_i}$，$\prod A_i$ 是对应 $R$-模范畴里的直积，$\sum A_i$ 是余直积。$\sum A_i$ 指有限个分量非零，$\prod A_i$ 反之。</p>
+</blockquote>
+<p>注意这里的不同，核心在于如果指标集无限，$\prod\to\sum$ 会被撑爆，无法构造正确的同态，为避免要求此态射存在，直积必须是 $\prod$，余直积必须是 $\sum$。</p>
+<blockquote>
+<p><strong>T 1.14</strong>（外直和）：$A\cong A_1\oplus\cdots\oplus A_n\Longleftrightarrow\exists \pi_i:A\to A_i,\iota_i:A_i\to A,\text{s.t. }\pi_i\iota_j=[i=j]\land\sum\iota_i\pi_i=1$</p>
+<p><strong>T 1.15</strong>（内直和）：$A_i\lhd A\land\sum A_i=A\land A_i\cap\sum_{j\ne i}A_j=0\Longrightarrow A\cong\sum A_i$</p>
+</blockquote>
+<blockquote>
+<p><strong>D 1.16</strong>（正合列）：模范畴中的一个列 $A_0\xrightarrow{f_1}A_1\xrightarrow{f_2}\cdots\xrightarrow{f_n}A_n$，如果 $\im f_i=\ker f_{i+1}$ 则称为正合的。$0\to A\xrightarrow fB\xrightarrow gC\to 0$ 称为短正合列。还有 cokernel 与 coimage。</p>
+<p>在开头加 $0$，就要求第一个 $f$ 是单的；在结尾加 $0$，就要求最后一个 $f$ 是满的。</p>
+</blockquote>
+<p>以下三个短正合列中，前两个本质上在说同一个东西，第三个需要一定的条件才能和前两个相同：</p>
+<p>$0\to A\xrightarrow fB\xrightarrow gC\to 0$</p>
+<p>$0\to A\xrightarrow i B\xrightarrow p B/A\to 0$</p>
+<p>$0\to A\xrightarrow\iota A\oplus B\xrightarrow\pi B\to 0$</p>
+<blockquote>
+<p><strong>T 1.17</strong>（短五引理）：上下都是短正合列：
+$$
+\begin{CD}0@&gt;&gt;&gt;A@&gt;f&gt;&gt;B@&gt;g&gt;&gt;C@&gt;&gt;&gt;0\\  @. @VV\alpha V @VV\beta V @VV\gamma V @.\\  0@&gt;&gt;&gt;A^\prime @&gt;f^\prime&gt;&gt;B^\prime @&gt;g^\prime&gt;&gt;C^\prime @&gt;&gt;&gt;0\end{CD}
+$$
+$\alpha$、$\gamma$ 单/满/双 $\Longrightarrow$ $\beta$ 单/满/双。同时可以定义两个短正合列的同构。</p>
+<p>P：单，考虑 $\beta^{-1}(0)=\set{0}$；满，考虑 $\exists\beta^{-1}(\forall b^\prime)$。都先导第二个方形，再导第一个。</p>
+</blockquote>
+<blockquote>
+<p><strong>T 1.18</strong>（分裂引理）：对于短正合列 $0\to A\xrightarrow{f}B\xrightarrow{g}C\to 0$，$f$ 左分裂 $\Longleftrightarrow$ $g$ 右分裂 $\Longleftrightarrow$ $B\cong A\oplus C$。</p>
+<p>P：若 $gh=\id_C$，则由直积的定义，$A\xrightarrow{f}B$ 与 $C\xrightarrow{h}B$ 对应了 $A\oplus C\xrightarrow{\varphi}B$。于是得到一组可以套用短五引理的交换图。若 $kf=\id_A$，则用余直积。反过来显然。</p>
+</blockquote>
+<p>初读时你可能会想：既然 $f$ 是单的，那它一定有一个单向的逆啊？主要问题是要求反的也是一个同态。不分裂的短正合列如：<a class="link" href="https://math.stackexchange.com/a/3166454"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/3166454</a>。</p>
+<h3 id="2-自由模与向量空间">2. 自由模与向量空间
+</h3><p>基的定义略。这节前半部分比较重要。如果在考虑域扩张时总是感觉怪怪的，为什么能定义扩张的维数，说明没有完全理解这里。</p>
+<blockquote>
+<p><strong>T 2.1</strong>（自由模的刻画）：对于幺 $R$-模 $F$，$F$ 有非空基 $\Longleftrightarrow$ $F$ 是若干（与 $R$ 同构的）循环 $R$-模的内直和 $\Longleftrightarrow$ $F\cong R^?$ $\Longleftrightarrow$ $F$ 在幺 $R$-模范畴中是个自由对象。</p>
+<p>这样的 $F$ 称为自由 $R$-模，默认是幺模。非幺环/幺环但非幺模也可以定义，但相应范畴下的自由对象，不一定有直和的刻画。下文中部分自由模可以推广到非幺模的情况，但我这里就不考虑了。</p>
+<p>P：$2\Leftrightarrow 3\Rightarrow 1$ 显，构造需要有单位元。$1\Rightarrow 4$ 直接通过线性表示构造，$4\Rightarrow 3$：构造 $R^{|X|}$，根据 $3\Rightarrow 1$，它有基 $\set{\theta_x}$，大小等于 $|X|$，然后由自由的定义。</p>
+<p><strong>T 2.2</strong>：任何 $R$-模都是一个自由 $R$-模的同态像。</p>
+<p>注意自由模的子模不一定是自由模，例如 $\Z_6$-模 $\Z_6$ 的子模 $2\Z_3$。</p>
+</blockquote>
+<p>另一个例子：<a class="link" href="https://math.stackexchange.com/a/74953"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/74953</a>。</p>
+<blockquote>
+<p><strong>T 2.3</strong>：向量空间 $V$ 的极大线性无关组 $X$ 是 $V$ 的一组基。</p>
+<p>P：若 $\span X\ne V$，取 $a\in V\setminus\span X$，通过逆元的存在性证明 $X\cup\set{a}$ 也是线性无关的。</p>
+<p><strong>T 2.4</strong>（向量空间 = 自由模）：$D$ 上的向量空间是自由 $D$-模。$V$ 的任一线性无关组一定包含于一组基中。</p>
+<p>P：只需证明“极大者”存在，用 Zorn 引理（把链上的各元素并起来）。最后用 T 2.3。</p>
+<p><strong>T 2.5</strong>：若 $X$ 生成 $V$，则 $X$ 包含 $V$ 的一组基。</p>
+<p><strong>T 2.6</strong>（无限基的大小）：自由 $R$-模 $F$ 的基，如果是无限的，则各基基数相同。</p>
+<p>P：设 $X$ 是一组无限基，若 $Y$ 是有限基，则 $X$ 可表出 $Y$ $\Rightarrow$ $X$ 有有限子集可以生成 $F$，与基的线性无关性矛盾。现在 $X$ 的每个元素都可以唯一表示为 $Y$ 的有限个元素的线性组合，可以通过不断正反线性表出证明，对于 $Y$ 的每个有限子集，能表出的 $X$ 中的元素数是有限的，于是 $|X|\le |Y|$，反过来再证一次。</p>
+<p><strong>T 2.7</strong>（有限基的大小）：向量空间的所有基都有相同的基数。</p>
+<p>P：如果 $X$ 和 $Y$ 都是基，$|X|&lt;|Y|&lt;\infty$，那么可以通过线性表出的手段将 $X$ 中的元素逐一替换为 $Y$ 中的元素，于是 $Y$ 就是线性相关的了。</p>
+</blockquote>
+<p>T 2.7 的证法是线性空间维数良定义的标准证法，在线性代数中有一个 Replacement theorem 也是同样的证法。一般的线代教材都会从解方程组的角度去证这个事情。</p>
+<blockquote>
+<p><strong>D 2.8</strong>（秩）：如果环 $R$ 的任意自由 $R$-模的基大小都唯一，则称 $R$ 有 invariant dimension property。对应的 $R$-模的基大小称为维度或秩，对于除环 $D$，记作 $\dim_D$。</p>
+<p><strong>T 2.9</strong>（自由模的唯一性）：如果 $R$ 有 IDP，则两个自由 $R$-模同构 $\Longleftrightarrow$ 秩相等。</p>
+<p><strong>T 2.10</strong>（商环上的模的秩）：$I\subset R$ 是个理想，$F$ 是自由 $R$-模，令 $\pi:F\to F/IF$ 为标准满同态，则 $\pi$ 把 $F$ 的基映射到 $F/IF$ 的基且大小不变。</p>
+<p>P：通过来回转换证明 $\pi(X)$ 生成 $F/IF$、线性无关、是双射。</p>
+<p><strong>T 2.11</strong>（商环下 IDP）：$R/I$ 有 IDP $\Longrightarrow$ $R$ 有 IDP。</p>
+<p><strong>T 2.12</strong>（交换幺环有 IDP）：如果 $R$ 有一个同态像为除环，则 $R$ 有 IDP；特别地，交换幺环有 IDP。</p>
+<p>P：交换幺环有极大主理想，且商掉之后是个域。于是用 T 2.11。</p>
+</blockquote>
+<p>这一节的思路是这样的：</p>
+<ol>
+<li>首先讨论自由模，然后定义基。</li>
+<li>除环具有很好的性质（主要见 T 2.3、T 2.7），可以保证任何向量空间都是自由模。</li>
+<li>在只考虑自由模的情况下，定义秩和 IDP。</li>
+<li>回到除环，说明向量空间的秩相关的一些性质。</li>
+</ol>
+<blockquote>
+<p><strong>T 2.13</strong>：$\dim_DV=\dim_DW+\dim_D(V/W)$。</p>
+<p><strong>T 2.14</strong>：$\dim_DV=\dim_D\ker f+\dim_D\im f$。</p>
+<p><strong>T 2.15</strong>：$\dim_DV+\dim_DW=\dim_D(V\cap W)+\dim_D(V+W)$。</p>
+<p><strong>T 2.16</strong>：对于除环 $R\subseteq S\subseteq T$，$\dim_RT=(\dim_ST)(\dim_RS)$。</p>
+</blockquote>
+<h3 id="3-投射模与内射模">3. 投射模与内射模
+</h3><p>这部分往后就没有仔细看了。</p>
+<blockquote>
+<p><strong>D 3.1</strong>（投射）：$R$-模 $P$ 是一个投射模，意思是，对于任何图</p>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMSwwLCJQIl0sWzAsMSwiQSJdLFsxLDEsIkIiXSxbMiwxLCIwIl0sWzAsMiwiZiJdLFsxLDIsImciXSxbMiwzXV0=&embed" width="200" height="200" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>
+<p>其中 $g$ 是满的。存在 $h$ 使得</p>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMSwwLCJQIl0sWzAsMSwiQSJdLFsxLDEsIkIiXSxbMiwxLCIwIl0sWzAsMiwiZiJdLFsxLDIsImciXSxbMiwzXSxbMCwxLCJoIiwyXV0=&embed" width="200" height="200" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>
+<p>交换。</p>
+<p>如果 $P$ 是幺模，那么 $A$ 和 $B$ 也只需考虑是幺模的情况。</p>
+<p><strong>T 3.2</strong>（投射模是一种推广）：自由模是投射模。</p>
+<p>P：考虑 $X\xrightarrow\iota F\xrightarrow fB\xrightarrow{g^{-1}}A$，其中 $g^{-1}$ 是任选一个。现在得到了一个 $X\to A$，由 $F$ 的自由性可以得到 $F\xrightarrow{h}A$。现在 $F$ 到 $B$ 有两条路径，由自由性，$g\circ h=f$。</p>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNSxbMSwxLCJGIl0sWzAsMiwiQSJdLFsxLDIsIkIiXSxbMiwyLCIwIl0sWzEsMCwiWCJdLFswLDIsImYiXSxbMSwyLCJnIl0sWzIsM10sWzAsMSwiaCIsMV0sWzQsMCwiXFxpb3RhIl0sWzQsMSwiZ157LTF9XFxjaXJjIGZcXGNpcmNcXGlvdGEiLDJdXQ==&embed" width="200" height="300" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>
+<p><strong>T 3.4</strong>：$P$ 是投射 $\Longleftrightarrow$ 每个短正合列 $0\to A\xrightarrow fB\xrightarrow gP\to 0$ 分裂 $\Longleftrightarrow$ 存在一个自由模 $F$ 和模 $K$ 使得 $F\cong K\oplus P$。</p>
+<p><strong>D 3.6</strong>（内射模）：$R$-模 $P$ 是一个内射模，意思是，对于任何图</p>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMCwwLCIwIl0sWzEsMCwiQSJdLFsyLDAsIkIiXSxbMSwxLCJKIl0sWzAsMV0sWzEsMywiZiIsMl0sWzEsMiwiZyJdXQ==&embed" width="200" height="200" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>
+<p>其中 $g$ 是单的。存在 $h$ 使得</p>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMCwwLCIwIl0sWzEsMCwiQSJdLFsyLDAsIkIiXSxbMSwxLCJKIl0sWzAsMV0sWzEsMywiZiIsMl0sWzEsMiwiZyJdLFsyLDMsImgiXV0=&embed" width="200" height="200" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>
+<p>交换。</p>
+<p>内射与投射是对偶的概念，就像直积和余直积一样。</p>
+<p><strong>T 3.8</strong>：幺 $R$-模 $J$ 是内射 $\Longleftrightarrow$ 任意 $R$ 的左理想 $L$ 视作 $R$-模，任意模同态 $L\to J$ 都可以扩展到模同态 $R\to J$。</p>
+<p><strong>T 3.9</strong>：阿贝尔群 $D$ 可除 $\Longleftrightarrow$ $D$ 是个内射 $\Z$-模。</p>
+<p><strong>Ex 3.11</strong>：阿贝尔群 $D$ 可除 $\Longleftrightarrow$ $D$ 是一堆 $\Q$、$\Z(p^\infty)$ 的直和。</p>
+</blockquote>
+<p>知道定义就行……</p>
+<h2 id="域论">域论
+</h2><h3 id="1-域扩张">1. 域扩张
+</h3><blockquote>
+<p><strong>D 1.1</strong>（域扩张）：域 $F$ 是域 $K$ 的域扩张，意为 $K$ 是 $F$ 的子域。</p>
+</blockquote>
+<p>域 $F$ 的子环不要求对逆元封闭，子环可能不是域（$\Z\subset\Q$），甚至可能不是幺环。所以这里要强制限定 $K$ 也是域。</p>
+<blockquote>
+<p>$1_F=1_K$。</p>
+</blockquote>
+<p>在 $F$ 中，$1_K1_K=1_K=1_K1_F$，用消去律即可。</p>
+<p>域扩张（环扩张也是）是<strong>保特征</strong>的。</p>
+<blockquote>
+<p>$F$ 可以视作一个 $K$ 上的向量空间。记 $[F:K]=\dim_KF$。</p>
+<p><strong>T 1.2</strong>（维度的大小）：$F/E/K$，$[F:K]=[F:E][E:K]$。</p>
+<p>这里称 $E$ 为中间域。</p>
+</blockquote>
+<blockquote>
+<p><strong>D</strong>：对于域 $F$，它是域 $K$ 的域扩张，对于 $X\subset F$，所有包含 $K\cup X$ 的子域（子环）的交，称为 $X$ 在 $K$ 上生成的子域（子环），记作 $K(X)$（$K[X]$）。对于有限的 $X$，可以直接在括号里把元素列出来。$K(u)$ 称为单扩张。</p>
+</blockquote>
+<p>也就是说，我们说扩张时，必须要在一个大的域上去说，多项式环除外，不然就循环定义了。</p>
+<blockquote>
+<p><strong>T 1.3</strong>（域扩张的刻画）：$K[X]=\Set{h(u_1,\cdots,u_n)\mid n\in\N_+,h\in K[x_1,\cdots,x_n],u_1,\cdots,u_n\in X}$；$K(x)=\Set{\frac{h(u_1,\cdots,u_n)}{k(u_1,\cdots,u_n)}|n\in\N_+,h,k\in K[x_1,\cdots,x_n],u_1,\cdots,u_n\in X}$。</p>
+<p>P：① 上述元素是必要的；② 上述元素对运算封闭。</p>
+</blockquote>
+<p>这里交换性是不可缺少的，不然两个多项式相乘代入就爆炸了。</p>
+<blockquote>
+<p><strong>D</strong>：子域 $L$ 与 $M$ 的复合：$LM=L(M)=M(L)$。</p>
+</blockquote>
+<p>注意子域的交仍为子域。</p>
+<blockquote>
+<p><strong>D 1.4</strong>（代数与超越）：$F/K$。定义 $u\in F$ 在 $K$ 上是代数的，为 $u$ 是 $K[x]$ 中多项式的根；反之，为超越的。$F$ 是 $K$ 的代数扩张，意为 $F$ 中的<strong>所有</strong>元素都是 $K$ 上的代数元；反之，为超越扩张。</p>
+<p>E：$\R$ 是 $\Q$ 的超越扩张；$\C$ 是 $\R$ 的代数扩张。</p>
+<p>E：$K(x_1,\cdots,x_n)\setminus K$ 中的元素在 $K$ 上都是超越的。</p>
+</blockquote>
+<p>$\mathrm{e}$ 是超越数：<a class="link" href="https://zhuanlan.zhihu.com/p/47709039"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/47709039</a>；$\pi$ 是超越数：<a class="link" href="https://zhuanlan.zhihu.com/p/56607777"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/56607777</a>。</p>
+<blockquote>
+<p><strong>T 1.5</strong>（超越单扩张的刻画）：$u$ 是超越元，则 $K(u)\cong K(x)$。</p>
+<p>P：构造 $\varphi:K(x)\to F$，$f/g\mapsto f(u)/g(u)$。通过 $u$ 不是根，证明 $\varphi$ 是单射。而 $\im\varphi=K(u)$。</p>
+</blockquote>
+<blockquote>
+<p><strong>T 1.6, D 1.7</strong>（代数单扩张的刻画）：$u$ 是代数元，则：</p>
+<ul>
+<li>$K(u)=K[u]$。</li>
+<li>$K(u)\cong K[x]/(f)$，不可约且首一的 $f$ 称为 $u$ 的最小多项式，它整除任何以 $u$ 为根的多项式。</li>
+<li>$[K(u):K]=\deg f=n$。</li>
+<li>$\set{1,u,\cdots,u^{n-1}}$ 是 $K$ 上的向量空间 $K(u)$ 的一组基，$n$ 也称为 $u$ 的度。</li>
+</ul>
+<p>P：考虑 $\varphi:K[x]\to K[u]$。$K[x]$ 是欧几里得整环 $\Rightarrow$ 主理想整环，于是 $\ker\varphi=(f)$ 即 (ii)。为了说明 $f$ 不可约，由于 $K[u]$ 是整的，故（推一下）$(f)$ 是素的 $\Rightarrow$ $f$ 素 $\Rightarrow$ $f$ 不可约。然后 $f$ 不可约 $\Rightarrow$ $(f)$ 极大 $\Rightarrow$ $K[x]/(f)$ 为域 $\Rightarrow$ $K[u]=K(u)$。<br>
+另一方面，$K(u)$ 中任意一个 $\ge\deg f$ 的元素都可以取模，而 $\set{u^{0\sim n-1}}$ 线性无关不是废话吗。</p>
+<p>E：从另一个角度来说，任意度数 $&lt;n$ 的非零多项式 $g$ 和 $f$ 是互质的，因为否则 $f$ 有非平凡因子可以更小。从而 $g^{-1}$ 可以通过对 $f$ 和 $g$ 跑 exgcd 得到。$f(x)=x^2+c$ 的情况，是一个特殊的，可以直接用平方差公式凑的情况。</p>
+</blockquote>
+<p>诶呀反正就是你得先把环论，素理想/极大理想 $\longleftrightarrow$ 素元/不可约元、几种整环的关系，都玩得很明白。</p>
+<p>在这里，$u\in K(u)$ 就被映到 $x\in K[x]/(f)$。</p>
+<blockquote>
+<p><strong>T 1.8</strong>（同构在单扩张下的保持）：$\sigma:K\to L$ 是域同构，如果 $u$、$v$ 分别是 $K$、$L$ 上的超越元，或分别是 $K[x]$、$L[x]$ 内的多项式 $f$、$\sigma(f)$ 的根且 $f$ 不可约，则 $K(u)\cong L(v)$ 且同构映射可以由 $\sigma$ 扩展得到且 $u\mapsto v$。</p>
+<p>P：超越元：$\sigma$ 可以扩展到 $K[x]\to L[x]$，也可以扩展到 $K(x)\to L(x)$，于是 $K(u)\cong K(x)\cong L(x)\cong L(v)$。代数元：$\sigma(f)$ 显然也是不可约的。$K(u)\cong K[x]/(f)\cong L[x]/(\sigma(f))\cong L(v)$，中间这个同构可以用定义证。</p>
+</blockquote>
+<p>注意要求 $f$ 不可约，否则比如可以取 $K=L=\R$，$f(x)=x^3-1$，然后 $u=1$，$v=\omega$。</p>
+<blockquote>
+<p><strong>T 1.9</strong>（T 1.8 的反面）：$E/K$，$F/K$，$u\in E$ 和 $v\in F$ 是 $K$ 上的代数元。$u$ 和 $v$ 是同一个 $K[x]$ 内不可约多项式的根 $\Longleftrightarrow$ $K(u)\cong K(v)$ 且这个同构 $\sigma$ 中 $\sigma|_K=\id$，$u\mapsto v$。</p>
+<p>P：只需证 $\Longleftarrow$：设 $u$ 是 $f\in K[x]$ 的根。$0=\sigma(0)=\sigma(f(u))=\sigma(\sum a_iu^i)=\sum\sigma(a_i)\sigma(u)^i=\sum a_iv^i=f(v)$。</p>
+</blockquote>
+<p>我在想一个问题，$K(u)$ 一定包含 $f$ 的其他根吗？这个定理似乎给出了肯定的回答，但有没有构造性的证明呢？</p>
+<p>答案似乎是否定的：<a class="link" href="https://math.stackexchange.com/a/1714513"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/1714513</a>。$\Q[x]/(x^3-2)\cong\Q(\sqrt[3]2)\cong\Q(\sqrt[3]2\omega)$，似乎要么只有 $\set{1,\sqrt[3]2,{\sqrt[3]2}^2}$ 一系的，要么只有 $\set{1,\sqrt[3]2\omega,{\sqrt[3]2}^2\omega^2}$ 一系的。</p>
+<blockquote>
+<p><strong>T 1.10</strong>（可以先有多项式再有代数单扩张）：$f\in K[x]$，存在扩域 $F$，使 $F=K(u)$，$u\in F$ 是 $f$ 的根。$[K(u):K]\le\deg f$，取等当且仅当 $f$ 不可约；如果 $f$ 不可约则 $F$ 唯一。</p>
+</blockquote>
+<blockquote>
+<p><strong>T 1.11</strong>（有限扩张一定是代数扩张）：$F/K$ 满足 $[F:K]&lt;\infty$，则 $F$ 是 $K$ 的有限生成代数扩张。</p>
+<p>P：用向量空间的基本性质即可。</p>
+<p><strong>T 1.12</strong>（多次代数单扩张）：$F/K$，$X\subset F$，$F=K(X)$ 且 $X$ 的元素是 $K$ 上的代数元，那么 $F$ 是代数扩张。$|X|&lt;\infty\Rightarrow[F:K]&lt;\infty$。</p>
+<p>P：由定义 $F$ 中的每个元素只能涉及有限个 $X$ 中的元素，所以可以拆成有限次单扩张。</p>
+<p><strong>T 1.13</strong>（多次代数扩张）：$F$ 是 $E$ 的代数扩张，$E$ 是 $K$ 的代数扩张 $\Longrightarrow$ $F$ 是 $K$ 的代数扩张。</p>
+<p>P：$\forall u\in F$ 可以由 $u$ 的零化多项式系数以及 $u$ 本身依次作为扩张元得到。</p>
+<p><strong>T 1.14</strong>（子代数扩张）：$F/K$，$F$ 中所有代数元组成 $F$ 的子域。</p>
+</blockquote>
+<p>总的来说，以上事情就是在说，代数扩张、最小多项式、有限维度，这些东西总是一起出现的。</p>
+<p>能否有，对非单扩张的，模多项式（或类似）的刻画呢？</p>
+<blockquote>
+<p><strong>尺规作图部分</strong>：</p>
+<ul>
+<li>可以任意平移旋转一条线段（利用平行线），因此只关心哪些长度可以构造。</li>
+<li>单位长度任选，所以认为 $1$ 可构造。</li>
+<li>$c$，$d$ 可构造 $\Rightarrow$ $c\pm d$ 可构造。</li>
+<li>$c$，$d$ 可构造 $\Rightarrow$ $d/c$ 可构造（利用三角形内的平行线）$\Rightarrow$ $cd$ 可构造。</li>
+<li>$c$ 可构造 $\Rightarrow$ $\sqrt{c}$ 可构造（利用 $\sqrt{(\frac{c+1}2)^2-(\frac{c-1}2)^2}$）。</li>
+<li>于是首先可构造的一定是个域 $F$。</li>
+<li>任何直线、圆的交点，只能在 $F$ 里绕圈或者引入一个 $u\in F$ 的 $\sqrt{u}$。于是至多只有以上操作。</li>
+<li>也就是从 $Q_0=\Q$ 出发，每次扩一个开根后的值，那么 $[Q_{i+1}:Q_i]=2$。而 $u\in Q_n$ 对应的 $\Q(u)$ 是 $Q_n$ 的子域，从而 $[\Q(u):\Q]\mid[Q_n:\Q]$ 是 $2$ 的次幂，从而 $u$ 一定是一个 $2^?$ 次有理系数多项式的根。于是所有次数非 $2^?$ 的 $\Q[x]$ 中的不可约多项式的根都不行。</li>
+<li>三等分 $60^\circ$ 的角需要得到 $8x^3-6x-1$ 的根，用试根法得不可约。立方倍积也一样。</li>
+</ul>
+</blockquote>
+<h3 id="2-galois-理论基本定理">2. Galois 理论基本定理
+</h3><blockquote>
+<p><strong>D 2.1</strong>（$K$-同态）：$E/K$，$F/K$。一个 $E\to F$ 的同态，如果既是域同态，又是 $K$-模同态，就称为 $K$-同态。同构、自同构同理。$F$ 的所有 $K$-自同构显然构成一个 $\aut F$ 的子群，称为 $F$ 在 $K$ 上的 Galois 群 $\aut_KF$。</p>
+<p>$\aut_KF$ 中的映射对 $K$ 中的元素都是不变的，因为是 $K$-模同构；反之使 $K$ 中的元素不变的同构必然是 $K$-模同构。</p>
+<p>E：对于 $K(x)$ 中的分式 $f(x)$，$f(x)\mapsto f(ax)$ 与 $f(x)\mapsto f(x+b)$ 都是 $\aut_KK(x)$ 中的元素，但这两类不交换。</p>
+<p><strong>T 2.2</strong>（根在 $K$-自同构下的保持）：$F/K$，$u\in F$ 是某个 $K[x]$ 中多项式的根，那么 $\sigma(u)$ 也是这个多项式的根，其中 $\sigma\in\aut_KF$。</p>
+<p>很自然地想到就让 $F=K(u)$。$\aut_KK(u)$ 内的自同构由 $u\mapsto{?}$ 决定，因此 $\aut_KK(u)$ 的大小不超过 $u$ 最小多项式根数。</p>
+<p>E：$\lvert\aut_{\Q}\Q(\sqrt[3]2)\rvert=1$；$\lvert\aut\R\rvert=1$。</p>
+<p>E：$\lvert\aut_{\R}\C\rvert=2$；$\lvert\aut_{\Q}\Q(\sqrt3)\rvert=2$。共轭。</p>
+<p>E：$\Q(\sqrt2,\sqrt3)$ 可以视作 $\Q$ 上以 $\set{1,\sqrt2,\sqrt3,\sqrt6}$ 为基的线性空间，分析的思路是当成两次扩张。先得到 $[\Q(\sqrt2,\sqrt3):\Q]=4$ 再构造。$\aut_{\Q}\Q(\sqrt2,\sqrt3)$ 只有可能是 $\sqrt2\mapsto\pm\sqrt2$、$\sqrt3\mapsto\pm\sqrt3$，因此它 $\cong\Z_2^2$。</p>
+<p><strong>T 2.3</strong>（Galois 群的子群与中间域的关系）：$F/K$。</p>
+<ul>
+<li>考虑 $\aut_KF$ 的一个子群 $H$。在 $H$ 里各个 $K$-自同构下都不动的元素，构成一个中间域。</li>
+<li>考虑一个中间域 $E$，所有使得 $E$ 中元素不动的 $K$-自同构，构成 $\aut_KF$ 的一个子群 $\aut_EF$。</li>
+</ul>
+<p>记 $H$ 对应的中间域为 $H$ 的不动域 $H^\prime$。记 $\aut_EF$ 为 $E^\prime$。我们有 $F^\prime=\set{\id}$，$K^\prime=\aut_KF$，$\set{\id}^\prime=F$，但 $(\aut_KF)^\prime$ 不一定等于 $K$，例如 $\Q(\sqrt[3]2)$。下记 $\set{\id}=1$。</p>
+<p><strong>D 2.4</strong>（Galois 扩张）：如果 $(\aut_KF)^\prime=K$ 或者说 $K^{\prime\prime}=K$，则称 $F$ 是 $K$ 的 Galois 扩张。</p>
+</blockquote>
+<p>将注意力放在自同构群上，确实对没了解过后面的人来说是非常诡异的。直观理解，其实就是根之间的置换。非 Galois 的扩张是怎么回事呢？我也觉得很奇怪。可以理解成扩得不够完整使得根没全部出现吗？</p>
+<blockquote>
+<p><strong>T 2.5</strong>（Galois 理论基本定理）：$F$ 是<strong>有限维</strong>的 $K$ 的 Galois 扩张。中间域与 $\aut_KF$ 的子群一一对应。对应由 $E\to E^\prime$ 给出。</p>
+<ul>
+<li>两个中间域的相对维数，等于他们对应的子群的相对指数。</li>
+<li>中间域 $E$ 是 $K$ 的 Galois 扩张 $\Longleftrightarrow$ $E^\prime\lhd K^\prime$，这时 $K^\prime/E^\prime\cong\aut_KE$。</li>
+</ul>
+</blockquote>
+<p>注意没说 $F$ 是 $K$ 的 Galois 扩张的，就默认不要求这个。</p>
+<blockquote>
+<p><strong>T 2.6</strong>：$F/M/L/K$，$H\subseteq J\subseteq G=\aut_KF$。</p>
+<ul>
+<li>$F^\prime=1$，$K^\prime=G$。</li>
+<li>$1^\prime=F$。</li>
+<li>$M^\prime\subseteq L^\prime$。</li>
+<li>$H^\prime/J^\prime$。</li>
+<li>$L^{\prime\prime}/L$，$H\subseteq H^{\prime\prime}$。</li>
+<li>$L^\prime=L^{\prime\prime\prime}$，$H^\prime=H^{\prime\prime\prime}$。</li>
+</ul>
+<p>P：只看 $L^\prime=L^{\prime\prime\prime}$。一方面，$L^{\prime\prime}/L$，说明 $L^{\prime\prime\prime}\subseteq L^\prime$；另一方面，$L^\prime\subseteq(L^\prime)^{\prime\prime}$。</p>
+<p>定义闭，为 $\cdot^{\prime\prime}=\cdot$。</p>
+<p><strong>T 2.7</strong>（闭条件下的基本定理）：闭中间域与闭 Galois 子群一一对应。</p>
+<p>P：$E\mapsto E^\prime\mapsto E^{\prime\prime}=E$。</p>
+<p><strong>T 2.8</strong>（相对指数与相对维数的关系 1）：$F/M/L/K$，$[M:L]&lt;\infty$，则 $[L^\prime:M^\prime]\le[M:L]$。</p>
+<p>P：$M$ 是 $L$ 的代数扩张。取 $u\in M\setminus L$，考虑 $L(u)=M$ 的情况（若不然，可归纳）。考虑构造 $M^\prime$ 在 $L^\prime$ 中的陪集，到 $u$ 最小多项式各根的单射，由于上面说了 $[M:L]$ 一定不小于根数，就可以得到这个不等式。各陪集都是将 $u$ 映射到另一个根（同一个陪集是使 $M$ 不动的），于是就有了映射。如何证明单射？如果 $\tau(u)=\tau^\prime(u)$，则 ${\tau^\prime}^{-1}\tau\in M^\prime$，矛盾。</p>
+</blockquote>
+<p>注意这里是不需要子群的正规性的。这个证明其实就是照着 T 2.2 在说，或者其实就是 T 2.2 的多步扩张推广。</p>
+<blockquote>
+<p><strong>T 2.9</strong>（相对指数与相对维数的关系 2）：$H\subseteq J\subseteq G=\aut_KF$，$[J:H]&lt;\infty$，则 $[H^\prime:J^\prime]\le[J:H]$。</p>
+<p>P：假设 $[J:H]=n$，$\set{\tau_1 H,\cdots,\tau_n H}$ 是所有陪集；若 $[H^\prime:J^\prime]&gt;n$，找一组线性无关元 $u_1,\cdots,u_{n+1}$。考虑方程组
+$$
+\Set{\sum_{j=1}^{n+1}\tau_i(u_j)x_j=0,|,i=1,\cdots,n}
+$$
+它有非零解，找到零的数量最多的一组 $\boldsymbol x=(a_1,\cdots,a_{n+1})$。我们可以找到另一组解 $\sigma\boldsymbol x$，使得这两组解相减得到更多的零，从而导出矛盾。一方面为了保证更多的零，可以让 $a_1=1$；另一方面为了保证不是全零，找的 $\sigma$ 要让某个 $a_j$ 变化，也就是 $a_j\in H^\prime\setminus J^\prime$。那其实 $\sigma$ 是随便选的，而且根据群论，$\sigma\circ\tau_i$ 就是做了个置换罢了，那就完事了。</p>
+</blockquote>
+<p>这个证明可能就是比较技术性的那种，没什么好说的。</p>
+<p>总的来说，感觉就是，如果取的中间域/子群“有水分”，那么取 $\cdot^\prime$ 之后水分会缩小。</p>
+<blockquote>
+<p><strong>T 2.10</strong>（T 2.8&amp;9 取等条件）：如果 $L$ 是闭的，那么 $M$ 也是闭的且 T 2.8 取等；如果 $H$ 是闭的，那么 $J$ 也是闭的且 T 2.9 取等。从而（自底向上地推），如果 $F$ 是 $K$ 的 Galois 扩张，那么所有东西都是闭的，从而 T 2.5 的前半部分成立。</p>
+<p>注意有限这一条件。</p>
+<p>P：$L$ 是闭的 $\Rightarrow$ $L^{\prime\prime}=L$ $\Rightarrow$ $[M:L]\le[M^{\prime\prime}:L]=[M^{\prime\prime}:L^{\prime\prime}]\le[L^\prime:M^\prime]$。对称同理。</p>
+</blockquote>
+<p>这么本质的一个定理竟然用的是不等式去证，使我大受震撼。</p>
+<blockquote>
+<p>定义一个中间域 $E$ 是稳定的，为它在 $\aut_KF$ 的各个同构下都映射到自己，换句话说 $\aut_KF$ 中的自同构限制在 $E$ 内时也是自同构。</p>
+<p><strong>T 2.11</strong>（稳定与正规的关系）：$E$ 稳定 $\Longrightarrow$ $E^\prime\lhd\aut_KF$；$H\lhd\aut_KF$ $\Longrightarrow$ $H^\prime$ 稳定。</p>
+<p>P：很简单，$\sigma\in\aut_KF$，$\tau\in E^\prime$，算一下 $\sigma^{-1}\tau\sigma|_E$。反过来也一样，已知 $\sigma^{-1}\tau\sigma|_E=\id\Rightarrow\tau\sigma|_E=\sigma|_E$，那就是稳定啊。</p>
+</blockquote>
+<p>$\forall$ 中间域 $E$，$F$ 都是 $E$ 上的 Galois 扩张，但 $E$ 不一定是 $K$ 上的 Galois 扩张。那如果考虑 $E$ 所有 $K$-同构，如果这些和 $\aut_KF$ 有对应关系，那自然就是 Galois 扩张了。那能保证这个的，就是 $E$ 的稳定性。</p>
+<blockquote>
+<p><strong>T 2.12&amp;13</strong>（稳定与 Galois 的关系）：$F/K$ Galois。$E$ 稳定 $\Longrightarrow$ $E$ 是 $K$ 的 Galois 扩张；$E$ 是 $K$ 的<strong>代数</strong>的 Galois 扩张 $\Longrightarrow$ $E$ 稳定。</p>
+<p>P：前者已讲。后者，取 $u\in E\setminus K$ 及其最小多项式 $f\in K[x]$。$f$ 在 $E$ 中的各根在 $\aut_KF$ 变换下是不动的（只是内部置换），于是 $f$ 在 $\aut_KF$ 下也是不动的，于是 $u$ 在 $\aut_KF$ 下仍 $\in E$。</p>
+</blockquote>
+<p>现在要做的几乎已经完成了，因为是有限扩域，所以代数这一条件自动满足。</p>
+<p>最后考虑几个自同构群之间的关系。$\aut_KE$ 中的元素，如果可扩展到 $F$ 上，那么它会是怎样扩展的呢？其实也可以理解成一个分层的结构，就是所有 $K$-自同构，在 $K$ 的各点不动，在 $E$ 上整个不动，那么在 $E$ 内，和在“商”$F/E$ 上，这两部分共同确定了完整的自同构。</p>
+<blockquote>
+<p>如果 $\aut_KE$ 中的元素可以扩展为 $\aut_KF$ 的元素，则称为可扩展的。</p>
+<p><strong>T 2.14</strong>（自同构群的大小关系）：$E$ 稳定，$\aut_KF/\aut_EF\cong\aut_KE$ 中可扩展的部分。</p>
+<p>P：“标准”同态 $\aut_KF\to\aut_KE$，这玩意的核不正是 $\aut_EF$ 吗？这个不需要 $F$ 是 Galois 扩张的。</p>
+<p>最后我们说明 $F$ 是 Galois 的情况下，$\aut_KE$ 整个都是可扩展的。考虑从大小的角度去说明。一方面，$\lvert\aut_KE\rvert=[\aut_KE:\aut_EE]=[E:K]$，另一方面，$\lvert\aut_KF/\aut_EF\rvert=[\aut_KF:\aut_EF]=[E:K]$。</p>
+</blockquote>
+<p>为了更好地理解，再考虑 $\Q(\sqrt2,\sqrt3)$。对于 $\Q(\sqrt2)$ 这个中间域，对应的不动子群就是在 $\pm\sqrt3$ 之间切换的。$\Q$ 到 $\Q(\sqrt2)$，对应的自同构部分是 $\pm\sqrt2$，$\Q(\sqrt2)$ 到 $\Q(\sqrt2,\sqrt3)$，对应的是 $\pm\sqrt3$。</p>
+<blockquote>
+<p>Artin 的思路是，先有自同构子群，再有 $K$。</p>
+<p><strong>T 2.15</strong>（Artin）$G$ 是 $\aut F$ 的子群，设 $K$ 是 $G$ 的不动域，则 $F$ 是 $K$ 的 Galois 扩张。若 $|G|&lt;\infty$，则 $F$ 是 $K$ 的有限 Galois 扩张，Galois 群为 $G$。</p>
+</blockquote>
+<blockquote>
+<p>考虑 $n$ 元分式域 $K(x_1,\cdots,x_n)$，对于每个置换 $\sigma\in S_n$，$\sigma^*:f(x_1,\cdots,x_n)\mapsto f(x_{\sigma(1)},\cdots,x_{\sigma(n)})$ 为一个自同构，从而 $S_n$ 是 $\aut K(x_1,\cdots,x_n)$ 的子群，而且一类“很对称”的分式构成的子域 $E$，在各 $\sigma^*$ 下不动，$K(x_1,\cdots,x_n)$ 就是 $E$ 的 Galois 扩张且 Galois 群就是 $S_n$。又由于我们知道任何有限群都是对称群的同态像，因此就有：</p>
+<p><strong>T 2.16</strong>：任何有限群都是某个 Galois 群。</p>
+<p>$E$ 到底是什么样的呢？我们称 $E$ 中的元素为对称函数。考虑以下“初等”函数：
+$$
+f_i=\sum_{S\subseteq\set{1,\cdots,n},|S|=i}\prod_{j\in S}x_j
+$$
+这个显然是对称的。下面说明 $E=K(f_1,\cdots,f_n)$。</p>
+<p><strong>T 2.17</strong>：$x_1\sim x_k$ 的各初等对称函数，都可以写成关于 $f_1\sim f_n$，加上 $x_{k+1}\sim x_n$ 单项，的多项式。</p>
+<p>P：考虑 $x_n$，$f_{i+1}^\prime=f_{i+1}-f_i^\prime\cdot x_n$。</p>
+<p><strong>T 2.18</strong>：$E=K(f_1,\cdots,f_n)$。</p>
+<p>P：已知 $E\supseteq K(f_1,\cdots,f_n)$。考虑证明 $[K(x_1,\cdots,x_n):K(f_1,\cdots,f_n)]\le n!$。<br>
+由于 $(y-x_1)\cdots(y-x_n)=y^n-f_1y^{n-1}+f_2y^{n-2}-\cdots\in K(f_1,\cdots,f_n)$，故 $x_n$ 是个代数数，现在我们可以把 $K(f_1,\cdots,f_n)$ 代数扩张到 $K(f_1,\cdots,f_n,x_n)$，而且维数不超过 $n$。根据 T 2.17，可以以此类推，总维数不超过 $n!$。</p>
+</blockquote>
+<p>TMD 为什么又是拿大小来证啊！！我现在感觉域相关的命题证明思路只有推 $\le$ &amp; $\ge$ 或者 $\subseteq$ &amp; $\supseteq$，没别的了……</p>
+<blockquote>
+<p>考虑证明，对多项式环，类似的结论成立。</p>
+<p><strong>T 2.19</strong>：$\set{x_1^{&lt;1}x_2^{&lt;2}\cdots x_n^{&lt;n}}$ 是 $E$ 上的线性空间 $K(x_1,\cdots,x_n)$ 的一组基。</p>
+<p>P：T 2.18 的证明 + T 1.6。</p>
+<p><strong>T 2.20</strong>：$K[x_1,\cdots,x_n]$ 是 $K[f_1,\cdots,f_n]$ 上的向量空间，以 $\set{x_1^{&lt;1}x_2^{&lt;2}\cdots x_n^{&lt;n}}$ 为一组基。</p>
+<p>P：想表达的意思其实就是线性组合的系数不是分式嘛。但除了 T 2.19 保证唯一性，没有域的工具可以用了。考虑 $K[x_1,\cdots,x_n]$ 中的某个元素。如果出现某个 $x_i^{\ge i}$，由于 $x_i$ 是 $(y-x_1)\cdots(y-x_i)$ 的根，且这个多项式的系数，上面说了，可以由 $f_1\sim f_n$、$x_{k+1}\sim x_n$ 组合得到，因此 $x_i^i$ 可以由这些和 $x_i^{&lt;i}$ 组合得到，这样可以不断地往下消，直到次数 $&lt;i$。那这样就可以了。</p>
+</blockquote>
+<p>又是扩域再缩回来的技巧。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>Galois</th>
+<th>非 Galois</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代数</td>
+<td>$\C$</td>
+<td>$\Q[\sqrt[3]2]$</td>
+</tr>
+<tr>
+<td>超越</td>
+<td>$K(x)$（$|K|=\infty$）</td>
+<td>$K(x)$（$|K|&lt;\infty$）</td>
+</tr>
+</tbody>
+</table></div>
+<p>这里看一组和上一节关系大一点的小习题：</p>
+<blockquote>
+<p><strong>Ex 6(b)</strong>：$K(x)/F/K$，其中 $F\ne K$。$[K(x):F]&lt;\infty$。</p>
+</blockquote>
+<p>P：既然 $K(x)/F$，那么一定有一个 $u\in F\setminus K$，$u=f/g$ 形如一个最简分式。那么 $x$ 是 $K(u)$ 上的代数数，即，$f-gu$ 的根，或者说，最多我加入 $1,x,\cdots,x^{\max\set{\deg g,\deg f}-1}$，就足以构成完整的 $K(x)$，因为你把 $u$ 当作一个系数的话，我们至少有 $f-gu=0$，也就是说 $1,x,\cdots,x^{\max\set{\deg g,\deg f}}$ 线性相关，再高次的项也可以递推地被低次线性表出。现在 $K(x)$ 是 $K(u)\subseteq F$ 的有限维扩张，自然是 $F$ 的有限维扩张。</p>
+<blockquote>
+<p><strong>Ex 6(d)</strong>：$\aut_KK(x)=\Set{x\mapsto\frac{ax+b}{cx+d}|ad\ne bc}$。</p>
+</blockquote>
+<p>$\aut_KK(x)$ 的元素由 $x\mapsto{?}$ 决定，考虑 $x\mapsto\theta(x)$。既然希望是自同构，那就希望 $\set{f(\theta(x))\mid f\in K(x)}=K(x)$，这个东西又可以翻译成 $K(\theta)=K(x)$，也就是说我们希望，$\theta$ 通过一通操作可以搞出 $x$，换句话说，还是和上面一样的道理，$x$ 是 $K(\theta)$ 上度为 $1$ 的代数数。那我们现在知道，如果 $\theta(x)=p(x)/q(x)$，那么 $x$ 是 $\theta q(y)-p(y)$ 的根（注意这里是在将 $\theta$ 看作分式和看作一个独立的元素之间切换）。根据 T 1.6，$\theta q(y)-p(y)$ 在 $K(\theta)[y]$ 上不可约的话，$[K(x):K(\theta)]$ 就等于 $\deg_y(\theta q(y)-p(y))$ 了。能不能证明这玩意不可约呢？现在可以把 $\theta$ 视作一个常数，我们知道取不取分式域，对多项式的可约性是不影响的，所以考虑 $K[\theta,y]$，$\theta q(y)-p(y)$ 关于 $\theta$ 是一次的，而 $q(y)$ 和 $p(y)$ 互质，所以肯定是不可约的。于是现在就要求 $\deg_y(\theta q(y)-p(y))=1$。最后尽管 $\frac{ax+b}{cx+d}$ 是个满自同态，我们还没验证它是自同构，这个很简单——复合逆是 $\frac{dx-b}{a-cx}$。</p>
+<blockquote>
+<p><strong>Ex 9</strong>：$K(x)$ 是 $K$ 的 Galois 扩张 $\Longleftrightarrow$ $|K|=\infty$。</p>
+</blockquote>
+<p>考虑 $(\aut_KK(x))^\prime$。对于 $|K|=\infty$，如果它不止包含 $K$，令 $(\aut_KK(x))^\prime=E$，那么 $[K(x):E]$ 有限，且 $\aut_KK(x)=\aut_EK(x)$。但是根据 T 2.8，$\lvert\aut_KK(x)\rvert=\lvert\aut_EK(x)\rvert\le[K(x):E]&lt;\infty$，与 Ex 6(d) 矛盾。对于 $|K|&lt;\infty$，$\lvert\aut_KK(x)\rvert&lt;\infty$，如果 $(\aut_KK(x))^\prime=K$，则根据 T 2.9，$[K(x):K]=[\set{\id}^\prime:(\aut_KK(x))^\prime]\le[\aut_KK(x):\set{\id}]&lt;\infty$，与 $[K(x):K]=\infty$ 矛盾。</p>
+<p>参考 <a class="link" href="https://math.stackexchange.com/q/13129"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/13129</a>、<a class="link" href="https://pi.math.cornell.edu/~erin/algebra/hungerford_v_5_2.pdf"  target="_blank" rel="noopener"
+    >https://pi.math.cornell.edu/~erin/algebra/hungerford_v_5_2.pdf</a>。</p>
+<h3 id="3-分裂域代数闭包正规性">3. 分裂域、代数闭包、正规性
+</h3><blockquote>
+<p><strong>D 3.1</strong>（分裂域）：多项式分裂的定义略。$F$ 是非常数多项式 $f\in K[x]$ 在 $K$ 上的分裂域，意为 $f$ 在 $F[x]$ 上分裂且 $F$ 恰好由 $K$ 扩张 $f$ 的各个根得到。对于包含若干多项式的集合 $S$，定义同样的东西。</p>
+<p>注意这里并没有说明分裂域唯一。</p>
+<p>我们只需关心 $|S|=1$ 和 $|S|=\infty$ 的情况。后面我们会知道，任何代数 Galois 扩张都是分裂域。</p>
+<p><strong>T 3.2</strong>（分裂域的大小）：$f$ 的分裂域的维数不超过 $(\deg f)!$。</p>
+<p>P：取 $f$ 的一个不可约因子，将其一根扩入 $K$ 之后，就导致维数乘至多 $\deg f$，归纳。</p>
+</blockquote>
+<p>实际上这个上界是可以达到的。例如 $f=x^3-2$ 时，$\Q(2^{1/3},\omega)$ 的基为 $\set{1,2^{1/3},2^{2/3},\omega,2^{1/3}\omega,2^{2/3}\omega}$。对于更一般的情况，由于上面说了 $[F:K]=\lvert\aut_KF\rvert$，所以目标就变成构造大的 Galois 群，后面我们会看到这是常见的。<br>
+一个典型的误解是，认为我们是把 $f$ 拆成若干个不可约的因子，每个贡献 $\deg$ 倍。这会导致以为最大的维数是 $3^{n/3}$。上面这个例子就是这个理解的反例。</p>
+<p><a class="link" href="https://math.stackexchange.com/q/1149743"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/1149743</a>。</p>
+<blockquote>
+<p>证明 $|S|=\infty$ 的分裂域存在是麻烦的。</p>
+<p><strong>T 3.3</strong>（代数封闭域）：$F$ 称为代数封闭的，当它满足以下（等价）条件：</p>
+<ul>
+<li>$\forall f\in F[x]$ 有至少一个 $F$ 内的根；</li>
+<li>$\forall f\in F[x]$ 所有根都在 $F$ 内；</li>
+<li>$F[x]$ 内的不可约多项式 $\deg=1$；</li>
+<li>$F$ 无代数扩张；</li>
+<li>存在 $F$ 的子域 $K$，满足 $F$ 是 $K$ 的代数扩张且 $K[x]$ 中的多项式都在 $F[x]$ 中分裂。</li>
+</ul>
+<p><strong>T 3.4</strong>（代数闭包）：$F$ 是 $K$ 的代数扩张且代数封闭 $\Longleftrightarrow$ $F$ 是 $K[x]$ 内所有多项式的分裂域。这样的 $F$ 称为 $K$ 的代数闭包 $\overline{K}$。</p>
+</blockquote>
+<p>这个命题的前提是，这样的 $F$ 存在。</p>
+<p>这里唯一要考虑的证明的东西是，$F$ 扩了之后，会不会有以 $F$ 中元素为系数的多项式，它的根不在 $F$ 内？<br>
+答案是否定的，因为 T 1.13 说了，代数扩张的代数扩张还是代数扩张。也就是说一个系数在 $F$ 内的多项式，它的根，也是系数在 $K$ 内的多项式（可能次数会大很多）的根。这个多项式的构造是没有给出的，因为 T 1.13 的证明是从大小上来证的，我都无语了。</p>
+<p>还有一点是，是否存在严格包含代数闭包的，更大的代数封闭的扩张域？答案是肯定的：$\overline{\R(x)}$。但这个东西没法正常描述，详见 <a class="link" href="https://math.stackexchange.com/q/3005909"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/3005909</a>。<br>
+想起来其实有个非常简单的例子：$\overline{\Q}\subsetneq\C$。</p>
+<blockquote>
+<p>接下来证明 $F$ 存在。</p>
+<p><strong>T 3.5</strong>（代数扩张的大小）：$F/K$ 代数，则 $|F|\le\aleph_0|K|$。</p>
+<p><strong>T 3.6</strong>（代数闭包存在且唯一）：代数闭包存在，且任何两个代数闭包都是 $K$-同构的。</p>
+<p>P：思路是，考虑用 Zorn 引理找出所有 $K$ 的代数扩张中最大的那个，用 T 1.13 证明它代数封闭。具体一些很无聊的处理，主要在于说明 $E$ 的所有代数扩张形成一个集合（不太大）。第二句话见后。</p>
+<p><strong>T 3.7</strong>（分裂域的存在性）：对于任意 $S$，$S$ 在 $K$ 上的分裂域存在。</p>
+<p><strong>T 3.8</strong>（同构在分裂域下的保持）：$\sigma:K\to L$ 是同构，$S\subseteq K[x]$ 在 $K$ 下的分裂域同构于 $\sigma(S)$ 在 $L$ 下的分裂域，且同构可由 $\sigma$ 扩展得到。</p>
+<p>P：如果 $|S|=1$，那么归纳地使用 T 1.8 即可。可以用 T 3.6 中的方法（对于所有同构的中间域 $(E/K,N/L,\tau:E\to N)$）论证无限的情况。</p>
+<p><strong>T 3.9</strong>（分裂域的唯一性）：对于任意 $S$，$S$ 在 $K$ 上的分裂域在 $K$-同构意义下唯一。</p>
+</blockquote>
+<blockquote>
+<p><strong>D 3.10</strong>（可分）：不可约多项式 $f\in K[x]$ 可分，定义为，$f$ 在 $f$ 在 $K$ 上的分裂域中的根都是单重根。$u\in F$ 可分，定义为 $u$ 的最小多项式可分。如果 $F$ 中每个元素都可分，则说 $F$ 是 $K$ 的可分扩张。</p>
+<p>这个定义主要是针对特征非零的域来说的。<strong>特征为零的域中，不可约多项式都是可分的</strong>，这个是因为环的 T 6.10，就是说可以根据导数来区分是否是重根。一个典型的不可约多项式不可分的例子，就在上面 T 6.10 里面那个链接。</p>
+</blockquote>
+<p>这边值得复习以下多项式环的一个性质：对于 $F/K$，$f,g\in K[x]$，它们的 $\gcd$ 在 $K[x]$ 和 $F[x]$ 上是一样的（忽略乘常数）。这个不能直接证，要先除掉 $\gcd$，然后用裴蜀定理，或者考虑生成理想。</p>
+<p>下面说可分时默认不可约。</p>
+<blockquote>
+<p><strong>T 3.11</strong>（可分与 Galois 的关系）：$F$ 是 $K$ 的代数 Galois 扩张 $\Longleftrightarrow$ $F$ 是 $K$ 的可分扩张且 $F$ 是 $K[x]$ 内一些多项式的分裂域 $\Longleftrightarrow$ $F$ 是 $K[x]$ 内一些可分多项式的分裂域。</p>
+<p>P：</p>
+<ul>
+<li>$F$ 是 $K$ 的代数 Galois 扩张时，任取一元素 $u$ 及其最小多项式 $f$，根据 T 2.13 的论证，$f$ 无重根……什么，忘了？就是说假设 $f$ 有不同的根 $u_1=u,u_2,\cdots,u_r$，那么根据 Galois 扩张的性质，$\prod(x-u_i)$ 在 $\aut_KF$ 下只是置换各因子所以不变，所以 $\prod(x-u_i)\in K[x]$。因此 $f$ 就等于 $\prod(x-u_i)$。现在就说明了可分性，剩下的都简单，取一组基即可。</li>
+<li>$F$ 可分且 $F$ 是 $S\subseteq K[x]$ 的分裂域，那么取 $S$ 中各多项式的各不可约因子，组成 $T$，其中每个多项式都是某个最小多项式，从而可分。</li>
+<li>$F$ 是可分多项式集合 $T\subset K[x]$ 的分裂域，代数是废话，只需说明 Galois。对于 $u\in F$，根据扩张的刻画，$u\in K(v_1,\cdots,v_n)$ 这一有限扩张，从而 $u\in K(f_1,\cdots,f_n)$，其中 $f_i$ 是 $v_i$ 的最小多项式。记这个域为 $E$，如果能说明 $E$ 是 $K$ 的 Galois 扩张，根据 T 3.8，就可以说明 $u$ 不是 $\aut_KF$ 下的不动点。<br>
+这里 $\lvert\dim_KE\rvert&lt;\infty$，考虑归纳证明 $\lvert\dim_KE\rvert=[E:K]$。任取一个中间域 $K(w)$，其中 $f_1(w)=0$。这里其实意思就是 $u$ 可能是一个多步的产物（从而它不是 $T$ 中任何一个多项式的根，而是一个复杂组合之后的根），但 $w$ 好处理许多。根据 T 2.8，$[\aut_KF:\aut_{K(w)}F]\le[K(w):K]=\deg f_1$，这是通过构造 $\aut_KF/\aut_{K(w)}F\to f_1$ 各根的单射证明的，与此同时由于 $f_1$ 有额外的可分性质，这个单射就可以变成双射。现在我扩了一步 $K(w)$，接下来的步骤为保证 $T$ 里面还都是不可约多项式，可能要去掉一些因子，这都简单。归纳即可。</li>
+</ul>
+</blockquote>
+<p>注意到如果 $\cha=0$，可分条件都可以去除。</p>
+<p>这个定理其实回答了我之前的一个疑惑，就是代数扩张中，什么时候会出现没有完全扩出一个不可约多项式的各根的情况（就是 $\Q(\sqrt[3]2)$ 这种）？这里给出的答案就是 Galois $\Longleftrightarrow$ 全部扩出。<br>
+往后看了之后发现这个话是错的，应该是 Galois $\Longrightarrow$ 全部扩出。全部扩出 = 正规。</p>
+<blockquote>
+<p><strong>T 3.12</strong>（无限 Galois 理论基本定理）：$F/K$ 代数 Galois，则中间域与<strong>闭</strong>子群一一对应，并且：</p>
+<ul>
+<li>两个中间域的相对维数，不一定等于他们对应的子群的相对指数。</li>
+<li>中间域 $E$ 是 $K$ 的 Galois 扩张 $\Longleftrightarrow$ $E^\prime\lhd K^\prime$，这时 $K^\prime/E^\prime\cong\aut_KE$。</li>
+</ul>
+<p>P：要说明中间域都是闭的，只需要用 T 3.11 中代数 Galois 的最后一个等价表述即可。Galois 和正规性的等价，也可以通过 T 2.11&amp;12&amp;13 说明，刚好它们只要求代数没要求有限。但是同构不能用大小来说了。回顾 T 2.14，关键在于说明 $\aut_KE$ 里的自同构都可以扩展成 $F$ 的自同构——T 3.8 刚好说了这个是能扩展的。</p>
+<p>处理无穷情况的一般方法是 Krull 拓扑。</p>
+</blockquote>
+<p>似乎不是代数的情况也有证明：<a class="link" href="https://stacks.math.columbia.edu/tag/0BML"  target="_blank" rel="noopener"
+    >https://stacks.math.columbia.edu/tag/0BML</a>。</p>
+<blockquote>
+<p><strong>D 3.13</strong>（正规）：$F/K$ 代数。$F$ 是正规的，定义为如果不可约 $f\in K[x]$ 有个根在 $F$ 中，那么 $f$ 在 $F[x]$ 中分裂。</p>
+<p><strong>T 3.14</strong>（正规与分裂的关系）：$F$ 是 $K$ 的正规扩张 $\Longleftrightarrow$ $F$ 是 $K$ 的分裂域 $\Longleftrightarrow$ $\forall$ 单同态 $\sigma:F\to\overline{K}$，$\im\sigma=F$，于是 $\sigma$ 总是自同构。</p>
+<p>P：</p>
+<ul>
+<li>如果 $F$ 是 $K$ 的正规扩张，那么取 $F$ 在 $K$ 上的一组基，这组基的最小多项式构成 $S$。</li>
+<li>如果 $F$ 是 $K$ 的分裂域，那么扩张的根经过 $\sigma$ 之后仍为根，并且由单同态，不会漏。所以 $\sigma$ 维持恰好各根，从而是自同构。</li>
+<li>如果 $F$ 是 $K$ 的分裂域，在有限扩张情况下，如果不可约的 $f\in K[x]$ 有根 $u\in F$ 和 $v\notin F$，那么可以构造 $K(u)\cong K(v)$，从而扩展到 $F\cong F(v)$，矛盾。</li>
+<li>如果所有单同态都是自同构，那么任何不可约的 $f\in K[x]$，$f$ 的一根 $u\in F$，就可以构造 $K(u)\cong K(v)$，$v$ 是另一根。这个同构可以扩展到整个 $F$，于是由条件，$v\in F$。</li>
+</ul>
+</blockquote>
+<p>可分扩张和正规扩张互不包含：<a class="link" href="https://math.stackexchange.com/a/54566"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/54566</a>。可分且正规 = 代数 Galois。有超越 Galois 扩张，这里不考虑。<br>
+Mark：分裂域但不可分，这种情况不是 Galois，能仔细看一下结构吗？直觉上为什么不 Galois？</p>
+<blockquote>
+<p><strong>T 3.15</strong>（代数 Galois、可分、正规的关系）：$F/K$ 代数。$F$ Galois $\Longleftrightarrow$ 可分且正规；如果 $\cha F=0$，那么 $F$ Galois $\Longleftrightarrow$ 正规。</p>
+<p><strong>T 3.16</strong>（正规闭包）：$E/K$ 代数。$\exists F/E$，$F/K$ 正规，无中间域正规，$E/K$ 可分 $\Longrightarrow$ $F/K$ Galois，$[F:K]&lt;\infty\Longleftrightarrow[E:K]&lt;\infty$。这样的 $F$ 在 $E$-同构意义下唯一，称为 $E$ 在 $K$ 上的正规闭包。</p>
+<p>P：$F$ 的构造为：$E$ 在 $K$ 上的基的最小多项式的分裂域。最小性显然。$E/K$ 可分则扩的多项式也可分，根据 T 3.11 $F$ Galois。$[E:K]$ 有限则扩的多项式有限，$[F:K]$ 也就有限。根据分裂域唯一，$F$ 唯一。</p>
+</blockquote>
+<p>注意这里的正规闭包可以仅通过正规性和最小性来定义，也就是说后面两条（含箭头的）可以说是其性质。</p>
+<p>后面会发现，这个把 $E$ 扩到 Galois 的过程是个技巧，就是为了强制将条件推到可以用 Galois 基本定理。</p>
+<blockquote>
+<p><strong>代数基本定理部分</strong>：</p>
+<p><strong>假设</strong>：正数可以开平方根、奇数次多项式至少有一个根。</p>
+<p><strong>T 3.17</strong>（本原元定理相关）：$F/K$ 有限可分，$K$ 无限，则 $F$ 是单扩张。</p>
+<p>P：我们证明的思路是，如果 $F/K(u)$、$F/K(v)$，那么可以构造单扩张 $\cong K(u,v)$。考虑所有 $K(u+av)$，$a\in K$。由于 $F/K$ 有限，故 $\aut_KF$ 有限（停！如果 $F$ 不是 Galois，取正规闭包即可）。因此所有 $\set{K(u+av)}$ 里一定有两个相同的，也就是 $u+av,u+bv\in K(u+av)=K(u+bv)$。那么相减得 $v\in K(u+av)$，再减得 $u\in K(u+av)$，完事了。逐一合并即可。</p>
+</blockquote>
+<p>这个定理总算有点实操性了。$\Q(\sqrt2,\sqrt3)=\Q(\sqrt2+\sqrt3)$。证明：首先 $\dim=4$，其次构造最小多项式 $\prod(x\pm\sqrt2\pm\sqrt3)$。显然发现最小多项式由所有的“共轭”为根得到。那证明能不能简化为直接取 $\prod_{\sigma\in\aut_KF}(x-\sigma(u))$ 呢？<br>
+额……如果遇到 $\Q(\sqrt2,\sqrt[3]2)$ 咋办？看到了个 <a class="link" href="https://www.zhihu.com/question/14897945340/answer/124046589131"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/14897945340/answer/124046589131</a>。</p>
+<p>Mathematica 里有个 <code>MinimalPolynomial</code>。</p>
+<blockquote>
+<p><strong>T 3.18</strong>（第一步）：$\C$ 没有维数为 $2$ 的扩张。</p>
+<p><strong>T 3.19</strong>（代数基本定理）：$\C$ 是代数封闭的。</p>
+<p>P：如果 $\C$ 有有限扩张 $E$，那么 $E$ 是可分的（因为 $\cha\R=0$）。从而可以取 $E$ 的有限扩张 $F$ 使 $F/\R$ Galois（为什么要取 $\R$ 而不直接 $\C$ 呢？为了用第二个假设）。$F/\R$ 的中间域与 $\aut_\R F$ 一一对应，所以考虑群论的手段。如果 $\lvert\aut_\R F\rvert$ 有奇质因子，那么由 Sylow 定理，有大小为 $2^{v_2(\lvert\aut_\R F\rvert)}$ 的子群从而有维数为 $\ge3$ 奇数的中间域，与第二个假设矛盾。从而 Galois 群的大小为 $2^n$。如果 $F\ne\C$，那根据 Sylow 定理 $\aut_\C F$ 有大小一半的子群，从而对应的中间域是 $\C$ 的维数为 $2$ 的扩张。</p>
+<p><strong>T 3.20</strong>（$\C$ 的唯一性）：$\R$ 的代数扩张唯一。</p>
+<p>P：考虑 $F/\R$。找到扩张用的多项式，可得 $F/\C$，再用 T 3.19。</p>
+</blockquote>
+<p>这里难道不能直接利用 T 3.6 代数闭包的唯一性吗？既然考虑 $\R$ 的代数扩张，就一定 $\subseteq\C$，然后 $2$ 是质数就行了啊？</p>
+<p>这里作为对照，写一下常规分析方法证明代数基本定理的思路：主要是通过分析多项式的 dominant 项来控制大小。首先证明存在最小值，然后证明如果最小值不是 $0$，一定存在一个方向，走一个微小量后会变小，从而矛盾。</p>
+<h3 id="4-多项式的-galois-群">4. 多项式的 Galois 群
+</h3><p>以下默认 $u_i$ 为根。</p>
+<blockquote>
+<p><strong>D 4.1</strong>（多项式的 Galois 群）：$f\in K[x]$ 的 Galois 群为 $\aut_KF$，其中 $F$ 是 $f$ 在 $K$ 上的分裂域。</p>
+<p>分裂域在同构意义下唯一，因此 Galois 群唯一。</p>
+</blockquote>
+<p>我们知道 $F$ 不一定是 Galois 扩张。在 $\cha\ne 0$ 的情况下，有可能会出现不可分的分裂域，就是 T 6.10 那边。</p>
+<blockquote>
+<p><strong>T 4.2</strong>（Galois 群与对称群的关系）：$f$ 的 Galois 群 $G$ 是某个 $S_n$ 的子群。如果 $f$ 可分，那么 $\deg f\mid |G|$ 且 $G$ 是 $S_{\deg f}$ 的一个具有传递性（大概是说每个根都可以置换成另一个根）的子群。</p>
+<p>P：是 $S_n$ 的子群，只需证明单射。当 $f$ 可分时，$F$ 是 Galois 扩张，而且 $f$ 是不可约的从而由 T 1.6 等，有一个中间域扩了一个根，维数为 $\deg f$，由 T 2.5 就有一个大小为 $n$ 的子群。传递性由 T 1.9。</p>
+</blockquote>
+<p>再一次，$|G|$ 往往不会是 $n!$，例如 <a class="link" href="https://math.stackexchange.com/a/191056"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/191056</a>。</p>
+<p>这里 $f$ 可以有两种性质，一个是不可约（有机会作为“基本情况”处理），一个是可分（Galois）。实际上在后续的一些定理中，可约但可分（$f$ 是若干不可约可分多项式的乘积）的情况也是允许的（根据上面的定理也是 Galois 扩张），不过这种技术性的条件不太重要，再说了可约就归为更低次的情况了，所以我不太想关心。</p>
+<blockquote>
+<p><strong>T 4.3</strong>（二次的 Galois 群）：对于二次多项式 $f$，如果 $f$ 可分（$\cha K\ne 2$ 时必然可分）则 $G\cong\Z_2$ 否则 $G=1$。</p>
+<p><strong>D 4.4</strong>（判别式）：对于特征不为 $2$ 的域 $K$ 及可分多项式 $f\in K[x]$，设它的根为 $u_1,\cdots,u_n\in F$，定义 $\Delta=\prod_{i&lt;j}(u_i-u_j)$，判别式 $D=\Delta^2$。</p>
+<p><strong>T 4.5</strong>（判别式的性质）：（4.4 的条件）$D\in K$。$\sigma\in G\subseteq S_n$，$\sigma(\Delta)=\pm\Delta$ 且为 $+\Delta$ 当且仅当 $\sigma$ 是偶置换。</p>
+</blockquote>
+<p>这些证明都是靠置换的基本性质，就不写了。对于 $\cha=2$ 的情况，$\Delta=-\Delta$，所以啥都没有。详见 <a class="link" href="https://math.stackexchange.com/q/90765"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/q/90765</a>、<a class="link" href="https://mathoverflow.net/q/10400"  target="_blank" rel="noopener"
+    >https://mathoverflow.net/q/10400</a>。</p>
+<blockquote>
+<p><strong>T 4.6</strong>（判别式的扩张）：（4.4 的条件）之前说了 $G\subseteq S_n$。中间域 $K(\Delta)$ 对应着 Galois 群的子群 $G\cap A_n$。特别地，$G$ 全由偶置换组成 $\Longleftrightarrow$ $\Delta\in K$。</p>
+<p><strong>T 4.7</strong>（三次的 Galois 群）：对于可分三次多项式 $f$，$G=S_3$ 或 $A_3$。如果 $\cha K\ne 2$，$G=A_3$ $\Longleftrightarrow$ $D=$ 某个 $K$ 中元素的平方。</p>
+<p>P：$S_3$ 的子群有 $1$、$S_2$、$A_3$ 这三类，然后大小得是 $3$ 的倍数。</p>
+</blockquote>
+<p>一般我们都会考虑 $\Q$ 上。$\R$ 上因为介值定理，从定性角度就没什么可说的了。</p>
+<blockquote>
+<p><strong>Ex 2</strong>（实系数三次方程实根数与判别式的关系）：$D\ne 0$ 时，$D&gt;0$ $\Longleftrightarrow$ 有三个实根。</p>
+</blockquote>
+<p>P：（这里不要求 $f$ 不可约）如果 $D&lt;0$，那么我们知道 $f$ 的分裂域中有虚数，从而必有复根，而复根成对。如果 $D&gt;0$，那么由于 $G$ 的元素必须以 $D$ 为不动点，故 $|G|=1$ 或 $3$，这两种情况都不能是从 $\R$ 扩到 $\C$。<br>
+这玩意应该有个求导的证法。</p>
+<p>事实上我们可以证明，对于 $\Q$，取任一根 $\alpha$，分裂域为 $\Q(\alpha,\Delta)$。<a class="link" href="https://planetmath.org/galoisgroupofacubicpolynomial"  target="_blank" rel="noopener"
+    >https://planetmath.org/galoisgroupofacubicpolynomial</a>。</p>
+<blockquote>
+<p>现在我们可以用判别式决定 $f$ 的 Galois 群是哪一种。如果是 $S_3$，则：</p>
+<p>（4.4 的条件）由于 $S_3$ 的真子群包括 $A_3$、$\langle(12)\rangle$、$\langle(13)\rangle$、$\langle(23)\rangle$，故中间域也有四个，即 $K(\Delta)$、$K(u_3)$、$K(u_2)$、$K(u_1)$。</p>
+<p>下面的定理告诉我们如何不求根就得到判别式：</p>
+<p><strong>T 4.8</strong>（用系数表示判别式）$\cha K\ne 2,3$。可以通过换元去掉二次项，$x^3+px+q$ 的判别式为 $D=-4p^3-27q^2$。</p>
+<p>P：神秘代数变换 <a class="link" href="https://math.stackexchange.com/a/3596977"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/3596977</a>。</p>
+</blockquote>
+<blockquote>
+<p>现考虑可分的四次多项式 $f$。令 $V=\set{\iota,(12)(34),(13)(24),(14)(23)}\cong K_4\lhd S_4$。</p>
+<p><strong>T 4.9</strong>（解式）：令 $\alpha=u_1u_2+u_3u_4$，$\beta=u_1u_3+u_2u_4$，$\gamma=u_1u_4+u_2u_3$。$K(\alpha,\beta,\gamma)$ 对应的 Galois 群子群为 $V\cap G$，于是 $\aut_KK(\alpha,\beta,\gamma)\cong G/(G\cap V)$。</p>
+<p>P：只需证明这三个东西的稳定化子恰好为 $V$ 即可。注意这三个东西互不相等。</p>
+<p>称 $(x-\alpha)(x-\beta)(x-\gamma)$ 为 $f$ 的解式。</p>
+</blockquote>
+<p>注意到没有任何一个根属于 $K(\alpha,\beta,\gamma)$，因为 $4\mid|K(u_i)|$，但是 $[K(\alpha,\beta,\gamma):K]\mid 6$。</p>
+<p>实际上三次多项式也有解式：$x^2-D$。解式是拉格朗日的成果，相当于是解 $\le$ 四次方程的中间步骤。详见 <a class="link" href="https://zhuanlan.zhihu.com/p/582315546"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/582315546</a>。伽罗瓦是在其理论中系统性地用了解式。</p>
+<p>我猜，要引入这个神秘的东西，是不是因为四次方程的判别式没法用多项式系数表示出来了？</p>
+<blockquote>
+<p><strong>T 4.10</strong>（用系数表示解式）：对于 $f=x^4+bx^3+cx^2+dx+e$，解式为 $x^3-cx^2+(bd-4e)x-b^2e+4ce-d^2\in K[x]$。</p>
+<p>$S_4$ 的大小为 $4$ 倍数的、具有传递性的子群可分为以下几类：$S_4$、$A_4$、$K_4$、$\Z_4$、$D_4$。</p>
+<p><strong>T 4.11</strong>（四次的 Galois 群）：对于可分多项式 $f$，令 $m=[K(\alpha,\beta,\gamma):K]$。那么：</p>
+<ul>
+<li>$m=6$ 时，$G=S_4$。</li>
+<li>$m=3$ 时，$G=A_4$。</li>
+<li>$m=1$ 时，$G=V$。</li>
+<li>$m=2$ 时，如果 $f$ 在 $K(\alpha,\beta,\gamma)$ 上不可约，则 $G\cong D_4$，否则 $G\cong\Z_4$。</li>
+</ul>
+<p>这里 $\cong$ 隐含的意思是 $S_4$ 有多个这个结构的子群。</p>
+<p>P：首先 $m\mid 6$，而且 $m=|G|/|G\cap V|$。分析不同子群与 $V$ 的交即可得到各情况。对于最后一种情况，如果 $G\cong D_4$，由于 $D_4$ 的结构为 $\set{(1234),(13)}$ 这类（想象正方形沿对角线翻转），因此 $G\cap V=V$，这就意味着 $u_1\sim u_4$ 中的每一对可以在 $K(\alpha,\beta,\gamma)$ 扩域上互换，从而由 T 1.9 的反方向，$u_1\sim u_4$ 是同一个不可约多项式的根，也就是 $f$ 不可约。如果 $G\cong\Z_4$，那么 $G\cap V\cong\Z_2$，比如说 $G\cap V=\langle(12)(34)\rangle$，那么 $u_1$ 和 $u_3$ 不能是同一个不可约多项式的根，因为不然的话就可以构造一个自同构属于 $\aut_{K(\alpha,\beta,\gamma)}F\cong G\cap V$，矛盾，从而 $(x-u_1)(x-u_2),(x-u_3)(x-u_4)\in K(\alpha,\beta,\gamma)$。</p>
+<p>Ex：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>$f\in\Q[x]$</th>
+<th>$G$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x^4+4x^2+2$</td>
+<td>$\Z_4$</td>
+</tr>
+<tr>
+<td>$x^4-10x^2+4$</td>
+<td>$V$</td>
+</tr>
+<tr>
+<td>$x^4-2$</td>
+<td>$D_4$</td>
+</tr>
+<tr>
+<td>$x^4-5x^2+6$（可约）</td>
+<td>$\Z_2^2$</td>
+</tr>
+</tbody>
+</table></div>
+</blockquote>
+<blockquote>
+<p><strong>T 4.12</strong>（高次的特殊情况）：对于不可约的，度数为质数的 $f\in\Q[x]$，如果 $f$ 有恰好一对复根，那么 $G\cong S_n$。</p>
+<p>P：$p\mid|G|$ 保证了存在一个 $p$ 环，复根保证存在一个对换，然后问题就变成证明 $S_n\cong\langle(12\cdots n),(12)\rangle$。</p>
+</blockquote>
+<h3 id="5-有限域">5. 有限域
+</h3><blockquote>
+<p><strong>T 5.1</strong>（素子域）：令 $P$ 为域 $F$ 的所有子域的交。若 $\cha F=p\in\P$，则 $P\cong\Z_p$；若 $\cha F=0$，则 $P\cong\Q$。</p>
+<p>$P$ 称为 $F$ 的素子域，直接记作 $\Z_p\subset F$。</p>
+<p>P：直接证就行了。为了说明 $\cha F=p$ 是 $\set{m1_F}$ 是个子域，直接用质数的性质即可。</p>
+</blockquote>
+<p>注意 $1$ 不是个域。</p>
+<blockquote>
+<p><strong>T 5.2</strong>（有限域的加法部分结构）：若 $|F|&lt;\infty$，则 $\cha F=p\ne 0$，$p\in\P$，且 $|F|=p^n$。</p>
+<p>P：如果 $\cha F$ 不是质数，则 $F$ 就不是整环，爆了。现在 $F$ 是有限维 $\Z_p$-模，因此由模论的 2.4，$F\cong\Z_p^n$。</p>
+<p><strong>T 5.3</strong>（有限域的乘法部分结构）：有限域的非零部分乘法群为循环群。</p>
+<p>P：设乘法群为阿贝尔群 $G$，则由有限阿贝尔群分类，$G\cong\Z_{m_1}\oplus\cdots\oplus\Z_{m_k}$，$m_1\mid\cdots\mid m_k$。也就是说每个元素都是 $x^{m_k}=1$ 的根。由于这个式子只有至多 $m_k$ 个根，故 $G\cong\Z_{m_k}$。</p>
+<p><strong>T 5.4</strong>（有限域的扩张描述）：$F$ 是其素子域的单扩张。</p>
+<p><strong>T 5.5</strong>（根对加法封闭）：对于 $\cha F=p$，$\varphi:u\mapsto u^{p^r}$ 是一个 $F$ 上的 $\Z_p$-单自同态。如果 $|F|&lt;\infty$，则为 $\Z_p$-自同构，$u\mapsto u^p$ 称为 Frobenius 自同构。</p>
+<p>P：$(u+v)^{p^r}=u^{p^r}+v^{p^r}$。</p>
+<p><strong>T 5.6&amp;7</strong>（质数幂有限域分类）：对于 $p\in\P$，有限域 $F$，$|F|=p^n$ $\Longleftrightarrow$ $F$ 是 $x^{p^n}-x$ 在 $\Z_p$ 上的分裂域。从而大小为 $p^n$ 的有限域存在且唯一。</p>
+<p>P：$\Longrightarrow$：根据上面的讨论，$F\setminus\set{0}$ 恰为 $x^{p^n-1}=1$ 的各根，加进 $0$ 就是 $x^{p^n}=x$ 的各根。<br>
+$\Longleftarrow$：$\cha F=p$。先求导说明 $x^{p^n}-x$ 无重根，然后只需证明 $F$ 里没有其他元素——利用 T 5.5 说明 $x^{p^n}-x$ 的各根均为 $\varphi$ 下的不动点，从而构成一个域，也就是无需有其他元素。</p>
+</blockquote>
+<p>这里是我第一次对分裂域在直觉上出现迷惑。就会有一种感觉：你说了一个域，向其中加入一个多项式的所有根，然后就宣称它在同构意义下唯一确定，如果不是已知分裂域（比如 $\C/\R$），那这些根其实都是一个“形式”，那这些根的运算表凭什么存在且唯一？<br>
+其实这里的迷惑主要是由于 $x^{p^n}-x$ 可约导致的。它的各根的运算表确实不明朗，但是如果找到一个扩张效果相同的最小多项式，那就可以套用 T 1.6 了。这个后面会讲，先不急。还有一点就是由于是特征非零的域，所以不能简单得从单位元上的 $p^n$ 单位根来类比理解有限域，这个会比较难受。</p>
+<blockquote>
+<p><strong>T 5.8&amp;9</strong>（有限域的有限扩张存在）：对于有限域 $K$，正整数 $n$，存在唯一的单扩张 $F=K(u)$ 使 $[F:K]=n$。从而 $K[x]$ 中有 $\deg=n$ 的不可约多项式。</p>
+<p>P：直接用多项式 $x^{p^{rn}}-x$ 的根构造即可。下放 $K$ 到 $\Z_p$ 以方便证明。</p>
+<p><strong>T 5.10</strong>（有限域的有限扩张 Galois）：对于有限域 $K$ 的有限维扩张 $F$，$F$ 是 Galois 的，$\aut_KF$ 是循环群。</p>
+<p>P：同样下放到 $\Z_p$。由于 $F$ 是可分的分裂域，故 Galois。由于 T 5.5 已经构造出足够多的自同构，故 $\aut_{\Z_p}F\cong\Z_{\log_p|F|}$。</p>
+</blockquote>
+<h3 id="6-可分性">6. 可分性
+</h3><blockquote>
+<p><strong>D 6.1</strong>（纯不可分）：$F/K$，如果 $u\in F\setminus K$ 在 $K$ 上的最小多项式，在 $F$ 中可以写成 $(x-u)^m$ 的形式，则 $u$ 称为纯不可分元。如果 $F\setminus K$ 中所有元素都如此则 $F$ 称为纯不可分扩张。</p>
+</blockquote>
+<p>所以纯不可分元至少得是代数元。另外还有个等价定义是 $\exists n$，$u^{p^n}\in K$。这个后面会看到。</p>
+<p>经典的纯不可分例子还是那个 $\F_p(t)$ 上 $x^p-t$ 的根。不可分且不纯不可分的例子：<a class="link" href="https://math.stackexchange.com/a/1276333"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/1276333</a>。</p>
+<blockquote>
+<p><strong>T 6.2</strong>：$u$ 同时是可分元、纯不可分元 $\Longrightarrow$ $u\in K$。</p>
+<p>然而 $\cha=0$ 的域中代数元均为可分元，因此纯不可分元在 $\cha\ne 0$ 时讨论才是非平凡的。</p>
+<p><strong>T 6.3</strong>（次幂总能可分）：$\cha K=p$，则代数元 $u$ 总能在某个 $u^{p^n}$ 成为可分的。</p>
+<p>P：考虑 $u$ 的最小多项式 $f$。如果 $f^\prime\ne 0$，则由于 $f$ 不可约，$\gcd(f,f^\prime)=1$，于是 $u$ 就是可分的；如果 $f^\prime=0$，则 $f(x)=g(x^p)$，归纳（$\deg$ 降）考虑 $u^p$。</p>
+<p><strong>T 6.4</strong>（纯不可分的等价条件）：$F/K$ 是代数扩张。这是纯不可分扩张 $\iff$ 每个 $F$ 中的元素的最小多项式都形如 $x^{p^n}-a\in K$ $\iff$ 若 $u\in F$ 则 $u^{p^n}\in K$ $\iff$ $F\setminus K$ 均不可分 $\iff$ $F$ 由一些纯不可分元在 $K$ 上生成。（这里的 $n$ 都是“某个”）</p>
+<p>P：</p>
+<ul>
+<li>$1\Rightarrow 2$: 对于 $u$，设它最小多项式为 $(x-u)^m$，其中 $m=p^rn$，$(x-u)^m=(x^{p^r}-u^{p^r})^n\in K[x]$，因此 $x^{(n-1)p^r}$ 项的系数 $-nu^{p^r}\in K$。然而 $n\perp p$，故 $u^{p^r}\in K$。为了使 $(x-u)^m$ 不可约，必须有 $n=1$，最小多项式为 $x^{p^r}-u^{p^r}$。</li>
+<li>$3\Rightarrow 1$：可以构造出关于 $u$ 的一个零化多项式，而最小多项式整除它。</li>
+<li>$1\Rightarrow 4$：T 6.2</li>
+<li>$4\Rightarrow 3$：T 6.3</li>
+<li>$5\Rightarrow 3$：如果一个元素由纯不可分元（通过四则运算）生成，则找到最大的那个 $n$，整体 $p^n$ 次幂，然后用 T 5.5。</li>
+<li>$2\Rightarrow 3$、$1\Rightarrow 5$：显然</li>
+</ul>
+<p><strong>T 6.5</strong>：如果 $F/K$ 是有限维纯不可分扩张，则 $[F:K]=p^n$。</p>
+</blockquote>
+<blockquote>
+<p><strong>T 6.6</strong>：可分元生成的扩张是可分的。</p>
+<p>P：考虑由可分元 $u_1,\cdots,u_n$ 生成的元素 $v\in K(u_1,\cdots,u_n)$。取各自的最小多项式 $f_1,\cdots,f_n$ 并得到分裂域 $E/K(u_1,\cdots,u_n)/K$（可以理解为类似一个 Galois 闭包的操作）。由于是可分多项式的分裂域，故是可分的（T 3.11）。</p>
+<p><strong>T 6.7</strong>（可分扩张核心定理）：$F/K$ 代数。令 $S$ 为 $F$ 中所有可分元的集合，$P$ 是所有纯不可分元的集合。则：</p>
+<ol>
+<li>$S$ 是可分扩张。</li>
+<li>$F/S$ 纯不可分。</li>
+<li>$P$ 是纯不可分扩张。</li>
+<li>$P\cap S=K$。</li>
+<li>$F/P$ 可分 $\iff$ $F=SP$。</li>
+<li>如果 $F/K$ 正规，则 $S/K$ Galois，$F/P$ Galois 且 $\aut_KS\cong\aut_PF=\aut_KF$。</li>
+</ol>
+<p>注意对于 $\cha=0$ 的情况，$S=F$，$P=K$。</p>
+<p>P：</p>
+<ol>
+<li>只需证封闭性。</li>
+<li>$\forall u\in F$，$u$ 的某个 $p^n$ 次幂就可分，于是 $\in S$，这符合 T 6.4 的第三个命题，于是 $F/S$ 纯不可分。</li>
+<li>只需证封闭性，用纯不可分的等价定义。</li>
+<li>T 6.2</li>
+<li>有一个扩张链 $F/SP/P$。如果 $F/P$ 可分，则 $F/SP$ 也可分，同时 $F/S$ 纯不可分，因此 $F/SP$ 纯不可分，于是 T 6.2 说明 $F=SP$。另一方面如果 $F=SP=P(S)$，就说明 $F$ 是在 $P$ 的基础上加入一些可分元得到的，所以 $F/P$ 可分。</li>
+<li>首先 $\aut_KF$ 的自同构将 $u$ 打到 $u$ 的最小多项式的某根，于是 $P$ 不动。对于 $P$ 以外的元素，由于 $F/K$ 正规，故一定有根 $v\ne u$，且 $K(u)\cong K(v)$ 可以扩展到 $F$ 上所以必然在 $\aut_KF$ 下会动。因此 $\aut_KF=\aut_PF$ 且 $F/P$ Galois。$\aut_KS$ 和 $\aut_PF$ 的同构直接通过将 $\sigma\in\aut_PF$ 限制在 $S$ 上即可得到，由于自同构保持元素可分性故这么搞合法。一方面，$F/P$ Galois $\implies$ $F/P$ 可分 $\implies$ $F=SP$，于是 $F=SP$，故 $\sigma$ 由它在 $S$ 上的作用决定，因此 $\aut_PF\to\aut_KS$ 是单同态；另一方面，$F/K$ 正规说明 $F/K$ 是分裂域，从而 $F/S$ 是分裂域，而同构（自同构）在分裂域下保持，故每个 $\sigma\in\aut_KS$ 都可以扩展到 $\aut_PF$，所以 $\aut_PF\to\aut_KS$ 是满同态。如果 $u\in S$ 是 $\aut_KS$ 的不动点，它也是 $\aut_PF$ 的不动点，因此 $u\in P\implies u\in K$。</li>
+</ol>
+<p><strong>T 6.8</strong>（可分扩张的传递性）：$F/E/K$ 分别可分，则 $F/K$ 可分。</p>
+<p>P：令 $S$ 为 $F$ 中所有在 $K$ 上的可分元的集合，则 $E\subseteq S\subseteq F$ 且 $F/S$ 纯不可分。但是 $F/E$ 可分故 $F/S$ 可分，因此 $F=S$。</p>
+<p>现在定义 $F^n=\set{u^n\mid u\in F}$。</p>
+<p><strong>T 6.9</strong>（可分的等价条件）：如果 $F/K$ 可分，则 $F=KF^{p^{\forall n\ge 1}}$；反之如果 $[F:K]&lt;\infty$ 且 $F=KF^p$，则 $F/K$ 可分。因此 $u\in F$ 在 $K$ 上可分的一个等价说法是 $K(u^p)=K(u)$。</p>
+<p>P：如果 $F/K$ 可分，则 $F/(KF^{p^{\forall n\ge 1}})$ 可分，同时 $F/F^{p^{\forall n\ge 1}}$ 纯不可分（T 6.4 的 3）故 $F/(KF^{p^{\forall n\ge 1}})$ 纯不可分，因此 $F=KF^{p^{\forall n\ge 1}}$；如果 $[F:K]&lt;\infty$，则 $F=K(u_1,\cdots,u_m)$。取可分元子域 $S$，那么存在某个 $n$ 使 $u_i^{p^n}$ 皆属于 $S$，这就说明 $F^{p^n}$ 是 $S$ 的子域，同时 $S$ 在 $F^{p^n}$ 上纯不可分，因此 $S/(KF^{p^n})$ 不可分。但 $S/K$ 可分故 $S/(KF^{p^n})$ 可分，故 $S=KF^{p^n}$，同时根据条件，$F=KF^p=K(KF^p)^p=KK^pF^{p^2}=KF^{p^2}=\cdots=KF^{p^n}=S$，故 $F/K=S/K$ 可分。</p>
+</blockquote>
+<p>注意最后的等式展开只是一个符号形式，可以严格验证对于两个子域 $K_1,K_2$ 有 $K_1^pK_2^p=(K_1K_2)^p$。</p>
+<p>另外容易发现一个常用的 argument：$F/K_1$，$F/K_2$，$F$ 关于其中一个可分，另一个纯不可分，则 $F=K_1K_2$。</p>
+<blockquote>
+<p><strong>D 6.10</strong>（可分度&amp;不可分度）：对于代数扩张 $F/K$ 同样定义 $S$，可分度定义为 $[F:K]_s=[S:K]$，不可分度定义为 $[F:K]_i=[F:S]$。</p>
+<p>P：显然 $[F:K]_i=1\iff$ 可分扩张，$[F:K]_s=1\iff$ 纯不可分扩张，$[F:K]=[F:K]_s[F:K]_i$。另外由于 $F/S$ 是纯不可分扩张，故 $[F:K]_i$ 是 $p$ 的幂次。</p>
+</blockquote>
+<p>接下来的部分就不看证明了，简单过一下。</p>
+<blockquote>
+<p><strong>T 6.11</strong>：$N/F/E/K$，其中 $N/K$ 正规。$F\to N$ 的 $K$-单同态（使 $K$ 不同的域单同态）数量 $=$ $F\to N$ 的 $E$-单同态数量 $\times$ $E\to N$ 的 $K$-单同态数量。</p>
+<p><strong>T 6.12</strong>：$N/F/K$，其中 $F/K$ 有限维，$N/K$ 正规。$F\to N$ 的 $K$-单同态数量 $=[F:K]_s$。</p>
+<p><strong>T 6.13</strong>：$F/E/K$，$[F:E]_s[E:K]_s=[F:K]_s$，$[F:E]_i[E:K]_i=[F:K]_i$。</p>
+<p><strong>T 6.14</strong>（不可约多项式的分解刻画）：$f$ 是 $K$ 上的不可约首一多项式。令 $F$ 为 $f$ 在 $K$ 上的分裂域，$u_1\in F$ 为 $f$ 的一根。则 $f$ 形如 $((x-u_1)\cdots(x-u_n))^{[K(u_1):K]_i}$。明显 $n=[K(u_1):K]_s$。同时 $u_1^{[K(u_1):K]_i}$ 在 $K$ 上可分。</p>
+<p><strong>T 6.15</strong>（本原元定理）：$F/K$ 有限维。如果 $F/K$ 可分则 $F/K$ 是单扩张。更一般地，$F/K$ 是单扩张 $\iff$ 只有有限个中间域。</p>
+<p>P：有限维可分扩张一定只有有限个中间域（T 3.17）。T 5.8 说明了 $|K|&lt;\infty$ 的情况。$\impliedby$ T 3.17 已证；$\implies$：如果 $F=K(u)$，考虑中间域 $E$，$E$ 中 $u$ 的最小多项式设为 $x^n+\cdots+a_0$。我们可以说明 $E=K(a_0,\cdots,a_{n-1})$，从而 $E$ 由最小多项式确定，而最小多项式必然整除 $u$ 在 $K$ 中的最小多项式，从而只有有限个。显然 $E\supseteq K(a_0,\cdots,a_{n-1})$，其次由于 $u$ 在 $K(a_0,\cdots,a_{n-1})$ 中的最小多项式和在 $E$ 中的相同，故二者相等。</p>
+</blockquote>
+<p>有限维扩张可能有无限个中间域：<a class="link" href="https://www.mathcounterexamples.net/a-finite-extension-that-contains-infinitely-many-subfields/"  target="_blank" rel="noopener"
+    >https://www.mathcounterexamples.net/a-finite-extension-that-contains-infinitely-many-subfields/</a>。</p>
+<p>单扩张的可分度和不可分度可能同时 $&gt;1$，例如 $\F_p(t)$ 上最小多项式为 $x^{2p}-t$ 的单扩张。这个不可约多项式可以写成 $(x-\sqrt[p]{\sqrt t})^p(x-\sqrt[p]{-\sqrt t})^p$，于是可分度为 $2$，不可分度为 $p$。</p>
+<h3 id="7-循环扩张">7. 循环扩张
+</h3><blockquote>
+<p><strong>D 7.1</strong>（模与迹）：$\overline{K}/F/K$，$F/K$ 有限维。令 $\sigma_{1\sim r}$ 为所有 $F\to\overline{K}$ 的 $K$-单同态。定义 $u\in F$ 的模为 $N_K^F(u)=\prod\sigma_i(u)^{[F:K]_i}$，迹为 $T_K^F(u)=[F:K]_i\sum\sigma_i(u)$。</p>
+<p>根据 T 6.12，$r=[F:K]_s$。</p>
+<p>如果 $F/K$ 不可分，则迹为 $0$。</p>
+</blockquote>
+<p>突然想到代数闭包可能不是 Galois 吗（也就是不是可分的）？答案是肯定的：<a class="link" href="https://math.stackexchange.com/a/158643"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/158643</a>。</p>
+<blockquote>
+<p><strong>T 7.2</strong>（Galois 扩张下的情况）：如果额外地 $F/K$ Galois，设 $\aut_KF=\set{\sigma_i}$，则 $N_K^F(u)=\prod\sigma_i(u)$，$T_K^F(u)=\sum\sigma_i(u)$。</p>
+<p>P：T 3.14 说，Galois 扩张的情况下 $F\to\overline{K}$ 的 $K$-单同态就是 $K$-自同构。</p>
+<p>在这种情况下，每个 $\sigma_i$ 都使得 $N_K^F(u)$、$T_K^F(u)$ 不动（因为 $\sigma_i\aut_KF=\aut_KF$），所以两者都 $\in K$。</p>
+<p><strong>T 7.3</strong>：（现在不要求 Galois 了，然后前三条简写 $N$ 和 $T$）</p>
+<ol>
+<li>$N(u)N(v)=N(uv)$，$T(u)+T(v)=T(u+v)$。</li>
+<li>若 $u\in K$ 则 $N(u)=u^{[F:K]}$ 且 $T(u)=[F:K]u$。</li>
+<li>$N(u),T(u)\in K$。如果 $u$ 的最小多项式为 $x^n+a_{n-1}x^{n-1}+\cdots+a_0$，则 $N(u)=((-1)^na_0)^{[F:K(u)]}$，$T(u)=-[F:K(u)]a_{n-1}$。</li>
+<li>对于 $F/E/K$，$N_K^E(N_E^F(u))=N_K^F(u)$，$T_K^E(T_E^F(u))=T_K^F(u)$。</li>
+</ol>
+<p>P：对于 3，我们现在有个扩张链 $\overline{K}/F/K(u)/K$。所有 $F\to\overline{K}$ 的 $K$-单同态，根据 T 6.11（上面略了，可以意会一下，就是分两层）可以刻画为：$F\to\overline{K}$ 的 $K(u)$-单同态，与 $K(u)\to\overline{K}$ 的 $K$-单同态的复合，后者是可以唯一扩展到 $\overline{K}\to\overline{K}$ 的。记前者为 $\tau_{1\sim r}$，后者为 $\sigma_{1\sim t}$（$rt=n=\deg f$）。现在
+$$
+N(u)=\prod \sigma_i\tau_j(u)^{[F:K]_i}=\prod\sigma_i(u)^{r[F:K]_i}=\prod\sigma_i(u)^{[F:K(u)][K(u):K]_i}
+$$
+最后一步是根据 T 6.12，$r=[F:K(u)]_s$。同理 $T(u)=[F:K(u)][K(u):K]_i\sum\sigma_i(u)$。$\sigma_i$ 根据定义恰好将 $u$ 打到各个根上，因此根据韦达定理（$u$ 的最小多项式也可以写作 $\prod(x-\sigma_i(u))^{[K(u):K]_i}$）：<br>
+$\prod\sigma_i(u)^{[K(u):K]_i}=(-1)^{rt}a_0$，$[K(u):K]_i\sum\sigma_i(u)=-a_{n-1}$。代入 $N(u)$ 和 $T(u)$ 的定义即可。</p>
+<p>对于 4，直接展开即可，证明和第一段几乎一样。</p>
+<p>这个定理的 3 说明了，$N$ 和 $T$ 的定义不依赖于 $\overline{K}$（在同构意义下）的选取；进一步地，定义中的 $\overline{K}$ 可以换成任何包含 $F$ 的 $K$ 的正规扩张（注意到代数闭包必然是正规的）。</p>
+</blockquote>
+<p>这个证明的主要思路就是，把自同构拆分为和 $u$ 有关（真正置换各个根）的与和 $u$ 无关的（这部分只导致一个幂次）。进一步地，跟 $u$ 有关的又可以拆为可分（对应韦达定理）的和纯不可分的（同样贡献一个幂次）。</p>
+<blockquote>
+<p><strong>D 7.4 &amp; T 7.5</strong>：$S\subseteq\aut F$ 称为线性无关，当且仅当 $\not\exists\set{a_i\in F}$ 非全零，使 $\sum a_i\sigma_i=$ 零映射。任何 $S$ 都是线性无关的。</p>
+</blockquote>
+<p>这个证明上课讲过，感觉跟 T 2.9 的有点像。</p>
+<p>下面的定理用于后文构造最小多项式。</p>
+<blockquote>
+<p>$F/K$ 是循环的，定义为 $F/K$ <strong>代数 Galois</strong> 且 $\aut_KF$ 是循环群。同样定义阿贝尔扩张。$\aut_KF\cong\Z_n$ 时，称 $F$ 是 $K$ 的度为 $n$ 的扩张。</p>
+<p><strong>T 7.6</strong>（循环扩张下的模与迹的性质）：对于度数为 $n$ 的循环扩张 $F/K$，设 $\aut_KF=\langle\sigma\rangle$。则 $T(u)=0\iff u=v-\sigma(v)$ 对于某个 $v\in F$。（希尔伯特第 90 定理）$N(u)=1\iff u=v\sigma(v)^{-1}$ 对于某个 $v\in F$。</p>
+<p>首先 $\impliedby$ 很容易直接验证。$\implies$ 是一个神秘构造：首先由于 $\aut_KF$ 线性无关，故 $\exists z$，$T(z)=(1+\sigma+\cdots+\sigma^{n-1})(z)\ne 0$。取 $w=T(z)^{-1}z$ 就得到 $T(w)=1$。构造
+$$
+v=\sum_{i=0}^{n-2}\left(\sum_{j=0}^{i}\sigma^j(u)\right)\sigma^{i}(w)
+$$
+计算 $v-\sigma(v)$ 时发现错位抵消，最后一项由于 $T(u)=0$ 也变成 $u\sigma^{n-1}(w)$，然后再代入 $T(w)=1$。</p>
+<p>同理由于线性无关性，映射
+$$
+f=\sum_{i=0}^{n-1}\left(\prod_{j=0}^i\sigma^j(u)\right)\sigma^i
+$$
+对于某个 $y$ 非零，令 $v=f(y)$，容易验证 $u=v\sigma(v)^{-1}$。</p>
+</blockquote>
+<p>对于 $\Q(i)$ 的情况，这个定理给出了勾股对的构造。</p>
+<blockquote>
+<p><strong>T 7.7</strong>（循环扩张的分解）：如果 $F/K$ 是度为 $n=mp^t$ 的循环扩张（其中 $p=\cha K$，$p\nmid m$），那么扩张可以拆成多次循环扩张 $F/E_0/\cdots/E_{t-1}/E_t=K$，其中 $F/E_0$ 度为 $m$，$E_i/E_{i+1}$ 度为 $p$。</p>
+<p>P：由于是循环扩张，Galois 群的每个子群都是正规的，这就很好——任何 $F/M/L/K$，都有 $M/L$ 也是循环扩张。因此直接在 $\Z_n$ 里找子群 $\Z_m$，商掉，然后反复找 $\Z_p$ 商掉即可。</p>
+<p>这个定理就简化了讨论。对于循环扩张，我们只需要关心 $\cha K=0$、$\cha K\nmid n$、$\cha K=n$ 三种基本情况即可。</p>
+</blockquote>
+<p>对于 $\cha K=n$ 的情况，不存在 $1$ 以外的 $p$ 次单位根，因为 $x^p-1$ 不可分，所以需要特殊讨论。其余情况就从单位根角度来考虑。</p>
+<blockquote>
+<p><strong>T 7.8</strong>（$\cha K=n$ 情况的刻画，Artin-Schreier）：$F/K$ 是度为 $\cha K=p$ 的循环扩张 $\iff$ $F$ 为不可约多项式 $x^p-x-a\in K[x]$ 在 $K$ 上的分裂域，且这时 $F=K(u)$，$u$ 为多项式的任一根。</p>
+<p>P：$\implies$：设 $\aut_KF=\langle\sigma\rangle$。注意到 $T(1)=p1=0$，因此 $1=v-\sigma(v)$ 对于某个 $v\in F$。取 $u=-v$ 则 $\sigma(u)=1+u$ 故 $u\notin K$。$\sigma(u^p)=1+u^p$ 故 $\sigma(u^p-u)=u^p-u$ 故 $u^p-u\in K$ 可以设为 $a$。这就说明了 $u$ 的最小多项式为 $x^p-x-a$（因为 $p$ 是质数，这个多项式不会是可约的）。为了说明别的根都可以被 $u$ 生成，考虑到 $\forall i\in\Z_p$，由于 $i^p=i$，故 $(u+i)^p-(u+i)-a=u^p+i^p-u-i-a=u^p-u-a=0$，从而所有根恰好就是 $u\sim u+p-1$。</p>
+<p>$\impliedby$：我们先不假设 $x^p-x-a$ 不可约。考虑一根 $u$，我们知道 $u+1\sim u+p-1$ 也是根且没有别的根，于是 $F=K(u)$ 且 $x^p-x-a$ 的不可约因子都可分，我们知道 Galois 等价于可分分裂，因此 $F/K$ Galois。现在 $\aut_KF$ 的元素完全由 $u\mapsto{}?$ 决定。由两种可能，一种是 $\aut_KF=\set{\id}$，另一种是 $\aut_KF=\set{u\mapsto u+i\mid i\in\Z_p}$，后者当且仅当 $x^p-x-a$ 不可约。</p>
+<p><strong>T 7.9</strong>：$x^p-x-a\in K[x]$ 在 $K$ 上要么分裂要么不可约。</p>
+</blockquote>
+<p>作业 13.5.5 就是说，对于 $K=\F_p$ 的情况，必然不可约。</p>
+<blockquote>
+<p>为处理 $\cha K\nmid n$ 或 $\cha K=0$ 的情况，需要引入单位根。定义 $K$ 中的 $n$ 次单位根为 $x^n-1$ 的根，它们的乘法群显然形成 $\Z_n$ 的子群，且如果恰好是 $\Z_n$ 则称生成元为 $n$ 次本原单位根。</p>
+<p><strong>T 7.10</strong>：若 $K$ 包含 $n$ 次本原单位根 $\zeta$，则：如果 $d\mid n$，则 $\zeta^{n/d}$ 是 $d$ 次本原单位根；如果 $u$ 是 $x^d-a\in K[x]$ 的根，则 $x^d-a$ 有根 $\zeta^{kn/d}u$，$k=0\sim d-1$，同时 $K(u)$ 是 $x^d-a$ 在 $K$ 上的分裂域，且是 Galois 的。</p>
+<p><strong>T 7.11</strong>（Kummer）：对于包含 $n$ 次本原单位根的域 $K$，其扩域 $F/K$ 是度为 $d\mid n$ 的循环扩张 $\iff$ $F$ 是 $x^n-a$ 在 $K$ 上的分裂域 $\iff$ $F$ 是 $x^d-b$（$d\mid n$）在 $K$ 上的分裂域。</p>
+<p>P：</p>
+<ul>
+<li>$2\Rightarrow 1$：根据 T 7.10 有 $F=K(u)$ 且是 Galois 扩张，$K$-自同构一定形如 $u\mapsto\zeta^ku$ 就好了。</li>
+<li>$1\Rightarrow 3$：设 $\aut_KF=\langle\sigma\rangle$。由于 $N(\zeta^{n/d})=\zeta^n=1$，故 $\zeta^{n/d}=w\sigma(w)^{-1}$ 对于某个 $w\in F$。取 $v=w^{-1}$ 则 $\sigma(v)=\zeta^{n/d}v$ 故 $v\notin K$。$\sigma(v^d)=v^d$ 故 $v^d\in K$ 可以设为 $b$。所以 $v$ 的最小多项式整除 $x^d-b$，并且 $\zeta^{kn/d}v$ 都是这个的根，故 $v$ 的最小多项式就是 $x^d-b$，$F$ 是 $x^d-b$ 的分裂域。</li>
+<li>$3\Rightarrow 2$：$F$ 是 $x^n-b^{n/d}$ 的分裂域。</li>
+</ul>
+</blockquote>
+<p>T 7.11 蕴含课上讲到的一对定理，更容易理解：</p>
+<blockquote>
+<p>含所有 $n$ 次（$p\nmid n$）单位根的域的扩张，是 $n$ 度循环扩张 $\iff$ 是 $\sqrt[n]a$ 单扩张。</p>
+</blockquote>
+<p>就相当于取 $d=n$。还是一样的道理，$\impliedby$ 是容易证的，直接看可能的自同构即可。$\implies$ 必须构造出这个 $w$。Dummit 里讲的 Lagrange resolvent 就是 Hilbert 90 构造的一种特殊情况。</p>
+<p>现在我开始好奇一个事情，如何用根式扩张塔描述不同次的本原单位根？这看起来是个数论的问题？</p>
+<h3 id="8-分圆扩张">8. 分圆扩张
+</h3><blockquote>
+<p>$K$ 上 $x^n-1$ 的分裂域称为 $n$ 阶分圆扩张。如果 $\cha K=p\ne 0$，那么 $n$ 阶分圆扩张等价于 $n/\gcd(n,p^{\infty})$ 阶分圆扩张。因此可以假设 $p\nmid n$。</p>
+<p><strong>T 8.1</strong>（一般分圆扩张的结构）：$F/K$ 为 $n$ 阶分圆扩张。则 $F=K(\zeta)$（$\zeta$ 为 $n$ 次本原单位根），$F$ 是维数为 $d\mid\varphi(n)$ 的阿贝尔扩张，当然 $\aut_KF$ 就是 $\Z_n^\times$ 的一个子群。</p>
+<p>P：显然 $x^n-1$ 的各个不可约因子可分，于是 $F/K$ Galois。分析 $\sigma\in\aut_KF$ 的结构：$\sigma(\zeta)=\zeta^i$ 必须满足 $i^{-1}\bmod n$ 存在。</p>
+<p>Ex：$\R(\zeta_5)$ 的维数为 $2$，因为 $\zeta_5$ 不能 $\mapsto\zeta_5^2$。</p>
+<p>定义第 $n$ 个分圆多项式 $\Phi_n(x)=\prod_{0\le i&lt;n,i\perp n}(x-\zeta^i)$。</p>
+<p><strong>T 8.2</strong>（分圆多项式的性质）：$x^n-1=\prod_{d\mid n}\Phi_d(x)$，$\Phi_n(x)\in P[x]$ 其中 $P$ 是 $K$ 的素子域。</p>
+<p>P：第一个略。第二个考虑归纳。$\Phi_n(x)=(x^n-1)/\prod_{d\mid n,d&lt;n}\Phi_d(x)$ 其中右边的各个因子都 $\in P[x]$，因此 $\Phi_n(x)\in P[x]$（根据商的唯一性，或者可以考虑反证）。</p>
+</blockquote>
+<p>学过莫比乌斯反演，就容易看出
+$$
+\Phi_n(x)=\prod_{d\mid n}(x^d-1)^{\mu(n/d)}
+$$
+分圆多项式的列表见 <a class="link" href="https://en.wikipedia.org/wiki/Cyclotomic_polynomial#Examples"  target="_blank" rel="noopener"
+    >https://en.wikipedia.org/wiki/Cyclotomic_polynomial#Examples</a>。</p>
+<blockquote>
+<p><strong>T 8.3</strong>（$\Q$ 上分圆扩张的结构）：当 $K=\Q$ 时，$\Phi_n(x)$ 不可约，如果 $F$ 是 $n$ 次分圆扩张，则 $[F:\Q]=\varphi(n)$ 且 $\aut_{\Q}F\cong\Z_n^\times$。</p>
+<p>P：若 $\Phi_n(x)=f(x)g(x)$ 其中 $f(x)$ 不可约，那么取 $f(x)$ 的一根 $\zeta$。对于任一质数 $p\perp n$，我们要说明 $\zeta^p$ 也是 $f(x)$ 的根，这样 $f(x)$ 就取满所有根了。假设不然，则 $\zeta^p$ 是 $g(x)$ 的根 $\implies$ $\zeta$ 是 $g(x^p)$ 的根，在 $\bmod p$ 意义下 $\zeta$ 就是 $g(x)^p$ 的根。同时在 $\bmod p$ 意义下 $\zeta$ 的最小多项式可能不再是 $f(x)$ 但一定是 $f(x)$ 的一个因子 $h(x)$，那么同时 $h(x)\mid g(x)^p\implies h(x)\mid g(x)$，于是 $\bmod p$ 意义下 $h(x)^2\mid f(x)h(x)\mid f(x)g(x)\mid \Phi_n(x)$，但 $\Phi_n(x)$ 不应该有重根，矛盾。</p>
+</blockquote>
+<p>可以理解为，分圆多项式给出了 $x^n-1$ 更精细的刻画，从而结合数论的手段可以证明一些很牛的东西，例如存在无数个 $kn+1$ 型质数、有限除环为域等等。</p>
+<h3 id="9-根式扩张">9. 根式扩张
+</h3><blockquote>
+<p><strong>D 9.1</strong>（根式扩张）：$F/K$ 是根式扩张，定义为存在有限步扩张 $F=E_n/\cdots/E_1/E_0=K$，满足 $E_i=E_{i-1}(u)$，$u^m\in E_{i-1}$。</p>
+<p>显然根式扩张一定是代数扩张。</p>
+<p><strong>D 9.2</strong>（根式可解）：$f\in K[x]$ 可解，定义为 $f$ 的分裂域属于 $K$ 的某个根式扩张。</p>
+<p><strong>T 9.3</strong>（正规根式扩张的构造）：根式扩张的正规闭包仍然是根式扩张。</p>
+<p>P：对于根式扩张 $F/K$，设 $F=K(w_1,\cdots,w_n)$。根据 T 3.16，正规闭包 $N$ 是 $\set{w_{1\sim n}}$ 的最小多项式 $\set{f_{1\sim n}}$ 的分裂域。现在考虑 $f_i$ 的一个根 $w_i^\prime$，有 $K$-同构 $\sigma:K(w_i)\cong K(w_i^\prime)$，它可以扩展到 $N$ 的 $K$-自同构 $\tau$，于是 $F\cong \tau(F)$。对于每个根都这样做，我们就得到了一堆 $F$ 的“副本”，它们共同生成了 $N$。<br>
+现在只需证明根式扩张的复合也是根式扩张。对于两个根式扩张 $E_1,E_2/K$，把它们的根式塔接起来就行啦！</p>
+<p><strong>T 9.4</strong>（根式扩张 $\implies$ 可解）：$F/E/K$，若 $F/K$ 是根式扩张，则 $\aut_KE$ 可解。</p>
+<p>P：</p>
+<ol>
+<li>
+<p>（将 $E/K$ 归为 Galois）首先如果 $E/K$ 不是 Galois，就取 $K_0=(\aut_KE)^\prime$，明显 $F/K_0$ 也是根式扩张，$\aut_KE=\aut_{K_0}E$，因此令 $K=K_0$。</p>
+</li>
+<li>
+<p>（将 $F/K$ 归为正规）取 $F$ 在 $K$ 上的的正规闭包 $N$，由上个定理 $N/K$ 也是根式扩张，因此令 $F=N$。</p>
+</li>
+<li>
+<p>（将 $E$ 归为 $F$）现在 $E/K$ Galois，$E$ 是稳定的；又由正规性 $\aut_KE$ 内的元素可以扩展到 $\aut_KF$ 上，因此存在一个 $\aut_KF\to\aut_KE$ 的满同态（投影），而可解群的商群也是可解的，因此只需证 $\aut_KF$ 可解，所以令 $E=F$。</p>
+</li>
+<li>
+<p>（将 $F/K$ 归为 Galois）取 $(\aut_KF)^\prime=K_1$，令 $K=K_1$。</p>
+</li>
+<li>
+<p>（排除 $\cha K$ 因子）现在 $F/K$ 是 Galois 根式扩张，设根式塔为 $F=E_n/\cdots/E_1/E_0=K$，$E_i=E_{i-1}(u_i)$，$u_i^{m_i}\in E_{i-1}$。如果加根过程遇到了 $p\mid m_i$ 的（$p=\cha K$），就有纯不可分元了，这就不对了，所以假定 $p\nmid m_i$。</p>
+</li>
+<li>
+<p>（添加单位根）取 $\zeta$ 为 $\prod m_i$ 次本原单位根，加入 $F$。由于 $F(\zeta)$ 是 $F$ 上的分裂域，故 $F(\zeta)/K$ 也 Galois，从而 $\aut_KF\cong\aut_KF(\zeta)/\aut_FF(\zeta)$，只需证 $\aut_KF(\zeta)$ 可解。因此令 $F$ 包含所需的单位根。</p>
+</li>
+<li>
+<p>现在有根式塔
+$$
+K\subset K(\zeta)\subset K(\zeta,u_1)\subset\cdots\subset K(\zeta,u_1,\cdots,u_n)=F(\zeta)
+$$
+根据分圆扩张与循环扩张的性质，每一步对应的 Galois 群都是阿贝尔的。</p>
+</li>
+</ol>
+</blockquote>
+<p>Dummit 里的证法是直接取 Galois 闭包，是不是能把 2、4 步合并起来？</p>
+<blockquote>
+<p><strong>T 9.5</strong>（多项式的可解性 $\implies$ Galois 群的可解性）：$f$ 可解则 $f$ 的 Galois 群可解。</p>
+<p><strong>T 9.6</strong>（根式扩张 $\impliedby$ 可解）：$E/K$ 有限 Galois 且 $\aut_KE$ 可解。如果 $\cha K\nmid[E:K]$ 则存在 $K$ 的根式扩张包含 $E$。</p>
+<p>P：对 $[E:K]$ 归纳。任取质数 $p\mid\lvert\aut_KE\rvert=[E:K]$，根据可解群的性质，$\aut_KE$ 有一个指数为 $p$ 的正规子群 $H$。由于 $\cha K\ne p$，可以向 $E$ 中加入 $p$ 次单位根 $\zeta$。现在有扩张：</p>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMSwwLCJFKFxcemV0YSkiXSxbMCwxLCJFIl0sWzEsMiwiSyJdLFsyLDEsIksoXFx6ZXRhKSJdLFsyLDEsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMiwzLCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsMCwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDAsIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=&embed" width="200" height="200" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>
+<p>且类似上面 $E(\zeta)/K$ 也 Galois。已知 $K(\zeta)/K$ 是根式扩张，现在需要说明 $E(\zeta)/K(\zeta)$ 可以被扩展为根式扩张。如果 $[E(\zeta):K(\zeta)]&lt;[E:K]$ 的话，就可以运用归纳。具体而言，由于 $E/K$ Galois，故 $E$ 为稳定域，我们就有同态 $\theta:\aut_{K(\zeta)}E(\zeta)\to \aut_KE$，容易看出它是单同态。严格单的情况用归纳，现只需考虑 $\theta$ 是同构的情况。这时考虑 $\theta^{-1}(H)$ 记为 $J$。现在有关系：
+$$
+\begin{array}{ccccc}
+1&amp;\lhd&amp;J&amp;\stackrel p{\lhd}&amp;\aut_{K(\zeta)}E(\zeta)\\
+E(\zeta)&amp;&gt;&amp;J^\prime&amp;\stackrel p{&gt;}&amp;K(\zeta)
+\end{array}
+$$
+根据 T 7.11（含单位根的循环扩张必为根式扩张），$\aut_{K(\zeta)}E(\zeta)/J\cong\Z_p$ 故 $J^\prime$ 是 $K(\zeta)$ 的根式扩张，同时 $E(\zeta)/J^\prime$ Galois，显然 $J$ 也可解，于是就可以用归纳了。</p>
+</blockquote>
+<p>其实总的来说，根式扩张和可解之间的障碍就在于，得先往根式扩张里加根，红色这一步是证明中处理最麻烦的：</p>
+<p>根式扩张 $\longleftrightarrow$ 单根扩张 $\color{red}\longleftrightarrow$ 含单位根的单根扩张 $\longleftrightarrow$ 循环扩张 $\longleftrightarrow$ 可解</p>
+<p>T 9.6 中 $[E(\zeta):K(\zeta)]&lt;[E:K]$ 的情况就对应 $E$ 里面已经有 $\zeta$ 了而 $K$ 里面还没有；而取等的情况则对应都需要加入单位根，才能应用循环扩张与单根扩张的对应。</p>
+<p>根据 Ex 2，如果希望将 $p=\cha K\ne 0$ 时 $p$ 度循环扩张纳入考虑，可以扩展根式扩张的定义。</p>
+<blockquote>
+<p><strong>T 9.7</strong>（多项式的可解性 $\impliedby$ Galois 群的可解性）：在 $\cha K\nmid(\deg f)!$ 的情况下，$f$ 可解 $\iff$ $f$ 的 Galois 群可解。</p>
+<p>P：这种情况下，$f$ 的不可约因子求导后不会有非常数项消失，所以分裂域可分，就是 Galois 的。同时分裂域维数 $\mid(\deg f)!$。</p>
+<p><strong>T 9.8</strong>（Abel）：对于 $n\ge 5$ 次方程，没有一般的求根公式。</p>
+<p>对于 $\cha K=0$，$n\le 4$ 有求根公式（T 9.6&amp;9.7）；对于 $\cha K\ne 0$，需要扩展根式扩张的定义才能做到 $\iff$。</p>
+<p>如何定义“一般的求根公式”？定义一般多项式 $p_n(x)=x^n-t_1x^{n-1}+t_2x^{n-2}-\cdots+(-1)^nt_n$ 为 $K(t_1,\cdots,t_n)[x]$ 内的多项式，其中 $t_{1\sim n}$ 为不定元（超越扩张）。一般 $n$ 次方程就定义为 $p_n(x)=0$。这样求出来的根就是“公式”。</p>
+<p>P：令根为 $u_{1\sim n}$，设 $F=K(t_1,\cdots,t_n)(u_1,\cdots,u_n)=K(u_1,\cdots,u_n)$（根据韦达定理），现在我们希望建立一个对应关系：
+$$
+\begin{array}{ccc}
+K(t_1,\cdots,t_n)&amp;\cong&amp;K(f_1,\cdots,f_n)\\
+|&amp;&amp;|\\
+K(u_1,\cdots,u_n)&amp;\cong&amp;K(x_1,\cdots,x_n)
+\end{array}
+$$
+其中 $f_{1\sim n}$ 是 $x_{1\sim n}$ 的初等对称函数。这样一来，
+$$
+\aut_{K(t_1,\cdots,t_n)}K(u_1,\cdots,u_n)\cong\aut_{K(f_1,\cdots,f_n)}K(x_1,\cdots,x_n)\cong S_n
+$$
+在 $n\ge 5$ 时不可解。这个东西不难：</p>
+<ol>
+<li>建立 $K[t_1,\cdots,t_n]\cong K[f_1,\cdots,f_n]$，直接构造满同态并验证单射即可。</li>
+<li>同构可以扩展到分式域，$K(t_1,\cdots,t_n)\cong K(f_1,\cdots,f_n)$。</li>
+<li>双方的扩张分别都是 $x^n-a_1x^{n-1}+\cdots$ 的分裂域，而同构可以扩展到分裂域，于是 $K(u_1,\cdots,u_n)\cong K(x_1,\cdots,x_n)$。</li>
+</ol>
+</blockquote>
+<h3 id="补充">补充
+</h3><h4 id="有限域的表示">有限域的表示
+</h4><p>看起来书里没讲有限域元素的表示……</p>
+<p>这边主要参考 <a class="link" href="https://www.zhihu.com/column/c_1428677501942427648"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/column/c_1428677501942427648</a>，列出重要的影响理解的几个结论：</p>
+<blockquote>
+<p>$\F_{p^n}$ 的所有子域为 $\set{F_{p^m}{\large{}\mid{}} m\mid n}$，每个子域都唯一。</p>
+<p>一方面，$\F_{p^n}$ 是 $\F_{p}$ 上的 $p^n-1$ 次分圆扩张；另一方面，任何 $n$ 次不可约多项式 $f\in\F_p[x]$ 在 $\F_p$ 上的分裂域都是 $\F_{p^n}$。</p>
+<p>$\F_p$ 的 $m$ 次分圆扩张（$p\nmid m$）是 $\F_{p^{\delta_m(p)}}$，$\delta_m(p)$ 是模 $m$ 意义下 $p$ 的阶。</p>
+<p>$\aut_{\F_p}\F_{p^n}=\langle\sigma\rangle$ 其中 $\sigma$ 是 自同构。</p>
+</blockquote>
+<p>所以简而言之，我们随便取一个 $n$ 次不可约多项式 $f\in\F_p[x]$ 就可以得到 $\F_{p^n}$ 的刻画。当然，既然 $\F_{p^n}^\times$ 是个循环群，我们肯定希望找到本原元啦，然而 $x$ 不一定是本原元。进一步地，可以定义本原多项式：$\delta_f(x)=p^n-1$，这样 $x$ 就是本原元。（注意与各项系数 $\gcd=1$ 的本原多项式定义区分）</p>
+<p>有限域下的不可约多项式和本原多项式密度都不低：<a class="link" href="https://zhuanlan.zhihu.com/p/1905745887688389673"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/1905745887688389673</a>。所以我想机械化计算时应该可以直接随机找吧。</p>
+<h4 id="n-次剩余问题">n 次剩余问题
+</h4><p>OI 中我们会碰到求 $x^n\equiv a\pmod m$ 的问题。首先通过 CRT 和 Hensel lifting 将 $m$ 归为质数 $p$，再通过多次迭代将 $n$ 归为质数。对于 $n\nmid(p-1)$ 的情况，$x=a^{n^{-1}\bmod (p-1)}$；对于 $n\mid (p-1)$ 的情况无法找到直接的构造。本质上所谓“构造”是指：</p>
+<ul>
+<li>$b^k\equiv a\pmod p$</li>
+<li>$n\mid k$</li>
+<li>$b$ 容易得到</li>
+</ul>
+<p>既然在 $\F_p$ 下无法找到，我们就得考虑扩域。如果加入一个非 $n$ 次剩余 $u$ 的 $n$ 次根 $\sqrt[n]u=\zeta$，那么我们就有（recall T 7.3）：
+$$
+(t+\zeta)^{1+p+\cdots+p^{n-1}}=\prod(t+\zeta^i)=\prod\sigma(t+\zeta)=N(t+\zeta)=(-1)^na_0
+$$
+而 $t+\zeta$ 的最小多项式为 $(x-t)^n-u$，故 $N(t+\zeta)=t^n+(-1)^{n-1}u$。</p>
+<p>现在我们注意到一个关键的事情：$1+p+\cdots+p^{n-1}$ 是能被 $n$ 整除的（LTE/直接取模证）！而 $t^n+(-1)^{n-1}u$ 有一个自由度。具体来说，显然不能直接取 $u=a$ 否则就是 $n$ 次剩余了；所以考虑取 $u=(-1)^n(t^n-a)$，刚好能把 $t^n$ 抵消掉，随机 $t$ 即可。</p>
+<p>对于 $n=2$ 这就是 Cipolla。当然 $n$ 大的时候运算量就巨大了。</p>
+<h3 id="待研究的问题">待研究的问题
+</h3><ul>
+<li><input disabled="" type="checkbox"> 二次整数环的性质（哪些是 ED、PID、UFD）以及其中的运算，与数论的关系</li>
+<li><input disabled="" type="checkbox"> 非交换除环的性质</li>
+<li><input disabled="" type="checkbox"> 判定与生成不可约多项式、本原多项式的机械方法</li>
+<li><input disabled="" type="checkbox"> $\F_p[x]$ 的多项式因式分解的机械方法</li>
+<li><input disabled="" type="checkbox"> $\Z_n[x]$（$n$ 非质数）的一些研究</li>
+<li><input disabled="" type="checkbox"> 求最小多项式的机械方法</li>
+<li><input disabled="" type="checkbox"> 本原多项式与处理有限域运算的机械方法</li>
+<li><input disabled="" type="checkbox"> 将对称多项式写成初等对称多项式的组合的机械方法</li>
+<li><input disabled="" type="checkbox"> 正 $n$ 边形尺规作图，单位根的根式表示，高次多项式可解根的判定与求解方法</li>
+<li><input disabled="" type="checkbox"> 函数的 Liouville 理论</li>
+<li><input disabled="" type="checkbox"> 一些特殊丢番图方程，费马大定理相关</li>
+<li><input disabled="" type="checkbox"> 一些更进阶的环论与域论：
+<ul>
+<li><input disabled="" type="checkbox"> 局部环</li>
+<li><input disabled="" type="checkbox"> Artin 环、Noether 环等</li>
+<li><input disabled="" type="checkbox"> 交换代数</li>
+<li><input disabled="" type="checkbox"> 有限环分类</li>
+<li><input disabled="" type="checkbox"> 模论</li>
+<li><input disabled="" type="checkbox"> 超越扩张相关</li>
+<li><input disabled="" type="checkbox"> 域分类</li>
+<li><input disabled="" type="checkbox"> 域论与群表示论、有限群及单群分类的关系</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="3e5c7dda1b2436c9bfc79d37d5acbfcf"
+    data-page-url="https://littlereuben.github.io/study/gtm73-ring-field-theory/"
+    data-page-title="抽代（环、域论部分）自学笔记"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

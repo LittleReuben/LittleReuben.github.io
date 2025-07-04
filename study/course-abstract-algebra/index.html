@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 $\\gdef\\suf{\\Longrightarrow}\\gdef\\nec{\\Longleftarrow}\\gdef\\iff{\\Longleftrightarrow}\\gdef\\cha{\\operatorname{char}}\\gdef\\gal{\\operatorname{Gal}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\Q{\\mathbb{Q}}\\gdef\\C{\\mathbb{C}}$ 强推邓老师的抽代！ 一些有意思的作业题：2.4.18, 3.1.18, 3.3.7, 3.4.5, 3.4.8, 4.1.7, 5.4.8, 5.5.5, 8.3.5, 8.3.8, 9.5.7, 9.3.4, 9.4.20, 13.2.14, 13.2.17, 13.4.6, 14.7.8 群论比较熟悉所以就没记了，下面是下半">
+<title>抽代期中题 &amp; 复习</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/course-abstract-algebra/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="抽代期中题 & 复习">
+<meta property='og:description' content="这是一篇学习笔记。 $\\gdef\\suf{\\Longrightarrow}\\gdef\\nec{\\Longleftarrow}\\gdef\\iff{\\Longleftrightarrow}\\gdef\\cha{\\operatorname{char}}\\gdef\\gal{\\operatorname{Gal}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\Q{\\mathbb{Q}}\\gdef\\C{\\mathbb{C}}$ 强推邓老师的抽代！ 一些有意思的作业题：2.4.18, 3.1.18, 3.3.7, 3.4.5, 3.4.8, 4.1.7, 5.4.8, 5.5.5, 8.3.5, 8.3.8, 9.5.7, 9.3.4, 9.4.20, 13.2.14, 13.2.17, 13.4.6, 14.7.8 群论比较熟悉所以就没记了，下面是下半">
+<meta property='og:url' content='https://littlereuben.github.io/study/course-abstract-algebra/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-07-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-04T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="抽代期中题 & 复习">
+<meta name="twitter:description" content="这是一篇学习笔记。 $\\gdef\\suf{\\Longrightarrow}\\gdef\\nec{\\Longleftarrow}\\gdef\\iff{\\Longleftrightarrow}\\gdef\\cha{\\operatorname{char}}\\gdef\\gal{\\operatorname{Gal}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\Q{\\mathbb{Q}}\\gdef\\C{\\mathbb{C}}$ 强推邓老师的抽代！ 一些有意思的作业题：2.4.18, 3.1.18, 3.3.7, 3.4.5, 3.4.8, 4.1.7, 5.4.8, 5.5.5, 8.3.5, 8.3.8, 9.5.7, 9.3.4, 9.4.20, 13.2.14, 13.2.17, 13.4.6, 14.7.8 群论比较熟悉所以就没记了，下面是下半">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#期中题">期中题</a></li>
+        <li><a href="#lec-8">Lec 8</a></li>
+        <li><a href="#lec-9">Lec 9</a></li>
+        <li><a href="#lec-10">Lec 10</a></li>
+        <li><a href="#lec-11">Lec 11</a></li>
+        <li><a href="#lec-12">Lec 12</a></li>
+        <li><a href="#lec-13">Lec 13</a></li>
+        <li><a href="#lec-14">Lec 14</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/math/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 数学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/course-abstract-algebra/">抽代期中题 &amp; 复习</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-07-04</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    6068 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>$\gdef\suf{\Longrightarrow}\gdef\nec{\Longleftarrow}\gdef\iff{\Longleftrightarrow}\gdef\cha{\operatorname{char}}\gdef\gal{\operatorname{Gal}}\gdef\aut{\operatorname{Aut}}\gdef\Q{\mathbb{Q}}\gdef\C{\mathbb{C}}$</p>
+<p>强推邓老师的抽代！</p>
+<p>一些有意思的作业题：2.4.18, 3.1.18, 3.3.7, 3.4.5, 3.4.8, 4.1.7, 5.4.8, 5.5.5, 8.3.5, 8.3.8, 9.5.7, 9.3.4, 9.4.20, 13.2.14, 13.2.17, 13.4.6, 14.7.8</p>
+<p>群论比较熟悉所以就没记了，下面是下半学期的考试内容，自己复习的时候写的，只记了自己不是很熟的点，所以这篇文章不适合初学，应该先看过 Dummit &amp; Foote 再看这个。<a class="link" href="/study/gtm73-group-theory/" >群论笔记</a>、<a class="link" href="/study/gtm73-ring-field-theory/" >环、域论笔记</a>。</p>
+<h3 id="期中题">期中题
+</h3><p>期中前有个作业是让每个同学出道题，会选 1~2 道放在考试里。我的可能比较超纲就没被选上。</p>
+<embed src= "task.pdf" width= "100%" height= "800px" type="application/pdf" >
+<a href="task.pdf" style="display:block;text-align:center;"><b>[PDF file]</b></a>
+<h3 id="lec-8">Lec 8
+</h3><p>Def. 整环 $\subset$ 交换幺环。</p>
+<p>Cor. 有限整环是域。</p>
+<p>Def. 子环的要求：非空、减法与乘法封闭。子域的要求：非空、含单位元、减法与除法封闭。</p>
+<p>Def. 对于无平方因子整数 $D$，可以定义二次域 $\Q(\sqrt D)$。它有个子环称为二次整数环：$\mathcal{O}=\Z[\omega]$，$\omega=\begin{cases}\sqrt{D},&amp;D\not\equiv1\pmod4\\ \frac{1+\sqrt D}2,&amp;D\equiv1\pmod4\end{cases}$，$D\equiv1$ 是这样定义是因为它刚好能关于乘法封闭（平方模 $4$ 必余 $1$）。定义模 $N(a+b\omega)=\begin{cases}a^2-b^2D,&amp;D\not\equiv1\\ a^2+ab-\frac{1-D}4b^2,&amp;D\equiv1\end{cases}$。<br>
+Remark. 这个模仅仅是有积性，没有 ED 的性质。它可以用来判断单元、不可约元。对于 $D=-1,-2,-3$，$\cal O$ 是 ED。对于 $&lt;-3$ 的 $D\not\equiv1$，可以证明 $\cal O$ 仅仅是整环（HW 8.3.5）。</p>
+<p>Pro. $R$ 是整环 $\suf$ $R[x]$ 是整环</p>
+<p>Def. 群环：$\sum (r\in R)(g\in G)$</p>
+<p>Def. 左理想定义为 $\forall r$，$rI\subseteq I$。注意元素和理想“乘积”定义是直接的。</p>
+<p>Def. $I+J=\set{i+j\mid i\in I,j\in J}$，$IJ=\set{\sum i_kj_k}$ 有限和。在 $I$ 或 $J$ 是理想时，$I+J$ 和 $IJ$ 才一定是子环；在 $I$ 和 $J$ 都是理想时，$I+J=(I,J)$，$IJ$ 也是理想且 $\subseteq I\cap J$。</p>
+<p>Thm (2nd iso). $A$ 是子环，$B$ 是理想（可减弱为是子环且 $AB,BA\subseteq B$），则 $(A+B)/B\cong A/(A\cap B)$。</p>
+<p>Pro. 对于<strong>交换</strong>环 $R$，$R$ 只有两个平凡的理想 $\iff$ $R$ 是域。如果不是交换环是不对的，例如四元数环 $\mathbb{H}$。</p>
+<h3 id="lec-9">Lec 9
+</h3><p>Dummit 里的素理想和极大理想都默认定义在幺环上……</p>
+<p>Def. 注意：极大理想和素理想都不能是 $R$ 但可以是 $0$。不可约元和素元都不能是零元或单元。</p>
+<p>Pro. <strong>幺</strong>环中每个真子环都包含于一个极大子环中。证明见 P254。</p>
+<p>Pro. <strong>交换</strong>环 $R$ 的理想 $M$ 极大 $\iff$ $R/M$ 是域。<br>
+Prf. 极大 $\iff$ 商环 lattice 中没有介于 $R/M$ 和 $R/R$ 之间的别的商环 $\iff$ $R/M$ 只有两个平凡理想 $\iff$ 域。</p>
+<p>Pro. <strong>交换</strong>环 $R$ 的理想 $P$ 素 $\iff$ $R/P$ 是整环。<br>
+Prf. 素 $\iff$ $(ab\in P\suf a\in P\lor b\in P)$ $\iff$ $((a+P)(b+P)=0+P\suf a+P=0+P\lor b+P=0+P)$ $\iff$ 整。</p>
+<p>Cor. <strong>交换</strong>环 $R$ 的极大理想 $\suf$ 素理想。</p>
+<p>Def. 定义分式环时要求子集对乘法封闭。</p>
+<p>Def. comaximal 理想： $A+B=R$。</p>
+<p>Thm (CRT). 对于<strong>交换幺</strong>环 $R$ 及其理想 $A_{1\sim n}$，定义环同态 $\varphi:R\to (R/A_1)\times\cdots\times(R/A_n)$（映射略）。$\ker\varphi=A_1\cap\cdots\cap A_n$。<br>
+如果每对 $A_i,A_j$ 都是 comaximal 的，则 $\bigcap A_i=\prod A_i$ 因此 $R/(A_1\cdots A_n)=(R/A_1)\times\cdots\times(R/A_n)$。<br>
+Prf. 考虑归纳，这里只说明 $A+B=R\suf AB=A\cap B$：这种情况下存在 $a+b=1$，因此 $c\in A\cap B$ 时 $c=ac+cb\in AB$。</p>
+<p>Pro. 域 $F$ 的 $F[x]$ 是 ED。</p>
+<p>Pro. ED 的理想都是主理想。</p>
+<p>Def. GCD 定义在<strong>交换</strong>环上。两种等价定义：$d\mid a,b$ 且其他这样的 $d^\prime$ 都 $\mid d$；$(a,b)\subseteq(d)$ 且其他这样的 $(d^\prime)$ 都 $\supseteq(d)$。</p>
+<p>Def. 对于一个<strong>整</strong>环，如果它的每个 $(a,b)$ 都是主理想，则它称为 Bézout domain。</p>
+<h3 id="lec-10">Lec 10
+</h3><p>Def. 相伴定义在<strong>整</strong>环上。</p>
+<p>Pro. $(d)=(d^\prime)\iff d\sim d^\prime$。</p>
+<p>Pro. <strong>PID</strong> $R$ 的<strong>非零</strong>理想 $P$ 素 $\suf$ 极大。<br>
+Prf. 假设 $(p)\subseteq(m)\Rightarrow p=rm\Rightarrow rm\in(p)\Rightarrow r\in(p)\lor m\in(p)$。后者就结束了，若 $r\in(p)\Rightarrow r=sp\Rightarrow p=spm\Rightarrow sm=1$，$m$ 就是单元。<br>
+于是 PID 中 $(0)$ 以外素 $\iff$ 极大。</p>
+<p>Cor. <strong>交换</strong>环 $R$ 的 $R[x]$ 是 PID $\suf$ $R$ 是域。<br>
+Prf. $R[x]/(x)\cong R\Rightarrow (x)$ 素 $\Rightarrow (x)$ 极大 $\Rightarrow R[x]/(x)$ 域。</p>
+<p>Def. 不可约：$ab=r\suf a\sim 1\lor b\sim 1$。素：$r\mid ab\Rightarrow r\mid a\lor r\mid b$。这两个概念定义在整环上（其实也可以在交换幺环上）。</p>
+<p>Pro. <strong>整</strong>环 $R$ 中素 $\suf$ 不可约。<br>
+反例：$3\in\Z[\sqrt{-5}]$ 不可约但不是素，因为 $(2+\sqrt{-5})(2-\sqrt{-5})=3^2$。</p>
+<p>Pro. <strong>PID</strong> $R$ 中素 $\iff$ 不可约。<br>
+Prf. 对于不可约元 $p$，若 $(p)\subset(m)\subset R\Rightarrow p=rm\Rightarrow r\sim 1\lor m\sim 1\Rightarrow (m)=(p)\lor (m)=R\Rightarrow (p)$ 极大 $\Rightarrow (p)$ 素。</p>
+<p>Pro. <strong>UFD</strong> $R$ 中素 $\iff$ 不可约。</p>
+<p>Thm. PID $\subset$ UFD。</p>
+<p>Summary.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>ED</th>
+<th>PID</th>
+<th>UFD</th>
+<th>ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\Q$</td>
+<td>$\Z$</td>
+<td>$\Z[(1+\sqrt{-19})/2]$</td>
+<td>$\Z[x]$</td>
+<td>$\Z[\sqrt{-5}]$</td>
+</tr>
+</tbody>
+</table></div>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsMTIsWzgsMSwiXFxybSBSbmciXSxbNywxLCJcXHJtIENSbmciXSxbNywyLCJcXHJtIFJpbmciXSxbNiwxLCJcXHJtIENSaW5nIl0sWzUsMSwiXFxybSBJRCJdLFs0LDEsIlxccm0gR0NERCJdLFszLDEsIlxccm0gVUZEIl0sWzIsMSwiXFxybSBQSUQiXSxbMSwxLCJcXHJtIEVEIl0sWzAsMSwiXFxybSBGaWVsZCJdLFs2LDIsIlxccm0gRFJpbmciXSxbMywwLCJcXHJtIEJEIl0sWzksOCwiXFxzdWJzZXQiXSxbOCw3LCJcXHN1YnNldCJdLFs3LDYsIlxcc3Vic2V0Il0sWzYsNSwiXFxzdWJzZXQiXSxbNSw0LCJcXHN1YnNldCJdLFs0LDMsIlxcc3Vic2V0Il0sWzMsMSwiXFxzdWJzZXQiXSxbMywyLCJcXHN1YnNldCJdLFsxLDAsIlxcc3Vic2V0Il0sWzIsMCwiXFxzdWJzZXQiXSxbMTAsMiwiXFxzdWJzZXQiXSxbNywxMSwiXFxzdWJzZXQiXSxbMTEsNSwiXFxzdWJzZXQiXSxbOSwxMCwiXFxzdWJzZXQiXV0=&embed" width="750" height="250" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>
+<p>Pro. 对于环 $R$ 的理想 $I$，$(R/I)[x]=R[x]/(I)$。如果 $I$ 素则 $(I)$ 在 $R[x]$ 中也是素的。</p>
+<p>Thm. 域的多项式环是 ED。</p>
+<h3 id="lec-11">Lec 11
+</h3><p>Pro (Gauss). <strong>UFD</strong> $R$ 对应的分式域为 $F$，$p(x)\in R[x]$ 在 $F[x]$ 中可约 $\suf$ 在 $R[x]$ 中可约。进一步地，如果 $p(x)=A(x)B(x)$，$A(x)B(x)\in F[x]$，则存在 $r,s\in F$，使得 $rA(x),sB(x)\in R[x]$ 且 $p(x)=(rA(x))(sB(x))$。</p>
+<p>Cor. <strong>UFD</strong> $R$ 对应的分式域为 $F$，各项系数 $\gcd=1$ 的 $p(x)\in R[x]$ 在 $F[x]$ 中可约 $\iff$ 在 $R[x]$ 中可约。</p>
+<p>Thm. $R$ 是 UFD $\iff$ $R[x]$ 是 UFD。<br>
+Prf. 只考虑 $\suf$。对于 $p(x)\in R[x]$ 如果 $C(p)\ne 1$ 可以除一下，现假设 $C(p)=1$。现在 $p(x)$ 在 $F[x]$ 里有唯一分解（因为 $F[x]$ 是 ED），于是用 Gauss 引理可以得到在 $R[x]$ 里的分解，且各个因子的 $C=1$ 于是都不可约。唯一性也是放到 $F[x]$ 里去论证。</p>
+<p>Pro. <strong>域</strong>上的 $2/3$ 次多项式可约 $\iff$ 有根。</p>
+<p>Pro. <strong>整</strong>环 $R$ 有个真理想 $I$。首一多项式 $p(x)\in R[x]$ 在 $(R/I)[x]$ 内的“投影”如果无法分解为两个度数更小的多项式乘积，则在 $R[x]$ 内也是不可约的。<br>
+Remark. 注意 $R/I$ 可能不是整环。</p>
+<p>Pro (Eisenstein). <strong>整</strong>环 $R$ 有个素理想 $P=(p)$。考虑多项式 $f(x)=x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$，如果 $p^2\nmid a_0$ 且 $p\mid a_{0\sim n-1}$，则 $f(x)$ 不可约。<br>
+Prf. 若可约则 $a(x)b(x)=f(x)\equiv x^n\pmod p$，但 $p^2\nmid a_0$。</p>
+<p>Cor. 在 $R=\Z$ 的情况下，我们不仅能说明 $f(x)$ 在 $\Z$ 中不可约，还可以同时说明在 $\Q$ 中不可约。</p>
+<p>Pro. <strong>域</strong> $F$ 的多项式环 $F[x]$ 中所有极大理想恰为所有不可约多项式的主理想。换句话说，$F[x]/(f(x))$ 是域 $\iff$ $f(x)$ 不可约。</p>
+<p>Pro. <strong>域</strong> $F$ 的多项式环中，$f(x)$ 至多有 $\deg f$ 个根。</p>
+<p>Pro. $K/F$ 则 $K$ 是 $F$ 上的一个向量空间。$F$ 可以看作其素子域上的向量空间。</p>
+<p>Pro. 域的同态要么是 $0$ 要么是单同态，因为域无非平凡理想。</p>
+<h3 id="lec-12">Lec 12
+</h3><p>Thm. 对于不可约多项式 $p(x)$ 的一个根 $\alpha$，$F(\alpha)\cong F[x]/(p(x))$。</p>
+<p>Thm. （这不是交换图）</p>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsOCxbMSwxLCJFIl0sWzIsMSwiRiJdLFsxLDAsIkUoXFxhbHBoYSkiXSxbMiwwLCJGKFxcYmV0YSkiXSxbMCwwLCJFW3hdLyhwKHgpKSJdLFszLDAsIkZbeF0vKHEoeCkpIl0sWzAsMSwicCh4KSJdLFszLDEsInEoeCkiXSxbMCwyLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsMywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsyLDMsIlxcY29uZyJdLFswLDEsIlxcY29uZyJdLFszLDUsIlxcY29uZyIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs2LDIsInAoXFxhbHBoYSk9MCIsMyx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMyw3LCJxKFxcYmV0YSk9MCIsMyx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNiw0XSxbNyw1XSxbNCwyLCJcXGNvbmciLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNiw3LCIiLDEseyJjdXJ2ZSI6MSwic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibWFwcyB0byJ9fX1dXQ==&embed" width="500" height="200" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>
+<p>Pro. $\alpha$ 是 $F$ 上的代数元 $\iff$ $[F(\alpha):F]&lt;\infty$。</p>
+<p>Thm. $L/K/F$，$[L:F]=[L:K][K:F]$。<br>
+Prf. 设 $L/K$ 的一组基是 $\alpha_{1\sim m}$，$K/F$ 的一组基是 $\beta_{1\sim n}$。易证 $\set{\alpha_i\beta_j}$ 是 $L/F$ 的一组基。</p>
+<p>Thm. $K/F$ 有限 $\iff$ $K$ 可以在 $F$ 上由有限个代数元生成。如果 $K=F(\alpha_{1\sim k})$，其中 $\alpha_i$ 的度为 $n_i$，则 $[K:F]\le\prod n_i$。</p>
+<p>Cor. $L/F$。$L$ 上所有 $F$ 的代数元构成一个子域。<br>
+Prf. 代数元关于四则运算封闭，因为 $F(\alpha,\beta)=F(\alpha)(\beta)$，维数有限。反正总的来说这里就是要通过维数来 argue。</p>
+<p>Thm. 代数扩张的代数扩张是代数扩张。<br>
+Remark. 注意代数扩张也可能是无限维的。这里的证明是取相关的子域。</p>
+<p>Def. 域复合。</p>
+<p>Pro. $K_1,K_2/F$，$[K_1K_2:F]\le[K_1:F][K_2:F]$。<br>
+Prf. 设出基，两步走。取等 $\iff$ 两组基之间线性无关。</p>
+<p>Cor. 如果 $[K_1:F]\perp[K_2:F]$，则上式取等。</p>
+<p>Pro. $F$ 上 $f(x)$ 的分裂域的维数 $\le(\deg f)!$。</p>
+<p>Thm. 分裂域的扩展。</p>
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNixbMCwwLCJcXHNpZ21hIl0sWzAsMSwiXFx2YXJwaGkiXSxbMSwwLCJFIl0sWzIsMCwiRSciXSxbMSwxLCJGIl0sWzIsMSwiRiciXSxbNCwyLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzUsMywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs0LDUsIlxcY29uZyJdLFsyLDMsIlxcY29uZyJdLFswLDIsIjoiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSw0LCI6IiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV1d&embed" width="400" height="300" style="border-radius: 8px; border: none; display: block; margin: 0 auto;"></iframe>  
+Prf. 归纳，每次用单扩张的扩展。
+<p>Cor. 分裂域在同构意义下唯一。</p>
+<h3 id="lec-13">Lec 13
+</h3><p>Pro. 代数闭域是代数闭的。</p>
+<p>Pro. 任何域的代数闭域存在且唯一。</p>
+<p>Pro. $f(x)$ 可分 $\iff f(x)\perp\mathrm{D}_xf(x)$。</p>
+<p>Pro. $\cha=0$ 的域或有限域上，不可约 $\suf$ 可分。于是可分 $\iff$ 分解中不可约多项式互不相同。<br>
+Prf. 零特征的情况直接用上一个 Pro。如果是有限域，考虑一个不可约多项式 $f(x)$，如果它不可分，就意味着 $f(x)$ 和 $\mathrm{D}_xf(x)$ 有非单元公因子，但是 $f(x)$ 是不可约的，这就说明 $\mathrm{D}_xf(x)=0$。这种情况下，$f(x)=\sum a_i x^{pi}$ 的形式。然而根据下面的 Cor，$a_i=b_i^p$，于是 $f(x)=\sum(b_ix^i)^p=(\sum b_ix^i)^p$ 可约，矛盾。<br>
+Remark. 进一步地，完美域定义为不可约 $\suf$ 可分的域。完美域的一个等价定义是 $F=F^{\cha F}$ 或 $\cha F=0$。</p>
+<p>Def. $\cha=p$ 的域上，定义 Frobenius 自同态 $\varphi$ 为 $a\mapsto a^p$。可以验证这是个同态。</p>
+<p>Cor. 上述情况如果是有限域，则 $\varphi$ 是自同构，因为 $\varphi$ 是单的。</p>
+<p>Pro. $K/F$，$\alpha$ 是 $F$ 上的代数元。则 $\forall\sigma\in\gal(K/F)$，$m_{\alpha,F}(\sigma\alpha)=0$。<br>
+Prf. $m_{\alpha,F}(\sigma\alpha)=\sigma m_{\alpha,F}(\alpha)=0$。<br>
+Remark. 这一性质可用于排除 $\gal(K/F)$ 里面有哪些元素。</p>
+<p>Pro. $H\le\aut(K)$，$H$ 的不动点形成一个子域。</p>
+<p>Pro. $E$ 是 $F$ 上 $f(x)$ 的分裂域，则 $\lvert\aut(E/F)\rvert\le[E:F]$。取等 $\nec$ $f(x)$ 可分。<br>
+Prf. 同样考虑归纳，现考虑一个根 $\alpha$ 及对应的不可约因子 $g(x)$，我们要把中间域 $K$ 的自同构扩展到 $K(\alpha)$ 上（当然这里默认 $\alpha\notin K$），这样的扩展由 $\sigma(\alpha)$ 唯一确定，并且 $g(x)$ 的任意根都可以作为 $\sigma(\alpha)$。因此我们知道：$[K(\alpha):K]=\deg g$，而 $\#\sigma=g(x)$ 的不同的根的数量。<br>
+Remark. 为了理解不取等的情况，可以考虑 $x^p-t\in\mathbb{F}_p(t)[x]$。另外，如果取等，那么 $f(x)$ 的不可约因子必然可分，$f(x)$ 不一定可分。</p>
+<p>Def. 一个群 $G$ 到一个域的乘法群 $L^\times$ 的同态称为一个 character。一些 character 线性无关，意思是它们以 $L$ 中元素为系数的线性组合的意义下线性无关。</p>
+<p>Thm. 只要 $\chi_{1\sim n}$ 互不相同，它们就线性无关。<br>
+假设 $\sum a_i\chi_i=0$，其中 $i$ 取遍所有 $a_i\ne 0$ 并假设最后一个是 $i=m$。我们有 $\sum a_i\chi_i(g_0)=0\cdots(1)$。取 $g$ 使得 $\chi_i(g)$ 不全相同，也有 $\sum a_i\chi_i(gg_0)=\sum a_i\chi_i(g)\chi_i(g_0)=0\cdots(2)$。取 $(2)-(1)\cdot\chi_m(g)$ 得到 $\sum_{i\ne m}a_i(\chi_m(g)-\chi_i(g))\chi_i(g_0)=0$ 对每个 $g_0$ 都成立，这样非零参数数量就减少了。无穷递降。</p>
+<h3 id="lec-14">Lec 14
+</h3><p>这里的 Galois 扩张都默认有限。</p>
+<p>Cor. $K$ 到 $L$ 的不同嵌入线性无关。$K$ 的各个自同构线性无关。</p>
+<p>Thm. 有限 $H\le\aut(K)$，记 $F$ 为 $H$ 的不动点。上面我们提到 $F$ 是个子域，现在有：$[K:F]=|H|$。</p>
+<p>Cor. $K/F$ 有限，$\lvert\aut(K/F)\rvert\le[K:F]$。取等 $\iff$ 除了 $F$ 之外没有点在 $\aut(K/F)$ 下不动。<br>
+Prf. 取不动域 $F_1$。$\lvert\aut(K/F)\rvert=[K:F_1]=[K:F]/[F_1:F]$。<br>
+Remark. 这给出了 Galois 扩张的两种定义，一种是大小取等，一种是不动不变。</p>
+<p>Cor. 在上一个 Cor 的语境下，$\aut(K/F)=H$。<br>
+Prf. 根据定义 $H\le\aut(K/F)$。根据不等式 $\lvert\aut(K/F)\rvert\le[K:F]=|H|$。</p>
+<p>Thm. $K/F$ 是 Galois 的 $\iff$ $K$ 是 $F$ 上某个可分多项式的分裂域 $\suf$ 如果 $F[x]$ 的不可约多项式在 $K$ 中有根，就有所有根。<br>
+Prf. 可分 $\suf$ Galois 用前面的那个不等式。<br>
+Galois  $\suf$ 正规：假设不可约首一 $f(x)$ 有根 $\alpha\in K$，就考虑 $\gal(K/F)$ 中的每个自同构作用于 $\alpha$，我们期望这得到所有根。首先直接推可以得到 $\sigma\alpha$ 一定是根。收集所有的 $\set{\sigma_i\alpha}$ 记作 $\set{\alpha_i}$，记 $g(x)=\prod(x-\alpha_i)$，其在 $\gal(K/F)$ 的作用下不动于是 $g(x)\in F[x]$，于是说明 $g(x)=f(x)$ 即可。由于 $f(x)$ 不可约故 $f(x)\mid g(x)$，由于 $\alpha_i$ 均为 $f$ 的根故 $g(x)\mid f(x)$，从而 $f(x)=g(x)$。<br>
+Galois $\suf$ 可分：取 $K/F$ 的一组基，得到它们的最小多项式，去个重得到所需要的多项式。<br>
+Remark. 这里其实就是在说：有限 Galois $\iff$ 有限可分 $\suf$ 正规。</p>
+<p>Thm (Galois). 对于 Galois 扩张 $K/F$，中间域与 Galois 群的子群一一对应。且：</p>
+<ol>
+<li>$E_1\leftrightarrow H_1$，$E_2\leftrightarrow H_2$，则 $E_1\subseteq E_2\iff H_2\le H_2$。</li>
+<li>$E\leftrightarrow H$ 则 $[K:E]=|H|$，$[E:F]=|G:H|$。</li>
+<li>$E\leftrightarrow H$ 则 $K/E$ 必然 Galois 且 $\gal(K/E)=H$。</li>
+<li>$E\leftrightarrow H$ 而 $F/E$ Galois $\iff$ $H\unlhd G$。这种情况下 $\gal(E/F)\cong G/H$。</li>
+<li>$E_1\leftrightarrow H_1$，$E_2\leftrightarrow H_2$，则 $E_1\cap E_2\leftrightarrow\langle H_1,H_2\rangle$ 且 $E_1E_2\leftrightarrow H_1\cap H_2$。</li>
+</ol>
+<p>Prf. 一方面，子群的不动点是子域；另一方面，对于一个子域 $E$，$K$ 可以视作 $E$ 上可分多项式的分裂域，从而 $K/E$ Galois，于是也对应唯一的子群。</p>
+<p>Thm. $F(x_1,\cdots,x_n)/F(s_1,\cdots,s_n)$ 是 Galois 扩张且 Galois 群为 $S_n$。</p>
+<p>Pro. 对于多项式 $f(x)$，其判别式 $D=\prod_{i&lt;j}(\alpha_i-\alpha_j)^2\in F$。<br>
+Prf. 设分裂域为 $K$。如果 $f$ 不可分，则 $D=0$；否则 $K/F$ Galois，由于 $\gal(K/F)$ 置换所有根，所以 $D$ 是不动点从而 $\in F$。</p>
+<p>Pro. $\gal(K/F)\le A_n\iff\sqrt{D}\in F$。</p>
+<p>Exp. 二次多项式 $D=s_1^2-4s_2=a^2-4b$。</p>
+<ol>
+<li>$D$ 是有理平方。这时两个有理根（可能重），平凡扩张。</li>
+<li>$D$ 不是有理平方。$G=\Z_2$。</li>
+</ol>
+<p>Exp. 三次多项式。先要将 $D=(\alpha-\beta)^2(\alpha-\gamma)^2(\beta-\gamma)^2$ 表示成各项系数的式子：
+$$
+f(x)=x^3+ax^2+bx+c\xrightarrow{x=y-a/3}g(y)=y^3+py+q\to D=-4p^3-27q^2\to D=a^2-4b^3-4a^3c-27c^2+18abc
+$$</p>
+<ol>
+<li>$f$ 可约，归到简单情况。</li>
+<li>$f$ 不可约。$\sqrt{D}\in F$ 则 $G=\Z_3=A_3$，否则 $G=S_3$。注意由于扩域第一步维数一定是 $3$，故 $3\mid|G|$。</li>
+</ol>
+<p>Thm. $\C$ 代数封闭。<br>
+Prf. 由于代数闭域代数封闭，故只证明 $f(x)\in\R[x]$ 有个根 $\in\C$。设 $K=\R(\mathrm{i},\alpha_{1\sim n})$，考虑 $L_t(x)=\prod_{i&lt;j}(x-(\alpha_i+\alpha_j+t\alpha_i\alpha_j))$。由对称性 $L_t(x)$ 在 $\gal(K/\R)$ 下不动，$\deg L_t$ 的 $2$ 因子数比 $\deg f$ 的少，考虑归纳（基本情况：$\deg$ 为奇的多项式一定有实根），现在认为 $L_t$ 一定有个根 $\in\C$。由于 $t$ 任意，故可以找到 $i,j$ 使得 $\alpha_i+\alpha_j+t\alpha_i\alpha_j\in\C$ 且 $\alpha_i+\alpha_j+s\alpha_i\alpha_j\in\C$，于是 $\alpha_i+\alpha_j,\alpha_i\alpha_j\in\C$，二次多项式的根一定 $\in\C$。</p>
+<p>Pro. 如果 $\cha\ne n$ 的 $F$ 含 $n$ 次单位根，则 $F(\sqrt[n]{a\in F})$ 是循环的，Galois 群为 $\Z_{d\mid n}$。<br>
+Remark. 如果 $\cha F=n$，会导致 $x^n-a$ 不可分。</p>
+<p>Pro. 如果 $\cha\ne n$ 的 $F$ 含 $n$ 次单位根，它的 $n$ 度循环扩张一定形如 $F(\sqrt[n]{a\in F})$。</p>
+<p>以下考虑 $\cha F=0$。</p>
+<p>Def. 称 $F$ 上的代数元 $\alpha$ 可以用根式表示，为 $\alpha\in K$，其中 $K$ 为根（根式）扩张，即，通过 $F$ 有限次单根扩张得到。</p>
+<p>Lem. 根扩张的复合是根扩张，因为可以拼接加入的根式。Galois 扩张的复合是 Galois 扩张。</p>
+<p>Lem. 对于 Def 里的 $\alpha$，它属于某个 $F$ 的 Galois 扩张，并且这个扩张也是根扩张，同时每次根扩张都是循环的（也就是已含单位根）。<br>
+Prf. 已知 $\alpha\in K$ 是根扩张。将根式塔
+$$
+F=K_0\subset K_1\subset\cdots\subset K_n=K
+$$
+变为
+$$
+F\subset F^\prime\subseteq F^\prime K_1\subseteq\cdots\subseteq F^\prime K_n=F^\prime K
+$$
+其中 $F^\prime$ 为 $F$ 加上所有要用到的单位根。这样。每一步都是一个循环 Galois 扩张。<br>
+但是注意到 Galois 扩张的 Galois 扩张不一定是 Galois 扩张（例如 $\Q(\sqrt[4]2)/\Q(\sqrt2)/\Q$），因此我们得先保证 $K$ 是 Galois 扩张。如果不是，取 $K/F$ 的 Galois 闭包（所有包含 $K$ 的 $F$ 之 Galois 扩张中最小的），记为 $L$。我们声称 $L$ 也是根扩张。这是因为 $L$ 是所有 $\sigma K$ 的复合（$\prod\sigma K$ 是 Galois 的因为是正规的）。</p>
+<p>Thm (Galois). $f(x)$ 根式可解 $\iff$ 其 Galois 群可解。<br>
+Prf. 若 $f(x)$ 根式可解，则每个根都有根式塔，复合起来也一样，再用上面的引理（可以先用引理再复合，也可以先复合再用引理）。于是 $f(x)$ 的分裂域包含于一个 Galois 的、根的、每次都是循环的扩张，这个扩张根据基本定理是可解的。$f(x)$ 的 Galois 群是这样一个扩张的商群，所以也是可解的。<br>
+若 Galois 群可解，就有一个循环扩张的域列。虽然是循环的，我们还不知道它是不是单根扩张。所以也要先加入 $n$ 次单位根，再用逆命题（含单位根的循环扩张一定是单根扩张），这样才符合“可以用根式表示”的定义。</p>
+<p><a class="link" href="https://math.stackexchange.com/a/1575702"  target="_blank" rel="noopener"
+    >https://math.stackexchange.com/a/1575702</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="ce169f91d5a55cd7989a721b496a8af0"
+    data-page-url="https://littlereuben.github.io/study/course-abstract-algebra/"
+    data-page-title="抽代期中题 &amp; 复习"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

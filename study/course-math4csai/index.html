@@ -1061,7 +1061,7 @@ $$</p>
   </div>
 </div>
 <div class="theorem-box">
-  <div class="theorem-title">Property (Random vectors in the ball)</div>
+  <div class="theorem-title">Property (Random Vectors in the Ball)</div>
   <div class="card-text">
 With $\P=1-\Omicron(n^{-1})$:
 <ul>
@@ -1691,7 +1691,7 @@ Uniqueness is from $\r(P-I)=m-1$.
   </div>
 </div>
 <div class="theorem-box">
-  <div class="theorem-title">Corollry (Reversible Markov Chain)</div>
+  <div class="theorem-title">Corollary (Reversible Markov Chain)</div>
   <div class="card-text">
 For SCC, if $\b\pi$ satisfies $\b\pi_xp_{x,y}=\b\pi_yp_{y,x}$ for every edge and $\sum_i\b\pi_i=0$, then $\b\pi$ is the stationary distribution.<br/>
 注意这里加强了条件，所以这样的向量不总是存在。如果稳态分布满足该条件，则称它为 reversible. $P$ 对称一定是 reversible 的。
@@ -1715,7 +1715,7 @@ For desired distribution $\pi$ (with no zero entry) and any given $G$, define $P
 $$
 \pi_xp_{x,y}=\min(\pi_i,\pi_j)=\pi_yp_{y,x}
 $$
-so $\pi P=\pi$. Now 我们就是要根据 $P$ 随机游走，由于 $\pi$ 的两个位置的比是容易求的，所以相对容易些。然而，$\deg$ 是指数级的时候，仍然太慢了，所以还得优化。这个 M-H 还有一个更加一般的算法：我们可以将上述算法理解成以 $1/r$ 走到相邻点，再根据两点的概率关系，以某一概率”撤回“。那么 $1/r$ 其实可以改成一个更一般的“提议分布”$T$，然后让
+so $\pi P=\pi$. Now 我们就是要根据 $P$ 随机游走，由于 $\pi$ 的两个位置的比是容易求的，所以相对容易些。然而，$\deg$ 是指数级的时候，仍然太慢了，所以还得优化。这个 M-H 还有一个更加一般的算法：我们可以将上述算法理解成以 $1/r$ 走到相邻点，再根据两点的概率关系，以某一概率“撤回”。那么 $1/r$ 其实可以改成一个更一般的“提议分布”$T$，然后让
 $$
 P_{i,j}=T_{i,j}\cdot\min\left(1,\frac{T_{j,i}\pi_j}{T_{i,j}\pi_i}\right)
 $$
@@ -1869,7 +1869,7 @@ $$</p>
 </li>
 </ol>
 <div class="theorem-box">
-  <div class="theorem-title">Theorem (Bound the Mixing Time throught Eigengap)</div>
+  <div class="theorem-title">Theorem (Bound the Mixing Time through Eigengap)</div>
   <div class="card-text">
 For irreducible, aperiodic, reversible Markov chain, let $\lambda_2$ be the second largest eigenvalue norm of the transition matrix, for mixing time of $\b p(t)$:
 $$

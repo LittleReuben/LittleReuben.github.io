@@ -211,6 +211,7 @@
 &lt;li&gt;撇号如果直接用 &lt;code&gt;&#39;&lt;/code&gt; 会很丑（$&amp;rsquo;$），必须用 &lt;code&gt;^\prime&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;html 格式的图片要居中必须单独写 center。&lt;/li&gt;
 &lt;li&gt;如果希望强制调整表格列宽，可以用 &lt;code&gt;&amp;lt;div style=&amp;quot;width: 宽度&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;。注意其副作用是在不同宽度的屏幕上可能会显示得不好看。&lt;/li&gt;
+&lt;li&gt;我在写域论笔记时试图 &lt;code&gt;\def\char{\operatorname{char}}&lt;/code&gt;，然后 &lt;code&gt;\ne&lt;/code&gt; 就没法用了，也不知道为什么……&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;github-部署&#34;&gt;Github 部署
 &lt;/h3&gt;&lt;p&gt;Github 部署的思路如下：&lt;/p&gt;
@@ -245,7 +246,7 @@
 &lt;li&gt;如果想改中文，在 layout/partial/comments/provider/cusdis.html 里 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;{{ $host }}/js/cusdis.es.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt; 的上面加一句 &lt;code&gt;&amp;lt;script async defer src=&amp;quot;https://cusdis.com/js/widget/lang/zh-cn.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Cusdis 的块非常矮，目前我没有找到一个能使块长随着评论数量变化的方法，一个差一点的解决方法见 &lt;a class=&#34;link&#34; href=&#34;https://barthpaleologue.github.io/Blog/posts/add-and-customize-cusdis-hugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://barthpaleologue.github.io/Blog/posts/add-and-customize-cusdis-hugo/&lt;/a&gt;。upd：问题已解决，见该博客评论。强迫症会发现暗色模式时底部有一像素高的区域会是纯黑（&lt;code&gt;#121212&lt;/code&gt;），这个似乎没法解决。&lt;/p&gt;
+    &gt;https://barthpaleologue.github.io/Blog/posts/add-and-customize-cusdis-hugo/&lt;/a&gt;。upd：问题已解决，见该博客评论。问题是滚动条还在，这个似乎没法解决。&lt;/p&gt;
 &lt;h3 id=&#34;日常维护&#34;&gt;日常维护
 &lt;/h3&gt;&lt;p&gt;我一般习惯这样：&lt;/p&gt;
 &lt;ol&gt;
