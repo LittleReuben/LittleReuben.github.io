@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇想法。 这篇文章的构思和第一部分是 3 月份完成的，到了 8 月，想法其实变了不少，可能通篇看下来会注意到不少自相矛盾或者脱节的地方，说实在很">
+<title>一些 CoT</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/theory/lifethoughts1/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="一些 CoT">
+<meta property='og:description' content="这是一篇想法。 这篇文章的构思和第一部分是 3 月份完成的，到了 8 月，想法其实变了不少，可能通篇看下来会注意到不少自相矛盾或者脱节的地方，说实在很">
+<meta property='og:url' content='https://littlereuben.github.io/theory/lifethoughts1/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Theory' /><meta property='article:published_time' content='2025-08-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-19T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="一些 CoT">
+<meta name="twitter:description" content="这是一篇想法。 这篇文章的构思和第一部分是 3 月份完成的，到了 8 月，想法其实变了不少，可能通篇看下来会注意到不少自相矛盾或者脱节的地方，说实在很">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/thoughts/" style="background-color: #2a9d8f; color: #fff;">
+                理论 &amp; 思想 :: 一些想法
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/theory/lifethoughts1/">一些 CoT</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-08-19</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    8720 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #CAF2B0; color: #2A6A00; padding-left: 1em; border-left: 4px solid #6FC339; line-height: 25pt;">这是一篇<b>想法</b>。</div>
+<p>这篇文章的构思和第一部分是 3 月份完成的，到了 8 月，想法其实变了不少，可能通篇看下来会注意到不少自相矛盾或者脱节的地方，说实在很多相左的观点现在也还在我脑中共存着。就把这篇文章当作不断自我辩论的一些记录好了……不过主要还是写给自己看的……</p>
+<p>直至不到半年前，自己对学习的心态仍在以前久积而成的旧摊子中打转。初高中时我确实自学了很多东西，这一习惯给我的益处不必多说。其实我所做的也无外乎两类事：为了 OI 水平的长期积累，深度钻研某类知识；或是在期中期末/学考之前，速通课本里的要点。从一个角度看，这两者可以说是自学对象的两类极端，但用另一句话来说，它们在此层面上是相同的：都是面对明确的目标，唯一的必然的学习路径。</p>
+<p>这就导致我的自学模式过拟合了这两类情形，而且自认为已经掌握了自学的精髓。具体来说，以下几个特征能够具体刻画我的习惯：</p>
+<ul>
+<li>在正式上课之前提前学（上课再学一遍）。</li>
+<li>完整地看书，标记每一处细节，明确各概念的边界情况，容易混淆的东西。</li>
+<li>试图读懂每个定理的证明，哪怕课本上是证略，也要从其他书里找到使用更复杂工具的证明。读懂包括两个层面，一是以自己为 Coq，compile 一遍推导；二是理解证明背后的 motivation，并以此出发，试图了解、总结该知识点出发的理解思路与处理技巧，简而言之，以 3b1b 的呈现方式为理解的至高追求。</li>
+<li>提出自己对知识点相关的思考，对于有不同理解方式（可能由历史原因造成）的地方提出自己的想法。典型例子如<a class="link" href="https://littlereuben.github.io/study/differential/"  target="_blank" rel="noopener"
+    >关于微分的理解问题</a>。</li>
+<li>考虑凭借自己的思维能力，研究一些有难度的拓展问题。典型例子如<a class="link" href="https://littlereuben.github.io/study/faa-di-bruno/"  target="_blank" rel="noopener"
+    >复合函数高阶导的公式</a>、群论部分的<a class="link" href="https://littlereuben.github.io/study/gtm73-group-theory/#12-%E6%9C%89%E9%99%90%E7%BE%A4%E5%88%86%E7%B1%BB"  target="_blank" rel="noopener"
+    >有限群分类</a>。</li>
+<li>做书里的习题，总结较全面的解题套路，类似 OI 时写过的两篇方法总汇。</li>
+<li>将自己学习、思考的结果总结成 comprehensive 的笔记，希望在思想解释和一部分内容的难度上，强于课本。以<a class="link" href="https://littlereuben.github.io/study/course-physics2/"  target="_blank" rel="noopener"
+    >普物 2 笔记</a>和<a class="link" href="https://littlereuben.github.io/study/course-astronomy/"  target="_blank" rel="noopener"
+    >天导笔记</a>为代表。做这事主要是考虑到，学习知识的最好方法是把一个不懂的人讲懂，也就是做一次逻辑链条完整的输出。</li>
+</ul>
+<p>Seems fine, doesn't it?</p>
+<p>我相信自己能通过这套方法，啃下任何书和课，无论门槛高低。事实上我也做到了——<a class="link" href="https://littlereuben.github.io/study/gtm73-group-theory/"  target="_blank" rel="noopener"
+    >GTM73 群论部分</a>。</p>
+<p>开学之后，随着大量接触信息，我急遽地意识到自己要学的东西太多了。室友 ycx 是个名词党，和他的聊天使我了解到更多数学领域的方向。我发现有很多非常底层的知识和技能，跟未来科研内容的思维、研究方式有着紧密的联系，而这些知识和技能遍布数学和计算机的所有子领域。这使我感到十分缺乏安全感。于是，在对课内的内容套用以上的方法的同时，我随手选了两门比较基础的数学，范畴论和拓扑学，自己开始啃。理解这些领域基本的思维方式是很费神的事，而且那些书基本从头开始就是比较 high-level 的行文方式，所以进度不可能快。我愈发焦虑。但是普物 2 上强度之后，也就是学期 1/3 左右，我就已经忙于应付课内的笔记，全然顾不上自学了。完整记笔记非常要命的一个事是，一旦在学期开始时开了坑，就没法停下来了，因为我的预期是写一篇完美的“教科书”，而且复习的过程就是内化在写笔记里，如果中止，我的完美主义和学习节奏就会同时爆炸。期中之后的事态发展可想而知。</p>
+<p>那个学期，每当和别人聊到学习，我都会提起两个想法。一个是感觉所有课都在忙乱地赶进度：线性代数速通伴随、谱分解、SVD、Jordan，编入门三节课讲完 OOP，算设把自己学 OI 时了解或没了解过的偏门内容都提了一遍，计入门塞一堆杂货给你，天文学导论更是疯狂。另一个是我希望本科有六年（zby 说他也有类似的想法，不过他想的是五年），前三年静下心来学数学，后三年搞科研。</p>
+<p>分析一下原因吧。</p>
+<p>很明显，这些行为有着浓厚的 OI 训练风格，OI 毕竟特殊。这样太极端。</p>
+<p>一个 explicit 的缘由是与 zhr 的谈话。他论述了关于国内大学教学节奏的问题；他说，若我希望去探寻真正的创新，为了建构正确、扎实的知识体系，仔细地且以合理的顺序咀嚼这些基础知识的思想是很必要的，只有这样才能理解这些工具是为何产生的。他说，如果一门课的老师无法做到在课上使你完全理解这个知识的原理，那他就不是好的老师。他的话使当时着迷于有限群分类的我改变了一些观念。我意识到自学的局限性，以及知识学习的顺序对思维结构的影响。一个形象的解释是，在初学游泳时直接丢进深水区，这种对之前的我可以说是法宝的方式，是不能滥用的。于是我希望静下心来，更从全局思考自己学习的安排。</p>
+<p>如果排除功效的考量，那么说真正驱使我去这么行动的原因，是我愿意花费很多时间，去研究数学中一些简单发展出的复杂模型——就像 OI 中围绕一个知识点能构造出无数优美的问题一样。典型的内容包括：微积分→泰勒展开的组合恒等式推导、Liouville 理论、复杂不定积分技巧、不定积分无初等表示的定积分；线性代数→一些特殊矩阵的行列式与特征值、Markov 过程；物理→一些特定结构下的解析解；抽象代数→有限群、单群、环分类、范畴论（这个应该称为推广）；也包括各种模型的可视化。我很享受通过一些进阶手段推导得到最终那简洁结果的过程，回忆录中的一段话很清晰地表达了这意思：</p>
+<blockquote>
+<p>……我热衷于发现问题模型和解题算法之间的对应关系，那种关系是多么奇妙，像高维的、千变万化的锁和钥匙，在世界诞生之初就已经确立了神秘的、千丝万缕的联系，却从未为人所知。我见到一把看似平平无奇的锁，在它所对应钥匙被我思索之前，我甚至不能想象出它的形式，我充满着期待，直到我推导出那把钥匙，就如同依据一条短短的迭代公式生成出如画般的图案，通过茫茫星图的无尽线索找到一颗宜居的星球，那精妙而自洽的系统豁然眼前，使我同时感受到发现和创造一体的喜悦。……我意识到，这个客观世界，这宇宙中的“上帝之指纹”，是能通过人类的理性去感知，去把握的，这使我感受到信息学那深邃的力量。</p>
+</blockquote>
+<p>至于做如此详尽的笔记，在“自己写一遍加深理解”和“方便复习”之下，有一层更深的心理，就是想留下一些文字，希望周围的人或者后人，在学习知识遇到难以解决的困惑时，能从我的博客中得到一些帮助或启发，如此，我的思想得以一直活下去。说到底，还是面对记忆消逝的恐惧而做的自我安慰。</p>
+<p>所以我想否定或肯定哪些想法呢？如今看来并无这种意图。又一个半年过去，我的学习习惯从表面看似乎与过去相差无几，可观念中已发生不少微妙的更迭，于是许多事情的结果也就不同了。</p>
+<hr>
+<p>近期十分惊讶于之前自己思想的守旧，身在起点却无视着许多事实。只能说，过去的成功对自己的禁锢，是潜移默化且不自觉的。22 年末到 24 年初，我显得根本不屑于了解任何有关 llm 的事情。第一次用 ChatGPT 为的是 polish CTS2024 准备的英文自我介绍。</p>
+<p>r1 发布的时候我刚好在看《具体数学》，就试着问了几道中等难度的题，r1 都给了准确而简洁的答案（这些题在网上查不到，且 r1 的做法和标答思路不同，因此可以排除背数据）。我突然就 overwhelmed 了，在电脑前呆坐了一下午，脑中无比混乱。突然暴露在冲击之下使我如同面临末日一般。想起那时的反应，总觉得有一丝荒诞。</p>
+<p>那几道题其实并不难，用标准的，可以机械化的代数方法就可以解，没什么思维含量。我也不是才知道 AI 能做这种题，12 月 o3 达到 CF 2700 的事情就传开了。但在看到 r1 的 CoT 与解答之前，我从未切身感受过 AI 能准确处理数学对象，能应用一般性的解题套路这样的事。此前，所谓&quot;Can machine think?&ldquo;的问题对我来说只是流于理论的思想实验，我没有认真看待过对现实中 AI 能否准确思考问题之类的想法，就是因为没见过，无法想象。我认为当下 AI 做的事都是复杂且平凡的，或者说比较“脏”的；而要到达形式化推理的层面，不可能是量的积累，而需要另辟蹊径。我在潜意识里屏蔽了 o3 的消息，认知中我先是将它归为一种类似围棋 AI 的“特殊类型 AI”（认为它的 approach 是“不好”的，例如反复试错或猜算法，cherry picking，而不是真的“想”到正解），后来听说 OpenAI 拿到 Frontier math 测试集的新闻就默认 CF 的 benchmark 也有猫腻，总而言之就是编一些看似合理的，能缓和事情残酷性的借口来自我蒙蔽。r1 直接将 AI 能够推理的事实砸在了眼前，于是许多设想就不再是浮云，事情就开始变得紧迫起来：</p>
+<p>我发现自己细细研究这些 tricky 的组合问题没意义了，因为 AI 都能解，解起来如此轻松简单。推而广之，我曾经所学习的，一笔笔记下的、绞尽脑汁思考的、数年苦苦练习的这一切，在脑中建起的数学与算法的大厦，通通被碾成二维，它们所在的平面，叫 trivial。</p>
+<p>后来看 Quantum Computing since Democritus，其中讲到“人脑本质上就是一台又热又湿的图灵机”，这不过是个常识罢了，我也知道 Church–Turing 论题，但几条废话般的常识相组合，所得到的“人脑毫无特殊之处”的信条却使我愈发绝望。开学后的一个月里，不管学什么我都感到不安，因为每次想出些成果后，“这 AI 也能做”的念头就紧随而至，压过成就感与喜悦。我的学习计划相应地改变。甚至做 TCS 的想法也动摇了。</p>
+<p>周围的人似乎对这些事少有反应，大概只是麻木了吧……？我应该整理一下自己听到的一部分（有效的）看法：</p>
+<ol>
+<li>AI 将在不远的将来（5~10 年），在任何方面都强于人。</li>
+<li>AGI 还很远，终将实现但至少近几十年不必考虑。</li>
+<li>AI 目前能解决的问题（包括竞赛），离真正的科研还有很大的鸿沟（我的理解是，AI 以科研需要的方式规划与思考，这件事在算法层面上如何做到，还是无法想象的）。</li>
+<li>（ycx）AI 现在能做这些题并不是出乎意料的事，因为应用解题套路也是平凡的。一些真正的研究需要洞见，例如很多数学上的难题需要的是发明新的数学工具。我不认为 AI 具有这种能力。</li>
+<li>（strong AI skeptic）AI 不能真正理解命题，人能。
+<ul>
+<li>（Penrose）大脑内的微管结构内有量子重力效应，超过图灵可计算的范畴（hypercomputation），计算机无法模拟人脑。</li>
+</ul>
+</li>
+<li>AI 为了达到强于人类，所需要的算力可能超过目前计算机硬件架构的上限。</li>
+<li>AI 目前的算法无法使 AI 把握物理世界，需要新的训练思路（世界模型之类）。</li>
+</ol>
+<p>其实好几条的意思都基本类似。</p>
+<p>关于什么是“理解”的问题，书里的 4、11 章已经说明充分。Penrose 的说法我确实难以接受。</p>
+<p>关于科研，这张示意图应该就能表达清楚：</p>
+<p><img src="/theory/lifethoughts1/AI.png"
+	width="3710"
+	height="1100"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="337"
+		data-flex-basis="809px"
+	
+></p>
+<p>3 和 4 这类问题总而言之，用通俗的话来说，我认为“洞见”是理性与感性共同作用的结果，而感性的源头无外乎是与物理世界的互动（这对于一些外行人认为 AI 不具有人的灵感、精神、生命力量之类的说法也适用），因此最终还是归为 7。这方面目前的研究情况尚不明朗。不过我想根据人脑性质的原则，这也只是 matter of time。</p>
+<p>无论如何，至少可以确定的是，在百年的尺度下，在假定 AI 的技术基础充分发展（而不受社会/资源因素极端限制）的前提下，AI 将在几乎任何方面都强于人。于是可以排除得到所有我们现在可做的有意义的事：</p>
+<ol>
+<li>做科研（如果真如 4 所说，人所超过 AI 的面积仅趋向而不等于 $0$ 的话）。
+<ul>
+<li>为做科研做准备，即眼下的学习（仅仅是手段，而自身没有意义）</li>
+</ul>
+</li>
+<li>与物理世界做有效的互动。</li>
+<li>帮助推动 AI 发展。</li>
+</ol>
+<p>想必有人这时会打断我说，凭什么就开始定义所谓“有意义的事”了？就此打住吧。形而上的问题一会儿再聊。</p>
+<hr>
+<p>CTT2023 之后，面对自己 OI 水平的日益荒废，我内心挣扎了很久。THUPC2024、THUPC2025 考前的复健几乎就是徒劳，为安慰自己而浪费零散的时间去做 CF 题，再没有任何价值了。我总是那么看重当下实力的维持，大概是因为觉得除了实力外，没有什么别的可以证明自己了。不过那时这么想也无可厚非，确实，离开了 OI，剩下的只有那点思维能力和经验了，这经验诚然如此宝贵，但都是不足以支撑自己的虚幻的东西吧。</p>
+<p>我开始看 MC 速通。它在许多方面都与 OI 如此相似（竞赛大都如此吧），以至于我常一边看一边跟着琢磨，玩家平时练习应当采用哪些方法来避免比赛中犯一些错误，然后就会联想到自己曾经训练时一些不怎么美好的回忆（笑）。从 any% 退役一年半后，Feinberg 在 24 年 10 月回归 ranked 开始练习，三天就到了 top 10，这恢复速度是极其惊人的。看着他重新练 magma portal、hard zero，学 boat eye 和 ground zero 时，我就想起了自己之前一次次在考前复习模板的经历。我将自己对 OI 的心理投射到速通上了，那些 tournament 能带给我重回赛场上的感觉，Fein 复出的成绩能减轻我潜意识里对实力退步的焦虑。</p>
+<p>可圈子里的人们总是会散的。几十年后，当这些 speedrunner 们老去而再也无法灵活操作电脑，当他们回望人生时，会怎样看待自己曾经在 Minecraft 1.16.1 上所达到的成就呢？</p>
+<p>我对 OI 的执念在年初时慢慢消解了。<a class="link" href="https://liu-cheng-ao.blog.uoj.ac/blog/9260"  target="_blank" rel="noopener"
+    >lca 的文章</a>和 fsz 进队的事给了我点安慰——OI 社区的发展大概就是由一代代选手的新秀、传承与谢幕的轮回所推动的吧，自己曾经做过的事也算能对此有些贡献，也就满足了；同时，r1 的事使解题技巧和速度在我心中的价值大打折扣，我逐渐能明白去年 zhr 说的对 OI 的观点了——是啊，以现在的眼光来看，OI 中也没什么令人着迷的设计与结构了，其本质是费劲心思组合那一堆已知技巧，并未打破思想的边界。当然，我也不再赋予速通什么意义，而使其回归单纯的消遣。THUPC2025 时我更能清楚地感觉到，自己已经谦卑地接受了实力的一去不复返，对赛场的感情更多是怀念那种氛围，而不是对竞赛解题本身的珍视了。</p>
+<hr>
+<p>思来想去，上面的这些事的背后是同一个问题，即我如何理解学习与研究数学的价值。与 OI 的告别意味着我移除了“竞技性”的滤镜，在此之外，还剩下许多。</p>
+<p>对数学之美的追求贯穿了我的学习生涯。为此我不惜时间，深入每一处证明细节，将所有处理技巧逐一列出。可是，这真是应当追求的目的吗？</p>
+<p>20 世纪前的数学已是无边的海洋，仅用“初等”方法可开拓出的领域就足够研究一生。我若如 OI 时一样，永远在其中迂回盘旋，诚然能体会太多的美，也能获取创造与探索未知的喜悦，然而我的思维却是不自由的——永远局限于无人涉足，却早已被确定必然可解决的范围之中。</p>
+<p>迷失学习的方向，而一味沉浸于数学之美中，现在看来这就如同玩物丧志了。美只是副产品，我应当走向前线，去寻找那些从未被想象过的问题与解，而无论最终的结果是简洁，还是冗长或怪异。</p>
+<p>前段时间看到了 Dijkstra 关于学术研究的准则，我觉得放在这里特别合适：</p>
+<blockquote>
+<p>&ldquo;Raise your quality standards as high as you can live with, avoid wasting your time on routine problems, and always try to work as closely as possible at the boundary of your abilities. Do this, because it is the only way of discovering how that boundary should be moved forward.&rdquo;</p>
+<p>&ldquo;We all like our work to be socially relevant and scientifically sound. If we can find a topic satisfying both desires, we are lucky; if the two targets are in conflict with each other, let the requirement of scientific soundness prevail.&rdquo;</p>
+<p>&ldquo;Never tackle a problem of which you can be pretty sure that (now or in the near future) it will be tackled by others who are, in relation to that problem, at least as competent and well-equipped as you.&rdquo;</p>
+<p style="text-align:right">——<i><a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD637.html">The Three Golden Rules for Successful Scientific Research</a></i></p>
+</blockquote>
+<hr>
+<p>去年的自己是多么鼠目寸光啊，我经常想。为什么 zhr 已将这观点如此清晰地向我表达，我却迟迟没有真切的感受？客观地考虑，这其实是一个不可避免的过程：在对高等数学这工具体系的结构没有基本了解时，心态确实是不同的；若是早些就急于了解前沿而疏于数学基础，自己的思维体系上就会漏洞百出。说回这一心态的转变，在我身上，是由 AI 刺激引起的，可很明显整件事和 AI 没有必然联系。如果把所有人类的已知结果与研究能力看成一个“库”的话，以此作为论据所导向的结论也是一样的——我想从竞赛转向科研的人们大概都走过这样的思想路径吧。</p>
+<p>所以其实都是些陈词滥调罢了。</p>
+<p>但问题不在于此。现在的问题在于，数学研究，至少 TCS as a whole，其未来令人悲观。</p>
+<p>于是我再次问自己，寻求更本质的要素：我如何理解学习与研究数学的价值。</p>
+<p>See, 人总是想追求永恒的东西，并称之为“意义”。对这“永恒”有诸般诠释，其体现是如此参差——不必多言“文章之无穷”或“最后一次死亡是被人遗忘”云云，此外其并不止于具象或静态的形式——我还是举些例子来说明吧：好的学习者在学习具体知识之余总是思考更普适的学习方法与理念，例如如何学一门语言，如何练习解题技巧性较强的科目，更一般的说法是如何自学，以及控制学习节奏、管理学习质量的方法，直至以怎样的方式判断应学与不必学的内容。发展了关于此的观念后，他就不惧怕学习任何从未接触过的东西，他就能终身学习。当然，这可以套用到任何一个事业上——对了，事业。人在社会上总是希望做一些事业，或是为了家族，或是为了周围的人们，也有很多是为了家乡、祖国，或者整个社会乃至所有人类。并且随着年龄的增长，他所做工作的层次也不断提高，可能是从具体的技术细节，计划指定，到指导晚辈，分配资源，最后化为思想的引领。这并不是由于老去导致的水平退化，而是因为他相信这一群体会载着他的一份贡献走下去，且不仅如此，他的教诲能被后人所学习，从而具有自传承与发展，形象地说是落地生根，用术语说是 Quine 的性质。又譬如人们总是尊崇一些精神上纯粹的东西，例如爱情、奉献、自由、反抗精神，乃至意识形态、宗教之类，这些是能够在世界上生发出无穷事物的种子。最后，生命——正如我们熟悉的课文中写道：</p>
+<blockquote>
+<p>人们却不应该为此感到悲观。我们没有时间悲观。我们应该看到生命自身的神奇，生命流动着，永远不朽。地面上的小草，它们是那样卑微，那样柔弱，每个严寒的冬天过去后，它们依然一根根从土壤里钻出来，欢乐地迎着春天的风，好像那刚刚过去的寒冷从未存在。一万年前是这样，一万年以后也是这样！在春天，我们以同样感动的眼光看着山坡上那些小牛犊，它们跳跳蹦蹦，炫耀它们遍身金黄的茸毛。永远的小牛犊，永远的金黄色茸毛！</p>
+<p>感谢生命的奇迹，它分开来是暂时，合起来却是永久。它是一个不懂疲倦的旅客，总是只暂时在哪一个个体内住一会儿，便又离开前去。那些个体消逝了，它却永远存在。它充满了希望，永不休止地繁殖着，蔓延着，随处宣示它的快乐和威势。</p>
+<p style="text-align:right">——严文井. <i>永久的生命</i></p>
+</blockquote>
+<p>结果当然是，哪有什么永恒呢……于是，我们离虚无主义只差一步之遥了。这时有三条路：第一条是对世界的运作做些假设，对此有很多讨论；第二条是拥抱无常，在 21 年就写过这些<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。遗憾的是这两条路并不告诉我们还能够做些什么<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。第三条是再寻找些确切的东西：</p>
+<blockquote>
+<p>&hellip; See, consciousness has this weird dual property that, on the one hand, it’s arguably the most mysterious thing we know about, and on the other hand, not only are we directly aware of it, but in some sense it’s the only thing we’re directly aware of. You know, <em>cogito ergo sum</em> and all that.</p>
+</blockquote>
+<p>是的。然后呢？“过快乐的生活”之类的话显然不是我想找的答案。</p>
+<blockquote>
+<p>Now, is there anything else that also produces the feeling of absolute certainty? Right–math! Incidentally, I think this similarity between math and subjective experience might go a long way toward explaining mathematicians’ “quasi-mystical” tendencies. &hellip; This is a good thing for physicists to understand: <strong>when you’re talking to a mathematician, you might not be talking to someone who fears the real world and who’s therefore retreated into intellectual masturbation. You might be talking to someone for whom the real world was never especially real to begin with!</strong></p>
+<p style="text-align:right">——(both) Scott Aaronson. <i>Quantum Computing since Democritus</i></p>
+</blockquote>
+<p>这是最后一件能说服我是永恒的东西，如果有的话——至少目前是这样。<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>于是有一段时间，我迫使自己避免考虑任何社会与生活上的事，将全部的精力集中于数学学习中；后来纷扰的世事更令我将这一行为推向极端——我甚至想，自己宁愿永远住到南半球的无人小岛上，日夜浸于书卷之中。</p>
+<p>就这样，我将自己夹在两道崖壁之间：一面是意义的消解，一面是能力的消解。当然这状态毕竟无法长久维持，我必须想清了。</p>
+<p>近月越来越清晰地预感到，TCS 的死亡将会早于自己所希望的时间到来。我们还有很多可以做的，可是我已变得常常不知所措。</p>
+<p>这里我并没有写成“数学的死亡”，是因为自己对纯数学的研究并不了解。shj 告诉过我，寻找不同数学领域之间的联系并将它们统一起来是目前的一大图景。这样又好些，将不可言说的东西变为可言说的东西，正如上面提到的，所需的创造力往往源于对自然世界的感知，AI 到达这一步的时间可能还晚些。</p>
+<p>这里的“死亡”是指什么呢？当然，我总是可以去 appreciate 解决那些难题而精巧设计的解答，但我指的是，如果未来纯理智所涉及的土地彻底被 AI 接管（即使其中仍有尚待解决的问题），就无人会愿意踏足其中了，客观上我没有条件与力量对其作研究了。</p>
+<p>或许该早早放弃对“有为”的执念吧？</p>
+<p>先退一步：假设 10 年内世界模型无法完成。但至少符号推演已经死去。对此情形，周围有许多人已经给出了答案，我却翻来覆去无法想通：他们告诉我，一切数学中的发现都受推动于解决现实中问题的需要，所有抽象的概念都发源于自然；他们说，理论应当根植在实践当中并反哺实践，找不到应用的研究永远是空中楼阁。必须承认这都是历尽检验的真理，可接受它们总使我不安：</p>
+<p>我怎愿意徒然做功于这转瞬即逝的物质世界呢？</p>
+<p>我很困惑。我相信他们也曾思考过我想的这些问题，他们是怎样回答自己的内心的呢？</p>
+<blockquote>
+<p>Reason is, and ought only to be the slave of the passions, and can never pretend to any other office than to serve and obey them.</p>
+<p style="text-align:right">——休谟</p>
+</blockquote>
+<blockquote>
+<p>The intellect says: &lsquo;Ostensibly there is color, ostensibly sweetness, ostensibly bitterness, actually only atoms and the void&rsquo;, to which the senses retort: &lsquo;Poor intellect, do you hope to defeat us while from us you borrow your evidence? Your victory is your defeat.&rsquo;</p>
+<p style="text-align:right">——Democritus. In Schrödinger. <i>What is Life?</i></p>
+</blockquote>
+<hr>
+<p>关于 AI，zby 关于观化<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>的论证中的一段略加修改就足以说明我的想法。其中提到一方面“知理终可穷而不必穷”，那么同样，如果有一个严格强于我们的思想机器，它能无休止地推演理之边界，那我们也相当于知道我们所有能知道的终将被知道，也就不妨止于此了。于是最终又来到了这一看法：将 AI 视作我们的后代或演化的产物就罢。</p>
+<p>面对自身，大概必须向后退一步，回到确切的意识，细细品味我们所感受与经历的一切，如同记录实验般观察宇宙当下发生的万千变迁。正如 ycx 说的，见证 AI 的演进与它掀起的种种效应，正是我们这代人的命运；也正如 zby 写到的观化。事物的发展哪有绝对的高低与方向性呢？外界的动荡只是对前序状态所作出的反射，自身观念的所谓“成熟”相当于思想格式塔的转换。<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>感知这一切时就毫无好恶或判断，只觉趣味了。</p>
+<p>要时刻谨记自己的位置啊，方能平息所有无谓的用心。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>我自己. <em>一些想法</em>. 发在 Solvay, 2021.11.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>严格来说，第一条路中有些观点可以指导行为，但都不够 general 以使我信仰。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>值得强调的是，与文中的观点一致，针对物理规律，我认为不足以是永恒的。用通俗易懂的说法表述是，我认同《死神永生》中的说法，但不认同《镜子》中的。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>zby. <em>万佛湖心论道</em>. 2025.5.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>这并非相对主义。读过《科学革命的结构》更能容易理解这句话。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="3ec7fa81173022f60ba8568963c1f6a2"
+    data-page-url="https://littlereuben.github.io/theory/lifethoughts1/"
+    data-page-title="一些 CoT"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>
