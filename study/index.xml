@@ -7,7 +7,92 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Fri, 04 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>代数与计算自学笔记</title>
+        <link>https://littlereuben.github.io/study/course-algebra-and-computation/</link>
+        <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-algebra-and-computation/</guid>
+        <description>&lt;div style=&#34;background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;摘抄笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;这门课停开，或许是 TCS 将死的迹象之一吧。不过还要感谢这次停开，为我空出了宝贵的时间。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;这篇笔记主要梳理了这门课的思想脉络以及一些没提到的内容，略去了较多细节，适合辅助 &lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/shiys22/p/17627121.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sys 的笔记&lt;/a&gt;学习。&lt;/p&gt;
+&lt;p&gt;思路图中，直角矩形之间的箭头为问题归约，圆角矩形之间的箭头是思路推导。图是 svg，可以拖到新标签页打开放大。&lt;/p&gt;
+&lt;h3 id=&#34;三度图同构&#34;&gt;三度图同构
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-algebra-and-computation/part1.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;几个较难理解的部分：
+&lt;ul&gt;
+&lt;li&gt;所谓“求群”就是指求一组 poly 大小的生成元。&lt;/li&gt;
+&lt;li&gt;增量扩展自同构的过程要对上一步的群再加筛选。&lt;/li&gt;
+&lt;li&gt;博客里“块结构和包含了至少一个 $P_b$ 的子群结构是对应的”不对，应该是对于一个固定的 $b$，这两者一一对应。
+&lt;ul&gt;
+&lt;li&gt;我在理解时想到了另一个问题：如果对于一个子群，它同时包含两个 $P_a$ 和 $P_b$，然后用各自的方法构造一个块系统，这两个系统一定一样吗？看起来不太容易解决。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;找 2 block system 时，有些 $(a,b)$ 对可能直接把整张图并起来了。因此需要枚举 $(a,b)$ 对，不过都是 poly 的无所谓。&lt;/li&gt;
+&lt;li&gt;block system 和群的关系的性质，一般通过反证（往往取 $\tau^{-1}\sigma$ 之类的构造可达）证明。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;这个做法可以扩展到五度图（作业 2.3）。主要的事情是，五度图的 $\operatorname{Ker}\pi_i$ 是 $S_2^p\times S_3^q\times S_4^r$ 的形式，是可解的，套到 $P$ transitive 的部分，我们实际上只要保证 minimal 的块系统不太大就行了，由 solvable+primitive 的引理，得到 $[P:Q]$ 是 poly 的（$Q$ 是使所有块不动的子群）。论文里提到对任意常数度图都可以做。&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://oi-wiki.org/math/algebra/schreier-sims/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;OI-wiki 里有讲 Schreier–Sims 算法&lt;/a&gt;，比博客里暴力做的 $\mathrm{O}(n^6)$ 会快一些。我感觉这个算法可以推广到对于任何子群链，只要求每对相邻子群都是 poly-index, poly-recognizable，就是可能会多个一两次方（暴力找在哪个陪集内）？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;图同构做-zkp&#34;&gt;图同构做 ZKP
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-algebra-and-computation/part2.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;图匹配的代数做法&#34;&gt;图匹配的代数做法
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-algebra-and-computation/part3.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;几个较难理解的部分：
+&lt;ul&gt;
+&lt;li&gt;核心的一个过程是倍增消环，这里的逻辑是这样的：初始假设所有边权为 $0$，拿出完美匹配边并后，处理四元环，然后再次拿出最小权完美匹配边并，这时这些边无四元环，然后不断循环。所以保证过程成立的引理不是“MWPM 的边集并的所有 PM 都是 MW”，而是“MWPM 的边集并的所有环 circulation 均非零”。&lt;/li&gt;
+&lt;li&gt;关于行列式，如果将加、乘运算视作单个节点那么深度是单 $\log$。确定性构造匹配的方法，行列式内元素的值域是 $2^{2^{\mathrm{O}(\log^2n)}}$。这种情况下单次运算是 $\log^2n$ 的高度，所以总共是 quasi-NC&lt;sup&gt;3&lt;/sup&gt; 的。论文的&lt;a class=&#34;link&#34; href=&#34;https://image.informatik.htw-aalen.de/~thierauf/Papers/PMquasiNC.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;最新版&lt;/a&gt;纠了这个错。关于最开始讲的随机化判断完美匹配存在，值域是 $\mathrm{poly}(n)$ 的，所以单个运算的高度实际上是 $\log\log n$，可以说是介于 NC&lt;sup&gt;1&lt;/sup&gt; 和 NC&lt;sup&gt;2&lt;/sup&gt; 之间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Schwartz–Zippel 的证明很简单，用概率 + 归纳：考虑 $x_1$，整个式子 $=0$ 的概率不超过 $x_1$ 最高次项系数为零 + $x_1$ 刚好取到根。&lt;/li&gt;
+&lt;li&gt;加、乘是 NC&lt;sup&gt;1&lt;/sup&gt; 见 &lt;a class=&#34;link&#34; href=&#34;https://pages.cs.wisc.edu/~dieter/Courses/2010s-CS710/Scribes/PDF/lecture10.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://pages.cs.wisc.edu/~dieter/Courses/2010s-CS710/Scribes/PDF/lecture10.pdf&lt;/a&gt;。另外行列式有基于特征值 + 对称多项式的 NC&lt;sup&gt;2&lt;/sup&gt; 做法。&lt;/li&gt;
+&lt;li&gt;lr 跟我提了个想法：我们知道最大匹配的大小等于 Edmonds 矩阵的秩，这玩意能并行吗？如何构造方案？&lt;/li&gt;
+&lt;li&gt;博客里提到的关于一般图的两个点：
+&lt;ul&gt;
+&lt;li&gt;Tutte 定理。只需证没有 obstruction $\implies$ 有 PM。反证，不断加边直到再加就有 PM 了，这时可以说明去掉菊花点之后剩下一堆完全图，矛盾。完整证明见 &lt;a class=&#34;link&#34; href=&#34;https://oi-wiki.org/graph/graph-matching/graph-match/#tutte-%E5%AE%9A%E7%90%86&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;OI-wiki&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;PM 的 polytope 恰好等于：邻边和 $=1$ $\land$ 任何奇子集的割部分 $\ge 1$ $\land$ $x\ge 0$。证明思路是，如果后者有个顶点 $\boldsymbol{x}$ 不在前者里，只取 $\boldsymbol{x}_e\in (0,1)$ 的部分变量，考虑变量最少的一组。这个顶点一定在某个割处取到 $=1$，考虑分别把子集内外缩成一个点，得到对应的图分别有完美匹配（否则就不是变量最少的了）且完美匹配的线性组合可以取到 $\boldsymbol{x}$ 缩后的部分，两部分对应并起来就可以得到 $\boldsymbol{x}$ 有完美匹配的线性组合表示的方法。完整证明见 &lt;a class=&#34;link&#34; href=&#34;https://www.lix.polytechnique.fr/~vjost/mpri/non-bip-matching-polytope&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.lix.polytechnique.fr/~vjost/mpri/non-bip-matching-polytope&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;一般图匹配 quasi-NC 见 &lt;a class=&#34;link&#34; href=&#34;https://jakub.tarnawski.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://jakub.tarnawski.org/&lt;/a&gt; 的 The Matching Problem in General Graphs is in Quasi-NC。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;mathrmgniinmathsfam&#34;&gt;$\mathrm{GNI}\in\mathsf{AM}$
+&lt;/h3&gt;&lt;p&gt;注意博客里 AM 的定义写错了。&lt;/p&gt;
+&lt;p&gt;这玩意的思想无比简单：实际上就是有两个大小相差常数倍的集合，$S$ 可能是其中一种，Merlin 要向 Arthur 说明 $S$ 是大的那种。分两步走，首先用笛卡尔积将常数 $c$ 扩充得足够大，然后再用 $(1-\epsilon)^n\approx 1$，$(1-\epsilon)^{cn}\approx 0$ 即可。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>抽代（环、域论部分）自学笔记</title>
         <link>https://littlereuben.github.io/study/gtm73-ring-field-theory/</link>
         <pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate>
