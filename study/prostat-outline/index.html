@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 $\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\i{\\mathrm{i}}\\gdef\\N{\\mathbb{N}}\\gdef\\Z{\\mathbb{Z}}\\gdef\\Q{\\mathbb{Q}}\\gdef\\R{\\mathbb{R}}\\gdef\\C{\\mathbb{C}}\\gdef\\F{\\mathbb{F}}\\gdef\\E{\\mathbb{E}}\\gdef\\P{\\mathbb{P}}\\gdef\\M{\\mathbb{M}}\\gdef\\O{\\mathrm{O}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\r{\\operatorname{rank}}\\gdef\\id{\\mathrm{id}}\\gdef\\span{\\operatorname{span}}\\gdef\\spec{\\operatorname{spec}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\eps{\\varepsilon}\\gdef\\arcsinh{\\operatorname{arcsinh}}\\gdef\\arccosh{\\operatorname{arccosh}}\\gdef\\arctanh{\\operatorname{arctanh}}\\gdef\\arccoth{\\operatorname{arccoth}}\\gdef\\arcsech{\\operatorname{arcsech}}\\gdef\\arccsch{\\operatorname{arccsch}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\sech{\\operatorname{sech}}\\gdef\\csch{\\operatorname{csch}}\\gdef\\arccot{\\operatorname{arccot}}\\gdef\\arcsec{\\operatorname{arcsec}}\\gdef\\arccsc{\\operatorname{arccsc}}\\gdef\\tr{\\operatorname{tr}}\\gdef\\unit#1{\\mathop{}!\\mathrm{#1}}\\gdef\\re{\\operatorname{Re}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\diag{\\operatorname{diag}}\\gdef\\D{\\mathrm{D}}\\gdef\\p{\\partial}\\gdef\\eq#1{\\begin{align*}#1\\end{align*}}\\gdef\\Pr{\\mathsf{Pr}}\\gdef\\Ex{\\mathsf{E}}\\gdef\\Var{\\mathsf{Var}}\\gdef\\ip#1{\\left\\langle #1\\right\\rangle}\\gdef\\char{\\operatorname{char}}\\gdef\\J{\\mathrm{J}}\\gdef\\Nd{\\mathcal{N}}\\gdef\\Cov{\\operatorname{Cov}}$ 书：概率论与数理统计 (陈希孺)；练习 就列一下自己不会的知识点。 贝叶斯公式的意义（P36） 概率分布函数的定义（P45） Poisson">
+<title>速通概率论与数理统计</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/prostat-outline/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="速通概率论与数理统计">
+<meta property='og:description' content="这是一篇学习笔记。 $\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\i{\\mathrm{i}}\\gdef\\N{\\mathbb{N}}\\gdef\\Z{\\mathbb{Z}}\\gdef\\Q{\\mathbb{Q}}\\gdef\\R{\\mathbb{R}}\\gdef\\C{\\mathbb{C}}\\gdef\\F{\\mathbb{F}}\\gdef\\E{\\mathbb{E}}\\gdef\\P{\\mathbb{P}}\\gdef\\M{\\mathbb{M}}\\gdef\\O{\\mathrm{O}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\r{\\operatorname{rank}}\\gdef\\id{\\mathrm{id}}\\gdef\\span{\\operatorname{span}}\\gdef\\spec{\\operatorname{spec}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\eps{\\varepsilon}\\gdef\\arcsinh{\\operatorname{arcsinh}}\\gdef\\arccosh{\\operatorname{arccosh}}\\gdef\\arctanh{\\operatorname{arctanh}}\\gdef\\arccoth{\\operatorname{arccoth}}\\gdef\\arcsech{\\operatorname{arcsech}}\\gdef\\arccsch{\\operatorname{arccsch}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\sech{\\operatorname{sech}}\\gdef\\csch{\\operatorname{csch}}\\gdef\\arccot{\\operatorname{arccot}}\\gdef\\arcsec{\\operatorname{arcsec}}\\gdef\\arccsc{\\operatorname{arccsc}}\\gdef\\tr{\\operatorname{tr}}\\gdef\\unit#1{\\mathop{}!\\mathrm{#1}}\\gdef\\re{\\operatorname{Re}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\diag{\\operatorname{diag}}\\gdef\\D{\\mathrm{D}}\\gdef\\p{\\partial}\\gdef\\eq#1{\\begin{align*}#1\\end{align*}}\\gdef\\Pr{\\mathsf{Pr}}\\gdef\\Ex{\\mathsf{E}}\\gdef\\Var{\\mathsf{Var}}\\gdef\\ip#1{\\left\\langle #1\\right\\rangle}\\gdef\\char{\\operatorname{char}}\\gdef\\J{\\mathrm{J}}\\gdef\\Nd{\\mathcal{N}}\\gdef\\Cov{\\operatorname{Cov}}$ 书：概率论与数理统计 (陈希孺)；练习 就列一下自己不会的知识点。 贝叶斯公式的意义（P36） 概率分布函数的定义（P45） Poisson">
+<meta property='og:url' content='https://littlereuben.github.io/study/prostat-outline/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-09-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-14T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="速通概率论与数理统计">
+<meta name="twitter:description" content="这是一篇学习笔记。 $\\gdef\\e{\\mathrm{e}}\\gdef\\d{\\mathrm{d}}\\gdef\\i{\\mathrm{i}}\\gdef\\N{\\mathbb{N}}\\gdef\\Z{\\mathbb{Z}}\\gdef\\Q{\\mathbb{Q}}\\gdef\\R{\\mathbb{R}}\\gdef\\C{\\mathbb{C}}\\gdef\\F{\\mathbb{F}}\\gdef\\E{\\mathbb{E}}\\gdef\\P{\\mathbb{P}}\\gdef\\M{\\mathbb{M}}\\gdef\\O{\\mathrm{O}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\ker{\\operatorname{Ker}}\\gdef\\im{\\operatorname{Im}}\\gdef\\r{\\operatorname{rank}}\\gdef\\id{\\mathrm{id}}\\gdef\\span{\\operatorname{span}}\\gdef\\spec{\\operatorname{spec}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\dat#1{\\begin{vmatrix}#1\\end{vmatrix}}\\gdef\\eps{\\varepsilon}\\gdef\\arcsinh{\\operatorname{arcsinh}}\\gdef\\arccosh{\\operatorname{arccosh}}\\gdef\\arctanh{\\operatorname{arctanh}}\\gdef\\arccoth{\\operatorname{arccoth}}\\gdef\\arcsech{\\operatorname{arcsech}}\\gdef\\arccsch{\\operatorname{arccsch}}\\gdef\\sgn{\\operatorname{sgn}}\\gdef\\sech{\\operatorname{sech}}\\gdef\\csch{\\operatorname{csch}}\\gdef\\arccot{\\operatorname{arccot}}\\gdef\\arcsec{\\operatorname{arcsec}}\\gdef\\arccsc{\\operatorname{arccsc}}\\gdef\\tr{\\operatorname{tr}}\\gdef\\unit#1{\\mathop{}!\\mathrm{#1}}\\gdef\\re{\\operatorname{Re}}\\gdef\\aut{\\operatorname{Aut}}\\gdef\\diag{\\operatorname{diag}}\\gdef\\D{\\mathrm{D}}\\gdef\\p{\\partial}\\gdef\\eq#1{\\begin{align*}#1\\end{align*}}\\gdef\\Pr{\\mathsf{Pr}}\\gdef\\Ex{\\mathsf{E}}\\gdef\\Var{\\mathsf{Var}}\\gdef\\ip#1{\\left\\langle #1\\right\\rangle}\\gdef\\char{\\operatorname{char}}\\gdef\\J{\\mathrm{J}}\\gdef\\Nd{\\mathcal{N}}\\gdef\\Cov{\\operatorname{Cov}}$ 书：概率论与数理统计 (陈希孺)；练习 就列一下自己不会的知识点。 贝叶斯公式的意义（P36） 概率分布函数的定义（P45） Poisson">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/math/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 数学
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/prostat-outline/">速通概率论与数理统计</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-09-14</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    4474 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>$\gdef\e{\mathrm{e}}\gdef\d{\mathrm{d}}\gdef\i{\mathrm{i}}\gdef\N{\mathbb{N}}\gdef\Z{\mathbb{Z}}\gdef\Q{\mathbb{Q}}\gdef\R{\mathbb{R}}\gdef\C{\mathbb{C}}\gdef\F{\mathbb{F}}\gdef\E{\mathbb{E}}\gdef\P{\mathbb{P}}\gdef\M{\mathbb{M}}\gdef\O{\mathrm{O}}\gdef\b#1{\boldsymbol{#1}}\gdef\ker{\operatorname{Ker}}\gdef\im{\operatorname{Im}}\gdef\r{\operatorname{rank}}\gdef\id{\mathrm{id}}\gdef\span{\operatorname{span}}\gdef\spec{\operatorname{spec}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\dat#1{\begin{vmatrix}#1\end{vmatrix}}\gdef\eps{\varepsilon}\gdef\arcsinh{\operatorname{arcsinh}}\gdef\arccosh{\operatorname{arccosh}}\gdef\arctanh{\operatorname{arctanh}}\gdef\arccoth{\operatorname{arccoth}}\gdef\arcsech{\operatorname{arcsech}}\gdef\arccsch{\operatorname{arccsch}}\gdef\sgn{\operatorname{sgn}}\gdef\sech{\operatorname{sech}}\gdef\csch{\operatorname{csch}}\gdef\arccot{\operatorname{arccot}}\gdef\arcsec{\operatorname{arcsec}}\gdef\arccsc{\operatorname{arccsc}}\gdef\tr{\operatorname{tr}}\gdef\unit#1{\mathop{}!\mathrm{#1}}\gdef\re{\operatorname{Re}}\gdef\aut{\operatorname{Aut}}\gdef\diag{\operatorname{diag}}\gdef\D{\mathrm{D}}\gdef\p{\partial}\gdef\eq#1{\begin{align*}#1\end{align*}}\gdef\Pr{\mathsf{Pr}}\gdef\Ex{\mathsf{E}}\gdef\Var{\mathsf{Var}}\gdef\ip#1{\left\langle #1\right\rangle}\gdef\char{\operatorname{char}}\gdef\J{\mathrm{J}}\gdef\Nd{\mathcal{N}}\gdef\Cov{\operatorname{Cov}}$</p>
+<p>书：概率论与数理统计 (陈希孺)；<a class="link" href="https://github.com/PKUanonym/REKCARC-TSC-UHT/tree/master/%E5%A4%A7%E4%BA%8C%E4%B8%8B/%E6%A6%82%E7%8E%87%E8%AE%BA%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/hw"  target="_blank" rel="noopener"
+    >练习</a></p>
+<p>就列一下自己不会的知识点。</p>
+<ul>
+<li>
+<p>贝叶斯公式的意义（P36）</p>
+</li>
+<li>
+<p>概率分布函数的定义（P45）</p>
+</li>
+<li>
+<p>Poisson 分布的含义：在 $1$ 单位时间内期望发生 $\lambda$ 次。（P48）</p>
+<p>例子：P49</p>
+</li>
+<li>
+<p>负二项分布的含义（P50）</p>
+</li>
+<li>
+<p>多维随机向量的 PDF 可能不存在（P65）</p>
+</li>
+<li>
+<p>边缘分布的定义（P66）</p>
+<p>注意严格来说，求边缘分布需要先求边缘的 CDF 再求导。（P68）</p>
+<p>注意联合概率密度与条件概率密度的关系的证明（P74）</p>
+</li>
+<li>
+<p>二维正态分布的边缘分布是正态分布。各维边缘分布不足以确定完整的分布。（P70）</p>
+</li>
+<li>
+<p>随机变量独立性的一些性质（P78）：</p>
+<ul>
+<li>
+<p>随机变量独立 $\iff$ 取值事件独立</p>
+</li>
+<li>
+<p>PDF 可以分离变量 $\implies$ 分离的因子是边缘分布的倍数</p>
+</li>
+<li>
+<p>随机变量独立 $\implies$ 分成两组算函数后独立</p>
+<ul>
+<li>
+<p>证明：</p>
+<p>$\begin{aligned} \Pr(Y_1 \in A, Y_2 \in B) &amp;= \Pr(g_1(\mathbf{X}) \in A, \ g_2(\mathbf{Z}) \in B) \\ &amp;= \int_{\mathbb{R}^m} \int_{\mathbb{R}^{n-m}} \mathbf{1}_{g_1(\mathbf{x}) \in A} \cdot \mathbf{1}_{g_2(\mathbf{z}) \in B} \cdot f_{\mathbf{X}, \mathbf{Z}}(\mathbf{x}, \mathbf{z}) , d\mathbf{z} , d\mathbf{x} \\ &amp;= \int_{\mathbb{R}^m} \mathbf{1}_{g_1(\mathbf{x}) \in A} \cdot f_{\mathbf{X}}(\mathbf{x}) , d\mathbf{x} \cdot \int_{\mathbb{R}^{n-m}} \mathbf{1}_{g_2(\mathbf{z}) \in B} \cdot f_{\mathbf{Z}}(\mathbf{z}) , d\mathbf{z} \\ &amp;= \Pr(Y_1 \in A) \cdot \Pr(Y_2 \in B) \end{aligned}$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>随机变量函数的 PDF 求法：</p>
+<ol>
+<li>除以导数/Jacobi 行列式绝对值的倒数（类似于积分换元），或者理解成先得把自因变量关系倒过来，得求逆函数。如果因变量不够需要补全。</li>
+<li>先积分算 CDF，再求导。</li>
+</ol>
+</li>
+<li>
+<p>关于正态分布的几个点：</p>
+<ul>
+<li>
+<p>正态分布变量拆成两个独立变量，分别是正态（P93）</p>
+</li>
+<li>
+<p>卡方分布：
+$$
+k_n(x)=\frac{1}{\Gamma(n/2)2^{n/2}}\e^{-x/2}x^{(n-2)/2}\quad(x\ge 0)
+$$
+证明考虑 $k_m*k_n=k_{m+n}$，会发现积出来一个 $\Beta$ 函数。</p>
+</li>
+<li>
+<p>我在想一个事情：为什么 $\ge 3$ 维的正态分布也只需要矩阵，而不需要张量之类的东西去刻画？可以通过高维正态分布的一个等价定义来理解：如果 $(x_1,\cdots,x_n)$ 的任意线性组合都是正态分布，那么它们的联合分布构成 $n$ 维正态分布。证明：</p>
+<p>令 $\b\mu$ 为期望，$\b\Sigma$ 为协方差矩阵。容易计算得到，对于一组系数 $\alpha$，$\Var(\alpha^\top\b x)=\alpha^\top\b\Sigma\alpha$，因此 $\alpha^\top\b x\sim\Nd(\alpha^\top\b\mu,\alpha^\top\b\Sigma\alpha)$。</p>
+<p>我们知道 $X\sim\Nd(\mu,\sigma^2)$ 的特征函数为 $\varphi_X(t)=\exp\left(\i\mu t-\frac12\sigma^2t^2\right)$，因此 $\varphi_{\alpha^\top\b x}(t)=\exp\left(\i\alpha^\top\b\mu t-\frac12\alpha^\top\b\Sigma\alpha t^2\right)$。而 $\varphi_{\b x}(\b t)=\Ex(\e^{\i\b t^\top\b x})=\varphi_{\b t^\top\b x}(1)=\exp\left(\i\alpha^\top\b\mu-\frac12\alpha^\top\b\Sigma\alpha\right)$。由于特征函数与概率分布意义对应，故 $\b x\sim\Nd_n(\b\mu,\b\Sigma)$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>商的 PDF（P98）</p>
+</li>
+<li>
+<p>P100~101 的几个公式很重要，在求置信区间时会用到（P193 开始）。</p>
+</li>
+<li>
+<p>期望必须要求绝对收敛（P111~112）</p>
+</li>
+<li>
+<p>关于统计学三大分布，就两点：一个是 PDF 的推导，从卡方分布出发是容易推的。二是统计学性质，这个的核心是 P102 的引理。</p>
+</li>
+<li>
+<p>协方差为 $0$ 不代表独立：P136。而二维正态分布时对应命题是成立的。</p>
+</li>
+<li>
+<p>相关系数的定义 $\rho=\Cov(X_1,X_2)/\sigma_1\sigma_2$ 及其前提：一个重要不等式（P135）</p>
+</li>
+<li>
+<p>二维正态分布：
+$$
+f(x_1,x_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\frac{1}{2(1-\rho^2)}\left(\frac{(x_1-\mu_1)^2}{\sigma_1^2}-\frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2}\right)\right)
+$$</p>
+</li>
+<li>
+<p>矩估计和最大似然估计都可能是有偏的，反例一般找估计的方差是 $1/n$ 而不是 $1/(n-1)$ 即可。</p>
+</li>
+<li>
+<p>贝叶斯法的 $p(X_1,\cdots,X_n)$ 可以放着不求，视作一个常数比例系数（P172、P251）</p>
+</li>
+<li>
+<p>相应地，拿 $\sum(X_i-\overline X)^2/(n-1)=S^2$ 估计 $\sigma^2$ 无偏，$S$ 估计 $\sigma$ 就有偏了，且总是偏小（P178），需要一个修正系数（取决于具体分布）。</p>
+</li>
+<li>
+<p>均方误差的定义，以及与估计量方差的关系（P180）</p>
+</li>
+<li>
+<p>枢轴变量法（P192）</p>
+<p>注意这种方法实操时的逻辑是这样的：我知道对于某个 $\theta$，$X$ 的分布，于是我可以写出：对某个 $\theta$，$\Pr[L(\theta,\eps/2)\le X\le U(\theta,\eps/2)]\ge 1-\eps$。通过对这个解方程，我可以得到所需的形式：$\forall\theta$，$\Pr[L^\prime(X,\eps/2)\le\theta\le U^\prime(X,\eps/2)]\ge 1-\eps$。</p>
+</li>
+<li>
+<p>区间估计和贝叶斯法的估计是本质不同的，前者是假定知道 $\theta$，随机 $X$，后者是知道 $X$，随机 $\theta$。即使有先验概率，也存在关于 $\set{X_i}$ 的上下界函数，符合第一种估计的要求不符合第二种，也存在符合第二种不符合第一种的。</p>
+</li>
+<li>
+<p>有限样本空间的情况下，不放回抽样的方差估计（$/(n-1)$），是对总体 $/(N-1)$ 的方差的无偏估计。用另一种说法，就是
+$$
+E(\hat{\sigma}^2)=\sigma^2\cdot\frac{n-1}{n}\frac{N}{N-1}
+$$</p>
+</li>
+<li>
+<p>简单提一下 Fisher 信息量 $I_n(\theta)=\Ex\left(\frac{\p\sum\log f(X_i,\theta)}{\p\theta}\right)^2$的作用：</p>
+<ul>
+<li><a class="link" href="https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound"  target="_blank" rel="noopener"
+    >https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound</a></li>
+<li>使用极大似然估计去得到 $\theta$ 的估计 $\theta^<em>$ 时，在课本范围内可认为 $\theta^</em>\to\Nd(\theta,1/nI(\theta))$，在极大似然是无偏时这可以用于估计【估计的误差】，从而得到置信区间。</li>
+<li>注意一般 $I(\theta)=-\Ex(\ell_{\theta\theta})$ 会比 $I(\theta)=\Ex(\ell_\theta^2)$ 容易算。</li>
+</ul>
+</li>
+<li>
+<p>注意假设检验的思想。两个互补的假设，在同一组数据下可能同时接受，这是因为当我们假设一个事情并取 $\alpha&gt;1/2$ 时，我们就偏向于这个事情成立，而需要强的证据才能否定它。（例子 P220）</p>
+</li>
+<li>
+<p>一致最优检验的定义（P216）、拟合优度的定义（P256）</p>
+</li>
+<li>
+<p>连续的情况下，检验水平 = 第一类概率 = 第二类错误概率。因此一般在“保一”基础上，是设定一组 $(\theta_2,\alpha_2)$ 去限定第二类错误的。甚至有可能都无法限制（P224）</p>
+</li>
+<li>
+<p>直觉的理解：置信区间和检验水平都是说的是，如果真正的 $\theta$ 不在所求区间内/真正的 $\theta$ 满足假设但不满足检验条件，那么抽到这样性质的 $\set{X_i}$ 概率太低了，注意这里的“性质”本身就是由检验方法来决定的，一般就是取一些统计量来看。</p>
+<p>我们可以这样理解：这个检验方法是对每个 $\theta$，在所有可能的样本中划了一刀，保证一侧 $\ge1-\alpha$。由于我们考虑的分布一般都是随 $\theta$ 连续变化的，所以“当前样本属于 $1-\alpha$ 侧”的 $\theta$ 构成一个区间。另外我们可能会想，划的方法可能不一样啊？是的，比如对于一组 $\Nd(\mu,\sigma^2)$ 的样本拿平均数和中位数估计就会得到两个置信区间，它们确实是不同的，却都是对的，因为检验方法实际上是“自定义”了一个“抽象样本特征”的规则。</p>
+</li>
+<li>
+<p>似然优度检验的两个关键点，一个是 $Z\sim\chi_{n-1}^2$，一个是在有参数未知的情况下，首先要检验的是“样本是否符合这样的概率分布规则”（而不是符合这样的某个特定概率分布），求的方法是先根据样本得到最大似然估计，再得到修正的“期望样本”，再与实际样本去比对。后者最常见的就是用来检验独立性（P262）</p>
+</li>
+<li>
+<p>检验一致最优性的证明思路是这样的：如果一个检验对于原假设的一点与对立假设中的每个点，都是最优的，且满足原假设的水平的限制，那么它就是一致最优的。这个东西的好处在于，它将连续参数假设变为了两个单点假设，而单点假设的最优性由 Neyman–Pearson 引理保证。（P271）</p>
+</li>
+<li>
+<p>“独立性检验”与“齐一性检验”的区别（P265）</p>
+</li>
+<li>
+<p>卡方检验的证明：一个是归纳，把最后两个变量合起来，然后证明独立性（https://borisburkov.net/2021-06-17-1/），一个是用神秘的线性代数方法将原式化成一个高维正态分布的转置乘上自身的形式。https://arxiv.org/pdf/1808.09171</p>
+</li>
+<li>
+<p>一元线性回归的几个基本内容：</p>
+<ul>
+<li>参数估计的公式 $\hat{\beta}_0=\overline Y$，$\bar{\beta}_1=\sum(X_i-\overline X)Y_i/\sum(X_i-\overline X)^2$。这里将 $X_i$ 统一减去 $\overline X$ 是为了让两个参数协方差为 $0$（P291）。</li>
+<li>估计的无偏性。</li>
+<li>$\hat\beta_0$ 和 $\hat\beta_1$ 的方差 $\sigma^2/n$ 与 $\sigma^2/\sum(X_i-\overline X)^2$。</li>
+<li>$\hat\sigma=\sum(Y_i-\hat{Y}_i)^2/(n-2)$（证明思路：拆成原误差、$\beta_0-\hat\beta_0$、$\beta_1-\hat\beta_1$ 三部分，P293）。注意 $\delta_i$ 的意义。</li>
+<li>区间估计和预测的区别：估计是对在理论关系函数的估计中代入单点 $x_0$ 后的结果，预测是在此基础上加上外部因素导致的误差项。</li>
+</ul>
+</li>
+<li>
+<p>自变量与因变量反过来的线性回归并非原线性回归的反函数。二元正态分布的例子（ChatGPT）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="n">Manipulate</span><span class="p">[</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">Module</span><span class="p">[{</span><span class="n">cov</span><span class="p">,</span><span class="w"> </span><span class="n">pdf</span><span class="p">,</span><span class="w"> </span><span class="n">bYgivenX</span><span class="p">,</span><span class="w"> </span><span class="n">bXgivenY</span><span class="p">,</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">line2</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">(* 协方差矩阵与PDF *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="err">σ</span><span class="mi">1</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="err">ρ</span><span class="w"> </span><span class="err">σ</span><span class="mi">1</span><span class="w"> </span><span class="err">σ</span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="err">ρ</span><span class="w"> </span><span class="err">σ</span><span class="mi">1</span><span class="w"> </span><span class="err">σ</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="err">σ</span><span class="mi">2</span><span class="o">^</span><span class="mi">2</span><span class="p">}};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">pdf</span><span class="p">[{</span><span class="nv">x_</span><span class="p">,</span><span class="w"> </span><span class="nv">y_</span><span class="p">}]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="n">Pi</span><span class="w"> </span><span class="n">Sqrt</span><span class="p">[</span><span class="n">Det</span><span class="p">[</span><span class="n">cov</span><span class="p">]])</span><span class="w"> </span><span class="n">Exp</span><span class="p">[</span><span class="mi">-1</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="p">{</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">}</span><span class="err">.</span><span class="n">Inverse</span><span class="p">[</span><span class="n">cov</span><span class="p">]</span><span class="err">.</span><span class="p">{</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">}];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">(* 回归斜率：y 关于 x 与 x 关于 y *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">bYgivenX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">ρ</span><span class="w"> </span><span class="p">(</span><span class="err">σ</span><span class="mi">2</span><span class="o">/</span><span class="err">σ</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c">(* E[y|x] = bYgivenX * x *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">bXgivenY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">ρ</span><span class="w"> </span><span class="p">(</span><span class="err">σ</span><span class="mi">1</span><span class="o">/</span><span class="err">σ</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span><span class="c">(* E[x|y] = bXgivenY * y  =&gt; 若要以 y=f(x) 画出，则 y = x/bXgivenY *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">(* 如果 bXgivenY 很小 (接近 0)，则退化为竖直线 x=0 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">line2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">If</span><span class="p">[</span><span class="n">Abs</span><span class="p">[</span><span class="n">bXgivenY</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="o">^</span><span class="mi">-6</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">(* 画竖直线 x=0 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Line</span><span class="p">[{{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">range</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">range</span><span class="p">}}],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">(* 否则画 y = x / bXgivenY *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Line</span><span class="p">[{{</span><span class="o">-</span><span class="n">range</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">range</span><span class="p">)</span><span class="o">/</span><span class="n">bXgivenY</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">range</span><span class="p">,</span><span class="w"> </span><span class="n">range</span><span class="o">/</span><span class="n">bXgivenY</span><span class="p">}}]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">(* 主图：密度 + 两条线 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ContourPlot</span><span class="p">[</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">pdf</span><span class="p">[{</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">}],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">{</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">range</span><span class="p">,</span><span class="w"> </span><span class="n">range</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">range</span><span class="p">,</span><span class="w"> </span><span class="n">range</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">PlotPoints</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">MaxRecursion</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">ColorFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Function</span><span class="p">[{</span><span class="n">zz</span><span class="p">},</span><span class="w"> </span><span class="n">ColorData</span><span class="p">[</span><span class="s">&#34;SunsetColors&#34;</span><span class="p">][</span><span class="n">zz</span><span class="p">]],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">ColorFunctionScaling</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">All</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">Axes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">Epilog</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">Thick</span><span class="p">,</span><span class="w"> </span><span class="n">Blue</span><span class="p">,</span><span class="w"> </span><span class="n">Line</span><span class="p">[{{</span><span class="o">-</span><span class="n">range</span><span class="p">,</span><span class="w"> </span><span class="n">bYgivenX</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">range</span><span class="p">)},</span><span class="w"> </span><span class="p">{</span><span class="n">range</span><span class="p">,</span><span class="w"> </span><span class="n">bYgivenX</span><span class="o">*</span><span class="n">range</span><span class="p">}}],</span><span class="w"> </span><span class="c">(* y = bYgivenX x *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">Thick</span><span class="p">,</span><span class="w"> </span><span class="n">Dashed</span><span class="p">,</span><span class="w"> </span><span class="n">Red</span><span class="p">,</span><span class="w"> </span><span class="n">line2</span><span class="p">,</span><span class="w">                                        </span><span class="c">(* x = bXgivenY y 以 y=f(x) 或 x=0 的形式显示 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="n">PointSize</span><span class="p">[</span><span class="n">Large</span><span class="p">],</span><span class="w"> </span><span class="n">Point</span><span class="p">[{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Row</span><span class="p">[{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="s">&#34;二元正态密度 (中心 = (0,0))  ;  σ1=&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">NumberForm</span><span class="p">[</span><span class="err">σ</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="s">&#34;  σ2=&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">NumberForm</span><span class="p">[</span><span class="err">σ</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}],</span><span class="w"> </span><span class="s">&#34;  ρ=&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">NumberForm</span><span class="p">[</span><span class="err">ρ</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">}],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">520</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="c">(* 控件 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">{{</span><span class="err">σ</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;σ1&#34;</span><span class="p">},</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">Appearance</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&#34;Labeled&#34;</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">{{</span><span class="err">σ</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;σ2&#34;</span><span class="p">},</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">Appearance</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&#34;Labeled&#34;</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">{{</span><span class="err">ρ</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;ρ&#34;</span><span class="p">},</span><span class="w"> </span><span class="mf">-0.99</span><span class="p">,</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="n">Appearance</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&#34;Labeled&#34;</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">ControlPlacement</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Left</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>相关分析：</p>
+<ul>
+<li>两个变量的相关系数检验，在 $H_0:\rho=0$ 有个简单的 $t$ 分布，别的情况不好搞。</li>
+<li>偏相关的定义（P326），计算思路是分别去掉线性回归部分，再算 $\Cov$。有一个一般的公式 $P_{12}/\sqrt{P_{11}P_{22}}$。如果变量是正态，检验也是一个 $t$ 分布，与上面一条几乎一样。</li>
+<li>复相关的定义（P331），计算思路是只取线性回归部分。一般的公式 $\sqrt{1-|P|/P_{11}}$。如果变量是正态，检验是个 $F$ 分布。</li>
+</ul>
+</li>
+<li>
+<p>水平、因素数、重复度的定义（P335）。方差分析的思路是：将整体的方差分成误差方差与各因素方差（交叉项 $\Ex=0$），然后通过因素方差除以误差方差的一个分布，来导出检验方法。</p>
+</li>
+<li>
+<p>所谓分区组不一定更好的意思是说，如果 $MS_B&lt;MS_e$，那么（由加权平均的性质）不分时的 $MS_e^\prime$ 会更小，反而更容易让 $F$ 比大。（P349）</p>
+</li>
+<li>
+<p>P102 和 P305 的证明都是这样考虑的：考虑对 $\set{X_i}$ 做一个正交变换成为 $\set{Y_i}$，使得需要考虑的统计量被浓缩的到开头几个 $Y$ 里。这时 $\sum X_i^2=\sum Y_i^2$，变换一下 PDF 可以得到 $\set{Y_i}$ 独立，这下把需证明结论中所有跟 $X$ 相关的量都换成跟 $Y$ 相关，$Y$ 的性质很好，就行了。从这个角度也可以理解“自由度”的说法，就是只要求正交无任何具体限制的（后缀部分）$Y$ 的数量。</p>
+</li>
+<li>
+<p>书里没讲似然比检验，不过这个看起来比较简单。书里 5.2 的那些“找枢轴变量”导出的准则和似然比检验的准则往往是一样的，特别地，在一致最优检验存在时，似然比检验给出的一定是一致最优检验。</p>
+</li>
+<li>
+<p>总结一下统计中遇到的分布：</p>
+<ul>
+<li>知道 $\sigma$ 估 $\mu$：$\Nd$</li>
+<li>不知道 $\sigma$ 估 $\mu$：$t_{n-1}$</li>
+<li>不知道 $\sigma$ 估 $\mu_1-\mu_2$：$t_{n+m-2}$</li>
+<li>估 $\sigma^2$：$\chi_{n-1}^2$</li>
+<li>估 $\sigma_1^2/\sigma_2^2$：$F_{n-1,m-1}$</li>
+<li>指数分布：$\chi_{2n}^2$</li>
+<li>Bernoulli：只能大样本→正态</li>
+<li>泊松分布：和还是泊松→用 P243 的方法变成 $\chi^2$</li>
+<li>均匀分布：Irwin–Hall→正态</li>
+<li>$Z$ 值：$\chi^2$</li>
+<li>回归：残差平方和 $\chi_{n-p-1}^2$、$\hat\beta_0$ 及 $\hat\beta_1$ $t_{n-p-1}$，$\rho=0$ 检验 $t_{n-2}$，方差分析 $F$</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="1d6a6a12289f035864b50d4b62641966"
+    data-page-url="https://littlereuben.github.io/study/prostat-outline/"
+    data-page-title="速通概率论与数理统计"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

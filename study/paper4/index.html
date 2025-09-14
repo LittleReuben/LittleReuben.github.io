@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇摘抄笔记。 引入 paper，APSP 近似的一些其他情形 sys 的笔记 问题 对于 APSP 问题，记 $\\pi(u,v)$ 为最短路，$d(u,v)$ 为 $\\pi(u,v)$ 的长度。如果有一个算法">
+<title>读论文系列 #4——stretch 2 APSP 的最新进展</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/paper4/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="读论文系列 #4——stretch 2 APSP 的最新进展">
+<meta property='og:description' content="这是一篇摘抄笔记。 引入 paper，APSP 近似的一些其他情形 sys 的笔记 问题 对于 APSP 问题，记 $\\pi(u,v)$ 为最短路，$d(u,v)$ 为 $\\pi(u,v)$ 的长度。如果有一个算法">
+<meta property='og:url' content='https://littlereuben.github.io/study/paper4/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2025-09-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-14T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="读论文系列 #4——stretch 2 APSP 的最新进展">
+<meta name="twitter:description" content="这是一篇摘抄笔记。 引入 paper，APSP 近似的一些其他情形 sys 的笔记 问题 对于 APSP 问题，记 $\\pi(u,v)$ 为最短路，$d(u,v)$ 为 $\\pi(u,v)$ 的长度。如果有一个算法">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#引入">引入</a>
+          <ol>
+            <li><a href="#问题">问题</a></li>
+            <li><a href="#一些上下界">一些上下界</a></li>
+          </ol>
+        </li>
+        <li><a href="#无权">无权</a>
+          <ol>
+            <li><a href="#已知结果">已知结果</a></li>
+            <li><a href="#整体处理思路">整体处理思路</a></li>
+            <li><a href="#倍增优化">倍增优化</a></li>
+            <li><a href="#近似归约">近似归约</a></li>
+            <li><a href="#套用算法">套用算法</a></li>
+          </ol>
+        </li>
+        <li><a href="#有权">有权</a>
+          <ol>
+            <li><a href="#已知结果-1">已知结果</a></li>
+            <li><a href="#整体处理思路-1">整体处理思路</a></li>
+            <li><a href="#暴力做法">暴力做法</a></li>
+            <li><a href="#稠密情况">稠密情况</a></li>
+            <li><a href="#倍增优化-1">倍增优化</a></li>
+            <li><a href="#套用算法-1">套用算法</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/cs/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 计算机
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/paper4/">读论文系列 #4——stretch 2 APSP 的最新进展</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-09-14</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    3702 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFE1B9; color: #794500; padding-left: 1em; border-left: 4px solid #DE9B41; line-height: 25pt;">这是一篇<b>摘抄笔记</b>。</div>
+<h3 id="引入">引入
+</h3><p><a class="link" href="https://arxiv.org/abs/2307.09258"  target="_blank" rel="noopener"
+    >paper</a>，<a class="link" href="https://www.cnblogs.com/shiys22/p/17736505.html"  target="_blank" rel="noopener"
+    >APSP 近似的一些其他情形 sys 的笔记</a></p>
+<h4 id="问题">问题
+</h4><p>对于 APSP 问题，记 $\pi(u,v)$ 为最短路，$d(u,v)$ 为 $\pi(u,v)$ 的长度。如果有一个算法能得到近似 $\delta(u,v)$ 满足 $d(u,v)\le\delta(u,v)\le m\cdot d(u,v)+a$，那么就称为一个 $(m,a)$ 近似。$a=0$ 时称为 stretch $m$ 近似，$m=1$ 时称为 surplus $a$ 近似，下文中简写作 $m$ 近似与 $+a$ 近似。</p>
+<p>distance oracle 指的是以常数时间（？）回答一组 $\delta(u,v)$ 的算法，这样避免了输出的 $\Omega(n^2)$ 界，可以（在稀疏图中）做到平方以下。</p>
+<p>下文中“非确定性算法”指必然正确且以高概率在对应时间内运行结束的算法；期望时间算法可以并列运行 $\log$ 个，通过 Chernoff bound 变成非确定性。</p>
+<h4 id="一些上下界">一些上下界
+</h4><ol>
+<li>大家都知道准确的带权 APSP 被猜想是 $\tilde\Omega(n^3)$ 的，而不带权的可以归约矩乘做。</li>
+<li>$2-\epsilon$ 近似不弱于 01 矩乘，有向图的任意近似都不弱于 01 矩乘。</li>
+<li>当 $m=\Theta(n)$ 时，oracle 有 $\tilde\Omega(m^{5/3})$ 的时空下界（基于一些 fine-grained complexity 的猜想）。</li>
+<li>已知无向无权图的 $(2,1)$ 近似可以 $\tilde\Omicron(n^2)$，所以现在不确定的是，无权/有权的 $2$ 近似能不能 $n^2$，以及 oracle 能不能 sub-$n^2$。</li>
+</ol>
+<h3 id="无权">无权
+</h3><h4 id="已知结果">已知结果
+</h4><ol>
+<li>[DHZ00] 存在非确定性与确定性的算法，能在线性时间内得到一张图中所有度 $\ge s$ 点的 hitting-set，大小 $\tilde\Omicron(n/s)$。</li>
+<li>[DHZ00] 无权无向图的 $+\log n$ 近似 APSP 可以在时间 $\tilde\Omicron(n^2)$ 内求解。</li>
+<li>[BK10] 非负整数权无向图的 $2$ 近似 APSP 可以在时间 $\tilde\Omicron(mn^{0.5}+n^2)$ 内用非确定性算法求解。</li>
+<li>[Zwi02] $\langle n,n^r,n\rangle$ 的 $(\min,+)$ 矩阵乘法的 $1+\epsilon$ 近似能在时间 $\tilde\Omicron(n^{\omega(r)}\epsilon^{-1}\log W)$ 内求解，其中 $\omega(r)$ 是 $\langle n,n^r,n\rangle$ 的普通矩阵乘法复杂度，原矩阵值域为 $[W]\cup\set{\infty}$。</li>
+</ol>
+<h4 id="整体处理思路">整体处理思路
+</h4><p>我们希望找到一些关键点，只求关键点到全体的最短路，将必经关键点的最短路作为近似结果。</p>
+<center><img src="1.png" style="zoom:50%;" /></center>
+<ol>
+<li>如果 $\pi(u,v)$ 经过大度点，可以通过 hitting-set 的套路做到 $+2$ 近似（优于 $2$ 近似）。
+<ol>
+<li>对于 hitting-set $S$ 内的点，做 MSSP。</li>
+<li>求形如 $\delta(u,v)=\min_{x\in S}\set{d(u,x)+d(x,v)}$ 的 $(\min,+)$ 矩乘。</li>
+</ol>
+</li>
+<li>否则是稀疏图上的 APSP。</li>
+</ol>
+<p>这里 1.1 中的 MSSP 我们固定用 Dijkstra，那么剩余的就是需要指定矩乘和稀疏图 APSP 的算法。如果取度数阈值为 $n^{1-r}$ 的话，那么时间就是
+$$
+\tilde\Omicron(mn^r+T_{1.2}(n,n^r,n)+T_2(n,n^{2-r}))
+$$
+接下来认为 $m=\Omicron(n^2)$。</p>
+<h4 id="倍增优化">倍增优化
+</h4><p>考虑进一步分治。如果 $\pi(u,v)$ 经过度数在 $[a,b)$ 内的点，那么用第 1 部分的方法，Dijkstra 是点数 $n/a$，边数 $nb$。因此如果我们取一列区间
+$$
+[n^{1-r},2n^{1-r}),[2n^{1-r},4n^{1-r}),\cdots
+$$
+分别交给第 1 部分做，时间就降为
+$$
+\tilde\Omicron(n^2+T_{1.2}(n,n^r,n))
+$$</p>
+<h4 id="近似归约">近似归约
+</h4><p>我们知道 $(\min,+)$ 矩乘是没法做的，所以只能近似。如果有 $(m,a)$ 近似的矩乘，那么第 1 部分整体就是 $(m,a+2m)$ 近似。由于只需考虑 $d\ge 2$ 的情况，$(m,a+2m)$ 近似就必然是 $(2m,a)$ 近似。</p>
+<p>于是根据已知 4，第 1 部分存在一个 $2+\epsilon$ 近似，时间关于 $\epsilon^{-1}$ 线性。 取 $\epsilon=1/\log n$。如果 $d(u,v)&lt;\log n$，$2+\epsilon$ 近似相当于 $2$ 近似；否则调用已知 2。</p>
+<h4 id="套用算法">套用算法
+</h4><ol>
+<li>全部用朴素做法，取 $r=0.5$ 得 $\tilde\Omicron(n^{2.5})$。</li>
+<li>第 2 部分用已知 3，就是 $n^2+n^{2+r}+n^{2.5-r}$，取 $r=0.25$ 得 $\tilde\Omicron(n^{2.25})$。</li>
+<li>上一条基础上，第 1 部分用已知 4，就是 $n^2+n^{\omega(r)}+n^{2.5-r}$，可以平衡到 $\tilde\Omicron(n^{2.032})$。</li>
+<li>还已知一个 parameterized 的算法是做 $+k$ 近似的，与矩乘结合得到一个 $(1+\epsilon,k)$ 近似算法。</li>
+</ol>
+<h3 id="有权">有权
+</h3><h4 id="已知结果-1">已知结果
+</h4><ol>
+<li>[TZ01], [TZ05] 对于“密度” $p$，存在非确定性算法能在 $\tilde\Omicron(m/p)$ 的时间内得到一组大小为 $\tilde\Omicron(np)$ 的关键点集并计算出每个束内的基本信息，满足束和簇的大小均不超过 $\tilde\Omicron(1/p)$。</li>
+<li>[EN22] 非负整数权无向图的 $1+\epsilon$ 近似 MSSP 能在时间 $\tilde\Omicron(m^{1+\omicron(1)}+n^{\omega(r)}\epsilon^{-\Omicron(1)}\log W)$ 内求解，其中起点集合大小 $n^r$，边权值域 $[W]$。</li>
+</ol>
+<h4 id="整体处理思路-1">整体处理思路
+</h4><p>同样取一些关键点，但是现在我们考虑这样的结构：对于点 $u$，找到与它距离最近的关键点 $p(u)$，将距离比 $d(u,p(u))$ 小的点，和 $p(u)$ 一起组成 $u$ 的束（branch）$B(u)$。束的逆称为簇 $C(v)=\set{u\mid v\in B(u)}$。</p>
+<center><img src="2.png" style="zoom:50%;" /></center>
+<center><font color='gray' size=2>蓝色点表示最近关键点，称为“枢轴”</font></center>
+<p>通过束的定义以及三角不等式，可以放缩得到一些近似。首先有个 $3$ 近似：若 $v\notin B(u)$，则
+$$
+d(u,p(u))+d(p(u),v)\le d(u,p(u))+d(p(u),u)+d(u,v)\le 3d(u,v)
+$$
+若 $v\in B(u)$，已知 1 的做法里能算出 $u$ 到 $B(u)$ 各点的最短路，所以就不用管了。</p>
+<p>我们现在称 $\pi(u,v)\setminus(B(u)\cup B(v))$ 中的点为“束间点”。</p>
+<center><img src="3.png" style="zoom:50%;" /></center>
+<p>（情况 1）如果 $\pi(u,v)$ 有束间点 $x$，那么 $d(u,x),d(x,v)$ 中至少有一个 $\le d(u,v)/2$，不妨设为 $d(u,x)$，则
+$$
+d(u,p(u))+d(p(u),v)\le 2d(u,p(u))+d(u,v)\le 2d(u,x)+d(u,v)\le 2d(u,v)\tag{1}
+$$
+剩余的情况（情况 2）是关注的重点。</p>
+<h4 id="暴力做法">暴力做法
+</h4><p>若 $\pi(u,v)$ 无束间点，那么 $\pi(u,v)$ 一定形如 $u\rightsquigarrow u^\prime\to v^\prime\rightsquigarrow v$，其中 $u^\prime\in B(u)$，$v^\prime\in B(v)$。这样的 $(u,u^\prime,v^\prime,v)$ 的数量是 $m|C|^2=\tilde\Omicron(m/p^2)$。总的时间：</p>
+<ol>
+<li>情况 1 从关键点出发跑 Dijkstra，$\tilde\Omicron(nmp)$。</li>
+<li>情况 2 暴力更新，$\tilde\Omicron(m/p^2)$。</li>
+<li>两类情况取 $\min$，$\Omicron(n^2)$。</li>
+</ol>
+<p>我们可以做一个 oracle，省去 3，取 $p=n^{-1/3}$ 得 $\tilde\Omicron(mn^{2/3})$。</p>
+<p>注意到如果暴力做无束间边（$\tilde\Omicron(n/p^2)$），而恰有一条束间边的情况归到情况 1，可以得到一个 $\tilde\Omicron(nm^{2/3})$ 的 $(2,\max w)$ 近似。</p>
+<h4 id="稠密情况">稠密情况
+</h4><p>对于情况 1 用已知 2 的 $1+\epsilon/2$ 近似，得到 $2+\epsilon$ 近似。</p>
+<p>对于情况 2，分两步做（各束边指的是，每个 $u$ 向 $B(u)$ 内点连边权为距离的边）：</p>
+<center><img src="4.png" style="zoom:50%;" /></center>
+<center><font color='gray' size=2>② 对应第 1 次 Dijkstra，③ 对应第 2 次</font></center>
+<ol>
+<li>对每个 $v^\prime$，保留其邻边与各束边，跑 Dijkstra，得到 $d^\prime(v^\prime,u)$。</li>
+<li>对每个 $u$，保留各束边，建边 $(u,v^\prime)$ 权 $d^\prime(v^\prime,u)$，跑 Dijkstra。</li>
+</ol>
+<p>时间均为 $\tilde\Omicron(n^2/p)$，这样算出来的是准确 SP。若 $p=n^{r-1}$，则总时间为
+$$
+\tilde\Omicron(n^{3-r}+n^{\omega(r)}\epsilon^{-\Omicron(1)}\log W)
+$$
+可以平衡到 $n^{2.213}$。</p>
+<p>注意到建束内边对非稠密图过于激进了，接下来的做法进行了进一步的平衡。</p>
+<h4 id="倍增优化-1">倍增优化
+</h4><p>相比情况 2，情况 1 更容易优化。注意到有权图的“束”结构与无权图的简单的 hitting-set 结构有以下共同点：</p>
+<ol>
+<li>通过一个中介点 $x$，三角不等式放缩多出两倍的 $d(x,?)$（在无权图中就是 $+2$），得到 $2$（或 $2+\epsilon$） 近似。</li>
+<li>关键点出发全图跑 MSSP，这使我们无法不受限制地增加关键点数，否则这部分会成为瓶颈。</li>
+</ol>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>不借助中介点</th>
+<th>借助中介点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无权图</td>
+<td>去除大度点</td>
+<td>必经大度点</td>
+</tr>
+<tr>
+<td>无权图做法</td>
+<td>跑稀疏图 APSP</td>
+<td>找 hitting-set，MSSP + 矩乘</td>
+</tr>
+<tr>
+<td>有权图</td>
+<td>$\pi(u,v)$ 无束间点</td>
+<td>$\pi(u,v)$ 有束间点</td>
+</tr>
+<tr>
+<td>有权图做法</td>
+<td>暴力松弛</td>
+<td>MSSP</td>
+</tr>
+</tbody>
+</table></div>
+<center><img src="6.png" style="zoom:30%;" /></center>
+<center><font color='gray' size=2>对数尺度；每个格子的右边界为该格算法的关键点密度</font></center>
+<p>在无权图中，通过考虑子问题：经过度数在 $[a,b)$ 间点的最短路，对其分治，得到倍增做法，减少了边数，使得 Dijkstra 总时间由 $mn^r$ 降至 $n^2$。在有权图中，模仿这一思路：考虑关键点集 $S_{i+1}\subset S_i$，现在需要对于所有 $(u,v)$ 满足 $\pi(u,v)$ 在 $S_{i+1}$ 下无束间点，而在 $S_i$ 下有束间点的情况，去求 $d(u,v)$ 的近似。同样，我们的目标是减少关键点出发 MSSP 的边数，同时保证近似的论证不失效。</p>
+<p>仍然假定 $d(p_i(u),u)\le d(u,v)/2$。回顾不等式 $(1)$：
+$$
+d(u,p(u))+\boxed{d(p(u),v)}\le d(u,p(u))+\boxed{d(p(u),u)+d(u,v)}
+$$
+实际不需要准确求出 $d(p_i(u),v)$，而只求一个近似的 $\delta(p_i(u),v)\in[d(p_i(u),v),d(p_i(u),u)+d(u,v)]$ 即可。进一步，如果 $\pi(u,v)$ 形如 $u\rightsquigarrow u^\prime\to x\rightsquigarrow v$，其中 $u^\prime\in B_{i+1}(u)$，$x\notin B_{i+1}(u)$，那么可以拆成
+$$
+d(p_i(u),u)+d(u,u^\prime)+w(u^\prime,x)+d(x,v)
+$$</p>
+<center><img src="5.png" style="zoom:50%;" /></center>
+<p>建立这样的图：$p_i(u)$ 向所有与 $B_{i+1}(u)$ 相邻的点（及上述 $x$ 这样的点）连边，边权
+$$
+\delta^\prime(p_i(u),x)=\min_{u^\prime}\set{d(p_i(u),u)+d(u,u^\prime)+w(u^\prime,x)}
+$$
+另外对于所有的点 $v$，将与 $v$ 相邻的权 $\le d(v,p_{i+1}(v))$ 的边加入。跑 Dijkstra。设 $\pi(x,v)=x\to\cdots\to v_1\to v$。由于 $x\in B_{i+1}(v)$，故 $(v_1,v)$ 是保留的；由于 $d(v_1,p_{i+1}(v_1))+w(v_1,v)\ge d(v,p_i(v))$，故 $x\in B_{i+1}(v_1)$，所以 $(v_2,v_1)$ 也保留，以此类推。</p>
+<p>求 $\delta^\prime$ 所需的时间是
+$$
+\sum_{u^\prime}\mathrm{deg}_{u^\prime}|C_{i+1}(u)|=\tilde\Omicron(m|C_{i+1}|)
+$$
+我们相当于把菊花形的各束边改成了第二类边，它们的数量这么考虑：如果 $S_{i+1}$ 是以 $q$ 的概率选点的话，那么对于不在 $S_{i+1}$ 中的点，将其邻边按边权从小到大扫描，每次有 $q$ 的概率把剩余的扔掉。因此期望边数为 $\sum (1-q)^i\le 1/q$，用 Chernoff bound 一类的东西放缩下就是高概率 $\tilde\Omicron(n/q)$。从这个意义上来看，束结构也是限制度数的，基本打通了无权和有权的思想。</p>
+<p>因此总的复杂度是
+$$
+\tilde\Omicron\left(\frac mq+|S_i|\frac nq+n^2\right)=\tilde\Omicron\left(\frac{mn}{|S_{i+1}|}+\frac{n^2|S_i|}{|S_{i+1}|}\right)
+$$
+考虑关键点集包含链 $V=S_0\supset S_1\supset\cdots\supset S_k$。其中 $S_i$ 中的每个点以 $1/2$ 概率出现在 $S_{i+1}$ 中。如果 $\pi(u,v)$ 在 $S_k$ 的下仍有束间点，那么就只能用原来情况 1 的做法，从 $S_k$ 出发跑 MSSP；否则一定存在某个 $S_{i}-S_{i+1}$ 交界，就用上面的方法。设 $k=(1-r)\log_2n$，则 $|S_k|=\tilde\Theta(n^r)$，时间为 $\tilde\Omicron(mn^{1-r}+n^2+T_1(n,m,n^r))$，$T_1$ 是 MSSP 的复杂度。</p>
+<p>实际实现时，第一类边权的 $\min$ 只需要拿 $B_k(u)$ 内所有点的邻边去松弛就行，那么为了保证 $|C_k(u)|$ 的大小，需要强制往 $S_k$ 里加已知 1 里的构造，不过这个不影响复杂度。总的做法：</p>
+<ol>
+<li>求出 $\set{S_i}$，建出束结构。</li>
+<li>对于每个 $u$，每个 $i$，每个 $B_k(u)$ 内点的邻边，更新 $\delta^\prime(p_i(u),x)$。</li>
+<li>对于每个 $p_i(u)$ 建图跑 Dijkstra。</li>
+<li>对于 $S_k$ 在原图上跑 MSSP。</li>
+<li>对每个 $(u,v)$ 求答案。</li>
+</ol>
+<h4 id="套用算法-1">套用算法
+</h4><ol>
+<li>MSSP 直接用 Dijkstra，时间 $mn^r$，取 $r=0.5$ 得 $\tilde\Omicron(mn^{0.5}+n^2)$，这就是 [BK10]。</li>
+<li>MSSP 用已知 2，这样是 $2+\epsilon$ 近似，是 $mn^{1-r}+n^2+n^{\omega(r)}\epsilon^{-\Omicron(1)}\log W$，对于稠密图的平衡结果，和稠密情况那个一样。</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="f76ca947d29d6e6b9cda238cfac58ce4"
+    data-page-url="https://littlereuben.github.io/study/paper4/"
+    data-page-title="读论文系列 #4——stretch 2 APSP 的最新进展"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>
