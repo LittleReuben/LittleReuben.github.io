@@ -7,7 +7,22 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/categories/cs/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>段设 Survey：APASP Algorithms</title>
+        <link>https://littlereuben.github.io/study/course-galgo-survey/</link>
+        <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-galgo-survey/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;This is a survey for the final project of the course Design and Analysis of Algorithms.&lt;/p&gt;
+&lt;embed src= &#34;main.pdf&#34; width= &#34;100%&#34; height= &#34;800px&#34; type=&#34;application/pdf&#34; &gt;
+&lt;a href=&#34;main.pdf&#34; style=&#34;display:block;text-align:center;&#34;&gt;&lt;b&gt;[PDF file]&lt;/b&gt;&lt;/a&gt;
+&lt;p&gt;The following presentation slide contains some delicate diagrams, illustrating the intuitions for some of these abstruse algorithms, so that you can grasp the core ideas efficiently.&lt;/p&gt;
+&lt;embed src= &#34;pre.pdf&#34; width= &#34;100%&#34; height= &#34;800px&#34; type=&#34;application/pdf&#34; &gt;
+&lt;a href=&#34;pre.pdf&#34; style=&#34;display:block;text-align:center;&#34;&gt;&lt;b&gt;[PDF file]&lt;/b&gt;&lt;/a&gt;
+</description>
+        </item>
+        <item>
         <title>读论文系列 #4——stretch 2 APSP 的最新进展</title>
         <link>https://littlereuben.github.io/study/paper4/</link>
         <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>

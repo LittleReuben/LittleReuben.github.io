@@ -1539,7 +1539,7 @@ $$
 $$
 <strong>Bernstein inequality, self-adjoint matrix form</strong>: independent zero-mean self-adjoint $d\times d$ matrix $X_i$ s.t. $|X_i|_2\le R$,
 $$
-\boxed{\P\left[|S_n|_2\ge t\right]\le 2d\exp\left(-\frac{t^2/2}{\left|\sum\E(X_i^2)\right|_2+Rt/3}\right)}
+\boxed{\P\left[\|S_n\|_2\ge t\right]\le 2d\exp\left(-\frac{t^2/2}{\left\|\sum\E(X_i^2)\right\|_2+Rt/3}\right)}
 $$
 （这种东西说的是，$t$ 小的时候像 sub-Gaussian tail，$\e^{-\Theta(t^2)}$；$t$ 大的时候像 sub-exp tail，$\e^{-\Theta(t)}$）</p>
 <p>Now,
@@ -1550,15 +1550,15 @@ Here $X\sim\begin{cases}1-p,&amp;\text{w.p. }p\\ -p,&amp;\text{w.p. }1-p\end{cas
 $$
 \sum\E(Z_i^2)=\left(\frac n2p(1-p)+\frac n2q(1-q)\right)I_n
 $$
-also all $|Z|_2\le 1$, so
+also all $\|Z\|_2\le 1$, so
 $$
-\P\left[|A-P|_2\ge t\right]\le 2n\exp\left(-\frac{t^2/2}{n\max\set{p,q}+t/3}\right)
+\P\left[\|A-P\|_2\ge t\right]\le 2n\exp\left(-\frac{t^2/2}{n\max\set{p,q}+t/3}\right)
 $$
 take $t=2\sqrt{n\max\set{p,q}\log n}$,
 $$
-\P\left[|A-P|_2\ge 2\sqrt{n\max\set{p,q}\log n}\right]=\Omicron(n^{-1})
+\P\left[\|A-P\|_2\ge 2\sqrt{n\max\set{p,q}\log n}\right]=\Omicron(n^{-1})
 $$
-which is small compared to $|P|_2=n(p+q)/2$.</p>
+which is small compared to $\|P\|_2=n(p+q)/2$.</p>
 <p><strong>Davis-Kahan theorem</strong>: symmetric matrices $M$, $\tilde M=M+E$, let the eigenvalues be $\lambda_1\ge\cdots\ge\lambda_n$ and $\tilde\lambda_1\ge\cdots\ge\tilde\lambda_n$, for $S\subseteq\set{1,\cdots,n}$, define the eigen-gap as
 $$
 \gamma=\min_{i\in S,j\notin S}\set{|\lambda_i-\lambda_j|}
@@ -1589,7 +1589,7 @@ $$
 $$
 错误个数
 $$
-\text{err}\le n\sum(\eta\b{\hat t}_i-\b t_i)^2=n|\eta\b{\hat t}-\b t|^2_2=2n(1-\langle\b{\hat t},\b t\rangle)\le2n(1-\langle\b{\hat t},\b t\rangle^2)=2n\sin^2\angle(\b{\hat t},\b t)\le\frac{32p\log n}{p-q}
+\text{err}\le n\sum(\eta\b{\hat t}_i-\b t_i)^2=n\|\eta\b{\hat t}-\b t\|^2_2=2n(1-\langle\b{\hat t},\b t\rangle)\le2n(1-\langle\b{\hat t},\b t\rangle^2)=2n\sin^2\angle(\b{\hat t},\b t)\le\frac{32p\log n}{p-q}
 $$
 with high Pr.</p>
 <p>多个 cluster 的 clustering 方法跟这里讲的很不一样，参见 <a class="link" href="https://people.csail.mit.edu/dsontag/courses/ml14/notes/Luxburg07_tutorial_spectral_clustering.pdf"  target="_blank" rel="noopener"
@@ -1892,7 +1892,7 @@ so
 $$
 \b p_0P^t-\b\pi=\b p_0D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}
 $$
-我们可以把 $|\b p_0P^t-\b\pi|_1$ 想象成一个高维凸多面体上离一个点的距离，最远的一定是顶点，因此只考虑 $\b p_0=\b e_x^\top$。
+我们可以把 $\|\b p_0P^t-\b\pi\|_1$ 想象成一个高维凸多面体上离一个点的距离，最远的一定是顶点，因此只考虑 $\b p_0=\b e_x^\top$。
 $$
 \begin{align*}
 \left\lvert\left(\b e_x^\top D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}\right)_y\right\rvert&amp;=\left|\b e_x^\top D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}\b e_y\right|\\

@@ -395,7 +395,7 @@
   <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
 </svg>
                 <time class="article-time--reading">
-                    14511 字
+                    14512 字
                 </time>
             </div>
         
@@ -838,7 +838,7 @@ $$
 By the definition of conjugation, $\forall x,f(x)\le g(x)\implies\forall u,f^{*}(u)\ge g^{*}(u)$. This motivates us to conjugate $\phi_y(x)$:
 $$
 \eq{
-\phi_y^{*}(u)&amp;=\sup_x\Set{\ip{u,x}-\left(f(y)+\ip{\nabla f(y),x-y}+\frac L2\|x-y\|^2\right)}\\
+\phi_y^{*}(u)&amp;=\sup_x\Set{\ip{u,x}-\left(f(y)+\ip{\nabla f(y),x-y}+\frac L2\lVert x-y\rVert^2\right)}\\
 &amp;=\sup_x\Set{\ip{u-\nabla f(y),x}-\frac L2\lVert x-y\rVert^2}-f(y)+\ip{\nabla f(y),y}\\
 &amp;\xlongequal{x=y-\frac1L(u-\nabla f(y))}\ip{u,y}+\frac1{2L}\|u-\nabla f(y)\|^2-f(y)
 }
@@ -1519,8 +1519,7 @@ $$
 }
 $$
 <strong>Lemma</strong> (Johnson–Lindenstrauss). $\forall Q\subset\R^d$, for some $n=\Theta(\epsilon^{-2}\log(|Q|/\delta))$, let $W\in\R^{n\times d}$ where i.i.d. $W_{i,j}\sim\Nd(0,1/n)$, w.p. $\ge 1-\delta$, $\forall x\in Q$, $(1-\epsilon)\|x\|^2\le\|Wx\|^2\le(1+\epsilon)\|x\|^2$.</p>
-<p>Proof. For the complete proof of JL lemma, refer to <a class="link" href="https://littlereuben.github.io/study/course-math4csai/#%E9%AB%98%E7%BB%B4%E5%87%A0%E4%BD%95"  target="_blank" rel="noopener"
-    >this post</a>. I&rsquo;d like to review the proof sketch here.</p>
+<p>Proof. For the complete proof of JL lemma, refer to <a class="link" href="/study/course-math4csai/#%E9%AB%98%E7%BB%B4%E5%87%A0%E4%BD%95" >this post</a>. I&rsquo;d like to review the proof sketch here.</p>
 <p>We can normalize $x\in Q$. Let $w_i$ be the $i$-th row of $W$, then $w_ix\sim\Nd(0,1/n)$ and $\|Wx\|^2\sim\chi_n^2/n$. By some tail bound,
 $$
 \Pr[\|Wx\|^2\notin[1-\epsilon,1+\epsilon]]\le\e^{-\Omega(n\epsilon^2)}

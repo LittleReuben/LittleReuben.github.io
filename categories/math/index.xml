@@ -428,7 +428,7 @@ $$
 By the definition of conjugation, $\forall x,f(x)\le g(x)\implies\forall u,f^{*}(u)\ge g^{*}(u)$. This motivates us to conjugate $\phi_y(x)$:
 $$
 \eq{
-\phi_y^{*}(u)&amp;amp;=\sup_x\Set{\ip{u,x}-\left(f(y)+\ip{\nabla f(y),x-y}+\frac L2\|x-y\|^2\right)}\\
+\phi_y^{*}(u)&amp;amp;=\sup_x\Set{\ip{u,x}-\left(f(y)+\ip{\nabla f(y),x-y}+\frac L2\lVert x-y\rVert^2\right)}\\
 &amp;amp;=\sup_x\Set{\ip{u-\nabla f(y),x}-\frac L2\lVert x-y\rVert^2}-f(y)+\ip{\nabla f(y),y}\\
 &amp;amp;\xlongequal{x=y-\frac1L(u-\nabla f(y))}\ip{u,y}+\frac1{2L}\|u-\nabla f(y)\|^2-f(y)
 }
@@ -1109,8 +1109,7 @@ $$
 }
 $$
 &lt;strong&gt;Lemma&lt;/strong&gt; (Johnson–Lindenstrauss). $\forall Q\subset\R^d$, for some $n=\Theta(\epsilon^{-2}\log(|Q|/\delta))$, let $W\in\R^{n\times d}$ where i.i.d. $W_{i,j}\sim\Nd(0,1/n)$, w.p. $\ge 1-\delta$, $\forall x\in Q$, $(1-\epsilon)\|x\|^2\le\|Wx\|^2\le(1+\epsilon)\|x\|^2$.&lt;/p&gt;
-&lt;p&gt;Proof. For the complete proof of JL lemma, refer to &lt;a class=&#34;link&#34; href=&#34;https://littlereuben.github.io/study/course-math4csai/#%E9%AB%98%E7%BB%B4%E5%87%A0%E4%BD%95&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;this post&lt;/a&gt;. I&amp;rsquo;d like to review the proof sketch here.&lt;/p&gt;
+&lt;p&gt;Proof. For the complete proof of JL lemma, refer to &lt;a class=&#34;link&#34; href=&#34;https://littlereuben.github.io/study/course-math4csai/#%E9%AB%98%E7%BB%B4%E5%87%A0%E4%BD%95&#34; &gt;this post&lt;/a&gt;. I&amp;rsquo;d like to review the proof sketch here.&lt;/p&gt;
 &lt;p&gt;We can normalize $x\in Q$. Let $w_i$ be the $i$-th row of $W$, then $w_ix\sim\Nd(0,1/n)$ and $\|Wx\|^2\sim\chi_n^2/n$. By some tail bound,
 $$
 \Pr[\|Wx\|^2\notin[1-\epsilon,1+\epsilon]]\le\e^{-\Omega(n\epsilon^2)}
@@ -6350,7 +6349,7 @@ $$
 $$
 &lt;strong&gt;Bernstein inequality, self-adjoint matrix form&lt;/strong&gt;: independent zero-mean self-adjoint $d\times d$ matrix $X_i$ s.t. $|X_i|_2\le R$,
 $$
-\boxed{\P\left[|S_n|_2\ge t\right]\le 2d\exp\left(-\frac{t^2/2}{\left|\sum\E(X_i^2)\right|_2+Rt/3}\right)}
+\boxed{\P\left[\|S_n\|_2\ge t\right]\le 2d\exp\left(-\frac{t^2/2}{\left\|\sum\E(X_i^2)\right\|_2+Rt/3}\right)}
 $$
 （这种东西说的是，$t$ 小的时候像 sub-Gaussian tail，$\e^{-\Theta(t^2)}$；$t$ 大的时候像 sub-exp tail，$\e^{-\Theta(t)}$）&lt;/p&gt;
 &lt;p&gt;Now,
@@ -6361,15 +6360,15 @@ Here $X\sim\begin{cases}1-p,&amp;amp;\text{w.p. }p\\ -p,&amp;amp;\text{w.p. }1-p
 $$
 \sum\E(Z_i^2)=\left(\frac n2p(1-p)+\frac n2q(1-q)\right)I_n
 $$
-also all $|Z|_2\le 1$, so
+also all $\|Z\|_2\le 1$, so
 $$
-\P\left[|A-P|_2\ge t\right]\le 2n\exp\left(-\frac{t^2/2}{n\max\set{p,q}+t/3}\right)
+\P\left[\|A-P\|_2\ge t\right]\le 2n\exp\left(-\frac{t^2/2}{n\max\set{p,q}+t/3}\right)
 $$
 take $t=2\sqrt{n\max\set{p,q}\log n}$,
 $$
-\P\left[|A-P|_2\ge 2\sqrt{n\max\set{p,q}\log n}\right]=\Omicron(n^{-1})
+\P\left[\|A-P\|_2\ge 2\sqrt{n\max\set{p,q}\log n}\right]=\Omicron(n^{-1})
 $$
-which is small compared to $|P|_2=n(p+q)/2$.&lt;/p&gt;
+which is small compared to $\|P\|_2=n(p+q)/2$.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Davis-Kahan theorem&lt;/strong&gt;: symmetric matrices $M$, $\tilde M=M+E$, let the eigenvalues be $\lambda_1\ge\cdots\ge\lambda_n$ and $\tilde\lambda_1\ge\cdots\ge\tilde\lambda_n$, for $S\subseteq\set{1,\cdots,n}$, define the eigen-gap as
 $$
 \gamma=\min_{i\in S,j\notin S}\set{|\lambda_i-\lambda_j|}
@@ -6400,7 +6399,7 @@ $$
 $$
 错误个数
 $$
-\text{err}\le n\sum(\eta\b{\hat t}_i-\b t_i)^2=n|\eta\b{\hat t}-\b t|^2_2=2n(1-\langle\b{\hat t},\b t\rangle)\le2n(1-\langle\b{\hat t},\b t\rangle^2)=2n\sin^2\angle(\b{\hat t},\b t)\le\frac{32p\log n}{p-q}
+\text{err}\le n\sum(\eta\b{\hat t}_i-\b t_i)^2=n\|\eta\b{\hat t}-\b t\|^2_2=2n(1-\langle\b{\hat t},\b t\rangle)\le2n(1-\langle\b{\hat t},\b t\rangle^2)=2n\sin^2\angle(\b{\hat t},\b t)\le\frac{32p\log n}{p-q}
 $$
 with high Pr.&lt;/p&gt;
 &lt;p&gt;多个 cluster 的 clustering 方法跟这里讲的很不一样，参见 &lt;a class=&#34;link&#34; href=&#34;https://people.csail.mit.edu/dsontag/courses/ml14/notes/Luxburg07_tutorial_spectral_clustering.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -6703,7 +6702,7 @@ so
 $$
 \b p_0P^t-\b\pi=\b p_0D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}
 $$
-我们可以把 $|\b p_0P^t-\b\pi|_1$ 想象成一个高维凸多面体上离一个点的距离，最远的一定是顶点，因此只考虑 $\b p_0=\b e_x^\top$。
+我们可以把 $\|\b p_0P^t-\b\pi\|_1$ 想象成一个高维凸多面体上离一个点的距离，最远的一定是顶点，因此只考虑 $\b p_0=\b e_x^\top$。
 $$
 \begin{align*}
 \left\lvert\left(\b e_x^\top D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}\right)_y\right\rvert&amp;amp;=\left|\b e_x^\top D^{-1/2}\sum_{i\ge 2}\lambda_i^t\b v_i\b v_i^\top D^{1/2}\b e_y\right|\\
