@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 $\\gdef\\e{\\mathrm{e}}\\gdef\\sm{\\operatorname{softmax}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\p{\\partial}\\gdef\\omat{\\operatorname{mat}}\\gdef\\ovec{\\operatorname{vec}}\\gdef\\d{\\mathrm{d}}\\gdef\\E{\\operatorname*{E}}\\gdef\\B{\\operatorname{B}}\\gdef\\eps{\\varepsilon}\\gdef\\argmin{\\operatorname*{argmin}}\\gdef\\argmax{\\operatorname*{argmax}}$ Outline Classical Machine Learning Supervised Learning Notation Input $\\b x_i$ For simple regression, we usually make $\\b x_i^\\prime=\\mat{\\b x_i\\\\1}$ to include the bias term. Output $\\b y_i$ Parameters $\\b\\theta$ Hypothesis $f(\\b x;\\b\\theta)$ Loss $\\ell(\\b y,\\b{\\hat y})$ Goal: given a set of $\\set{(\\b x_i,\\b y_i)}$, we want to find $$ \\b\\theta^{*}=\\operatorname*{argmin}_{\\b\\theta}\\frac1N\\sum_{i=1}^N\\ell(\\b y_i,f(\\b x_i;\\b\\theta)) $$ Linear Regression Used for $y_i=f(\\b x_i)+\\mathrm{err}_i$, where">
+<title>AI Principles &amp; Techniques (人工智能原理笔记)</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/course-aipt/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="AI Principles & Techniques (人工智能原理笔记)">
+<meta property='og:description' content="这是一篇学习笔记。 $\\gdef\\e{\\mathrm{e}}\\gdef\\sm{\\operatorname{softmax}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\p{\\partial}\\gdef\\omat{\\operatorname{mat}}\\gdef\\ovec{\\operatorname{vec}}\\gdef\\d{\\mathrm{d}}\\gdef\\E{\\operatorname*{E}}\\gdef\\B{\\operatorname{B}}\\gdef\\eps{\\varepsilon}\\gdef\\argmin{\\operatorname*{argmin}}\\gdef\\argmax{\\operatorname*{argmax}}$ Outline Classical Machine Learning Supervised Learning Notation Input $\\b x_i$ For simple regression, we usually make $\\b x_i^\\prime=\\mat{\\b x_i\\\\1}$ to include the bias term. Output $\\b y_i$ Parameters $\\b\\theta$ Hypothesis $f(\\b x;\\b\\theta)$ Loss $\\ell(\\b y,\\b{\\hat y})$ Goal: given a set of $\\set{(\\b x_i,\\b y_i)}$, we want to find $$ \\b\\theta^{*}=\\operatorname*{argmin}_{\\b\\theta}\\frac1N\\sum_{i=1}^N\\ell(\\b y_i,f(\\b x_i;\\b\\theta)) $$ Linear Regression Used for $y_i=f(\\b x_i)+\\mathrm{err}_i$, where">
+<meta property='og:url' content='https://littlereuben.github.io/study/course-aipt/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2026-02-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-22T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="AI Principles & Techniques (人工智能原理笔记)">
+<meta name="twitter:description" content="这是一篇学习笔记。 $\\gdef\\e{\\mathrm{e}}\\gdef\\sm{\\operatorname{softmax}}\\gdef\\mat#1{\\begin{bmatrix}#1\\end{bmatrix}}\\gdef\\b#1{\\boldsymbol{#1}}\\gdef\\p{\\partial}\\gdef\\omat{\\operatorname{mat}}\\gdef\\ovec{\\operatorname{vec}}\\gdef\\d{\\mathrm{d}}\\gdef\\E{\\operatorname*{E}}\\gdef\\B{\\operatorname{B}}\\gdef\\eps{\\varepsilon}\\gdef\\argmin{\\operatorname*{argmin}}\\gdef\\argmax{\\operatorname*{argmax}}$ Outline Classical Machine Learning Supervised Learning Notation Input $\\b x_i$ For simple regression, we usually make $\\b x_i^\\prime=\\mat{\\b x_i\\\\1}$ to include the bias term. Output $\\b y_i$ Parameters $\\b\\theta$ Hypothesis $f(\\b x;\\b\\theta)$ Loss $\\ell(\\b y,\\b{\\hat y})$ Goal: given a set of $\\set{(\\b x_i,\\b y_i)}$, we want to find $$ \\b\\theta^{*}=\\operatorname*{argmin}_{\\b\\theta}\\frac1N\\sum_{i=1}^N\\ell(\\b y_i,f(\\b x_i;\\b\\theta)) $$ Linear Regression Used for $y_i=f(\\b x_i)+\\mathrm{err}_i$, where">
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#outline">Outline</a></li>
+        <li><a href="#classical-machine-learning">Classical Machine Learning</a>
+          <ol>
+            <li><a href="#supervised-learning">Supervised Learning</a></li>
+          </ol>
+        </li>
+        <li><a href="#deep-learning">Deep Learning</a>
+          <ol>
+            <li><a href="#neural-network">Neural Network</a></li>
+            <li><a href="#convolutional-network">Convolutional Network</a></li>
+            <li><a href="#tricks">Tricks</a></li>
+          </ol>
+        </li>
+        <li><a href="#planning-and-rl">Planning and RL</a>
+          <ol>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#mdp">MDP</a></li>
+            <li><a href="#mdp-variations">MDP Variations</a></li>
+          </ol>
+        </li>
+        <li><a href="#reinforcement-learning">Reinforcement Learning</a>
+          <ol>
+            <li><a href="#passive-learning">Passive Learning</a></li>
+            <li><a href="#active-learning">Active Learning</a></li>
+            <li><a href="#deep-reinforcement-learning">Deep Reinforcement Learning</a></li>
+            <li><a href="#policy-based-rl">Policy-Based RL</a></li>
+            <li><a href="#actor-critic-methods">Actor-Critic Methods</a></li>
+          </ol>
+        </li>
+        <li><a href="#inference">Inference</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/cs/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 计算机
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/course-aipt/">AI Principles &amp; Techniques (人工智能原理笔记)</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026-02-22</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    5012 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>$\gdef\e{\mathrm{e}}\gdef\sm{\operatorname{softmax}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\b#1{\boldsymbol{#1}}\gdef\p{\partial}\gdef\omat{\operatorname{mat}}\gdef\ovec{\operatorname{vec}}\gdef\d{\mathrm{d}}\gdef\E{\operatorname*{E}}\gdef\B{\operatorname{B}}\gdef\eps{\varepsilon}\gdef\argmin{\operatorname*{argmin}}\gdef\argmax{\operatorname*{argmax}}$</p>
+<h3 id="outline">Outline
+</h3><p><img src="/study/course-aipt/outline.png"
+	width="3660"
+	height="2390"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="153"
+		data-flex-basis="367px"
+	
+></p>
+<h3 id="classical-machine-learning">Classical Machine Learning
+</h3><h4 id="supervised-learning">Supervised Learning
+</h4><h5 id="notation">Notation
+</h5><ul>
+<li>Input $\b x_i$
+<ul>
+<li>For simple regression, we usually make $\b x_i^\prime=\mat{\b x_i\\1}$ to include the bias term.</li>
+</ul>
+</li>
+<li>Output $\b y_i$</li>
+<li>Parameters $\b\theta$</li>
+<li>Hypothesis $f(\b x;\b\theta)$</li>
+<li>Loss $\ell(\b y,\b{\hat y})$</li>
+</ul>
+<p>Goal: given a set of $\set{(\b x_i,\b y_i)}$, we want to find
+$$
+\b\theta^{*}=\operatorname*{argmin}_{\b\theta}\frac1N\sum_{i=1}^N\ell(\b y_i,f(\b x_i;\b\theta))
+$$</p>
+<h5 id="linear-regression">Linear Regression
+</h5><p>Used for $y_i=f(\b x_i)+\mathrm{err}_i$, where $f$ is some linear function.
+$$
+\left\{\begin{align*}
+&amp;\b\theta=\mat{\b w\\b}\\
+&amp;f(\b x;\b \theta)=\b\theta^\top\b x^\prime=\b w^\top\b x+b\\
+&amp;\ell(y,\hat y)=\frac12(y-\hat y)^2
+\end{align*}\right.
+$$
+Let $X=\mat{\b x_1&amp;\cdots&amp;\b x_n}^\top$, $\b y=\mat{y_1&amp;\cdots&amp;y_n}^\top$, then our goal is to minimize $\|X\b\theta-\b y\|_2^2$, which can be solved by the Least Square Method: $\b\theta^{*}=(X^\top X)^{-1}X^\top\b y$.</p>
+<h5 id="logistic-regression">Logistic Regression
+</h5><p>Used for a classification problem, i.e. $y_i\in[C]$. You can think of it as the domain space being divided into regions with linear boundaries.</p>
+<p>First consider $C=2$, consider $y_i\in\set{\pm 1}$:
+$$
+\left\{\begin{align*}
+&amp;f(\b x;\b \theta)=\b w^\top\b x+b\\
+&amp;\ell(y,\hat y)=[y\ne\operatorname{sgn}(\hat y)]=[y\hat y&lt;0]
+\end{align*}\right.
+$$
+Not optimizable. Let $\sigma(x)=1/(1+\e^x)$, it has a property that $\sigma(-x)=1-\sigma(x)$.
+$$
+\left\{\begin{align*}
+&amp;f(\b x;\b \theta)=\b w^\top\b x+b\\
+&amp;\ell(y,\hat y)=-\log\sigma(y\hat y)
+\end{align*}\right.\tag{1}
+$$
+For multiple classes, let $\sm(\b x)_i=\e^{\b x_i}/\sum_j\e^{\b x_j}$.
+$$
+\left\{\begin{align*}
+&amp;f(\b x;\b \theta)=W_{C\times n}\b x+\b b\\
+&amp;\ell(y,\b{\hat y})=-\log\sm(\b{\hat y})_y
+\end{align*}\right.\tag{2}
+$$
+$(1)$ is a special case of $(2)$ because take
+$$
+W=\mat{\b 0\\ \b w^\top},\b b=\mat{0\\b}
+$$
+then
+$$
+\sm(W\b x+\b b)=\sm\left(\mat{0\\ \b w^\top\b x+b}\right)=\mat{\frac{1}{1+\e^{\b w^\top\b x+b}}\\ \frac{\e^{\b w^\top\b x+b}}{1+\e^{\b w^\top\b x+b}}}=\mat{1-\sigma(\b w^\top\b x+b)\\ \sigma(\b w^\top\b x+b)}
+$$</p>
+<h5 id="other-methods">Other Methods
+</h5><p>In linear regression, if we change the loss function to, say $\ell(y,\hat y)=|y-\hat y|$, then no closed-form solution exists.</p>
+<p>In logistic regression, if we change the loss function to $\ell(y,\hat y)=\max\set{1-y\hat y,0}$ called hinge loss, it can be dealt with SVM.</p>
+<p>Simply change $\b x_i^\prime=\mat{\b x_i\\1}$ to, like $\b x_i^\prime=\mat{\b x_i^{\circ 2}\\ \b x_i\\1}$ or more, we get &ldquo;non-linear regression&rdquo;.</p>
+<p>Kernel method:
+$$
+f(\b x;\b\theta)=\sum_{i=1}^N\b\theta_iK(\b x,\b x_i)
+$$
+Nearest neighbor method:
+$$
+f(\b x;\b\theta)=\frac1k\sum_{i\in\text{nearest-}k(\b x)}\b y_i
+$$</p>
+<h5 id="probabilistic-interpretation">Probabilistic Interpretation
+</h5><p>Actually, the loss functions are not chosen arbitrarily. The things above are derived from maximum likelihood estimation (MLE).</p>
+<p>We propose some distribution scheme for $p(\b y\mid\b x;\b\theta)$, so our prediction is $\b{\hat y}=\operatorname{argmax}_{\b y}p(\b y\mid\b x;\b\theta)$, and
+$$
+\ell=-\log\prod_{i=1}^Np(\b y_i\mid\b x_i;\b\theta)=-\sum_{i=1}^N\log p(\b y_i\mid\b x_i;\b\theta)
+$$
+For linear regression, we assume
+$$
+y\sim\mathcal{N}(\b w^\top\b x+b,\sigma^2)
+$$</p>
+<p>$$
+\ell=-\sum\log\left[\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(y-\b w^\top\b x)^2}{2\sigma^2}\right)\right]=\frac{1}{2\sigma^2}\boxed{\sum(y_i-\b w^\top\b x_i)^2}-N\log\sqrt{2\pi\sigma^2}
+$$</p>
+<p>For logistic regression,
+$$
+y\sim\text{Ber}(\sigma(\b w^\top\b x+b)),\b y\sim\text{Cat}(\sm(W\b x+\b b))
+$$
+You can verify on your own.</p>
+<p>So one more question is that where comes the cross-entropy function. We extend the Bernoulli distribution to a continuous version, so that if $y\in\set{0,1}$, the distribution degenerates into the original Bernoulli distribution:
+$$
+p(y;\theta)\propto\theta^y(1-\theta)^{1-y}
+$$
+For the multiclass case, we treat it as a binomial case, where the correct $y_i$ is $1$ and the others are $0$. Or, we can also consider a continuous categorical distribution
+$$
+p(\b y;\b\theta)\propto\prod\b\theta_i^{\b y_i}
+$$
+Anyway, since the label $y_i$ is converted into one-hot vector, both of them degenerate into $-\log\sm(W\b x_i+\b b)_{y_i}$.</p>
+<h5 id="one-more-thing">One More Thing
+</h5><p>In multiclass NN, if we don&rsquo;t put sigmoid in the final layer ($\b a=\b z$) and use quadratic loss function, we get
+$$
+\frac{\p\ell}{\p\b z}=\frac12\frac{\p\|\b a-\b e_y\|^2}{\p\b z}=\b a-\b e_y
+$$
+If we use both sigmoid ($\b a=\sigma(\b z)$) and sum of cross-entropy loss on all classes, we get
+$$
+\frac{\p\ell}{\p\b z}=-\frac{\p(\log\sigma(\b z_y)+\sum_{j\ne y}\log(1-\sigma(\b z_j)))}{\p\b z}=-\frac{\sigma^\prime(\b z_y)}{\sigma(\b z_y)}\b e_y+\sum_{j\ne y}\frac{\sigma^\prime(\b z_j)}{1-\sigma(\b z_j)}\b e_j=\b a-\b e_y
+$$
+If we use softmax ($\b a=\sm(\b z)$) and cross-entropy loss of the desired class, we get
+$$
+\frac{\p\ell}{\p\b z}=-\frac{\log(\e^{\b z_y}/\sum_j\e^{\b z_j})}{\p\b z}=-\b e_y+\sum_i\frac{\e^{\b z_i}\b e_i}{\sum_j\e^{\b z_j}}=\b a-\b e_y
+$$
+I guess it&rsquo;s not a coincidence.</p>
+<p>Of course it&rsquo;s not! In D2L the phenomenon is explained:</p>
+<p>Let $\b\eta$ be the result of the final layer of NN (i.e. $\b z$). We model the distribution by exponential family:
+$$
+p(\b x;\b\eta)=h(\b x)\exp\left(\b\eta^\top T(\b x)-A(\b\eta)\right)
+$$</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>notation</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\b\eta$</td>
+<td>parameters</td>
+</tr>
+<tr>
+<td>$h$</td>
+<td>base measure</td>
+</tr>
+<tr>
+<td>$T$</td>
+<td>sufficient statistics</td>
+</tr>
+<tr>
+<td>$A$</td>
+<td>cumulant function</td>
+</tr>
+</tbody>
+</table></div>
+<p>Here, we can simply let $T(\b x)=\b x$, or $T(x)=\b e_x$. And $A$ is just for normalization:
+$$
+A(\b\eta)=\log\int h(\b x)\exp\left(\b\eta^\top T(\b x)\right)\d\b x
+$$
+Now fix the loss function:
+$$
+\ell(\b\eta)=-\log p(\b x;\b\eta)
+$$
+Plug in the ground data $\b x_0$ and calculate the gradient:
+$$
+\begin{align*}
+\nabla\ell&amp;=-\nabla(\b\eta^\top T(\b x_0)-A(\b\eta))\\
+&amp;=-T(\b x_0)+\frac{1}{\exp(A(\b\eta))}\int h(\b x)\exp\left(\b\eta^\top T(\b x)\right)T(\b x)\d\b x\\
+&amp;=-T(\b x_0)+\int p(\b x;\b\eta)T(\b x)\d x\\
+&amp;=\E_{\b x}(T(\b x);\b\eta)-T(\b x_0)
+\end{align*}
+$$
+Looking back at multiclass NNs. Both no-sigmoid + quadratic-loss and softmax + cross-entropy-loss fall into the exponential family (they&rsquo;re strange because the border between post-processing after the final NN layer and operations in the loss function is blurred). Now, $\E_{\b x}(T(\b x);\b\eta)$ is exactly the NN estimate, closely related to $\b\eta$.</p>
+<h5 id="other-stuff-in-lecture-2">Other Stuff in Lecture 2
+</h5><ul>
+<li>Underfitting &amp; overfitting &amp; regularization</li>
+<li>Train, validation, test data; cross validation</li>
+<li>Unsupervised learning: k-means, PCA</li>
+</ul>
+<h3 id="deep-learning">Deep Learning
+</h3><p>If you are new to neural networks, please first read <a class="link" href="http://neuralnetworksanddeeplearning.com/"  target="_blank" rel="noopener"
+    >http://neuralnetworksanddeeplearning.com/</a>. I&rsquo;ll omit the things covered in this book.</p>
+<h4 id="neural-network">Neural Network
+</h4><h5 id="shape-convention">Shape Convention
+</h5><p>In ML, for scalar $L$, we define $\p L/\p x$ to have the shape the same as $x$. So for $W_{n\times m}$, $\p \ell/\p W\notin\R^{1\times(nm)}$, but $\p \ell/\p W\in\R^{n\times m}$.</p>
+<p>Actually we can also define the shape when the output of $L$ is vector, using tensor, but here we just leave it out.</p>
+<p>Sometimes to indicate we are using shape convention explicitly, we may use $\nabla_{W}\ell$, so below I&rsquo;ll follow this notation.</p>
+<h5 id="ways-of-deriving-backpropagation">Ways of Deriving Backpropagation
+</h5><p>Basically, since the chain rule only holds (literally) under usual calculus convention, we must first work out $\p\ell/\p x$ as a single row vector, then change the shape. For $x$ being a column vector, simply transpose the result.</p>
+<p>In ML, usually what we meet is like $\ell=f(\b z)$, $\b z=W\b x$, where $\b z$, $\b x$ are column vectors. Here we can derive the formula for this case, to be used as a shortcut.</p>
+<p>Let $\b\delta=\p\ell/\p\b z$ be a row vector, then
+$$
+\frac{\p\ell}{\p W_{i,j}}=\frac{\p\ell}{\p\b z}\frac{\p\b(W\b x)}{\p W_{i,j}}=\b\delta(\b e_i\b x_j)=\b\delta_i\b x_j\implies\nabla_W\ell=\b\delta^\top\b x^\top
+$$
+Similarly when $\b z=\b xW$, $\nabla_W\ell=\b x^\top\b\delta$.</p>
+<p>A fancier-looking derivation was taught in class. Define:</p>
+<ul>
+<li>
+<p>Kronecker/tensor product of $A\in\R^{m\times n}$ and $B\in\R^{p\times q}$:
+$$
+A\otimes B=\mat{A_{1,1}B&amp;\cdots&amp;A_{1,n}B\\ \vdots&amp;\ddots&amp;\vdots\\A_{m,1}B&amp;\cdots&amp;A_{m,n}B}
+$$</p>
+</li>
+<li>
+<p>Vectorization of matrix $A$: $\omat(A)=$ stacking its columns together to form a $(mn)\times 1$ column vector, and the inverse operator $\ovec$.</p>
+</li>
+</ul>
+<p>Lemma: $(A\otimes B)^\top=A^\top\otimes B^\top$<br>
+Lemma: $\ovec(ABC)=(C^\top\otimes A)\ovec(B)$.<br>
+懒得证了. Basically a bunch of integer division, modulo, and swapping summations.</p>
+<p>Here we consider $\b z_{i+1}=\sigma(W_i\b z_i+\b b_i)$. Assume $\b\delta_{i+1}=\nabla_{\b z_{i+1}}\ell$ is known.
+$$
+\begin{align*}
+\nabla_{W_i}\ell&amp;=\omat\left(\left(\frac{\p\ell}{\p\ovec(W_i)}\right)^\top\right)\\
+&amp;=\omat\left(\left(\frac{\p\ell}{\p\b z_{i+1}}\cdot\frac{\p\b z_{i+1}}{\p(W_i\b z_i+\b b_i)}\cdot\frac{\p(W_i\b z_i+\b b_i)}{\p\ovec(W_i)}\right)^\top\right)\\
+&amp;=\omat\left(\left(\b\delta_{i+1}^\top\cdot\operatorname{diag}(\sigma^\prime(W_i\b z_i+\b b_i))\cdot(\b z_i^\top\otimes I)\right)^\top\right)\\
+&amp;=\omat\left((\b z_i\otimes I)\cdot(\sigma^\prime(W_i\b z_i+\b b_i)\circ\b\delta_{i+1})\right)\\
+&amp;=\left(\sigma^\prime(W_i\b z_i+\b b_i)\circ\b\delta_{i+1}\right)\cdot\b z_i^\top
+\end{align*}
+$$</p>
+<h5 id="comments-on-mnist">Comments On MNIST
+</h5><p>For FCN with <code>lr=0.1</code>, <code>momentum=0.9</code>, <code>hiddensize=500</code>: <code>batchsize</code> $256$ better than $1024$ better than $64$. Personal best is $98.1%$ on test.</p>
+<p>I found no overfitting on MNIST (in test accuracy), but test loss has an observable increase (for both FCN and CNN). The craziest part is that when <code>batchsize=64</code>, test loss can spike above $6$. Why does this happen?</p>
+<h4 id="convolutional-network">Convolutional Network
+</h4><p>For tasks involving identifying features from an image based on grid structure, a fully connected network doesn&rsquo;t exploit spatial structure and has too many parameters.</p>
+<p>Note that vanishing gradient problem still occurs in CNN. It is ReLU that alleviates this problem.</p>
+<p>Typically there are the following layers in a CNN:</p>
+<ul>
+<li>
+<p>Convolution layer. We have a convolution kernel, usually having really small size, and
+$$
+z_{i,j}^{(l+1,d)}=\sum_c\sum_{p=0}^{s-1}\sum_{q=0}^{s-1}W_{k,l}^{(l,c,d)}z_{i+k,j+l}^{(l,c)}+b^{(l,d)}
+$$
+Note that there&rsquo;s a different kernel for every pair of channels.</p>
+</li>
+<li>
+<p>Pooling layer. This is simply for reducing the size.
+$$
+z_{i,j}^{(l+1,c)}=\max_{p=si}^{si+s-1}\max_{q=sj}^{sj+s-1}z_{p,q}^{(l,c)}
+$$</p>
+</li>
+<li>
+<p>Nonlinear layer.</p>
+</li>
+<li>
+<p>Fully connected layer.</p>
+</li>
+</ul>
+<p>A few more words on convolutional layer. First,
+$$
+\text{\# of parameters}=(\text{\# of input channels}\times\text{kernel size}^2+1)\times\text{\# of output channels}
+$$
+Second, we have stride and padding for convolutional layer. If the original size of some dimension is $n$, then the output size is
+$$
+\left\lfloor\frac{n+\text{padding}-\text{kernel}}{\text{stride}}\right\rfloor+1
+$$
+On backpropagation of convolutional layer, we first write convolution as, like
+$$
+z^{(l+1,\cdot)}\gets\mat{
+w_1&amp;w_2&amp;0&amp;w_3&amp;w_4&amp;0&amp;0&amp;0&amp;0\\
+0&amp;w_1&amp;w_2&amp;0&amp;w_3&amp;w_4&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;w_1&amp;w_2&amp;0&amp;w_3&amp;w_4&amp;0\\
+0&amp;0&amp;0&amp;0&amp;w_1&amp;w_2&amp;0&amp;w_3&amp;w_4\\
+}z^{(l,\cdot)}+\mat{b\\b\\b\\b}
+$$
+where $W=\mat{w_1&amp;w_2\\w_3&amp;w_4}$ is the kernel. Since we know that, for $\b z_{l+1}=W_l\b z_l+\b b_l$,
+$$
+\nabla_{\b z_l}\ell=\left(\frac{\p\ell}{\p\b z_l}\right)^\top=\left(\frac{\p\ell}{\p\b z_{l+1}}W_l\right)^\top=W_l^\top\nabla_{\b z_{l+1}}\ell
+$$
+so, examine
+$$
+\begin{align*}
+g^{(l,\cdot)}&amp;=\mat{w_1&amp;0&amp;0&amp;0\\ w_2&amp;w_1&amp;0&amp;0\\ 0&amp;w_2&amp;0&amp;0\\  w_3&amp;0&amp;w_1&amp;0\\ w_4&amp;w_3&amp;w_2&amp;w_1\\ 0&amp;w_4&amp;0&amp;w_2\\ 0&amp;0&amp;w_3&amp;0\\0&amp;0&amp;w_4&amp;w_3\\ 0&amp;0&amp;0&amp;w_4}g^{(l+1,\cdot)}\\ &amp;=
+\mat{
+w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;w_4&amp;w_3&amp;0&amp;0&amp;w_2&amp;w_1\\
+}\mat{0\\0\\0\\0\\0\\ g^{(l+1,\cdot)}_1\\ g^{(l+1,\cdot)}_2\\0\\0\\ g^{(l+1,\cdot)}_3\\ g^{(l+1,\cdot)}_4\\0\\0\\0\\0\\0}
+\end{align*}
+$$
+so we find that, backpropagation through the convolution layer is just convolution by flipped filter after padding.</p>
+<p><img src="/study/course-aipt/CNNback.png"
+	width="891"
+	height="474"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="451px"
+	
+></p>
+<h4 id="tricks">Tricks
+</h4><h5 id="gradient-descent">Gradient Descent
+</h5><p>$$
+\b\theta^\prime=\b\theta-\eta\nabla_{\b\theta}\ell(\b\theta)
+$$</p>
+<p>For stochastic gradient descent, from mathematical point of view rather than &ldquo;minibatch&rdquo; point of view,
+$$
+\b\theta^\prime=\b\theta-\eta(\nabla_{\b\theta}\ell(\b\theta)+\b\xi)
+$$</p>
+<h5 id="relu">ReLU
+</h5><p>Vanishing gradient problem is caused by both small derivative value of sigmoid and small (initial) parameters, while exploding gradient problem is only caused by large parameters. ReLU can only solve the small derivative problem. However, it introduces dying ReLU problem. To tackle this, people invented leaky ReLU, SiLU, etc.</p>
+<h3 id="planning-and-rl">Planning and RL
+</h3><p>Previously, all the ML models are about producing knowledge, but now we enter the field of interacting with the environment.</p>
+<h4 id="search">Search
+</h4><p>The simplest, deterministic way of planning, is search.</p>
+<p>A search problem consists of state space $S$, start state $s_{\rm start}$, actions space $A$, successors (of actions), cost (of actions), and goal test. A solution is a sequence of actions that transform $s_{\rm start}$ to a state that satisfies the goal condition.</p>
+<h5 id="a-search">A* Search
+</h5><p>The only reason why A* is better than BFS/Dijkstra is A* doesn&rsquo;t explore all the vertices.</p>
+<p>A* is simply Dijkstra, changing the key of $u$ in the priority queue from $d_u$ to $d_u+e_u$, where $e_u$ is the estimated distance from $u$ to the goal, and outputting the answer when some goal is extracted from the priority queue. It&rsquo;s easy to see, for $e_u=0$, it&rsquo;s Dijkstra; for $e_u=\operatorname{dis}(u,t)$, only the vertices on the shortest path from $s$ to $t$ (the nearest goal) will be explored.</p>
+<p>From here we follow the convention taught in class: rename $d_u$ as $f(u)$, and $e_u$ as $h(u)$ (called a heuristic), vertices as states, and length as cost. There are three A* variants under different assumptions on $h(u)$:</p>
+<ul>
+<li>No constraint. A* might be incorrect.</li>
+<li>(admissible) $0\le h(u)\le h^{*}(u)$ where $h^{*}(u)=\min_{\text{goal }t}\operatorname{dis}(u,t)$. In this case some $u$ may be pushed into/popped from queue multiple times, but the lowest cost is ensured to be found because every state nearer from the start state than any goal will be expanded before the goal. We say in this case, tree search can solve the problem.</li>
+<li>(consistent) $h(u)\le h(v)+w(u,v)$. In this case we can prove that when $u$ is popped the first time, the cost is optimal. We say in this case, graph search can solve the problem.</li>
+</ul>
+<p>Obviously consistent $\implies$ admissible. We can see the stupid heuristic as setting $w^\prime(u,v)=w(u,v)-h(u)+h(v)$, then consistency condition is just nonnegative weights. So A* is explained in one sentence, but non-TCS guys use an entire session to talk about it with vague expressions. I can&rsquo;t stand it.</p>
+<h4 id="mdp">MDP
+</h4><h5 id="definition">Definition
+</h5><p>When facing the real world, there are uncertainties. When taking an action $a$ at state $s$, the next state is not deterministic, but follows a probability distribution, i.e.
+$$
+\Pr[s^\prime\mid s,a]=T(s,a,s^\prime)
+$$
+and everything else are the same as search, except the cost function is replaced by reward function $R(\text{state})$ (and the goal is to maximize it). It&rsquo;s called Markov Decision Process. It has the following properties:</p>
+<ul>
+<li>First-order Markovian dynamics (history independence). $\Pr(s_{t+1}\mid s_t,a_t,s_{t-1},a_{t-1},\cdots,s_0)=\Pr(s_{t+1}\mid s_t,a_t)$.</li>
+<li>Reward is deterministic.</li>
+<li>The probability distribution does not depend on time.</li>
+<li>We can observe $s_{t+1}$ after it&rsquo;s sampled.</li>
+</ul>
+<p>Note that the first-order Markovian dynamics does not mean that the process is necessarily independent of the &ldquo;history&rdquo; because we can let ($\circ$ means concatenation)
+$$
+s^\prime=s\circ a\circ\Delta\text{ w.p. }T(s,a,\Delta)
+$$
+But usually it&rsquo;s not the case in practice.</p>
+<p>In the agent&rsquo;s point of view, there&rsquo;s an additional concept called &ldquo;observation&rdquo;. The observation space is denoted as $\Omega$, and the observation $o\in\Omega$ is determined by the action and the succeeding state:
+$$
+\text{there is a distribution }\Pr[o\mid s^\prime,a]
+$$
+A history $h_t$ is defined as
+$$
+h_t=(a_0,o_1,R_1,a_1,o_2,R_2,\cdots,a_{t-1},o_t,R_t)
+$$
+and the <strong>internal</strong> state of the agent is defined as a summary of experience
+$$
+\text{internal state}=f(h_t)
+$$
+and the internal state is also called $h_t$. Usually $f$ will not keep all the information. Think of, for example, LSTM. Furthermore, we call &ldquo;fully observed environment&rdquo;, when the true state can be inferred from the observation. In this case, clearly, we don&rsquo;t need to distinguish the true state and the internal state. On the flip side, if the environment is not fully observed, we call the process a &ldquo;partially observed Markov decision process&rdquo; (POMDP). Then conditioned on the current internal state, the agent can form a &ldquo;guess&rdquo; on the true state, that is a &ldquo;belief state&rdquo; $b_t=b(h_t)\in\Delta(S)$.</p>
+<p>Some real-world examples for better understanding:</p>
+<ul>
+<li>Go. Fully observed.</li>
+<li>Poker (德扑). The optimal decision requires you to remember past actions, bets, and the number of players who folded, etc.</li>
+<li>Robot navigation. If there&rsquo;s a map/GPS, then it is fully observed. Otherwise, it&rsquo;s partially observed and the robot needs to use its history to reduce uncertainty.</li>
+</ul>
+<p>There are two types of problem:</p>
+<ul>
+<li>Planning, the dynamics model (probability distribution) is known.</li>
+<li>RL, not known.</li>
+</ul>
+<h5 id="theoretical-guarantee">Theoretical Guarantee
+</h5><p>To solve an MDP, we want to find a policy $\pi:S\to A$ or $\pi:S\to \Delta(A)$. There are two types of policies:</p>
+<ul>
+<li>Non-stationary policy. The action also depends on the steps to go.</li>
+<li>Stationary policy. There are infinitely many future steps.</li>
+</ul>
+<p>Note that the four properties of an MDP still hold.</p>
+<p>For infinite horizon case, to evaluate a policy, we define a value function:
+$$
+V_\pi(s)=\E\left(\sum_{t\ge 0}\gamma^tR(s_t)\middle|\pi,s\right)
+$$
+or
+$$
+V_\pi(s)=R(s)+\gamma\E(V_\pi(s^\prime)\mid s,\pi(s))\tag{Bellman equation}
+$$
+Maybe not that ideal, just compromise on convergence.</p>
+<p>We claim that</p>
+<p><strong>Theorem</strong>. $\exists\pi$, $\forall s$, $\forall \pi^\prime$, $V_\pi(s)\ge V_{\pi^\prime}(s)$, that is, such &ldquo;best&rdquo; policy exists.</p>
+<p><strong>Proof</strong>. Here we define $V_{*}$ recursively:
+$$
+V_{*}(s)=R(s)+\gamma\max_a\E(V_{*}(s^\prime)\mid s,a)
+$$
+<strong>Lemma</strong>. $V_{*}$ uniquely exists, and $\forall s$, $V_{*}(s)=\max_\pi V_\pi(s)$.</p>
+<p>Then we construct
+$$
+\pi_{*}(s)=\operatorname*{argmax}_a\E(V_{*}(s^\prime)\mid s,a)
+$$
+Then such $\pi_{*}$ satisfies the condition.</p>
+<p>Now we prove the lemma. Consider the Bellman operator $\B:\R^{|S|}\to\R^{|S|}$:
+$$
+\B V(s)=R(s)+\gamma\max_a\E(V(s^\prime)\mid s,a)
+$$
+$$
+\begin{align*}
+\lVert\B V_1-\B V_2\rVert_{\infty}
+&amp;=\gamma\max_s\left\lvert\max_a\E(V_1(s^\prime)\mid s,a)-\max_a\E(V_2(s^\prime)\mid s,a)\right\rvert\\
+&amp;\le\gamma\max_s\max_a\left\lvert\E(V_1(s^\prime)\mid s,a)-\E(V_2(s^\prime)\mid s,a)\right\rvert\\
+&amp;\le\gamma\max_s\max_a\sum_{s^\prime}\Pr[s^\prime\mid s,a]\left\lvert V_1(s^\prime)-V_2(s^\prime)\right\rvert\\
+&amp;\le\gamma\max_{s^\prime}\left\lvert V_1(s^\prime)-V_2(s^\prime)\right\rvert\\
+&amp;=\gamma\|V_1-V_2\|_{\infty}
+\end{align*}
+$$
+So by the Banach fixed-point theorem, there exists unique $V_{*}$ such that $\B V_{*}=V_{*}$. Also a corollary is linear convergence.</p>
+<p>If for some $V_\pi$, $V_\pi(s)&gt;V_{*}(s)$, then $V_\pi$ is not a fixed point, and $\exists s^\prime$, $\B V_\pi(s^\prime)&gt;V_\pi(s^\prime)$. If we only change $\pi(s^\prime)$, we&rsquo;ll get a strictly better policy because the probability served as coefficient in the Bellman equation is nonnegative. Here we assume the policy space is finite, so we&rsquo;ll reach a contradiction.</p>
+<h5 id="value-iteration">Value Iteration
+</h5><p>Just repeatedly calculate $V$. By the Banach fixed-point theorem,</p>
+<ul>
+<li>$\|V_k-V_{*}\|\le\gamma^kR_{\max}/(1-\gamma)$</li>
+<li>$\|V_k-V_{k-1}\|\le\eps\implies\|V_k-V_{*}\|\le\eps\gamma/(1-\gamma)$.</li>
+<li>Let $V_g$ be the value of $\pi_V$ constructed by $\operatorname{argmax}$, then $\|V-V_{*}\|\le\eps\implies\|V_g-V_{*}\|\le2\eps\gamma/(1-\gamma)$.</li>
+</ul>
+<h5 id="policy-iteration">Policy Iteration
+</h5><p>Each iteration, compute $V_\pi$ by current $\pi$ then update $\pi$ by $V_\pi$ (still, $\operatorname{argmax}$), until $\pi$ fixes.</p>
+<p>Since
+$$
+\max_a\E(V_\pi(s^\prime)\mid s,a)\ge\E(V_\pi(s^\prime)\mid s,\pi(s))
+$$
+We can iteratively use this inequality to show $\pi^\prime$ must improve over $\pi$ (if equality holds, it means the fix-point is reached). In theory, the algorithm might run through every policy then result in exponential time, but it&rsquo;s not the case in practice.</p>
+<p>How to calculate $V_\pi$? We need to solve a linear equation system.</p>
+<p>In short, value iteration needs more iterations than policy iteration empirically. Value iteration is $O(S^2A)$, while policy iteration is $O(S^3)$ but can be reduced to $O(kS^2)$: just like value iteration, calculate $V_\pi$ by a few iterations. This is called modified policy iteration.</p>
+<h5 id="other-tricks">Other Tricks
+</h5><ul>
+<li>In-place value iteration. Every time randomly choose an $s$ and update $V(s)$.</li>
+<li>Prioritized sweeping. Every time select $s$ s.t. $\delta(s)=\left\lvert R(s)+\max_a\E(V(s^\prime)\mid s,a)-V(s)\right\rvert$ is the largest. Need to reversely update those $\delta(s_{\rm pre})$ such that $\Pr[s\mid s_{\rm pre},a_{\rm best}]&gt;0$. Use priority queue to maintain.</li>
+<li>Run the policy, use agent’s experience to guide the selection of $s$.</li>
+<li>When $V$ requires too much memory, we can use NN to fit $V$.</li>
+</ul>
+<h4 id="mdp-variations">MDP Variations
+</h4><ul>
+<li>Infinite MDP: countably infinite states/actions; continuous state/action; continuous time.</li>
+<li>POMDP: can be reduced to an (infinite) history tree, or an continuous MDP with belief states.</li>
+<li>Ergodic MDP. A few words is needed here.</li>
+</ul>
+<p>An ergodic MP is an irreducible, aperiodic MP. An ergodic MDP is an MDP whose MP induced by any policy is ergodic. By 计智应数, an ergodic MP has a unique stationary distribution. Thus the following quantity is well-defined w.r.t. a policy $\pi$:
+$$
+\rho_\pi=\lim_{T\to\infty}\frac1T\E\left(\sum_{t=1}^TR_t\right)
+$$
+it&rsquo;s called the average reward per time-step.</p>
+<p>The value function of an undiscounted ($\gamma=1$), ergodic MDP can be expressed in terms of average reward.
+$$
+\tilde V_\pi(s)=\E\left(\sum_{t\ge 1}(R_t-\rho_\pi)\middle| s_0=s\right)
+$$
+by theory of mixing time, $R_t-\rho^\pi=\Omicron(\lambda^t)$ for some $0&lt;\lambda&lt;1$, so the infinite sum converges.</p>
+<p>Bellman equation form:
+$$
+\tilde V_\pi(s)=\E((R^\prime-\rho_\pi)+\tilde V_\pi(s^\prime)\mid s)
+$$</p>
+<h3 id="reinforcement-learning">Reinforcement Learning
+</h3><p>RL is MDP, minus the knowledge about transition $T$ and/or reward $R$.</p>
+<p>In RL, a learning algorithm is called an agent. There are two main attributes of an agent that we differentiate, that are:</p>
+<ul>
+<li>Passive learning vs. active learning. Passive learning is just following a fixed policy, and try to estimate the utility of the policy $V_\pi(\cdot)$. Active learning select the policy. While it aims at finding the optimal policy, it utilize the current policy to explore, that is, gaining information about the MDP that guides the further policy selection.</li>
+<li>Model-based vs. model-free. A model-based agent explicitly stores a representation of $T$ and $R$, then the overall problem is more like MDP previously introduced, and may be solved by, e.g. policy iteration. A model-free agent learns $V$ or $\pi$ directly from trial-and-error experience with the environment, without explicitly learning the model (MDP).</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>Model-Free</th>
+<th>Model-Based</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Passive Learning</strong></td>
+<td>MC</td>
+<td>ADP, TD</td>
+</tr>
+<tr>
+<td><strong>Active Learning</strong></td>
+<td>Q-Learning, SARSA, DQN, PPO, SAC</td>
+<td>Dyna-Q</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="passive-learning">Passive Learning
+</h4><p>From here on, $T$, $R$, and $V$ all refer to estimated values; formally they should be written as $\hat T$, $\hat R$, and $\hat V$.</p>
+<p>Now a policy $\pi$ to be evaluated is given.</p>
+<ul>
+<li>Direct estimation, or Monte Carlo (MC). Just run a lot of episodes (each time act according to $\pi$ until a terminal state is reached), and average reward-to-go. It converges but very slowly. It doesn&rsquo;t utilize Bellman equation.</li>
+<li>Adaptive dynamic programming (ADP). It follows $\pi$ for a while, to get $T$ and $R$, then solve for $V_\pi(\cdot)$. Correctness: can bound error with Chernoff bounds.</li>
+<li>Temporal difference learning (TD). The idea is to do local updates of the value function on a per-action basis, instead of learning the model and solving the Bellman equation at the end. Details are as follows:</li>
+</ul>
+<p>Consider updating the value function in some way:
+$$
+V_\pi^\prime(s)\gets\begin{cases}V_\pi(s)&amp;(\text{old})\\R(s)+\gamma\E(V_\pi(s^\prime)\mid s,\pi(s))&amp;(\text{new})\end{cases}
+$$
+Here $\text{new}$ is obtained by sampling:
+$$
+\text{new}=R(s)+\gamma V_\pi(s^\prime),s^\prime\sim T(s,\pi(s),\cdot)
+$$
+so that $\E(\text{new})=R(s)+\gamma\E(V_\pi(s^\prime)\mid s,\pi(s))$.</p>
+<p>To guarantee some kind of stability, we set a &ldquo;learning rate&rdquo; $\alpha$, then
+$$
+V_\pi^\prime(s)=(1-\alpha)(\text{old})+\alpha(\text{new})
+$$
+Thus
+$$
+V^\prime_\pi(s)=V_\pi(s)+\alpha(R(s)+\gamma V_\pi(s^\prime)-V_\pi(s))
+$$
+With appropriately decreasing $\alpha$, one can prove convergence.</p>
+<h4 id="active-learning">Active Learning
+</h4><p>Now we need to find a good policy $\pi$.</p>
+<p>There&rsquo;s a main challenge called the Exploration-Exploitation Dilemma.</p>
+<ul>
+<li>MC-based naïve approach. Explore (take random action each time) for a long long time to learn $T$ and $R$, then turn the problem into MDP problem. This is one extreme of complete exploration.</li>
+<li>ADP-based naïve approach. Every cycle, follow the policy $\pi$ solved by the previous cycle for a while and estimate $T$ and $R$, then compute $V_\pi$ by the gained information. Finally compute the new policy $\pi^\prime$ by $\argmax$. This is the other extreme of complete exploitation. It is usually incorrect because it can easily get stuck in local minima.</li>
+</ul>
+<h5 id="glie">GLIE
+</h5><p>We can modify &ldquo;following the previously obtained greedy policy&rdquo; to avoid getting stuck:</p>
+<ul>
+<li>Each step with probability $1-p(t)$ select the greedy action, and with probability $p(t)$ act randomly. $p(t)=1/t$.</li>
+<li>Select action according to Boltzmann distribution $\Pr[a\mid s]=\exp(Q(s,a)/T)/\sum_{a^\prime}\exp(Q(s,a^\prime)/T)$.</li>
+<li>Optimistic exploration. Assign the highest possible value to any state-action pair that has not been explored enough. Under this framework, there is an algorithm called $\text{Rmax}$. Specifically, it redirects the transition of any state-action pair that has been visited fewer than $N_e$ times to itself and sets the reward to $R_{\max}$ (so its $Q$ value is $V_{\max}=R_{\max}/(1-\gamma)$). $\text{Rmax}$ has a theoretical convergence guarantee called a PAC guarantee.</li>
+</ul>
+<p>These exploration policies are all so-called GLIE, greedy in the limit of infinite exploration.</p>
+<h5 id="q-learning">Q-Learning
+</h5><p>Notice that there comes a new value function $Q$:
+$$
+Q(s,a):=R(s)+\gamma\E\left(\max_{a^\prime}Q(s^\prime,a^\prime)\middle|s,a\right)
+$$
+It&rsquo;s especially useful for optimizing TD-based active RL. When trying to analogize TD-based active RL to ADP-based active RL, it seems like the only thing to be changed is the updating process of $V_\pi$. However the greedy policy requires $\argmax_a\set{\cdots}$, where $T$ and $R$ are needed. So TD-based active RL is no longer model-free. In order to prevent learning the model, we should directly estimate $Q$ instead of $V_\pi$. This leads to Q-learning. The updating step of $Q$ is similar to that in TD:
+$$
+Q^\prime(s,a)=Q(s,a)+\alpha\left(R(s)+\gamma\max_{a^\prime}Q(s^\prime,a^\prime)-Q(s,a)\right)
+$$</p>
+<p>With the same exploration policy such as Boltzmann exploration, one can prove that with learning rate satisfying $\sum\alpha_n=\infty\land\sum\alpha_n^2&lt;\infty$, Q-learning converges to the true, optimal $Q$ function.</p>
+<p>For goal-based problems where the big reward appears only in the goal state, in each episode only one more $Q(s,a)$ can see that big reward. To accelerate convergence, we can use optimizations that look like &ldquo;back-propagation&rdquo;, including trajectory replay and reverse updates.</p>
+<h5 id="sarsa">SARSA
+</h5><p>Now consider another pair of attributes:</p>
+<ul>
+<li>Off-policy vs. on-policy. If the policy used to select the action and the policy used to evaluate the next action are the same, then such agent is called on-policy, otherwise it&rsquo;s called off-policy. Q-learning is obviously off-policy, because it follows a mixture of greedy action and random action when deciding the next step (exploring), while it chooses $\max_{a^\prime}Q$ when calculating $Q$ function (exploiting).</li>
+</ul>
+<p>State-Action-Reward-State-Action (SARSA) is an on-policy type of agent similar to Q-learning. The only difference is that, after the update:
+$$
+Q^\prime(s,a)=Q(s,a)+\alpha\left(R(s)+\gamma Q(s^\prime,a^\prime)-Q(s,a)\right)\text{ where }a^\prime=\begin{cases}\argmax_{a^\prime}Q(s^\prime,a^\prime),&amp;\text{w.p. }1-\epsilon\\ \text{an action uniformly at random},&amp;\text{w.p. }\epsilon\end{cases}
+$$
+The action taken (giving $s^{\prime\prime}$) is exactly $a^\prime$. Notice that in Q-learning, the $a^\prime=\argmax Q$ used for update is not necessarily the actual action leading the trajectory.</p>
+<p>Also it&rsquo;s almost the same as the first exploration strategy in ADP-based learning, except that $\epsilon$ is a fixed constant.</p>
+<p>SARSA learns safer policy than Q-learning. This behavior significantly manifests in the classical cliff walking problem. An easy way to understand that is to regard the $\epsilon$-greedy policy as the agent itself occasionally loses its mind and does some crazy decisions, so in order to prevent catastrophic negative reward it tends to choose a safer pathway.</p>
+<p>Note that when I say &ldquo;SARSA learns safer policy&rdquo;, I refer to &ldquo;the output policy&rdquo; of SARSA, which is still a deterministic policy obtained by taking $\pi(s)=\argmax_aQ(s,a)$.</p>
+<p><img src="/study/course-aipt/SARSA.png"
+	width="974"
+	height="370"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="263"
+		data-flex-basis="631px"
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>MC Passive</th>
+<th>ADP Passive</th>
+<th>TD Passive</th>
+<th>MC Active</th>
+<th>ADP Active</th>
+<th>TD Active</th>
+<th>Q-Learning</th>
+<th>SARSA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time/it</td>
+<td>?</td>
+<td>$O(kS^2)$</td>
+<td>$O(1)$</td>
+<td>?</td>
+<td>$O(kS^2)$</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>$O(S^2A)$</td>
+<td>$O(S^2A)$</td>
+<td></td>
+<td>$O(S^2A)$</td>
+<td>$O(S^2A)$</td>
+<td>$O(S^2A)$</td>
+<td>$O(SA)$</td>
+<td>$O(SA)$</td>
+</tr>
+<tr>
+<td>Model</td>
+<td>based</td>
+<td>based</td>
+<td>free</td>
+<td>based</td>
+<td>based</td>
+<td>based</td>
+<td>free</td>
+<td>free</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="deep-reinforcement-learning">Deep Reinforcement Learning
+</h4><h5 id="rl-with-function-approximation">RL with Function Approximation
+</h5><p>When solving real-world RL problems, we can&rsquo;t afford to store the full tabular $V$ or $Q$. So we consider approximating them using kernel methods or linear approximation. Define a set of features $f_1(s)\sim f_n(s)$, and
+$$
+V_\theta(s)=\theta_0+\sum_{i=1}^n\theta_if_i(s)
+$$
+Now first we consider model-based TD. The expected &ldquo;correct&rdquo; $V$ is $v(s)=R(s)+\gamma V_\theta(s^\prime)$, and the current value is $V_\theta(s)$. Directly using GD with quadratic loss function, the gradient update should be
+$$
+\theta^\prime=\theta-\alpha\nabla_\theta\left(\frac12\left(v(s)-\theta_0-\sum_{i=1}^n\theta_if_i(s)\right)^2\right)=\theta+\alpha(R(s)+\gamma V_\theta(s^\prime)-V_\theta(s))\mat{1\\f(s)}
+$$
+For model-free TD, it&rsquo;s also basically identical to Q-learning:
+$$
+Q_\theta(s,a)=\theta_0+\sum_{i=1}^n\theta_if_i(s,a)
+$$</p>
+<p>$$
+\theta^\prime=\theta+\alpha\left(R(s)+\gamma\max_{a^\prime}Q_\theta(s^\prime,a^\prime)-Q_\theta(s,a)\right)\mat{1\\f(s,a)}
+$$</p>
+<p>Furthermore, why not use NN to approximate $Q$? (the convergence is not guaranteed, though) This leads to Deep Q-Networks, i.e. DQN.</p>
+<p><img src="/study/course-aipt/DQN.jpg"
+	width="946"
+	height="541"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="419px"
+	
+></p>
+<h5 id="stability-problem-and-solutions">Stability Problem and Solutions
+</h5><p>Naïve Q-learning on DNNs (with the past few frames as input) oscillates or diverges because the data is sequential and successive samples are correlated, and also correlated with the taken action. Since the loss landscape of DNNs is complicated, the policy may oscillate (between several behavior modes). Also, because there are unstable gradient issues, we need to tune hyperparameters carefully. But there&rsquo;re many different environment conditions. There&rsquo;re several tricks that make it more stable:</p>
+<ol>
+<li>Experience replay. This is to remove correlations. Do not use the most recent observed transitions, but store millions of transitions in replay memory $D$. Every time sample mini-batches from it and optimize.</li>
+<li>Fixed target Q-Network. So we want $R(s)+\gamma\max_{a^\prime}Q_\theta(s^\prime,a^\prime)=Q_{\theta^\prime}(s,a)\cdots(*)$. Previously we make recurrently update to minimize the loss, and in the next step, the reference $Q$ is changed to $Q_{\theta^\prime}$. Now we fix the reference $\theta$ (in LHS of $(*)$) for thousands of steps and optimize $\theta^\prime$.</li>
+<li>Control the reward/value range like clipping to $[-1,+1]$.</li>
+</ol>
+<p>By 1 and 2, the optimization target is changed to:
+$$
+\begin{array}{c}
+\min.\left(R(s)+\gamma\max_{a^\prime}Q_{\theta_t}(s^\prime,a^\prime)-Q_{\theta_{t+1}}(s,a)\right)^2\\
+\downarrow\\
+\min.\E_{(s,a,r,s^\prime)\sim U(D)}\left(r+\gamma\max_{a^\prime}Q_{\theta_t}(s^\prime,a^\prime)-Q_{\theta_{t+1}}(s,a)\right)^2\\
+\downarrow\\
+\min.\E_{(s,a,r,s^\prime)\sim U(D)}\left(r+\gamma\max_{a^\prime}Q_{\theta_{\lfloor t/T\rfloor T}}(s^\prime,a^\prime)-Q_{\theta_{t+1}}(s,a)\right)^2
+\end{array}
+$$</p>
+<h5 id="maximization-bias-and-double-q-learning">Maximization Bias and Double Q-Learning
+</h5><p>Another problem is called the maximization bias. Recall the update formula of tabular Q-learning:
+$$
+Q^\prime(s,a)=Q(s,a)+\alpha\left(R(s)+\gamma\max_{a^\prime}Q(s^\prime,a^\prime)-Q(s,a)\right)
+$$
+One can see that
+$$
+\E\left(\max_ix_i\right)\ge\E(x_{*})=\max_i\E(x_i)
+$$
+so with randomness (even the previous $Q$ has unbiased noise), $Q$ will be overestimating. The solution is double Q-learning: Train two $Q$ functions, every time randomly choose one to update, like
+$$
+Q_1^\prime(s,a)=Q_1(s,a)+\alpha\left(R(s)+\gamma Q_2(s^\prime,\argmax_{a^\prime}Q_1(s^\prime,a^\prime))-Q_1(s,a)\right)
+$$
+It can be proven that under some assumptions, it underestimates. But the key is that because of the $\max$, underestimation is less damaging than overestimation, since the latter leads to a feedback loop, but the former cannot.</p>
+<p>When determining the next action, take $\argmax$ over $Q_1+Q_2$.</p>
+<p>The same idea can be applied to DQN. Here the old Q-network can be used as $Q_2$:
+$$
+\min.\left(r+\gamma Q_{\theta_{\text{old}}}(s^\prime,\argmax_{a^\prime}Q_\theta(s^\prime,a^\prime))-Q_\theta(s,a)\right)^2
+$$
+Combined with experience replay, here&rsquo;s another trick: for multiple past experiences $\set{(s,a)}$, choose among them according to the above quadratic error, like
+$$
+P(i)=\frac{\mathrm{err}_i^\alpha}{\sum_k\mathrm{err}_k^\alpha}
+$$
+<img src="/study/course-aipt/DQN.png"
+	width="2696"
+	height="805"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="334"
+		data-flex-basis="803px"
+	
+></p>
+<p>This plot shows that double DQN is less biased and has lower variance. Note that the &ldquo;true value&rdquo; is $\E(\sum\gamma^tr_t)$ when following the policy yielded by $\argmax$.</p>
+<h4 id="policy-based-rl">Policy-Based RL
+</h4><p>Instead of learning $V$ or $Q$ by simulating some policy for a huge number of steps, policy-based RL methods directly learn the model that determine the actions, that is, $\pi_\theta(s,a)=\Pr[a\mid s;\theta]$, learn $\theta$ by GD.</p>
+<p>There&rsquo;re a few intuitive reasons:</p>
+<ol>
+<li>Often the feature-based policies that work well aren&rsquo;t the ones that approximate $V$/$Q$ best.</li>
+<li>The final goal of RL is finding a good policy, which can be achieved by only getting the ordering of $Q$ values right. But Q-learning prioritizes getting $Q$ values close.</li>
+<li>$V$ or $Q$ leads to deterministic (or near-deterministic like $\epsilon$-greedy) policies, while in some problems, mixed strategy is the optimal.</li>
+</ol>
+<p>The advantages of policy-based RL:</p>
+<ol>
+<li>Better convergence properties: $\pi_\theta(s,a)$ changes continuously, unlike the $\argmax$ of value-based RL changing suddenly.</li>
+<li>Effective in high-dimensional or continuous action spaces.</li>
+<li>Can learn stochastic policies.</li>
+</ol>
+<p>Disadvantages:</p>
+<ol>
+<li>Typically converge to a local optimum.</li>
+<li>Evaluation of the policy has high variance, resulting in slow convergence.</li>
+</ol>
+<h5 id="objectives">Objectives
+</h5><p>We assume the Markov process induced by the policy $\pi_\theta$ is ergodic, so that there exists a unique stable distribution $d_{\pi_\theta}(\cdot)$.</p>
+<ul>
+<li>In episodic environments like video games, the starting state matters. So we consider $J_1(\theta)=V_{\pi_\theta}(s_0)$.</li>
+<li>In continuing environments we consider the limit value $J_{\rm avV}(\theta)=\sum_sd_{\pi_\theta}(s)V_{\pi_\theta}(s)$.</li>
+<li>However if we want $\gamma=1$ then $J_{\rm avV}$ is not available. Consider $J_{\rm avR}(\theta)=\sum_sd_{\pi_\theta}(s)\sum_a\pi_\theta(s,a)R(s,a)$. When $\gamma&lt;1$, $J_{\rm avV}=\frac{1}{1-\gamma}J_{\rm avR}$.</li>
+</ul>
+<h5 id="finite-difference-policy-gradient">Finite Difference Policy Gradient
+</h5><p>Compute
+$$
+\frac{\p J(\theta)}{\p\theta_i}\approx\frac{J(\theta+\epsilon e_i)-J(\theta)}{\epsilon}
+$$
+Stupid.</p>
+<h5 id="reinforce">REINFORCE
+</h5><p>Here we assume the reward depends on the state and the action.</p>
+<p>The motivation is to &ldquo;sample the gradient&rdquo;. To do that, extracting a $\pi_\theta(s,a)$ term from the gradient is favorable. Starting with $\nabla_\theta\pi_\theta(s,a)$:
+$$
+\nabla_\theta\pi_\theta(s,a)=\pi_\theta(s,a)\nabla_\theta\log\pi_\theta(s,a)
+$$
+An easy case is the first step. Suppose $s_0\sim d(\cdot)$:
+$$
+\nabla_\theta\E(R(s_0,a_0))=\nabla_\theta\sum_sd(s)\sum_a\pi_\theta(s,a)R(s,a)=\sum_sd(s)\sum_a\pi_\theta(s,a)\nabla_\theta\log\pi_\theta(s,a)R(s,a)=\E\left(\nabla_\theta\log\pi_\theta(s,a)R(s,a)\right)
+$$
+The key point is, $\nabla_\theta\E$ cannot be calculated by sampling, while $\E(\nabla_\theta)$ can, because $\pi_\theta(s,a)$ is usually produced by an NN, thus $\nabla_\theta\log\pi_\theta(s,a)$ can be analytically computed.</p>
+<p>Now,
+$$
+\begin{align*}
+\nabla_\theta V_{\pi_\theta}(s)&amp;=\nabla_\theta\left(\sum_a\pi_\theta(s,a)\left(R(s,a)+\gamma\sum_{s^\prime}\Pr[s^\prime\mid s,a]V_{\pi_\theta}(s^\prime)\right)\right)\\
+&amp;=\sum_a\nabla_\theta\pi_\theta(s,a)\left(R(s,a)+\gamma\sum_{s^\prime}\Pr[s^\prime\mid s,a]V_{\pi_\theta}(s^\prime)\right)+\sum_a\pi_\theta(s,a)\gamma\sum_{s^\prime}\Pr[s^\prime\mid s,a]\nabla_\theta V_{\pi_\theta}(s^\prime)\\
+&amp;=\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)+\gamma\sum_{s^\prime}\Pr[s^\prime\mid s]\nabla_\theta V_{\pi_\theta}(s^\prime)\\
+&amp;=\cdots\\
+&amp;=\sum_t\gamma^t\sum_{s^\prime}\Pr[s^\prime\mid s;\text{after }t\text{ steps}]\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)
+\end{align*}
+$$</p>
+<p>$$
+\begin{align*}
+\nabla_\theta J_1(\theta)&amp;=\sum_sd(s)\nabla_\theta V_{\pi_\theta}(s)\\
+&amp;=\sum_sd(s)\sum_t\gamma^t\sum_{s^\prime}\Pr[s^\prime\mid s;\text{after }t\text{ steps}]\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\\
+&amp;=\sum_t\gamma^t\sum_{s^\prime}\Pr[s_t=s^\prime]\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\\
+&amp;=\sum_s\left(\sum_t\gamma^t\Pr[s_t=s]\right)\left(\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\right)
+\end{align*}
+$$</p>
+<p>If we define discounted visitation distribution
+$$
+d_{\pi_\theta}^\prime(s)\propto\sum_t\gamma^t\Pr[s_t=s]
+$$
+we get
+$$
+\nabla_\theta J_1(\theta)=\frac{1}{1-\gamma}\E_{s\sim d_{\pi_\theta}^\prime(\cdot)}\left(\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\right)=\frac1{1-\gamma}\E_{s\sim d_{\pi_\theta}(\cdot),a\sim \pi_\theta(s,\cdot)}\left(\nabla_\theta\log\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\right)
+$$
+Actually it&rsquo;s the Policy Gradient Theorem: For any differentiable policy $\pi_\theta(s,a)$,
+$$
+\nabla_\theta J(\theta)=\E\left(\nabla_\theta\log \pi_\theta(s,a)Q_{\pi_\theta}(s,a)\right)
+$$
+This holds for any of the choices $J=J_1,J_{\rm avR},\frac1{1-\gamma}J_{\rm avV}$. For $J_1$, the $1/(1-\gamma)$ coefficient is gotten rid of by forcing $d_{\pi_\theta}(s)=\sum_t\gamma^t\Pr[s_t=s]$ (So it&rsquo;s notation abuse since now $\E$ doesn&rsquo;t really denote expectation). For $J_{\rm avR}$ and $\frac1{1-\gamma}J_{\rm avV}$, $d_\pi$ is just the stationary distribution, while $Q$ is changed to differential Q-value:
+$$
+Q_{\pi_\theta}^\prime(s, a)=R(s,a)-J_{\rm avR}(\theta)+\E(Q_{\pi_\theta}^\prime(s^\prime,a^\prime))
+$$
+The proof from Gemini is <a class="link" href="https://gemini.google.com/share/b46323c42a37"  target="_blank" rel="noopener"
+    >here</a>.</p>
+<p>So the final algorithm is just $\theta\xleftarrow{+}\alpha v_t\nabla_\theta\log\pi_\theta(s_t,a_t)$ following a sampled trajectory. Here $v_t$ is the reward-to-go.</p>
+<h4 id="actor-critic-methods">Actor-Critic Methods
+</h4><p>Recall that value-based and policy-based RL each have their own advantages and disadvantages. How about composing them together?</p>
+<p>The critic is a network parameterized by $\phi$, denoted $Q_\phi(s,a)$.</p>
+<p>The actor is the same as above, $\pi_\theta(s,a)$.</p>
+<p>Following a trajectory, the parameters are updated:
+$$
+\theta\xleftarrow{+}\alpha Q_\phi(s_t,a_t)\nabla_\theta\log\pi_\theta(s_t,a_t)
+$$</p>
+<p>$$
+\phi\xleftarrow{+}\beta(R(s_t,a_t)+\gamma Q_\phi(s_{t+1},a_{t+1})-Q_\phi(s_t,a_t))\nabla_\phi Q_\phi(s_t,a_t)
+$$</p>
+<p>You might have already caught the questionable point: this doesn&rsquo;t conform to any version ($J_1,J_{\rm avR},\frac1{1-\gamma}J_{\rm avV}$) of the Policy Gradient Theorem! By Gemini, the objective is another variant, called the average performance with discounted Q-values:
+$$
+J_{\text{hybrid}}(\theta) = \E_{s \sim d_\pi(\cdot)} (V_\pi(s))
+$$
+Forget about it.</p>
+<p>Now we aim to reduce the variance of $\nabla_\theta\log \pi_\theta(s,a)Q_{\pi_\theta}(s,a)$. Notice that for any function only of $s$:
+$$
+\E(\nabla_\theta\log \pi_\theta(s,a)B(s))=\sum_sd_{\pi_\theta}(s)\sum_a\nabla_\theta\pi_\theta(s,a)B(s)=\sum_sd_{\pi_\theta}(s)\nabla_\theta B(s)=0
+$$
+We can choose $B(s)=\E(Q(s,a))$, so
+$$
+\nabla_\theta J(\theta)=\E\left(\nabla_\theta\log \pi_\theta(s,a)(Q_{\pi_\theta}(s,a)-V_{\pi_\theta}(s))\right)
+$$
+to reduce the variance. Notice that it&rsquo;s just the advantage function $A_{\pi_\theta}(s,a)$. This leads to some elegant update formulas:
+$$
+\delta=R(s_t,a_t)+\gamma V_\phi(s_{t+1})-V_\phi(s_t)
+$$</p>
+<p>$$
+\theta\xleftarrow{+}\alpha\delta\nabla_\theta\log\pi_\theta(s_t,a_t)
+$$</p>
+<p>$$
+\phi\xleftarrow{+}\beta\delta\nabla_\phi V_\phi(s_t)
+$$</p>
+<p>Similar to Q-learning, we&rsquo;re also worried about bias in the algorithm. There&rsquo;s a theorem for this:</p>
+<p>If $\nabla_\phi Q_\phi(s,a)=\nabla_\theta\log\pi_\theta(s,a)$ and $\phi$ minimizes the error $\eps=\E(Q_{\pi_\theta}(s,a)-Q_\phi(s,a))^2$ then
+$$
+\nabla_\phi\eps=0\implies\E((Q_{\pi_\theta}(s,a)-Q_\phi(s,a))\nabla_\phi Q_\phi(s,a))=0\implies\E(Q_{\phi}(s,a)\nabla_\theta\log\pi_\theta(s,a))=\E(Q_{\pi_\theta}(s,a)\nabla_\theta\log\pi_\theta(s,a))
+$$
+Obviously the minimal $\eps$ cannot be rigorously achieved, but the first condition is easy: train a feature-learning network that learns $\Phi(s,a)$, and let $\log\pi_\theta(s,a)=\theta^\top\Phi(s,a)$ and $Q_\phi(s,a)=\phi^\top\Phi(s,a)$.</p>
+<h3 id="inference">Inference
+</h3><p>I&rsquo;m just leaving a catalog here since this part is easy and I have no more time.</p>
+<ol>
+<li>Definition of conditional independence</li>
+<li>Definition of a Bayesian net, and the equivalence of different characterizations</li>
+<li>Inference by join and elimination</li>
+<li>D-separation (the hardest)</li>
+<li>Sampling methods</li>
+<li>Inference on MMs and HMMs
+<ol>
+<li>Forward algorithm &amp; forward-backward algorithm</li>
+<li>particle filtering</li>
+</ol>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="9bc71c312230bc9eccd2d234637d6383"
+    data-page-url="https://littlereuben.github.io/study/course-aipt/"
+    data-page-title="AI Principles &amp; Techniques (人工智能原理笔记)"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2026 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>

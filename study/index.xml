@@ -7,7 +7,845 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI Principles &amp; Techniques (人工智能原理笔记)</title>
+        <link>https://littlereuben.github.io/study/course-aipt/</link>
+        <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-aipt/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;$\gdef\e{\mathrm{e}}\gdef\sm{\operatorname{softmax}}\gdef\mat#1{\begin{bmatrix}#1\end{bmatrix}}\gdef\b#1{\boldsymbol{#1}}\gdef\p{\partial}\gdef\omat{\operatorname{mat}}\gdef\ovec{\operatorname{vec}}\gdef\d{\mathrm{d}}\gdef\E{\operatorname*{E}}\gdef\B{\operatorname{B}}\gdef\eps{\varepsilon}\gdef\argmin{\operatorname*{argmin}}\gdef\argmax{\operatorname*{argmax}}$&lt;/p&gt;
+&lt;h3 id=&#34;outline&#34;&gt;Outline
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-aipt/outline.png&#34;
+	width=&#34;3660&#34;
+	height=&#34;2390&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;367px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;classical-machine-learning&#34;&gt;Classical Machine Learning
+&lt;/h3&gt;&lt;h4 id=&#34;supervised-learning&#34;&gt;Supervised Learning
+&lt;/h4&gt;&lt;h5 id=&#34;notation&#34;&gt;Notation
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;Input $\b x_i$
+&lt;ul&gt;
+&lt;li&gt;For simple regression, we usually make $\b x_i^\prime=\mat{\b x_i\\1}$ to include the bias term.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Output $\b y_i$&lt;/li&gt;
+&lt;li&gt;Parameters $\b\theta$&lt;/li&gt;
+&lt;li&gt;Hypothesis $f(\b x;\b\theta)$&lt;/li&gt;
+&lt;li&gt;Loss $\ell(\b y,\b{\hat y})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Goal: given a set of $\set{(\b x_i,\b y_i)}$, we want to find
+$$
+\b\theta^{*}=\operatorname*{argmin}_{\b\theta}\frac1N\sum_{i=1}^N\ell(\b y_i,f(\b x_i;\b\theta))
+$$&lt;/p&gt;
+&lt;h5 id=&#34;linear-regression&#34;&gt;Linear Regression
+&lt;/h5&gt;&lt;p&gt;Used for $y_i=f(\b x_i)+\mathrm{err}_i$, where $f$ is some linear function.
+$$
+\left\{\begin{align*}
+&amp;amp;\b\theta=\mat{\b w\\b}\\
+&amp;amp;f(\b x;\b \theta)=\b\theta^\top\b x^\prime=\b w^\top\b x+b\\
+&amp;amp;\ell(y,\hat y)=\frac12(y-\hat y)^2
+\end{align*}\right.
+$$
+Let $X=\mat{\b x_1&amp;amp;\cdots&amp;amp;\b x_n}^\top$, $\b y=\mat{y_1&amp;amp;\cdots&amp;amp;y_n}^\top$, then our goal is to minimize $\|X\b\theta-\b y\|_2^2$, which can be solved by the Least Square Method: $\b\theta^{*}=(X^\top X)^{-1}X^\top\b y$.&lt;/p&gt;
+&lt;h5 id=&#34;logistic-regression&#34;&gt;Logistic Regression
+&lt;/h5&gt;&lt;p&gt;Used for a classification problem, i.e. $y_i\in[C]$. You can think of it as the domain space being divided into regions with linear boundaries.&lt;/p&gt;
+&lt;p&gt;First consider $C=2$, consider $y_i\in\set{\pm 1}$:
+$$
+\left\{\begin{align*}
+&amp;amp;f(\b x;\b \theta)=\b w^\top\b x+b\\
+&amp;amp;\ell(y,\hat y)=[y\ne\operatorname{sgn}(\hat y)]=[y\hat y&amp;lt;0]
+\end{align*}\right.
+$$
+Not optimizable. Let $\sigma(x)=1/(1+\e^x)$, it has a property that $\sigma(-x)=1-\sigma(x)$.
+$$
+\left\{\begin{align*}
+&amp;amp;f(\b x;\b \theta)=\b w^\top\b x+b\\
+&amp;amp;\ell(y,\hat y)=-\log\sigma(y\hat y)
+\end{align*}\right.\tag{1}
+$$
+For multiple classes, let $\sm(\b x)_i=\e^{\b x_i}/\sum_j\e^{\b x_j}$.
+$$
+\left\{\begin{align*}
+&amp;amp;f(\b x;\b \theta)=W_{C\times n}\b x+\b b\\
+&amp;amp;\ell(y,\b{\hat y})=-\log\sm(\b{\hat y})_y
+\end{align*}\right.\tag{2}
+$$
+$(1)$ is a special case of $(2)$ because take
+$$
+W=\mat{\b 0\\ \b w^\top},\b b=\mat{0\\b}
+$$
+then
+$$
+\sm(W\b x+\b b)=\sm\left(\mat{0\\ \b w^\top\b x+b}\right)=\mat{\frac{1}{1+\e^{\b w^\top\b x+b}}\\ \frac{\e^{\b w^\top\b x+b}}{1+\e^{\b w^\top\b x+b}}}=\mat{1-\sigma(\b w^\top\b x+b)\\ \sigma(\b w^\top\b x+b)}
+$$&lt;/p&gt;
+&lt;h5 id=&#34;other-methods&#34;&gt;Other Methods
+&lt;/h5&gt;&lt;p&gt;In linear regression, if we change the loss function to, say $\ell(y,\hat y)=|y-\hat y|$, then no closed-form solution exists.&lt;/p&gt;
+&lt;p&gt;In logistic regression, if we change the loss function to $\ell(y,\hat y)=\max\set{1-y\hat y,0}$ called hinge loss, it can be dealt with SVM.&lt;/p&gt;
+&lt;p&gt;Simply change $\b x_i^\prime=\mat{\b x_i\\1}$ to, like $\b x_i^\prime=\mat{\b x_i^{\circ 2}\\ \b x_i\\1}$ or more, we get &amp;ldquo;non-linear regression&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Kernel method:
+$$
+f(\b x;\b\theta)=\sum_{i=1}^N\b\theta_iK(\b x,\b x_i)
+$$
+Nearest neighbor method:
+$$
+f(\b x;\b\theta)=\frac1k\sum_{i\in\text{nearest-}k(\b x)}\b y_i
+$$&lt;/p&gt;
+&lt;h5 id=&#34;probabilistic-interpretation&#34;&gt;Probabilistic Interpretation
+&lt;/h5&gt;&lt;p&gt;Actually, the loss functions are not chosen arbitrarily. The things above are derived from maximum likelihood estimation (MLE).&lt;/p&gt;
+&lt;p&gt;We propose some distribution scheme for $p(\b y\mid\b x;\b\theta)$, so our prediction is $\b{\hat y}=\operatorname{argmax}_{\b y}p(\b y\mid\b x;\b\theta)$, and
+$$
+\ell=-\log\prod_{i=1}^Np(\b y_i\mid\b x_i;\b\theta)=-\sum_{i=1}^N\log p(\b y_i\mid\b x_i;\b\theta)
+$$
+For linear regression, we assume
+$$
+y\sim\mathcal{N}(\b w^\top\b x+b,\sigma^2)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\ell=-\sum\log\left[\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(y-\b w^\top\b x)^2}{2\sigma^2}\right)\right]=\frac{1}{2\sigma^2}\boxed{\sum(y_i-\b w^\top\b x_i)^2}-N\log\sqrt{2\pi\sigma^2}
+$$&lt;/p&gt;
+&lt;p&gt;For logistic regression,
+$$
+y\sim\text{Ber}(\sigma(\b w^\top\b x+b)),\b y\sim\text{Cat}(\sm(W\b x+\b b))
+$$
+You can verify on your own.&lt;/p&gt;
+&lt;p&gt;So one more question is that where comes the cross-entropy function. We extend the Bernoulli distribution to a continuous version, so that if $y\in\set{0,1}$, the distribution degenerates into the original Bernoulli distribution:
+$$
+p(y;\theta)\propto\theta^y(1-\theta)^{1-y}
+$$
+For the multiclass case, we treat it as a binomial case, where the correct $y_i$ is $1$ and the others are $0$. Or, we can also consider a continuous categorical distribution
+$$
+p(\b y;\b\theta)\propto\prod\b\theta_i^{\b y_i}
+$$
+Anyway, since the label $y_i$ is converted into one-hot vector, both of them degenerate into $-\log\sm(W\b x_i+\b b)_{y_i}$.&lt;/p&gt;
+&lt;h5 id=&#34;one-more-thing&#34;&gt;One More Thing
+&lt;/h5&gt;&lt;p&gt;In multiclass NN, if we don&amp;rsquo;t put sigmoid in the final layer ($\b a=\b z$) and use quadratic loss function, we get
+$$
+\frac{\p\ell}{\p\b z}=\frac12\frac{\p\|\b a-\b e_y\|^2}{\p\b z}=\b a-\b e_y
+$$
+If we use both sigmoid ($\b a=\sigma(\b z)$) and sum of cross-entropy loss on all classes, we get
+$$
+\frac{\p\ell}{\p\b z}=-\frac{\p(\log\sigma(\b z_y)+\sum_{j\ne y}\log(1-\sigma(\b z_j)))}{\p\b z}=-\frac{\sigma^\prime(\b z_y)}{\sigma(\b z_y)}\b e_y+\sum_{j\ne y}\frac{\sigma^\prime(\b z_j)}{1-\sigma(\b z_j)}\b e_j=\b a-\b e_y
+$$
+If we use softmax ($\b a=\sm(\b z)$) and cross-entropy loss of the desired class, we get
+$$
+\frac{\p\ell}{\p\b z}=-\frac{\log(\e^{\b z_y}/\sum_j\e^{\b z_j})}{\p\b z}=-\b e_y+\sum_i\frac{\e^{\b z_i}\b e_i}{\sum_j\e^{\b z_j}}=\b a-\b e_y
+$$
+I guess it&amp;rsquo;s not a coincidence.&lt;/p&gt;
+&lt;p&gt;Of course it&amp;rsquo;s not! In D2L the phenomenon is explained:&lt;/p&gt;
+&lt;p&gt;Let $\b\eta$ be the result of the final layer of NN (i.e. $\b z$). We model the distribution by exponential family:
+$$
+p(\b x;\b\eta)=h(\b x)\exp\left(\b\eta^\top T(\b x)-A(\b\eta)\right)
+$$&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;notation&lt;/th&gt;
+&lt;th&gt;meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$\b\eta$&lt;/td&gt;
+&lt;td&gt;parameters&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$h$&lt;/td&gt;
+&lt;td&gt;base measure&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$T$&lt;/td&gt;
+&lt;td&gt;sufficient statistics&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$A$&lt;/td&gt;
+&lt;td&gt;cumulant function&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here, we can simply let $T(\b x)=\b x$, or $T(x)=\b e_x$. And $A$ is just for normalization:
+$$
+A(\b\eta)=\log\int h(\b x)\exp\left(\b\eta^\top T(\b x)\right)\d\b x
+$$
+Now fix the loss function:
+$$
+\ell(\b\eta)=-\log p(\b x;\b\eta)
+$$
+Plug in the ground data $\b x_0$ and calculate the gradient:
+$$
+\begin{align*}
+\nabla\ell&amp;amp;=-\nabla(\b\eta^\top T(\b x_0)-A(\b\eta))\\
+&amp;amp;=-T(\b x_0)+\frac{1}{\exp(A(\b\eta))}\int h(\b x)\exp\left(\b\eta^\top T(\b x)\right)T(\b x)\d\b x\\
+&amp;amp;=-T(\b x_0)+\int p(\b x;\b\eta)T(\b x)\d x\\
+&amp;amp;=\E_{\b x}(T(\b x);\b\eta)-T(\b x_0)
+\end{align*}
+$$
+Looking back at multiclass NNs. Both no-sigmoid + quadratic-loss and softmax + cross-entropy-loss fall into the exponential family (they&amp;rsquo;re strange because the border between post-processing after the final NN layer and operations in the loss function is blurred). Now, $\E_{\b x}(T(\b x);\b\eta)$ is exactly the NN estimate, closely related to $\b\eta$.&lt;/p&gt;
+&lt;h5 id=&#34;other-stuff-in-lecture-2&#34;&gt;Other Stuff in Lecture 2
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;Underfitting &amp;amp; overfitting &amp;amp; regularization&lt;/li&gt;
+&lt;li&gt;Train, validation, test data; cross validation&lt;/li&gt;
+&lt;li&gt;Unsupervised learning: k-means, PCA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;deep-learning&#34;&gt;Deep Learning
+&lt;/h3&gt;&lt;p&gt;If you are new to neural networks, please first read &lt;a class=&#34;link&#34; href=&#34;http://neuralnetworksanddeeplearning.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://neuralnetworksanddeeplearning.com/&lt;/a&gt;. I&amp;rsquo;ll omit the things covered in this book.&lt;/p&gt;
+&lt;h4 id=&#34;neural-network&#34;&gt;Neural Network
+&lt;/h4&gt;&lt;h5 id=&#34;shape-convention&#34;&gt;Shape Convention
+&lt;/h5&gt;&lt;p&gt;In ML, for scalar $L$, we define $\p L/\p x$ to have the shape the same as $x$. So for $W_{n\times m}$, $\p \ell/\p W\notin\R^{1\times(nm)}$, but $\p \ell/\p W\in\R^{n\times m}$.&lt;/p&gt;
+&lt;p&gt;Actually we can also define the shape when the output of $L$ is vector, using tensor, but here we just leave it out.&lt;/p&gt;
+&lt;p&gt;Sometimes to indicate we are using shape convention explicitly, we may use $\nabla_{W}\ell$, so below I&amp;rsquo;ll follow this notation.&lt;/p&gt;
+&lt;h5 id=&#34;ways-of-deriving-backpropagation&#34;&gt;Ways of Deriving Backpropagation
+&lt;/h5&gt;&lt;p&gt;Basically, since the chain rule only holds (literally) under usual calculus convention, we must first work out $\p\ell/\p x$ as a single row vector, then change the shape. For $x$ being a column vector, simply transpose the result.&lt;/p&gt;
+&lt;p&gt;In ML, usually what we meet is like $\ell=f(\b z)$, $\b z=W\b x$, where $\b z$, $\b x$ are column vectors. Here we can derive the formula for this case, to be used as a shortcut.&lt;/p&gt;
+&lt;p&gt;Let $\b\delta=\p\ell/\p\b z$ be a row vector, then
+$$
+\frac{\p\ell}{\p W_{i,j}}=\frac{\p\ell}{\p\b z}\frac{\p\b(W\b x)}{\p W_{i,j}}=\b\delta(\b e_i\b x_j)=\b\delta_i\b x_j\implies\nabla_W\ell=\b\delta^\top\b x^\top
+$$
+Similarly when $\b z=\b xW$, $\nabla_W\ell=\b x^\top\b\delta$.&lt;/p&gt;
+&lt;p&gt;A fancier-looking derivation was taught in class. Define:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Kronecker/tensor product of $A\in\R^{m\times n}$ and $B\in\R^{p\times q}$:
+$$
+A\otimes B=\mat{A_{1,1}B&amp;amp;\cdots&amp;amp;A_{1,n}B\\ \vdots&amp;amp;\ddots&amp;amp;\vdots\\A_{m,1}B&amp;amp;\cdots&amp;amp;A_{m,n}B}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vectorization of matrix $A$: $\omat(A)=$ stacking its columns together to form a $(mn)\times 1$ column vector, and the inverse operator $\ovec$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lemma: $(A\otimes B)^\top=A^\top\otimes B^\top$&lt;br&gt;
+Lemma: $\ovec(ABC)=(C^\top\otimes A)\ovec(B)$.&lt;br&gt;
+懒得证了. Basically a bunch of integer division, modulo, and swapping summations.&lt;/p&gt;
+&lt;p&gt;Here we consider $\b z_{i+1}=\sigma(W_i\b z_i+\b b_i)$. Assume $\b\delta_{i+1}=\nabla_{\b z_{i+1}}\ell$ is known.
+$$
+\begin{align*}
+\nabla_{W_i}\ell&amp;amp;=\omat\left(\left(\frac{\p\ell}{\p\ovec(W_i)}\right)^\top\right)\\
+&amp;amp;=\omat\left(\left(\frac{\p\ell}{\p\b z_{i+1}}\cdot\frac{\p\b z_{i+1}}{\p(W_i\b z_i+\b b_i)}\cdot\frac{\p(W_i\b z_i+\b b_i)}{\p\ovec(W_i)}\right)^\top\right)\\
+&amp;amp;=\omat\left(\left(\b\delta_{i+1}^\top\cdot\operatorname{diag}(\sigma^\prime(W_i\b z_i+\b b_i))\cdot(\b z_i^\top\otimes I)\right)^\top\right)\\
+&amp;amp;=\omat\left((\b z_i\otimes I)\cdot(\sigma^\prime(W_i\b z_i+\b b_i)\circ\b\delta_{i+1})\right)\\
+&amp;amp;=\left(\sigma^\prime(W_i\b z_i+\b b_i)\circ\b\delta_{i+1}\right)\cdot\b z_i^\top
+\end{align*}
+$$&lt;/p&gt;
+&lt;h5 id=&#34;comments-on-mnist&#34;&gt;Comments On MNIST
+&lt;/h5&gt;&lt;p&gt;For FCN with &lt;code&gt;lr=0.1&lt;/code&gt;, &lt;code&gt;momentum=0.9&lt;/code&gt;, &lt;code&gt;hiddensize=500&lt;/code&gt;: &lt;code&gt;batchsize&lt;/code&gt; $256$ better than $1024$ better than $64$. Personal best is $98.1%$ on test.&lt;/p&gt;
+&lt;p&gt;I found no overfitting on MNIST (in test accuracy), but test loss has an observable increase (for both FCN and CNN). The craziest part is that when &lt;code&gt;batchsize=64&lt;/code&gt;, test loss can spike above $6$. Why does this happen?&lt;/p&gt;
+&lt;h4 id=&#34;convolutional-network&#34;&gt;Convolutional Network
+&lt;/h4&gt;&lt;p&gt;For tasks involving identifying features from an image based on grid structure, a fully connected network doesn&amp;rsquo;t exploit spatial structure and has too many parameters.&lt;/p&gt;
+&lt;p&gt;Note that vanishing gradient problem still occurs in CNN. It is ReLU that alleviates this problem.&lt;/p&gt;
+&lt;p&gt;Typically there are the following layers in a CNN:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Convolution layer. We have a convolution kernel, usually having really small size, and
+$$
+z_{i,j}^{(l+1,d)}=\sum_c\sum_{p=0}^{s-1}\sum_{q=0}^{s-1}W_{k,l}^{(l,c,d)}z_{i+k,j+l}^{(l,c)}+b^{(l,d)}
+$$
+Note that there&amp;rsquo;s a different kernel for every pair of channels.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pooling layer. This is simply for reducing the size.
+$$
+z_{i,j}^{(l+1,c)}=\max_{p=si}^{si+s-1}\max_{q=sj}^{sj+s-1}z_{p,q}^{(l,c)}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Nonlinear layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fully connected layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A few more words on convolutional layer. First,
+$$
+\text{\# of parameters}=(\text{\# of input channels}\times\text{kernel size}^2+1)\times\text{\# of output channels}
+$$
+Second, we have stride and padding for convolutional layer. If the original size of some dimension is $n$, then the output size is
+$$
+\left\lfloor\frac{n+\text{padding}-\text{kernel}}{\text{stride}}\right\rfloor+1
+$$
+On backpropagation of convolutional layer, we first write convolution as, like
+$$
+z^{(l+1,\cdot)}\gets\mat{
+w_1&amp;amp;w_2&amp;amp;0&amp;amp;w_3&amp;amp;w_4&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0\\
+0&amp;amp;w_1&amp;amp;w_2&amp;amp;0&amp;amp;w_3&amp;amp;w_4&amp;amp;0&amp;amp;0&amp;amp;0\\
+0&amp;amp;0&amp;amp;0&amp;amp;w_1&amp;amp;w_2&amp;amp;0&amp;amp;w_3&amp;amp;w_4&amp;amp;0\\
+0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;w_1&amp;amp;w_2&amp;amp;0&amp;amp;w_3&amp;amp;w_4\\
+}z^{(l,\cdot)}+\mat{b\\b\\b\\b}
+$$
+where $W=\mat{w_1&amp;amp;w_2\\w_3&amp;amp;w_4}$ is the kernel. Since we know that, for $\b z_{l+1}=W_l\b z_l+\b b_l$,
+$$
+\nabla_{\b z_l}\ell=\left(\frac{\p\ell}{\p\b z_l}\right)^\top=\left(\frac{\p\ell}{\p\b z_{l+1}}W_l\right)^\top=W_l^\top\nabla_{\b z_{l+1}}\ell
+$$
+so, examine
+$$
+\begin{align*}
+g^{(l,\cdot)}&amp;amp;=\mat{w_1&amp;amp;0&amp;amp;0&amp;amp;0\\ w_2&amp;amp;w_1&amp;amp;0&amp;amp;0\\ 0&amp;amp;w_2&amp;amp;0&amp;amp;0\\  w_3&amp;amp;0&amp;amp;w_1&amp;amp;0\\ w_4&amp;amp;w_3&amp;amp;w_2&amp;amp;w_1\\ 0&amp;amp;w_4&amp;amp;0&amp;amp;w_2\\ 0&amp;amp;0&amp;amp;w_3&amp;amp;0\\0&amp;amp;0&amp;amp;w_4&amp;amp;w_3\\ 0&amp;amp;0&amp;amp;0&amp;amp;w_4}g^{(l+1,\cdot)}\\ &amp;amp;=
+\mat{
+w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0\\
+0&amp;amp;w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0\\
+0&amp;amp;0&amp;amp;w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0\\
+0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0\\
+0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0\\
+0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0\\
+0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1&amp;amp;0&amp;amp;0\\
+0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1&amp;amp;0\\
+0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;w_4&amp;amp;w_3&amp;amp;0&amp;amp;0&amp;amp;w_2&amp;amp;w_1\\
+}\mat{0\\0\\0\\0\\0\\ g^{(l+1,\cdot)}_1\\ g^{(l+1,\cdot)}_2\\0\\0\\ g^{(l+1,\cdot)}_3\\ g^{(l+1,\cdot)}_4\\0\\0\\0\\0\\0}
+\end{align*}
+$$
+so we find that, backpropagation through the convolution layer is just convolution by flipped filter after padding.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-aipt/CNNback.png&#34;
+	width=&#34;891&#34;
+	height=&#34;474&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;451px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;tricks&#34;&gt;Tricks
+&lt;/h4&gt;&lt;h5 id=&#34;gradient-descent&#34;&gt;Gradient Descent
+&lt;/h5&gt;&lt;p&gt;$$
+\b\theta^\prime=\b\theta-\eta\nabla_{\b\theta}\ell(\b\theta)
+$$&lt;/p&gt;
+&lt;p&gt;For stochastic gradient descent, from mathematical point of view rather than &amp;ldquo;minibatch&amp;rdquo; point of view,
+$$
+\b\theta^\prime=\b\theta-\eta(\nabla_{\b\theta}\ell(\b\theta)+\b\xi)
+$$&lt;/p&gt;
+&lt;h5 id=&#34;relu&#34;&gt;ReLU
+&lt;/h5&gt;&lt;p&gt;Vanishing gradient problem is caused by both small derivative value of sigmoid and small (initial) parameters, while exploding gradient problem is only caused by large parameters. ReLU can only solve the small derivative problem. However, it introduces dying ReLU problem. To tackle this, people invented leaky ReLU, SiLU, etc.&lt;/p&gt;
+&lt;h3 id=&#34;planning-and-rl&#34;&gt;Planning and RL
+&lt;/h3&gt;&lt;p&gt;Previously, all the ML models are about producing knowledge, but now we enter the field of interacting with the environment.&lt;/p&gt;
+&lt;h4 id=&#34;search&#34;&gt;Search
+&lt;/h4&gt;&lt;p&gt;The simplest, deterministic way of planning, is search.&lt;/p&gt;
+&lt;p&gt;A search problem consists of state space $S$, start state $s_{\rm start}$, actions space $A$, successors (of actions), cost (of actions), and goal test. A solution is a sequence of actions that transform $s_{\rm start}$ to a state that satisfies the goal condition.&lt;/p&gt;
+&lt;h5 id=&#34;a-search&#34;&gt;A* Search
+&lt;/h5&gt;&lt;p&gt;The only reason why A* is better than BFS/Dijkstra is A* doesn&amp;rsquo;t explore all the vertices.&lt;/p&gt;
+&lt;p&gt;A* is simply Dijkstra, changing the key of $u$ in the priority queue from $d_u$ to $d_u+e_u$, where $e_u$ is the estimated distance from $u$ to the goal, and outputting the answer when some goal is extracted from the priority queue. It&amp;rsquo;s easy to see, for $e_u=0$, it&amp;rsquo;s Dijkstra; for $e_u=\operatorname{dis}(u,t)$, only the vertices on the shortest path from $s$ to $t$ (the nearest goal) will be explored.&lt;/p&gt;
+&lt;p&gt;From here we follow the convention taught in class: rename $d_u$ as $f(u)$, and $e_u$ as $h(u)$ (called a heuristic), vertices as states, and length as cost. There are three A* variants under different assumptions on $h(u)$:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No constraint. A* might be incorrect.&lt;/li&gt;
+&lt;li&gt;(admissible) $0\le h(u)\le h^{*}(u)$ where $h^{*}(u)=\min_{\text{goal }t}\operatorname{dis}(u,t)$. In this case some $u$ may be pushed into/popped from queue multiple times, but the lowest cost is ensured to be found because every state nearer from the start state than any goal will be expanded before the goal. We say in this case, tree search can solve the problem.&lt;/li&gt;
+&lt;li&gt;(consistent) $h(u)\le h(v)+w(u,v)$. In this case we can prove that when $u$ is popped the first time, the cost is optimal. We say in this case, graph search can solve the problem.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Obviously consistent $\implies$ admissible. We can see the stupid heuristic as setting $w^\prime(u,v)=w(u,v)-h(u)+h(v)$, then consistency condition is just nonnegative weights. So A* is explained in one sentence, but non-TCS guys use an entire session to talk about it with vague expressions. I can&amp;rsquo;t stand it.&lt;/p&gt;
+&lt;h4 id=&#34;mdp&#34;&gt;MDP
+&lt;/h4&gt;&lt;h5 id=&#34;definition&#34;&gt;Definition
+&lt;/h5&gt;&lt;p&gt;When facing the real world, there are uncertainties. When taking an action $a$ at state $s$, the next state is not deterministic, but follows a probability distribution, i.e.
+$$
+\Pr[s^\prime\mid s,a]=T(s,a,s^\prime)
+$$
+and everything else are the same as search, except the cost function is replaced by reward function $R(\text{state})$ (and the goal is to maximize it). It&amp;rsquo;s called Markov Decision Process. It has the following properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First-order Markovian dynamics (history independence). $\Pr(s_{t+1}\mid s_t,a_t,s_{t-1},a_{t-1},\cdots,s_0)=\Pr(s_{t+1}\mid s_t,a_t)$.&lt;/li&gt;
+&lt;li&gt;Reward is deterministic.&lt;/li&gt;
+&lt;li&gt;The probability distribution does not depend on time.&lt;/li&gt;
+&lt;li&gt;We can observe $s_{t+1}$ after it&amp;rsquo;s sampled.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that the first-order Markovian dynamics does not mean that the process is necessarily independent of the &amp;ldquo;history&amp;rdquo; because we can let ($\circ$ means concatenation)
+$$
+s^\prime=s\circ a\circ\Delta\text{ w.p. }T(s,a,\Delta)
+$$
+But usually it&amp;rsquo;s not the case in practice.&lt;/p&gt;
+&lt;p&gt;In the agent&amp;rsquo;s point of view, there&amp;rsquo;s an additional concept called &amp;ldquo;observation&amp;rdquo;. The observation space is denoted as $\Omega$, and the observation $o\in\Omega$ is determined by the action and the succeeding state:
+$$
+\text{there is a distribution }\Pr[o\mid s^\prime,a]
+$$
+A history $h_t$ is defined as
+$$
+h_t=(a_0,o_1,R_1,a_1,o_2,R_2,\cdots,a_{t-1},o_t,R_t)
+$$
+and the &lt;strong&gt;internal&lt;/strong&gt; state of the agent is defined as a summary of experience
+$$
+\text{internal state}=f(h_t)
+$$
+and the internal state is also called $h_t$. Usually $f$ will not keep all the information. Think of, for example, LSTM. Furthermore, we call &amp;ldquo;fully observed environment&amp;rdquo;, when the true state can be inferred from the observation. In this case, clearly, we don&amp;rsquo;t need to distinguish the true state and the internal state. On the flip side, if the environment is not fully observed, we call the process a &amp;ldquo;partially observed Markov decision process&amp;rdquo; (POMDP). Then conditioned on the current internal state, the agent can form a &amp;ldquo;guess&amp;rdquo; on the true state, that is a &amp;ldquo;belief state&amp;rdquo; $b_t=b(h_t)\in\Delta(S)$.&lt;/p&gt;
+&lt;p&gt;Some real-world examples for better understanding:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go. Fully observed.&lt;/li&gt;
+&lt;li&gt;Poker (德扑). The optimal decision requires you to remember past actions, bets, and the number of players who folded, etc.&lt;/li&gt;
+&lt;li&gt;Robot navigation. If there&amp;rsquo;s a map/GPS, then it is fully observed. Otherwise, it&amp;rsquo;s partially observed and the robot needs to use its history to reduce uncertainty.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are two types of problem:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Planning, the dynamics model (probability distribution) is known.&lt;/li&gt;
+&lt;li&gt;RL, not known.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;theoretical-guarantee&#34;&gt;Theoretical Guarantee
+&lt;/h5&gt;&lt;p&gt;To solve an MDP, we want to find a policy $\pi:S\to A$ or $\pi:S\to \Delta(A)$. There are two types of policies:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Non-stationary policy. The action also depends on the steps to go.&lt;/li&gt;
+&lt;li&gt;Stationary policy. There are infinitely many future steps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that the four properties of an MDP still hold.&lt;/p&gt;
+&lt;p&gt;For infinite horizon case, to evaluate a policy, we define a value function:
+$$
+V_\pi(s)=\E\left(\sum_{t\ge 0}\gamma^tR(s_t)\middle|\pi,s\right)
+$$
+or
+$$
+V_\pi(s)=R(s)+\gamma\E(V_\pi(s^\prime)\mid s,\pi(s))\tag{Bellman equation}
+$$
+Maybe not that ideal, just compromise on convergence.&lt;/p&gt;
+&lt;p&gt;We claim that&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt;. $\exists\pi$, $\forall s$, $\forall \pi^\prime$, $V_\pi(s)\ge V_{\pi^\prime}(s)$, that is, such &amp;ldquo;best&amp;rdquo; policy exists.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;. Here we define $V_{*}$ recursively:
+$$
+V_{*}(s)=R(s)+\gamma\max_a\E(V_{*}(s^\prime)\mid s,a)
+$$
+&lt;strong&gt;Lemma&lt;/strong&gt;. $V_{*}$ uniquely exists, and $\forall s$, $V_{*}(s)=\max_\pi V_\pi(s)$.&lt;/p&gt;
+&lt;p&gt;Then we construct
+$$
+\pi_{*}(s)=\operatorname*{argmax}_a\E(V_{*}(s^\prime)\mid s,a)
+$$
+Then such $\pi_{*}$ satisfies the condition.&lt;/p&gt;
+&lt;p&gt;Now we prove the lemma. Consider the Bellman operator $\B:\R^{|S|}\to\R^{|S|}$:
+$$
+\B V(s)=R(s)+\gamma\max_a\E(V(s^\prime)\mid s,a)
+$$
+$$
+\begin{align*}
+\lVert\B V_1-\B V_2\rVert_{\infty}
+&amp;amp;=\gamma\max_s\left\lvert\max_a\E(V_1(s^\prime)\mid s,a)-\max_a\E(V_2(s^\prime)\mid s,a)\right\rvert\\
+&amp;amp;\le\gamma\max_s\max_a\left\lvert\E(V_1(s^\prime)\mid s,a)-\E(V_2(s^\prime)\mid s,a)\right\rvert\\
+&amp;amp;\le\gamma\max_s\max_a\sum_{s^\prime}\Pr[s^\prime\mid s,a]\left\lvert V_1(s^\prime)-V_2(s^\prime)\right\rvert\\
+&amp;amp;\le\gamma\max_{s^\prime}\left\lvert V_1(s^\prime)-V_2(s^\prime)\right\rvert\\
+&amp;amp;=\gamma\|V_1-V_2\|_{\infty}
+\end{align*}
+$$
+So by the Banach fixed-point theorem, there exists unique $V_{*}$ such that $\B V_{*}=V_{*}$. Also a corollary is linear convergence.&lt;/p&gt;
+&lt;p&gt;If for some $V_\pi$, $V_\pi(s)&amp;gt;V_{*}(s)$, then $V_\pi$ is not a fixed point, and $\exists s^\prime$, $\B V_\pi(s^\prime)&amp;gt;V_\pi(s^\prime)$. If we only change $\pi(s^\prime)$, we&amp;rsquo;ll get a strictly better policy because the probability served as coefficient in the Bellman equation is nonnegative. Here we assume the policy space is finite, so we&amp;rsquo;ll reach a contradiction.&lt;/p&gt;
+&lt;h5 id=&#34;value-iteration&#34;&gt;Value Iteration
+&lt;/h5&gt;&lt;p&gt;Just repeatedly calculate $V$. By the Banach fixed-point theorem,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\|V_k-V_{*}\|\le\gamma^kR_{\max}/(1-\gamma)$&lt;/li&gt;
+&lt;li&gt;$\|V_k-V_{k-1}\|\le\eps\implies\|V_k-V_{*}\|\le\eps\gamma/(1-\gamma)$.&lt;/li&gt;
+&lt;li&gt;Let $V_g$ be the value of $\pi_V$ constructed by $\operatorname{argmax}$, then $\|V-V_{*}\|\le\eps\implies\|V_g-V_{*}\|\le2\eps\gamma/(1-\gamma)$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;policy-iteration&#34;&gt;Policy Iteration
+&lt;/h5&gt;&lt;p&gt;Each iteration, compute $V_\pi$ by current $\pi$ then update $\pi$ by $V_\pi$ (still, $\operatorname{argmax}$), until $\pi$ fixes.&lt;/p&gt;
+&lt;p&gt;Since
+$$
+\max_a\E(V_\pi(s^\prime)\mid s,a)\ge\E(V_\pi(s^\prime)\mid s,\pi(s))
+$$
+We can iteratively use this inequality to show $\pi^\prime$ must improve over $\pi$ (if equality holds, it means the fix-point is reached). In theory, the algorithm might run through every policy then result in exponential time, but it&amp;rsquo;s not the case in practice.&lt;/p&gt;
+&lt;p&gt;How to calculate $V_\pi$? We need to solve a linear equation system.&lt;/p&gt;
+&lt;p&gt;In short, value iteration needs more iterations than policy iteration empirically. Value iteration is $O(S^2A)$, while policy iteration is $O(S^3)$ but can be reduced to $O(kS^2)$: just like value iteration, calculate $V_\pi$ by a few iterations. This is called modified policy iteration.&lt;/p&gt;
+&lt;h5 id=&#34;other-tricks&#34;&gt;Other Tricks
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;In-place value iteration. Every time randomly choose an $s$ and update $V(s)$.&lt;/li&gt;
+&lt;li&gt;Prioritized sweeping. Every time select $s$ s.t. $\delta(s)=\left\lvert R(s)+\max_a\E(V(s^\prime)\mid s,a)-V(s)\right\rvert$ is the largest. Need to reversely update those $\delta(s_{\rm pre})$ such that $\Pr[s\mid s_{\rm pre},a_{\rm best}]&amp;gt;0$. Use priority queue to maintain.&lt;/li&gt;
+&lt;li&gt;Run the policy, use agent’s experience to guide the selection of $s$.&lt;/li&gt;
+&lt;li&gt;When $V$ requires too much memory, we can use NN to fit $V$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;mdp-variations&#34;&gt;MDP Variations
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Infinite MDP: countably infinite states/actions; continuous state/action; continuous time.&lt;/li&gt;
+&lt;li&gt;POMDP: can be reduced to an (infinite) history tree, or an continuous MDP with belief states.&lt;/li&gt;
+&lt;li&gt;Ergodic MDP. A few words is needed here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;An ergodic MP is an irreducible, aperiodic MP. An ergodic MDP is an MDP whose MP induced by any policy is ergodic. By 计智应数, an ergodic MP has a unique stationary distribution. Thus the following quantity is well-defined w.r.t. a policy $\pi$:
+$$
+\rho_\pi=\lim_{T\to\infty}\frac1T\E\left(\sum_{t=1}^TR_t\right)
+$$
+it&amp;rsquo;s called the average reward per time-step.&lt;/p&gt;
+&lt;p&gt;The value function of an undiscounted ($\gamma=1$), ergodic MDP can be expressed in terms of average reward.
+$$
+\tilde V_\pi(s)=\E\left(\sum_{t\ge 1}(R_t-\rho_\pi)\middle| s_0=s\right)
+$$
+by theory of mixing time, $R_t-\rho^\pi=\Omicron(\lambda^t)$ for some $0&amp;lt;\lambda&amp;lt;1$, so the infinite sum converges.&lt;/p&gt;
+&lt;p&gt;Bellman equation form:
+$$
+\tilde V_\pi(s)=\E((R^\prime-\rho_\pi)+\tilde V_\pi(s^\prime)\mid s)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;reinforcement-learning&#34;&gt;Reinforcement Learning
+&lt;/h3&gt;&lt;p&gt;RL is MDP, minus the knowledge about transition $T$ and/or reward $R$.&lt;/p&gt;
+&lt;p&gt;In RL, a learning algorithm is called an agent. There are two main attributes of an agent that we differentiate, that are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Passive learning vs. active learning. Passive learning is just following a fixed policy, and try to estimate the utility of the policy $V_\pi(\cdot)$. Active learning select the policy. While it aims at finding the optimal policy, it utilize the current policy to explore, that is, gaining information about the MDP that guides the further policy selection.&lt;/li&gt;
+&lt;li&gt;Model-based vs. model-free. A model-based agent explicitly stores a representation of $T$ and $R$, then the overall problem is more like MDP previously introduced, and may be solved by, e.g. policy iteration. A model-free agent learns $V$ or $\pi$ directly from trial-and-error experience with the environment, without explicitly learning the model (MDP).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Model-Free&lt;/th&gt;
+&lt;th&gt;Model-Based&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Passive Learning&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MC&lt;/td&gt;
+&lt;td&gt;ADP, TD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Active Learning&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Q-Learning, SARSA, DQN, PPO, SAC&lt;/td&gt;
+&lt;td&gt;Dyna-Q&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;passive-learning&#34;&gt;Passive Learning
+&lt;/h4&gt;&lt;p&gt;From here on, $T$, $R$, and $V$ all refer to estimated values; formally they should be written as $\hat T$, $\hat R$, and $\hat V$.&lt;/p&gt;
+&lt;p&gt;Now a policy $\pi$ to be evaluated is given.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Direct estimation, or Monte Carlo (MC). Just run a lot of episodes (each time act according to $\pi$ until a terminal state is reached), and average reward-to-go. It converges but very slowly. It doesn&amp;rsquo;t utilize Bellman equation.&lt;/li&gt;
+&lt;li&gt;Adaptive dynamic programming (ADP). It follows $\pi$ for a while, to get $T$ and $R$, then solve for $V_\pi(\cdot)$. Correctness: can bound error with Chernoff bounds.&lt;/li&gt;
+&lt;li&gt;Temporal difference learning (TD). The idea is to do local updates of the value function on a per-action basis, instead of learning the model and solving the Bellman equation at the end. Details are as follows:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Consider updating the value function in some way:
+$$
+V_\pi^\prime(s)\gets\begin{cases}V_\pi(s)&amp;amp;(\text{old})\\R(s)+\gamma\E(V_\pi(s^\prime)\mid s,\pi(s))&amp;amp;(\text{new})\end{cases}
+$$
+Here $\text{new}$ is obtained by sampling:
+$$
+\text{new}=R(s)+\gamma V_\pi(s^\prime),s^\prime\sim T(s,\pi(s),\cdot)
+$$
+so that $\E(\text{new})=R(s)+\gamma\E(V_\pi(s^\prime)\mid s,\pi(s))$.&lt;/p&gt;
+&lt;p&gt;To guarantee some kind of stability, we set a &amp;ldquo;learning rate&amp;rdquo; $\alpha$, then
+$$
+V_\pi^\prime(s)=(1-\alpha)(\text{old})+\alpha(\text{new})
+$$
+Thus
+$$
+V^\prime_\pi(s)=V_\pi(s)+\alpha(R(s)+\gamma V_\pi(s^\prime)-V_\pi(s))
+$$
+With appropriately decreasing $\alpha$, one can prove convergence.&lt;/p&gt;
+&lt;h4 id=&#34;active-learning&#34;&gt;Active Learning
+&lt;/h4&gt;&lt;p&gt;Now we need to find a good policy $\pi$.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s a main challenge called the Exploration-Exploitation Dilemma.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MC-based naïve approach. Explore (take random action each time) for a long long time to learn $T$ and $R$, then turn the problem into MDP problem. This is one extreme of complete exploration.&lt;/li&gt;
+&lt;li&gt;ADP-based naïve approach. Every cycle, follow the policy $\pi$ solved by the previous cycle for a while and estimate $T$ and $R$, then compute $V_\pi$ by the gained information. Finally compute the new policy $\pi^\prime$ by $\argmax$. This is the other extreme of complete exploitation. It is usually incorrect because it can easily get stuck in local minima.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;glie&#34;&gt;GLIE
+&lt;/h5&gt;&lt;p&gt;We can modify &amp;ldquo;following the previously obtained greedy policy&amp;rdquo; to avoid getting stuck:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each step with probability $1-p(t)$ select the greedy action, and with probability $p(t)$ act randomly. $p(t)=1/t$.&lt;/li&gt;
+&lt;li&gt;Select action according to Boltzmann distribution $\Pr[a\mid s]=\exp(Q(s,a)/T)/\sum_{a^\prime}\exp(Q(s,a^\prime)/T)$.&lt;/li&gt;
+&lt;li&gt;Optimistic exploration. Assign the highest possible value to any state-action pair that has not been explored enough. Under this framework, there is an algorithm called $\text{Rmax}$. Specifically, it redirects the transition of any state-action pair that has been visited fewer than $N_e$ times to itself and sets the reward to $R_{\max}$ (so its $Q$ value is $V_{\max}=R_{\max}/(1-\gamma)$). $\text{Rmax}$ has a theoretical convergence guarantee called a PAC guarantee.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These exploration policies are all so-called GLIE, greedy in the limit of infinite exploration.&lt;/p&gt;
+&lt;h5 id=&#34;q-learning&#34;&gt;Q-Learning
+&lt;/h5&gt;&lt;p&gt;Notice that there comes a new value function $Q$:
+$$
+Q(s,a):=R(s)+\gamma\E\left(\max_{a^\prime}Q(s^\prime,a^\prime)\middle|s,a\right)
+$$
+It&amp;rsquo;s especially useful for optimizing TD-based active RL. When trying to analogize TD-based active RL to ADP-based active RL, it seems like the only thing to be changed is the updating process of $V_\pi$. However the greedy policy requires $\argmax_a\set{\cdots}$, where $T$ and $R$ are needed. So TD-based active RL is no longer model-free. In order to prevent learning the model, we should directly estimate $Q$ instead of $V_\pi$. This leads to Q-learning. The updating step of $Q$ is similar to that in TD:
+$$
+Q^\prime(s,a)=Q(s,a)+\alpha\left(R(s)+\gamma\max_{a^\prime}Q(s^\prime,a^\prime)-Q(s,a)\right)
+$$&lt;/p&gt;
+&lt;p&gt;With the same exploration policy such as Boltzmann exploration, one can prove that with learning rate satisfying $\sum\alpha_n=\infty\land\sum\alpha_n^2&amp;lt;\infty$, Q-learning converges to the true, optimal $Q$ function.&lt;/p&gt;
+&lt;p&gt;For goal-based problems where the big reward appears only in the goal state, in each episode only one more $Q(s,a)$ can see that big reward. To accelerate convergence, we can use optimizations that look like &amp;ldquo;back-propagation&amp;rdquo;, including trajectory replay and reverse updates.&lt;/p&gt;
+&lt;h5 id=&#34;sarsa&#34;&gt;SARSA
+&lt;/h5&gt;&lt;p&gt;Now consider another pair of attributes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Off-policy vs. on-policy. If the policy used to select the action and the policy used to evaluate the next action are the same, then such agent is called on-policy, otherwise it&amp;rsquo;s called off-policy. Q-learning is obviously off-policy, because it follows a mixture of greedy action and random action when deciding the next step (exploring), while it chooses $\max_{a^\prime}Q$ when calculating $Q$ function (exploiting).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;State-Action-Reward-State-Action (SARSA) is an on-policy type of agent similar to Q-learning. The only difference is that, after the update:
+$$
+Q^\prime(s,a)=Q(s,a)+\alpha\left(R(s)+\gamma Q(s^\prime,a^\prime)-Q(s,a)\right)\text{ where }a^\prime=\begin{cases}\argmax_{a^\prime}Q(s^\prime,a^\prime),&amp;amp;\text{w.p. }1-\epsilon\\ \text{an action uniformly at random},&amp;amp;\text{w.p. }\epsilon\end{cases}
+$$
+The action taken (giving $s^{\prime\prime}$) is exactly $a^\prime$. Notice that in Q-learning, the $a^\prime=\argmax Q$ used for update is not necessarily the actual action leading the trajectory.&lt;/p&gt;
+&lt;p&gt;Also it&amp;rsquo;s almost the same as the first exploration strategy in ADP-based learning, except that $\epsilon$ is a fixed constant.&lt;/p&gt;
+&lt;p&gt;SARSA learns safer policy than Q-learning. This behavior significantly manifests in the classical cliff walking problem. An easy way to understand that is to regard the $\epsilon$-greedy policy as the agent itself occasionally loses its mind and does some crazy decisions, so in order to prevent catastrophic negative reward it tends to choose a safer pathway.&lt;/p&gt;
+&lt;p&gt;Note that when I say &amp;ldquo;SARSA learns safer policy&amp;rdquo;, I refer to &amp;ldquo;the output policy&amp;rdquo; of SARSA, which is still a deterministic policy obtained by taking $\pi(s)=\argmax_aQ(s,a)$.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-aipt/SARSA.png&#34;
+	width=&#34;974&#34;
+	height=&#34;370&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;263&#34;
+		data-flex-basis=&#34;631px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;MC Passive&lt;/th&gt;
+&lt;th&gt;ADP Passive&lt;/th&gt;
+&lt;th&gt;TD Passive&lt;/th&gt;
+&lt;th&gt;MC Active&lt;/th&gt;
+&lt;th&gt;ADP Active&lt;/th&gt;
+&lt;th&gt;TD Active&lt;/th&gt;
+&lt;th&gt;Q-Learning&lt;/th&gt;
+&lt;th&gt;SARSA&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Time/it&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;$O(kS^2)$&lt;/td&gt;
+&lt;td&gt;$O(1)$&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;$O(kS^2)$&lt;/td&gt;
+&lt;td&gt;$O(1)$&lt;/td&gt;
+&lt;td&gt;$O(1)$&lt;/td&gt;
+&lt;td&gt;$O(1)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Space&lt;/td&gt;
+&lt;td&gt;$O(S^2A)$&lt;/td&gt;
+&lt;td&gt;$O(S^2A)$&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;$O(S^2A)$&lt;/td&gt;
+&lt;td&gt;$O(S^2A)$&lt;/td&gt;
+&lt;td&gt;$O(S^2A)$&lt;/td&gt;
+&lt;td&gt;$O(SA)$&lt;/td&gt;
+&lt;td&gt;$O(SA)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Model&lt;/td&gt;
+&lt;td&gt;based&lt;/td&gt;
+&lt;td&gt;based&lt;/td&gt;
+&lt;td&gt;free&lt;/td&gt;
+&lt;td&gt;based&lt;/td&gt;
+&lt;td&gt;based&lt;/td&gt;
+&lt;td&gt;based&lt;/td&gt;
+&lt;td&gt;free&lt;/td&gt;
+&lt;td&gt;free&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;deep-reinforcement-learning&#34;&gt;Deep Reinforcement Learning
+&lt;/h4&gt;&lt;h5 id=&#34;rl-with-function-approximation&#34;&gt;RL with Function Approximation
+&lt;/h5&gt;&lt;p&gt;When solving real-world RL problems, we can&amp;rsquo;t afford to store the full tabular $V$ or $Q$. So we consider approximating them using kernel methods or linear approximation. Define a set of features $f_1(s)\sim f_n(s)$, and
+$$
+V_\theta(s)=\theta_0+\sum_{i=1}^n\theta_if_i(s)
+$$
+Now first we consider model-based TD. The expected &amp;ldquo;correct&amp;rdquo; $V$ is $v(s)=R(s)+\gamma V_\theta(s^\prime)$, and the current value is $V_\theta(s)$. Directly using GD with quadratic loss function, the gradient update should be
+$$
+\theta^\prime=\theta-\alpha\nabla_\theta\left(\frac12\left(v(s)-\theta_0-\sum_{i=1}^n\theta_if_i(s)\right)^2\right)=\theta+\alpha(R(s)+\gamma V_\theta(s^\prime)-V_\theta(s))\mat{1\\f(s)}
+$$
+For model-free TD, it&amp;rsquo;s also basically identical to Q-learning:
+$$
+Q_\theta(s,a)=\theta_0+\sum_{i=1}^n\theta_if_i(s,a)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\theta^\prime=\theta+\alpha\left(R(s)+\gamma\max_{a^\prime}Q_\theta(s^\prime,a^\prime)-Q_\theta(s,a)\right)\mat{1\\f(s,a)}
+$$&lt;/p&gt;
+&lt;p&gt;Furthermore, why not use NN to approximate $Q$? (the convergence is not guaranteed, though) This leads to Deep Q-Networks, i.e. DQN.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-aipt/DQN.jpg&#34;
+	width=&#34;946&#34;
+	height=&#34;541&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;419px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;stability-problem-and-solutions&#34;&gt;Stability Problem and Solutions
+&lt;/h5&gt;&lt;p&gt;Naïve Q-learning on DNNs (with the past few frames as input) oscillates or diverges because the data is sequential and successive samples are correlated, and also correlated with the taken action. Since the loss landscape of DNNs is complicated, the policy may oscillate (between several behavior modes). Also, because there are unstable gradient issues, we need to tune hyperparameters carefully. But there&amp;rsquo;re many different environment conditions. There&amp;rsquo;re several tricks that make it more stable:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Experience replay. This is to remove correlations. Do not use the most recent observed transitions, but store millions of transitions in replay memory $D$. Every time sample mini-batches from it and optimize.&lt;/li&gt;
+&lt;li&gt;Fixed target Q-Network. So we want $R(s)+\gamma\max_{a^\prime}Q_\theta(s^\prime,a^\prime)=Q_{\theta^\prime}(s,a)\cdots(*)$. Previously we make recurrently update to minimize the loss, and in the next step, the reference $Q$ is changed to $Q_{\theta^\prime}$. Now we fix the reference $\theta$ (in LHS of $(*)$) for thousands of steps and optimize $\theta^\prime$.&lt;/li&gt;
+&lt;li&gt;Control the reward/value range like clipping to $[-1,+1]$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;By 1 and 2, the optimization target is changed to:
+$$
+\begin{array}{c}
+\min.\left(R(s)+\gamma\max_{a^\prime}Q_{\theta_t}(s^\prime,a^\prime)-Q_{\theta_{t+1}}(s,a)\right)^2\\
+\downarrow\\
+\min.\E_{(s,a,r,s^\prime)\sim U(D)}\left(r+\gamma\max_{a^\prime}Q_{\theta_t}(s^\prime,a^\prime)-Q_{\theta_{t+1}}(s,a)\right)^2\\
+\downarrow\\
+\min.\E_{(s,a,r,s^\prime)\sim U(D)}\left(r+\gamma\max_{a^\prime}Q_{\theta_{\lfloor t/T\rfloor T}}(s^\prime,a^\prime)-Q_{\theta_{t+1}}(s,a)\right)^2
+\end{array}
+$$&lt;/p&gt;
+&lt;h5 id=&#34;maximization-bias-and-double-q-learning&#34;&gt;Maximization Bias and Double Q-Learning
+&lt;/h5&gt;&lt;p&gt;Another problem is called the maximization bias. Recall the update formula of tabular Q-learning:
+$$
+Q^\prime(s,a)=Q(s,a)+\alpha\left(R(s)+\gamma\max_{a^\prime}Q(s^\prime,a^\prime)-Q(s,a)\right)
+$$
+One can see that
+$$
+\E\left(\max_ix_i\right)\ge\E(x_{*})=\max_i\E(x_i)
+$$
+so with randomness (even the previous $Q$ has unbiased noise), $Q$ will be overestimating. The solution is double Q-learning: Train two $Q$ functions, every time randomly choose one to update, like
+$$
+Q_1^\prime(s,a)=Q_1(s,a)+\alpha\left(R(s)+\gamma Q_2(s^\prime,\argmax_{a^\prime}Q_1(s^\prime,a^\prime))-Q_1(s,a)\right)
+$$
+It can be proven that under some assumptions, it underestimates. But the key is that because of the $\max$, underestimation is less damaging than overestimation, since the latter leads to a feedback loop, but the former cannot.&lt;/p&gt;
+&lt;p&gt;When determining the next action, take $\argmax$ over $Q_1+Q_2$.&lt;/p&gt;
+&lt;p&gt;The same idea can be applied to DQN. Here the old Q-network can be used as $Q_2$:
+$$
+\min.\left(r+\gamma Q_{\theta_{\text{old}}}(s^\prime,\argmax_{a^\prime}Q_\theta(s^\prime,a^\prime))-Q_\theta(s,a)\right)^2
+$$
+Combined with experience replay, here&amp;rsquo;s another trick: for multiple past experiences $\set{(s,a)}$, choose among them according to the above quadratic error, like
+$$
+P(i)=\frac{\mathrm{err}_i^\alpha}{\sum_k\mathrm{err}_k^\alpha}
+$$
+&lt;img src=&#34;https://littlereuben.github.io/study/course-aipt/DQN.png&#34;
+	width=&#34;2696&#34;
+	height=&#34;805&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;334&#34;
+		data-flex-basis=&#34;803px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This plot shows that double DQN is less biased and has lower variance. Note that the &amp;ldquo;true value&amp;rdquo; is $\E(\sum\gamma^tr_t)$ when following the policy yielded by $\argmax$.&lt;/p&gt;
+&lt;h4 id=&#34;policy-based-rl&#34;&gt;Policy-Based RL
+&lt;/h4&gt;&lt;p&gt;Instead of learning $V$ or $Q$ by simulating some policy for a huge number of steps, policy-based RL methods directly learn the model that determine the actions, that is, $\pi_\theta(s,a)=\Pr[a\mid s;\theta]$, learn $\theta$ by GD.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;re a few intuitive reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Often the feature-based policies that work well aren&amp;rsquo;t the ones that approximate $V$/$Q$ best.&lt;/li&gt;
+&lt;li&gt;The final goal of RL is finding a good policy, which can be achieved by only getting the ordering of $Q$ values right. But Q-learning prioritizes getting $Q$ values close.&lt;/li&gt;
+&lt;li&gt;$V$ or $Q$ leads to deterministic (or near-deterministic like $\epsilon$-greedy) policies, while in some problems, mixed strategy is the optimal.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The advantages of policy-based RL:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Better convergence properties: $\pi_\theta(s,a)$ changes continuously, unlike the $\argmax$ of value-based RL changing suddenly.&lt;/li&gt;
+&lt;li&gt;Effective in high-dimensional or continuous action spaces.&lt;/li&gt;
+&lt;li&gt;Can learn stochastic policies.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Disadvantages:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Typically converge to a local optimum.&lt;/li&gt;
+&lt;li&gt;Evaluation of the policy has high variance, resulting in slow convergence.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;objectives&#34;&gt;Objectives
+&lt;/h5&gt;&lt;p&gt;We assume the Markov process induced by the policy $\pi_\theta$ is ergodic, so that there exists a unique stable distribution $d_{\pi_\theta}(\cdot)$.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In episodic environments like video games, the starting state matters. So we consider $J_1(\theta)=V_{\pi_\theta}(s_0)$.&lt;/li&gt;
+&lt;li&gt;In continuing environments we consider the limit value $J_{\rm avV}(\theta)=\sum_sd_{\pi_\theta}(s)V_{\pi_\theta}(s)$.&lt;/li&gt;
+&lt;li&gt;However if we want $\gamma=1$ then $J_{\rm avV}$ is not available. Consider $J_{\rm avR}(\theta)=\sum_sd_{\pi_\theta}(s)\sum_a\pi_\theta(s,a)R(s,a)$. When $\gamma&amp;lt;1$, $J_{\rm avV}=\frac{1}{1-\gamma}J_{\rm avR}$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;finite-difference-policy-gradient&#34;&gt;Finite Difference Policy Gradient
+&lt;/h5&gt;&lt;p&gt;Compute
+$$
+\frac{\p J(\theta)}{\p\theta_i}\approx\frac{J(\theta+\epsilon e_i)-J(\theta)}{\epsilon}
+$$
+Stupid.&lt;/p&gt;
+&lt;h5 id=&#34;reinforce&#34;&gt;REINFORCE
+&lt;/h5&gt;&lt;p&gt;Here we assume the reward depends on the state and the action.&lt;/p&gt;
+&lt;p&gt;The motivation is to &amp;ldquo;sample the gradient&amp;rdquo;. To do that, extracting a $\pi_\theta(s,a)$ term from the gradient is favorable. Starting with $\nabla_\theta\pi_\theta(s,a)$:
+$$
+\nabla_\theta\pi_\theta(s,a)=\pi_\theta(s,a)\nabla_\theta\log\pi_\theta(s,a)
+$$
+An easy case is the first step. Suppose $s_0\sim d(\cdot)$:
+$$
+\nabla_\theta\E(R(s_0,a_0))=\nabla_\theta\sum_sd(s)\sum_a\pi_\theta(s,a)R(s,a)=\sum_sd(s)\sum_a\pi_\theta(s,a)\nabla_\theta\log\pi_\theta(s,a)R(s,a)=\E\left(\nabla_\theta\log\pi_\theta(s,a)R(s,a)\right)
+$$
+The key point is, $\nabla_\theta\E$ cannot be calculated by sampling, while $\E(\nabla_\theta)$ can, because $\pi_\theta(s,a)$ is usually produced by an NN, thus $\nabla_\theta\log\pi_\theta(s,a)$ can be analytically computed.&lt;/p&gt;
+&lt;p&gt;Now,
+$$
+\begin{align*}
+\nabla_\theta V_{\pi_\theta}(s)&amp;amp;=\nabla_\theta\left(\sum_a\pi_\theta(s,a)\left(R(s,a)+\gamma\sum_{s^\prime}\Pr[s^\prime\mid s,a]V_{\pi_\theta}(s^\prime)\right)\right)\\
+&amp;amp;=\sum_a\nabla_\theta\pi_\theta(s,a)\left(R(s,a)+\gamma\sum_{s^\prime}\Pr[s^\prime\mid s,a]V_{\pi_\theta}(s^\prime)\right)+\sum_a\pi_\theta(s,a)\gamma\sum_{s^\prime}\Pr[s^\prime\mid s,a]\nabla_\theta V_{\pi_\theta}(s^\prime)\\
+&amp;amp;=\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)+\gamma\sum_{s^\prime}\Pr[s^\prime\mid s]\nabla_\theta V_{\pi_\theta}(s^\prime)\\
+&amp;amp;=\cdots\\
+&amp;amp;=\sum_t\gamma^t\sum_{s^\prime}\Pr[s^\prime\mid s;\text{after }t\text{ steps}]\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{align*}
+\nabla_\theta J_1(\theta)&amp;amp;=\sum_sd(s)\nabla_\theta V_{\pi_\theta}(s)\\
+&amp;amp;=\sum_sd(s)\sum_t\gamma^t\sum_{s^\prime}\Pr[s^\prime\mid s;\text{after }t\text{ steps}]\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\\
+&amp;amp;=\sum_t\gamma^t\sum_{s^\prime}\Pr[s_t=s^\prime]\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\\
+&amp;amp;=\sum_s\left(\sum_t\gamma^t\Pr[s_t=s]\right)\left(\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\right)
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;If we define discounted visitation distribution
+$$
+d_{\pi_\theta}^\prime(s)\propto\sum_t\gamma^t\Pr[s_t=s]
+$$
+we get
+$$
+\nabla_\theta J_1(\theta)=\frac{1}{1-\gamma}\E_{s\sim d_{\pi_\theta}^\prime(\cdot)}\left(\sum_a\nabla_\theta\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\right)=\frac1{1-\gamma}\E_{s\sim d_{\pi_\theta}(\cdot),a\sim \pi_\theta(s,\cdot)}\left(\nabla_\theta\log\pi_\theta(s,a)Q_{\pi_\theta}(s,a)\right)
+$$
+Actually it&amp;rsquo;s the Policy Gradient Theorem: For any differentiable policy $\pi_\theta(s,a)$,
+$$
+\nabla_\theta J(\theta)=\E\left(\nabla_\theta\log \pi_\theta(s,a)Q_{\pi_\theta}(s,a)\right)
+$$
+This holds for any of the choices $J=J_1,J_{\rm avR},\frac1{1-\gamma}J_{\rm avV}$. For $J_1$, the $1/(1-\gamma)$ coefficient is gotten rid of by forcing $d_{\pi_\theta}(s)=\sum_t\gamma^t\Pr[s_t=s]$ (So it&amp;rsquo;s notation abuse since now $\E$ doesn&amp;rsquo;t really denote expectation). For $J_{\rm avR}$ and $\frac1{1-\gamma}J_{\rm avV}$, $d_\pi$ is just the stationary distribution, while $Q$ is changed to differential Q-value:
+$$
+Q_{\pi_\theta}^\prime(s, a)=R(s,a)-J_{\rm avR}(\theta)+\E(Q_{\pi_\theta}^\prime(s^\prime,a^\prime))
+$$
+The proof from Gemini is &lt;a class=&#34;link&#34; href=&#34;https://gemini.google.com/share/b46323c42a37&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So the final algorithm is just $\theta\xleftarrow{+}\alpha v_t\nabla_\theta\log\pi_\theta(s_t,a_t)$ following a sampled trajectory. Here $v_t$ is the reward-to-go.&lt;/p&gt;
+&lt;h4 id=&#34;actor-critic-methods&#34;&gt;Actor-Critic Methods
+&lt;/h4&gt;&lt;p&gt;Recall that value-based and policy-based RL each have their own advantages and disadvantages. How about composing them together?&lt;/p&gt;
+&lt;p&gt;The critic is a network parameterized by $\phi$, denoted $Q_\phi(s,a)$.&lt;/p&gt;
+&lt;p&gt;The actor is the same as above, $\pi_\theta(s,a)$.&lt;/p&gt;
+&lt;p&gt;Following a trajectory, the parameters are updated:
+$$
+\theta\xleftarrow{+}\alpha Q_\phi(s_t,a_t)\nabla_\theta\log\pi_\theta(s_t,a_t)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\phi\xleftarrow{+}\beta(R(s_t,a_t)+\gamma Q_\phi(s_{t+1},a_{t+1})-Q_\phi(s_t,a_t))\nabla_\phi Q_\phi(s_t,a_t)
+$$&lt;/p&gt;
+&lt;p&gt;You might have already caught the questionable point: this doesn&amp;rsquo;t conform to any version ($J_1,J_{\rm avR},\frac1{1-\gamma}J_{\rm avV}$) of the Policy Gradient Theorem! By Gemini, the objective is another variant, called the average performance with discounted Q-values:
+$$
+J_{\text{hybrid}}(\theta) = \E_{s \sim d_\pi(\cdot)} (V_\pi(s))
+$$
+Forget about it.&lt;/p&gt;
+&lt;p&gt;Now we aim to reduce the variance of $\nabla_\theta\log \pi_\theta(s,a)Q_{\pi_\theta}(s,a)$. Notice that for any function only of $s$:
+$$
+\E(\nabla_\theta\log \pi_\theta(s,a)B(s))=\sum_sd_{\pi_\theta}(s)\sum_a\nabla_\theta\pi_\theta(s,a)B(s)=\sum_sd_{\pi_\theta}(s)\nabla_\theta B(s)=0
+$$
+We can choose $B(s)=\E(Q(s,a))$, so
+$$
+\nabla_\theta J(\theta)=\E\left(\nabla_\theta\log \pi_\theta(s,a)(Q_{\pi_\theta}(s,a)-V_{\pi_\theta}(s))\right)
+$$
+to reduce the variance. Notice that it&amp;rsquo;s just the advantage function $A_{\pi_\theta}(s,a)$. This leads to some elegant update formulas:
+$$
+\delta=R(s_t,a_t)+\gamma V_\phi(s_{t+1})-V_\phi(s_t)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\theta\xleftarrow{+}\alpha\delta\nabla_\theta\log\pi_\theta(s_t,a_t)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\phi\xleftarrow{+}\beta\delta\nabla_\phi V_\phi(s_t)
+$$&lt;/p&gt;
+&lt;p&gt;Similar to Q-learning, we&amp;rsquo;re also worried about bias in the algorithm. There&amp;rsquo;s a theorem for this:&lt;/p&gt;
+&lt;p&gt;If $\nabla_\phi Q_\phi(s,a)=\nabla_\theta\log\pi_\theta(s,a)$ and $\phi$ minimizes the error $\eps=\E(Q_{\pi_\theta}(s,a)-Q_\phi(s,a))^2$ then
+$$
+\nabla_\phi\eps=0\implies\E((Q_{\pi_\theta}(s,a)-Q_\phi(s,a))\nabla_\phi Q_\phi(s,a))=0\implies\E(Q_{\phi}(s,a)\nabla_\theta\log\pi_\theta(s,a))=\E(Q_{\pi_\theta}(s,a)\nabla_\theta\log\pi_\theta(s,a))
+$$
+Obviously the minimal $\eps$ cannot be rigorously achieved, but the first condition is easy: train a feature-learning network that learns $\Phi(s,a)$, and let $\log\pi_\theta(s,a)=\theta^\top\Phi(s,a)$ and $Q_\phi(s,a)=\phi^\top\Phi(s,a)$.&lt;/p&gt;
+&lt;h3 id=&#34;inference&#34;&gt;Inference
+&lt;/h3&gt;&lt;p&gt;I&amp;rsquo;m just leaving a catalog here since this part is easy and I have no more time.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition of conditional independence&lt;/li&gt;
+&lt;li&gt;Definition of a Bayesian net, and the equivalence of different characterizations&lt;/li&gt;
+&lt;li&gt;Inference by join and elimination&lt;/li&gt;
+&lt;li&gt;D-separation (the hardest)&lt;/li&gt;
+&lt;li&gt;Sampling methods&lt;/li&gt;
+&lt;li&gt;Inference on MMs and HMMs
+&lt;ol&gt;
+&lt;li&gt;Forward algorithm &amp;amp; forward-backward algorithm&lt;/li&gt;
+&lt;li&gt;particle filtering&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>段设 Survey：APASP Algorithms</title>
         <link>https://littlereuben.github.io/study/course-galgo-survey/</link>
         <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
