@@ -7,7 +7,1319 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>LRYP</copyright>
-        <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://littlereuben.github.io/study/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>段设（研究生程序分析与设计）笔记</title>
+        <link>https://littlereuben.github.io/study/course-galgo/</link>
+        <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-galgo/</guid>
+        <description>&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;$\gdef\O{\Omicron}\gdef\Ot{\tilde\Omicron}\gdef\e{\mathrm{e}}\gdef\eps{\varepsilon}$&lt;/p&gt;
+&lt;p&gt;很遗憾下半学期的没空记笔记了。有机会补。&lt;/p&gt;
+&lt;h3 id=&#34;apsp&#34;&gt;APSP
+&lt;/h3&gt;&lt;p&gt;APASP 相关更全面的算法见 &lt;a class=&#34;link&#34; href=&#34;https://littlereuben.github.io/study/course-galgo-survey&#34; &gt;我的 survey&lt;/a&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.sciencedirect.com/science/article/pii/S0022000085710781&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Seidel &amp;lsquo;95]&lt;/a&gt; 无向无权图 APSP $\Ot(n^\omega)$&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/document/743464&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Zwick &amp;lsquo;98]&lt;/a&gt; 有向无权图 APSP $\Ot(n^\mu)$，无向有权图 $1+\epsilon$ 近似 APSP $\Ot(n^\omega\epsilon^{-1}\log W)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;amp;arnumber=814635&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Shoshan, Zwick &amp;lsquo;99&lt;/a&gt;] 无向有权图 APSP $\Ot(Wn^\omega)$&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1312.6680&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Williams &amp;lsquo;14]&lt;/a&gt; 有（实数）权图 APSP $n^3/2^{\Omega(\sqrt{\log n})}$&lt;/li&gt;
+&lt;li&gt;[Aingworth, Chekuri, Indyk, Motwani &amp;lsquo;96] 无向无权图 $+2$ APSP $\Ot(n^{2.5})$&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://theory.stanford.edu/~virgi/cs267/papers/dorhalperinzwick.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Dor, Halperin, Zwick &amp;lsquo;96]&lt;/a&gt; 无向无权图 $+k$（偶数）APSP $\Ot(\min{kn^{2-1/k}m^{1/k},kn^{2+1/(3k-4)}})$&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://drops.dagstuhl.de/storage/00lipics/lipics-vol229-icalp2022/LIPIcs.ICALP.2022.50/LIPIcs.ICALP.2022.50.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Deng, Kirkpatrick, Rong, Williams, Zhong &amp;lsquo;22]&lt;/a&gt; 无向无权图 $+2$ APSP $\Ot(n^{2.29})$&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2208.02862&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Dürr &amp;lsquo;23]&lt;/a&gt; 无向无权图 $+2$ APSP $\Ot(n^{2.2593})$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/pdf/10.5555/314161.314190&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cohen-Zwick &amp;lsquo;97&lt;/a&gt;] 无向有权图 $\times 3$ APSP $\Ot(n^2)$，无向有权图 $\times 7/3$ APSP $\Ot(n^{7/3})$，无向有权图 $\times 2$ APSP $\Ot(n^{3/2}m^{1/2})$&lt;/li&gt;
+&lt;li&gt;[Thorup, Zwick &amp;lsquo;01] 无向有权图 distance oracle $\times(2k-1)$ 空间 $\O(kn^{1+1/k})$，单次查询 $\O(k)$&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://link.springer.com/chapter/10.1007/978-3-540-73951-7_47&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Berman, Kasiviswanathan &amp;lsquo;07]&lt;/a&gt; 无向无权图 $(2,1)$ APSP $\Ot(n^2)$&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2307.09258&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Dory et al. &amp;lsquo;23]&lt;/a&gt; 无向无权图 $\times 2$ APSP $\Ot(n^{2.032})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;hitting-set-的问题&#34;&gt;Hitting set 的问题
+&lt;/h4&gt;&lt;p&gt;如果以 $p$ 的概率选点，要覆盖所有度数 $\ge d$ 的点 $u_1,\cdots,u_t$，那么成功率是
+$$
+\Pr[\text{cover}(u_1)\land\cdots\land\text{cover}(u_t)]=1-\Pr[\overline{\text{cover}(u_1)}\lor\cdots\lor\overline{\text{cover}(u_t)}]\ge 1-t\Pr[\overline{\text{cover}(u_1)}]\ge 1-t(1-p)^d\ge 1-t\e^{-dp}
+$$
+可以取 $p=\frac{c\ln n}d$。但是问题是 $|S|$ 太大也不行。因此算法实际上做的是如果随机出来的 $S$ 没有覆盖所有的大度点，&lt;strong&gt;或者&lt;/strong&gt; $|S|$ 太大，就直接 Fail。我们假设一个阈值 $2pn$，成功率是
+$$
+\Pr[\text{allcover}\land |S|\le 2pn]\ge 1-\Pr[\overline{\text{allcover}}]-\Pr[|S|&amp;gt;2pn]\ge 1-n^{-c+1}-\e^{-pn/3}\tag{Chernoff}
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;一个简单的确定性算法如下：每次选择能覆盖最多 $\ge d$ 度点的点，记 $f(t)$ 为 $t$ 个 $\ge d$ 度点的 hitting set 大小，
+$$
+f(t)\le f\left(t-\left\lceil\frac{td}{n}\right\rceil\right)+1\le-\log_{1-d/n}t=-\frac{\ln t}{\ln(1-d/n)}\le\frac nd\ln t
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;seidel-95&#34;&gt;[Seidel &amp;lsquo;95]
+&lt;/h4&gt;&lt;p&gt;对于邻接矩阵 $A$，考虑以下算法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若 $A$ 是完全图，则直接返回。&lt;/li&gt;
+&lt;li&gt;递归计算 $A^2+A$ 对应邻接矩阵的距离矩阵 $D^\prime$。
+&lt;ul&gt;
+&lt;li&gt;这时 $d^\prime_{i,j}=\lceil d_{i,j}/2\rceil$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;计算 $P=D^\prime A$。$d_{i,j}=2d^\prime_{i,j}-[p_{i,j}&amp;lt;\mathrm{deg}_jd^\prime_{i,j}]$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;时间复杂度 $\O(n^\omega\log n)$。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;考虑算出最短路树相关信息。定义后继矩阵 $S$，$s_{i,j}$ 表示 $\pi(i,j)$ 上 $i$ 之后第一个点。&lt;/p&gt;
+&lt;p&gt;对于 01 矩阵 $A,B$ 定义 $(A*B)_{i,j}=\set{k\mid a_{i,k}=b_{k,j}=1\text{ 中任意一个}}$，这称为 witness。那么 $S_{i,j}=(A*D^{(d_{i,j}-1)})_{i,j}$，其中 $D^{(d)}=\set{[d_{i,j}=d]}$。这样需要对于每一个 $d$ 求 witness。&lt;/p&gt;
+&lt;p&gt;优化是这样的：注意到对于 $i$ 的相邻点 $k$，$d_{k,j}-d_{i,j}\in\set{1,0,-1}$，因此只需要找 $d_{k,j}\equiv d_{i,j}-1\pmod 3$ 的 $k$ 即可，这样就减少到 $3$ 次 witness。求 witness 考虑以下算法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将 $A$ 的第 $i$ 列乘 $i$。&lt;/li&gt;
+&lt;li&gt;枚举 $l=0\sim\log n$，对于每个 $l$ 重复 $c\log n$ 次：
+&lt;ul&gt;
+&lt;li&gt;随机取出 $A$ 的 $2^l$ 列和 $B$ 的对应 $2^l$ 行相乘得到 $C$。检查 $C_{i,j}$ 是否是个 witness，若是则记下。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;对于 $(AB)_{i,j}\ne 0$ 但没有得到 witness 的 $(i,j)$ 暴力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;简而言之，如果 $(AB)_{i,j}=p$，那么在 $n/2\le 2^lp\le n$ 的那一轮 $l$，有大概率有&lt;strong&gt;恰好&lt;/strong&gt;一对贡献的 $(a_{i,k},b_{k,j})$ 被选中。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;综上所述，APSP 的距离矩阵与后继矩阵都可以在 $\Ot(n^\omega)$ 内算出。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;dor-halperin-zwick-96&#34;&gt;[Dor, Halperin, Zwick &amp;lsquo;96]
+&lt;/h4&gt;&lt;p&gt;无向无权图。&lt;a class=&#34;link&#34; href=&#34;https://littlereuben.github.io/study/paper4/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;讲过 $+2$ 的 $\Ot(n^{5/2})$，可以回顾一下。其中涉及两种做法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果只考虑最短路上的最大点度在 $a\sim b$ 之间，那么从 $\ge a$ 度点的 hitting set 出发，在只保留 $\le b$ 度点邻边的图上跑 MSSP，$\Ot(n^2b/a)$。求时&lt;strong&gt;枚举关键点&lt;/strong&gt;，$\Ot(n^3/a)$。&lt;/li&gt;
+&lt;li&gt;如果只考虑最短路上的最大点度 $&amp;lt;a$ 的情况，直接在只保留 $&amp;lt;a$ 度点邻边的稀疏图上跑 APSP，$\O(n^2a)$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这篇 paper 主要提了一个折中的做法，其思路是“枚举一侧 BFS 另一侧”：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从 $\ge a$ 度点的 hitting set 出发，在只保留 $\le b$ 度点邻边的图上跑 MSSP，然后，对于每个 $u$，在原图只保留 $&amp;lt;a$ 度点邻边和 hitting set 边的基础上，$u$ 向各关键点连边权为 $d_{u,\cdot}$ 的边，再跑 Dijkstra。这时，如果我们考虑 $\pi(u,v)$ 上最后一个 $a\sim b$ 度点，它之后的路径边都在图上。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里的三类边在课件/paper 里对应的就是形如 $E_{i+1}\cup E^*\cup(\set{u}\times D_i)$。&lt;/p&gt;
+&lt;p&gt;仔细分析的话，MSSP 的复杂度是 $\Ot(n\min\set{nb,m}/a)$ 的，对每个点跑最短路还是 $\O(n^2a)$ 的。用该做法代替上面枚举关键点，取 $a=(m/n)^{1/2}$，得到 $\Ot(n^{3/2}m^{1/2})$ 的算法。&lt;/p&gt;
+&lt;p&gt;而原做法由于 $n^3/a$ 盖过了 $n^2b/a$，所以复杂度和 $m$ 无关。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;现在我们将点度分三层 $n-b-a-1$：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;最大点度 $&amp;gt;b$：跑原方法，$\Ot(n^3/b)$。&lt;/li&gt;
+&lt;li&gt;最大点度 $\in[a,b]$：跑新做法，$\Ot(n\min\set{nb,m}/a+n^2a)$。&lt;/li&gt;
+&lt;li&gt;最大点度 $&amp;lt;a$：稀疏图暴力（实际上新做法自动覆盖了这部分），$\Ot(n^2a)$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;取 $a=n^{1/3}$，$b=n^{2/3}$ 即得到 $\Ot(n^{7/3})$。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;现在考虑 $+2k$ 近似，我们考虑对关键点分层，每层的关键点依赖上一层的关键点快速求出最短路，代价是近似 $+2$。&lt;/p&gt;
+&lt;p&gt;假设点度分层为 $n-s_1-s_2-\cdots-s_k=1$，$D_i$ 表示度数 $&amp;gt;s_i$ 的点的 hitting set。假如我们得到了 $D_i$ 到 $V$ 的 $+2k$ 近似，那么可以用新做法得到 $D_{i+1}$ 到 $V$ 的 $+2(k+1)$ 近似：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于 $u\in D_{i+1}$，连上 $u$ 与 $D_i$ 的边，保留所有度数 $&amp;lt;s_i$ 点邻边和 hitting set 边，跑 Dijkstra。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个的时间是 $\Ot(|D_{i+1}|ns_i)=\Ot(n^2s_i/s_{i+1})$，或者更仔细地算，$\Ot(n\min\set{ns_i,m}/s_{i+1})$。&lt;/p&gt;
+&lt;p&gt;取 $s_i=n^{1-i/k}$，得到 $\Ot(n^{2+1/k})$；取 $s_i=(m/n)^{1-i/k}$，得到 $\Ot(n^{2-1/k}m^{1/k})$。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我们发现，如果用旧方法去做这件事情，应该这样做：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于 $u\in D_{i+1}$，$v\in V$，枚举 $D_1\sim D_i$ 中的点，松弛；最后，还是要只保留度数 $&amp;lt;s_i$ 点邻边跑 Dijkstra。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;时间是 $\Ot(|D_{i+1}|n\sum_{j\le i}|D_j|+|D_{i+1}|ns_i)=\Ot(n^3/s_is_{i+1}+n^2s_i/s_{i+1})$（这个等号假定 $\set{|D_i|}$ 是等比数列）。&lt;/p&gt;
+&lt;p&gt;现在我们发现，对于前面较大的 $s_i$，$n^3/s_is_{i+1}$ 这项并非瓶颈；同时注意到，这样求出来永远是 $+2$ 近似。这一不同，是由于旧方法的证明是考虑 $\pi$ 上最大度点，而新方法的证明是考虑 $\pi$ 上最后一个超过阈值的点，所导致的。&lt;/p&gt;
+&lt;p&gt;于是，考虑分成 $t+k-1$ 层，$s_i=n^{1-i/(t+k-1)}$。对于前 $t$ 层跑旧方法，后 $k-1$ 层跑新方法，得到 $+2k$ 近似。我们希望 $n^3/s_ts_{t-1}$ 不 dominant，即
+$$
+1+\frac{2t-1}{t+k-1}\le2+\frac{1}{t+k-1}\implies t\le k+1
+$$
+得到 $\Ot(n^{2+1/2k})$。进一步地，仔细考虑如何保证第 $t+1$ 层是 $+4$ 近似：只需保证 $D_t$ 到 $D_{t+1}$ 是 $+2$ 近似即可。因此松弛这步可以不枚举 $v\in V$ 而是枚举 $v\in D_{i+1}$，时间变为 $n^3/s_{t+1}s_ts_{t-1}$。
+$$
+\frac{3t}{t+k-1}\le 2+\frac{1}{t+k-1}\implies t\le 2k-1
+$$
+得到 $\Ot(n^{2+1/(3k-2)})$。进一步，注意到 $u\in D_t$ 到 $v\in D_{t+1}$ 的 $\pi$ 上如果没有度 $&amp;gt;s_{t-2}$ 的点，那么 $+2$ 近似可以通过在新方法的图中，$u\to$ 最后一个度 $&amp;gt;s_{t-1}$ 的点 $\to$ $v$，这样得到，因此无需枚举 $D_{t-1}$ 中的点作为中继点。时间降为 $n^3/s_{t+1}s_ts_{t-2}$，得到 $\Ot(n^{2+1/(3k-1)})$。&lt;/p&gt;
+&lt;p&gt;由于 $n^{1/\log_cn}=c$，故这个算法做到了 $\Ot(n^2)$ 的 $+\Theta(\log n)$ 近似。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;deng-kirkpatrick-rong-williams-zhong-22&#34;&gt;[Deng, Kirkpatrick, Rong, Williams, Zhong &amp;lsquo;22]
+&lt;/h4&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://littlereuben.github.io/study/paper4/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt;讲过倍增优化，转化为 $(\min,+)$ 矩乘与稀疏图 APSP。关键在于，如果取出一棵生成树，然后将节点按欧拉序排列，只会将矩阵的大小 $\times 2$，但是，这时相邻数之差就变成 $\pm 1$ 了。根据 [Chi, Duan, Xie, Zhang &amp;lsquo;22]，这样的 $(\min,+)$ 矩乘可以做到 $\Ot(n^{(3+\omega)/2})$。&lt;/p&gt;
+&lt;h4 id=&#34;berman-kasiviswanathan-07&#34;&gt;[Berman, Kasiviswanathan &amp;lsquo;07]
+&lt;/h4&gt;&lt;p&gt;还是倍增优化，但这里把整个 $1\sim n$ 的区间全划分了。现在不跑 $(\min,+)$ 矩乘，考虑类似于有权 $\times 2$ 的思路：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;跑多源 BFS，找到离每个点最近的关键点。然后 $\delta(u,v)=\min\set{d(u,u^\prime)+d(u^\prime,v),d(u,v^\prime)+d(v^\prime,v)}$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不妨设 $d(u,w)\le d(u,v)/2$。这里核心的不等式是：
+$$
+d(u,u^\prime)+d(u^\prime,v)\le 2d(u,u^\prime)+d(u,v)\le 2d(u,x)+d(u,v)\le 2d(u,v)+2
+$$
+但是由于建稀疏图实际上是保留所有度数 $&amp;lt;2^{i+1}$ 的点的邻边，因此 $\pi(u,v)$ 上的最大度点和次大度点的覆盖点，均可以作为中介。于是我们可以假设 $d(u,w)\le (d(u,v)-1)/2$，得到 $\le 2d(u,v)+1$。最差情况就是：&lt;/p&gt;
+&lt;h3 id=&#34;堆&#34;&gt;堆
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;二叉堆&lt;/th&gt;
+&lt;th&gt;二项堆&lt;/th&gt;
+&lt;th&gt;配对堆&lt;/th&gt;
+&lt;th&gt;左偏树&lt;/th&gt;
+&lt;th&gt;斐波那契堆&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;插入&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)/\O(1)^\dagger$&lt;/td&gt;
+&lt;td&gt;$\O(1)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(1)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;删除&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)^\dagger$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)^\dagger$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;查 $\min$&lt;/td&gt;
+&lt;td&gt;$\O(1)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(1)$&lt;/td&gt;
+&lt;td&gt;$\O(1)$&lt;/td&gt;
+&lt;td&gt;$\O(1)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;删 $\min$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)^\dagger$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)^\dagger$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;合并&lt;/td&gt;
+&lt;td&gt;$\O(n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(1)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(1)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;decrease key&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)^\dagger$&lt;/td&gt;
+&lt;td&gt;$\O(\log n)$&lt;/td&gt;
+&lt;td&gt;$\O(1)^\dagger$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;$\dagger$ 表示均摊。&lt;/p&gt;
+&lt;p&gt;注：严格来说，配对堆的那几个 $\O(1)$ 也应当视作均摊。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://www2.eecs.berkeley.edu/Pubs/TechRpts/1975/ERL-m-501.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cheriton, Tarjan &amp;lsquo;76&lt;/a&gt;] MST $\O(m\log\log n)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://web.eecs.umich.edu/~pettie/matching/Fredman-Tarjan-Fibonacci-Heaps.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fredman, Tarjan &amp;lsquo;87&lt;/a&gt;] 斐波那契堆、MST $\O(m\beta(m,n))$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;Dixon, Rauch, Tarjan &amp;lsquo;92&lt;/a&gt;] 验证 MST $\O(m)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://www.sciencedirect.com/science/article/pii/S0022000005800649&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fredman, Willard &amp;lsquo;92&lt;/a&gt;] 整数边权 MST $\O(m)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://cs.brown.edu/research/pubs/pdfs/1995/Karger-1995-RLT.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Karger, Klein, Tarjan &amp;lsquo;95&lt;/a&gt;] 非确定性算法 MST $\O(m)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/pdf/10.1145/316542.316548&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Thorup &amp;lsquo;99&lt;/a&gt;] 非负整数边权无向图 SSP $\O(m)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/pdf/10.1145/355541.355562&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chazelle &amp;lsquo;00&lt;/a&gt;] 确定性算法 MST $\O(m\alpha(m,n))$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://web.eecs.umich.edu/~pettie/papers/jacm-optmsf.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pettie, Ramachandran &amp;lsquo;02&lt;/a&gt;] 确定性算法 MST 时间等于决策树复杂度（但后者未知）&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2311.11793&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Haeupler, Hladík, Rozhoň, Tarjan, Tětek &amp;lsquo;23&lt;/a&gt;] Dijkstra 的 universal optimality&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2504.17033&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Duan, Mao, Mao, Shu, Yin &amp;lsquo;25&lt;/a&gt;] 不要求按距离顺序输出的非负权 SSP 确定性算法 $\O(m\log^{2/3}n)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;二项堆&#34;&gt;二项堆
+&lt;/h4&gt;&lt;p&gt;简而言之就是二进制分组的思想。定义 $B_k$ 为 $B_{k-1}$ 的根下面接一个 $B_{k-1}$，维护 $n$ 个数，即 $n$ 个节点的二项堆形如
+$$
+\bigcup_{i\in\mathrm{binary}(n)}B_i
+$$
+其中每个 $B_i$ 中满足堆的大小关系。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;合并：考虑二进制加法的过程。如果要合并两个 $B_i$，就把根大的那个接到根小的儿子，变成一个 $B_{k+1}$。&lt;/li&gt;
+&lt;li&gt;查 $\min$：扫描各根，当然也可以维护一个指针。&lt;/li&gt;
+&lt;li&gt;删除：decrease 成 $-\infty$ 后删 $\min$。&lt;/li&gt;
+&lt;li&gt;删 $\min$：拆开各个儿子，做一个形如 $(n-2^i)+(2^i-1)=n-1$ 的合并。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;斐波那契堆&#34;&gt;斐波那契堆
+&lt;/h4&gt;&lt;p&gt;核心思想是弱化二项堆的结构限制，通过允许每个点少一个儿子，来允许 decrease key 直接扔到根。&lt;/p&gt;
+&lt;p&gt;对于一个堆，维护它根的链表。对于每个非根点，如果它有一个儿子在 decrease key 时被切掉了，就标记它。记
+$$
+\Phi(H)=\text{\# roots} + 2\times\text{\# marked nodes}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;合并：直接把链表接起来。&lt;/li&gt;
+&lt;li&gt;查 $\min$：维护一个指针。&lt;/li&gt;
+&lt;li&gt;decrease key：直接把这个点的子树扔到根链表。如果它的父亲没被标记过则标记，否则也扔到根链表，以此向上类推。势能函数设计得很巧妙，因此扔一次根，$\Phi$ 就减一，刚好抵掉。&lt;/li&gt;
+&lt;li&gt;删 $\min$：拆开各个儿子扔到根链表，然后合并儿子数相同的根。这时 $\hat T=\text{\# sons}+\text{\# roots}+\Delta\Phi=\text{\# sons}+\text{new \# roots}$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此要 bound 儿子数，也就是 bound $F(k)$ 表示根有 $k$ 个儿子，树的最小大小。考虑一个儿子刚接上当前点的时候，然后再去掉一个儿子：
+$$
+F(k)\ge F(k-2)+\cdots+F(0)+F(0)\implies F=1,2,3,5,8,13,\cdots
+$$&lt;/p&gt;
+&lt;h4 id=&#34;优化-mst&#34;&gt;优化 MST
+&lt;/h4&gt;&lt;p&gt;尽管 Prim 和 Dijkstra 通过斐波那契堆都 $\O(m\log n)\to\O(m+n\log n)$ 了，但在 $m=\Theta(n)$ 时相当于没优化。考虑到严格来说复杂度是 $\O(m+n\log(\max|H|))$，因此有一个想法是，考虑强制 bound $|H|$：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;选一个点出发做 Prim，如果堆的大小达到 $k$ 则停止。再从另一个点出发做 Prim，如果堆的大小达到 $k$，或者它这部分的树和已有的树连通了，就停止。对所有点都做上述过程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;时间为 $\O(m+n\log k)$。现在，相当于选出了一些属于 MST 的边，构成森林。将各森林合并为单点后递归做（这个思想和 Borůvka 一样）。由于每个连通块最初都必须由 $\ge k$ 个邻边的情形形成，故合并后的点数 $\le 2m/k$。因此：
+$$
+T(n,m)\le T(2m/k,m)+\O(m+n\log k)
+$$
+取 $n\log k=\Theta(m)$，具体而言取 $k=2^{2m/n}$。这时相当于要解
+$$
+f(n)=f(2m/2^{2m/n})+1
+$$
+换元。令 $r=2m/n$，$g(r)=f(n)$，则
+$$
+g(r)=f(2m/r)=f(2m/2^r)+1=g(2^r)+1=\cdots=\Theta(\log^*m)
+$$
+因此我们得到一个 $\O(m\log^*m)$ 的做法。严格来说应该是 $\O(m\beta(m,n))$，因为是从 $r=2m/n$ 开始，当 $k\ge n$ 就结束了。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tmt514.github.io/algorithm-analysis/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tmt514.github.io/algorithm-analysis/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;并查集&#34;&gt;并查集
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/pdf/10.1145/321879.321884&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Tarjan &amp;lsquo;75&lt;/a&gt;] 路径压缩 + 按秩合并的 $\Theta(m\alpha(m,n))$ 上下界&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/pdf/10.1145/73007.73040&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fredman, Saks &amp;lsquo;89&lt;/a&gt;] 等价类问题的 $\Omega(\alpha(m,n))$ word operation 下界&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;明确一下，$rk_u$ 表示 $u$ 的子树在未经路径压缩时的高度。&lt;/p&gt;
+&lt;h4 id=&#34;分析-1&#34;&gt;分析 1
+&lt;/h4&gt;&lt;p&gt;令 $\delta_u=rk_{fa_u}-rk_u$。每次 &lt;code&gt;find&lt;/code&gt; 操作中每个点 $u$ 有两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$2\delta_u^\prime\ge\delta_u$。由于 $rk_u=\O(\log n)$，这种情况对于每个 $u$ 只会出现 $\O(\log\log n)$ 次。&lt;/li&gt;
+&lt;li&gt;$2\delta_u^\prime&amp;lt;\delta_u$。然而，$\delta^\prime_{fa_u}=\delta^\prime_u-\delta_u&amp;lt;\delta^\prime_u/2$，因此这种情况对于一次 &lt;code&gt;find&lt;/code&gt; 只会出现 $\O(\log\log n)$ 次。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;得到 $\O((n+m)\log\log n)$ 的复杂度。&lt;/p&gt;
+&lt;h4 id=&#34;分析-2&#34;&gt;分析 2
+&lt;/h4&gt;&lt;p&gt;考虑不路径压缩的最终合并树。对于路径压缩，我们从 $u$ 到当时的根连接 shortcut 边，这样形成 shortcut 图。&lt;/p&gt;
+&lt;p&gt;令 $T(m,n,r)$ 表示共 $m$ 次操作，$n$ 个点，只考虑 $rk\le r$ 的那些点以及根在这些点内的 &lt;code&gt;find&lt;/code&gt;，总的时间。这里的参数 $r$ 是为了递归子问题用的。&lt;/p&gt;
+&lt;p&gt;现在我们划一道线，分割 $rk\le s$ 和 $&amp;gt;s$ 的点。对于一次 &lt;code&gt;find&lt;/code&gt; 中将 $x$ 的父亲置为当前根 $y$ 的操作，分类讨论：&lt;/p&gt;
+&lt;p&gt;令 $m_+$ 表示 $rk_y&amp;gt;s$ 的 &lt;code&gt;find&lt;/code&gt; 次数，$m_-=m-m_+$。3.1 每个 $x$ 只出现一次，3.2 每个 &lt;code&gt;find&lt;/code&gt; 只出现一次。
+$$
+T(m,n,r)\le T(m_-,n,s)+\boxed{T(m_+,n/2^s,r)}+m_++n
+$$
+已知 $T(m,n,r)\le m+nr$。
+$$
+T(m,n,r)\le T(m_-,n,s)+\frac{n}{2^s}r+2m_++n
+$$
+取 $s=\log r$。
+$$
+\begin{align*}
+T(m,n,r)-2m&amp;amp;\le T(m_-,n,s)-2m_-+2n\\
+&amp;amp;\le \cdots\\
+&amp;amp;\le 2n\log^*n
+\end{align*}
+$$
+因此 $T(m,n,r)\le 2m+2n\log^*n$，将这个代回 $\boxed{}$ 得
+$$
+T(m,n,r)\le T(m_-,n,s)+2m_++2\frac{n}{2^s}r\log^*n+m_++n
+$$
+取 $s=\log^*r$：
+$$
+T(m,n,r)-3m\le T(m_-,n,s)-3m_-+3n\le\cdots\le 3n\log^{**}n
+$$
+以此类推，得到 $T(m,n,r)\le (m+n)\alpha(n)$，其中 $\alpha(n)=\min\set{c\mid\log^{\overbrace{**\cdots*}^c}n\le 3}$。&lt;/p&gt;
+&lt;h4 id=&#34;分析-3&#34;&gt;分析 3
+&lt;/h4&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://codeforces.com/blog/entry/98275&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《我的并查集启蒙》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这篇文章的大致想法是，划定从密到疏的 $0\sim z-1$ 级的 $rk$ 线，对于跨 $i$ 级线且不跨 $i+1$ 级线的边 $x-fa_x$，有两种情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$x-fa_x$ 是该次 &lt;code&gt;find&lt;/code&gt; 中最后一条这样的边：每次 &lt;code&gt;find&lt;/code&gt; 只有一条。（对应 3.2）&lt;/li&gt;
+&lt;li&gt;$x-fa_x$ 不是：它会多跨至少一条 $i$ 级线，最终会跨 $i+1$ 级线。（对应 3.1）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它们对应的总复杂度分别是 $mz$ 和 $\sum_i\sum_js_{i,j}c_{i,j}$，其中 $a/s/c_{i,j}$ 分别表示第 $j$ 条 $i$ 级线的划分位置/和下一条 $i$ 级线间的点数/到上一条 $i+1$ 级线所需的 $i$ 级线数。注意到 $s_{i,j}=\O(n/2^{a_{i,j}})$，因此就变成
+$$
+\sum_i\sum_j\frac{n}{2^{a_{i,j}}}c_{i,j}
+$$
+取 $c_{i,j}=a_{i,j}$，就能做到 $nz$，同时有了递推式 $a_{i+1,j}=a_{i,a_{i,j-1}}$。&lt;/p&gt;
+&lt;p&gt;容易发现，第 $i$ 级线就（不完全）对应着上一个分析中第 $i$ 次代入分析时划的 $s$ 值。如果限制 $z$ 为常数，那么最后一层会有一个 $nc_z=n\log^{**\cdots*}n$，在上一个分析中就对应递推式末尾的 $+n$；剩余层的 $nc_{i,j}/2^{a_{i,j}}$ 都是被调参抵消。&lt;/p&gt;
+&lt;h4 id=&#34;一些细节&#34;&gt;一些细节
+&lt;/h4&gt;&lt;p&gt;定义 Ackermann 函数：
+$$
+\Alpha(m,n)=\begin{cases}n+1,&amp;amp;m=0\\  \Alpha(m-1,1),&amp;amp;n=0\\  \Alpha(m-1,\Alpha(m,n-1)),&amp;amp;\text{otherwise}\end{cases}
+$$
+定义 $\alpha(n)=\min\set{k\mid A(k,1)\ge n}$……等等，怎么有两个定义啊？&lt;/p&gt;
+&lt;p&gt;首先我们可以归纳证明：
+$$
+\Alpha(m,n)=\begin{cases}n+1,&amp;amp;m=0\\ n+2,&amp;amp;m=1\\ 2\uparrow^{m-2}(n+3)-3,&amp;amp;m\ne 0\end{cases}
+$$
+其中
+$$
+a\uparrow^kb=\underbrace{a\uparrow^{k-1}(a\uparrow^{k-1}(\cdots \uparrow^{k-1}a))}_{(b-1)\times\uparrow^{k-1}}
+$$
+而我们可以定义 $\log^{**\cdots*}$ 的反函数，例如 $\log^*n=\min\set{k\mid \underbrace{2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}}_k=2\uparrow^2k\ge n}$。而
+$$
+\log^{**}n=\min\set{k\mid \left.\underbrace{2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}}_{\underbrace{2^{2^{\cdot^{\cdot^{\cdot^{2}}}}}}_{\underbrace{\vdots}_{2}}}\right\}{(k-1)\;\underbrace{}}=2\uparrow^3k\ge n}
+$$
+以此类推。值得注意的是，$\log^{**\cdots*}n$ 在 $n=1,2,3,4,5$ 时总是等于 $0,1,2,2,3$，因为 $2\uparrow^{k}2\equiv 4$。这就是为什么前一个定义里要求 $\log^{**\cdots*}n\ge 3$。那么现在，Ackermann 函数和 $\log^{**\cdots*}$ 反函数的关系很明显了，因此两种 $\alpha$ 的定义只差一个常数。&lt;/p&gt;
+&lt;h4 id=&#34;alphan-下界构造-tarjan-75&#34;&gt;$\alpha(n)$ 下界构造 [Tarjan &amp;lsquo;75]
+&lt;/h4&gt;&lt;p&gt;对于一棵树 $T$，定义 $T(i)$ 为 $T$ 的 $i$ 级二项树：$T(0)=T$，$T(n)=T(n-1)$ 的根上挂一个 $T(n-1)$。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若 $T$ 有 $\ge 2$ 个节点和 $s$ 个叶子，那么 $T(\Alpha(4k,4s))$ 存在一半的叶子可以做长度为 $k$ 的 &lt;code&gt;find&lt;/code&gt; 操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于 $k\le 2$ 这是显然的。现在对于 $k\ge 3$ 作归纳。先考虑 $T$ 只有两个节点，或者说 $s=1$ 的情况：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-galgo/3-2.png&#34;
+	width=&#34;954&#34;
+	height=&#34;351&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;271&#34;
+		data-flex-basis=&#34;652px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;橙色节点的 $3/4$。
+&lt;ol&gt;
+&lt;li&gt;把所有叶子扔了，根据归纳假设，$T(\Alpha(4k-4,4)+1)$ 中有一半的紫色节点可以做长度为 $k-1$ 的 &lt;code&gt;find&lt;/code&gt; 操作，因此有一半的橙色节点可以做长度为 $k$ 的 &lt;code&gt;find&lt;/code&gt; 操作。&lt;/li&gt;
+&lt;li&gt;在 $T(\Alpha(4k-4,4)+1)$ 中，剩余的一半紫色节点以及它们的祖先形成有 $2^{\Alpha(4k-4,4)-1}$ 个叶子的树。根据归纳假设，$T(\Alpha(4k-4,4)+1+\Alpha(4k-4,2^{\Alpha(4k-k,4)+1}))$ 中，这剩余的一半紫色节点中有一半可以做长度为 $k-1$ 的 &lt;code&gt;find&lt;/code&gt; 操作，因此有额外 $1/4$ 的橙色节点可以做长度为 $k$ 的 &lt;code&gt;find&lt;/code&gt; 操作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;蓝色节点的 $1/4$。令 $p=\Alpha(4k-4,4)+1+\Alpha(4k-4,2^{\Alpha(4k-k,4)+1})$。在 $T(p)$ 中，只保留绿色节点，那么有 $2^{p-2}$ 个叶子。根据归纳假设，$T(p+\Alpha(4k-4,2^p))$ 中这些绿色节点叶子中有一半可以做长度为 $k-1$ 的 &lt;code&gt;find&lt;/code&gt; 操作，因此有 $1/4$ 的蓝色节点可以做长度为 $k$ 的 &lt;code&gt;find&lt;/code&gt; 操作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;于是只需证明
+$$
+1+\Alpha(4k-4,4)+\Alpha(4k-4,2^{\Alpha(4k-k,4)+1})+\Alpha(4k-4,2^{1+\Alpha(4k-4,4)+\Alpha(4k-4,2^{\Alpha(4k-k,4)+1})})\le\Alpha(4k,4)
+$$
+注意，当我们说“有……的节点可以做长度为 $k$ 的 &lt;code&gt;find&lt;/code&gt; 操作”时，就是指直接做 &lt;code&gt;find&lt;/code&gt; 了。这时树的结构会被路径压缩改变，因此在最初的命题中，我们说的 $T$ 中可能存在 shortcut 边。同时，尽管橙色节点上的 &lt;code&gt;find&lt;/code&gt; 会影响绿色节点的结构，但是叶子经过路径压缩还是叶子，没有祖先后代关系的点对经过路径压缩还是没有祖先后代关系，因此不影响 2，以及下面的论证。&lt;/p&gt;
+&lt;p&gt;如果 $s&amp;gt;1$，先扔掉一个叶子，做归纳。现在在 $T(\Alpha(4k,4s-4))$ 中已经做了一堆 &lt;code&gt;find&lt;/code&gt; 了，但是这类扔掉的叶子及其父亲（最高 shortcut 边祖先）仍然能按上面一个叶子的情况分类并构造，最后需要证明
+$$
+\begin{align*}
+&amp;amp;\Alpha(4k,4s-4)\\
++{}&amp;amp;\Alpha(4k-4,2^{\Alpha(4k,4s-4)+1})\\
++{}&amp;amp;\Alpha(4k-4,2^{\Alpha(4k,4s-4)+\Alpha(4k-4,2^{\Alpha(4k,4s-4)+1})})\\
++{}&amp;amp;\Alpha(4k-4,2^{\Alpha(4k,4s-4)+\Alpha(4k-4,2^{\Alpha(4k,4s-4)+1})+\Alpha(4k-4,2^{\Alpha(4k,4s-4)+\Alpha(4k-4,2^{\Alpha(4k,4s-4)+1})})})\\
+\le{}&amp;amp;\Alpha(4k,4s)
+\end{align*}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-galgo/3-3.png&#34;
+	width=&#34;3610&#34;
+	height=&#34;1460&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;这里红(shortcut)边不一定是连到根的&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;247&#34;
+		data-flex-basis=&#34;593px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这样就证明了 $\Omega(m\alpha(n))$ 的下界。&lt;/p&gt;
+&lt;h3 id=&#34;splay--lct&#34;&gt;Splay &amp;amp; LCT
+&lt;/h3&gt;&lt;p&gt;略。&lt;/p&gt;
+&lt;h3 id=&#34;ett&#34;&gt;ETT
+&lt;/h3&gt;&lt;p&gt;考虑用平衡树维护树的欧拉序。欧拉序本质上是一个环，重定根操作相当于循环位移。具体来说，用平衡树维护欧拉序，如果将根定为 $u$，只需找到序列中的任意一个 $u$，将它之前的部分移到结尾（再去掉一个重复的原来根，加一个 $u$，这个只是维护环的小细节）即可。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;link(u,v)&lt;/code&gt;：分别 &lt;code&gt;makeroot(u), makeroot(v)&lt;/code&gt;，然后把欧拉序拼起来。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cut(u,v)&lt;/code&gt;：&lt;code&gt;makeroot(u)&lt;/code&gt; 之后把序列中 &lt;code&gt;u, [v, ..., v], u&lt;/code&gt; 这部分分离出来。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;实现时需要维护，每个节点对应的（任意）一个平衡树中节点，以及每条边在平衡树中的位置。一个实现方法是在每个点上加一个自环，然后序列中记录每次走的边。这个的问题是，似乎动态序列中查某个数第一次出现的位置是没法做的，因此除非给定所查点的父亲，不然没法求子树信息。链信息更是不用想了。如果只维护 dfs 序的话，只能做根连父亲的动态操作。&lt;/p&gt;
+&lt;h3 id=&#34;动态图连通性&#34;&gt;动态图连通性
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cs.princeton.edu/courses/archive/fall03/cs528/handouts/Poly%20logarithmic.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[Holm, Lichtenberg, Thorup &amp;lsquo;98]&lt;/a&gt; （都是均摊）完全动态图连通性 $\O(\log^2n)$，只删不增动态 MST $\O(\log^2n)$，完全动态 MST $\O(\log^4n)$，完全动态边双 $\O(\log^4n)$，完全动态点双 $\O(\log^4n)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1609.05867&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Huang, Huang, Kopelowitz, Pettie, Thorup &amp;lsquo;16&lt;/a&gt;] 非确定性完全动态图连通性均摊 $\O(\log n(\log\log n)^2)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://epubs.siam.org/doi/epdf/10.1137/1.9781611973105.81&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Kapron, King, Mountjoy &amp;lsquo;13&lt;/a&gt;] 非确定性完全动态图连通性最坏 $\O(\log^5n)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/pdf/10.1145/265910.265914&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Eppstein, Galil, Italiano, Nissenzweig &amp;lsquo;92&lt;/a&gt;] 确定性完全动态图连通性最坏 $\O(\sqrt n)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://erikdemaine.org/papers/DynamicConnectivity_STOC2004/paper.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pătrașcu, Demaine &amp;lsquo;04&lt;/a&gt;] 完全动态图连通性均摊 $\Omega(\log n)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/0808.1128&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chan, Pătrașcu, Roditty &amp;lsquo;08&lt;/a&gt;] 完全动态子图连通性均摊 $\Ot(m^{2/3})/\Ot(m^{1/3})$&lt;/li&gt;
+&lt;li&gt;[Duan &amp;lsquo;10] 完全动态子图连通性均摊 $\Ot(m^{4/5})/\Ot(m^{1/5})$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1611.09072&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Duan, Zhang &amp;lsquo;10&lt;/a&gt;] 完全动态子图连通性均摊 $\Ot(m^{3/4})/\Ot(m^{1/4})$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1511.06773&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Henzinger, Krinninger, Nanongkai, Saranurak &amp;lsquo;15&lt;/a&gt;] 在 OMv hypothesis 下完全动态子图连通性的改查之积无法 $\omicron(m)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2202.11250&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jin, Xu &amp;lsquo;22&lt;/a&gt;] 在 Combinatorial k-Clique hypothesis 完全动态子图连通性无法做到改 $\O(m^{2/3-\eps})$，查 $\O(m^{1-\eps})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;代码实现：&lt;a class=&#34;link&#34; href=&#34;https://etaoinwu.com/blog/fully-dynamic-connectivity/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://etaoinwu.com/blog/fully-dynamic-connectivity/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;离线的话直接线段树分治 + 并查集就行。在线的情况我们初步的想法是，维护生成森林：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;add(u,v)&lt;/code&gt;：如果 $u$ 和 $v$ 处于不同连通块，则加边；否则不管。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;del(u,v)&lt;/code&gt;：如果 $(u,v)$ 是树边，需要找一条非树边把两侧连起来。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;增删边连通性-holm-lichtenberg-thorup-98&#34;&gt;增删边连通性 [Holm, Lichtenberg, Thorup &amp;lsquo;98]
+&lt;/h4&gt;&lt;p&gt;这个算法我觉得可以从两个角度理解：一个是离线线段树分治算法的惰性划分，一个是启发式分裂。前者可以马上帮你理解为什么莫名其妙要给边分层，不过可能还是后者更本质一些吧。就是很多时候优化的算法不是完全新想一个方式，而只是去控制暴力算法所运行的局部的 size。如果暴力算法的运行时间是线性的，那么优化之后就是 $n\operatorname{polylog}(n)$；如果是平方之类涉及“每一对 pair 的枚举”，那么优化之后就是 $n$ 的某个 $1\sim 2$ 之间的指数。&lt;/p&gt;
+&lt;p&gt;给每条边赋权 $\ell:E\to\N$，令 $E_i=\set{e\mid \ell(e)\ge i}$，我们再对于每个 $E_i$ 维护生成森林 $F_i$，这样就有&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-galgo/5-0.png&#34;
+	width=&#34;2235&#34;
+	height=&#34;861&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;259&#34;
+		data-flex-basis=&#34;622px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;注意这里我们要求 $F_0\supseteq F_1\supseteq\cdots$，那就有个很简单的推论：一条边 $e$ 在 $0\sim \ell(e)$ 层，要么一直是树边，要么一直是非树边。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;要求 $F_i$ 中，每棵树的大小 $\le n/2^i$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样，$\ell_{\max}&amp;lt;\log n$。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;要求一条边的 $\ell$ 不降。且在它被枚举到时，就向上一层。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样，总的枚举次数就是 $\O(m\log n)$，我们得到一个均摊的复杂度。&lt;/p&gt;
+&lt;center&gt;&lt;img src=&#34;5-1.png&#34; style=&#34;zoom:20%;&#34; /&gt;&lt;/center&gt;
+&lt;p&gt;接下来，我们用 ETT 维护每个 $F_i$，时间就是 $\O(m\log^2n)$。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;add(u,v)&lt;/code&gt;：初始化 $\ell(e)=0$，这时只出现在 $E_0$ 中，如果 $E_0$ 中两端不连通，则作为树边加入 $F_0$。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;del(u,v)&lt;/code&gt;：如果 $e$ 是树边，那就要将它从 $F_{0\sim\ell(e)}$ 中删去，然后需要以一种优化的方法找到新的非树边。调用 &lt;code&gt;reconnect(e,ℓ(e))&lt;/code&gt;。&lt;code&gt;reconnect(e,ℓ)&lt;/code&gt;：
+&lt;ul&gt;
+&lt;li&gt;现在 $e$ 的两端在 $\ell$ 这层是两个连通块 $T_u$ 和 $T_v$，我们希望找到一条 $\ell$ 层的非树边，将两侧连起来。&lt;/li&gt;
+&lt;li&gt;注意 $\ell+1$ 层及以上不可能存在非树边连通两者，初始情况是由于 $F_{\ell(e)+1}\subset F_{\ell(e)}\setminus\set{e}$，后续可以归纳。&lt;/li&gt;
+&lt;li&gt;现在取两个连通块中较小的，不妨设为 $T_u$，枚举一端在 $T_u$ 内的 $\ell$ 层边。这样的边，要么另一端也在 $T_u$ 内，这样就提升到 $\ell+1$ 层；否则另一端必然在 $T_v$ 中，那么就将它加到 $F_{0\sim\ell}$ 中。如果全扫完了还没找到，则调用 &lt;code&gt;reconnect(e,l-1)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;当提升到 $\ell+1$ 层时，原先在 $\ell$ 层的树边加到 $F_{\ell+1}$，非树边就不用管。&lt;/li&gt;
+&lt;li&gt;关键实现细节：为了枚举 $T_u$ 内的 $\ell$ 层边，我们不能枚举 $T_u$ 内的点，因为 $\ell$ 层边数可能小于点数。同时我们也无法对于每个连通块维护它的非树边，因为涉及到分裂和合并。而且为了维持 $F_{\ell}\supseteq F_{\ell+1}$，$\ell$ 层树边必须提升。一种实现是，对于每个点维护它的 $\ell$ 层邻边，同时在 ETT 中维护子树信息：当前平衡树子树中是否存在点有 $\ell$ 层邻边（注意对于同一个点，存在邻边的标记只能挂在其中一个平衡树节点上）。这样做的话，把 $T_u$ 中的所有 $\ell$ 层边用一个 dfs 拿出来会比较方便，于是可以先把它们全部提升到 $\ell+1$ 层（注意讨论树边和非树边）。这样做会在原先“提升 $m\log n$ 条边”的基础上多乘个 $\log$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$F_i$ 性质的维持：选的是 $\le$ 原连通块一半大小的连通块。&lt;/p&gt;
+&lt;p&gt;查询可以进一步优化到 $\O(\log n/\log\log n)$。&lt;/p&gt;
+&lt;h4 id=&#34;删边-mst-holm-lichtenberg-thorup-98&#34;&gt;删边 MST [Holm, Lichtenberg, Thorup &amp;lsquo;98]
+&lt;/h4&gt;&lt;p&gt;还是维护上面那个结构，初始所有边都在 $0$ 级，$F_0$ 存 MST。每次删边，如果 $e$ 是树边，则删去后调用 &lt;code&gt;reconnect(e,ℓ(e))&lt;/code&gt;。这里唯一不同的是，&lt;code&gt;reconnect&lt;/code&gt; 中要按边权从小到大枚举在 $\ell$ 层的边。&lt;/p&gt;
+&lt;p&gt;我们本质上是要找 $T_u$ 和 $T_v$ 之间的 cut，即之间边权最小的边。这里的核心问题是：凭什么边权最小的边不会出现在 $&amp;lt;\ell$ 层？性质：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;原边集中任意一个环，它的最大边一定在最低层。如果有 tie，表述可以修改为：存在一条最大边在最低层。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;于是通过这张图就可以理解：&lt;/p&gt;
+&lt;p&gt;该性质的维持：对于一个环 $C$ 中的一条最大权最低层边 $e$，如果它被提升一层到 $\ell(e)+1$，这是 $C$ 的所有原 $\ell(e)$ 层边一定在之前已被枚举到且提升了，因为 $C$ 的所有点都在 $T_u$ 中（根据归纳假设，以及 $F_{\ell}$ 的定义）。&lt;/p&gt;
+&lt;p&gt;实现：在 ETT 中维护子树中所有点的 $\ell$ 层邻边的最小权，每次取出一条。注意这时由于 MST 的性质，如果所有边权都不同的话，是不用担心非树边升层而树边未升导致 $F_{\ell}\supseteq F_{\ell+1}$ 性质未维持的，因此不用显式提升树边。只要在边权相同 break tie 时优先选树边就行。&lt;/p&gt;
+&lt;p&gt;如果有加边的话，很简单，我们想如果加了一条边破圈了，那新边的 $\ell$ 一定得 $\ge$ 被删边的 $\ell$，那如果这样加进去违反了 $\le n/2^i$ 的要求，就无解了。&lt;/p&gt;
+&lt;h4 id=&#34;增删点连通性-chan-pătrașcu-roditty-08&#34;&gt;增删点连通性 [Chan, Pătrașcu, Roditty &amp;lsquo;08]
+&lt;/h4&gt;&lt;p&gt;这个问题是说，固定图的形态，点有 on 和 off 两种状态，我们只考虑亮的点的导出子图。&lt;/p&gt;
+&lt;p&gt;算法的直觉是，考虑调用上面的算法，既然暴力加删边会由于反复切换大度点被卡，那我们首先考虑以 $\Delta$ 的间隔定期重构，只维护这段时间内被操作的点集 $Q$，这样点数限制在 $\Delta$ 以内。这时影响连通性的最讨厌的问题是形如 $Q-(V\setminus Q)-Q$ 的连边结构。对于一个 $V\setminus Q$ 中的连通块 $C$，处理它的时间是 $\deg(C)^2$。于是我们又考虑按 $\deg(C)$ 的大小分治，把大度的连通块缩起来。总而言之，最后图会被分成三部分，我们考虑它们互相影响的 $5$ 种关系，就会平衡到 $m^{2/3}$。&lt;/p&gt;
+&lt;p&gt;维护两个集合 $P$ 和 $Q$，其中初始所有点都在 $P$，$P$ 只支持删点；$Q$ 支持加删点。每 $m^{2/3}$ 次操作后重构，将所有点放回 $P$，于是 $|Q|\le m^{2/3}$。&lt;/p&gt;
+&lt;p&gt;将 $P$ 对应的导出子图的连通块中，（在原图中）度数之和 $&amp;gt;m^{1/3}$ 的称为 high component，其余称为 low component。&lt;/p&gt;
+&lt;p&gt;维护图 $G^*$，包含所有 $Q$ 的点以及 $P$ 中各个 high 各自缩成一个点，这样 $|V^*|\le m^{2/3}$。&lt;/p&gt;
+&lt;p&gt;再维护
+$$
+V\times V\supseteq\Gamma=\set{(u,v)\mid \exists\text{ low component adjacent to both }u\text{ and }v}
+$$
+这样 $|\Gamma|\le\sum_{\text{low }C}(\sum_{u\in C}\deg_u)^2\le m^{4/3}$。现在 $G^*$ 中加三类边：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$Q$ 内的边&lt;/li&gt;
+&lt;li&gt;$Q$ 和 high 之间的边（要记一个重边计数表）&lt;/li&gt;
+&lt;li&gt;$\Gamma$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样 $G^*$ 中的连通性与原图中的连通性等价。用前面的算法维护 $G^*$，一张 $\O(m^{2/3})$ 点 $\O(m^{4/3})$ 边的图。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-galgo/5-3.png&#34;
+	width=&#34;1442&#34;
+	height=&#34;650&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;221&#34;
+		data-flex-basis=&#34;532px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;qry(u,v)&lt;/code&gt;：如果两个点都在 $G^*$ 里就直接查。如果一个点在 low 里，就枚举和这个 low 相邻的 $G^*$ 中点。如果两个都在 low 里，就先枚举一个的邻点在 $G^*$ 的 $F_0$ 的 ETT 里标记，然后再拿另一个查。这样就是 $\Ot(m^{1/3})$ 的。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;add(u)&lt;/code&gt;：一定有 $u\in Q$，直接在 $G^*$ 里暴力加边。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;del(u)&lt;/code&gt;：
+&lt;ul&gt;
+&lt;li&gt;$u\in Q$：暴力删边。&lt;/li&gt;
+&lt;li&gt;$u\in$ high：假设分裂为连通块 $R_1,\cdots,R_k$，按度数和从大到小排列。除 $R_1$ 以外的 high，扫描各邻边，更新 $G^*$ 的边集；变为 low 的部分，更新 $\Gamma$。这样的复杂度类似于 $\deg(R_2)+\cdots+\deg(R_j)+\deg(R_{j+1})^2+\cdots+\deg(R_k)^2$，前一部分根据启发式分裂，每轮重构是 $\Ot(m)$ 的；后一部分每轮只会有一次从 high 到 low 的情况，因此是 $m^{2/3}$ 的。关键就是别主动扫 $R_1$ 的邻边，而要在扫 $R_2\sim R_k$ 时撤掉和 $R_1$ 没边的 $G^*$ 中点。&lt;/li&gt;
+&lt;li&gt;$u\in$ low：暴力更新 $\Gamma$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意还要维护 $P$ 中的每个点属于哪个连通块，这个也是随便做。每轮重构会引入 $m$ 条边，分 $m^{2/3}$ 次删去，因此均摊 $m^{1/3}$，不是瓶颈。&lt;/p&gt;
+&lt;p&gt;总的来说，每轮重构所需的时空都是 $\Ot(m^{4/3})$，每次查询 $\Ot(m^{1/3})$，每次修改均摊 $\Ot(m^{2/3})$。空间可以优化到 $\O(m)$。&lt;/p&gt;
+&lt;h3 id=&#34;网络流&#34;&gt;网络流
+&lt;/h3&gt;&lt;h4 id=&#34;capacity-scaling&#34;&gt;Capacity Scaling
+&lt;/h4&gt;&lt;p&gt;有两种实现。一种是，只取残量网络中容量 $\ge 2^i$ 的边跑；另一种是，在容量为 $\lfloor\frac{c}{2^i}\rfloor$ 的图中跑完后把容量和流量都 $\times 2$ 再加上当前二进制位。这两种每轮都至多增广 $m$ 次，所以是 $\O(m^2\log U)$ 的。&lt;/p&gt;
+&lt;h4 id=&#34;dinic&#34;&gt;Dinic
+&lt;/h4&gt;&lt;p&gt;注意复杂度的严格证明：每次流满一条边或到不了汇，都会导致当前弧更新。更新至多 $m$ 次，每次递归至多 $n$ 层。&lt;/p&gt;
+&lt;p&gt;LCT 优化：维护以汇为根的一棵内向树，每次 &lt;code&gt;split(s,t)&lt;/code&gt; 找到 $\min$ 并全体减，删掉瓶颈边。这时如果源只能到 $u$ 了，就再找一条 $u$ 的出边加进来。如果 $u$ 的出边都用光了就删 $u$，再看 $u$ 的前驱。这样一轮就从 $\O(mn)$ 降到了 $\O(m\log n)$。&lt;/p&gt;
+&lt;h4 id=&#34;单位容量图-dinic-复杂度&#34;&gt;单位容量图 Dinic 复杂度
+&lt;/h4&gt;&lt;p&gt;不能有重边，所以最大流 $&amp;lt;n$。&lt;/p&gt;
+&lt;p&gt;在 $n^{2/3}$ 轮后，$d(s,t)&amp;gt;n^{2/3}$，根据鸽巢存在相邻两层，点数之和 $\le 2n^{1/3}$，因此这两层之间的边数为 $\O(n^{2/3})$。这时我们就找到了残量网络上一个容量为 $\O(n^{2/3})$ 的割，因为根据 bfs 的性质不会有跨越 $\ge 2$ 层的正向边。&lt;/p&gt;
+&lt;p&gt;在 $m^{1/2}$ 轮后，根据鸽巢存在相邻两层之间的边 $\ge m^{1/2}$，同样得到一个割。由于单位容量图是流一条边就没一条边，故一轮为 $\O(m)$，于是对于单位容量图有了一个 $\O(m\min\set{n^{2/3},m^{1/2}})$ 的算法，结合 capacity scaling 得到一个 $\O(m\min\set{n^{2/3},m^{1/2}}\log U)$ 的算法。&lt;/p&gt;
+&lt;p&gt;对于二分图，在 $n^{1/2}$ 轮后，每条增广路长度都 $&amp;gt;n^{1/2}$。二分图的性质导致一个点不可能被两条流流过，换句话说流可以分解成点不交的路径。于是剩余至多增广 $n^{1/2}$ 轮，复杂度就是 $\O(m\sqrt n)$。&lt;/p&gt;
+&lt;h4 id=&#34;无向单位容量图&#34;&gt;无向单位容量图
+&lt;/h4&gt;&lt;p&gt;我们有 LCT 优化 Dinic，又有鸽巢 bound 流量，现在考虑结合起来。但是问题是，单位容量图里 Dinic 一轮已经是 $\O(m)$ 了，还能咋优化？所以考虑退回到 EK。&lt;/p&gt;
+&lt;p&gt;对于无向图，找路径相当于动态图连通性问题，而我们可以说明无向单位容量网络流中有流（即有流）的边不多：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无环流至多用 $\O(n^{3/2})$ 条边。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;假设残量网络上 $s$ 到 $t$ 的最短路长为 $d$，则（和上面的说法一样）可流的流量不超过 $(n/d)^2$。换句话说，如果剩余流量为 $v$，那么 $s$ 到 $t$ 的最短路不超过 $n/\sqrt v$。这就说明，以 EK 的方式去增广，流经的边数不超过
+$$
+\frac{n}{\sqrt n}+\frac{n}{\sqrt{n-1}}+\cdots+\frac{n}{\sqrt1}\le \int_0^nx^{-1/2}\mathrm{d}x=\O(n^{3/2})
+$$
+我们知道 EK 不会产生环流，如果有另一个边更多的最大流可以在上面跑 EK 然后对称差搞出环。因此命题得证。&lt;/p&gt;
+&lt;p&gt;现在的想法是，如果每次只流 $1$ 的流量，那么没必要考虑全部无向边，只需要取一个生成森林即可。于是 bfs 的边数就是 $\O(n^{3/2})$。增广时从动态图连通性的那个结构里取边就行。复杂度瓶颈在 bfs，总时间 $\O(n^{5/2})$。&lt;/p&gt;
+&lt;h3 id=&#34;最小割与-k-连通性&#34;&gt;最小割与 $k$-连通性
+&lt;/h3&gt;&lt;p&gt;以下 Karger 的都是非确定性算法。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://people.csail.mit.edu/karger/Papers/mincut.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Karger &amp;lsquo;92&lt;/a&gt;] 无向图全局最小割 $\Ot(mn^2)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://people.csail.mit.edu/karger/Papers/fastcut.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Karger, Stein &amp;lsquo;93&lt;/a&gt;] 无向图全局最小割 $\Ot(n^2)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://people.csail.mit.edu/karger/Papers/approxcut.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Karger &amp;lsquo;93&lt;/a&gt;] 无向图全局近似最小割常数近似比 $\Ot(m)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://people.csail.mit.edu/karger/Papers/stcut.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Benczúr, Karger &amp;lsquo;96&lt;/a&gt;] 无向图有源汇近似最小割常数近似比 $\Ot(n^2)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://people.csail.mit.edu/karger/Papers/lincut.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Karger &amp;lsquo;98&lt;/a&gt;] 无向图全局最小割 $\Ot(m)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://people.csail.mit.edu/karger/Papers/resflow.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Karger, Levine &amp;lsquo;02&lt;/a&gt;] 无向图最大流 $\Ot(m+nv)$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://link.springer.com/article/10.1007/BF01758778&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nagamochi, Ibaraki &amp;lsquo;92&lt;/a&gt;] sparse $k$-connectivity (both edge &amp;amp; vertex connectivity) certificate $\Ot(m)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Finding the edge connectivity：https://www.sciencedirect.com/science/article/pii/S0022000085710227&lt;/p&gt;
+&lt;h4 id=&#34;karger-算法&#34;&gt;Karger 算法
+&lt;/h4&gt;&lt;p&gt;适用于无向有权图。&lt;/p&gt;
+&lt;p&gt;考虑以下神秘算法：每次（按权重）随机选一条边，把两端点合并。保留重边。剩下两个点的时候就得到一个割。&lt;/p&gt;
+&lt;p&gt;设最小割为 $c$，如果最小割上的边都没被选到，则该算法正确。每个点的度数都 $\ge c$，因此边数 $\ge cn/2$，这是随机选一条边未选到割中的边的概率为
+$$
+\frac{\frac{cn}{2}-c}{\frac{cn}2}=\frac{n-2}n
+$$
+因此正确概率至少为
+$$
+\frac{n-2}{n}\times\frac{n-3}{n-1}\times\frac{n-4}{n-2}\times\cdots\times\frac13=\frac{2}{n(n-1)}
+$$
+不牛。&lt;/p&gt;
+&lt;p&gt;接下来是很精妙的一步：考虑到，如果合并到中途停下来，最小割仍有很大概率是还在的。因此考虑合并到一定时候，再多轮随机。进一步递归这一想法，我们就想到：从初始情况开始，合并到剩余 $f(n)$ 个点时，就复制两份分别继续合并（递归），返回两种情况结果的较小值。分析概率的递归式我们会看出，选择 $f(n)$ 使得
+$$
+\frac{n-2}{n}\times\frac{n-3}{n-1}\times\frac{n-4}{n-2}\times\cdots\frac{f(n)+2}{f(n)+1}=\frac12
+$$
+时是最平衡的。容易看出应当取 $f(n)\approx n/\sqrt2$。这样会得到 $2\log_2n$ 层的二叉树。实现上我们不需要每合并一条边就重构整张图。论文里给的做法是维护每对点之间的边数，我感觉是不是用并查集就行。反正递归树叶子数是 $n^2$ 的，所以不管怎样时间都是 $\Ot(n^2)$。&lt;/p&gt;
+&lt;p&gt;记 $P(n)$ 为成功率，有
+$$
+P(n)=1-\left(1-\frac12P\left(\frac{n}{\sqrt2}\right)\right)^2=P\left(\frac{n}{\sqrt2}\right)-\frac14P\left(\frac{n}{\sqrt2}\right)^2
+$$
+课上讲的神奇代换是 令 $Q(n)=4/P(n)-1$，得到
+$$
+Q(n)=Q(n/\sqrt2)+1+\frac{1}{Q(n/\sqrt2)}=2\log_2n+\sum_i\frac1{Q(n/2^{i/2})}=\Theta(\log n)
+$$
+问 chatgpt，给了个更精确的渐进式：
+$$
+P(2^{n/2})=\frac{4}{n+\log n+C+\omicron(1)}
+$$
+（话说这种二次递推不等式我在 ML 也见过，似乎关键一步都是代换倒数，感觉应该是个通法）&lt;/p&gt;
+&lt;p&gt;因此只需 $\Ot(1)$ 轮就可以 w.h.p.，总时间 $\Ot(n^2)$。&lt;/p&gt;
+&lt;p&gt;直觉上来说，该分治算法利用的是各步正确率的不均匀性。可以验证，如果每步的正确率是常数 $1-\epsilon$，则分治是无法优化时间的。&lt;/p&gt;
+&lt;p&gt;最初的暴力算法还神奇地证明了：最小割数量 $\le\binom n2$。考虑 union bound，由于最后只会给出一个割，所以不同的割之间是不重合的，union bound 取等。所以超过 $\binom n2$ 个最小割，概率就 $&amp;gt;1$ 了。达到上界的构造是一个环。&lt;/p&gt;
+&lt;h4 id=&#34;近似全局最小割&#34;&gt;近似全局最小割
+&lt;/h4&gt;&lt;p&gt;论文里有讲有权的做法，时间复杂度不变。这里我们只考虑无权。&lt;/p&gt;
+&lt;p&gt;整体思路是说，对每条边只以某概率保留，然后在采样后的边集上跑最小割，得到的最小割在原图中一定不会差太多。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果最小割为 $c$，则容量 $\le\alpha c$ 的割有 $\O(n^{2\alpha})$ 个。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大概口胡的证明：用一样的方法，缩到剩余 $\lfloor 2\alpha\rfloor$ 个点之后，随机选择 $S$ 返回。对于一个容量 $\le \alpha c$ 的割，得到该割的概率至少为
+$$
+\begin{align*}
+&amp;amp;\frac{n-2\alpha}{n}\times\frac{n-1-2\alpha}{n-1}\times\cdots\times\frac{1-{2\alpha}}{1+\lfloor 2\alpha\rfloor}\times 2^{-\lfloor 2\alpha\rfloor+1}\\
+={}&amp;amp;\frac{\Gamma(n-2\alpha+1)}{\Gamma(1-{2\alpha})}\frac{\Gamma(1+\lfloor 2\alpha\rfloor)}{\Gamma(n+1)}2^{-\lfloor 2\alpha\rfloor+1}\\
+\ge{}&amp;amp;\Theta\left(\frac{\Gamma(n-2\alpha+1)}{\Gamma(n+1)}\right)\\
+={}&amp;amp;\Theta(n^{-2\alpha})
+\end{align*}
+$$
+倒数第二步类似于 $2^{-n}n!=\Omega(1)$；最后一步用斯特林公式展开一下。另外如果 ${2\alpha}$ 很接近 $1$ 的话可以取到剩余 $\lfloor 2\alpha\rfloor+1$ 个点。&lt;/p&gt;
+&lt;p&gt;对于一个容量为 $v$ 的割，如果以 $p$ 的概率保留每条割边，那么我们知道对于 $\epsilon\in(0,1)$，剩下割边数 $v^\prime$ 满足
+$$
+\Pr[(1-\epsilon)pv\le v^\prime\le(1+\epsilon)pv]\ge1-2\e^{-\epsilon^2pv/3}
+$$
+因此如果取 $p=C\ln n/\epsilon^2c$（$c$ 是最小割），得到的概率就是 $1-\operatorname{poly}(n)^{-1}$，这个是对于单个割而言的。对于所有割，至少有其中一个在采样后的图中偏差过大的概率，根据 union bound 不超过
+$$
+\int_1^{+\infty}2\e^{-\epsilon^2p\alpha c/3}\mathrm{d}(n^{2\alpha})=\int_1^{+\infty}n^{-C^\prime\alpha}\mathrm{d}(n^{2\alpha})
+$$
+取个大点的 $C$ 就行了。这样一来，再调下参，w.h.p. 取样后的图的最小割在原图中容量 $\le(1+\epsilon)c$。&lt;/p&gt;
+&lt;p&gt;如果使用 [Gabow &amp;lsquo;95] 的 $\Ot(mc)$ 算法求最小割，总的时间就是 $\Ot((m/c)c)=\Ot(m)$。&lt;/p&gt;
+&lt;h4 id=&#34;近似有源汇最小割&#34;&gt;近似有源汇最小割
+&lt;/h4&gt;&lt;p&gt;上面的做法不适用于有源汇最小割，因为最小割数量的 bound 的证明假设了每个点度数 $\ge c$。在有源汇的情况下，例如可以考虑 $s$ 和 $t$ 之间是 $s\to 1\to t$、$s\to 2\to t$、……，这样就有 $2^{n/2}$ 种最小割。在这种情况下 union bound 就炸了。核心的点在于，$s-t$ 最小割 $m$ 可能远大于全局最小割 $c$。&lt;/p&gt;
+&lt;p&gt;一个想法是，如果一条边只出现在相当大的割中，那么它还是能像上面那样采样的。对于一条边，定义它的（普通）连通性为，其两端点的最小割。定义一条边是 $k$-strong 的，当且仅当它的两端在同一个 $k$-边连通分量中，定义强连通性 $c_e=\max\set{k\mid e\text{ is }k\text{-strong}}$。$k$-边连通分量的定义就是极大的最小割恰为 $k$ 的子图。容易看出，一条边的强连通性 $\le$ 普通连通性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;根据上面的分析我们的直觉是，对于 $k$-边连通，以 $\Theta(\ln n/\epsilon^2k)$ 密度采样，误差可以接受。我们希望保证采样后割的期望不变，因此如果以 $p_k$ 的概率选择 $k$-连通边，那么边权要设置为 $1/p_k$。但这样不行，原因见下。&lt;/p&gt;
+&lt;p&gt;需要按照强连通性采样，也就是对于 $k$-strong 边，以 $\Theta(\ln n/\epsilon^2k)$ 密度采样。这样：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;w.h.p. 所有割都偏差不超过 $\epsilon$。&lt;/li&gt;
+&lt;li&gt;w.h.p. 图只有 $\O(n\ln n/\epsilon^2)$ 条边。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一个的分析不能直接用 Chernoff。[Benczúr, Karger &amp;lsquo;96] 给出了一个引理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;边 $e$ 的容量为随机变量 $X_e$，则以 $1-\operatorname{poly}(n)^{-1}$ 的概率，任何一个割的偏差都不超过 $\pm\epsilon$ 倍，这里 $\epsilon=\sqrt{C\frac{M}{\hat c}\log n}$，其中 $\hat c$ 是最小期望割，$X_e$ 满足 $0\le X_e\le M$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;容易发现无源汇那边给出的分析是一个特例（$X_e$ 是 Bernoulli 随机变量）。当 $X_e$ 不只取 $\set{0,1}$ 时，就得用 Hoeffding 而不是 Chernoff 证了，但是我怀疑这个引理 state 得有问题，我怀疑 $M$ 应该在根号外面。不管怎样，当我们以不均匀的密度采样时，直接用这个引理给出的 $\epsilon$ 太大了。&lt;/p&gt;
+&lt;p&gt;魔改的证明思路是，把整个采样过程拆分为：依次在仅由 $[2^i,+\infty)$-strong 边构成的图（也就是所有 $2^i$-边连通分量）中采样 $[2^i,2^{i+1})$-strong 的边，这时 $M/\hat c=2$。于是近似比就是 $(1\pm\epsilon)^{\log m}$ 这样的一个东西。仔细分析可以得到 $1\pm\epsilon\log m$。在子阶段的分析中设置非单位容量可以进一步得到 $1+\epsilon$。&lt;/p&gt;
+&lt;p&gt;需要用强连通性而不是普通连通性的原因就在于这里的分析。如果用普通连通性，会发现 $\ge k$ 的边组成的子图的最小割不一定 $\ge k$。最简单的例子是 $E=\set{(s,t),(s,1),(1,t),(s,2),(2,t),\cdots,(s,n-1),(n-1,t)}$，这里 $(s,t)$ 的普通连通性是 $n$ 而强连通性是 $2$。&lt;/p&gt;
+&lt;p&gt;第二个我们通过证 $\sum1/c_e\le n$ 来说明。考虑一个连通块的最小割 $C$。根据 $k$-strong 的定义，这个连通块里的所有边 $c_e\ge|C|$，因此 $\sum_{e\in C}1/c_e\le |C|/|C|=1$。删掉 $C$ 之后归纳（删边只会使 $c_e$ 变小）即可。最后用 Chernoff bound。&lt;/p&gt;
+&lt;p&gt;现在用 LCT 优化最大流就可以做到 $\Ot(n^2)$，但是我们难以求得 $c_e$，只能考虑近似。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;接下来会说明，存在算法，可以求出所有 $c_e&amp;lt;k$ 的边的一个超集 $S_k$，并且 $|S_k|&amp;lt;k(n-1)$。由于把 $c_e$ 估小是不会出错的，因此可以求出 $S_1,S_2,S_4,S_8,\cdots$，把 $S_{2^i}\setminus S_{2^{i-1}}$ 当中的边的 $c_e$ 估为 $2^{i-1}$。这样采样之后图的边数期望还是
+$$
+\frac{\ln n}{\epsilon^2}\sum_i\frac{|S_{2^i}|}{2^{i-1}}=\O\left(\frac{n\log^2n}{\epsilon^2}\right)
+$$
+另外有一个命题刚好和 $S_k$ 的大小上限 match：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\ge k(n-1)$ 条边的图一定有一个 $k$-边连通分量，于是 $c_e&amp;lt;k$ 的边数 $&amp;lt;k(n-1)$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;证：考虑最小的反例 $G$，也就是 $G$ 有 $\ge k(n-1)$ 条边，且没有 $k$-边连通分量。那么 $G$ 的最小割 $c&amp;lt;k$。取走这个割，剩下的两个连通块也不含 $k$-边连通分量。因此边数 $&amp;lt;k(n_1-1)+k(n_2-1)+k=k(n-1)$，矛盾。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;定义一个 sparse $k$-connectivity certificate 为 $G$ 的一个子图，满足：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;包含所有普通连通性 $\le k$ 的边。&lt;/li&gt;
+&lt;li&gt;边数 $\le k(n-1)$。&lt;/li&gt;
+&lt;li&gt;对于每个割 $C$，在 $H$ 当中的容量 $\ge\min\set{|C|,k}$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;构造：每次取 $G$ 的一个生成森林。这里的关键是取生成森林是把能使连通的边都尽量取了。&lt;/p&gt;
+&lt;p&gt;证明：对于一个容量为 $c$ 的割，如果某轮取得了其中 $t&amp;lt;c$ 条边，那么下一轮的生成树根据定义一定会再取至少一条。&lt;/p&gt;
+&lt;p&gt;重复该构造 $2\log_2n$ 次可以包含所有强连通性 $&amp;lt;k$ 的边。考虑将所有 $k$-边连通分量缩点，得到的图就没有 $k$-边连通分量，于是边数 $&amp;lt;k(n-1)$。因此有一半的点度 $\le 2k$。每 $2$ 次可以将一半的点变为孤点，因此 $2\log_2n$ 次就行。&lt;/p&gt;
+&lt;p&gt;取 $n$ 次生成森林，时间 $\O(nm)$，反而成为瓶颈。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;求-k-连通边-nagamochi-ibaraki-92&#34;&gt;求 $k$-连通边 [Nagamochi, Ibaraki &amp;lsquo;92]
+&lt;/h5&gt;&lt;p&gt;以下算法能在 $\O(m)$ 时间内给出整个划分 $F_1,\cdots,F_k$：&lt;/p&gt;
+&lt;p&gt;对于每个点维护一个 $r$，表示它在 $F_1\sim F_r$ 中已经连有父亲。每次取未考虑的，$r(u)$ 最大的点 $u$，对于其未考虑的邻边 $e=(u,v)$，将 $r(v)$ 加一并将 $e$ 加入 $F_{r(v)}$。&lt;/p&gt;
+&lt;p&gt;直觉上来说，它是在“并行地增广”多个生成森林。取 $r(u)$ 最大的点的直觉是，你需要保证 $u$ 能把它的邻点“纳入”自身已处于的生成森林里。如果不取最大，就会导致“本来应该早在 $r$ 层取的边，放到 $r^\prime&amp;gt;r$ 层才取”：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-galgo/7-1.png&#34;
+	width=&#34;3855&#34;
+	height=&#34;1460&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;264&#34;
+		data-flex-basis=&#34;633px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;严格的证明是通过归纳证明以下命题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若 $(u,v)\in F_k$，则 $u,v$ 在 $F_1\sim F_{k-1}$ 中都连通。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该命题与正确性命题等价：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$u,v$ 在 $F$ 的某个前缀中连通。（如果 $u,v$ 在 $F_k$ 中连通，那么 $F_k$ 中存在路径 $u-x_1-\cdots-x_t-v$，那么 $u,x_1$、$x_1,x_2$、……、$x_t,v$ 在 $F_1\sim F_{k-1}$ 中都连通，于是 $u,v$ 在 $F_1\sim F_{k-1}$ 中连通。）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将这两个命题同时归纳，然后反证。若 $(u,v)\in F_k$ 但 $u,v$ 在 $F_{k-1}$ 中不连通（$k\ge 2$），那么首先 $u$ 和 $v$ 在 $F_{k-1}$ 中各自从属于一个非单点连通块 $T_u$，$T_v$。对于 $T_u$ 和 $T_v$ 我们都可以如下刻画其生成过程：首先树中第一条边被加入时，两端的 $r$ 应该都是 $k-2$，此后该树扩张的过程中，选择的点 $r$ 一定 $\ge k-1$。这说明，不妨设 $T_u$ 的第一条边先被加入，那么在 $T_u$ 扩展到目前状态的过程中，$T_v$ 中的点是没有机会被选择的，因为第一条边加不进来。从而当 $(u,v)$ 加入 $F_k$ 时，$v$ 在 $F_v$ 中是个孤点，矛盾。&lt;/p&gt;
+&lt;h3 id=&#34;一些归约矩乘的问题&#34;&gt;一些归约矩乘的问题
+&lt;/h3&gt;&lt;p&gt;现代的矩乘方法都很复杂，时间复杂度自动忽略 $\log$ 因子，下面不写 $\Ot$。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://sci-hub.vkif.top/10.1016/0020-0190%2891%2990071-o&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Matoušek &amp;lsquo;91&lt;/a&gt;] Dominance product $\O(n^{(3+\omega)/2})$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://theoryofcomputing.org/articles/v005a009/v005a009.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Vassilevska, Williams, Yuster &amp;lsquo;07&lt;/a&gt;] $(\max,\min)$ 矩乘 &amp;amp; APBP $\O(n^{2+\omega/3})$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://www.math.tau.ac.il/~asafico/bottle.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Shapira, Yuster, Zwick &amp;lsquo;07&lt;/a&gt;] APBP（点权）$\O(n^{2+\mu})$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/pdf/10.5555/1496770.1496813&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Duan, Pettie &amp;lsquo;09&lt;/a&gt;] $(\max,\min)$ 矩乘 &amp;amp; APBP $\O(n^{(3+\omega)/2})$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://www.cs.cmu.edu/~virgi/nondecpaths.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Vassilevska &amp;lsquo;08&lt;/a&gt;] APNP $\O(n^{(15+\omega)/6})$&lt;/li&gt;
+&lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.48/LIPIcs.ICALP.2019.48.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Duan, Jin, Wu &amp;lsquo;18&lt;/a&gt;] APNP $\O(n^{(3+\omega)/2})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;min-矩乘&#34;&gt;$(\min,+)$ 矩乘
+&lt;/h4&gt;&lt;p&gt;用 $x^{a_{i,j}}$ 代替 $a_{i,j}$，这样单次运算变成多项式乘法。对于值域在 $[0,M]\cup\set{+\infty}$ 的 $(\min,+)$ 矩乘，可以在 $\O(Mn^\omega)$ 完成。&lt;/p&gt;
+&lt;h4 id=&#34;无权有向图-apsp&#34;&gt;无权有向图 APSP
+&lt;/h4&gt;&lt;p&gt;直接暴力做就是 $\log n$ 次 $(\min,+)$ 矩乘，但是值域每次倍增。这里的想法是，如果 $d(u,v)$ 比较大，那随便抽几个点（松弛）就能抽到 $\pi(u,v)$ 上的点。令 $r=3/2$，$D_i$ 表示所有距离 $\le r^i$ 的点对都正确求出的距离矩阵。对于一对距离为 $r^{i+1}$ 的点对 $(u,v)$，有 $r^{i+1}/3$ 个中间点 $w$ 离 $u$ 和 $v$ 的距离都 $\le r^i$。随机取大小为 $s$ 的子集 $B\subseteq[n]$，w.h.p. $D_{i+1}=(D_i)_{[n],B}(D_i)_{B,[n]}$。我们要求：
+$$
+\left(1-\frac{s}{n}\right)^{r^{i+1}/3}=\operatorname{poly}(n)^{-1}
+$$
+取 $s=Cn\ln n/r^i$ 即可。因此总复杂度为
+$$
+\sum_i\min\Set{r^in^{\omega(1,1-i/l,1)},n^{3-i/l}}=\sum_i\min\Set{n^{i/l+\omega(1,1-i/l,1)},n^{3-i/l}}
+$$&lt;/p&gt;
+&lt;p&gt;其中 $l=\log_rn$。第一项（指数）递增，第二项递减。忽略整数要求，平衡到 $n^{2.53}$ 这样。这个指数叫 $2+\mu$。&lt;/p&gt;
+&lt;h4 id=&#34;maximum-witness&#34;&gt;Maximum Witness
+&lt;/h4&gt;&lt;p&gt;对于 01 矩乘，定义 maximum witness
+$$
+(A*B)_{i,j}=\max\set{k\mid A_{i,k}=B_{k,j}=1}
+$$
+想法是，先定位出 $\max k$ 处于哪一段，再暴力。一个思路是令
+$$
+A^\prime_{i,k}=\begin{cases}\left\lfloor\frac{k}{n^{1-r}}\right\rfloor,&amp;amp;A_{i,k}=1\\ -\infty,&amp;amp;A_{i,k}=0\end{cases},\quad B^\prime_{k,j}=\begin{cases}\left\lfloor\frac{k}{n^{1-r}}\right\rfloor,&amp;amp;B_{k,j}=1\\ -\infty,&amp;amp;B_{k,j}=0\end{cases}
+$$
+然后以 $\O(n^{\omega+r})$ 的时间做值域为 $n^r$ 的 $(\max,+)$ 矩乘，再 $\O(n^{3-r})$ 暴力。$\O(n^{(3+\omega)/2})$。&lt;/p&gt;
+&lt;p&gt;实际上这样反而是麻烦了。直接将 $A$ 的列分为 $n^r$ 块，$B$ 的行分为 $n^r$ 块，对应块以 $\O(n^{\omega(1,1-r,1)})$ 做 $(\lor,\land)$ 矩乘，这样就是 $\O(n^{2+\mu})$。&lt;/p&gt;
+&lt;h4 id=&#34;近似-min-矩乘与近似-apsp&#34;&gt;近似 $(\min,+)$ 矩乘与近似 APSP
+&lt;/h4&gt;&lt;p&gt;近似的意思是求得的值在实际值的 $[1,1+\epsilon]$ 倍内，所以首要的是不能估小。&lt;/p&gt;
+&lt;p&gt;若值域范围大，可以通过 $\lceil Ra_{i,j}/M\rceil$ 缩小值域，最后再乘 $M/R$。但是这样近似比不均匀，例如 $M=25$，$R=5$：&lt;/p&gt;
+&lt;center&gt;&lt;img src=&#34;8-1.png&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/center&gt;
+&lt;p&gt;但是没法完美地做到每个值都是 $1+\epsilon$ 的近似比，因为没了步长均匀性，就没法转化为值域更小的矩乘。直觉是，对于每段 $[2^i,2^{i+1})$ 内的值做不同的缩放：$\lceil Ra_{i,j}/2^{i+1}\rceil$，这样和理想情况只差一个常数。近似比为
+$$
+\max_{a=2^i}^{2^{i+1}}\frac{\frac{2^{i+1}}{R}\left\lceil\frac{R}{2^{i+1}}a\right\rceil}{a}&amp;lt;\max_{a=2^i}^{2^{i+1}}\frac{a+\frac{2^{i+1}}{R}}{a}=1+\frac2R
+$$
+实际做的时候，对于 $a_{i,k}+b_{k,j}$，我们只能期望在 $\max\set{a_{i,k},b_{k,j}}$ 所在的那层求得。缩放值时，也是将 $&amp;gt;2^{i+1}$ 的值直接设为 $+\infty$。因此最终的近似比应当形如
+$$
+\max_{a=2^i}^{2^{i+1}}\max_{b=0}^{2^{i+1}}\frac{\frac{2^{i+1}}{R}\left\lceil\frac{R}{2^{i+1}}a\right\rceil+\frac{2^{i+1}}{R}\left\lceil\frac{R}{2^{i+1}}b\right\rceil}{a+b}&amp;lt;\max_{a=2^i}^{2^{i+1}}\max_{b=0}^{2^{i+1}}\frac{a+\frac{2^{i+1}}{R}+b+\frac{2^{i+1}}{R}}{a+b}&amp;lt;\max_{a=2^i}^{2^{i+1}}\frac{a+2\cdot\frac{2^{i+1}}{R}}{a}=1+\frac4R
+$$
+总的时间就是 $\O(n^\omega\epsilon^{-1}\log M)$。APSP 就是 $\epsilon$ 要多除以个 $\log_2n$。&lt;/p&gt;
+&lt;h4 id=&#34;dominance-product&#34;&gt;Dominance Product
+&lt;/h4&gt;&lt;p&gt;定义 dominance product
+$$
+(A\diamond B)_{i,j}=\left\lvert\Set{k\mid A_{i,k}\le B_{k,j}}\right\rvert
+$$
+注意到所有比较只发生在各个 $k$，$A$ 的第 $k$ 列和 $B$ 的第 $k$ 行之间。将 $\set{A_{\cdot,k}}\cup\set{B_{k,\cdot}}$ 排序为 $L_k$ 后，剩下的就是一个一维偏序型的贡献。要把它归约到矩乘，就需要双方独立，不能有这样一个偏序关系，这个要求在一些 ds 问题中我们见过，是用 cdq 分治优化的。那么这里只能分块了。&lt;/p&gt;
+&lt;p&gt;将 $L_k$ 分为 $n^r$ 段 $[L_{k,1},\cdots,L_{k,n^r}]$。对于块内，暴力贡献，时间为 $(n/n^r)^2n^r\cdot n=n^{3-r}$。对于块间，可以这样写贡献：令 $(A_b)_{i,k}=[A_{i,k}\in L_{k,b}]$，$(B_b)_{k,j}=[B_{k,j}\in L_{k,b}]$。那么总的答案应为
+$$
+\sum_bA_b\sum_{b^\prime&amp;gt;b}B_b
+$$
+需要 $n^r$ 次矩乘，时间 $n^{r+\omega}$。平衡取 $r=(3-\omega)/2$ 即得 $\O(n^{(3+\omega)/2})$。&lt;/p&gt;
+&lt;h4 id=&#34;maxmin-矩乘与-apbp&#34;&gt;$(\max,\min)$ 矩乘与 APBP
+&lt;/h4&gt;&lt;p&gt;$$
+(A\circ B)_{i,j}=\max_k\min\set{A_{i,k},B_{k,j}}
+$$&lt;/p&gt;
+&lt;p&gt;这个东西和 dominance product 有些关系。注意到
+$$
+(A\circ B)_{i,j}=\max\Set{\max_{k\mid A_{i,k}\le B_{k,j}}A_{i,k},\max_{k\mid A_{i,k}&amp;gt;B_{k,j}}B_{k,j}}
+$$
+因此只需考虑求
+$$
+D_{i,j}=\max_{k\mid A_{i,k}\le B_{k,j}}A_{i,k}
+$$
+一个大致的思路就是，通过 dominance product 判断（某一段值域内）有没有 $A_{i,k}\le B_{k,j}$（相当于剪枝），有的话就逐一检查。&lt;/p&gt;
+&lt;p&gt;将 $A$ 的第 $i$ 行按值域分为 $r$ 段 $[L_{i,1},\cdots,L_{i,n^r}]$，类似地令 $(A_b)_{i,k}=[A_{i,k}\in L_{i,b}]A_{i,k}$，然后求 $A_b\diamond B$。求 $D_{i,j}$ 时，先找到 $A$ 的第 $i$ 行的最大段，和 $B$ 的第 $j$ 列在 dominance product 中结果非零，然后暴力枚举块内的每个元素去判断。暴力的部分时间为 $n^{3-r}$。&lt;/p&gt;
+&lt;p&gt;有一个结果是，稀疏的 dominance product（$A$ 有 $m_1$ 个非 $+\infty$，$B$ 有 $m_2$ 个非 $-\infty$）可以做到 $\O(\sqrt{m_1m_2}n^{(\omega-1)/2})$。因此这里的时间为 $n^r\sqrt{n^{2-r}n^2}n^{(\omega-1)/2}=n^{(3+\omega+r)/2}$。平衡即得 $n^{2+\omega/3}$，即 $\omega$ 和 $3$ 的右三等分点。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;很自然的想法是把 $B$ 也分段了。和 dominance product 不同的是，后者比较的是 $A$ 的第 $k$ 列和 $B$ 的第 $k$ 行的每一对元素，而现在需要比较的是 $A$ 的第 $i$ 行和 $B$ 的第 $j$ 列的对应位元素，所以不能形如“将 $\set{A_{i,\cdot}}\cup\set{B_{\cdot,j}}$ 排序”。考虑将所有元素，即 $\set{A_{i,j}}\cup\set{B_{i,j}}$ 排序后分成 $2n^r$ 段，这时问题就分为两部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$A_b\diamond B_b$，这时 $m_1=m_2=n^{2-r}$，因此总的只有 $\O(n^{(3+\omega)/2})$。&lt;/li&gt;
+&lt;li&gt;$A_{\in b}\sum_{b^\prime&amp;gt;b}B_{\in b^\prime}$，这个部分和 dominance product 一样，就是正常矩乘，$\O(n^{r+\omega})$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;同样我们对 $A$ 的第 $i$ 行找到最大的 $b$ 使得存在第 $b$ 段中的 $A_{i,k}\le B_{k,j}$，暴力枚举其中的元素检查，$\O(n^{3-r})$。总的就是 $\O(n^{(3+\omega)/2})$。&lt;/p&gt;
+&lt;p&gt;但是由于是全局排序，可能单行内各段元素数量就不均匀。这个容易处理。对于第 $b$ 段，将 $A$ 的第 $i$ 行所有在第 $b$ 段内的元素再排序，如果有 $c$ 个，就再拆成长为 $n^{1-r},\cdots,n^{1-r},c\bmod n^{1-r}$ 的段。令 $A^{\prime\prime}_b$ 为只包含最后那段的矩阵，$A^{\prime}_b$ 则是将各个行的每个长为 $n^{1-r}$ 的段分到不同的行（各元素的列位置不变）的矩阵（由于总共就 $n^{2-r}$ 个第 $b$ 段的数，所以原大小的矩阵能容下）。然后分别做上面的两种，复杂度不变。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>计算机图形学 project：物理渲染</title>
+        <link>https://littlereuben.github.io/study/course-acg/</link>
+        <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://littlereuben.github.io/study/course-acg/</guid>
+        <description>&lt;img src="https://littlereuben.github.io/study/course-acg/cover.png" alt="Featured image of post 计算机图形学 project：物理渲染" /&gt;&lt;div style=&#34;background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;&#34;&gt;这是一篇&lt;b&gt;学习笔记&lt;/b&gt;。&lt;/div&gt;
+&lt;p&gt;封面图：最终加了 emission 材质的洞穴场景（$\sim 20000\text{ SSP}$）。&lt;/p&gt;
+&lt;p&gt;期末 project 提供了 GPU 渲染（hlsl）的仓库，其中实现了基本的 UI 和数据绑定，主要代码是填 &lt;code&gt;shader.hlsl&lt;/code&gt;。原仓库：&lt;a class=&#34;link&#34; href=&#34;https://github.com/lihe50hz/ShortMarch&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/lihe50hz/ShortMarch&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;接下来的内容是 project report 的草稿。或许在困惑于实现细节时能提供一些参考。&lt;/p&gt;
+&lt;p&gt;Thanks to my teammate zzt. I wouldn&amp;rsquo;t have gone through such a long &lt;ruby&gt;way&lt;rt&gt;march&lt;/rt&gt;&lt;/ruby&gt; and completed this huge project without you.&lt;/p&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction
+&lt;/h3&gt;&lt;p&gt;我们在 ShortMarch 的基础上，写了一个基于 Ray Tracing 的物理渲染器。这个渲染器支持面的各种材料参数和贴图，支持两类光源，并且通过设计重要性采样公式降低了蒙特卡洛采样的方差，还加了一些其他小的功能。&lt;/p&gt;
+&lt;p&gt;我们发现这个渲染器尤其适合渲染 MC 中的场景。它支持了 MC 中大部分的图形功能，能够产出很有氛围的漂亮图片。&lt;/p&gt;
+&lt;h3 id=&#34;personal-contribution&#34;&gt;Personal Contribution
+&lt;/h3&gt;&lt;p&gt;我实现的部分主要为渲染器（hlsl）主体。包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Base, Ray tracing 核心逻辑&lt;/li&gt;
+&lt;li&gt;Material
+&lt;ul&gt;
+&lt;li&gt;透射材质&lt;/li&gt;
+&lt;li&gt;principled BSDF（including metallic, roughness, transmission, IOR, subsurface, clear coat, sheen and emission）&lt;/li&gt;
+&lt;li&gt;multi-layer material（对于 clear coat 单独的可调的 roughness）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Texture（与我的队友合作完成）
+&lt;ul&gt;
+&lt;li&gt;纯色材质&lt;/li&gt;
+&lt;li&gt;纹理（颜色）贴图（含 alpha），法线贴图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;重要性采样，除了 RR 以外：
+&lt;ul&gt;
+&lt;li&gt;包括关于 material 和 光源的 MIS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;点光源与面光源&lt;/li&gt;
+&lt;li&gt;anti-aliasing&lt;/li&gt;
+&lt;li&gt;tone mapping&lt;/li&gt;
+&lt;li&gt;scene creation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意在面光源存在的情况下，alpha shadow 是自动满足要求的。&lt;/p&gt;
+&lt;p&gt;我所编写/修改的代码有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;shader.hlsl&lt;/code&gt; 中的大部分内容&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;app.cpp&lt;/code&gt;、&lt;code&gt;material.h&lt;/code&gt; 等文件中向 &lt;code&gt;shader.hlsl&lt;/code&gt; 传必要数据的操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我的队友主要负责：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Special Visual Effects 中的景深、动态模糊&lt;/li&gt;
+&lt;li&gt;HDR 天空&lt;/li&gt;
+&lt;li&gt;Volumetric Rendering 中的一部分功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;method&#34;&gt;Method
+&lt;/h3&gt;&lt;h4 id=&#34;核心逻辑&#34;&gt;核心逻辑
+&lt;/h4&gt;&lt;p&gt;在给出的 hlsl 模板代码的基础上，我填充了 &lt;code&gt;ClosestHitMain&lt;/code&gt; 里的逻辑。由于递归层数限制为 31，所以我选择只在 &lt;code&gt;ClosestHitMain&lt;/code&gt; 里处理单次光线弹射的逻辑，而单独写一个函数 &lt;code&gt;Calculate&lt;/code&gt; 用 &lt;code&gt;while&lt;/code&gt; 循环处理多轮弹射。在多轮弹射的过程中，我记录累计的颜色，以及当前的 throughput 系数 &lt;code&gt;coef&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;ClosestHitMain&lt;/code&gt; 中，我大致做了以下几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;得到当前三角形相关的信息，例如法线以及根据顶点法线插值&lt;/li&gt;
+&lt;li&gt;处理体渲染（不是我的工作）&lt;/li&gt;
+&lt;li&gt;做俄罗斯轮盘&lt;/li&gt;
+&lt;li&gt;获取材质&lt;/li&gt;
+&lt;li&gt;做 MIS，决定这一条光线走哪个分量&lt;/li&gt;
+&lt;li&gt;光源采样&lt;/li&gt;
+&lt;li&gt;决定弹射方向&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;材质&#34;&gt;材质
+&lt;/h4&gt;&lt;p&gt;我实现的材质的属性包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;roughness&lt;/li&gt;
+&lt;li&gt;metallic&lt;/li&gt;
+&lt;li&gt;emission&lt;/li&gt;
+&lt;li&gt;transmission with IoR，这个 transmission 表示透光率，是三个实数，它和漫反射互相影响能量分配，不干扰 specular。可以理解为是水、玻璃这种。&lt;/li&gt;
+&lt;li&gt;alpha，这个 alpha 是单个实数，表示物体的“幽灵程度”。alpha=0 表示完全不可见，alpha=1 表示完全可见。常用于处理一个面上部分透明的情况，例如 MC 中的树叶。&lt;/li&gt;
+&lt;li&gt;clear coat，包括强度和粗糙度&lt;/li&gt;
+&lt;li&gt;sheen&lt;/li&gt;
+&lt;li&gt;subsurface&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了下面涉及的 BSDF 的数值稳定性，我限制最小的 roughness 为 0.01。&lt;/p&gt;
+&lt;p&gt;材质的着色计算思路遵循以下层次结构：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 1&lt;/strong&gt;. 只有镜面反射与漫反射。根据基本的 rendering equation:
+$$
+L_o(p,w_o)=c_{\rm emission}+\int_\Omega L_i(p,w_i)f(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i
+$$
+使用 Cook–Torrance，记 $h$ 为 half vector：
+$$
+f(p,\omega_i,\omega_o)=f_{\rm specular}(p,\omega_i,\omega_o)+f_{\rm diffuse}(p,\omega_i,\omega_o)
+$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;specular 分量&lt;/strong&gt;：
+$$
+f_{\rm specular}(p,\omega_i,\omega_o)=\frac{F(\omega_o,h)D(h)G(\omega_o,\omega_i)}{4(n\cdot\omega_i)(n\cdot\omega_o)+\epsilon}
+$$&lt;/p&gt;
+&lt;p&gt;使用 Fresnel-Schlick 近似：
+$$
+F(\omega_o,h)=F_0+(1-F_0)(1-\omega_o\cdot h)^5
+$$&lt;/p&gt;
+&lt;p&gt;基础反射率（$F$ 是一个 &lt;code&gt;float3&lt;/code&gt;，但是公式上我们可以只考虑 RGB 中的一个分量，因此变量类型上的问题我就不多加说明了）：
+$$
+F_0=(1-\text{metallic})\left(\frac{\eta-1}{\eta+1}\right)^2+\text{metallic}\cdot c_{\rm base}
+$$&lt;/p&gt;
+&lt;p&gt;微表面法线分布使用 GGX（GTR2）：
+$$
+D(h)=\frac{\alpha^2}{\pi((n\cdot h)^2(\alpha^2-1)+1)^2}\quad\text{where }\alpha=\text{roughness}^2
+$$&lt;/p&gt;
+&lt;p&gt;shadowing-masking function：
+$$
+G(\omega_o,\omega_i)=G_1(\omega_o)G_1(\omega_i)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+G_1(\omega)=\frac{n\cdot\omega}{(1-k)(n\cdot\omega)+k}\quad\text{where }k=\frac{(\alpha+1)^2}8
+$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;diffuse 分量&lt;/strong&gt;，主要考虑的是与 specular 的能量分配分配：
+$$
+f_{\rm diffuse}(p,\omega_i,\omega_o)=\frac1\pi(1-\text{metallic})(1-F(\omega_o,h))c_{\rm base}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 2&lt;/strong&gt;. 优化 diffuse 分量，考虑 sheen 和 subsurface。
+$$
+f_{\rm diffuse}(p,\omega_i,\omega_o)=\text{deduction terms}\cdot(f_{\text{diffuse with subsurface}}(p,\omega_i,\omega_o)+f_{\rm sheen}(p,\omega_i,\omega_o))
+$$
+subsurface 部分有两个分量：
+$$
+f_{\text{diffuse with subsurface}}(p,\omega_i,\omega_o)=(1-I_\text{subsurface})f_{\rm base}(p,\omega_i,\omega_o)+I_\text{subsurface}\cdot f_{\text{subsurface}}(p,\omega_i,\omega_o)
+$$
+我同时也稍微改了以下 base 分量的计算，用 Disney diffuse：
+$$
+f_{\rm base}(p,\omega_i,\omega_o)=\frac1\pi(1+(F_{\rm D90}-1)(1-n\cdot\omega_i)^5)(1+(F_{\rm D90}-1)(1-n\cdot\omega_o)^5)c_{\rm base}\quad\text{where }F_{\rm D90}=0.5+2\cdot\text{roughness}^2\cdot(\omega_i\cdot h)^2
+$$
+subsurface 用 Hanrahan-Krueger:
+$$
+f_{\text{subsurface}}(p,\omega_i,\omega_o)=1.25\left(F_{\rm SS90}\cdot\left(\frac{1}{(n\cdot\omega_i)(n\cdot \omega_o)}-0.5\right)+0.5\right)\quad\text{where }F_{\rm SS90}=\text{roughness}^2\cdot(\omega_i\cdot h)^2
+$$
+sheen：
+$$
+f_{\rm sheen}(p,\omega_i,\omega_o)=(\text{tint}\cdot c_{\rm base}+(1-\text{tint}))\cdot\text{sheen}\cdot(1-(\omega_i\cdot h)^5)
+$$
+&lt;strong&gt;Step 3&lt;/strong&gt;. 考虑透射。镜面反射的分量不变，剩余的部分分配给透射和漫反射。因此 $f_{\rm diffuse}$ 需要乘上一个 $(1-c_{\rm transmission})$。&lt;/p&gt;
+&lt;p&gt;折射的分量是确定方向的。对于处于面的异侧的 $\omega_i$ 和 $\omega_o$：
+$$
+f_{\rm transmissive}(p,\omega_i,\omega_o)=c_{\rm transmission}(1-\text{metallic})(1-F(n,\omega_i))\frac{1}{\eta^2}\frac{\delta(\omega_o-\omega_r)}{n\cdot\omega_i}
+$$
+$\omega_r$ 根据 Snell&amp;rsquo;s law 计算。&lt;/p&gt;
+&lt;p&gt;其中 $\eta$ 是当前面的折射率，例如如果当前面的正面是空气，背面是玻璃，从玻璃外向里看，那么 $\omega_i$ 在玻璃内，$\omega_o$ 在玻璃外。这时能量应当衰减约 $2.25$ 倍。相对地，如果从玻璃里面往外面看，会因为全反射现象只能看到一个圆锥内的事物，并且会变亮。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 4&lt;/strong&gt;. 清漆。清漆是在所有上述项之上的一层只有 specular 且按照几何法线做 specular 的层。它有强度 $I_{\rm coat}$ 和粗糙度 $\text{roughness}_{\rm coat}$。在加入它之后，
+$$
+f(p,\omega_i,\omega_o)=f_{\rm coat}(p,\omega_i,\omega_o)+(1-F_{\rm coat}(n,\omega_i))(1-F_{\rm coat}(n,\omega_o))(f_{\rm specular}(p,\omega_i,\omega_o)+f_{\rm diffuse}(p,\omega_i,\omega_o)+f_{\rm transmissive}(p,\omega_i,\omega_o))
+$$
+这个系数是因为光线既要穿入一层清漆，又要穿出一层清漆。&lt;/p&gt;
+&lt;p&gt;其中
+$$
+f_{\rm specular}(p,\omega_i,\omega_o)=I_{\rm coat}\frac{F_{\rm coat}(\omega_o,h)D_{\rm coat}(h)G_{\rm coat}(\omega_o,\omega_i)}{4(n\cdot\omega_i)(n\cdot\omega_o)+\epsilon}
+$$
+清漆使用不太一样的 $F$, $D$, $G$. 其中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$F$ 中固定 $F_0=0.04$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$G$ 中固定 $\alpha=0.25$，并使用 Smith-GGX：
+$$
+G_1(v) = \frac{2 (n \cdot \omega)}{(n \cdot \omega) + \sqrt{\alpha^2 + (1-\alpha^2)(n \cdot \omega)^2}}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$D$ 使用 GTR1 分布：
+$$
+D(h)=\frac{(\alpha^2-1)(n\cdot h)}{\pi\ln(\alpha^2)((n\cdot h)^2(\alpha^2-1)+1)}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Step 5&lt;/strong&gt;. alpha。直接以 $1-\text{alpha}$ 的概率穿过当前这个面，方向不变。&lt;/p&gt;
+&lt;h4 id=&#34;材质相关的采样&#34;&gt;材质相关的采样
+&lt;/h4&gt;&lt;p&gt;首先以以下判断分支选择分量：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;以 $p_{\rm coat}=I_{\rm coat}\operatorname{luminance}(F_{\rm coat}(n,\omega_o))$ 的概率选择 clear coat&lt;/li&gt;
+&lt;li&gt;以 $p_{\rm specular}=\operatorname{luminance}(F(n,\omega_o))+0.1\cdot (1-\text{roughness})$ 的概率选择 specular&lt;/li&gt;
+&lt;li&gt;以 $p_{\rm transmissive}=\operatorname{luminance}(c_{\rm transmission})$ 的概率选择 transmissive&lt;/li&gt;
+&lt;li&gt;否则选择 diffuse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中 $\operatorname{luminance}((r,g,b))=0.2126r+0.7152g+0.0722b$.&lt;/p&gt;
+&lt;p&gt;为了避免漏下分量或在重要性采样计算结果时除以过小的数导致数值稳定性问题，这些 $p$ 都 clamp 到 $[0.05,0.95]$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;diffuse&lt;/strong&gt; 采样：下文中 $\xi_1,\xi_2\sim U(0,1)$。
+$$
+\begin{aligned}
+\varphi &amp;amp;= 2\pi \xi_1,\\
+r &amp;amp;= \sqrt{\xi_2},\\
+x &amp;amp;= r\cos\varphi,\quad y=r\sin\varphi,\quad z=\sqrt{1-r^2},\\
+\omega_i &amp;amp;= (x,y,z),\\
+p_{\rm diffuse}(\omega_i) &amp;amp;= \frac{z}{\pi}.
+\end{aligned}
+$$
+&lt;strong&gt;specular&lt;/strong&gt; 采样：
+$$
+\begin{aligned}
+\varphi &amp;amp;= 2\pi \xi_1,\\
+\cos\theta &amp;amp;= \sqrt{\frac{\xi_2}{\alpha^2 - \xi_2(\alpha^2 - 1)} },\\
+h &amp;amp;= (\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta),\\
+\omega_i &amp;amp;= 2(\omega_o\cdot h)h-\omega_o\\
+p_{\rm specular}(\omega_i) &amp;amp;= \frac{D(h)(n\cdot h)}{4(\omega_o \cdot h)},
+\end{aligned}
+$$
+&lt;strong&gt;clear coat&lt;/strong&gt; 采样：
+$$
+\begin{aligned}
+\varphi &amp;amp;= 2\pi \xi_1,\\
+\cos\theta &amp;amp;= \sqrt{\frac{1-\alpha^{2\xi_2}}{1-\alpha^2}},\\
+h &amp;amp;= (\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta),\\
+\omega_i &amp;amp;= 2(\omega_o\cdot h)h-\omega_o\\
+p_{\rm coat}(\omega_i) &amp;amp;= \frac{D_{\rm coat}(h)(n\cdot h)}{4(\omega_o \cdot h)},
+\end{aligned}
+$$
+特别地，specular 和 clear coat 的采样需要额外的 reject sampling 保证 $\omega_o$ 不跑到面的另一侧去。&lt;/p&gt;
+&lt;p&gt;对于每个分量，我在计算贡献时，考虑的系数是它对应 BSDF 中的那个分量，并除以随机到这个分量和这个 $\omega_i$ 的概率密度。容易证明，这样蒙特卡洛是无偏的。&lt;/p&gt;
+&lt;h4 id=&#34;光源采样&#34;&gt;光源采样
+&lt;/h4&gt;&lt;p&gt;我只对于以下分量做光源采样：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;diffuse&lt;/li&gt;
+&lt;li&gt;roughness &amp;gt; 0.1 的 specular&lt;/li&gt;
+&lt;li&gt;coat roughness &amp;gt; 0.1 的 clear coat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是因为，roughness 过小的镜面反射，以及折射，它们的 BSDF 都可以认为成是一个 Dirac $\delta$ 函数，这种情况光源采样反而会使噪点严重，或者出现严重的辉光/fireflies。&lt;/p&gt;
+&lt;p&gt;光源采样的过程如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;枚举每个点光源 $q$，令 $r=|q-p|$, $\omega_i=(q-p)/r$
+$$
+\Delta L_o=\text{attenuation}\cdot f(p,\omega_i,\omega_o)(n\cdot\omega_i)\frac{c_{\rm light}}{r^2}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;枚举每个面光源，随机上面一点 $q=(1-\sqrt{\xi_1})p_0+\sqrt{\xi_1}\sqrt{\xi_2}p_1+\sqrt{\xi_1}(1-\sqrt{\xi_2})p_2$，令 $A$ 为面积，$n^\prime$ 为面光源的法线
+$$
+\Delta L_o=\text{attenuation}\cdot f(p,\omega_i,\omega_o)(n\cdot\omega_i)(n^\prime\cdot\omega_i)\frac{c_{\rm emission}}{r^2}A
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将这些贡献加到累计颜色中，并根据情况 disable/enable 下一跳的 emission 是否要计入。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;若干解释：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;光源采样独立于材质采样的分量。无论材质采样的分量随机到的是哪一个，光源采样总是把这些全部算进去。&lt;/li&gt;
+&lt;li&gt;这里的 $f$ 只算我上面说的这些分量&lt;/li&gt;
+&lt;li&gt;$\rm attenuation$ 这样计算：我使用一个利用 &lt;code&gt;anyhit&lt;/code&gt; 的 &lt;code&gt;TraceRay&lt;/code&gt; 过程，将 &lt;code&gt;RayDesc&lt;/code&gt; 中的 &lt;code&gt;TMax&lt;/code&gt; 设置为 $r-\epsilon$。在 &lt;code&gt;anyhit&lt;/code&gt; 中，得到当前击中点的材质，并算出它的 alpha 和 transmission 分量的总系数，乘给 attenuation。注意，这里我相当于假设了所有的透射材质的 ior 都等于 1，这也算是个 compromise，因为考虑折射了就没法光源采样了。&lt;/li&gt;
+&lt;li&gt;设置下一跳是否要计入 emission，我在 &lt;code&gt;RayPayload&lt;/code&gt; 中用 &lt;code&gt;bool count_emission&lt;/code&gt; 记录：
+&lt;ul&gt;
+&lt;li&gt;如果是透射，则不变&lt;/li&gt;
+&lt;li&gt;如果这一次材质采样选择的分量是 diffuse / roughness &amp;gt; 0.1 的 specular / roughness &amp;gt; 0.1 的 clear coat 这三种计算光源采样的分量，下一跳不计入&lt;/li&gt;
+&lt;li&gt;否则计入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;anti-aliasing&#34;&gt;Anti-aliasing
+&lt;/h4&gt;&lt;p&gt;这个很简单，就用抖动采样（对于一个像素，每次随机一个 $[0,1]\times[0,1]$ 内的点，把光线往对应方向打），数学上就是对的&lt;/p&gt;
+&lt;h4 id=&#34;tone-mapping&#34;&gt;Tone mapping
+&lt;/h4&gt;&lt;p&gt;对于 RGB 的每个分量，都使用映射
+$$
+x\mapsto\frac{Cx}{1+Cx}
+$$
+来将 $[0,+\infty)$ 中的数值映射到 $[0,1]$。实践上 $C=3$ 是个不错的选择。&lt;/p&gt;
+&lt;h4 id=&#34;材质处理&#34;&gt;材质处理
+&lt;/h4&gt;&lt;p&gt;传入材质分为以下几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 &lt;code&gt;tiny_obj_loader&lt;/code&gt; 载入 &lt;code&gt;obj&lt;/code&gt; 和 &lt;code&gt;mtl&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;external&lt;/code&gt; 中的 &lt;code&gt;math_mesh&lt;/code&gt; 增加对应的，需要传给 &lt;code&gt;Entity.cpp&lt;/code&gt; 的东西&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;app.cpp&lt;/code&gt; 中通过 resource binding 传给 &lt;code&gt;shader.hlsl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;shader.hlsl&lt;/code&gt; 中用 &lt;code&gt;SampleLevel&lt;/code&gt; 与插值得到的 uv 坐标得到材质&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;scene-creation&#34;&gt;Scene creation
+&lt;/h4&gt;&lt;p&gt;我们在 final report 上 feature 了几张 MC 场景的渲染。这些是我选择 MC 自然生成的地形，或者手动在 MC 里搭建了一些场景后，用 mineways 工具导出为 &lt;code&gt;obj&lt;/code&gt;，然后再手动修改其中部分材质 &lt;code&gt;mtl&lt;/code&gt; 配置所完成的。&lt;/p&gt;
+&lt;h3 id=&#34;discussion&#34;&gt;Discussion
+&lt;/h3&gt;&lt;p&gt;关于我实现的部分，主要有两方面内容还值得进一步讨论：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;透射材质的能量分配问题。理论上，镜面反射、漫反射、透射的能量分配应当根据一个统一的 fresnel 项，但是这里我透射用的 fresnel 项是由 $n\cdot \omega_i$ 计算的，和前两者的 $h\cdot \omega_o$ 不一致。这应该主要是由于 Schlick 近似导致的。一个更加严格的实现是 &lt;a class=&#34;link&#34; href=&#34;https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf&lt;/a&gt;，不过比较可惜我来不及实现了。&lt;/li&gt;
+&lt;li&gt;光源采样的问题。我的实现中，穿过透射材质是不改变 &lt;code&gt;count_emission&lt;/code&gt;。根据 AI 的建议，说会出现“墙上的黑色玻璃球问题”，但是我认为如果穿过透射也算就会 double count，所以我最终还是不算。光源采样时不考虑折射，是不得已而为之的近似。存在 MNEE 和 BDPT，以及 photon mapping 等进阶做法。&lt;/li&gt;
+&lt;li&gt;在同时有顶点法线插值和法线贴图时，计算最终法线似乎有点小问题，直接对几何法线算出的 $T$ 和 $B$ 关于插值后 $N$ 做正交化似乎会导致很轻微的 artifact，我也没管了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gallery&#34;&gt;Gallery
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/1.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;roughness 和 metallic 的组合：从左往右 metallic 递增，从前往后 roughness 递增，天花板为面光源，中间有个点光源&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/2.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alpha 和 transmission 的对比：左边是 alpha=0, transmission=(0,0,0), 中间是 alpha=0.5, transmission=(0,0,0)，右边是 alpha=0, transmission=(0.5,0.5,0.5)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/3.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;specular 和 clear coat 的对比：左边是粗糙无清漆, 中间是光滑（with roughness=0.05）无清漆，右边是粗糙有清漆（with 强度=0.5, roughness=0.05）&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/4.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sheen：左边是无 sheen，中间是有 sheen，tint=0，右边是有 sheen，tint=1。为了凸显效果我把 sheen 的强度调为 10 了。可以关注 matball 的底座部分&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/5.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;subsurface：左中右分别是 subsurface = 0/0.5/1.0&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/6.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;具有折射的玻璃&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/7.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;从玻璃内向外看&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/8.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Cornell Box in MC&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/9.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;材质贴图与法线贴图：一个鞋子&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/10.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1060&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;MC 场景：村庄&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;434px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/11.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1060&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;MC 场景：洞穴&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;434px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/12.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;透过彩色玻璃板看点光源&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/13.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;动态模糊（队友工作）&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/14.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;发光体渲染（队友工作）&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/15.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;体渲染（队友工作）&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/16.png&#34;
+	width=&#34;1280&#34;
+	height=&#34;720&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;MC 中透过活板门的丁达尔效应（队友工作）&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://littlereuben.github.io/study/course-acg/17.png&#34;
+	width=&#34;1536&#34;
+	height=&#34;1024&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;封面图丢给 GPT 去除 fireflies 后的结果，有失真&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;360px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>AI Principles &amp; Techniques (人工智能原理笔记)</title>
         <link>https://littlereuben.github.io/study/course-aipt/</link>
         <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
@@ -839,7 +2151,7 @@ Obviously the minimal $\eps$ cannot be rigorously achieved, but the first condit
 &lt;li&gt;Inference on MMs and HMMs
 &lt;ol&gt;
 &lt;li&gt;Forward algorithm &amp;amp; forward-backward algorithm&lt;/li&gt;
-&lt;li&gt;particle filtering&lt;/li&gt;
+&lt;li&gt;Particle filtering&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ol&gt;

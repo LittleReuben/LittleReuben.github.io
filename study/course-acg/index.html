@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一篇学习笔记。 封面图：最终加了 emission 材质的洞穴场景（$\\sim 20000\\text{ SSP}$）。 期末 project 提供了 GPU 渲染（hlsl）的仓库，其中实现了基本的 UI 和数据">
+<title>计算机图形学 project：物理渲染</title>
+
+<link rel='canonical' href='https://littlereuben.github.io/study/course-acg/'>
+
+<link rel="stylesheet" href="/scss/style.min.41c369c9b4275b9d5bc1ab31a13dde7eeb65f0f378bab6583a0a8a5577a86dba.css"><meta property='og:title' content="计算机图形学 project：物理渲染">
+<meta property='og:description' content="这是一篇学习笔记。 封面图：最终加了 emission 材质的洞穴场景（$\\sim 20000\\text{ SSP}$）。 期末 project 提供了 GPU 渲染（hlsl）的仓库，其中实现了基本的 UI 和数据">
+<meta property='og:url' content='https://littlereuben.github.io/study/course-acg/'>
+<meta property='og:site_name' content='LRYP&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Study' /><meta property='article:published_time' content='2026-02-23T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-23T00:00:00&#43;00:00'/><meta property='og:image' content='https://littlereuben.github.io/study/course-acg/cover.png' />
+<meta name="twitter:title" content="计算机图形学 project：物理渲染">
+<meta name="twitter:description" content="这是一篇学习笔记。 封面图：最终加了 emission 材质的洞穴场景（$\\sim 20000\\text{ SSP}$）。 期末 project 提供了 GPU 渲染（hlsl）的仓库，其中实现了基本的 UI 和数据"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://littlereuben.github.io/study/course-acg/cover.png' />
+    <link rel="shortcut icon" href="/avatar.jpg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huae4064ecca0e1c01196ebaa080635911_72157_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            
+            <h1 class="site-name">LRYP&#39;s Blog</h1>
+            
+            <h2 class="site-description">生きている不思議<br>死んでゆく不思議</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        
+        <li  class='current' >
+            <a href='/study/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+                
+                <span>学习 &amp; 技术</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/theory/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-lighthouse" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3l2 3l2 15h-8l2 -15z" />
+  <path d="M8 9l8 0" />
+  <path d="M3 11l2 -2l-2 -2" />
+  <path d="M21 11l-2 -2l2 -2" />
+</svg>
+                
+                <span>理论 &amp; 思想</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/life/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>
+                
+                <span>杂记 &amp; 生活</span>
+            </a>
+        </li>
+        
+        
+        
+        <li >
+            <a href='/collection/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-album" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M12 4v7l2 -2l2 2v-7" />
+</svg>
+                
+                <span>收集 &amp; 列表</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#personal-contribution">Personal Contribution</a></li>
+        <li><a href="#method">Method</a>
+          <ol>
+            <li><a href="#核心逻辑">核心逻辑</a></li>
+            <li><a href="#材质">材质</a></li>
+            <li><a href="#材质相关的采样">材质相关的采样</a></li>
+            <li><a href="#光源采样">光源采样</a></li>
+            <li><a href="#anti-aliasing">Anti-aliasing</a></li>
+            <li><a href="#tone-mapping">Tone mapping</a></li>
+            <li><a href="#材质处理">材质处理</a></li>
+            <li><a href="#scene-creation">Scene creation</a></li>
+          </ol>
+        </li>
+        <li><a href="#discussion">Discussion</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/study/course-acg/">
+                <img src="/study/course-acg/cover.png"
+                        
+                        width="1920" 
+                        height="1080" 
+                        loading="lazy"
+                        alt="Featured image of post 计算机图形学 project：物理渲染" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/cs/" style="background-color: #2a9d8f; color: #fff;">
+                学习 &amp; 技术 :: 计算机
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/study/course-acg/">计算机图形学 project：物理渲染</a>
+        </h1>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026-02-23</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sum" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 16v2a1 1 0 0 1 -1 1h-11l6 -7l-6 -7h11a1 1 0 0 1 1 1v2" />
+</svg>
+                <time class="article-time--reading">
+                    3388 字
+                </time>
+            </div>
+        
+
+        <div class="article-analysic">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20l14 0" />
+</svg>
+            <time class="article-words">
+                <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span>
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <div style="background-color: #FFF9B9; color: #796E00; padding-left: 1em; border-left: 4px solid #DED041; line-height: 25pt;">这是一篇<b>学习笔记</b>。</div>
+<p>封面图：最终加了 emission 材质的洞穴场景（$\sim 20000\text{ SSP}$）。</p>
+<p>期末 project 提供了 GPU 渲染（hlsl）的仓库，其中实现了基本的 UI 和数据绑定，主要代码是填 <code>shader.hlsl</code>。原仓库：<a class="link" href="https://github.com/lihe50hz/ShortMarch"  target="_blank" rel="noopener"
+    >https://github.com/lihe50hz/ShortMarch</a>。</p>
+<p>接下来的内容是 project report 的草稿。或许在困惑于实现细节时能提供一些参考。</p>
+<p>Thanks to my teammate zzt. I wouldn&rsquo;t have gone through such a long <ruby>way<rt>march</rt></ruby> and completed this huge project without you.</p>
+<h3 id="introduction">Introduction
+</h3><p>我们在 ShortMarch 的基础上，写了一个基于 Ray Tracing 的物理渲染器。这个渲染器支持面的各种材料参数和贴图，支持两类光源，并且通过设计重要性采样公式降低了蒙特卡洛采样的方差，还加了一些其他小的功能。</p>
+<p>我们发现这个渲染器尤其适合渲染 MC 中的场景。它支持了 MC 中大部分的图形功能，能够产出很有氛围的漂亮图片。</p>
+<h3 id="personal-contribution">Personal Contribution
+</h3><p>我实现的部分主要为渲染器（hlsl）主体。包括：</p>
+<ul>
+<li>Base, Ray tracing 核心逻辑</li>
+<li>Material
+<ul>
+<li>透射材质</li>
+<li>principled BSDF（including metallic, roughness, transmission, IOR, subsurface, clear coat, sheen and emission）</li>
+<li>multi-layer material（对于 clear coat 单独的可调的 roughness）</li>
+</ul>
+</li>
+<li>Texture（与我的队友合作完成）
+<ul>
+<li>纯色材质</li>
+<li>纹理（颜色）贴图（含 alpha），法线贴图</li>
+</ul>
+</li>
+<li>重要性采样，除了 RR 以外：
+<ul>
+<li>包括关于 material 和 光源的 MIS</li>
+</ul>
+</li>
+<li>点光源与面光源</li>
+<li>anti-aliasing</li>
+<li>tone mapping</li>
+<li>scene creation</li>
+</ul>
+<p>注意在面光源存在的情况下，alpha shadow 是自动满足要求的。</p>
+<p>我所编写/修改的代码有：</p>
+<ul>
+<li><code>shader.hlsl</code> 中的大部分内容</li>
+<li><code>app.cpp</code>、<code>material.h</code> 等文件中向 <code>shader.hlsl</code> 传必要数据的操作</li>
+</ul>
+<p>我的队友主要负责：</p>
+<ul>
+<li>Special Visual Effects 中的景深、动态模糊</li>
+<li>HDR 天空</li>
+<li>Volumetric Rendering 中的一部分功能</li>
+</ul>
+<h3 id="method">Method
+</h3><h4 id="核心逻辑">核心逻辑
+</h4><p>在给出的 hlsl 模板代码的基础上，我填充了 <code>ClosestHitMain</code> 里的逻辑。由于递归层数限制为 31，所以我选择只在 <code>ClosestHitMain</code> 里处理单次光线弹射的逻辑，而单独写一个函数 <code>Calculate</code> 用 <code>while</code> 循环处理多轮弹射。在多轮弹射的过程中，我记录累计的颜色，以及当前的 throughput 系数 <code>coef</code>。</p>
+<p>在 <code>ClosestHitMain</code> 中，我大致做了以下几步：</p>
+<ol>
+<li>得到当前三角形相关的信息，例如法线以及根据顶点法线插值</li>
+<li>处理体渲染（不是我的工作）</li>
+<li>做俄罗斯轮盘</li>
+<li>获取材质</li>
+<li>做 MIS，决定这一条光线走哪个分量</li>
+<li>光源采样</li>
+<li>决定弹射方向</li>
+</ol>
+<h4 id="材质">材质
+</h4><p>我实现的材质的属性包括：</p>
+<ul>
+<li>roughness</li>
+<li>metallic</li>
+<li>emission</li>
+<li>transmission with IoR，这个 transmission 表示透光率，是三个实数，它和漫反射互相影响能量分配，不干扰 specular。可以理解为是水、玻璃这种。</li>
+<li>alpha，这个 alpha 是单个实数，表示物体的“幽灵程度”。alpha=0 表示完全不可见，alpha=1 表示完全可见。常用于处理一个面上部分透明的情况，例如 MC 中的树叶。</li>
+<li>clear coat，包括强度和粗糙度</li>
+<li>sheen</li>
+<li>subsurface</li>
+</ul>
+<p>为了下面涉及的 BSDF 的数值稳定性，我限制最小的 roughness 为 0.01。</p>
+<p>材质的着色计算思路遵循以下层次结构：</p>
+<p><strong>Step 1</strong>. 只有镜面反射与漫反射。根据基本的 rendering equation:
+$$
+L_o(p,w_o)=c_{\rm emission}+\int_\Omega L_i(p,w_i)f(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i
+$$
+使用 Cook–Torrance，记 $h$ 为 half vector：
+$$
+f(p,\omega_i,\omega_o)=f_{\rm specular}(p,\omega_i,\omega_o)+f_{\rm diffuse}(p,\omega_i,\omega_o)
+$$</p>
+<p><strong>specular 分量</strong>：
+$$
+f_{\rm specular}(p,\omega_i,\omega_o)=\frac{F(\omega_o,h)D(h)G(\omega_o,\omega_i)}{4(n\cdot\omega_i)(n\cdot\omega_o)+\epsilon}
+$$</p>
+<p>使用 Fresnel-Schlick 近似：
+$$
+F(\omega_o,h)=F_0+(1-F_0)(1-\omega_o\cdot h)^5
+$$</p>
+<p>基础反射率（$F$ 是一个 <code>float3</code>，但是公式上我们可以只考虑 RGB 中的一个分量，因此变量类型上的问题我就不多加说明了）：
+$$
+F_0=(1-\text{metallic})\left(\frac{\eta-1}{\eta+1}\right)^2+\text{metallic}\cdot c_{\rm base}
+$$</p>
+<p>微表面法线分布使用 GGX（GTR2）：
+$$
+D(h)=\frac{\alpha^2}{\pi((n\cdot h)^2(\alpha^2-1)+1)^2}\quad\text{where }\alpha=\text{roughness}^2
+$$</p>
+<p>shadowing-masking function：
+$$
+G(\omega_o,\omega_i)=G_1(\omega_o)G_1(\omega_i)
+$$</p>
+<p>$$
+G_1(\omega)=\frac{n\cdot\omega}{(1-k)(n\cdot\omega)+k}\quad\text{where }k=\frac{(\alpha+1)^2}8
+$$</p>
+<p><strong>diffuse 分量</strong>，主要考虑的是与 specular 的能量分配分配：
+$$
+f_{\rm diffuse}(p,\omega_i,\omega_o)=\frac1\pi(1-\text{metallic})(1-F(\omega_o,h))c_{\rm base}
+$$</p>
+<p><strong>Step 2</strong>. 优化 diffuse 分量，考虑 sheen 和 subsurface。
+$$
+f_{\rm diffuse}(p,\omega_i,\omega_o)=\text{deduction terms}\cdot(f_{\text{diffuse with subsurface}}(p,\omega_i,\omega_o)+f_{\rm sheen}(p,\omega_i,\omega_o))
+$$
+subsurface 部分有两个分量：
+$$
+f_{\text{diffuse with subsurface}}(p,\omega_i,\omega_o)=(1-I_\text{subsurface})f_{\rm base}(p,\omega_i,\omega_o)+I_\text{subsurface}\cdot f_{\text{subsurface}}(p,\omega_i,\omega_o)
+$$
+我同时也稍微改了以下 base 分量的计算，用 Disney diffuse：
+$$
+f_{\rm base}(p,\omega_i,\omega_o)=\frac1\pi(1+(F_{\rm D90}-1)(1-n\cdot\omega_i)^5)(1+(F_{\rm D90}-1)(1-n\cdot\omega_o)^5)c_{\rm base}\quad\text{where }F_{\rm D90}=0.5+2\cdot\text{roughness}^2\cdot(\omega_i\cdot h)^2
+$$
+subsurface 用 Hanrahan-Krueger:
+$$
+f_{\text{subsurface}}(p,\omega_i,\omega_o)=1.25\left(F_{\rm SS90}\cdot\left(\frac{1}{(n\cdot\omega_i)(n\cdot \omega_o)}-0.5\right)+0.5\right)\quad\text{where }F_{\rm SS90}=\text{roughness}^2\cdot(\omega_i\cdot h)^2
+$$
+sheen：
+$$
+f_{\rm sheen}(p,\omega_i,\omega_o)=(\text{tint}\cdot c_{\rm base}+(1-\text{tint}))\cdot\text{sheen}\cdot(1-(\omega_i\cdot h)^5)
+$$
+<strong>Step 3</strong>. 考虑透射。镜面反射的分量不变，剩余的部分分配给透射和漫反射。因此 $f_{\rm diffuse}$ 需要乘上一个 $(1-c_{\rm transmission})$。</p>
+<p>折射的分量是确定方向的。对于处于面的异侧的 $\omega_i$ 和 $\omega_o$：
+$$
+f_{\rm transmissive}(p,\omega_i,\omega_o)=c_{\rm transmission}(1-\text{metallic})(1-F(n,\omega_i))\frac{1}{\eta^2}\frac{\delta(\omega_o-\omega_r)}{n\cdot\omega_i}
+$$
+$\omega_r$ 根据 Snell&rsquo;s law 计算。</p>
+<p>其中 $\eta$ 是当前面的折射率，例如如果当前面的正面是空气，背面是玻璃，从玻璃外向里看，那么 $\omega_i$ 在玻璃内，$\omega_o$ 在玻璃外。这时能量应当衰减约 $2.25$ 倍。相对地，如果从玻璃里面往外面看，会因为全反射现象只能看到一个圆锥内的事物，并且会变亮。</p>
+<p><strong>Step 4</strong>. 清漆。清漆是在所有上述项之上的一层只有 specular 且按照几何法线做 specular 的层。它有强度 $I_{\rm coat}$ 和粗糙度 $\text{roughness}_{\rm coat}$。在加入它之后，
+$$
+f(p,\omega_i,\omega_o)=f_{\rm coat}(p,\omega_i,\omega_o)+(1-F_{\rm coat}(n,\omega_i))(1-F_{\rm coat}(n,\omega_o))(f_{\rm specular}(p,\omega_i,\omega_o)+f_{\rm diffuse}(p,\omega_i,\omega_o)+f_{\rm transmissive}(p,\omega_i,\omega_o))
+$$
+这个系数是因为光线既要穿入一层清漆，又要穿出一层清漆。</p>
+<p>其中
+$$
+f_{\rm specular}(p,\omega_i,\omega_o)=I_{\rm coat}\frac{F_{\rm coat}(\omega_o,h)D_{\rm coat}(h)G_{\rm coat}(\omega_o,\omega_i)}{4(n\cdot\omega_i)(n\cdot\omega_o)+\epsilon}
+$$
+清漆使用不太一样的 $F$, $D$, $G$. 其中</p>
+<ul>
+<li>
+<p>$F$ 中固定 $F_0=0.04$</p>
+</li>
+<li>
+<p>$G$ 中固定 $\alpha=0.25$，并使用 Smith-GGX：
+$$
+G_1(v) = \frac{2 (n \cdot \omega)}{(n \cdot \omega) + \sqrt{\alpha^2 + (1-\alpha^2)(n \cdot \omega)^2}}
+$$</p>
+</li>
+<li>
+<p>$D$ 使用 GTR1 分布：
+$$
+D(h)=\frac{(\alpha^2-1)(n\cdot h)}{\pi\ln(\alpha^2)((n\cdot h)^2(\alpha^2-1)+1)}
+$$</p>
+</li>
+</ul>
+<p><strong>Step 5</strong>. alpha。直接以 $1-\text{alpha}$ 的概率穿过当前这个面，方向不变。</p>
+<h4 id="材质相关的采样">材质相关的采样
+</h4><p>首先以以下判断分支选择分量：</p>
+<ul>
+<li>以 $p_{\rm coat}=I_{\rm coat}\operatorname{luminance}(F_{\rm coat}(n,\omega_o))$ 的概率选择 clear coat</li>
+<li>以 $p_{\rm specular}=\operatorname{luminance}(F(n,\omega_o))+0.1\cdot (1-\text{roughness})$ 的概率选择 specular</li>
+<li>以 $p_{\rm transmissive}=\operatorname{luminance}(c_{\rm transmission})$ 的概率选择 transmissive</li>
+<li>否则选择 diffuse</li>
+</ul>
+<p>其中 $\operatorname{luminance}((r,g,b))=0.2126r+0.7152g+0.0722b$.</p>
+<p>为了避免漏下分量或在重要性采样计算结果时除以过小的数导致数值稳定性问题，这些 $p$ 都 clamp 到 $[0.05,0.95]$。</p>
+<p><strong>diffuse</strong> 采样：下文中 $\xi_1,\xi_2\sim U(0,1)$。
+$$
+\begin{aligned}
+\varphi &amp;= 2\pi \xi_1,\\
+r &amp;= \sqrt{\xi_2},\\
+x &amp;= r\cos\varphi,\quad y=r\sin\varphi,\quad z=\sqrt{1-r^2},\\
+\omega_i &amp;= (x,y,z),\\
+p_{\rm diffuse}(\omega_i) &amp;= \frac{z}{\pi}.
+\end{aligned}
+$$
+<strong>specular</strong> 采样：
+$$
+\begin{aligned}
+\varphi &amp;= 2\pi \xi_1,\\
+\cos\theta &amp;= \sqrt{\frac{\xi_2}{\alpha^2 - \xi_2(\alpha^2 - 1)} },\\
+h &amp;= (\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta),\\
+\omega_i &amp;= 2(\omega_o\cdot h)h-\omega_o\\
+p_{\rm specular}(\omega_i) &amp;= \frac{D(h)(n\cdot h)}{4(\omega_o \cdot h)},
+\end{aligned}
+$$
+<strong>clear coat</strong> 采样：
+$$
+\begin{aligned}
+\varphi &amp;= 2\pi \xi_1,\\
+\cos\theta &amp;= \sqrt{\frac{1-\alpha^{2\xi_2}}{1-\alpha^2}},\\
+h &amp;= (\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta),\\
+\omega_i &amp;= 2(\omega_o\cdot h)h-\omega_o\\
+p_{\rm coat}(\omega_i) &amp;= \frac{D_{\rm coat}(h)(n\cdot h)}{4(\omega_o \cdot h)},
+\end{aligned}
+$$
+特别地，specular 和 clear coat 的采样需要额外的 reject sampling 保证 $\omega_o$ 不跑到面的另一侧去。</p>
+<p>对于每个分量，我在计算贡献时，考虑的系数是它对应 BSDF 中的那个分量，并除以随机到这个分量和这个 $\omega_i$ 的概率密度。容易证明，这样蒙特卡洛是无偏的。</p>
+<h4 id="光源采样">光源采样
+</h4><p>我只对于以下分量做光源采样：</p>
+<ul>
+<li>diffuse</li>
+<li>roughness &gt; 0.1 的 specular</li>
+<li>coat roughness &gt; 0.1 的 clear coat</li>
+</ul>
+<p>这是因为，roughness 过小的镜面反射，以及折射，它们的 BSDF 都可以认为成是一个 Dirac $\delta$ 函数，这种情况光源采样反而会使噪点严重，或者出现严重的辉光/fireflies。</p>
+<p>光源采样的过程如下：</p>
+<ul>
+<li>
+<p>枚举每个点光源 $q$，令 $r=|q-p|$, $\omega_i=(q-p)/r$
+$$
+\Delta L_o=\text{attenuation}\cdot f(p,\omega_i,\omega_o)(n\cdot\omega_i)\frac{c_{\rm light}}{r^2}
+$$</p>
+</li>
+<li>
+<p>枚举每个面光源，随机上面一点 $q=(1-\sqrt{\xi_1})p_0+\sqrt{\xi_1}\sqrt{\xi_2}p_1+\sqrt{\xi_1}(1-\sqrt{\xi_2})p_2$，令 $A$ 为面积，$n^\prime$ 为面光源的法线
+$$
+\Delta L_o=\text{attenuation}\cdot f(p,\omega_i,\omega_o)(n\cdot\omega_i)(n^\prime\cdot\omega_i)\frac{c_{\rm emission}}{r^2}A
+$$</p>
+</li>
+<li>
+<p>将这些贡献加到累计颜色中，并根据情况 disable/enable 下一跳的 emission 是否要计入。</p>
+</li>
+</ul>
+<p>若干解释：</p>
+<ul>
+<li>光源采样独立于材质采样的分量。无论材质采样的分量随机到的是哪一个，光源采样总是把这些全部算进去。</li>
+<li>这里的 $f$ 只算我上面说的这些分量</li>
+<li>$\rm attenuation$ 这样计算：我使用一个利用 <code>anyhit</code> 的 <code>TraceRay</code> 过程，将 <code>RayDesc</code> 中的 <code>TMax</code> 设置为 $r-\epsilon$。在 <code>anyhit</code> 中，得到当前击中点的材质，并算出它的 alpha 和 transmission 分量的总系数，乘给 attenuation。注意，这里我相当于假设了所有的透射材质的 ior 都等于 1，这也算是个 compromise，因为考虑折射了就没法光源采样了。</li>
+<li>设置下一跳是否要计入 emission，我在 <code>RayPayload</code> 中用 <code>bool count_emission</code> 记录：
+<ul>
+<li>如果是透射，则不变</li>
+<li>如果这一次材质采样选择的分量是 diffuse / roughness &gt; 0.1 的 specular / roughness &gt; 0.1 的 clear coat 这三种计算光源采样的分量，下一跳不计入</li>
+<li>否则计入</li>
+</ul>
+</li>
+</ul>
+<h4 id="anti-aliasing">Anti-aliasing
+</h4><p>这个很简单，就用抖动采样（对于一个像素，每次随机一个 $[0,1]\times[0,1]$ 内的点，把光线往对应方向打），数学上就是对的</p>
+<h4 id="tone-mapping">Tone mapping
+</h4><p>对于 RGB 的每个分量，都使用映射
+$$
+x\mapsto\frac{Cx}{1+Cx}
+$$
+来将 $[0,+\infty)$ 中的数值映射到 $[0,1]$。实践上 $C=3$ 是个不错的选择。</p>
+<h4 id="材质处理">材质处理
+</h4><p>传入材质分为以下几步：</p>
+<ol>
+<li>利用 <code>tiny_obj_loader</code> 载入 <code>obj</code> 和 <code>mtl</code>。</li>
+<li>在 <code>external</code> 中的 <code>math_mesh</code> 增加对应的，需要传给 <code>Entity.cpp</code> 的东西</li>
+<li>在 <code>app.cpp</code> 中通过 resource binding 传给 <code>shader.hlsl</code></li>
+<li>在 <code>shader.hlsl</code> 中用 <code>SampleLevel</code> 与插值得到的 uv 坐标得到材质</li>
+</ol>
+<h4 id="scene-creation">Scene creation
+</h4><p>我们在 final report 上 feature 了几张 MC 场景的渲染。这些是我选择 MC 自然生成的地形，或者手动在 MC 里搭建了一些场景后，用 mineways 工具导出为 <code>obj</code>，然后再手动修改其中部分材质 <code>mtl</code> 配置所完成的。</p>
+<h3 id="discussion">Discussion
+</h3><p>关于我实现的部分，主要有两方面内容还值得进一步讨论：</p>
+<ul>
+<li>透射材质的能量分配问题。理论上，镜面反射、漫反射、透射的能量分配应当根据一个统一的 fresnel 项，但是这里我透射用的 fresnel 项是由 $n\cdot \omega_i$ 计算的，和前两者的 $h\cdot \omega_o$ 不一致。这应该主要是由于 Schlick 近似导致的。一个更加严格的实现是 <a class="link" href="https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf"  target="_blank" rel="noopener"
+    >https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf</a>，不过比较可惜我来不及实现了。</li>
+<li>光源采样的问题。我的实现中，穿过透射材质是不改变 <code>count_emission</code>。根据 AI 的建议，说会出现“墙上的黑色玻璃球问题”，但是我认为如果穿过透射也算就会 double count，所以我最终还是不算。光源采样时不考虑折射，是不得已而为之的近似。存在 MNEE 和 BDPT，以及 photon mapping 等进阶做法。</li>
+<li>在同时有顶点法线插值和法线贴图时，计算最终法线似乎有点小问题，直接对几何法线算出的 $T$ 和 $B$ 关于插值后 $N$ 做正交化似乎会导致很轻微的 artifact，我也没管了。</li>
+</ul>
+<h3 id="gallery">Gallery
+</h3><p><img src="/study/course-acg/1.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="roughness 和 metallic 的组合：从左往右 metallic 递增，从前往后 roughness 递增，天花板为面光源，中间有个点光源"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/2.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="alpha 和 transmission 的对比：左边是 alpha=0, transmission=(0,0,0), 中间是 alpha=0.5, transmission=(0,0,0)，右边是 alpha=0, transmission=(0.5,0.5,0.5)"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/3.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="specular 和 clear coat 的对比：左边是粗糙无清漆, 中间是光滑（with roughness=0.05）无清漆，右边是粗糙有清漆（with 强度=0.5, roughness=0.05）"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/4.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="sheen：左边是无 sheen，中间是有 sheen，tint=0，右边是有 sheen，tint=1。为了凸显效果我把 sheen 的强度调为 10 了。可以关注 matball 的底座部分"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/5.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="subsurface：左中右分别是 subsurface = 0/0.5/1.0"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/6.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="具有折射的玻璃"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/7.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="从玻璃内向外看"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/8.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="Cornell Box in MC"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/9.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="材质贴图与法线贴图：一个鞋子"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/10.png"
+	width="1920"
+	height="1060"
+	
+	loading="lazy"
+	
+		alt="MC 场景：村庄"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="434px"
+	
+></p>
+<p><img src="/study/course-acg/11.png"
+	width="1920"
+	height="1060"
+	
+	loading="lazy"
+	
+		alt="MC 场景：洞穴"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="434px"
+	
+></p>
+<p><img src="/study/course-acg/12.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="透过彩色玻璃板看点光源"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/13.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="动态模糊（队友工作）"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/14.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="发光体渲染（队友工作）"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/15.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="体渲染（队友工作）"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/16.png"
+	width="1280"
+	height="720"
+	
+	loading="lazy"
+	
+		alt="MC 中透过活板门的丁达尔效应（队友工作）"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<p><img src="/study/course-acg/17.png"
+	width="1536"
+	height="1024"
+	
+	loading="lazy"
+	
+		alt="封面图丢给 GPT 去除 fireflies 后的结果，有失真"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="150"
+		data-flex-basis="360px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <h2 style="color: var(--card-text-color-main)">评论</h2>
+    <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="b7f188f1-2511-43dc-9766-3738a30b9ae3"
+    data-page-id="36239c4859fc051faf0d64555177d636"
+    data-page-url="https://littlereuben.github.io/study/course-acg/"
+    data-page-title="计算机图形学 project：物理渲染"></div>
+<script async defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
+    }
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
+
+    window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length == 0) return;
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+    
+            const additionalStyles = `
+            .dark {
+                background: #303030;
+            }
+            `;
+            
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+            iframe.style = 'width: 100%; border: 0px;';
+        });
+    });
+    observer.observe(document.getElementById("cusdis_thread"), { childList: true, subtree: true });
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2026 LRYP
+
+        <div class="busuanzi-footer">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>，
+          <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+        </div>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+   
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+   
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+
+<script>
+  function backToTop() {
+    document.documentElement.scrollTo({
+      top: 0, left: 0, behavior: "smooth"
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script
+    src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    async
+></script>
+    </body>
+</html>
