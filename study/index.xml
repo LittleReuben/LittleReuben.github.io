@@ -586,7 +586,8 @@ $$
 &lt;li&gt;[&lt;a class=&#34;link&#34; href=&#34;https://link.springer.com/article/10.1007/BF01758778&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Nagamochi, Ibaraki &amp;lsquo;92&lt;/a&gt;] sparse $k$-connectivity (both edge &amp;amp; vertex connectivity) certificate $\Ot(m)$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Finding the edge connectivity：https://www.sciencedirect.com/science/article/pii/S0022000085710227&lt;/p&gt;
+&lt;p&gt;Finding the edge connectivity：&lt;a class=&#34;link&#34; href=&#34;https://www.sciencedirect.com/science/article/pii/S0022000085710227&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.sciencedirect.com/science/article/pii/S0022000085710227&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&#34;karger-算法&#34;&gt;Karger 算法
 &lt;/h4&gt;&lt;p&gt;适用于无向有权图。&lt;/p&gt;
 &lt;p&gt;考虑以下神秘算法：每次（按权重）随机选一条边，把两端点合并。保留重边。剩下两个点的时候就得到一个割。&lt;/p&gt;
@@ -1320,7 +1321,7 @@ $$
 </description>
         </item>
         <item>
-        <title>AI Principles &amp; Techniques (人工智能原理笔记)</title>
+        <title>AI Principles &amp; Techniques (人工智能原理与技术笔记)</title>
         <link>https://littlereuben.github.io/study/course-aipt/</link>
         <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
         
